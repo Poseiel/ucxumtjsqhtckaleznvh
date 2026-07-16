@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Poseidon Pazar &amp; Harita</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <h1>🔱 Poseidon Pazar &amp; Harita</h1>
+  <p class="son-guncelleme">Son güncelleme: <span id="son-guncelleme-metni">yükleniyor...</span></p>
+</header>
+
+<nav class="tab-bar">
+  <button class="tab-btn active" data-tab="pazar">Pazar</button>
+  <button class="tab-btn" data-tab="harita">Harita &amp; Seyahat</button>
+</nav>
+
+<main>
+
+  <section id="tab-pazar" class="tab-panel active">
+    <div class="pazar-arac-cubugu">
+      <input type="text" id="pazar-arama" placeholder="Ürün ara... (örn. Bıçak)">
+      <select id="pazar-kasaba-filtre">
+        <option value="">Tüm kasabalar</option>
+      </select>
+    </div>
+    <div class="tablo-sarici">
+      <table id="pazar-tablo">
+        <thead>
+          <tr>
+            <th>Ürün</th>
+            <th>Adet</th>
+            <th>Fiyat (Akçe)</th>
+            <th>Kasaba</th>
+          </tr>
+        </thead>
+        <tbody id="pazar-tablo-govde">
+        </tbody>
+      </table>
+      <p id="pazar-sonuc-yok" class="bos-durum" hidden>Aradığın ürün bulunamadı.</p>
+    </div>
+  </section>
+
+  <section id="tab-harita" class="tab-panel">
+    <div class="seyahat-arac-cubugu">
+      <select id="seyahat-nereden">
+        <option value="">Nereden?</option>
+      </select>
+      <select id="seyahat-nereye">
+        <option value="">Nereye?</option>
+      </select>
+      <label class="pasa-toggle">
+        <input type="checkbox" id="pasa-paketli">
+        Paşa paketli (günde 3 adım, yoksa 2)
+      </label>
+      <button id="rota-bul-btn">Rota Bul</button>
+    </div>
+    <p id="rota-sonuc" class="rota-sonuc"></p>
+    <div class="harita-sarici">
+      <svg id="harita-svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet"></svg>
+    </div>
+    <p class="harita-not">Şehir adı olan noktalara tıklayıp "Nereden"/"Nereye" kutularına otomatik doldurabilirsin.</p>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>Bu site oyunun/wiki'nin harita görselini kullanmaz — şehir/yol verisi kendi hesaplarımızdan derlenmiştir.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
