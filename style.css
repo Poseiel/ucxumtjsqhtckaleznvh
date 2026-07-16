@@ -113,6 +113,12 @@ button:hover { filter: brightness(1.08); }
   font-size: 0.9rem;
 }
 
+.harita-yakinda-not {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+  margin: 0 0 0.75rem;
+}
+
 .tablo-sarici {
   overflow-x: auto;
   background: var(--bg-panel);
