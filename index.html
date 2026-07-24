@@ -16,6 +16,8 @@
 
 <nav class="tab-bar">
   <button class="tab-btn active" data-tab="pazar">Pazar</button>
+  <button class="tab-btn" data-tab="envanter">Envanter</button>
+  <button class="tab-btn" data-tab="gelisim">Gelişim</button>
   <button class="tab-btn" data-tab="harita">Harita &amp; Seyahat</button>
 </nav>
 
@@ -42,6 +44,42 @@
         </tbody>
       </table>
       <p id="pazar-sonuc-yok" class="bos-durum" hidden>Aradığın ürün bulunamadı.</p>
+    </div>
+  </section>
+
+  <section id="tab-envanter" class="tab-panel">
+    <p class="envanter-tarih-notu">Rapor tarihi: <span id="envanter-rapor-tarihi">yükleniyor...</span></p>
+    <div id="envanter-ozet" class="envanter-ozet"></div>
+    <div class="pazar-arac-cubugu">
+      <input type="text" id="envanter-arama" placeholder="Eşya ara... (örn. Kılıç, Akçe)">
+      <select id="envanter-kasaba-filtre">
+        <option value="">Tüm kasabalar</option>
+      </select>
+    </div>
+    <div class="tablo-sarici">
+      <table id="envanter-tablo">
+        <thead id="envanter-tablo-baslik"></thead>
+        <tbody id="envanter-tablo-govde"></tbody>
+      </table>
+      <p id="envanter-sonuc-yok" class="bos-durum" hidden>Aradığın eşya bulunamadı.</p>
+    </div>
+    <div id="envanter-toplam" class="envanter-toplam"></div>
+  </section>
+
+  <section id="tab-gelisim" class="tab-panel">
+    <p class="envanter-tarih-notu">Karşılaştırma: <span id="gelisim-tarih-notu">yükleniyor...</span></p>
+    <div class="pazar-arac-cubugu">
+      <select id="gelisim-kasaba-filtre">
+        <option value="">Tüm kasabalar</option>
+      </select>
+      <span class="gelisim-lejant">▲ artış &nbsp;·&nbsp; <span class="fark-esit">=</span> sabit &nbsp;·&nbsp; <span class="fark-dusus">▼</span> düşüş &nbsp;·&nbsp; başlığa tıkla: sırala</span>
+    </div>
+    <div class="tablo-sarici tablo-sarici-yapiskan">
+      <table id="gelisim-tablo">
+        <thead id="gelisim-tablo-baslik"></thead>
+        <tbody id="gelisim-tablo-govde"></tbody>
+      </table>
+      <p id="gelisim-sonuc-yok" class="bos-durum" hidden>Gelişim verisi henüz yok — botun ilk çalışmasından sonra oluşur.</p>
     </div>
   </section>
 
