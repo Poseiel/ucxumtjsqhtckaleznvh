@@ -68,6 +68,286 @@ document.getElementById("pazar-arama").addEventListener("input", pazarTabloCiz);
 document.getElementById("pazar-kasaba-filtre").addEventListener("change", pazarTabloCiz);
 
 // ---------------------------------------------------------
+// ENVANTER SEKMESİ
+// Veri: envanter.json (pazar_json_uret.py, en güncel
+// tam_kapsamli_envanter_raporu_*.txt dosyasından üretir).
+// Kişisel çanta + ev sandığı toplanmış tek liste halindedir.
+// ---------------------------------------------------------
+let envanterKarakterler = []; // [{karakter, kasaba, akce, esyalar:[{isim, adet}]}]
+let envanterSatirlari = [];   // düz arama listesi: [{isim, adet, karakter, kasaba, akceMi}]
+
+function akceFormat(sayi) {
+  return sayi.toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+function kasabaYerAdi(kasaba) {
+  return kasaba === "Bilinmiyor" ? "kasabası bilinmeyen karakterlerde" : `${kasaba} kasabasında`;
+}
+
+async function envanterYukle() {
+  try {
+    const yanit = await fetch("envanter.json?_=" + Date.now());
+    const veri = await yanit.json();
+    envanterKarakterler = veri.karakterler || [];
+    document.getElementById("envanter-rapor-tarihi").textContent = veri.rapor_tarihi || "bilinmiyor";
+
+    // Düz arama listesi: akçe de aranabilir bir "eşya" gibi eklenir
+    envanterSatirlari = [];
+    envanterKarakterler.forEach((k) => {
+      if (k.akce > 0) {
+        envanterSatirlari.push({ isim: "Akçe", adet: k.akce, karakter: k.karakter, kasaba: k.kasaba, akceMi: true });
+      }
+      (k.esyalar || []).forEach((e) => {
+        envanterSatirlari.push({ isim: e.isim, adet: e.adet, karakter: k.karakter, kasaba: k.kasaba, akceMi: false });
+      });
+    });
+
+    // Kasaba filtresi seçenekleri
+    const kasabalar = [...new Set(envanterKarakterler.map((k) => k.kasaba))]
+      .sort((a, b) => a.localeCompare(b, "tr"));
+    const secim = document.getElementById("envanter-kasaba-filtre");
+    kasabalar.forEach((k) => {
+      const opt = document.createElement("option");
+      opt.value = k;
+      opt.textContent = k;
+      secim.appendChild(opt);
+    });
+
+    envanterOzetCiz();
+    envanterTabloCiz();
+  } catch (e) {
+    document.getElementById("envanter-rapor-tarihi").textContent = "yüklenemedi";
+    console.error("Envanter verisi yüklenemedi:", e);
+  }
+}
+
+// En üstteki özet: toplam akçe + kasaba kasaba akçe
+function envanterOzetCiz() {
+  const toplam = envanterKarakterler.reduce((t, k) => t + k.akce, 0);
+  const kasabaToplam = new Map();
+  envanterKarakterler.forEach((k) => {
+    kasabaToplam.set(k.kasaba, (kasabaToplam.get(k.kasaba) || 0) + k.akce);
+  });
+  const siralanmis = [...kasabaToplam.entries()].sort((a, b) => b[1] - a[1]);
+
+  const el = document.getElementById("envanter-ozet");
+  el.innerHTML =
+    `<div class="ozet-kart ozet-kart-toplam"><span class="ozet-etiket">💰 Toplam Akçe</span><span class="ozet-deger">${akceFormat(toplam)}</span></div>` +
+    siralanmis
+      .map(([kasaba, tutar]) =>
+        `<div class="ozet-kart"><span class="ozet-etiket">${kasaba}</span><span class="ozet-deger">${akceFormat(tutar)}</span></div>`)
+      .join("");
+}
+
+function envanterTabloCiz() {
+  const arama = document.getElementById("envanter-arama").value.trim().toLocaleLowerCase("tr-TR");
+  const kasabaFiltre = document.getElementById("envanter-kasaba-filtre").value;
+  const baslik = document.getElementById("envanter-tablo-baslik");
+  const govde = document.getElementById("envanter-tablo-govde");
+  const toplamEl = document.getElementById("envanter-toplam");
+  const sonucYok = document.getElementById("envanter-sonuc-yok");
+  govde.innerHTML = "";
+  toplamEl.innerHTML = "";
+
+  // --- Arama YOKKEN: karakter listesi (kasaba filtresi uygulanır) ---
+  if (!arama) {
+    baslik.innerHTML = "<tr><th>Karakter</th><th>Kasaba</th><th>Akçe</th><th>Eşya Çeşidi</th></tr>";
+    const filtreli = envanterKarakterler.filter((k) => !kasabaFiltre || k.kasaba === kasabaFiltre);
+
+    [...filtreli]
+      .sort((a, b) => b.akce - a.akce)
+      .forEach((k) => {
+        const satir = document.createElement("tr");
+        satir.innerHTML = `<td>${k.karakter}</td><td>${k.kasaba}</td><td>${akceFormat(k.akce)}</td><td>${(k.esyalar || []).length}</td>`;
+        govde.appendChild(satir);
+      });
+
+    sonucYok.hidden = filtreli.length !== 0;
+    if (kasabaFiltre && filtreli.length) {
+      const kasabaAkce = filtreli.reduce((t, k) => t + k.akce, 0);
+      toplamEl.innerHTML =
+        `<p class="toplam-baslik">Toplam;</p>` +
+        `<p>${filtreli.length} karakter ${kasabaYerAdi(kasabaFiltre)} bulunuyor, toplam ${akceFormat(kasabaAkce)} Akçe.</p>`;
+    }
+    return;
+  }
+
+  // --- Arama VARKEN: eşya görünümü (pazar mantığı) ---
+  baslik.innerHTML = "<tr><th>Adet</th><th>Eşya</th><th>Karakter</th><th>Kasaba</th></tr>";
+  const filtreli = envanterSatirlari.filter((s) => {
+    const isimUyar = s.isim.toLocaleLowerCase("tr-TR").includes(arama);
+    const kasabaUyar = !kasabaFiltre || s.kasaba === kasabaFiltre;
+    return isimUyar && kasabaUyar;
+  });
+
+  [...filtreli]
+    .sort((a, b) => b.adet - a.adet)
+    .forEach((s) => {
+      const satir = document.createElement("tr");
+      const adetMetni = s.akceMi ? akceFormat(s.adet) : s.adet;
+      satir.innerHTML = `<td>${adetMetni}</td><td>${s.isim}</td><td>${s.karakter}</td><td>${s.kasaba}</td>`;
+      govde.appendChild(satir);
+    });
+
+  sonucYok.hidden = filtreli.length !== 0;
+  if (!filtreli.length) return;
+
+  // Alt toplamlar: eşyalar adet olarak, akçe ayrı olarak kasaba kasaba toplanır
+  const esyaKasabaToplam = new Map();
+  const akceKasabaToplam = new Map();
+  let esyaGenel = 0;
+  let akceGenel = 0;
+
+  filtreli.forEach((s) => {
+    if (s.akceMi) {
+      akceKasabaToplam.set(s.kasaba, (akceKasabaToplam.get(s.kasaba) || 0) + s.adet);
+      akceGenel += s.adet;
+    } else {
+      esyaKasabaToplam.set(s.kasaba, (esyaKasabaToplam.get(s.kasaba) || 0) + s.adet);
+      esyaGenel += s.adet;
+    }
+  });
+
+  const satirlar = [];
+  [...esyaKasabaToplam.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .forEach(([kasaba, adet]) => satirlar.push(`<p>${adet} adet ${kasabaYerAdi(kasaba)} bulunuyor.</p>`));
+  [...akceKasabaToplam.entries()]
+    .sort((a, b) => b[1] - a[1])
+    .forEach(([kasaba, tutar]) => satirlar.push(`<p>${akceFormat(tutar)} Akçe ${kasabaYerAdi(kasaba)} bulunuyor.</p>`));
+
+  const genel = [];
+  if (esyaGenel > 0) genel.push(`${esyaGenel} adet`);
+  if (akceGenel > 0) genel.push(`${akceFormat(akceGenel)} Akçe`);
+
+  toplamEl.innerHTML =
+    `<p class="toplam-baslik">Toplam;</p>` +
+    satirlar.join("") +
+    `<p class="genel-toplam">Genel toplam: ${genel.join(" ve ")}.</p>`;
+}
+
+document.getElementById("envanter-arama").addEventListener("input", envanterTabloCiz);
+document.getElementById("envanter-kasaba-filtre").addEventListener("change", envanterTabloCiz);
+
+// ---------------------------------------------------------
+// GELİŞİM SEKMESİ
+// Veri: gelisim.json (pazar_json_uret.py, botun her gün yazdığı
+// Gelisim_Durumu_*.txt dosyalarının en güncel iki gününü karşılaştırır).
+// Her stat hücresinde düne göre fark rozeti: ▲ yeşil artış, = sarı sabit,
+// ▼ kırmızı düşüş. Başlık yapışkandır, sütuna tıklayınca sıralanır.
+// ---------------------------------------------------------
+let gelisimKarakterler = [];
+let gelisimSiralama = { anahtar: "kuvvet", azalan: true }; // varsayılan: KP'ye göre
+
+const GELISIM_SUTUNLAR = [
+  { anahtar: "karakter", etiket: "Karakter", sayisal: false },
+  { anahtar: "kasaba", etiket: "Kasaba", sayisal: false },
+  { anahtar: "meslek", etiket: "Meslek", sayisal: false },
+  { anahtar: "yol", etiket: "Yol", sayisal: false },
+  { anahtar: "seviye", etiket: "Seviye", sayisal: true },
+  { anahtar: "kuvvet", etiket: "Kuvvet", sayisal: true },
+  { anahtar: "zeka", etiket: "Zeka", sayisal: true },
+  { anahtar: "karizma", etiket: "Karizma", sayisal: true },
+  { anahtar: "guven", etiket: "Güven", sayisal: true },
+  { anahtar: "akce", etiket: "Akçe", sayisal: true, ondalik: true },
+];
+
+function farkRozeti(bugunDeger, dunDeger, ondalikMi) {
+  if (dunDeger === undefined || dunDeger === null) return "";
+  const fark = bugunDeger - dunDeger;
+  const degisti = ondalikMi ? Math.abs(fark) >= 0.01 : fark !== 0;
+  if (!degisti) return ` <span class="fark fark-esit">=</span>`;
+  const metin = ondalikMi
+    ? Math.abs(fark).toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 })
+    : Math.abs(fark);
+  return fark > 0
+    ? ` <span class="fark fark-artis">▲+${metin}</span>`
+    : ` <span class="fark fark-dusus">▼-${metin}</span>`;
+}
+
+async function gelisimYukle() {
+  try {
+    const yanit = await fetch("gelisim.json?_=" + Date.now());
+    const veri = await yanit.json();
+    gelisimKarakterler = veri.karakterler || [];
+
+    const tarihEl = document.getElementById("gelisim-tarih-notu");
+    if (veri.dun_tarihi) {
+      tarihEl.textContent = `${veri.dun_tarihi} → ${veri.bugun_tarihi}`;
+    } else {
+      tarihEl.textContent = `${veri.bugun_tarihi} (ilk gün — karşılaştırma yarın başlar)`;
+    }
+
+    const kasabalar = [...new Set(gelisimKarakterler.map((k) => k.kasaba))]
+      .sort((a, b) => a.localeCompare(b, "tr"));
+    const secim = document.getElementById("gelisim-kasaba-filtre");
+    kasabalar.forEach((k) => {
+      const opt = document.createElement("option");
+      opt.value = k;
+      opt.textContent = k;
+      secim.appendChild(opt);
+    });
+
+    gelisimTabloCiz();
+  } catch (e) {
+    document.getElementById("gelisim-tarih-notu").textContent = "veri yok";
+    document.getElementById("gelisim-sonuc-yok").hidden = false;
+    console.error("Gelişim verisi yüklenemedi:", e);
+  }
+}
+
+function gelisimTabloCiz() {
+  const kasabaFiltre = document.getElementById("gelisim-kasaba-filtre").value;
+  const baslik = document.getElementById("gelisim-tablo-baslik");
+  const govde = document.getElementById("gelisim-tablo-govde");
+  govde.innerHTML = "";
+
+  // Başlık (tıklanınca sırala; aktif sütunda yön oku göster)
+  baslik.innerHTML = "<tr>" + GELISIM_SUTUNLAR.map((s) => {
+    const aktif = gelisimSiralama.anahtar === s.anahtar;
+    const ok = aktif ? (gelisimSiralama.azalan ? " ↓" : " ↑") : "";
+    return `<th class="siralanabilir${aktif ? " aktif-sutun" : ""}" data-anahtar="${s.anahtar}">${s.etiket}${ok}</th>`;
+  }).join("") + "</tr>";
+
+  baslik.querySelectorAll("th").forEach((th) => {
+    th.addEventListener("click", () => {
+      const anahtar = th.dataset.anahtar;
+      if (gelisimSiralama.anahtar === anahtar) {
+        gelisimSiralama.azalan = !gelisimSiralama.azalan;
+      } else {
+        const sutun = GELISIM_SUTUNLAR.find((s) => s.anahtar === anahtar);
+        gelisimSiralama = { anahtar, azalan: sutun.sayisal }; // sayısal: büyükten küçüğe başla
+      }
+      gelisimTabloCiz();
+    });
+  });
+
+  const filtreli = gelisimKarakterler.filter((k) => !kasabaFiltre || k.kasaba === kasabaFiltre);
+
+  const sutun = GELISIM_SUTUNLAR.find((s) => s.anahtar === gelisimSiralama.anahtar);
+  const yon = gelisimSiralama.azalan ? -1 : 1;
+  [...filtreli].sort((a, b) => {
+    if (sutun.sayisal) return (a[sutun.anahtar] - b[sutun.anahtar]) * yon;
+    return String(a[sutun.anahtar]).localeCompare(String(b[sutun.anahtar]), "tr") * yon;
+  }).forEach((k) => {
+    const dun = k.dun;
+    const hucreler = GELISIM_SUTUNLAR.map((s) => {
+      if (!s.sayisal) return `<td class="gelisim-metin">${k[s.anahtar]}</td>`;
+      const deger = s.ondalik ? akceFormat(k[s.anahtar]) : k[s.anahtar];
+      const rozet = farkRozeti(k[s.anahtar], dun ? dun[s.anahtar] : null, s.ondalik);
+      return `<td>${deger}${rozet}</td>`;
+    }).join("");
+    const satir = document.createElement("tr");
+    satir.innerHTML = hucreler;
+    govde.appendChild(satir);
+  });
+
+  document.getElementById("gelisim-sonuc-yok").hidden = filtreli.length !== 0;
+}
+
+document.getElementById("gelisim-kasaba-filtre").addEventListener("change", gelisimTabloCiz);
+
+// ---------------------------------------------------------
 // HARİTA + SEYAHAT SEKMESİ
 // ---------------------------------------------------------
 let dugumler = [];       // [{id, x, y, isim}]
@@ -260,4 +540,6 @@ document.getElementById("rota-bul-btn").addEventListener("click", () => {
 });
 
 pazarYukle();
+envanterYukle();
+gelisimYukle();
 haritaYukle();
