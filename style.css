@@ -94,7 +94,7 @@ input[type="text"], select, button {
   color: var(--text);
 }
 
-#pazar-arama { flex: 1 1 240px; }
+#pazar-arama, #envanter-arama { flex: 1 1 240px; }
 
 button {
   background: var(--accent);
@@ -118,6 +118,104 @@ button:hover { filter: brightness(1.08); }
   font-size: 0.9rem;
   margin: 0 0 0.75rem;
 }
+
+/* Envanter sekmesi */
+.envanter-tarih-notu {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  margin: 0 0 0.75rem;
+}
+.envanter-ozet {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+}
+.ozet-kart {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.5rem 0.9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 120px;
+}
+.ozet-kart-toplam {
+  border-color: var(--accent-2);
+}
+.ozet-kart-toplam .ozet-deger {
+  color: var(--accent-2);
+}
+.ozet-etiket {
+  color: var(--text-dim);
+  font-size: 0.78rem;
+}
+.ozet-deger {
+  font-weight: 700;
+  font-size: 1.02rem;
+}
+.envanter-toplam {
+  margin-top: 1rem;
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.25rem 1rem;
+  font-size: 0.92rem;
+}
+.envanter-toplam:empty {
+  display: none;
+}
+.envanter-toplam p {
+  margin: 0.5rem 0;
+}
+.envanter-toplam .toplam-baslik {
+  color: var(--text-dim);
+  font-weight: 600;
+}
+.envanter-toplam .genel-toplam {
+  font-weight: 700;
+  color: var(--accent-2);
+  border-top: 1px solid var(--border);
+  padding-top: 0.5rem;
+}
+
+/* Gelişim sekmesi */
+.gelisim-lejant {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+  align-self: center;
+}
+/* Uzun listede başlık yapışkan kalsın: tablo kendi kutusunda dikey kayar */
+.tablo-sarici-yapiskan {
+  max-height: 72vh;
+  overflow-y: auto;
+}
+.tablo-sarici-yapiskan thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--bg-panel-2);
+  /* border-collapse sticky'de kenarlığı kaydırdığı için çizgi gölgeyle veriliyor */
+  box-shadow: 0 1px 0 var(--border);
+}
+.siralanabilir {
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+.siralanabilir:hover { color: var(--accent); }
+.aktif-sutun { color: var(--accent); }
+#gelisim-tablo { min-width: 900px; }
+#gelisim-tablo td { white-space: nowrap; }
+.fark {
+  font-size: 0.75em;
+  font-weight: 700;
+  vertical-align: middle;
+}
+.fark-artis { color: #35b95c; }
+.fark-esit { color: var(--accent-2); }
+.fark-dusus { color: var(--danger); }
 
 .tablo-sarici {
   overflow-x: auto;
