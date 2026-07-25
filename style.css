@@ -217,6 +217,188 @@ button:hover { filter: brightness(1.08); }
 .fark-esit { color: var(--accent-2); }
 .fark-dusus { color: var(--danger); }
 
+/* Hareket sekmesi */
+.hareket-alt-baslik {
+  margin: 1.75rem 0 0.75rem;
+  font-size: 1.05rem;
+}
+#hareket-tablo { min-width: 720px; }
+.rota-hucre { white-space: nowrap; }
+.konum-rozet {
+  display: inline-block;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+  background: var(--bg-panel-2);
+  border: 1px solid var(--border);
+  font-size: 0.82rem;
+}
+.konum-disari {
+  color: var(--text-dim);
+  border-style: dashed;
+}
+.konum-inziva {
+  color: var(--accent-2);
+  border-color: var(--accent-2);
+}
+.konum-oldu {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+.rota-ok {
+  color: var(--text-dim);
+  margin: 0 0.3rem;
+}
+
+/* İnziva sekmesi — multi şüphesi grupları */
+.multi-grup {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent-2);
+  border-radius: 12px;
+  padding: 0.75rem 1rem 1rem;
+  margin-bottom: 1rem;
+}
+.multi-grup h4 {
+  margin: 0 0 0.5rem;
+  font-size: 0.98rem;
+}
+.multi-tarih {
+  color: var(--text-dim);
+  font-weight: 400;
+  font-size: 0.88rem;
+}
+.multi-uyari {
+  margin: 0 0 0.6rem;
+  color: var(--danger);
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+.multi-grup .tablo-sarici { border: none; background: transparent; }
+.multi-grup table { min-width: 520px; }
+.multi-vurgu {
+  color: var(--danger);
+  font-weight: 700;
+}
+#kayip-tablo { min-width: 820px; }
+#donus-tablo { min-width: 720px; }
+
+/* Tekrar eden eşzamanlılık kartları (en güçlü multi kanıtı) */
+.multi-cift {
+  border-left-color: var(--danger);
+}
+.ozet-kart-supheli {
+  border-color: var(--danger);
+}
+.ozet-kart-supheli .ozet-deger {
+  color: var(--danger);
+}
+.skor-satiri {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.6rem;
+}
+.skor-rozet {
+  display: inline-block;
+  padding: 0.12rem 0.55rem;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--bg-panel-2);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.skor-tam {
+  color: var(--accent-2);
+  border-color: var(--accent-2);
+}
+.skor-kirmizi {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+/* Değerlendirme rozetleri (yalnızca iç kullanım) */
+.skor-cokguclu {
+  background: var(--danger);
+  border-color: var(--danger);
+  color: #fff;
+}
+.skor-guclu {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+.skor-orta {
+  color: var(--accent-2);
+  border-color: var(--accent-2);
+}
+.skor-zayif {
+  color: var(--text-dim);
+}
+.cift-baslik {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.cift-secim {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--text-dim);
+  cursor: pointer;
+  white-space: nowrap;
+}
+.cift-detay {
+  margin: 0 0 0.5rem;
+  color: var(--text-dim);
+  font-size: 0.88rem;
+}
+.donem-listesi {
+  margin: 0;
+  padding-left: 1.2rem;
+  font-size: 0.9rem;
+}
+.donem-listesi li { margin: 0.2rem 0; }
+.tam-eslesme {
+  color: #35b95c;
+  font-weight: 600;
+  font-size: 0.85em;
+}
+
+/* Hazır şikâyet dilekçesi kutusu */
+.dilekce-kutu {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 0.75rem;
+}
+#dilekce-metin {
+  width: 100%;
+  min-height: 260px;
+  margin-top: 0.6rem;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-panel-2);
+  color: var(--text);
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  white-space: pre;
+  overflow-x: auto;
+  resize: vertical;
+}
+.dilekce-durum {
+  margin-left: 0.6rem;
+  color: var(--accent-2);
+  font-size: 0.88rem;
+  font-weight: 600;
+}
+#dilekce-kopyala:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
 /* Giriş perdesi (şifre kapısı) — arka plan tamamen opak, içerik görünmez */
 #giris-perdesi {
   position: fixed;
