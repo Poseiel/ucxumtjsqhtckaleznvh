@@ -217,6 +217,33 @@ button:hover { filter: brightness(1.08); }
 .fark-esit { color: var(--accent-2); }
 .fark-dusus { color: var(--danger); }
 
+/* Giriş perdesi (şifre kapısı) — arka plan tamamen opak, içerik görünmez */
+#giris-perdesi {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.giris-kutusu {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2rem 2.25rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 320px;
+}
+.giris-kutusu h2 { margin: 0; }
+.giris-kutusu p { margin: 0; color: var(--text-dim); font-size: 0.9rem; }
+.giris-hata { color: var(--danger) !important; font-weight: 600; }
+
 .tablo-sarici {
   overflow-x: auto;
   background: var(--bg-panel);
