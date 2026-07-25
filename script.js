@@ -4,6 +4,47 @@
 // hesaplarımızdan/botumuzdan üretilir.
 
 // ---------------------------------------------------------
+// GİRİŞ PERDESİ (ŞİFRE KAPISI)
+// Şifrenin kendisi kodda YOK; sadece SHA-256 özeti tutulur. Doğru şifre
+// girilince tarayıcıya (localStorage) kaydedilir, bir daha sorulmaz.
+// Şifre botun günlük Telegram mesajıyla paylaşılır (v82.py SITE_SIFRESI).
+// Not: Bu istemci tarafı bir perdedir — asıl koruma, sitenin tahmin
+// edilemez rastgele adresidir.
+// ---------------------------------------------------------
+const GIRIS_HASH = "cada33142d4b07c5efcb1db741409c490e5f34d6ccddfa42c727ee9a3ed5cd95";
+
+async function sha256Hex(metin) {
+  const veri = new TextEncoder().encode(metin);
+  const ozet = await crypto.subtle.digest("SHA-256", veri);
+  return [...new Uint8Array(ozet)].map((b) => b.toString(16).padStart(2, "0")).join("");
+}
+
+(function girisKontrol() {
+  const perde = document.getElementById("giris-perdesi");
+  if (!perde) return;
+
+  if (localStorage.getItem("poseidon_giris") === GIRIS_HASH) {
+    perde.remove();
+    return;
+  }
+
+  const dene = async () => {
+    const sifre = document.getElementById("giris-sifre").value;
+    if ((await sha256Hex(sifre)) === GIRIS_HASH) {
+      localStorage.setItem("poseidon_giris", GIRIS_HASH);
+      perde.remove();
+    } else {
+      document.getElementById("giris-hata").hidden = false;
+    }
+  };
+
+  document.getElementById("giris-btn").addEventListener("click", dene);
+  document.getElementById("giris-sifre").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") dene();
+  });
+})();
+
+// ---------------------------------------------------------
 // SEKME GEÇİŞİ
 // ---------------------------------------------------------
 document.querySelectorAll(".tab-btn").forEach((btn) => {
