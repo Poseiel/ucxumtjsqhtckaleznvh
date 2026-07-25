@@ -28,6 +28,8 @@
   <button class="tab-btn active" data-tab="pazar">Pazar</button>
   <button class="tab-btn" data-tab="envanter">Envanter</button>
   <button class="tab-btn" data-tab="gelisim">Gelişim</button>
+  <button class="tab-btn" data-tab="hareket">Hareket</button>
+  <button class="tab-btn" data-tab="inziva">İnziva</button>
   <button class="tab-btn" data-tab="harita">Harita &amp; Seyahat</button>
 </nav>
 
@@ -90,6 +92,113 @@
         <tbody id="gelisim-tablo-govde"></tbody>
       </table>
       <p id="gelisim-sonuc-yok" class="bos-durum" hidden>Gelişim verisi henüz yok — botun ilk çalışmasından sonra oluşur.</p>
+    </div>
+  </section>
+
+  <section id="tab-hareket" class="tab-panel">
+    <p class="envanter-tarih-notu">Takip aralığı: <span id="hareket-tarih-notu">yükleniyor...</span></p>
+    <div id="hareket-ozet" class="envanter-ozet"></div>
+    <div class="pazar-arac-cubugu">
+      <input type="text" id="hareket-arama" placeholder="Karakter ara...">
+      <select id="hareket-kasaba-filtre">
+        <option value="">Tüm konumlar (şu an)</option>
+      </select>
+      <label class="pasa-toggle">
+        <input type="checkbox" id="hareket-cok-filtre">
+        Sadece 2+ hareket edenler
+      </label>
+    </div>
+    <div class="tablo-sarici tablo-sarici-yapiskan">
+      <table id="hareket-tablo">
+        <thead>
+          <tr>
+            <th>Karakter</th>
+            <th>Şu anki konum</th>
+            <th>Rota</th>
+            <th>Hareket</th>
+          </tr>
+        </thead>
+        <tbody id="hareket-tablo-govde"></tbody>
+      </table>
+      <p id="hareket-sonuc-yok" class="bos-durum" hidden>Kayıt bulunamadı.</p>
+    </div>
+
+  </section>
+
+  <section id="tab-inziva" class="tab-panel">
+    <p class="envanter-tarih-notu">
+      Multi tespiti için: aynı gün ayrılıp aynı gün dönen, aynı aileden veya
+      birbirine yakın tarihlerde açılmış hesaplar aşağıda vurgulanır.
+    </p>
+    <div id="inziva-ozet" class="envanter-ozet"></div>
+
+    <h3 class="hareket-alt-baslik">📝 Hazır şikâyet dilekçesi (EN + FR)</h3>
+    <p class="envanter-tarih-notu">
+      Aşağıdaki kartlardan <strong>hangi çiftleri bildireceğini sen seç</strong> — dilekçe
+      anında güncellenir. Metin, kararı adminlere bırakan nötr bir dille yazılmıştır ve
+      skor/yorum içermez. <strong>[YOUR CHARACTER NAME]</strong> kısmını kendi karakter
+      adınla değiştirmeyi unutma.
+    </p>
+    <div class="dilekce-kutu">
+      <button id="dilekce-kopyala">📋 Panoya kopyala</button>
+      <span id="dilekce-vaka-sayisi" class="dilekce-durum"></span>
+      <span id="dilekce-durum" class="dilekce-durum"></span>
+      <textarea id="dilekce-metin" readonly spellcheck="false"></textarea>
+    </div>
+
+    <h3 class="hareket-alt-baslik">🎯 Eşzamanlı inziva hareketleri</h3>
+    <p class="envanter-tarih-notu">
+      Aynı gün inzivaya giren (ve varsa aynı gün çıkan) tüm hesap çiftleri —
+      tek seferlik çakışmalar dahil hiçbiri elenmez (kral seçimi gibi olaylarda
+      multiler yalnızca bir kez birlikte hareket edebilir). Skor ve değerlendirme
+      <strong>yalnızca senin karar vermen için</strong>; dilekçede yer almaz.
+    </p>
+    <div id="multi-ciftler"></div>
+
+    <h3 class="hareket-alt-baslik">⚠️ Bugünkü gruplar — aynı gün ayrılan / dönen</h3>
+    <div id="multi-gruplar"></div>
+
+    <h3 class="hareket-alt-baslik">🚪 Şu an kasabalarımızda olmayanlar</h3>
+    <div class="pazar-arac-cubugu">
+      <input type="text" id="kayip-arama" placeholder="Karakter veya aile ara...">
+      <select id="kayip-durum-filtre">
+        <option value="">Tüm durumlar</option>
+      </select>
+    </div>
+    <div class="tablo-sarici tablo-sarici-yapiskan">
+      <table id="kayip-tablo">
+        <thead>
+          <tr>
+            <th>Karakter</th>
+            <th>Durum</th>
+            <th>Aile</th>
+            <th>Kayıt tarihi</th>
+            <th>Ayrılış</th>
+            <th>Son kasabası</th>
+            <th>Son giriş</th>
+          </tr>
+        </thead>
+        <tbody id="kayip-tablo-govde"></tbody>
+      </table>
+      <p id="kayip-sonuc-yok" class="bos-durum" hidden>Kayıp/inzivada kimse görünmüyor.</p>
+    </div>
+
+    <h3 class="hareket-alt-baslik">↩️ Son dönüşler</h3>
+    <div class="tablo-sarici">
+      <table id="donus-tablo">
+        <thead>
+          <tr>
+            <th>Karakter</th>
+            <th>Durum</th>
+            <th>Aile</th>
+            <th>Kayıt tarihi</th>
+            <th>Ayrılış → Dönüş</th>
+            <th>Kalınan gün</th>
+          </tr>
+        </thead>
+        <tbody id="donus-tablo-govde"></tbody>
+      </table>
+      <p id="donus-sonuc-yok" class="bos-durum" hidden>Henüz kayıtlı dönüş yok.</p>
     </div>
   </section>
 
