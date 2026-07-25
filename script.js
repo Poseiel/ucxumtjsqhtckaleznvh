@@ -389,6 +389,387 @@ function gelisimTabloCiz() {
 document.getElementById("gelisim-kasaba-filtre").addEventListener("change", gelisimTabloCiz);
 
 // ---------------------------------------------------------
+// HAREKET SEKMESİ
+// Veri: hareket.json (town_module.hareket_gecmisi_analiz → son 6 günün
+// Town_Data snapshot'larından çıkarılan rota) + inziva kaydı.
+// ---------------------------------------------------------
+let hareketKayitlari = [];
+let hareketKayiplar = [];
+
+const KASABA_DISI_ETIKETLER = ["Şehir Dışı", "İnzivada", "Arafta", "Öldü", "Ara Nokta", "Profil Yok", "Bilinmiyor"];
+
+function konumRozetSinifi(konum) {
+  if (konum === "İnzivada" || konum === "Arafta") return "konum-rozet konum-inziva";
+  if (konum === "Öldü" || konum === "Profil Yok") return "konum-rozet konum-oldu";
+  if (KASABA_DISI_ETIKETLER.includes(konum)) return "konum-rozet konum-disari";
+  return "konum-rozet";
+}
+
+async function hareketYukle() {
+  try {
+    const yanit = await fetch("hareket.json?_=" + Date.now());
+    const veri = await yanit.json();
+    hareketKayitlari = veri.kayitlar || [];
+    hareketKayiplar = veri.kayiplar || [];
+    inzivaDonusler = veri.donusler || [];
+    multiCiftler = veri.multi_ciftler || [];
+    inzivaDilekce = veri.dilekce || "";
+    inzivaDilekceParcalari = veri.dilekce_parcalari || null;
+
+    document.getElementById("hareket-tarih-notu").textContent =
+      `${veri.ilk_gun} → ${veri.son_gun} (${veri.gun_sayisi} gün)`;
+
+    const konumlar = [...new Set(hareketKayitlari.map((k) => k.su_anki_konum))]
+      .sort((a, b) => a.localeCompare(b, "tr"));
+    const secim = document.getElementById("hareket-kasaba-filtre");
+    konumlar.forEach((k) => {
+      const opt = document.createElement("option");
+      opt.value = k;
+      opt.textContent = k;
+      secim.appendChild(opt);
+    });
+
+    hareketOzetCiz();
+    hareketTabloCiz();
+    inzivaCiz();
+  } catch (e) {
+    document.getElementById("hareket-tarih-notu").textContent = "veri yok";
+    document.getElementById("hareket-sonuc-yok").hidden = false;
+    console.error("Hareket verisi yüklenemedi:", e);
+  }
+}
+
+function hareketOzetCiz() {
+  const toplam = hareketKayitlari.length;
+  const cokHareketli = hareketKayitlari.filter((k) => k.hareket_sayisi >= 2).length;
+  const disarida = hareketKayitlari.filter((k) => KASABA_DISI_ETIKETLER.includes(k.su_anki_konum)).length;
+
+  document.getElementById("hareket-ozet").innerHTML =
+    `<div class="ozet-kart ozet-kart-toplam"><span class="ozet-etiket">🔄 Hareket eden</span><span class="ozet-deger">${toplam}</span></div>` +
+    `<div class="ozet-kart"><span class="ozet-etiket">2+ hareket</span><span class="ozet-deger">${cokHareketli}</span></div>` +
+    `<div class="ozet-kart"><span class="ozet-etiket">Şu an dışarıda</span><span class="ozet-deger">${disarida}</span></div>` +
+    `<div class="ozet-kart"><span class="ozet-etiket">Kayıt altındaki kayıp</span><span class="ozet-deger">${hareketKayiplar.length}</span></div>`;
+}
+
+function hareketTabloCiz() {
+  const arama = document.getElementById("hareket-arama").value.trim().toLocaleLowerCase("tr-TR");
+  const konumFiltre = document.getElementById("hareket-kasaba-filtre").value;
+  const sadeceCok = document.getElementById("hareket-cok-filtre").checked;
+
+  const filtreli = hareketKayitlari.filter((k) => {
+    const isimUyar = !arama || k.karakter.toLocaleLowerCase("tr-TR").includes(arama);
+    const konumUyar = !konumFiltre || k.su_anki_konum === konumFiltre;
+    const cokUyar = !sadeceCok || k.hareket_sayisi >= 2;
+    return isimUyar && konumUyar && cokUyar;
+  });
+
+  const govde = document.getElementById("hareket-tablo-govde");
+  govde.innerHTML = "";
+  filtreli.forEach((k) => {
+    const rota = k.rota
+      .map((konum) => `<span class="${konumRozetSinifi(konum)}">${konum}</span>`)
+      .join('<span class="rota-ok">→</span>');
+    const satir = document.createElement("tr");
+    satir.innerHTML =
+      `<td>${k.karakter}</td>` +
+      `<td><span class="${konumRozetSinifi(k.su_anki_konum)}">${k.su_anki_konum}</span></td>` +
+      `<td class="rota-hucre">${rota}</td>` +
+      `<td>${k.hareket_sayisi}</td>`;
+    govde.appendChild(satir);
+  });
+
+  document.getElementById("hareket-sonuc-yok").hidden = filtreli.length !== 0;
+}
+
+document.getElementById("hareket-arama").addEventListener("input", hareketTabloCiz);
+document.getElementById("hareket-kasaba-filtre").addEventListener("change", hareketTabloCiz);
+document.getElementById("hareket-cok-filtre").addEventListener("change", hareketTabloCiz);
+
+// ---------------------------------------------------------
+// İNZİVA SEKMESİ (multi tespiti)
+// Aynı gün ayrılan / aynı gün dönen, aynı aileden veya yakın tarihlerde
+// açılmış hesaplar bir arada gösterilir — admine şikâyet için kanıt.
+// ---------------------------------------------------------
+let inzivaDonusler = [];
+let multiCiftler = [];
+let inzivaDilekce = "";
+let inzivaDilekceParcalari = null;
+
+function inzivaOzetCiz() {
+  const say = (d) => hareketKayiplar.filter((k) => k.durum === d).length;
+  document.getElementById("inziva-ozet").innerHTML =
+    `<div class="ozet-kart ozet-kart-toplam"><span class="ozet-etiket">🚪 Şu an dışarıda</span><span class="ozet-deger">${hareketKayiplar.length}</span></div>` +
+    `<div class="ozet-kart"><span class="ozet-etiket">İnzivada</span><span class="ozet-deger">${say("İnzivada")}</span></div>` +
+    `<div class="ozet-kart"><span class="ozet-etiket">Ara nokta</span><span class="ozet-deger">${say("Ara Nokta")}</span></div>` +
+    `<div class="ozet-kart"><span class="ozet-etiket">Kayıtlı dönüş</span><span class="ozet-deger">${inzivaDonusler.length}</span></div>` +
+    `<div class="ozet-kart ozet-kart-supheli"><span class="ozet-etiket">🎯 Şüpheli çift</span><span class="ozet-deger">${multiCiftler.length}</span></div>`;
+}
+
+// Eşzamanlı inziva hareketleri. Hiçbir çift ELENMEZ (tek seferlik çakışmalar
+// dahil). Skor ve değerlendirme SADECE BURADA (senin kararın için) gösterilir;
+// admine giden dilekçede bunlar yer almaz.
+function skorSinifi(degerlendirme) {
+  if (degerlendirme === "Çok güçlü") return "skor-cokguclu";
+  if (degerlendirme === "Güçlü") return "skor-guclu";
+  if (degerlendirme === "Orta") return "skor-orta";
+  return "skor-zayif";
+}
+
+function multiCiftleriCiz() {
+  const kap = document.getElementById("multi-ciftler");
+  if (!multiCiftler.length) {
+    kap.innerHTML =
+      `<p class="bos-durum">Henüz eşzamanlı bir giriş/çıkış kaydedilmedi — ` +
+      `her inziva giriş/çıkışı kaydediliyor, veri biriktikçe burası dolacak.</p>`;
+    return;
+  }
+
+  kap.innerHTML = multiCiftler.map((c, i) => {
+    const donemler = c.ortak_donemler.map((o) =>
+      o.tam
+        ? `<li><strong>${o.giris} → ${o.cikis}</strong> <span class="tam-eslesme">giriş ve çıkış aynı gün ✓</span></li>`
+        : `<li>${o.giris} → <span class="fark">(çıkış eşleşmedi / hâlâ dışarıda)</span></li>`
+    ).join("");
+
+    const rozetler =
+      `<span class="skor-rozet ${skorSinifi(c.degerlendirme)}">${c.degerlendirme} · skor ${c.skor}</span>` +
+      `<span class="skor-rozet">${c.eslesme_sayisi} kez aynı gün giriş</span>` +
+      (c.tam_eslesme ? `<span class="skor-rozet skor-tam">${c.tam_eslesme} kez çıkış da aynı</span>` : "") +
+      (c.ayni_aile ? `<span class="skor-rozet skor-kirmizi">Aynı aile</span>` : "") +
+      (c.ayni_kayit_donemi ? `<span class="skor-rozet skor-kirmizi">Aynı kayıt dönemi</span>` : "");
+
+    const not = (c.tam_eslesme >= 2 && !c.ayni_aile)
+      ? `<p class="multi-uyari">💡 Aile bağı yok ama ${c.tam_eslesme} kez birebir aynı tarihlerde girip çıkmışlar — bağ kurulmasın diye ayrı ailelere girmiş olabilirler.</p>`
+      : "";
+
+    // Dilekçeye dahil etme kutusu (varsayılan: seçili)
+    const secim = dilekceVakasiVarMi(c)
+      ? `<label class="cift-secim"><input type="checkbox" class="dilekce-sec" data-index="${i}" checked> Dilekçeye ekle</label>`
+      : `<span class="cift-secim fark">(dilekçe listesinin dışında)</span>`;
+
+    return `<div class="multi-grup multi-cift">` +
+      `<div class="cift-baslik"><h4>${c.kisi1} ↔ ${c.kisi2}</h4>${secim}</div>` +
+      `<div class="skor-satiri">${rozetler}</div>` +
+      not +
+      `<p class="cift-detay">Aile: ${c.aile1 || "-"} / ${c.aile2 || "-"} &nbsp;·&nbsp; ` +
+      `Kayıt: ${c.kayit1 || "-"} / ${c.kayit2 || "-"}</p>` +
+      `<ul class="donem-listesi">${donemler}</ul>` +
+      `</div>`;
+  }).join("");
+
+  kap.querySelectorAll(".dilekce-sec").forEach((kutu) => {
+    kutu.addEventListener("change", dilekceyiYenidenKur);
+  });
+}
+
+// ---- Hazır şikâyet dilekçesi (seçilen vakalardan yeniden birleştirilir) ----
+// Şablon TEK yerde (town_module.sikayet_dilekcesi_uret) tutulur; burada
+// yalnızca giriş + seçili vaka blokları + kapanış birleştirilir.
+function dilekceVakasiVarMi(c) {
+  const vakalar = (inzivaDilekceParcalari && inzivaDilekceParcalari.vakalar) || [];
+  return vakalar.some((v) => v.kisi1 === c.kisi1 && v.kisi2 === c.kisi2);
+}
+
+function dilekceyiYenidenKur() {
+  const kutu = document.getElementById("dilekce-metin");
+  const bilgi = document.getElementById("dilekce-vaka-sayisi");
+  const parcalar = inzivaDilekceParcalari || {};
+  const vakalar = parcalar.vakalar || [];
+
+  if (!vakalar.length) {
+    kutu.value = inzivaDilekce ||
+      "Şikâyet edilecek eşzamanlı hareket kaydı henüz yok — dilekçe, ilk kayıt oluştuğunda otomatik hazırlanacak.";
+    if (bilgi) bilgi.textContent = "";
+    return;
+  }
+
+  const seciliCiftler = [...document.querySelectorAll(".dilekce-sec:checked")]
+    .map((el) => multiCiftler[parseInt(el.dataset.index, 10)])
+    .filter(Boolean);
+
+  const secilenVakalar = vakalar.filter((v) =>
+    seciliCiftler.some((c) => c.kisi1 === v.kisi1 && c.kisi2 === v.kisi2)
+  );
+
+  if (bilgi) {
+    bilgi.textContent = `${secilenVakalar.length} / ${vakalar.length} vaka seçili`;
+  }
+
+  if (!secilenVakalar.length) {
+    kutu.value = "Hiç vaka seçilmedi — aşağıdan en az bir çifti işaretle.";
+    return;
+  }
+
+  const govde = secilenVakalar.map((v, i) =>
+    `\nCASE ${i + 1} / CAS ${i + 1} :  ${v.kisi1}   &   ${v.kisi2}\n${v.govde}`
+  ).join("\n");
+
+  kutu.value = (parcalar.giris || "") + "\n" + govde + "\n" + (parcalar.kapanis || "");
+}
+
+function dilekceCiz() {
+  const btn = document.getElementById("dilekce-kopyala");
+  const durum = document.getElementById("dilekce-durum");
+  const kutu = document.getElementById("dilekce-metin");
+
+  dilekceyiYenidenKur();
+  btn.disabled = !(inzivaDilekce || (inzivaDilekceParcalari && inzivaDilekceParcalari.vakalar));
+
+  btn.onclick = async () => {
+    try {
+      await navigator.clipboard.writeText(kutu.value);
+      durum.textContent = "✅ Kopyalandı";
+    } catch (e) {
+      kutu.select();
+      durum.textContent = "Metni seçtim — Ctrl+C ile kopyala";
+    }
+    setTimeout(() => (durum.textContent = ""), 4000);
+  };
+}
+
+// Tarihe göre grupla; 2+ kişilik gruplar multi şüphesidir.
+function grupla(liste, tarihAlani) {
+  const gruplar = new Map();
+  liste.forEach((k) => {
+    const t = k[tarihAlani] || "?";
+    if (!gruplar.has(t)) gruplar.set(t, []);
+    gruplar.get(t).push(k);
+  });
+  return [...gruplar.entries()]
+    .filter(([, kisiler]) => kisiler.length > 1)
+    .sort((a, b) => b[0].localeCompare(a[0]));
+}
+
+function multiGruplariCiz() {
+  const kap = document.getElementById("multi-gruplar");
+  const bloklar = [];
+
+  const grupYaz = (baslik, gruplar, tarihEtiketi) => {
+    gruplar.forEach(([tarih, kisiler]) => {
+      // Aynı aileden olanları say
+      const aileSayim = new Map();
+      kisiler.forEach((k) => {
+        if (k.aile) aileSayim.set(k.aile, (aileSayim.get(k.aile) || 0) + 1);
+      });
+      const ayniAile = [...aileSayim.entries()].filter(([, n]) => n > 1);
+
+      const satirlar = kisiler
+        .sort((a, b) => a.karakter.localeCompare(b.karakter, "tr"))
+        .map((k) => {
+          const aileVurgu = k.aile && aileSayim.get(k.aile) > 1 ? " multi-vurgu" : "";
+          return `<tr><td>${k.karakter}</td>` +
+            `<td><span class="${konumRozetSinifi(k.durum)}">${k.durum}</span></td>` +
+            `<td class="${aileVurgu}">${k.aile || "-"}</td>` +
+            `<td>${k.kayit_tarihi || "-"}</td>` +
+            `<td>${k.son_kasaba || "-"}</td></tr>`;
+        })
+        .join("");
+
+      // Kayıt tarihi yakınlığı: aynı ay/yıl içinde açılmış hesaplar da
+      // multi göstergesidir (tarih formatı GG/AA/YYYY → son 7 karakter AA/YYYY)
+      const donemSayim = new Map();
+      kisiler.forEach((k) => {
+        const d = (k.kayit_tarihi || "").slice(-7);
+        if (d.length === 7) donemSayim.set(d, (donemSayim.get(d) || 0) + 1);
+      });
+      const ayniDonem = [...donemSayim.entries()].filter(([, n]) => n > 1);
+
+      const uyarilar = [];
+      if (ayniAile.length) {
+        uyarilar.push(`‼️ Aynı aile: ${ayniAile.map(([a, n]) => `${a} (${n} kişi)`).join(", ")}`);
+      }
+      if (ayniDonem.length) {
+        uyarilar.push(`📅 Aynı dönemde açılmış: ${ayniDonem.map(([d, n]) => `${d} (${n} hesap)`).join(", ")}`);
+      }
+      const uyari = uyarilar.length ? `<p class="multi-uyari">${uyarilar.join("<br>")}</p>` : "";
+
+      bloklar.push(
+        `<div class="multi-grup">` +
+        `<h4>${baslik} <span class="multi-tarih">${tarihEtiketi}: ${tarih}</span> — ${kisiler.length} kişi</h4>` +
+        uyari +
+        `<div class="tablo-sarici"><table><thead><tr>` +
+        `<th>Karakter</th><th>Durum</th><th>Aile</th><th>Kayıt tarihi</th><th>Son kasabası</th>` +
+        `</tr></thead><tbody>${satirlar}</tbody></table></div></div>`
+      );
+    });
+  };
+
+  grupYaz("🔴 Birlikte ayrılanlar", grupla(hareketKayiplar, "giris_tarihi"), "Ayrılış");
+  grupYaz("🟢 Birlikte dönenler", grupla(inzivaDonusler, "cikis_tarihi"), "Dönüş");
+
+  kap.innerHTML = bloklar.length
+    ? bloklar.join("")
+    : `<p class="bos-durum">Aynı gün birlikte hareket eden grup tespit edilmedi.</p>`;
+}
+
+function kayipTabloCiz() {
+  const arama = document.getElementById("kayip-arama").value.trim().toLocaleLowerCase("tr-TR");
+  const durumFiltre = document.getElementById("kayip-durum-filtre").value;
+
+  const filtreli = hareketKayiplar.filter((k) => {
+    const metin = `${k.karakter} ${k.aile || ""}`.toLocaleLowerCase("tr-TR");
+    return (!arama || metin.includes(arama)) && (!durumFiltre || k.durum === durumFiltre);
+  });
+
+  const govde = document.getElementById("kayip-tablo-govde");
+  govde.innerHTML = "";
+  filtreli.forEach((k) => {
+    const konumEki = k.profil_konum ? ` <span class="fark">(${k.profil_konum})</span>` : "";
+    const satir = document.createElement("tr");
+    satir.innerHTML =
+      `<td>${k.karakter}</td>` +
+      `<td><span class="${konumRozetSinifi(k.durum)}">${k.durum}</span>${konumEki}</td>` +
+      `<td>${k.aile || "-"}</td>` +
+      `<td>${k.kayit_tarihi || "-"}</td>` +
+      `<td>${k.giris_tarihi || "-"}</td>` +
+      `<td>${k.son_kasaba || "-"}</td>` +
+      `<td>${k.son_giris || "-"}</td>`;
+    govde.appendChild(satir);
+  });
+  document.getElementById("kayip-sonuc-yok").hidden = filtreli.length !== 0;
+}
+
+function donusTabloCiz() {
+  const govde = document.getElementById("donus-tablo-govde");
+  govde.innerHTML = "";
+  inzivaDonusler.forEach((k) => {
+    const satir = document.createElement("tr");
+    satir.innerHTML =
+      `<td>${k.karakter}</td>` +
+      `<td><span class="${konumRozetSinifi(k.durum)}">${k.durum}</span></td>` +
+      `<td>${k.aile || "-"}</td>` +
+      `<td>${k.kayit_tarihi || "-"}</td>` +
+      `<td>${k.giris_tarihi || "-"} → ${k.cikis_tarihi || "-"}</td>` +
+      `<td>${k.kalinan_gun === "" || k.kalinan_gun === undefined ? "-" : k.kalinan_gun}</td>`;
+    govde.appendChild(satir);
+  });
+  document.getElementById("donus-sonuc-yok").hidden = inzivaDonusler.length !== 0;
+}
+
+function inzivaCiz() {
+  const durumlar = [...new Set(hareketKayiplar.map((k) => k.durum))].sort((a, b) => a.localeCompare(b, "tr"));
+  const secim = document.getElementById("kayip-durum-filtre");
+  durumlar.forEach((d) => {
+    const opt = document.createElement("option");
+    opt.value = d;
+    opt.textContent = d;
+    secim.appendChild(opt);
+  });
+
+  inzivaOzetCiz();
+  // Önce kartlar (seçim kutuları burada oluşur), SONRA dilekçe — dilekçe
+  // metni seçili kutulardan üretildiği için sıra bu şekilde olmalı.
+  multiCiftleriCiz();
+  dilekceCiz();
+  multiGruplariCiz();
+  kayipTabloCiz();
+  donusTabloCiz();
+}
+
+document.getElementById("kayip-arama").addEventListener("input", kayipTabloCiz);
+document.getElementById("kayip-durum-filtre").addEventListener("change", kayipTabloCiz);
+
+// ---------------------------------------------------------
 // HARİTA + SEYAHAT SEKMESİ
 // ---------------------------------------------------------
 let dugumler = [];       // [{id, x, y, isim}]
@@ -583,4 +964,5 @@ document.getElementById("rota-bul-btn").addEventListener("click", () => {
 pazarYukle();
 envanterYukle();
 gelisimYukle();
+hareketYukle();
 haritaYukle();
