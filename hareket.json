@@ -1,20 +1,21 @@
 {
-  "son_guncelleme": "2026-07-26 00:33",
+  "son_guncelleme": "2026-07-26 18:42",
   "gun_sayisi": 6,
   "ilk_gun": "2026-07-21",
   "son_gun": "2026-07-26",
   "kayitlar": [
     {
       "karakter": "syfer",
-      "su_anki_konum": "Wigtown",
+      "su_anki_konum": "Girvan",
       "rota": [
         "Wigtown",
         "Kirkcudbright",
         "Wigtown",
         "Whithorn",
-        "Wigtown"
+        "Wigtown",
+        "Girvan"
       ],
-      "hareket_sayisi": 4,
+      "hareket_sayisi": 5,
       "gunluk": [
         {
           "tarih": "2026-07-21",
@@ -38,7 +39,7 @@
         },
         {
           "tarih": "2026-07-26",
-          "konum": "Wigtown"
+          "konum": "Girvan"
         }
       ],
       "durum": ""
@@ -153,6 +154,44 @@
         {
           "tarih": "2026-07-26",
           "konum": "Kirkcudbright"
+        }
+      ],
+      "durum": ""
+    },
+    {
+      "karakter": "tenille",
+      "su_anki_konum": "Girvan",
+      "rota": [
+        "Stirling",
+        "Glasgow",
+        "Şehir Dışı",
+        "Girvan"
+      ],
+      "hareket_sayisi": 3,
+      "gunluk": [
+        {
+          "tarih": "2026-07-21",
+          "konum": "Stirling"
+        },
+        {
+          "tarih": "2026-07-22",
+          "konum": "Stirling"
+        },
+        {
+          "tarih": "2026-07-23",
+          "konum": "Glasgow"
+        },
+        {
+          "tarih": "2026-07-24",
+          "konum": "Glasgow"
+        },
+        {
+          "tarih": "2026-07-25",
+          "konum": "Şehir Dışı"
+        },
+        {
+          "tarih": "2026-07-26",
+          "konum": "Girvan"
         }
       ],
       "durum": ""
@@ -297,10 +336,6 @@
         {
           "tarih": "2026-07-25",
           "konum": "Şehir Dışı"
-        },
-        {
-          "tarih": "2026-07-26",
-          "konum": "Şehir Dışı"
         }
       ],
       "durum": ""
@@ -333,10 +368,6 @@
         },
         {
           "tarih": "2026-07-25",
-          "konum": "Şehir Dışı"
-        },
-        {
-          "tarih": "2026-07-26",
           "konum": "Şehir Dışı"
         }
       ],
@@ -417,43 +448,6 @@
       "durum": ""
     },
     {
-      "karakter": "tenille",
-      "su_anki_konum": "Şehir Dışı",
-      "rota": [
-        "Stirling",
-        "Glasgow",
-        "Şehir Dışı"
-      ],
-      "hareket_sayisi": 2,
-      "gunluk": [
-        {
-          "tarih": "2026-07-21",
-          "konum": "Stirling"
-        },
-        {
-          "tarih": "2026-07-22",
-          "konum": "Stirling"
-        },
-        {
-          "tarih": "2026-07-23",
-          "konum": "Glasgow"
-        },
-        {
-          "tarih": "2026-07-24",
-          "konum": "Glasgow"
-        },
-        {
-          "tarih": "2026-07-25",
-          "konum": "Şehir Dışı"
-        },
-        {
-          "tarih": "2026-07-26",
-          "konum": "Şehir Dışı"
-        }
-      ],
-      "durum": ""
-    },
-    {
       "karakter": "victor02",
       "su_anki_konum": "Şehir Dışı",
       "rota": [
@@ -481,10 +475,6 @@
         },
         {
           "tarih": "2026-07-25",
-          "konum": "Şehir Dışı"
-        },
-        {
-          "tarih": "2026-07-26",
           "konum": "Şehir Dışı"
         }
       ],
@@ -674,14 +664,14 @@
       "karakter": "andrea_zen",
       "su_anki_konum": "Girvan",
       "rota": [
-        "Şehir Dışı",
+        "İnzivada",
         "Girvan"
       ],
       "hareket_sayisi": 1,
       "gunluk": [
         {
           "tarih": "2026-07-21",
-          "konum": "Şehir Dışı"
+          "konum": "İnzivada"
         },
         {
           "tarih": "2026-07-22",
@@ -698,13 +688,9 @@
         {
           "tarih": "2026-07-25",
           "konum": "Girvan"
-        },
-        {
-          "tarih": "2026-07-26",
-          "konum": "Girvan"
         }
       ],
-      "durum": ""
+      "durum": "İnzivada"
     },
     {
       "karakter": "anne_v",
@@ -738,6 +724,42 @@
         {
           "tarih": "2026-07-26",
           "konum": "Whithorn"
+        }
+      ],
+      "durum": ""
+    },
+    {
+      "karakter": "aoidh",
+      "su_anki_konum": "Kirkcudbright",
+      "rota": [
+        "Şehir Dışı",
+        "Kirkcudbright"
+      ],
+      "hareket_sayisi": 1,
+      "gunluk": [
+        {
+          "tarih": "2026-07-21",
+          "konum": "Şehir Dışı"
+        },
+        {
+          "tarih": "2026-07-22",
+          "konum": "Şehir Dışı"
+        },
+        {
+          "tarih": "2026-07-23",
+          "konum": "Şehir Dışı"
+        },
+        {
+          "tarih": "2026-07-24",
+          "konum": "Şehir Dışı"
+        },
+        {
+          "tarih": "2026-07-25",
+          "konum": "Şehir Dışı"
+        },
+        {
+          "tarih": "2026-07-26",
+          "konum": "Kirkcudbright"
         }
       ],
       "durum": ""
@@ -962,14 +984,14 @@
       "karakter": "castagna",
       "su_anki_konum": "Wigtown",
       "rota": [
-        "Şehir Dışı",
+        "İnzivada",
         "Wigtown"
       ],
       "hareket_sayisi": 1,
       "gunluk": [
         {
           "tarih": "2026-07-21",
-          "konum": "Şehir Dışı"
+          "konum": "İnzivada"
         },
         {
           "tarih": "2026-07-22",
@@ -986,13 +1008,9 @@
         {
           "tarih": "2026-07-25",
           "konum": "Wigtown"
-        },
-        {
-          "tarih": "2026-07-26",
-          "konum": "Wigtown"
         }
       ],
-      "durum": ""
+      "durum": "İnzivada"
     },
     {
       "karakter": "chihla",
@@ -1286,14 +1304,14 @@
       "karakter": "fra_giocondo",
       "su_anki_konum": "Kirkcudbright",
       "rota": [
-        "Şehir Dışı",
+        "İnzivada",
         "Kirkcudbright"
       ],
       "hareket_sayisi": 1,
       "gunluk": [
         {
           "tarih": "2026-07-21",
-          "konum": "Şehir Dışı"
+          "konum": "İnzivada"
         },
         {
           "tarih": "2026-07-22",
@@ -1310,13 +1328,9 @@
         {
           "tarih": "2026-07-25",
           "konum": "Kirkcudbright"
-        },
-        {
-          "tarih": "2026-07-26",
-          "konum": "Kirkcudbright"
         }
       ],
-      "durum": ""
+      "durum": "İnzivada"
     },
     {
       "karakter": "gallorini",
@@ -1346,13 +1360,9 @@
         {
           "tarih": "2026-07-25",
           "konum": "Wigtown"
-        },
-        {
-          "tarih": "2026-07-26",
-          "konum": "Wigtown"
         }
       ],
-      "durum": ""
+      "durum": "İnzivada"
     },
     {
       "karakter": "gulliver",
@@ -1382,13 +1392,9 @@
         {
           "tarih": "2026-07-25",
           "konum": "Kirkcudbright"
-        },
-        {
-          "tarih": "2026-07-26",
-          "konum": "Kirkcudbright"
         }
       ],
-      "durum": ""
+      "durum": "Ara Nokta"
     },
     {
       "karakter": "helen.t",
@@ -2138,10 +2144,6 @@
         {
           "tarih": "2026-07-25",
           "konum": "Şehir Dışı"
-        },
-        {
-          "tarih": "2026-07-26",
-          "konum": "Şehir Dışı"
         }
       ],
       "durum": ""
@@ -2186,14 +2188,14 @@
       "karakter": "pietro_d_abano",
       "su_anki_konum": "Wigtown",
       "rota": [
-        "Şehir Dışı",
+        "İnzivada",
         "Wigtown"
       ],
       "hareket_sayisi": 1,
       "gunluk": [
         {
           "tarih": "2026-07-21",
-          "konum": "Şehir Dışı"
+          "konum": "İnzivada"
         },
         {
           "tarih": "2026-07-22",
@@ -2210,13 +2212,9 @@
         {
           "tarih": "2026-07-25",
           "konum": "Wigtown"
-        },
-        {
-          "tarih": "2026-07-26",
-          "konum": "Wigtown"
         }
       ],
-      "durum": ""
+      "durum": "İnzivada"
     },
     {
       "karakter": "pilone",
@@ -2246,26 +2244,22 @@
         {
           "tarih": "2026-07-25",
           "konum": "Wigtown"
-        },
-        {
-          "tarih": "2026-07-26",
-          "konum": "Wigtown"
         }
       ],
-      "durum": ""
+      "durum": "İnzivada"
     },
     {
       "karakter": "riomax",
       "su_anki_konum": "Girvan",
       "rota": [
-        "Şehir Dışı",
+        "İnzivada",
         "Girvan"
       ],
       "hareket_sayisi": 1,
       "gunluk": [
         {
           "tarih": "2026-07-21",
-          "konum": "Şehir Dışı"
+          "konum": "İnzivada"
         },
         {
           "tarih": "2026-07-22",
@@ -2282,13 +2276,9 @@
         {
           "tarih": "2026-07-25",
           "konum": "Girvan"
-        },
-        {
-          "tarih": "2026-07-26",
-          "konum": "Girvan"
         }
       ],
-      "durum": ""
+      "durum": "İnzivada"
     },
     {
       "karakter": "salomie",
@@ -2353,10 +2343,6 @@
         },
         {
           "tarih": "2026-07-25",
-          "konum": "Şehir Dışı"
-        },
-        {
-          "tarih": "2026-07-26",
           "konum": "Şehir Dışı"
         }
       ],
@@ -2615,9 +2601,3167 @@
       "durum": ""
     }
   ],
-  "kayiplar": [],
+  "kayiplar": [
+    {
+      "karakter": "andrea_zen",
+      "durum": "İnzivada",
+      "giris_tarihi": "2026-07-26",
+      "son_kasaba": "Girvan",
+      "profil_konum": "Girvan",
+      "son_giris": "25 Temmuz 2026",
+      "aile": "",
+      "kayit_tarihi": "29 Ağustos 2025"
+    },
+    {
+      "karakter": "aspargus",
+      "durum": "İnzivada",
+      "giris_tarihi": "2026-07-26",
+      "son_kasaba": "Wigtown",
+      "profil_konum": "Whithorn",
+      "son_giris": "25 Temmuz 2026",
+      "aile": "",
+      "kayit_tarihi": "01 Haziran 2015"
+    },
+    {
+      "karakter": "blodwyn",
+      "durum": "İnzivada",
+      "giris_tarihi": "2026-07-26",
+      "son_kasaba": "Girvan",
+      "profil_konum": "Girvan",
+      "son_giris": "25 Temmuz 2026",
+      "aile": "",
+      "kayit_tarihi": "04 Nisan 2012"
+    },
+    {
+      "karakter": "bulve",
+      "durum": "Arafta",
+      "giris_tarihi": "2026-07-26",
+      "son_kasaba": "Kirkcudbright",
+      "profil_konum": "Kirkcudbright",
+      "son_giris": "12 Temmuz 2026",
+      "aile": "",
+      "kayit_tarihi": "12 Temmuz 2026"
+    },
+    {
+      "karakter": "castagna",
+      "durum": "İnzivada",
+      "giris_tarihi": "2026-07-26",
+      "son_kasaba": "Wigtown",
+      "profil_konum": "Whithorn",
+      "son_giris": "25 Temmuz 2026",
+      "aile": "Scuola Grande di San Rocco",
+      "kayit_tarihi": "17 Temmuz 2009"
+    },
+    {
+      "karakter": "dondina",
+      "durum": "İnzivada",
+      "giris_tarihi": "2026-07-26",
+      "son_kasaba": "Wigtown",
+      "profil_konum": "Whithorn",
+      "son_giris": "25 Temmuz 2026",
+      "aile": "",
+      "kayit_tarihi": "30 Ocak 2022"
+    },
+    {
+      "karakter": "fantina_polo",
+      "durum": "İnzivada",
+      "giris_tarihi": "2026-07-26",
+      "son_kasaba": "Wigtown",
+      "profil_konum": "Wigtown",
+      "son_giris": "25 Temmuz 2026",
+      "aile": "",
+      "kayit_tarihi": "09 Ağustos 2011"
+    },
+    {
+      "karakter": "fra_giocondo",
+      "durum": "İnzivada",
+      "giris_tarihi": "2026-07-26",
+      "son_kasaba": "Kirkcudbright",
+      "profil_konum": "Kirkcudbright",
+      "son_giris": "25 Temmuz 2026",
+      "aile": "",
+      "kayit_tarihi": "10 Eylül 2025"
+    },
+    {
+      "karakter": "gallorini",
+      "durum": "İnzivada",
+      "giris_tarihi": "2026-07-26",
+      "son_kasaba": "Wigtown",
+      "profil_konum": "Girvan",
+      "son_giris": "25 Temmuz 2026",
+      "aile": "",
+      "kayit_tarihi": "16 Nisan 2008"
+    },
+    {
+      "karakter": "gianfredo",
+      "durum": "İnzivada",
+      "giris_tarihi": "2026-07-26",
+      "son_kasaba": "Girvan",
+      "profil_konum": "Girvan",
+      "son_giris": "25 Temmuz 2026",
+      "aile": "Scuola Grande di San Rocco",
+      "kayit_tarihi": "04 Haziran 2016"
+    },
+    {
+      "karakter": "gulliver",
+      "durum": "Ara Nokta",
+      "giris_tarihi": "2026-07-26",
+      "son_kasaba": "Kirkcudbright",
+      "profil_konum": "Kirkcudbright",
+      "son_giris": "26 Temmuz 2026",
+      "aile": "",
+      "kayit_tarihi": "29 Haziran 2014"
+    },
+    {
+      "karakter": "incoronata",
+      "durum": "İnzivada",
+      "giris_tarihi": "2026-07-26",
+      "son_kasaba": "Girvan",
+      "profil_konum": "Girvan",
+      "son_giris": "25 Temmuz 2026",
+      "aile": "",
+      "kayit_tarihi": "06 Ekim 2013"
+    },
+    {
+      "karakter": "mariarose",
+      "durum": "İnzivada",
+      "giris_tarihi": "2026-07-26",
+      "son_kasaba": "Girvan",
+      "profil_konum": "Whithorn",
+      "son_giris": "25 Temmuz 2026",
+      "aile": "",
+      "kayit_tarihi": "22 Nisan 2013"
+    },
+    {
+      "karakter": "pietro_d_abano",
+      "durum": "İnzivada",
+      "giris_tarihi": "2026-07-26",
+      "son_kasaba": "Wigtown",
+      "profil_konum": "Wigtown",
+      "son_giris": "25 Temmuz 2026",
+      "aile": "",
+      "kayit_tarihi": "08 Eylül 2025"
+    },
+    {
+      "karakter": "pilone",
+      "durum": "İnzivada",
+      "giris_tarihi": "2026-07-26",
+      "son_kasaba": "Wigtown",
+      "profil_konum": "Girvan",
+      "son_giris": "25 Temmuz 2026",
+      "aile": "",
+      "kayit_tarihi": "20 Haziran 2012"
+    },
+    {
+      "karakter": "riomax",
+      "durum": "İnzivada",
+      "giris_tarihi": "2026-07-26",
+      "son_kasaba": "Girvan",
+      "profil_konum": "Girvan",
+      "son_giris": "25 Temmuz 2026",
+      "aile": "",
+      "kayit_tarihi": "15 Ağustos 2013"
+    },
+    {
+      "karakter": "sciascia",
+      "durum": "İnzivada",
+      "giris_tarihi": "2026-07-26",
+      "son_kasaba": "Wigtown",
+      "profil_konum": "Girvan",
+      "son_giris": "25 Temmuz 2026",
+      "aile": "",
+      "kayit_tarihi": "10 Ekim 2025"
+    }
+  ],
   "donusler": [],
-  "multi_ciftler": [],
-  "dilekce": "",
-  "dilekce_parcalari": {}
+  "multi_ciftler": [
+    {
+      "kisi1": "blodwyn",
+      "kisi2": "pilone",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 3,
+      "degerlendirme": "Orta",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "04 Nisan 2012",
+      "kayit2": "20 Haziran 2012",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": true
+    },
+    {
+      "kisi1": "castagna",
+      "kisi2": "gianfredo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 3,
+      "degerlendirme": "Orta",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Scuola Grande di San Rocco",
+      "aile2": "Scuola Grande di San Rocco",
+      "kayit1": "17 Temmuz 2009",
+      "kayit2": "04 Haziran 2016",
+      "ayni_aile": true,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "fra_giocondo",
+      "kisi2": "pietro_d_abano",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 3,
+      "degerlendirme": "Orta",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "10 Eylül 2025",
+      "kayit2": "08 Eylül 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": true
+    },
+    {
+      "kisi1": "andrea_zen",
+      "kisi2": "aspargus",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "29 Ağustos 2025",
+      "kayit2": "01 Haziran 2015",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "andrea_zen",
+      "kisi2": "blodwyn",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "29 Ağustos 2025",
+      "kayit2": "04 Nisan 2012",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "andrea_zen",
+      "kisi2": "bulve",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "29 Ağustos 2025",
+      "kayit2": "12 Temmuz 2026",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "andrea_zen",
+      "kisi2": "castagna",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "Scuola Grande di San Rocco",
+      "kayit1": "29 Ağustos 2025",
+      "kayit2": "17 Temmuz 2009",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "andrea_zen",
+      "kisi2": "dondina",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "29 Ağustos 2025",
+      "kayit2": "30 Ocak 2022",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "andrea_zen",
+      "kisi2": "fantina_polo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "29 Ağustos 2025",
+      "kayit2": "09 Ağustos 2011",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "andrea_zen",
+      "kisi2": "fra_giocondo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "29 Ağustos 2025",
+      "kayit2": "10 Eylül 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "andrea_zen",
+      "kisi2": "gallorini",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "29 Ağustos 2025",
+      "kayit2": "16 Nisan 2008",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "andrea_zen",
+      "kisi2": "gianfredo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "Scuola Grande di San Rocco",
+      "kayit1": "29 Ağustos 2025",
+      "kayit2": "04 Haziran 2016",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "andrea_zen",
+      "kisi2": "gulliver",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "29 Ağustos 2025",
+      "kayit2": "29 Haziran 2014",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "andrea_zen",
+      "kisi2": "incoronata",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "29 Ağustos 2025",
+      "kayit2": "06 Ekim 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "andrea_zen",
+      "kisi2": "mariarose",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "29 Ağustos 2025",
+      "kayit2": "22 Nisan 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "andrea_zen",
+      "kisi2": "pietro_d_abano",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "29 Ağustos 2025",
+      "kayit2": "08 Eylül 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "andrea_zen",
+      "kisi2": "pilone",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "29 Ağustos 2025",
+      "kayit2": "20 Haziran 2012",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "andrea_zen",
+      "kisi2": "riomax",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "29 Ağustos 2025",
+      "kayit2": "15 Ağustos 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "andrea_zen",
+      "kisi2": "sciascia",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "29 Ağustos 2025",
+      "kayit2": "10 Ekim 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "aspargus",
+      "kisi2": "blodwyn",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "01 Haziran 2015",
+      "kayit2": "04 Nisan 2012",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "aspargus",
+      "kisi2": "bulve",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "01 Haziran 2015",
+      "kayit2": "12 Temmuz 2026",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "aspargus",
+      "kisi2": "castagna",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "Scuola Grande di San Rocco",
+      "kayit1": "01 Haziran 2015",
+      "kayit2": "17 Temmuz 2009",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "aspargus",
+      "kisi2": "dondina",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "01 Haziran 2015",
+      "kayit2": "30 Ocak 2022",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "aspargus",
+      "kisi2": "fantina_polo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "01 Haziran 2015",
+      "kayit2": "09 Ağustos 2011",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "aspargus",
+      "kisi2": "fra_giocondo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "01 Haziran 2015",
+      "kayit2": "10 Eylül 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "aspargus",
+      "kisi2": "gallorini",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "01 Haziran 2015",
+      "kayit2": "16 Nisan 2008",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "aspargus",
+      "kisi2": "gianfredo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "Scuola Grande di San Rocco",
+      "kayit1": "01 Haziran 2015",
+      "kayit2": "04 Haziran 2016",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "aspargus",
+      "kisi2": "gulliver",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "01 Haziran 2015",
+      "kayit2": "29 Haziran 2014",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "aspargus",
+      "kisi2": "incoronata",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "01 Haziran 2015",
+      "kayit2": "06 Ekim 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "aspargus",
+      "kisi2": "mariarose",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "01 Haziran 2015",
+      "kayit2": "22 Nisan 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "aspargus",
+      "kisi2": "pietro_d_abano",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "01 Haziran 2015",
+      "kayit2": "08 Eylül 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "aspargus",
+      "kisi2": "pilone",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "01 Haziran 2015",
+      "kayit2": "20 Haziran 2012",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "aspargus",
+      "kisi2": "riomax",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "01 Haziran 2015",
+      "kayit2": "15 Ağustos 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "aspargus",
+      "kisi2": "sciascia",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "01 Haziran 2015",
+      "kayit2": "10 Ekim 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "blodwyn",
+      "kisi2": "bulve",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "04 Nisan 2012",
+      "kayit2": "12 Temmuz 2026",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "blodwyn",
+      "kisi2": "castagna",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "Scuola Grande di San Rocco",
+      "kayit1": "04 Nisan 2012",
+      "kayit2": "17 Temmuz 2009",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "blodwyn",
+      "kisi2": "dondina",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "04 Nisan 2012",
+      "kayit2": "30 Ocak 2022",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "blodwyn",
+      "kisi2": "fantina_polo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "04 Nisan 2012",
+      "kayit2": "09 Ağustos 2011",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "blodwyn",
+      "kisi2": "fra_giocondo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "04 Nisan 2012",
+      "kayit2": "10 Eylül 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "blodwyn",
+      "kisi2": "gallorini",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "04 Nisan 2012",
+      "kayit2": "16 Nisan 2008",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "blodwyn",
+      "kisi2": "gianfredo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "Scuola Grande di San Rocco",
+      "kayit1": "04 Nisan 2012",
+      "kayit2": "04 Haziran 2016",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "blodwyn",
+      "kisi2": "gulliver",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "04 Nisan 2012",
+      "kayit2": "29 Haziran 2014",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "blodwyn",
+      "kisi2": "incoronata",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "04 Nisan 2012",
+      "kayit2": "06 Ekim 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "blodwyn",
+      "kisi2": "mariarose",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "04 Nisan 2012",
+      "kayit2": "22 Nisan 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "blodwyn",
+      "kisi2": "pietro_d_abano",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "04 Nisan 2012",
+      "kayit2": "08 Eylül 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "blodwyn",
+      "kisi2": "riomax",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "04 Nisan 2012",
+      "kayit2": "15 Ağustos 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "blodwyn",
+      "kisi2": "sciascia",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "04 Nisan 2012",
+      "kayit2": "10 Ekim 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "bulve",
+      "kisi2": "castagna",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "Scuola Grande di San Rocco",
+      "kayit1": "12 Temmuz 2026",
+      "kayit2": "17 Temmuz 2009",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "bulve",
+      "kisi2": "dondina",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "12 Temmuz 2026",
+      "kayit2": "30 Ocak 2022",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "bulve",
+      "kisi2": "fantina_polo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "12 Temmuz 2026",
+      "kayit2": "09 Ağustos 2011",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "bulve",
+      "kisi2": "fra_giocondo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "12 Temmuz 2026",
+      "kayit2": "10 Eylül 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "bulve",
+      "kisi2": "gallorini",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "12 Temmuz 2026",
+      "kayit2": "16 Nisan 2008",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "bulve",
+      "kisi2": "gianfredo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "Scuola Grande di San Rocco",
+      "kayit1": "12 Temmuz 2026",
+      "kayit2": "04 Haziran 2016",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "bulve",
+      "kisi2": "gulliver",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "12 Temmuz 2026",
+      "kayit2": "29 Haziran 2014",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "bulve",
+      "kisi2": "incoronata",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "12 Temmuz 2026",
+      "kayit2": "06 Ekim 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "bulve",
+      "kisi2": "mariarose",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "12 Temmuz 2026",
+      "kayit2": "22 Nisan 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "bulve",
+      "kisi2": "pietro_d_abano",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "12 Temmuz 2026",
+      "kayit2": "08 Eylül 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "bulve",
+      "kisi2": "pilone",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "12 Temmuz 2026",
+      "kayit2": "20 Haziran 2012",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "bulve",
+      "kisi2": "riomax",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "12 Temmuz 2026",
+      "kayit2": "15 Ağustos 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "bulve",
+      "kisi2": "sciascia",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "12 Temmuz 2026",
+      "kayit2": "10 Ekim 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "castagna",
+      "kisi2": "dondina",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Scuola Grande di San Rocco",
+      "aile2": "",
+      "kayit1": "17 Temmuz 2009",
+      "kayit2": "30 Ocak 2022",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "castagna",
+      "kisi2": "fantina_polo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Scuola Grande di San Rocco",
+      "aile2": "",
+      "kayit1": "17 Temmuz 2009",
+      "kayit2": "09 Ağustos 2011",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "castagna",
+      "kisi2": "fra_giocondo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Scuola Grande di San Rocco",
+      "aile2": "",
+      "kayit1": "17 Temmuz 2009",
+      "kayit2": "10 Eylül 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "castagna",
+      "kisi2": "gallorini",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Scuola Grande di San Rocco",
+      "aile2": "",
+      "kayit1": "17 Temmuz 2009",
+      "kayit2": "16 Nisan 2008",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "castagna",
+      "kisi2": "gulliver",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Scuola Grande di San Rocco",
+      "aile2": "",
+      "kayit1": "17 Temmuz 2009",
+      "kayit2": "29 Haziran 2014",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "castagna",
+      "kisi2": "incoronata",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Scuola Grande di San Rocco",
+      "aile2": "",
+      "kayit1": "17 Temmuz 2009",
+      "kayit2": "06 Ekim 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "castagna",
+      "kisi2": "mariarose",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Scuola Grande di San Rocco",
+      "aile2": "",
+      "kayit1": "17 Temmuz 2009",
+      "kayit2": "22 Nisan 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "castagna",
+      "kisi2": "pietro_d_abano",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Scuola Grande di San Rocco",
+      "aile2": "",
+      "kayit1": "17 Temmuz 2009",
+      "kayit2": "08 Eylül 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "castagna",
+      "kisi2": "pilone",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Scuola Grande di San Rocco",
+      "aile2": "",
+      "kayit1": "17 Temmuz 2009",
+      "kayit2": "20 Haziran 2012",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "castagna",
+      "kisi2": "riomax",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Scuola Grande di San Rocco",
+      "aile2": "",
+      "kayit1": "17 Temmuz 2009",
+      "kayit2": "15 Ağustos 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "castagna",
+      "kisi2": "sciascia",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Scuola Grande di San Rocco",
+      "aile2": "",
+      "kayit1": "17 Temmuz 2009",
+      "kayit2": "10 Ekim 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "dondina",
+      "kisi2": "fantina_polo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "30 Ocak 2022",
+      "kayit2": "09 Ağustos 2011",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "dondina",
+      "kisi2": "fra_giocondo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "30 Ocak 2022",
+      "kayit2": "10 Eylül 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "dondina",
+      "kisi2": "gallorini",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "30 Ocak 2022",
+      "kayit2": "16 Nisan 2008",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "dondina",
+      "kisi2": "gianfredo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "Scuola Grande di San Rocco",
+      "kayit1": "30 Ocak 2022",
+      "kayit2": "04 Haziran 2016",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "dondina",
+      "kisi2": "gulliver",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "30 Ocak 2022",
+      "kayit2": "29 Haziran 2014",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "dondina",
+      "kisi2": "incoronata",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "30 Ocak 2022",
+      "kayit2": "06 Ekim 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "dondina",
+      "kisi2": "mariarose",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "30 Ocak 2022",
+      "kayit2": "22 Nisan 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "dondina",
+      "kisi2": "pietro_d_abano",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "30 Ocak 2022",
+      "kayit2": "08 Eylül 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "dondina",
+      "kisi2": "pilone",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "30 Ocak 2022",
+      "kayit2": "20 Haziran 2012",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "dondina",
+      "kisi2": "riomax",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "30 Ocak 2022",
+      "kayit2": "15 Ağustos 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "dondina",
+      "kisi2": "sciascia",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "30 Ocak 2022",
+      "kayit2": "10 Ekim 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "fantina_polo",
+      "kisi2": "fra_giocondo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "09 Ağustos 2011",
+      "kayit2": "10 Eylül 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "fantina_polo",
+      "kisi2": "gallorini",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "09 Ağustos 2011",
+      "kayit2": "16 Nisan 2008",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "fantina_polo",
+      "kisi2": "gianfredo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "Scuola Grande di San Rocco",
+      "kayit1": "09 Ağustos 2011",
+      "kayit2": "04 Haziran 2016",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "fantina_polo",
+      "kisi2": "gulliver",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "09 Ağustos 2011",
+      "kayit2": "29 Haziran 2014",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "fantina_polo",
+      "kisi2": "incoronata",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "09 Ağustos 2011",
+      "kayit2": "06 Ekim 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "fantina_polo",
+      "kisi2": "mariarose",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "09 Ağustos 2011",
+      "kayit2": "22 Nisan 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "fantina_polo",
+      "kisi2": "pietro_d_abano",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "09 Ağustos 2011",
+      "kayit2": "08 Eylül 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "fantina_polo",
+      "kisi2": "pilone",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "09 Ağustos 2011",
+      "kayit2": "20 Haziran 2012",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "fantina_polo",
+      "kisi2": "riomax",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "09 Ağustos 2011",
+      "kayit2": "15 Ağustos 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "fantina_polo",
+      "kisi2": "sciascia",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "09 Ağustos 2011",
+      "kayit2": "10 Ekim 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "fra_giocondo",
+      "kisi2": "gallorini",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "10 Eylül 2025",
+      "kayit2": "16 Nisan 2008",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "fra_giocondo",
+      "kisi2": "gianfredo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "Scuola Grande di San Rocco",
+      "kayit1": "10 Eylül 2025",
+      "kayit2": "04 Haziran 2016",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "fra_giocondo",
+      "kisi2": "gulliver",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "10 Eylül 2025",
+      "kayit2": "29 Haziran 2014",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "fra_giocondo",
+      "kisi2": "incoronata",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "10 Eylül 2025",
+      "kayit2": "06 Ekim 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "fra_giocondo",
+      "kisi2": "mariarose",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "10 Eylül 2025",
+      "kayit2": "22 Nisan 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "fra_giocondo",
+      "kisi2": "pilone",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "10 Eylül 2025",
+      "kayit2": "20 Haziran 2012",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "fra_giocondo",
+      "kisi2": "riomax",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "10 Eylül 2025",
+      "kayit2": "15 Ağustos 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "fra_giocondo",
+      "kisi2": "sciascia",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "10 Eylül 2025",
+      "kayit2": "10 Ekim 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "gallorini",
+      "kisi2": "gianfredo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "Scuola Grande di San Rocco",
+      "kayit1": "16 Nisan 2008",
+      "kayit2": "04 Haziran 2016",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "gallorini",
+      "kisi2": "gulliver",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "16 Nisan 2008",
+      "kayit2": "29 Haziran 2014",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "gallorini",
+      "kisi2": "incoronata",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "16 Nisan 2008",
+      "kayit2": "06 Ekim 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "gallorini",
+      "kisi2": "mariarose",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "16 Nisan 2008",
+      "kayit2": "22 Nisan 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "gallorini",
+      "kisi2": "pietro_d_abano",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "16 Nisan 2008",
+      "kayit2": "08 Eylül 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "gallorini",
+      "kisi2": "pilone",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "16 Nisan 2008",
+      "kayit2": "20 Haziran 2012",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "gallorini",
+      "kisi2": "riomax",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "16 Nisan 2008",
+      "kayit2": "15 Ağustos 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "gallorini",
+      "kisi2": "sciascia",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "16 Nisan 2008",
+      "kayit2": "10 Ekim 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "gianfredo",
+      "kisi2": "gulliver",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Scuola Grande di San Rocco",
+      "aile2": "",
+      "kayit1": "04 Haziran 2016",
+      "kayit2": "29 Haziran 2014",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "gianfredo",
+      "kisi2": "incoronata",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Scuola Grande di San Rocco",
+      "aile2": "",
+      "kayit1": "04 Haziran 2016",
+      "kayit2": "06 Ekim 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "gianfredo",
+      "kisi2": "mariarose",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Scuola Grande di San Rocco",
+      "aile2": "",
+      "kayit1": "04 Haziran 2016",
+      "kayit2": "22 Nisan 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "gianfredo",
+      "kisi2": "pietro_d_abano",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Scuola Grande di San Rocco",
+      "aile2": "",
+      "kayit1": "04 Haziran 2016",
+      "kayit2": "08 Eylül 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "gianfredo",
+      "kisi2": "pilone",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Scuola Grande di San Rocco",
+      "aile2": "",
+      "kayit1": "04 Haziran 2016",
+      "kayit2": "20 Haziran 2012",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "gianfredo",
+      "kisi2": "riomax",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Scuola Grande di San Rocco",
+      "aile2": "",
+      "kayit1": "04 Haziran 2016",
+      "kayit2": "15 Ağustos 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "gianfredo",
+      "kisi2": "sciascia",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Scuola Grande di San Rocco",
+      "aile2": "",
+      "kayit1": "04 Haziran 2016",
+      "kayit2": "10 Ekim 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "gulliver",
+      "kisi2": "incoronata",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "29 Haziran 2014",
+      "kayit2": "06 Ekim 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "gulliver",
+      "kisi2": "mariarose",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "29 Haziran 2014",
+      "kayit2": "22 Nisan 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "gulliver",
+      "kisi2": "pietro_d_abano",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "29 Haziran 2014",
+      "kayit2": "08 Eylül 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "gulliver",
+      "kisi2": "pilone",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "29 Haziran 2014",
+      "kayit2": "20 Haziran 2012",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "gulliver",
+      "kisi2": "riomax",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "29 Haziran 2014",
+      "kayit2": "15 Ağustos 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "gulliver",
+      "kisi2": "sciascia",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "29 Haziran 2014",
+      "kayit2": "10 Ekim 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "incoronata",
+      "kisi2": "mariarose",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "06 Ekim 2013",
+      "kayit2": "22 Nisan 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "incoronata",
+      "kisi2": "pietro_d_abano",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "06 Ekim 2013",
+      "kayit2": "08 Eylül 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "incoronata",
+      "kisi2": "pilone",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "06 Ekim 2013",
+      "kayit2": "20 Haziran 2012",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "incoronata",
+      "kisi2": "riomax",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "06 Ekim 2013",
+      "kayit2": "15 Ağustos 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "incoronata",
+      "kisi2": "sciascia",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "06 Ekim 2013",
+      "kayit2": "10 Ekim 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "mariarose",
+      "kisi2": "pietro_d_abano",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "22 Nisan 2013",
+      "kayit2": "08 Eylül 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "mariarose",
+      "kisi2": "pilone",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "22 Nisan 2013",
+      "kayit2": "20 Haziran 2012",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "mariarose",
+      "kisi2": "riomax",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "22 Nisan 2013",
+      "kayit2": "15 Ağustos 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "mariarose",
+      "kisi2": "sciascia",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "22 Nisan 2013",
+      "kayit2": "10 Ekim 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "pietro_d_abano",
+      "kisi2": "pilone",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "08 Eylül 2025",
+      "kayit2": "20 Haziran 2012",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "pietro_d_abano",
+      "kisi2": "riomax",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "08 Eylül 2025",
+      "kayit2": "15 Ağustos 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "pietro_d_abano",
+      "kisi2": "sciascia",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "08 Eylül 2025",
+      "kayit2": "10 Ekim 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "pilone",
+      "kisi2": "riomax",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "20 Haziran 2012",
+      "kayit2": "15 Ağustos 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "pilone",
+      "kisi2": "sciascia",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "20 Haziran 2012",
+      "kayit2": "10 Ekim 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    },
+    {
+      "kisi1": "riomax",
+      "kisi2": "sciascia",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 1,
+      "degerlendirme": "Zayıf (tek gözlem)",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "cikis": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "15 Ağustos 2013",
+      "kayit2": "10 Ekim 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false
+    }
+  ],
+  "dilekce": "==============================================================================\nMULTI-ACCOUNT OBSERVATION REPORT / RAPPORT D'OBSERVATION DE MULTI-COMPTES\nDate / Date : 2026-07-26\n==============================================================================\n\n----------------------------- ENGLISH -----------------------------\n\nDear Administrators,\n\nI would like to submit for your review a number of accounts that left\ntheir town on exactly the same day, and in several cases returned on\nexactly the same day as well.\n\nThese observations come from the publicly visible town resident lists,\nwhich I record once per day. For each pair below, I list the dates on\nwhich both accounts disappeared from the resident list on the same day,\nand, where applicable, the dates on which both reappeared on the same day.\n\nI am not in a position to determine whether these accounts belong to the\nsame person, and I make no accusation. I am only providing the observed\ndates so that you can compare them with the data available to you.\n\n----------------------------- FRANÇAIS ----------------------------\n\nChers Administrateurs,\n\nJe souhaite soumettre à votre examen plusieurs comptes qui ont quitté\nleur ville exactement le même jour et qui, dans plusieurs cas, sont\nrevenus exactement le même jour également.\n\nCes observations proviennent des listes publiques des habitants des\nvilles, que je relève une fois par jour. Pour chaque paire ci-dessous,\nj'indique les dates auxquelles les deux comptes ont disparu de la liste\nle même jour et, le cas échéant, les dates auxquelles ils y sont\nréapparus le même jour.\n\nIl ne m'appartient pas de déterminer si ces comptes appartiennent à la\nmême personne, et je ne porte aucune accusation. Je vous transmets\nuniquement les dates observées afin que vous puissiez les comparer aux\ndonnées dont vous disposez.\n\n==============================================================================\nOBSERVED DATA / DONNÉES OBSERVÉES\n==============================================================================\n\nCASE 1 / CAS 1 :  blodwyn   &   pilone\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 04 Nisan 2012   |   20 Haziran 2012\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 2 / CAS 2 :  castagna   &   gianfredo\n   Family / Famille        : Scuola Grande di San Rocco   |   Scuola Grande di San Rocco\n   Registered / Inscrit le : 17 Temmuz 2009   |   04 Haziran 2016\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 3 / CAS 3 :  fra_giocondo   &   pietro_d_abano\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 10 Eylül 2025   |   08 Eylül 2025\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 4 / CAS 4 :  andrea_zen   &   aspargus\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   01 Haziran 2015\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 5 / CAS 5 :  andrea_zen   &   blodwyn\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   04 Nisan 2012\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 6 / CAS 6 :  andrea_zen   &   bulve\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   12 Temmuz 2026\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 7 / CAS 7 :  andrea_zen   &   castagna\n   Family / Famille        : -   |   Scuola Grande di San Rocco\n   Registered / Inscrit le : 29 Ağustos 2025   |   17 Temmuz 2009\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 8 / CAS 8 :  andrea_zen   &   dondina\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   30 Ocak 2022\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 9 / CAS 9 :  andrea_zen   &   fantina_polo\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   09 Ağustos 2011\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 10 / CAS 10 :  andrea_zen   &   fra_giocondo\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   10 Eylül 2025\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 11 / CAS 11 :  andrea_zen   &   gallorini\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   16 Nisan 2008\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 12 / CAS 12 :  andrea_zen   &   gianfredo\n   Family / Famille        : -   |   Scuola Grande di San Rocco\n   Registered / Inscrit le : 29 Ağustos 2025   |   04 Haziran 2016\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 13 / CAS 13 :  andrea_zen   &   gulliver\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   29 Haziran 2014\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 14 / CAS 14 :  andrea_zen   &   incoronata\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   06 Ekim 2013\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 15 / CAS 15 :  andrea_zen   &   mariarose\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   22 Nisan 2013\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 16 / CAS 16 :  andrea_zen   &   pietro_d_abano\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   08 Eylül 2025\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 17 / CAS 17 :  andrea_zen   &   pilone\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   20 Haziran 2012\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 18 / CAS 18 :  andrea_zen   &   riomax\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   15 Ağustos 2013\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 19 / CAS 19 :  andrea_zen   &   sciascia\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   10 Ekim 2025\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 20 / CAS 20 :  aspargus   &   blodwyn\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 01 Haziran 2015   |   04 Nisan 2012\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 21 / CAS 21 :  aspargus   &   bulve\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 01 Haziran 2015   |   12 Temmuz 2026\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 22 / CAS 22 :  aspargus   &   castagna\n   Family / Famille        : -   |   Scuola Grande di San Rocco\n   Registered / Inscrit le : 01 Haziran 2015   |   17 Temmuz 2009\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 23 / CAS 23 :  aspargus   &   dondina\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 01 Haziran 2015   |   30 Ocak 2022\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 24 / CAS 24 :  aspargus   &   fantina_polo\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 01 Haziran 2015   |   09 Ağustos 2011\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 25 / CAS 25 :  aspargus   &   fra_giocondo\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 01 Haziran 2015   |   10 Eylül 2025\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique\n\n(+ 111 further pairs observed; available on request. /\n   + 111 autres paires observées ; disponibles sur demande.)\n\n==============================================================================\n\nThank you for your time and for looking into this matter.\n\nRespectfully yours,\n[YOUR CHARACTER NAME]\n\nJe vous remercie du temps que vous consacrerez à l'examen de ce rapport.\n\nRespectueusement,\n[NOM DE VOTRE PERSONNAGE]\n",
+  "dilekce_parcalari": {
+    "giris": "==============================================================================\nMULTI-ACCOUNT OBSERVATION REPORT / RAPPORT D'OBSERVATION DE MULTI-COMPTES\nDate / Date : 2026-07-26\n==============================================================================\n\n----------------------------- ENGLISH -----------------------------\n\nDear Administrators,\n\nI would like to submit for your review a number of accounts that left\ntheir town on exactly the same day, and in several cases returned on\nexactly the same day as well.\n\nThese observations come from the publicly visible town resident lists,\nwhich I record once per day. For each pair below, I list the dates on\nwhich both accounts disappeared from the resident list on the same day,\nand, where applicable, the dates on which both reappeared on the same day.\n\nI am not in a position to determine whether these accounts belong to the\nsame person, and I make no accusation. I am only providing the observed\ndates so that you can compare them with the data available to you.\n\n----------------------------- FRANÇAIS ----------------------------\n\nChers Administrateurs,\n\nJe souhaite soumettre à votre examen plusieurs comptes qui ont quitté\nleur ville exactement le même jour et qui, dans plusieurs cas, sont\nrevenus exactement le même jour également.\n\nCes observations proviennent des listes publiques des habitants des\nvilles, que je relève une fois par jour. Pour chaque paire ci-dessous,\nj'indique les dates auxquelles les deux comptes ont disparu de la liste\nle même jour et, le cas échéant, les dates auxquelles ils y sont\nréapparus le même jour.\n\nIl ne m'appartient pas de déterminer si ces comptes appartiennent à la\nmême personne, et je ne porte aucune accusation. Je vous transmets\nuniquement les dates observées afin que vous puissiez les comparer aux\ndonnées dont vous disposez.\n\n==============================================================================\nOBSERVED DATA / DONNÉES OBSERVÉES\n==============================================================================",
+    "vakalar": [
+      {
+        "kisi1": "blodwyn",
+        "kisi2": "pilone",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 04 Nisan 2012   |   20 Haziran 2012\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "castagna",
+        "kisi2": "gianfredo",
+        "govde": "   Family / Famille        : Scuola Grande di San Rocco   |   Scuola Grande di San Rocco\n   Registered / Inscrit le : 17 Temmuz 2009   |   04 Haziran 2016\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "fra_giocondo",
+        "kisi2": "pietro_d_abano",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 10 Eylül 2025   |   08 Eylül 2025\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "andrea_zen",
+        "kisi2": "aspargus",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   01 Haziran 2015\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "andrea_zen",
+        "kisi2": "blodwyn",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   04 Nisan 2012\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "andrea_zen",
+        "kisi2": "bulve",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   12 Temmuz 2026\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "andrea_zen",
+        "kisi2": "castagna",
+        "govde": "   Family / Famille        : -   |   Scuola Grande di San Rocco\n   Registered / Inscrit le : 29 Ağustos 2025   |   17 Temmuz 2009\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "andrea_zen",
+        "kisi2": "dondina",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   30 Ocak 2022\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "andrea_zen",
+        "kisi2": "fantina_polo",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   09 Ağustos 2011\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "andrea_zen",
+        "kisi2": "fra_giocondo",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   10 Eylül 2025\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "andrea_zen",
+        "kisi2": "gallorini",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   16 Nisan 2008\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "andrea_zen",
+        "kisi2": "gianfredo",
+        "govde": "   Family / Famille        : -   |   Scuola Grande di San Rocco\n   Registered / Inscrit le : 29 Ağustos 2025   |   04 Haziran 2016\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "andrea_zen",
+        "kisi2": "gulliver",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   29 Haziran 2014\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "andrea_zen",
+        "kisi2": "incoronata",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   06 Ekim 2013\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "andrea_zen",
+        "kisi2": "mariarose",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   22 Nisan 2013\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "andrea_zen",
+        "kisi2": "pietro_d_abano",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   08 Eylül 2025\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "andrea_zen",
+        "kisi2": "pilone",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   20 Haziran 2012\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "andrea_zen",
+        "kisi2": "riomax",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   15 Ağustos 2013\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "andrea_zen",
+        "kisi2": "sciascia",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 29 Ağustos 2025   |   10 Ekim 2025\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "aspargus",
+        "kisi2": "blodwyn",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 01 Haziran 2015   |   04 Nisan 2012\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "aspargus",
+        "kisi2": "bulve",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 01 Haziran 2015   |   12 Temmuz 2026\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "aspargus",
+        "kisi2": "castagna",
+        "govde": "   Family / Famille        : -   |   Scuola Grande di San Rocco\n   Registered / Inscrit le : 01 Haziran 2015   |   17 Temmuz 2009\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "aspargus",
+        "kisi2": "dondina",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 01 Haziran 2015   |   30 Ocak 2022\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "aspargus",
+        "kisi2": "fantina_polo",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 01 Haziran 2015   |   09 Ağustos 2011\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "aspargus",
+        "kisi2": "fra_giocondo",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 01 Haziran 2015   |   10 Eylül 2025\n   Same-day departures / Départs le même jour :\n      - Left / Parti : 2026-07-26   ->   still absent or different return date / toujours absent ou retour à une date différente\n   Total: 1 same-day departure(s) / départ(s) le même jour  |  0 with identical return date(s) / avec date de retour identique"
+      }
+    ],
+    "kapanis": "\n==============================================================================\n\nThank you for your time and for looking into this matter.\n\nRespectfully yours,\n[YOUR CHARACTER NAME]\n\nJe vous remercie du temps que vous consacrerez à l'examen de ce rapport.\n\nRespectueusement,\n[NOM DE VOTRE PERSONNAGE]\n"
+  }
 }
