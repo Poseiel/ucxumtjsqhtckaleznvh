@@ -413,8 +413,11 @@ async function hareketYukle() {
     hareketKayiplar = veri.kayiplar || [];
     inzivaDonusler = veri.donusler || [];
     multiCiftler = veri.multi_ciftler || [];
+    multiKumeler = veri.multi_kumeler || [];
+    sakinlerListesi = veri.sakinler || [];
     inzivaDilekce = veri.dilekce || "";
     inzivaDilekceParcalari = veri.dilekce_parcalari || null;
+    document.getElementById("sakinler-tarih").textContent = veri.son_gun || "bilinmiyor";
 
     document.getElementById("hareket-tarih-notu").textContent =
       `${veri.ilk_gun} → ${veri.son_gun} (${veri.gun_sayisi} gün)`;
@@ -432,6 +435,7 @@ async function hareketYukle() {
     hareketOzetCiz();
     hareketTabloCiz();
     inzivaCiz();
+    sakinlerCiz();
   } catch (e) {
     document.getElementById("hareket-tarih-notu").textContent = "veri yok";
     document.getElementById("hareket-sonuc-yok").hidden = false;
@@ -466,8 +470,16 @@ function hareketTabloCiz() {
   const govde = document.getElementById("hareket-tablo-govde");
   govde.innerHTML = "";
   filtreli.forEach((k) => {
+    // Rota adımları artık {konum, tarih} taşıyor — hangi gün nereye gittiği
+    // rozetin altında görünüyor. (Eski format düz metin listesiydi.)
     const rota = k.rota
-      .map((konum) => `<span class="${konumRozetSinifi(konum)}">${konum}</span>`)
+      .map((adim) => {
+        const konum = typeof adim === "string" ? adim : adim.konum;
+        const tarih = typeof adim === "string" ? "" : (adim.tarih || "");
+        const gun = tarih ? tarih.slice(8, 10) + "." + tarih.slice(5, 7) : "";
+        return `<span class="rota-adim"><span class="${konumRozetSinifi(konum)}">${konum}</span>` +
+          (gun ? `<span class="rota-tarih">${gun}</span>` : "") + `</span>`;
+      })
       .join('<span class="rota-ok">→</span>');
     const satir = document.createElement("tr");
     satir.innerHTML =
@@ -494,6 +506,98 @@ let inzivaDonusler = [];
 let multiCiftler = [];
 let inzivaDilekce = "";
 let inzivaDilekceParcalari = null;
+let multiKumeler = [];
+let sakinlerListesi = [];
+
+// Öne çıkan bulgular: ham tablo yerine okunabilir cümleler.
+function oneCikanlariCiz() {
+  const kap = document.getElementById("one-cikanlar");
+  const dikkat = multiCiftler.filter((c) => c.skor >= 3);
+
+  if (!dikkat.length && !multiKumeler.length) {
+    kap.innerHTML =
+      `<p class="bos-durum">Bugün dikkate değer bir bulgu yok. ` +
+      `Kayıtlar tutulmaya devam ediyor — aynı hesaplar tekrar birlikte hareket ederse burada görünecek.</p>`;
+    return;
+  }
+
+  let html = "";
+
+  if (multiKumeler.length) {
+    html += `<div class="bulgu-blok">` +
+      `<h4>👥 Birlikte hareket eden gruplar</h4>` +
+      multiKumeler.map((k) =>
+        `<p class="bulgu-satir"><strong>${k.kisi_sayisi} hesap:</strong> ${k.aciklama.replace(/^[^:]*:\s*/, "")}</p>`
+      ).join("") +
+      `</div>`;
+  }
+
+  if (dikkat.length) {
+    html += `<div class="bulgu-blok">` +
+      `<h4>🎯 Dikkate değer çiftler (${dikkat.length})</h4>` +
+      dikkat.map((c) =>
+        `<p class="bulgu-satir"><span class="skor-rozet ${skorSinifi(c.degerlendirme)}">${c.degerlendirme}</span> ${c.aciklama || ""}</p>`
+      ).join("") +
+      `</div>`;
+  }
+
+  const zayif = multiCiftler.length - dikkat.length;
+  if (zayif > 0) {
+    html += `<p class="bulgu-not">Ayrıca ${zayif} zayıf eşleşme var (yalnızca aynı gün ayrılmışlar, ` +
+      `başka bağ yok). Bunlar aşağıdaki listede duruyor ama dilekçeye varsayılan olarak eklenmiyor.</p>`;
+  }
+
+  kap.innerHTML = html;
+}
+
+// ---------------------------------------------------------
+// KİM NEREDE SEKMESİ (bugünün tam kasaba listesi)
+// ---------------------------------------------------------
+function sakinlerCiz() {
+  const kasabalar = [...new Set(sakinlerListesi.map((s) => s.kasaba))]
+    .sort((a, b) => a.localeCompare(b, "tr"));
+  const secim = document.getElementById("sakinler-kasaba-filtre");
+  kasabalar.forEach((k) => {
+    const opt = document.createElement("option");
+    opt.value = k;
+    opt.textContent = k;
+    secim.appendChild(opt);
+  });
+
+  const sayim = new Map();
+  sakinlerListesi.forEach((s) => sayim.set(s.kasaba, (sayim.get(s.kasaba) || 0) + 1));
+  document.getElementById("sakinler-ozet").innerHTML =
+    `<div class="ozet-kart ozet-kart-toplam"><span class="ozet-etiket">👥 Toplam</span><span class="ozet-deger">${sakinlerListesi.length}</span></div>` +
+    [...sayim.entries()].sort((a, b) => b[1] - a[1]).map(([k, n]) =>
+      `<div class="ozet-kart"><span class="ozet-etiket">${k}</span><span class="ozet-deger">${n}</span></div>`
+    ).join("");
+
+  sakinlerTabloCiz();
+}
+
+function sakinlerTabloCiz() {
+  const arama = document.getElementById("sakinler-arama").value.trim().toLocaleLowerCase("tr-TR");
+  const kasabaFiltre = document.getElementById("sakinler-kasaba-filtre").value;
+
+  const filtreli = sakinlerListesi.filter((s) =>
+    (!arama || s.karakter.toLocaleLowerCase("tr-TR").includes(arama)) &&
+    (!kasabaFiltre || s.kasaba === kasabaFiltre)
+  );
+
+  const govde = document.getElementById("sakinler-tablo-govde");
+  govde.innerHTML = "";
+  filtreli.forEach((s) => {
+    const satir = document.createElement("tr");
+    satir.innerHTML = `<td>${s.karakter}</td>` +
+      `<td><span class="konum-rozet">${s.kasaba}</span></td>` +
+      `<td>${s.pr >= 0 ? s.pr : "-"}</td>`;
+    govde.appendChild(satir);
+  });
+  document.getElementById("sakinler-sonuc-yok").hidden = filtreli.length !== 0;
+}
+
+document.getElementById("sakinler-arama").addEventListener("input", sakinlerTabloCiz);
+document.getElementById("sakinler-kasaba-filtre").addEventListener("change", sakinlerTabloCiz);
 
 function inzivaOzetCiz() {
   const say = (d) => hareketKayiplar.filter((k) => k.durum === d).length;
@@ -533,18 +637,25 @@ function multiCiftleriCiz() {
 
     const rozetler =
       `<span class="skor-rozet ${skorSinifi(c.degerlendirme)}">${c.degerlendirme} · skor ${c.skor}</span>` +
-      `<span class="skor-rozet">${c.eslesme_sayisi} kez aynı gün giriş</span>` +
-      (c.tam_eslesme ? `<span class="skor-rozet skor-tam">${c.tam_eslesme} kez çıkış da aynı</span>` : "") +
+      `<span class="skor-rozet">${c.eslesme_sayisi} kez aynı gün kasabadan ayrıldı</span>` +
+      (c.tam_eslesme ? `<span class="skor-rozet skor-tam">${c.tam_eslesme} kez aynı gün geri döndü</span>` : "") +
       (c.ayni_aile ? `<span class="skor-rozet skor-kirmizi">Aynı aile</span>` : "") +
-      (c.ayni_kayit_donemi ? `<span class="skor-rozet skor-kirmizi">Aynı kayıt dönemi</span>` : "");
+      (c.ayni_kayit_donemi
+        ? `<span class="skor-rozet skor-kirmizi">${c.kayit_fark_gun} gün arayla açılmış</span>`
+        : "");
 
     const not = (c.tam_eslesme >= 2 && !c.ayni_aile)
       ? `<p class="multi-uyari">💡 Aile bağı yok ama ${c.tam_eslesme} kez birebir aynı tarihlerde girip çıkmışlar — bağ kurulmasın diye ayrı ailelere girmiş olabilirler.</p>`
       : "";
 
-    // Dilekçeye dahil etme kutusu (varsayılan: seçili)
+    // Dilekçeye dahil etme kutusu. Varsayılan olarak SADECE dikkate değer
+    // vakalar işaretli gelir (tekrar eden eşzamanlılık, aynı aile veya yakın
+    // kayıt tarihi). "Zayıf (tek gözlem)" olanlar işaretsiz gelir — yoksa
+    // dilekçe, tek bir günün rastgele eşleşmeleriyle dolup anlamsızlaşıyor.
+    // İstersen tek tıkla ekleyebilirsin.
+    const dikkateDeger = c.skor >= 3;
     const secim = dilekceVakasiVarMi(c)
-      ? `<label class="cift-secim"><input type="checkbox" class="dilekce-sec" data-index="${i}" checked> Dilekçeye ekle</label>`
+      ? `<label class="cift-secim"><input type="checkbox" class="dilekce-sec" data-index="${i}"${dikkateDeger ? " checked" : ""}> Dilekçeye ekle</label>`
       : `<span class="cift-secim fark">(dilekçe listesinin dışında)</span>`;
 
     return `<div class="multi-grup multi-cift">` +
@@ -665,12 +776,14 @@ function multiGruplariCiz() {
         })
         .join("");
 
-      // Kayıt tarihi yakınlığı: aynı ay/yıl içinde açılmış hesaplar da
-      // multi göstergesidir (tarih formatı GG/AA/YYYY → son 7 karakter AA/YYYY)
+      // Kayıt tarihi yakınlığı: aynı ay içinde açılmış hesaplar da multi
+      // göstergesidir. Normalize edilmiş "YYYY-AA" alanı kullanılır —
+      // ham metnin son 7 karakteri Türkçe ay adları yüzünden yanlış
+      // eşleşiyordu ("Nis-an 2012" ile "Hazir-an 2012" aynı sanılıyordu).
       const donemSayim = new Map();
       kisiler.forEach((k) => {
-        const d = (k.kayit_tarihi || "").slice(-7);
-        if (d.length === 7) donemSayim.set(d, (donemSayim.get(d) || 0) + 1);
+        const d = k.kayit_donemi || "";
+        if (d) donemSayim.set(d, (donemSayim.get(d) || 0) + 1);
       });
       const ayniDonem = [...donemSayim.entries()].filter(([, n]) => n > 1);
 
@@ -757,6 +870,7 @@ function inzivaCiz() {
   });
 
   inzivaOzetCiz();
+  oneCikanlariCiz();
   // Önce kartlar (seçim kutuları burada oluşur), SONRA dilekçe — dilekçe
   // metni seçili kutulardan üretildiği için sıra bu şekilde olmalı.
   multiCiftleriCiz();
