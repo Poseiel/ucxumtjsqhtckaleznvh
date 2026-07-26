@@ -248,6 +248,41 @@ button:hover { filter: brightness(1.08); }
   color: var(--text-dim);
   margin: 0 0.3rem;
 }
+.rota-adim {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+}
+.rota-tarih {
+  font-size: 0.7rem;
+  color: var(--text-dim);
+}
+
+/* Öne çıkan bulgular (kalabalık tablo yerine okunabilir özet) */
+.bulgu-blok {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--danger);
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+  margin-bottom: 0.75rem;
+}
+.bulgu-blok h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+.bulgu-satir {
+  margin: 0.4rem 0;
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+.bulgu-not {
+  color: var(--text-dim);
+  font-size: 0.88rem;
+  margin: 0.25rem 0 0.75rem;
+}
+#sakinler-tablo { min-width: 460px; }
 
 /* İnziva sekmesi — multi şüphesi grupları */
 .multi-grup {
