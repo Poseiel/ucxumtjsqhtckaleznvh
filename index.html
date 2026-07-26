@@ -30,6 +30,7 @@
   <button class="tab-btn" data-tab="gelisim">Gelişim</button>
   <button class="tab-btn" data-tab="hareket">Hareket</button>
   <button class="tab-btn" data-tab="inziva">İnziva</button>
+  <button class="tab-btn" data-tab="sakinler">Kim Nerede</button>
   <button class="tab-btn" data-tab="harita">Harita &amp; Seyahat</button>
 </nav>
 
@@ -132,6 +133,14 @@
     </p>
     <div id="inziva-ozet" class="envanter-ozet"></div>
 
+    <h3 class="hareket-alt-baslik">🔍 Öne çıkan bulgular</h3>
+    <p class="envanter-tarih-notu">
+      Kalabalık tabloyu okumana gerek yok — dikkate değer olanlar burada cümle
+      hâlinde özetlenir. Aşağıdaki uzun listeler ham veridir, sadece detay
+      gerekince bak.
+    </p>
+    <div id="one-cikanlar"></div>
+
     <h3 class="hareket-alt-baslik">📝 Hazır şikâyet dilekçesi (EN + FR)</h3>
     <p class="envanter-tarih-notu">
       Aşağıdaki kartlardan <strong>hangi çiftleri bildireceğini sen seç</strong> — dilekçe
@@ -199,6 +208,30 @@
         <tbody id="donus-tablo-govde"></tbody>
       </table>
       <p id="donus-sonuc-yok" class="bos-durum" hidden>Henüz kayıtlı dönüş yok.</p>
+    </div>
+  </section>
+
+  <section id="tab-sakinler" class="tab-panel">
+    <p class="envanter-tarih-notu">Liste tarihi: <span id="sakinler-tarih">yükleniyor...</span></p>
+    <div id="sakinler-ozet" class="envanter-ozet"></div>
+    <div class="pazar-arac-cubugu">
+      <input type="text" id="sakinler-arama" placeholder="Karakter ara...">
+      <select id="sakinler-kasaba-filtre">
+        <option value="">Tüm kasabalar</option>
+      </select>
+    </div>
+    <div class="tablo-sarici tablo-sarici-yapiskan">
+      <table id="sakinler-tablo">
+        <thead>
+          <tr>
+            <th>Karakter</th>
+            <th>Kasaba</th>
+            <th>PR (güven)</th>
+          </tr>
+        </thead>
+        <tbody id="sakinler-tablo-govde"></tbody>
+      </table>
+      <p id="sakinler-sonuc-yok" class="bos-durum" hidden>Kayıt bulunamadı.</p>
     </div>
   </section>
 
