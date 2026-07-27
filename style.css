@@ -222,6 +222,14 @@ button:hover { filter: brightness(1.08); }
   margin: 1.75rem 0 0.75rem;
   font-size: 1.05rem;
 }
+/* Bölüm altı açıklama: "bu tabloda ne var, neden var" — siteyi ilk kez
+   açan birinin de anlaması için. */
+.bolum-aciklama {
+  margin: -0.4rem 0 0.9rem;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  opacity: 0.82;
+}
 #hareket-tablo { min-width: 720px; }
 .rota-hucre { white-space: nowrap; }
 .konum-rozet {
