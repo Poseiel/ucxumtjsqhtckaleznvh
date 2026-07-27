@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-07-27 19:03",
+  "son_guncelleme": "2026-07-27 21:23",
   "gun_sayisi": 6,
   "ilk_gun": "2026-07-22",
   "son_gun": "2026-07-27",
@@ -57,6 +57,56 @@
         }
       ],
       "durum": ""
+    },
+    {
+      "karakter": "gracelynn",
+      "su_anki_konum": "İngiltere yolu",
+      "rota": [
+        {
+          "konum": "Kirkcudbright",
+          "tarih": "2026-07-22"
+        },
+        {
+          "konum": "İngiltere yolu",
+          "tarih": "2026-07-23"
+        },
+        {
+          "konum": "Kirkcudbright",
+          "tarih": "2026-07-24"
+        },
+        {
+          "konum": "İngiltere yolu",
+          "tarih": "2026-07-27"
+        }
+      ],
+      "hareket_sayisi": 3,
+      "gunluk": [
+        {
+          "tarih": "2026-07-22",
+          "konum": "Kirkcudbright"
+        },
+        {
+          "tarih": "2026-07-23",
+          "konum": "İngiltere yolu"
+        },
+        {
+          "tarih": "2026-07-24",
+          "konum": "Kirkcudbright"
+        },
+        {
+          "tarih": "2026-07-25",
+          "konum": "Kirkcudbright"
+        },
+        {
+          "tarih": "2026-07-26",
+          "konum": "Kirkcudbright"
+        },
+        {
+          "tarih": "2026-07-27",
+          "konum": "İngiltere yolu"
+        }
+      ],
+      "durum": "İskoçya'da (Wigtown, County of Galloway)"
     },
     {
       "karakter": "tenille",
@@ -523,52 +573,6 @@
       "durum": "İnzivada"
     },
     {
-      "karakter": "gracelynn",
-      "su_anki_konum": "Kirkcudbright",
-      "rota": [
-        {
-          "konum": "Kirkcudbright",
-          "tarih": "2026-07-22"
-        },
-        {
-          "konum": "İngiltere yolu",
-          "tarih": "2026-07-23"
-        },
-        {
-          "konum": "Kirkcudbright",
-          "tarih": "2026-07-24"
-        }
-      ],
-      "hareket_sayisi": 2,
-      "gunluk": [
-        {
-          "tarih": "2026-07-22",
-          "konum": "Kirkcudbright"
-        },
-        {
-          "tarih": "2026-07-23",
-          "konum": "İngiltere yolu"
-        },
-        {
-          "tarih": "2026-07-24",
-          "konum": "Kirkcudbright"
-        },
-        {
-          "tarih": "2026-07-25",
-          "konum": "Kirkcudbright"
-        },
-        {
-          "tarih": "2026-07-26",
-          "konum": "Kirkcudbright"
-        },
-        {
-          "tarih": "2026-07-27",
-          "konum": "Kirkcudbright"
-        }
-      ],
-      "durum": ""
-    },
-    {
       "karakter": "gulliver",
       "su_anki_konum": "İngiltere yolu",
       "rota": [
@@ -751,6 +755,48 @@
         }
       ],
       "durum": "İnzivada"
+    },
+    {
+      "karakter": "alanclarks99",
+      "su_anki_konum": "İngiltere yolu",
+      "rota": [
+        {
+          "konum": "Kirkcudbright",
+          "tarih": "2026-07-22"
+        },
+        {
+          "konum": "İngiltere yolu",
+          "tarih": "2026-07-27"
+        }
+      ],
+      "hareket_sayisi": 1,
+      "gunluk": [
+        {
+          "tarih": "2026-07-22",
+          "konum": "Kirkcudbright"
+        },
+        {
+          "tarih": "2026-07-23",
+          "konum": "Kirkcudbright"
+        },
+        {
+          "tarih": "2026-07-24",
+          "konum": "Kirkcudbright"
+        },
+        {
+          "tarih": "2026-07-25",
+          "konum": "Kirkcudbright"
+        },
+        {
+          "tarih": "2026-07-26",
+          "konum": "Kirkcudbright"
+        },
+        {
+          "tarih": "2026-07-27",
+          "konum": "İngiltere yolu"
+        }
+      ],
+      "durum": "İskoçya'da (Wigtown, County of Galloway)"
     },
     {
       "karakter": "alramis",
@@ -2832,6 +2878,17 @@
       "kayit_donemi": "2025-10"
     },
     {
+      "karakter": "alanclarks99",
+      "durum": "İskoçya'da (Wigtown, County of Galloway)",
+      "giris_tarihi": "2026-07-27",
+      "son_kasaba": "Kirkcudbright",
+      "profil_konum": "Wigtown",
+      "son_giris": "27 Temmuz 2026",
+      "aile": "",
+      "kayit_tarihi": "18 Ağustos 2021",
+      "kayit_donemi": "2021-08"
+    },
+    {
       "karakter": "aoidh",
       "durum": "Ara Nokta (İngiltere yolunda olabilir)",
       "giris_tarihi": "2026-07-27",
@@ -2852,9 +2909,35 @@
       "aile": "Nádasdy",
       "kayit_tarihi": "22 Mart 2008",
       "kayit_donemi": "2008-03"
+    },
+    {
+      "karakter": "gracelynn",
+      "durum": "İskoçya'da (Wigtown, County of Galloway)",
+      "giris_tarihi": "2026-07-27",
+      "son_kasaba": "Kirkcudbright",
+      "profil_konum": "Wigtown",
+      "son_giris": "27 Temmuz 2026",
+      "aile": "Ceata lui Pițigoi",
+      "kayit_tarihi": "22 Kasım 2021",
+      "kayit_donemi": "2021-11"
     }
   ],
-  "donusler": [],
+  "donusler": [
+    {
+      "karakter": "batshuayi",
+      "durum": "İnzivadan dönmüş (tahmini)",
+      "giris_tarihi": "",
+      "son_kasaba": "",
+      "profil_konum": "",
+      "son_giris": "",
+      "aile": "",
+      "kayit_tarihi": "",
+      "kayit_donemi": "",
+      "cikis_tarihi": "2026-07-27",
+      "donus_kasaba": "Glasgow",
+      "kalinan_gun": ""
+    }
+  ],
   "multi_ciftler": [
     {
       "kisi1": "andrea_zen",
@@ -6965,7 +7048,7 @@
     {
       "karakter": "reign7008",
       "kasaba": "Girvan",
-      "pr": 49
+      "pr": 50
     },
     {
       "karakter": "rhosyn",
@@ -7213,11 +7296,6 @@
       "pr": 116
     },
     {
-      "karakter": "alanclarks99",
-      "kasaba": "Kirkcudbright",
-      "pr": 255
-    },
-    {
       "karakter": "angus",
       "kasaba": "Kirkcudbright",
       "pr": 255
@@ -7264,11 +7342,6 @@
     },
     {
       "karakter": "gh0stsh3ll",
-      "kasaba": "Kirkcudbright",
-      "pr": 255
-    },
-    {
-      "karakter": "gracelynn",
       "kasaba": "Kirkcudbright",
       "pr": 255
     },
@@ -7815,7 +7888,7 @@
     {
       "karakter": "bessent..",
       "kasaba": "Wigtown",
-      "pr": 15
+      "pr": 16
     },
     {
       "karakter": "bisdak",
