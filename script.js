@@ -812,6 +812,16 @@ function dilekceCiz() {
   };
 }
 
+// Kişi GERÇEKTEN inzivada mı? (profil kontrolüyle doğrulanmış)
+// Seyahat edenler, ara noktadakiler, başka krallığa gidenler MASUMDUR ve
+// bu sekmeye hiç girmemelidir — onların yeri "Hareket" sekmesidir.
+// Kullanıcı: "inzivada değilse bu inziva sekmesinde ne işi var? Zaten
+// hareket edenlerde görüyorum, ne diye kafamı karıştırıyorsun?"
+function inzivadaMi(durum) {
+  const d = (durum || "").toLocaleLowerCase("tr-TR");
+  return d.includes("inzivada") || d.includes("arafta");
+}
+
 // Tarihe göre grupla; 2+ kişilik gruplar multi şüphesidir.
 function grupla(liste, tarihAlani) {
   const gruplar = new Map();
@@ -881,12 +891,24 @@ function multiGruplariCiz() {
     });
   };
 
-  grupYaz("🔴 Birlikte ayrılanlar", grupla(hareketKayiplar, "giris_tarihi"), "Ayrılış");
-  grupYaz("🟢 Birlikte dönenler", grupla(inzivaDonusler, "cikis_tarihi"), "Dönüş");
+  // SADECE gerçekten inzivada/arafta olanlar. Seyahat edenler elenir —
+  // onlar masumdur ve zaten "Hareket" sekmesinde rotalarıyla görünürler.
+  const inzivadakiler = hareketKayiplar.filter((k) => inzivadaMi(k.durum));
+  const inzivadanDonenler = inzivaDonusler.filter((k) => inzivadaMi(k.durum));
 
-  kap.innerHTML = bloklar.length
+  grupYaz("🔒 Aynı gün İNZİVAYA GİRENLER", grupla(inzivadakiler, "giris_tarihi"), "İnzivaya girdiler");
+  grupYaz("🔓 Aynı gün İNZİVADAN ÇIKANLAR", grupla(inzivadanDonenler, "cikis_tarihi"), "Oyuna döndüler");
+
+  const elenen = hareketKayiplar.length - inzivadakiler.length;
+  const dipnot = elenen > 0
+    ? `<p class="bos-durum" style="margin-top:12px">ℹ️ Ayrıca ${elenen} kişi kasabalarımızda görünmüyor ama ` +
+      `<b>inzivada değil</b> (seyahatte / yolda / başka krallıkta). Seyahat masum kabul edildiği için ` +
+      `buraya alınmadılar — nereye gittiklerini <b>Hareket</b> sekmesinden görebilirsin.</p>`
+    : "";
+
+  kap.innerHTML = (bloklar.length
     ? bloklar.join("")
-    : `<p class="bos-durum">Aynı gün birlikte hareket eden grup tespit edilmedi.</p>`;
+    : `<p class="bos-durum">Aynı gün birlikte inzivaya giren/çıkan grup tespit edilmedi.</p>`) + dipnot;
 }
 
 function kayipTabloCiz() {
