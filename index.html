@@ -39,6 +39,9 @@
   <section id="tab-pazar" class="tab-panel active">
     <div class="pazar-arac-cubugu">
       <input type="text" id="pazar-arama" placeholder="Ürün ara... (örn. Bıçak)">
+      <select id="pazar-urun-filtre">
+        <option value="">▼ Ürün seç (aramadan)</option>
+      </select>
       <select id="pazar-kasaba-filtre">
         <option value="">Tüm kasabalar</option>
       </select>
@@ -65,6 +68,9 @@
     <div id="envanter-ozet" class="envanter-ozet"></div>
     <div class="pazar-arac-cubugu">
       <input type="text" id="envanter-arama" placeholder="Eşya ara... (örn. Kılıç, Akçe)">
+      <select id="envanter-esya-filtre">
+        <option value="">▼ Eşya seç (aramadan)</option>
+      </select>
       <select id="envanter-kasaba-filtre">
         <option value="">Tüm kasabalar</option>
       </select>
@@ -157,10 +163,13 @@
 
     <h3 class="hareket-alt-baslik">🎯 Eşzamanlı inziva hareketleri</h3>
     <p class="envanter-tarih-notu">
-      Aynı gün inzivaya giren (ve varsa aynı gün çıkan) tüm hesap çiftleri —
-      tek seferlik çakışmalar dahil hiçbiri elenmez (kral seçimi gibi olaylarda
-      multiler yalnızca bir kez birlikte hareket edebilir). Skor ve değerlendirme
-      <strong>yalnızca senin karar vermen için</strong>; dilekçede yer almaz.
+      <strong>Sadece gerçek inziva sayılır</strong> (profil kontrolüyle doğrulanmış).
+      Kasabadan kasabaya geçenler, ara noktadakiler ve İngiltere yolundakiler
+      masum kabul edilir, bu listeye hiç girmez — herkes seyahat edebilir.
+      Tek seferlik çakışmalar yine de elenmez (kral seçimi gibi olaylarda
+      multiler yalnızca bir kez birlikte hareket edebilir), ama düşük skorla
+      en altta kalır. Skor ve değerlendirme <strong>yalnızca senin karar vermen
+      için</strong>; dilekçede yer almaz.
     </p>
     <div id="multi-ciftler"></div>
 
