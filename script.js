@@ -77,6 +77,18 @@ async function pazarYukle() {
       secim.appendChild(opt);
     });
 
+    // [YENİ] Ürün seçme kutusu: aramaya gerek kalmadan "ne var ne yok"
+    // görebilmek için. Yanına kaç kasabada satıldığı yazılır.
+    const urunSayim = new Map();
+    pazarVerisi.forEach((u) => urunSayim.set(u.isim, (urunSayim.get(u.isim) || 0) + 1));
+    const urunSecim = document.getElementById("pazar-urun-filtre");
+    [...urunSayim.keys()].sort((a, b) => a.localeCompare(b, "tr")).forEach((isim) => {
+      const opt = document.createElement("option");
+      opt.value = isim;
+      opt.textContent = `${isim} (${urunSayim.get(isim)} ilan)`;
+      urunSecim.appendChild(opt);
+    });
+
     pazarTabloCiz();
   } catch (e) {
     document.getElementById("son-guncelleme-metni").textContent = "yüklenemedi";
@@ -87,11 +99,13 @@ async function pazarYukle() {
 function pazarTabloCiz() {
   const arama = document.getElementById("pazar-arama").value.trim().toLocaleLowerCase("tr-TR");
   const kasabaFiltre = document.getElementById("pazar-kasaba-filtre").value;
+  const urunFiltre = document.getElementById("pazar-urun-filtre").value;
 
   const filtreli = pazarVerisi.filter((u) => {
     const isimUyar = !arama || u.isim.toLocaleLowerCase("tr-TR").includes(arama);
+    const urunUyar = !urunFiltre || u.isim === urunFiltre;
     const kasabaUyar = !kasabaFiltre || u.kasaba === kasabaFiltre;
-    return isimUyar && kasabaUyar;
+    return isimUyar && urunUyar && kasabaUyar;
   });
 
   const govde = document.getElementById("pazar-tablo-govde");
@@ -107,6 +121,7 @@ function pazarTabloCiz() {
 
 document.getElementById("pazar-arama").addEventListener("input", pazarTabloCiz);
 document.getElementById("pazar-kasaba-filtre").addEventListener("change", pazarTabloCiz);
+document.getElementById("pazar-urun-filtre").addEventListener("change", pazarTabloCiz);
 
 // ---------------------------------------------------------
 // ENVANTER SEKMESİ
@@ -154,6 +169,24 @@ async function envanterYukle() {
       secim.appendChild(opt);
     });
 
+    // [YENİ] Eşya seçme kutusu: "kimin üstünde ne var" sorusunu aramaya
+    // gerek kalmadan yanıtlar. Yanında toplam adet ve kaç kişide olduğu yazar.
+    const esyaToplam = new Map();
+    const esyaKisi = new Map();
+    envanterSatirlari.forEach((s) => {
+      if (s.akceMi) return;
+      esyaToplam.set(s.isim, (esyaToplam.get(s.isim) || 0) + s.adet);
+      if (!esyaKisi.has(s.isim)) esyaKisi.set(s.isim, new Set());
+      esyaKisi.get(s.isim).add(s.karakter);
+    });
+    const esyaSecim = document.getElementById("envanter-esya-filtre");
+    [...esyaToplam.keys()].sort((a, b) => a.localeCompare(b, "tr")).forEach((isim) => {
+      const opt = document.createElement("option");
+      opt.value = isim;
+      opt.textContent = `${isim} — ${esyaToplam.get(isim)} adet / ${esyaKisi.get(isim).size} kişi`;
+      esyaSecim.appendChild(opt);
+    });
+
     envanterOzetCiz();
     envanterTabloCiz();
   } catch (e) {
@@ -183,6 +216,7 @@ function envanterOzetCiz() {
 function envanterTabloCiz() {
   const arama = document.getElementById("envanter-arama").value.trim().toLocaleLowerCase("tr-TR");
   const kasabaFiltre = document.getElementById("envanter-kasaba-filtre").value;
+  const esyaFiltre = document.getElementById("envanter-esya-filtre").value;
   const baslik = document.getElementById("envanter-tablo-baslik");
   const govde = document.getElementById("envanter-tablo-govde");
   const toplamEl = document.getElementById("envanter-toplam");
@@ -190,8 +224,8 @@ function envanterTabloCiz() {
   govde.innerHTML = "";
   toplamEl.innerHTML = "";
 
-  // --- Arama YOKKEN: karakter listesi (kasaba filtresi uygulanır) ---
-  if (!arama) {
+  // --- Ne arama ne de eşya seçimi YOKKEN: karakter listesi ---
+  if (!arama && !esyaFiltre) {
     baslik.innerHTML = "<tr><th>Karakter</th><th>Kasaba</th><th>Akçe</th><th>Eşya Çeşidi</th></tr>";
     const filtreli = envanterKarakterler.filter((k) => !kasabaFiltre || k.kasaba === kasabaFiltre);
 
@@ -213,12 +247,14 @@ function envanterTabloCiz() {
     return;
   }
 
-  // --- Arama VARKEN: eşya görünümü (pazar mantığı) ---
+  // --- Arama VEYA eşya seçimi VARKEN: eşya görünümü (pazar mantığı) ---
+  // Dropdown TAM ad eşleşmesi yapar, arama kutusu kısmi arar.
   baslik.innerHTML = "<tr><th>Adet</th><th>Eşya</th><th>Karakter</th><th>Kasaba</th></tr>";
   const filtreli = envanterSatirlari.filter((s) => {
-    const isimUyar = s.isim.toLocaleLowerCase("tr-TR").includes(arama);
+    const isimUyar = !arama || s.isim.toLocaleLowerCase("tr-TR").includes(arama);
+    const esyaUyar = !esyaFiltre || s.isim === esyaFiltre;
     const kasabaUyar = !kasabaFiltre || s.kasaba === kasabaFiltre;
-    return isimUyar && kasabaUyar;
+    return isimUyar && esyaUyar && kasabaUyar;
   });
 
   [...filtreli]
@@ -269,6 +305,7 @@ function envanterTabloCiz() {
 
 document.getElementById("envanter-arama").addEventListener("input", envanterTabloCiz);
 document.getElementById("envanter-kasaba-filtre").addEventListener("change", envanterTabloCiz);
+document.getElementById("envanter-esya-filtre").addEventListener("change", envanterTabloCiz);
 
 // ---------------------------------------------------------
 // GELİŞİM SEKMESİ
@@ -396,12 +433,22 @@ document.getElementById("gelisim-kasaba-filtre").addEventListener("change", geli
 let hareketKayitlari = [];
 let hareketKayiplar = [];
 
-const KASABA_DISI_ETIKETLER = ["Şehir Dışı", "İnzivada", "Arafta", "Öldü", "Ara Nokta", "Profil Yok", "Bilinmiyor"];
+// Kasaba OLMAYAN konum etiketleri. "Ara Nokta (...)" ve yön tahminleri
+// (İngiltere yolu, Glasgow-Girvan arası) de buraya dahildir.
+const KASABA_DISI_ETIKETLER = [
+  "Şehir Dışı", "İnzivada", "Arafta", "Öldü", "Profil Yok", "Bilinmiyor",
+  "İngiltere yolu", "Glasgow-Girvan arası",
+];
+
+function kasabaDisiMi(konum) {
+  return KASABA_DISI_ETIKETLER.includes(konum) || (konum || "").startsWith("Ara Nokta");
+}
 
 function konumRozetSinifi(konum) {
   if (konum === "İnzivada" || konum === "Arafta") return "konum-rozet konum-inziva";
   if (konum === "Öldü" || konum === "Profil Yok") return "konum-rozet konum-oldu";
-  if (KASABA_DISI_ETIKETLER.includes(konum)) return "konum-rozet konum-disari";
+  // Yolda olanlar (ara nokta / yön tahmini) — inzivadan ayırt edilsin
+  if (kasabaDisiMi(konum)) return "konum-rozet konum-disari";
   return "konum-rozet";
 }
 
@@ -446,7 +493,7 @@ async function hareketYukle() {
 function hareketOzetCiz() {
   const toplam = hareketKayitlari.length;
   const cokHareketli = hareketKayitlari.filter((k) => k.hareket_sayisi >= 2).length;
-  const disarida = hareketKayitlari.filter((k) => KASABA_DISI_ETIKETLER.includes(k.su_anki_konum)).length;
+  const disarida = hareketKayitlari.filter((k) => kasabaDisiMi(k.su_anki_konum)).length;
 
   document.getElementById("hareket-ozet").innerHTML =
     `<div class="ozet-kart ozet-kart-toplam"><span class="ozet-etiket">🔄 Hareket eden</span><span class="ozet-deger">${toplam}</span></div>` +
@@ -514,14 +561,37 @@ function oneCikanlariCiz() {
   const kap = document.getElementById("one-cikanlar");
   const dikkat = multiCiftler.filter((c) => c.skor >= 3);
 
+  // Henüz kanıt oluşmadıysa bile "ne izleniyor" bilgisini ver: aynı gün
+  // inzivaya girmiş gruplar, çıkış günü geldiğinde asıl puanı alacak.
+  const izlenen = new Map();
+  hareketKayiplar
+    .filter((k) => k.durum === "İnzivada")
+    .forEach((k) => {
+      const t = k.giris_tarihi || "?";
+      if (!izlenen.has(t)) izlenen.set(t, []);
+      izlenen.get(t).push(k.karakter);
+    });
+  const izlemeBloklari = [...izlenen.entries()]
+    .filter(([, kisiler]) => kisiler.length > 1)
+    .sort((a, b) => b[0].localeCompare(a[0]))
+    .map(([tarih, kisiler]) =>
+      `<p class="bulgu-satir">⏳ <strong>${tarih}</strong> tarihinde <strong>${kisiler.length} hesap</strong> ` +
+      `birlikte inzivaya girdi: ${kisiler.join(", ")}. ` +
+      `<em>Çıkış günleri bekleniyor — aynı gün çıkarlarsa puanları yükselecek.</em></p>`);
+
   if (!dikkat.length && !multiKumeler.length) {
-    kap.innerHTML =
-      `<p class="bos-durum">Bugün dikkate değer bir bulgu yok. ` +
-      `Kayıtlar tutulmaya devam ediyor — aynı hesaplar tekrar birlikte hareket ederse burada görünecek.</p>`;
+    kap.innerHTML = izlemeBloklari.length
+      ? `<div class="bulgu-blok"><h4>👀 İzlemedekiler</h4>${izlemeBloklari.join("")}` +
+        `<p class="bulgu-not">Henüz kanıt sayılacak bir tekrar veya eşzamanlı çıkış yok. ` +
+        `Bu gruplar aynı gün inzivadan çıkarsa otomatik olarak "dikkate değer"e yükselir.</p></div>`
+      : `<p class="bos-durum">Bugün dikkate değer bir bulgu yok. ` +
+        `Kayıtlar tutulmaya devam ediyor — aynı hesaplar tekrar birlikte inzivaya girerse burada görünecek.</p>`;
     return;
   }
 
-  let html = "";
+  let html = izlemeBloklari.length
+    ? `<div class="bulgu-blok"><h4>👀 İzlemedekiler</h4>${izlemeBloklari.join("")}</div>`
+    : "";
 
   if (multiKumeler.length) {
     html += `<div class="bulgu-blok">` +
@@ -629,31 +699,35 @@ function multiCiftleriCiz() {
   }
 
   kap.innerHTML = multiCiftler.map((c, i) => {
-    const donemler = c.ortak_donemler.map((o) =>
-      o.tam
-        ? `<li><strong>${o.giris} → ${o.cikis}</strong> <span class="tam-eslesme">giriş ve çıkış aynı gün ✓</span></li>`
-        : `<li>${o.giris} → <span class="fark">(çıkış eşleşmedi / hâlâ dışarıda)</span></li>`
-    ).join("");
+    // Dönem satırları: artık SADECE inziva dönemleri (kasaba değişimi yok)
+    const donemler = c.ortak_donemler.map((o) => {
+      const giris = (o.giris_fark === 0 || o.giris_fark === undefined)
+        ? `<strong>${o.giris}</strong>`
+        : `${o.giris} / ${o.giris2} <span class="fark">(${o.giris_fark} gün fark)</span>`;
+      const cikis = o.ayni_cikis
+        ? `<strong>${o.cikis}</strong> <span class="tam-eslesme">aynı gün ✓</span>` +
+          (o.ayni_donus_kasabasi ? ` <span class="tam-eslesme">— ${o.donus_kasaba}'da buluştular</span>` : "")
+        : `<span class="fark">${o.cikis || "hâlâ inzivada"}</span>`;
+      return `<li>İnzivaya giriş: ${giris} &nbsp;→&nbsp; çıkış: ${cikis}</li>`;
+    }).join("");
 
     const rozetler =
       `<span class="skor-rozet ${skorSinifi(c.degerlendirme)}">${c.degerlendirme} · skor ${c.skor}</span>` +
-      `<span class="skor-rozet">${c.eslesme_sayisi} kez aynı gün kasabadan ayrıldı</span>` +
-      (c.tam_eslesme ? `<span class="skor-rozet skor-tam">${c.tam_eslesme} kez aynı gün geri döndü</span>` : "") +
+      `<span class="skor-rozet">${c.eslesme_sayisi} kez birlikte inzivada</span>` +
+      (c.tam_eslesme ? `<span class="skor-rozet skor-tam">${c.tam_eslesme} kez aynı gün çıkış</span>` : "") +
       (c.ayni_aile ? `<span class="skor-rozet skor-kirmizi">Aynı aile</span>` : "") +
       (c.ayni_kayit_donemi
         ? `<span class="skor-rozet skor-kirmizi">${c.kayit_fark_gun} gün arayla açılmış</span>`
         : "");
 
-    const not = (c.tam_eslesme >= 2 && !c.ayni_aile)
-      ? `<p class="multi-uyari">💡 Aile bağı yok ama ${c.tam_eslesme} kez birebir aynı tarihlerde girip çıkmışlar — bağ kurulmasın diye ayrı ailelere girmiş olabilirler.</p>`
+    const not = (c.gerekceler && c.gerekceler.length)
+      ? `<p class="multi-uyari">💡 ${c.gerekceler.join(" · ")}</p>`
       : "";
 
-    // Dilekçeye dahil etme kutusu. Varsayılan olarak SADECE dikkate değer
-    // vakalar işaretli gelir (tekrar eden eşzamanlılık, aynı aile veya yakın
-    // kayıt tarihi). "Zayıf (tek gözlem)" olanlar işaretsiz gelir — yoksa
-    // dilekçe, tek bir günün rastgele eşleşmeleriyle dolup anlamsızlaşıyor.
-    // İstersen tek tıkla ekleyebilirsin.
-    const dikkateDeger = c.skor >= 3;
+    // Dilekçeye dahil etme kutusu. Varsayılan olarak "Orta" ve üstü
+    // (skor >= 30) işaretli gelir — yoksa dilekçe tek seferlik rastgele
+    // çakışmalarla dolup anlamsızlaşıyor. İstersen tek tıkla eklersin.
+    const dikkateDeger = c.skor >= 30;
     const secim = dilekceVakasiVarMi(c)
       ? `<label class="cift-secim"><input type="checkbox" class="dilekce-sec" data-index="${i}"${dikkateDeger ? " checked" : ""}> Dilekçeye ekle</label>`
       : `<span class="cift-secim fark">(dilekçe listesinin dışında)</span>`;
