@@ -558,3 +558,63 @@ tbody tr:hover { background: var(--bg-panel-2); }
 .sehir-nokta.secili {
   fill: var(--danger);
 }
+
+/* ---------------------------------------------------------------
+   BİRLİKTE HAREKET EDEN GRUPLAR (multi kümeleri) — İnziva sekmesinin
+   EN TEPESİ. Kullanıcı isteği (04.08.2026): "toplu grup listesini en
+   ilk sırada büyük göreyim." Kırmızı vurgulu, üyeler etiket (chip) hâlinde.
+   --------------------------------------------------------------- */
+.kume-bolum {
+  margin-bottom: 20px;
+}
+.kume-bolum-baslik {
+  color: var(--danger);
+  font-size: 1.15rem;
+  margin: 0 0 12px;
+}
+.kume-karti {
+  border: 1px solid var(--border);
+  border-left: 5px solid var(--danger);
+  border-radius: 8px;
+  background: var(--bg-panel-2);
+  padding: 12px 14px;
+  margin-bottom: 12px;
+}
+.kume-baslik {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.kume-rozet {
+  background: var(--danger);
+  color: #fff;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 6px;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+}
+.kume-skor {
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+.kume-uyeler {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.kume-uye {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  padding: 3px 9px;
+  font-size: 0.85rem;
+  color: var(--text);
+}
+.kume-tarih {
+  margin-top: 10px;
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
