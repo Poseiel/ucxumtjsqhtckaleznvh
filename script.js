@@ -589,17 +589,36 @@ function oneCikanlariCiz() {
     return;
   }
 
-  let html = izlemeBloklari.length
-    ? `<div class="bulgu-blok"><h4>👀 İzlemedekiler</h4>${izlemeBloklari.join("")}</div>`
-    : "";
+  let html = "";
 
+  // [04.08.2026 - kullanıcı isteği] KÜMELER EN ÜSTTE, BÜYÜK ve AYRI kart.
+  // Asıl "büyük resim" budur: "şu N hesap tek grup hâlinde hareket ediyor"
+  // (ör. 22 kişilik grup). Eskiden tek satırdı ve 235 çiftin arasında
+  // kayboluyordu; kullanıcı "toplu listeyi göremiyorum, en ilk sırada
+  // göreyim" dedi. Her üye ayrı bir etiket (chip) olarak gösterilir.
   if (multiKumeler.length) {
-    html += `<div class="bulgu-blok">` +
-      `<h4>👥 Birlikte hareket eden gruplar</h4>` +
-      multiKumeler.map((k) =>
-        `<p class="bulgu-satir"><strong>${k.kisi_sayisi} hesap:</strong> ${k.aciklama.replace(/^[^:]*:\s*/, "")}</p>`
-      ).join("") +
-      `</div>`;
+    html += `<div class="kume-bolum">` +
+      `<h3 class="kume-bolum-baslik">🚨 Birlikte hareket eden gruplar (${multiKumeler.length})</h3>`;
+    html += multiKumeler.map((k) => {
+      const uyeler = k.uyeler || [];
+      const tarihStr = (k.tarihler && k.tarihler.length) ? k.tarihler.join(", ") : "";
+      return `<div class="kume-karti">` +
+        `<div class="kume-baslik">` +
+          `<span class="kume-rozet">${k.kisi_sayisi} HESAP</span>` +
+          (k.en_yuksek_skor ? `<span class="kume-skor">en yüksek skor ${k.en_yuksek_skor}</span>` : "") +
+        `</div>` +
+        `<div class="kume-uyeler">` +
+          uyeler.map((u) => `<span class="kume-uye">${u}</span>`).join("") +
+        `</div>` +
+        (tarihStr ? `<div class="kume-tarih">📅 Aynı gün inzivaya girdikleri tarih(ler): <strong>${tarihStr}</strong></div>` : "") +
+        `</div>`;
+    }).join("");
+    html += `</div>`;
+  }
+
+  // İzlemedekiler (henüz çıkış günü gelmemiş, aynı gün girenler) — kümelerin ALTINDA
+  if (izlemeBloklari.length) {
+    html += `<div class="bulgu-blok"><h4>👀 İzlemedekiler</h4>${izlemeBloklari.join("")}</div>`;
   }
 
   if (dikkat.length) {
