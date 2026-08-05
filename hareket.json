@@ -1,8 +1,8 @@
 {
-  "son_guncelleme": "2026-08-04 21:59",
+  "son_guncelleme": "2026-08-05 17:11",
   "gun_sayisi": 6,
-  "ilk_gun": "2026-07-30",
-  "son_gun": "2026-08-04",
+  "ilk_gun": "2026-07-31",
+  "son_gun": "2026-08-05",
   "kayitlar": [
     {
       "karakter": "astridia",
@@ -10,7 +10,7 @@
       "rota": [
         {
           "konum": "Wigtown",
-          "tarih": "2026-07-30"
+          "tarih": "2026-07-31"
         },
         {
           "konum": "Girvan",
@@ -27,10 +27,6 @@
       ],
       "hareket_sayisi": 3,
       "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "Wigtown"
-        },
         {
           "tarih": "2026-07-31",
           "konum": "Wigtown"
@@ -50,6 +46,106 @@
         {
           "tarih": "2026-08-04",
           "konum": "Glasgow"
+        },
+        {
+          "tarih": "2026-08-05",
+          "konum": "Glasgow"
+        }
+      ],
+      "durum": ""
+    },
+    {
+      "karakter": "partal",
+      "su_anki_konum": "Glasgow",
+      "rota": [
+        {
+          "konum": "Glasgow",
+          "tarih": "2026-07-31"
+        },
+        {
+          "konum": "Ardencaple",
+          "tarih": "2026-08-03"
+        },
+        {
+          "konum": "Stirling",
+          "tarih": "2026-08-04"
+        },
+        {
+          "konum": "Glasgow",
+          "tarih": "2026-08-05"
+        }
+      ],
+      "hareket_sayisi": 3,
+      "gunluk": [
+        {
+          "tarih": "2026-07-31",
+          "konum": "Glasgow"
+        },
+        {
+          "tarih": "2026-08-01",
+          "konum": "Glasgow"
+        },
+        {
+          "tarih": "2026-08-02",
+          "konum": "Glasgow"
+        },
+        {
+          "tarih": "2026-08-03",
+          "konum": "Ardencaple"
+        },
+        {
+          "tarih": "2026-08-04",
+          "konum": "Stirling"
+        },
+        {
+          "tarih": "2026-08-05",
+          "konum": "Glasgow"
+        }
+      ],
+      "durum": ""
+    },
+    {
+      "karakter": "cameliae",
+      "su_anki_konum": "Wigtown",
+      "rota": [
+        {
+          "konum": "Wigtown",
+          "tarih": "2026-07-31"
+        },
+        {
+          "konum": "Girvan",
+          "tarih": "2026-08-04"
+        },
+        {
+          "konum": "Wigtown",
+          "tarih": "2026-08-05"
+        }
+      ],
+      "hareket_sayisi": 2,
+      "gunluk": [
+        {
+          "tarih": "2026-07-31",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-01",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-02",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-03",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-04",
+          "konum": "Girvan"
+        },
+        {
+          "tarih": "2026-08-05",
+          "konum": "Wigtown"
         }
       ],
       "durum": ""
@@ -59,10 +155,6 @@
       "su_anki_konum": "Girvan",
       "rota": [
         {
-          "konum": "İngiltere yolu",
-          "tarih": "2026-07-30"
-        },
-        {
           "konum": "Kirkcudbright",
           "tarih": "2026-07-31"
         },
@@ -73,179 +165,79 @@
         {
           "konum": "Girvan",
           "tarih": "2026-08-03"
-        }
-      ],
-      "hareket_sayisi": 3,
-      "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "İngiltere yolu"
-        },
-        {
-          "tarih": "2026-07-31",
-          "konum": "Kirkcudbright"
-        },
-        {
-          "tarih": "2026-08-01",
-          "konum": "Wigtown"
-        },
-        {
-          "tarih": "2026-08-02",
-          "konum": "Wigtown"
-        },
-        {
-          "tarih": "2026-08-03",
-          "konum": "Girvan"
-        },
-        {
-          "tarih": "2026-08-04",
-          "konum": "Girvan"
-        }
-      ],
-      "durum": ""
-    },
-    {
-      "karakter": "syfer",
-      "su_anki_konum": "Girvan",
-      "rota": [
-        {
-          "konum": "Kirkcudbright",
-          "tarih": "2026-07-30"
-        },
-        {
-          "konum": "Wigtown",
-          "tarih": "2026-07-31"
-        },
-        {
-          "konum": "Whithorn",
-          "tarih": "2026-08-01"
-        },
-        {
-          "konum": "Girvan",
-          "tarih": "2026-08-02"
-        }
-      ],
-      "hareket_sayisi": 3,
-      "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "Kirkcudbright"
-        },
-        {
-          "tarih": "2026-07-31",
-          "konum": "Wigtown"
-        },
-        {
-          "tarih": "2026-08-01",
-          "konum": "Whithorn"
-        },
-        {
-          "tarih": "2026-08-02",
-          "konum": "Girvan"
-        },
-        {
-          "tarih": "2026-08-03",
-          "konum": "Girvan"
-        },
-        {
-          "tarih": "2026-08-04",
-          "konum": "Girvan"
-        }
-      ],
-      "durum": ""
-    },
-    {
-      "karakter": "valeriha",
-      "su_anki_konum": "Girvan",
-      "rota": [
-        {
-          "konum": "İngiltere yolu",
-          "tarih": "2026-07-30"
-        },
-        {
-          "konum": "Kirkcudbright",
-          "tarih": "2026-07-31"
-        },
-        {
-          "konum": "Wigtown",
-          "tarih": "2026-08-01"
-        },
-        {
-          "konum": "Girvan",
-          "tarih": "2026-08-03"
-        }
-      ],
-      "hareket_sayisi": 3,
-      "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "İngiltere yolu"
-        },
-        {
-          "tarih": "2026-07-31",
-          "konum": "Kirkcudbright"
-        },
-        {
-          "tarih": "2026-08-01",
-          "konum": "Wigtown"
-        },
-        {
-          "tarih": "2026-08-02",
-          "konum": "Wigtown"
-        },
-        {
-          "tarih": "2026-08-03",
-          "konum": "Girvan"
-        },
-        {
-          "tarih": "2026-08-04",
-          "konum": "Girvan"
-        }
-      ],
-      "durum": ""
-    },
-    {
-      "karakter": "bisdak",
-      "su_anki_konum": "Wigtown",
-      "rota": [
-        {
-          "konum": "Girvan",
-          "tarih": "2026-07-30"
-        },
-        {
-          "konum": "Whithorn",
-          "tarih": "2026-07-31"
-        },
-        {
-          "konum": "Wigtown",
-          "tarih": "2026-08-04"
         }
       ],
       "hareket_sayisi": 2,
       "gunluk": [
         {
-          "tarih": "2026-07-30",
-          "konum": "Girvan"
-        },
-        {
           "tarih": "2026-07-31",
-          "konum": "Whithorn"
+          "konum": "Kirkcudbright"
         },
         {
           "tarih": "2026-08-01",
-          "konum": "Whithorn"
+          "konum": "Wigtown"
         },
         {
           "tarih": "2026-08-02",
-          "konum": "Whithorn"
+          "konum": "Wigtown"
         },
         {
           "tarih": "2026-08-03",
-          "konum": "Whithorn"
+          "konum": "Girvan"
+        },
+        {
+          "tarih": "2026-08-04",
+          "konum": "Girvan"
+        },
+        {
+          "tarih": "2026-08-05",
+          "konum": "Girvan"
+        }
+      ],
+      "durum": ""
+    },
+    {
+      "karakter": "dondina",
+      "su_anki_konum": "Whithorn",
+      "rota": [
+        {
+          "konum": "İnzivada",
+          "tarih": "2026-07-31"
+        },
+        {
+          "konum": "Wigtown",
+          "tarih": "2026-08-04"
+        },
+        {
+          "konum": "Whithorn",
+          "tarih": "2026-08-05"
+        }
+      ],
+      "hareket_sayisi": 2,
+      "gunluk": [
+        {
+          "tarih": "2026-07-31",
+          "konum": "İnzivada"
+        },
+        {
+          "tarih": "2026-08-01",
+          "konum": "İnzivada"
+        },
+        {
+          "tarih": "2026-08-02",
+          "konum": "İnzivada"
+        },
+        {
+          "tarih": "2026-08-03",
+          "konum": "İnzivada"
         },
         {
           "tarih": "2026-08-04",
           "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-05",
+          "konum": "Whithorn"
         }
       ],
       "durum": ""
@@ -256,7 +248,7 @@
       "rota": [
         {
           "konum": "İnzivada",
-          "tarih": "2026-07-30"
+          "tarih": "2026-07-31"
         },
         {
           "konum": "Wigtown",
@@ -269,10 +261,6 @@
       ],
       "hareket_sayisi": 2,
       "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "İnzivada"
-        },
         {
           "tarih": "2026-07-31",
           "konum": "İnzivada"
@@ -291,6 +279,56 @@
         },
         {
           "tarih": "2026-08-04",
+          "konum": "Girvan"
+        },
+        {
+          "tarih": "2026-08-05",
+          "konum": "Girvan"
+        }
+      ],
+      "durum": ""
+    },
+    {
+      "karakter": "loren.zo.",
+      "su_anki_konum": "Girvan",
+      "rota": [
+        {
+          "konum": "Glasgow",
+          "tarih": "2026-07-31"
+        },
+        {
+          "konum": "Glasgow-Girvan arası",
+          "tarih": "2026-08-04"
+        },
+        {
+          "konum": "Girvan",
+          "tarih": "2026-08-05"
+        }
+      ],
+      "hareket_sayisi": 2,
+      "gunluk": [
+        {
+          "tarih": "2026-07-31",
+          "konum": "Glasgow"
+        },
+        {
+          "tarih": "2026-08-01",
+          "konum": "Glasgow"
+        },
+        {
+          "tarih": "2026-08-02",
+          "konum": "Glasgow"
+        },
+        {
+          "tarih": "2026-08-03",
+          "konum": "Glasgow"
+        },
+        {
+          "tarih": "2026-08-04",
+          "konum": "Glasgow-Girvan arası"
+        },
+        {
+          "tarih": "2026-08-05",
           "konum": "Girvan"
         }
       ],
@@ -302,7 +340,7 @@
       "rota": [
         {
           "konum": "İnzivada",
-          "tarih": "2026-07-30"
+          "tarih": "2026-07-31"
         },
         {
           "konum": "Girvan",
@@ -315,10 +353,6 @@
       ],
       "hareket_sayisi": 2,
       "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "İnzivada"
-        },
         {
           "tarih": "2026-07-31",
           "konum": "İnzivada"
@@ -337,6 +371,10 @@
         },
         {
           "tarih": "2026-08-04",
+          "konum": "Whithorn"
+        },
+        {
+          "tarih": "2026-08-05",
           "konum": "Whithorn"
         }
       ],
@@ -348,7 +386,7 @@
       "rota": [
         {
           "konum": "Girvan",
-          "tarih": "2026-07-30"
+          "tarih": "2026-07-31"
         },
         {
           "konum": "Wigtown",
@@ -361,10 +399,6 @@
       ],
       "hareket_sayisi": 2,
       "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "Girvan"
-        },
         {
           "tarih": "2026-07-31",
           "konum": "Girvan"
@@ -383,6 +417,10 @@
         },
         {
           "tarih": "2026-08-04",
+          "konum": "Girvan"
+        },
+        {
+          "tarih": "2026-08-05",
           "konum": "Girvan"
         }
       ],
@@ -394,7 +432,7 @@
       "rota": [
         {
           "konum": "Kirkcudbright",
-          "tarih": "2026-07-30"
+          "tarih": "2026-07-31"
         },
         {
           "konum": "İnzivada",
@@ -407,10 +445,6 @@
       ],
       "hareket_sayisi": 2,
       "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "Kirkcudbright"
-        },
         {
           "tarih": "2026-07-31",
           "konum": "Kirkcudbright"
@@ -430,55 +464,239 @@
         {
           "tarih": "2026-08-04",
           "konum": "Kirkcudbright"
+        },
+        {
+          "tarih": "2026-08-05",
+          "konum": "Kirkcudbright"
         }
       ],
       "durum": ""
     },
     {
-      "karakter": "partal",
-      "su_anki_konum": "Stirling",
+      "karakter": "pilone",
+      "su_anki_konum": "Girvan",
       "rota": [
         {
-          "konum": "Glasgow",
-          "tarih": "2026-07-30"
+          "konum": "İnzivada",
+          "tarih": "2026-07-31"
         },
         {
-          "konum": "Ardencaple",
-          "tarih": "2026-08-03"
-        },
-        {
-          "konum": "Stirling",
+          "konum": "Wigtown",
           "tarih": "2026-08-04"
+        },
+        {
+          "konum": "Girvan",
+          "tarih": "2026-08-05"
         }
       ],
       "hareket_sayisi": 2,
       "gunluk": [
         {
-          "tarih": "2026-07-30",
-          "konum": "Glasgow"
-        },
-        {
           "tarih": "2026-07-31",
-          "konum": "Glasgow"
+          "konum": "İnzivada"
         },
         {
           "tarih": "2026-08-01",
-          "konum": "Glasgow"
+          "konum": "İnzivada"
         },
         {
           "tarih": "2026-08-02",
-          "konum": "Glasgow"
+          "konum": "İnzivada"
         },
         {
           "tarih": "2026-08-03",
-          "konum": "Ardencaple"
+          "konum": "İnzivada"
         },
         {
           "tarih": "2026-08-04",
-          "konum": "Stirling"
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-05",
+          "konum": "Girvan"
         }
       ],
       "durum": ""
+    },
+    {
+      "karakter": "sciascia",
+      "su_anki_konum": "Girvan",
+      "rota": [
+        {
+          "konum": "İnzivada",
+          "tarih": "2026-07-31"
+        },
+        {
+          "konum": "Wigtown",
+          "tarih": "2026-08-03"
+        },
+        {
+          "konum": "Girvan",
+          "tarih": "2026-08-05"
+        }
+      ],
+      "hareket_sayisi": 2,
+      "gunluk": [
+        {
+          "tarih": "2026-07-31",
+          "konum": "İnzivada"
+        },
+        {
+          "tarih": "2026-08-01",
+          "konum": "İnzivada"
+        },
+        {
+          "tarih": "2026-08-02",
+          "konum": "İnzivada"
+        },
+        {
+          "tarih": "2026-08-03",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-04",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-05",
+          "konum": "Girvan"
+        }
+      ],
+      "durum": ""
+    },
+    {
+      "karakter": "syfer",
+      "su_anki_konum": "Girvan",
+      "rota": [
+        {
+          "konum": "Wigtown",
+          "tarih": "2026-07-31"
+        },
+        {
+          "konum": "Whithorn",
+          "tarih": "2026-08-01"
+        },
+        {
+          "konum": "Girvan",
+          "tarih": "2026-08-02"
+        }
+      ],
+      "hareket_sayisi": 2,
+      "gunluk": [
+        {
+          "tarih": "2026-07-31",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-01",
+          "konum": "Whithorn"
+        },
+        {
+          "tarih": "2026-08-02",
+          "konum": "Girvan"
+        },
+        {
+          "tarih": "2026-08-03",
+          "konum": "Girvan"
+        },
+        {
+          "tarih": "2026-08-04",
+          "konum": "Girvan"
+        },
+        {
+          "tarih": "2026-08-05",
+          "konum": "Girvan"
+        }
+      ],
+      "durum": ""
+    },
+    {
+      "karakter": "valeriha",
+      "su_anki_konum": "Girvan",
+      "rota": [
+        {
+          "konum": "Kirkcudbright",
+          "tarih": "2026-07-31"
+        },
+        {
+          "konum": "Wigtown",
+          "tarih": "2026-08-01"
+        },
+        {
+          "konum": "Girvan",
+          "tarih": "2026-08-03"
+        }
+      ],
+      "hareket_sayisi": 2,
+      "gunluk": [
+        {
+          "tarih": "2026-07-31",
+          "konum": "Kirkcudbright"
+        },
+        {
+          "tarih": "2026-08-01",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-02",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-03",
+          "konum": "Girvan"
+        },
+        {
+          "tarih": "2026-08-04",
+          "konum": "Girvan"
+        },
+        {
+          "tarih": "2026-08-05",
+          "konum": "Girvan"
+        }
+      ],
+      "durum": ""
+    },
+    {
+      "karakter": "al_lan",
+      "su_anki_konum": "İnzivada",
+      "rota": [
+        {
+          "konum": "Wigtown",
+          "tarih": "2026-07-31"
+        },
+        {
+          "konum": "İnzivada",
+          "tarih": "2026-08-05"
+        }
+      ],
+      "hareket_sayisi": 1,
+      "gunluk": [
+        {
+          "tarih": "2026-07-31",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-01",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-02",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-03",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-04",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-05",
+          "konum": "İnzivada"
+        }
+      ],
+      "durum": "İnzivada"
     },
     {
       "karakter": "alanclarks99",
@@ -486,7 +704,7 @@
       "rota": [
         {
           "konum": "Kirkcudbright",
-          "tarih": "2026-07-30"
+          "tarih": "2026-07-31"
         },
         {
           "konum": "Wigtown",
@@ -495,10 +713,6 @@
       ],
       "hareket_sayisi": 1,
       "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "Kirkcudbright"
-        },
         {
           "tarih": "2026-07-31",
           "konum": "Kirkcudbright"
@@ -517,6 +731,10 @@
         },
         {
           "tarih": "2026-08-04",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-05",
           "konum": "Wigtown"
         }
       ],
@@ -528,7 +746,7 @@
       "rota": [
         {
           "konum": "İnzivada",
-          "tarih": "2026-07-30"
+          "tarih": "2026-07-31"
         },
         {
           "konum": "Wigtown",
@@ -537,10 +755,6 @@
       ],
       "hareket_sayisi": 1,
       "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "İnzivada"
-        },
         {
           "tarih": "2026-07-31",
           "konum": "İnzivada"
@@ -559,6 +773,10 @@
         },
         {
           "tarih": "2026-08-04",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-05",
           "konum": "Wigtown"
         }
       ],
@@ -570,7 +788,7 @@
       "rota": [
         {
           "konum": "İnzivada",
-          "tarih": "2026-07-30"
+          "tarih": "2026-07-31"
         },
         {
           "konum": "Wigtown",
@@ -579,10 +797,6 @@
       ],
       "hareket_sayisi": 1,
       "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "İnzivada"
-        },
         {
           "tarih": "2026-07-31",
           "konum": "İnzivada"
@@ -601,6 +815,10 @@
         },
         {
           "tarih": "2026-08-04",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-05",
           "konum": "Wigtown"
         }
       ],
@@ -612,7 +830,7 @@
       "rota": [
         {
           "konum": "Glasgow",
-          "tarih": "2026-07-30"
+          "tarih": "2026-07-31"
         },
         {
           "konum": "İnzivada",
@@ -621,10 +839,6 @@
       ],
       "hareket_sayisi": 1,
       "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "Glasgow"
-        },
         {
           "tarih": "2026-07-31",
           "konum": "Glasgow"
@@ -644,9 +858,55 @@
         {
           "tarih": "2026-08-04",
           "konum": "İnzivada"
+        },
+        {
+          "tarih": "2026-08-05",
+          "konum": "İnzivada"
         }
       ],
       "durum": "İnzivada"
+    },
+    {
+      "karakter": "bisdak",
+      "su_anki_konum": "Wigtown",
+      "rota": [
+        {
+          "konum": "Whithorn",
+          "tarih": "2026-07-31"
+        },
+        {
+          "konum": "Wigtown",
+          "tarih": "2026-08-04"
+        }
+      ],
+      "hareket_sayisi": 1,
+      "gunluk": [
+        {
+          "tarih": "2026-07-31",
+          "konum": "Whithorn"
+        },
+        {
+          "tarih": "2026-08-01",
+          "konum": "Whithorn"
+        },
+        {
+          "tarih": "2026-08-02",
+          "konum": "Whithorn"
+        },
+        {
+          "tarih": "2026-08-03",
+          "konum": "Whithorn"
+        },
+        {
+          "tarih": "2026-08-04",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-05",
+          "konum": "Wigtown"
+        }
+      ],
+      "durum": ""
     },
     {
       "karakter": "blodwyn",
@@ -654,7 +914,7 @@
       "rota": [
         {
           "konum": "İnzivada",
-          "tarih": "2026-07-30"
+          "tarih": "2026-07-31"
         },
         {
           "konum": "Girvan",
@@ -663,10 +923,6 @@
       ],
       "hareket_sayisi": 1,
       "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "İnzivada"
-        },
         {
           "tarih": "2026-07-31",
           "konum": "İnzivada"
@@ -686,47 +942,9 @@
         {
           "tarih": "2026-08-04",
           "konum": "Girvan"
-        }
-      ],
-      "durum": ""
-    },
-    {
-      "karakter": "cameliae",
-      "su_anki_konum": "Girvan",
-      "rota": [
-        {
-          "konum": "Wigtown",
-          "tarih": "2026-07-30"
         },
         {
-          "konum": "Girvan",
-          "tarih": "2026-08-04"
-        }
-      ],
-      "hareket_sayisi": 1,
-      "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "Wigtown"
-        },
-        {
-          "tarih": "2026-07-31",
-          "konum": "Wigtown"
-        },
-        {
-          "tarih": "2026-08-01",
-          "konum": "Wigtown"
-        },
-        {
-          "tarih": "2026-08-02",
-          "konum": "Wigtown"
-        },
-        {
-          "tarih": "2026-08-03",
-          "konum": "Wigtown"
-        },
-        {
-          "tarih": "2026-08-04",
+          "tarih": "2026-08-05",
           "konum": "Girvan"
         }
       ],
@@ -738,7 +956,7 @@
       "rota": [
         {
           "konum": "İnzivada",
-          "tarih": "2026-07-30"
+          "tarih": "2026-07-31"
         },
         {
           "konum": "Wigtown",
@@ -748,10 +966,6 @@
       "hareket_sayisi": 1,
       "gunluk": [
         {
-          "tarih": "2026-07-30",
-          "konum": "İnzivada"
-        },
-        {
           "tarih": "2026-07-31",
           "konum": "İnzivada"
         },
@@ -770,47 +984,9 @@
         {
           "tarih": "2026-08-04",
           "konum": "Wigtown"
-        }
-      ],
-      "durum": ""
-    },
-    {
-      "karakter": "dondina",
-      "su_anki_konum": "Wigtown",
-      "rota": [
-        {
-          "konum": "İnzivada",
-          "tarih": "2026-07-30"
         },
         {
-          "konum": "Wigtown",
-          "tarih": "2026-08-04"
-        }
-      ],
-      "hareket_sayisi": 1,
-      "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "İnzivada"
-        },
-        {
-          "tarih": "2026-07-31",
-          "konum": "İnzivada"
-        },
-        {
-          "tarih": "2026-08-01",
-          "konum": "İnzivada"
-        },
-        {
-          "tarih": "2026-08-02",
-          "konum": "İnzivada"
-        },
-        {
-          "tarih": "2026-08-03",
-          "konum": "İnzivada"
-        },
-        {
-          "tarih": "2026-08-04",
+          "tarih": "2026-08-05",
           "konum": "Wigtown"
         }
       ],
@@ -822,7 +998,7 @@
       "rota": [
         {
           "konum": "Şehir Dışı",
-          "tarih": "2026-07-30"
+          "tarih": "2026-07-31"
         },
         {
           "konum": "Whithorn",
@@ -831,10 +1007,6 @@
       ],
       "hareket_sayisi": 1,
       "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "Şehir Dışı"
-        },
         {
           "tarih": "2026-07-31",
           "konum": "Şehir Dışı"
@@ -853,6 +1025,10 @@
         },
         {
           "tarih": "2026-08-04",
+          "konum": "Whithorn"
+        },
+        {
+          "tarih": "2026-08-05",
           "konum": "Whithorn"
         }
       ],
@@ -864,7 +1040,7 @@
       "rota": [
         {
           "konum": "İnzivada",
-          "tarih": "2026-07-30"
+          "tarih": "2026-07-31"
         },
         {
           "konum": "Wigtown",
@@ -873,10 +1049,6 @@
       ],
       "hareket_sayisi": 1,
       "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "İnzivada"
-        },
         {
           "tarih": "2026-07-31",
           "konum": "İnzivada"
@@ -895,6 +1067,10 @@
         },
         {
           "tarih": "2026-08-04",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-05",
           "konum": "Wigtown"
         }
       ],
@@ -906,7 +1082,7 @@
       "rota": [
         {
           "konum": "İnzivada",
-          "tarih": "2026-07-30"
+          "tarih": "2026-07-31"
         },
         {
           "konum": "Girvan",
@@ -915,10 +1091,6 @@
       ],
       "hareket_sayisi": 1,
       "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "İnzivada"
-        },
         {
           "tarih": "2026-07-31",
           "konum": "İnzivada"
@@ -937,6 +1109,10 @@
         },
         {
           "tarih": "2026-08-04",
+          "konum": "Girvan"
+        },
+        {
+          "tarih": "2026-08-05",
           "konum": "Girvan"
         }
       ],
@@ -948,7 +1124,7 @@
       "rota": [
         {
           "konum": "Ardencaple",
-          "tarih": "2026-07-30"
+          "tarih": "2026-07-31"
         },
         {
           "konum": "İnzivada",
@@ -957,10 +1133,6 @@
       ],
       "hareket_sayisi": 1,
       "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "Ardencaple"
-        },
         {
           "tarih": "2026-07-31",
           "konum": "Ardencaple"
@@ -979,6 +1151,10 @@
         },
         {
           "tarih": "2026-08-04",
+          "konum": "İnzivada"
+        },
+        {
+          "tarih": "2026-08-05",
           "konum": "İnzivada"
         }
       ],
@@ -990,7 +1166,7 @@
       "rota": [
         {
           "konum": "İnzivada",
-          "tarih": "2026-07-30"
+          "tarih": "2026-07-31"
         },
         {
           "konum": "Girvan",
@@ -1000,10 +1176,6 @@
       "hareket_sayisi": 1,
       "gunluk": [
         {
-          "tarih": "2026-07-30",
-          "konum": "İnzivada"
-        },
-        {
           "tarih": "2026-07-31",
           "konum": "İnzivada"
         },
@@ -1022,48 +1194,10 @@
         {
           "tarih": "2026-08-04",
           "konum": "Girvan"
-        }
-      ],
-      "durum": ""
-    },
-    {
-      "karakter": "jesselee",
-      "su_anki_konum": "İngiltere yolu",
-      "rota": [
-        {
-          "konum": "Kirkcudbright",
-          "tarih": "2026-07-30"
         },
         {
-          "konum": "İngiltere yolu",
-          "tarih": "2026-07-31"
-        }
-      ],
-      "hareket_sayisi": 1,
-      "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "Kirkcudbright"
-        },
-        {
-          "tarih": "2026-07-31",
-          "konum": "İngiltere yolu"
-        },
-        {
-          "tarih": "2026-08-01",
-          "konum": "İngiltere yolu"
-        },
-        {
-          "tarih": "2026-08-02",
-          "konum": "İngiltere yolu"
-        },
-        {
-          "tarih": "2026-08-03",
-          "konum": "İngiltere yolu"
-        },
-        {
-          "tarih": "2026-08-04",
-          "konum": "İngiltere yolu"
+          "tarih": "2026-08-05",
+          "konum": "Girvan"
         }
       ],
       "durum": ""
@@ -1074,7 +1208,7 @@
       "rota": [
         {
           "konum": "Şehir Dışı",
-          "tarih": "2026-07-30"
+          "tarih": "2026-07-31"
         },
         {
           "konum": "Stirling",
@@ -1084,10 +1218,6 @@
       "hareket_sayisi": 1,
       "gunluk": [
         {
-          "tarih": "2026-07-30",
-          "konum": "Şehir Dışı"
-        },
-        {
           "tarih": "2026-07-31",
           "konum": "Şehir Dışı"
         },
@@ -1105,91 +1235,137 @@
         },
         {
           "tarih": "2026-08-04",
+          "konum": "Stirling"
+        },
+        {
+          "tarih": "2026-08-05",
           "konum": "Stirling"
         }
       ],
       "durum": ""
     },
     {
-      "karakter": "loren.zo.",
-      "su_anki_konum": "Glasgow-Girvan arası",
-      "rota": [
-        {
-          "konum": "Glasgow",
-          "tarih": "2026-07-30"
-        },
-        {
-          "konum": "Glasgow-Girvan arası",
-          "tarih": "2026-08-04"
-        }
-      ],
-      "hareket_sayisi": 1,
-      "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "Glasgow"
-        },
-        {
-          "tarih": "2026-07-31",
-          "konum": "Glasgow"
-        },
-        {
-          "tarih": "2026-08-01",
-          "konum": "Glasgow"
-        },
-        {
-          "tarih": "2026-08-02",
-          "konum": "Glasgow"
-        },
-        {
-          "tarih": "2026-08-03",
-          "konum": "Glasgow"
-        },
-        {
-          "tarih": "2026-08-04",
-          "konum": "Glasgow-Girvan arası"
-        }
-      ],
-      "durum": "İskoçya'da (Glasgow, County of Glasgow)"
-    },
-    {
-      "karakter": "morgainne",
-      "su_anki_konum": "Kirkcudbright",
+      "karakter": "john1988vic",
+      "su_anki_konum": "Girvan",
       "rota": [
         {
           "konum": "Wigtown",
-          "tarih": "2026-07-30"
+          "tarih": "2026-07-31"
         },
         {
-          "konum": "Kirkcudbright",
-          "tarih": "2026-07-31"
+          "konum": "Girvan",
+          "tarih": "2026-08-05"
         }
       ],
       "hareket_sayisi": 1,
       "gunluk": [
         {
-          "tarih": "2026-07-30",
+          "tarih": "2026-07-31",
           "konum": "Wigtown"
         },
         {
-          "tarih": "2026-07-31",
-          "konum": "Kirkcudbright"
-        },
-        {
           "tarih": "2026-08-01",
-          "konum": "Kirkcudbright"
+          "konum": "Wigtown"
         },
         {
           "tarih": "2026-08-02",
-          "konum": "Kirkcudbright"
+          "konum": "Wigtown"
         },
         {
           "tarih": "2026-08-03",
-          "konum": "Kirkcudbright"
+          "konum": "Wigtown"
         },
         {
           "tarih": "2026-08-04",
-          "konum": "Kirkcudbright"
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-05",
+          "konum": "Girvan"
+        }
+      ],
+      "durum": ""
+    },
+    {
+      "karakter": "lorelei",
+      "su_anki_konum": "Girvan",
+      "rota": [
+        {
+          "konum": "Wigtown",
+          "tarih": "2026-07-31"
+        },
+        {
+          "konum": "Girvan",
+          "tarih": "2026-08-05"
+        }
+      ],
+      "hareket_sayisi": 1,
+      "gunluk": [
+        {
+          "tarih": "2026-07-31",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-01",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-02",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-03",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-04",
+          "konum": "Wigtown"
+        },
+        {
+          "tarih": "2026-08-05",
+          "konum": "Girvan"
+        }
+      ],
+      "durum": ""
+    },
+    {
+      "karakter": "ninon_de_lenclos",
+      "su_anki_konum": "Stirling",
+      "rota": [
+        {
+          "konum": "Şehir Dışı",
+          "tarih": "2026-07-31"
+        },
+        {
+          "konum": "Stirling",
+          "tarih": "2026-08-05"
+        }
+      ],
+      "hareket_sayisi": 1,
+      "gunluk": [
+        {
+          "tarih": "2026-07-31",
+          "konum": "Şehir Dışı"
+        },
+        {
+          "tarih": "2026-08-01",
+          "konum": "Şehir Dışı"
+        },
+        {
+          "tarih": "2026-08-02",
+          "konum": "Şehir Dışı"
+        },
+        {
+          "tarih": "2026-08-03",
+          "konum": "Şehir Dışı"
+        },
+        {
+          "tarih": "2026-08-04",
+          "konum": "Şehir Dışı"
+        },
+        {
+          "tarih": "2026-08-05",
+          "konum": "Stirling"
         }
       ],
       "durum": ""
@@ -1200,7 +1376,7 @@
       "rota": [
         {
           "konum": "Whithorn",
-          "tarih": "2026-07-30"
+          "tarih": "2026-07-31"
         },
         {
           "konum": "Girvan",
@@ -1210,10 +1386,6 @@
       "hareket_sayisi": 1,
       "gunluk": [
         {
-          "tarih": "2026-07-30",
-          "konum": "Whithorn"
-        },
-        {
           "tarih": "2026-07-31",
           "konum": "Whithorn"
         },
@@ -1232,48 +1404,10 @@
         {
           "tarih": "2026-08-04",
           "konum": "Girvan"
-        }
-      ],
-      "durum": ""
-    },
-    {
-      "karakter": "pilone",
-      "su_anki_konum": "Wigtown",
-      "rota": [
-        {
-          "konum": "İnzivada",
-          "tarih": "2026-07-30"
         },
         {
-          "konum": "Wigtown",
-          "tarih": "2026-08-04"
-        }
-      ],
-      "hareket_sayisi": 1,
-      "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "İnzivada"
-        },
-        {
-          "tarih": "2026-07-31",
-          "konum": "İnzivada"
-        },
-        {
-          "tarih": "2026-08-01",
-          "konum": "İnzivada"
-        },
-        {
-          "tarih": "2026-08-02",
-          "konum": "İnzivada"
-        },
-        {
-          "tarih": "2026-08-03",
-          "konum": "İnzivada"
-        },
-        {
-          "tarih": "2026-08-04",
-          "konum": "Wigtown"
+          "tarih": "2026-08-05",
+          "konum": "Girvan"
         }
       ],
       "durum": ""
@@ -1284,7 +1418,7 @@
       "rota": [
         {
           "konum": "Glasgow",
-          "tarih": "2026-07-30"
+          "tarih": "2026-07-31"
         },
         {
           "konum": "İnzivada",
@@ -1294,10 +1428,6 @@
       "hareket_sayisi": 1,
       "gunluk": [
         {
-          "tarih": "2026-07-30",
-          "konum": "Glasgow"
-        },
-        {
           "tarih": "2026-07-31",
           "konum": "Glasgow"
         },
@@ -1315,49 +1445,53 @@
         },
         {
           "tarih": "2026-08-04",
+          "konum": "İnzivada"
+        },
+        {
+          "tarih": "2026-08-05",
           "konum": "İnzivada"
         }
       ],
       "durum": "İnzivada"
     },
     {
-      "karakter": "sciascia",
-      "su_anki_konum": "Wigtown",
+      "karakter": "sensha",
+      "su_anki_konum": "Girvan",
       "rota": [
         {
-          "konum": "İnzivada",
-          "tarih": "2026-07-30"
+          "konum": "Glasgow-Girvan arası",
+          "tarih": "2026-07-31"
         },
         {
-          "konum": "Wigtown",
-          "tarih": "2026-08-03"
+          "konum": "Girvan",
+          "tarih": "2026-08-05"
         }
       ],
       "hareket_sayisi": 1,
       "gunluk": [
         {
-          "tarih": "2026-07-30",
-          "konum": "İnzivada"
-        },
-        {
           "tarih": "2026-07-31",
-          "konum": "İnzivada"
+          "konum": "Glasgow-Girvan arası"
         },
         {
           "tarih": "2026-08-01",
-          "konum": "İnzivada"
+          "konum": "Glasgow-Girvan arası"
         },
         {
           "tarih": "2026-08-02",
-          "konum": "İnzivada"
+          "konum": "Glasgow-Girvan arası"
         },
         {
           "tarih": "2026-08-03",
-          "konum": "Wigtown"
+          "konum": "Glasgow-Girvan arası"
         },
         {
           "tarih": "2026-08-04",
-          "konum": "Wigtown"
+          "konum": "Glasgow-Girvan arası"
+        },
+        {
+          "tarih": "2026-08-05",
+          "konum": "Girvan"
         }
       ],
       "durum": ""
@@ -1368,7 +1502,7 @@
       "rota": [
         {
           "konum": "Wigtown",
-          "tarih": "2026-07-30"
+          "tarih": "2026-07-31"
         },
         {
           "konum": "İnzivada",
@@ -1378,10 +1512,6 @@
       "hareket_sayisi": 1,
       "gunluk": [
         {
-          "tarih": "2026-07-30",
-          "konum": "Wigtown"
-        },
-        {
           "tarih": "2026-07-31",
           "konum": "Wigtown"
         },
@@ -1399,52 +1529,14 @@
         },
         {
           "tarih": "2026-08-04",
+          "konum": "İnzivada"
+        },
+        {
+          "tarih": "2026-08-05",
           "konum": "İnzivada"
         }
       ],
       "durum": "İnzivada"
-    },
-    {
-      "karakter": "victor02",
-      "su_anki_konum": "İngiltere yolu",
-      "rota": [
-        {
-          "konum": "Kirkcudbright",
-          "tarih": "2026-07-30"
-        },
-        {
-          "konum": "İngiltere yolu",
-          "tarih": "2026-07-31"
-        }
-      ],
-      "hareket_sayisi": 1,
-      "gunluk": [
-        {
-          "tarih": "2026-07-30",
-          "konum": "Kirkcudbright"
-        },
-        {
-          "tarih": "2026-07-31",
-          "konum": "İngiltere yolu"
-        },
-        {
-          "tarih": "2026-08-01",
-          "konum": "İngiltere yolu"
-        },
-        {
-          "tarih": "2026-08-02",
-          "konum": "İngiltere yolu"
-        },
-        {
-          "tarih": "2026-08-03",
-          "konum": "İngiltere yolu"
-        },
-        {
-          "tarih": "2026-08-04",
-          "konum": "İngiltere yolu"
-        }
-      ],
-      "durum": ""
     }
   ],
   "kayiplar": [
@@ -1603,6 +1695,47 @@
       "kayit_donemi": "2020-04"
     },
     {
+      "karakter": "al_lan",
+      "durum": "İnzivada",
+      "giris_tarihi": "2026-08-05",
+      "son_kasaba": "Wigtown",
+      "profil_konum": "Girvan",
+      "son_giris": "04 Ağustos 2026",
+      "aile": "Douglass",
+      "kayit_tarihi": "12 Aralık 2016",
+      "kayit_donemi": "2016-12"
+    }
+  ],
+  "donusler": [
+    {
+      "karakter": "sensha",
+      "durum": "İnzivadan dönmüş (tahmini)",
+      "giris_tarihi": "",
+      "son_kasaba": "",
+      "profil_konum": "",
+      "son_giris": "",
+      "aile": "",
+      "kayit_tarihi": "",
+      "kayit_donemi": "",
+      "cikis_tarihi": "2026-08-05",
+      "donus_kasaba": "Girvan",
+      "kalinan_gun": ""
+    },
+    {
+      "karakter": "ninon_de_lenclos",
+      "durum": "İnzivadan dönmüş (tahmini)",
+      "giris_tarihi": "",
+      "son_kasaba": "",
+      "profil_konum": "",
+      "son_giris": "",
+      "aile": "",
+      "kayit_tarihi": "",
+      "kayit_donemi": "",
+      "cikis_tarihi": "2026-08-05",
+      "donus_kasaba": "Stirling",
+      "kalinan_gun": ""
+    },
+    {
       "karakter": "loren.zo.",
       "durum": "İskoçya'da (Glasgow, County of Glasgow)",
       "giris_tarihi": "2026-08-04",
@@ -1611,10 +1744,11 @@
       "son_giris": "03 Ağustos 2026",
       "aile": "",
       "kayit_tarihi": "23 Haziran 2020",
-      "kayit_donemi": "2020-06"
-    }
-  ],
-  "donusler": [
+      "kayit_donemi": "2020-06",
+      "cikis_tarihi": "2026-08-05",
+      "donus_kasaba": "Girvan",
+      "kalinan_gun": 1
+    },
     {
       "karakter": "pilone",
       "durum": "İnzivada",
@@ -1954,6 +2088,48 @@
   ],
   "multi_ciftler": [
     {
+      "kisi1": "gallorini",
+      "kisi2": "sciascia",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 1,
+      "skor": 124,
+      "degerlendirme": "Çok güçlü",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "giris2": "2026-07-26",
+          "giris_fark": 0,
+          "cikis": "2026-08-03",
+          "cikis2": "2026-08-03",
+          "ayni_cikis": true,
+          "cikis_fark": 0,
+          "ayni_donus_kasabasi": true,
+          "ayni_cikis_kasabasi": true,
+          "donus_kasaba": "Wigtown",
+          "kalinan_gun_a": 8,
+          "kalinan_gun_b": 8,
+          "tam": true
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "16 Nisan 2008",
+      "kayit2": "10 Ekim 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 6386,
+      "grup_bagi": "",
+      "gerekceler": [
+        "AYNI GÜN inzivaya geçtiler",
+        "AYNI GÜN inzivadan çıktılar",
+        "aynı kasabada (Wigtown) buluştular",
+        "inzivada aynı süre kaldılar",
+        "inzivadan 2 gün sonra Girvan kasabasında buluştular",
+        "ikisine de AYNI kişi(ler) güven puanı vermiş: cromm"
+      ],
+      "aciklama": "gallorini ile sciascia: AYNI GÜN inzivaya geçtiler; AYNI GÜN inzivadan çıktılar; aynı kasabada (Wigtown) buluştular; inzivada aynı süre kaldılar; inzivadan 2 gün sonra Girvan kasabasında buluştular; ikisine de AYNI kişi(ler) güven puanı vermiş: cromm. İnziva dönemleri: 2026-07-26 → 2026-08-03."
+    },
+    {
       "kisi1": "aspargus",
       "kisi2": "pilone",
       "eslesme_sayisi": 1,
@@ -1993,6 +2169,47 @@
         "ikisine de AYNI kişi(ler) güven puanı vermiş: kitialeah"
       ],
       "aciklama": "aspargus ile pilone: AYNI GÜN inzivaya geçtiler; AYNI GÜN inzivadan çıktılar; aynı kasabada (Wigtown) buluştular; inzivada aynı süre kaldılar; ikisine de AYNI kişi(ler) güven puanı vermiş: kitialeah. İnziva dönemleri: 2026-07-26 → 2026-08-04."
+    },
+    {
+      "kisi1": "castagna",
+      "kisi2": "fantina_polo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 1,
+      "skor": 114,
+      "degerlendirme": "Güçlü",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "giris2": "2026-07-26",
+          "giris_fark": 0,
+          "cikis": "2026-08-03",
+          "cikis2": "2026-08-03",
+          "ayni_cikis": true,
+          "cikis_fark": 0,
+          "ayni_donus_kasabasi": true,
+          "ayni_cikis_kasabasi": true,
+          "donus_kasaba": "Wigtown",
+          "kalinan_gun_a": 8,
+          "kalinan_gun_b": 8,
+          "tam": true
+        }
+      ],
+      "aile1": "Scuola Grande di San Rocco",
+      "aile2": "",
+      "kayit1": "17 Temmuz 2009",
+      "kayit2": "09 Ağustos 2011",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 753,
+      "grup_bagi": "",
+      "gerekceler": [
+        "AYNI GÜN inzivaya geçtiler",
+        "AYNI GÜN inzivadan çıktılar",
+        "aynı kasabada (Wigtown) buluştular",
+        "inzivada aynı süre kaldılar",
+        "inzivadan 2 gün sonra Wigtown kasabasında buluştular"
+      ],
+      "aciklama": "castagna ile fantina_polo: AYNI GÜN inzivaya geçtiler; AYNI GÜN inzivadan çıktılar; aynı kasabada (Wigtown) buluştular; inzivada aynı süre kaldılar; inzivadan 2 gün sonra Wigtown kasabasında buluştular. İnziva dönemleri: 2026-07-26 → 2026-08-03."
     },
     {
       "kisi1": "fantina_polo",
@@ -2077,47 +2294,6 @@
       "aciklama": "fantina_polo ile sciascia: AYNI GÜN inzivaya geçtiler; AYNI GÜN inzivadan çıktılar; aynı kasabada (Wigtown) buluştular; inzivada aynı süre kaldılar; ikisine de AYNI kişi(ler) güven puanı vermiş: cromm. İnziva dönemleri: 2026-07-26 → 2026-08-03."
     },
     {
-      "kisi1": "gallorini",
-      "kisi2": "sciascia",
-      "eslesme_sayisi": 1,
-      "tam_eslesme": 1,
-      "skor": 114,
-      "degerlendirme": "Güçlü",
-      "ortak_donemler": [
-        {
-          "giris": "2026-07-26",
-          "giris2": "2026-07-26",
-          "giris_fark": 0,
-          "cikis": "2026-08-03",
-          "cikis2": "2026-08-03",
-          "ayni_cikis": true,
-          "cikis_fark": 0,
-          "ayni_donus_kasabasi": true,
-          "ayni_cikis_kasabasi": true,
-          "donus_kasaba": "Wigtown",
-          "kalinan_gun_a": 8,
-          "kalinan_gun_b": 8,
-          "tam": true
-        }
-      ],
-      "aile1": "",
-      "aile2": "",
-      "kayit1": "16 Nisan 2008",
-      "kayit2": "10 Ekim 2025",
-      "ayni_aile": false,
-      "ayni_kayit_donemi": false,
-      "kayit_fark_gun": 6386,
-      "grup_bagi": "",
-      "gerekceler": [
-        "AYNI GÜN inzivaya geçtiler",
-        "AYNI GÜN inzivadan çıktılar",
-        "aynı kasabada (Wigtown) buluştular",
-        "inzivada aynı süre kaldılar",
-        "ikisine de AYNI kişi(ler) güven puanı vermiş: cromm"
-      ],
-      "aciklama": "gallorini ile sciascia: AYNI GÜN inzivaya geçtiler; AYNI GÜN inzivadan çıktılar; aynı kasabada (Wigtown) buluştular; inzivada aynı süre kaldılar; ikisine de AYNI kişi(ler) güven puanı vermiş: cromm. İnziva dönemleri: 2026-07-26 → 2026-08-03."
-    },
-    {
       "kisi1": "aspargus",
       "kisi2": "dondina",
       "eslesme_sayisi": 1,
@@ -2156,46 +2332,6 @@
         "inzivada aynı süre kaldılar"
       ],
       "aciklama": "aspargus ile dondina: AYNI GÜN inzivaya geçtiler; AYNI GÜN inzivadan çıktılar; aynı kasabada (Wigtown) buluştular; inzivada aynı süre kaldılar. İnziva dönemleri: 2026-07-26 → 2026-08-04."
-    },
-    {
-      "kisi1": "castagna",
-      "kisi2": "fantina_polo",
-      "eslesme_sayisi": 1,
-      "tam_eslesme": 1,
-      "skor": 104,
-      "degerlendirme": "Güçlü",
-      "ortak_donemler": [
-        {
-          "giris": "2026-07-26",
-          "giris2": "2026-07-26",
-          "giris_fark": 0,
-          "cikis": "2026-08-03",
-          "cikis2": "2026-08-03",
-          "ayni_cikis": true,
-          "cikis_fark": 0,
-          "ayni_donus_kasabasi": true,
-          "ayni_cikis_kasabasi": true,
-          "donus_kasaba": "Wigtown",
-          "kalinan_gun_a": 8,
-          "kalinan_gun_b": 8,
-          "tam": true
-        }
-      ],
-      "aile1": "Scuola Grande di San Rocco",
-      "aile2": "",
-      "kayit1": "17 Temmuz 2009",
-      "kayit2": "09 Ağustos 2011",
-      "ayni_aile": false,
-      "ayni_kayit_donemi": false,
-      "kayit_fark_gun": 753,
-      "grup_bagi": "",
-      "gerekceler": [
-        "AYNI GÜN inzivaya geçtiler",
-        "AYNI GÜN inzivadan çıktılar",
-        "aynı kasabada (Wigtown) buluştular",
-        "inzivada aynı süre kaldılar"
-      ],
-      "aciklama": "castagna ile fantina_polo: AYNI GÜN inzivaya geçtiler; AYNI GÜN inzivadan çıktılar; aynı kasabada (Wigtown) buluştular; inzivada aynı süre kaldılar. İnziva dönemleri: 2026-07-26 → 2026-08-03."
     },
     {
       "kisi1": "castagna",
@@ -2481,6 +2617,88 @@
       "aciklama": "allyn_tsuru ile pilone: 3 gün arayla inzivaya geçtiler; 2 gün arayla inzivadan çıktılar; aynı kasabada (Wigtown) buluştular; inzivadan 2 gün sonra Wigtown kasabasında buluştular; ikisine de AYNI kişi(ler) güven puanı vermiş: lorelei. İnziva dönemleri: 2026-07-29 → 2026-08-02."
     },
     {
+      "kisi1": "gallorini",
+      "kisi2": "incoronata",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 1,
+      "skor": 91,
+      "degerlendirme": "Güçlü",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "giris2": "2026-07-26",
+          "giris_fark": 0,
+          "cikis": "2026-08-03",
+          "cikis2": "2026-08-03",
+          "ayni_cikis": true,
+          "cikis_fark": 0,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": false,
+          "donus_kasaba": "Wigtown",
+          "kalinan_gun_a": 8,
+          "kalinan_gun_b": 8,
+          "tam": true
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "16 Nisan 2008",
+      "kayit2": "06 Ekim 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 1999,
+      "grup_bagi": "",
+      "gerekceler": [
+        "AYNI GÜN inzivaya geçtiler",
+        "AYNI GÜN inzivadan çıktılar",
+        "inzivada aynı süre kaldılar",
+        "inzivadan 2 gün sonra Girvan kasabasında buluştular",
+        "ikisine de AYNI kişi(ler) güven puanı vermiş: cromm"
+      ],
+      "aciklama": "gallorini ile incoronata: AYNI GÜN inzivaya geçtiler; AYNI GÜN inzivadan çıktılar; inzivada aynı süre kaldılar; inzivadan 2 gün sonra Girvan kasabasında buluştular; ikisine de AYNI kişi(ler) güven puanı vermiş: cromm. İnziva dönemleri: 2026-07-26 → 2026-08-03."
+    },
+    {
+      "kisi1": "incoronata",
+      "kisi2": "sciascia",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 1,
+      "skor": 91,
+      "degerlendirme": "Güçlü",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "giris2": "2026-07-26",
+          "giris_fark": 0,
+          "cikis": "2026-08-03",
+          "cikis2": "2026-08-03",
+          "ayni_cikis": true,
+          "cikis_fark": 0,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": false,
+          "donus_kasaba": "Girvan",
+          "kalinan_gun_a": 8,
+          "kalinan_gun_b": 8,
+          "tam": true
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "06 Ekim 2013",
+      "kayit2": "10 Ekim 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 4387,
+      "grup_bagi": "",
+      "gerekceler": [
+        "AYNI GÜN inzivaya geçtiler",
+        "AYNI GÜN inzivadan çıktılar",
+        "inzivada aynı süre kaldılar",
+        "inzivadan 2 gün sonra Girvan kasabasında buluştular",
+        "ikisine de AYNI kişi(ler) güven puanı vermiş: cromm"
+      ],
+      "aciklama": "incoronata ile sciascia: AYNI GÜN inzivaya geçtiler; AYNI GÜN inzivadan çıktılar; inzivada aynı süre kaldılar; inzivadan 2 gün sonra Girvan kasabasında buluştular; ikisine de AYNI kişi(ler) güven puanı vermiş: cromm. İnziva dönemleri: 2026-07-26 → 2026-08-03."
+    },
+    {
       "kisi1": "blodwyn",
       "kisi2": "incoronata",
       "eslesme_sayisi": 1,
@@ -2559,6 +2777,46 @@
         "ikisine de AYNI kişi(ler) güven puanı vermiş: calumdouglas, khral"
       ],
       "aciklama": "dondina ile fantina_polo: AYNI GÜN inzivaya geçtiler; 1 gün arayla inzivadan çıktılar; aynı kasabada (Wigtown) buluştular; ikisine de AYNI kişi(ler) güven puanı vermiş: calumdouglas, khral. İnziva dönemleri: 2026-07-26 → 2026-08-04."
+    },
+    {
+      "kisi1": "gallorini",
+      "kisi2": "pilone",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 89,
+      "degerlendirme": "Güçlü",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "giris2": "2026-07-26",
+          "giris_fark": 0,
+          "cikis": "2026-08-03",
+          "cikis2": "2026-08-04",
+          "ayni_cikis": false,
+          "cikis_fark": 1,
+          "ayni_donus_kasabasi": true,
+          "ayni_cikis_kasabasi": true,
+          "donus_kasaba": "Wigtown",
+          "kalinan_gun_a": 8,
+          "kalinan_gun_b": 9,
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "16 Nisan 2008",
+      "kayit2": "20 Haziran 2012",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 1526,
+      "grup_bagi": "",
+      "gerekceler": [
+        "AYNI GÜN inzivaya geçtiler",
+        "1 gün arayla inzivadan çıktılar",
+        "aynı kasabada (Wigtown) buluştular",
+        "inzivadan 2 gün sonra Girvan kasabasında buluştular"
+      ],
+      "aciklama": "gallorini ile pilone: AYNI GÜN inzivaya geçtiler; 1 gün arayla inzivadan çıktılar; aynı kasabada (Wigtown) buluştular; inzivadan 2 gün sonra Girvan kasabasında buluştular. İnziva dönemleri: 2026-07-26 → 2026-08-03."
     },
     {
       "kisi1": "pilone",
@@ -2679,6 +2937,46 @@
         "ikisine de AYNI kişi(ler) güven puanı vermiş: kitialeah"
       ],
       "aciklama": "blodwyn ile gianfredo: AYNI GÜN inzivaya geçtiler; 3 gün arayla inzivadan çıktılar; aynı kasabada (Girvan) buluştular; ikisine de AYNI kişi(ler) güven puanı vermiş: kitialeah. İnziva dönemleri: 2026-07-26 → 2026-08-04."
+    },
+    {
+      "kisi1": "gianfredo",
+      "kisi2": "pilone",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 84,
+      "degerlendirme": "Güçlü",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "giris2": "2026-07-26",
+          "giris_fark": 0,
+          "cikis": "2026-08-01",
+          "cikis2": "2026-08-04",
+          "ayni_cikis": false,
+          "cikis_fark": 3,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": false,
+          "donus_kasaba": "Girvan",
+          "kalinan_gun_a": 6,
+          "kalinan_gun_b": 9,
+          "tam": false
+        }
+      ],
+      "aile1": "Scuola Grande di San Rocco",
+      "aile2": "",
+      "kayit1": "04 Haziran 2016",
+      "kayit2": "20 Haziran 2012",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 1445,
+      "grup_bagi": "",
+      "gerekceler": [
+        "AYNI GÜN inzivaya geçtiler",
+        "3 gün arayla inzivadan çıktılar",
+        "inzivadan 4 gün sonra Girvan kasabasında buluştular",
+        "ikisine de AYNI kişi(ler) güven puanı vermiş: kitialeah"
+      ],
+      "aciklama": "gianfredo ile pilone: AYNI GÜN inzivaya geçtiler; 3 gün arayla inzivadan çıktılar; inzivadan 4 gün sonra Girvan kasabasında buluştular; ikisine de AYNI kişi(ler) güven puanı vermiş: kitialeah. İnziva dönemleri: 2026-07-26 → 2026-08-01."
     },
     {
       "kisi1": "allyn_tsuru",
@@ -2999,86 +3297,6 @@
         "ikisine de AYNI kişi(ler) güven puanı vermiş: cromm"
       ],
       "aciklama": "fantina_polo ile incoronata: AYNI GÜN inzivaya geçtiler; AYNI GÜN inzivadan çıktılar; inzivada aynı süre kaldılar; ikisine de AYNI kişi(ler) güven puanı vermiş: cromm. İnziva dönemleri: 2026-07-26 → 2026-08-03."
-    },
-    {
-      "kisi1": "gallorini",
-      "kisi2": "incoronata",
-      "eslesme_sayisi": 1,
-      "tam_eslesme": 1,
-      "skor": 81,
-      "degerlendirme": "Güçlü",
-      "ortak_donemler": [
-        {
-          "giris": "2026-07-26",
-          "giris2": "2026-07-26",
-          "giris_fark": 0,
-          "cikis": "2026-08-03",
-          "cikis2": "2026-08-03",
-          "ayni_cikis": true,
-          "cikis_fark": 0,
-          "ayni_donus_kasabasi": false,
-          "ayni_cikis_kasabasi": false,
-          "donus_kasaba": "Wigtown",
-          "kalinan_gun_a": 8,
-          "kalinan_gun_b": 8,
-          "tam": true
-        }
-      ],
-      "aile1": "",
-      "aile2": "",
-      "kayit1": "16 Nisan 2008",
-      "kayit2": "06 Ekim 2013",
-      "ayni_aile": false,
-      "ayni_kayit_donemi": false,
-      "kayit_fark_gun": 1999,
-      "grup_bagi": "",
-      "gerekceler": [
-        "AYNI GÜN inzivaya geçtiler",
-        "AYNI GÜN inzivadan çıktılar",
-        "inzivada aynı süre kaldılar",
-        "ikisine de AYNI kişi(ler) güven puanı vermiş: cromm"
-      ],
-      "aciklama": "gallorini ile incoronata: AYNI GÜN inzivaya geçtiler; AYNI GÜN inzivadan çıktılar; inzivada aynı süre kaldılar; ikisine de AYNI kişi(ler) güven puanı vermiş: cromm. İnziva dönemleri: 2026-07-26 → 2026-08-03."
-    },
-    {
-      "kisi1": "incoronata",
-      "kisi2": "sciascia",
-      "eslesme_sayisi": 1,
-      "tam_eslesme": 1,
-      "skor": 81,
-      "degerlendirme": "Güçlü",
-      "ortak_donemler": [
-        {
-          "giris": "2026-07-26",
-          "giris2": "2026-07-26",
-          "giris_fark": 0,
-          "cikis": "2026-08-03",
-          "cikis2": "2026-08-03",
-          "ayni_cikis": true,
-          "cikis_fark": 0,
-          "ayni_donus_kasabasi": false,
-          "ayni_cikis_kasabasi": false,
-          "donus_kasaba": "Girvan",
-          "kalinan_gun_a": 8,
-          "kalinan_gun_b": 8,
-          "tam": true
-        }
-      ],
-      "aile1": "",
-      "aile2": "",
-      "kayit1": "06 Ekim 2013",
-      "kayit2": "10 Ekim 2025",
-      "ayni_aile": false,
-      "ayni_kayit_donemi": false,
-      "kayit_fark_gun": 4387,
-      "grup_bagi": "",
-      "gerekceler": [
-        "AYNI GÜN inzivaya geçtiler",
-        "AYNI GÜN inzivadan çıktılar",
-        "inzivada aynı süre kaldılar",
-        "ikisine de AYNI kişi(ler) güven puanı vermiş: cromm"
-      ],
-      "aciklama": "incoronata ile sciascia: AYNI GÜN inzivaya geçtiler; AYNI GÜN inzivadan çıktılar; inzivada aynı süre kaldılar; ikisine de AYNI kişi(ler) güven puanı vermiş: cromm. İnziva dönemleri: 2026-07-26 → 2026-08-03."
     },
     {
       "kisi1": "mariarose",
@@ -3511,43 +3729,43 @@
       "aciklama": "fantina_polo ile pilone: AYNI GÜN inzivaya geçtiler; 1 gün arayla inzivadan çıktılar; aynı kasabada (Wigtown) buluştular. İnziva dönemleri: 2026-07-26 → 2026-08-03."
     },
     {
-      "kisi1": "gallorini",
-      "kisi2": "pilone",
+      "kisi1": "gianfredo",
+      "kisi2": "sciascia",
       "eslesme_sayisi": 1,
       "tam_eslesme": 0,
-      "skor": 79,
+      "skor": 75,
       "degerlendirme": "Güçlü",
       "ortak_donemler": [
         {
           "giris": "2026-07-26",
           "giris2": "2026-07-26",
           "giris_fark": 0,
-          "cikis": "2026-08-03",
-          "cikis2": "2026-08-04",
+          "cikis": "2026-08-01",
+          "cikis2": "2026-08-03",
           "ayni_cikis": false,
-          "cikis_fark": 1,
-          "ayni_donus_kasabasi": true,
-          "ayni_cikis_kasabasi": true,
-          "donus_kasaba": "Wigtown",
-          "kalinan_gun_a": 8,
-          "kalinan_gun_b": 9,
+          "cikis_fark": 2,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": false,
+          "donus_kasaba": "Girvan",
+          "kalinan_gun_a": 6,
+          "kalinan_gun_b": 8,
           "tam": false
         }
       ],
-      "aile1": "",
+      "aile1": "Scuola Grande di San Rocco",
       "aile2": "",
-      "kayit1": "16 Nisan 2008",
-      "kayit2": "20 Haziran 2012",
+      "kayit1": "04 Haziran 2016",
+      "kayit2": "10 Ekim 2025",
       "ayni_aile": false,
       "ayni_kayit_donemi": false,
-      "kayit_fark_gun": 1526,
+      "kayit_fark_gun": 3415,
       "grup_bagi": "",
       "gerekceler": [
         "AYNI GÜN inzivaya geçtiler",
-        "1 gün arayla inzivadan çıktılar",
-        "aynı kasabada (Wigtown) buluştular"
+        "2 gün arayla inzivadan çıktılar",
+        "inzivadan 4 gün sonra Girvan kasabasında buluştular"
       ],
-      "aciklama": "gallorini ile pilone: AYNI GÜN inzivaya geçtiler; 1 gün arayla inzivadan çıktılar; aynı kasabada (Wigtown) buluştular. İnziva dönemleri: 2026-07-26 → 2026-08-03."
+      "aciklama": "gianfredo ile sciascia: AYNI GÜN inzivaya geçtiler; 2 gün arayla inzivadan çıktılar; inzivadan 4 gün sonra Girvan kasabasında buluştular. İnziva dönemleri: 2026-07-26 → 2026-08-01."
     },
     {
       "kisi1": "allyn_tsuru",
@@ -3745,6 +3963,46 @@
       "aciklama": "gallorini ile mariarose: AYNI GÜN inzivaya geçtiler; AYNI GÜN inzivadan çıktılar; inzivada aynı süre kaldılar. İnziva dönemleri: 2026-07-26 → 2026-08-03."
     },
     {
+      "kisi1": "incoronata",
+      "kisi2": "pilone",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 66,
+      "degerlendirme": "Güçlü",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-26",
+          "giris2": "2026-07-26",
+          "giris_fark": 0,
+          "cikis": "2026-08-03",
+          "cikis2": "2026-08-04",
+          "ayni_cikis": false,
+          "cikis_fark": 1,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": false,
+          "donus_kasaba": "Girvan",
+          "kalinan_gun_a": 8,
+          "kalinan_gun_b": 9,
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "06 Ekim 2013",
+      "kayit2": "20 Haziran 2012",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 473,
+      "grup_bagi": "",
+      "gerekceler": [
+        "AYNI GÜN inzivaya geçtiler",
+        "1 gün arayla inzivadan çıktılar",
+        "inzivadan 2 gün sonra Girvan kasabasında buluştular",
+        "ikisine de AYNI kişi(ler) güven puanı vermiş: kitialeah, madcypriot, maria.drago"
+      ],
+      "aciklama": "incoronata ile pilone: AYNI GÜN inzivaya geçtiler; 1 gün arayla inzivadan çıktılar; inzivadan 2 gün sonra Girvan kasabasında buluştular; ikisine de AYNI kişi(ler) güven puanı vermiş: kitialeah, madcypriot, maria.drago. İnziva dönemleri: 2026-07-26 → 2026-08-03."
+    },
+    {
       "kisi1": "castagna",
       "kisi2": "gianfredo",
       "eslesme_sayisi": 1,
@@ -3902,11 +4160,11 @@
       "aciklama": "blodwyn ile sciascia: AYNI GÜN inzivaya geçtiler; 1 gün arayla inzivadan çıktılar; ikisine de AYNI kişi(ler) güven puanı vermiş: reign7008. İnziva dönemleri: 2026-07-26 → 2026-08-04."
     },
     {
-      "kisi1": "incoronata",
-      "kisi2": "pilone",
+      "kisi1": "gallorini",
+      "kisi2": "gianfredo",
       "eslesme_sayisi": 1,
       "tam_eslesme": 0,
-      "skor": 56,
+      "skor": 55,
       "degerlendirme": "Orta",
       "ortak_donemler": [
         {
@@ -3914,31 +4172,31 @@
           "giris2": "2026-07-26",
           "giris_fark": 0,
           "cikis": "2026-08-03",
-          "cikis2": "2026-08-04",
+          "cikis2": "2026-08-01",
           "ayni_cikis": false,
-          "cikis_fark": 1,
+          "cikis_fark": 2,
           "ayni_donus_kasabasi": false,
           "ayni_cikis_kasabasi": false,
-          "donus_kasaba": "Girvan",
+          "donus_kasaba": "Wigtown",
           "kalinan_gun_a": 8,
-          "kalinan_gun_b": 9,
+          "kalinan_gun_b": 6,
           "tam": false
         }
       ],
       "aile1": "",
-      "aile2": "",
-      "kayit1": "06 Ekim 2013",
-      "kayit2": "20 Haziran 2012",
+      "aile2": "Scuola Grande di San Rocco",
+      "kayit1": "16 Nisan 2008",
+      "kayit2": "04 Haziran 2016",
       "ayni_aile": false,
       "ayni_kayit_donemi": false,
-      "kayit_fark_gun": 473,
+      "kayit_fark_gun": 2971,
       "grup_bagi": "",
       "gerekceler": [
         "AYNI GÜN inzivaya geçtiler",
-        "1 gün arayla inzivadan çıktılar",
-        "ikisine de AYNI kişi(ler) güven puanı vermiş: kitialeah, madcypriot, maria.drago"
+        "2 gün arayla inzivadan çıktılar",
+        "inzivadan 2 gün sonra Girvan kasabasında buluştular"
       ],
-      "aciklama": "incoronata ile pilone: AYNI GÜN inzivaya geçtiler; 1 gün arayla inzivadan çıktılar; ikisine de AYNI kişi(ler) güven puanı vermiş: kitialeah, madcypriot, maria.drago. İnziva dönemleri: 2026-07-26 → 2026-08-03."
+      "aciklama": "gallorini ile gianfredo: AYNI GÜN inzivaya geçtiler; 2 gün arayla inzivadan çıktılar; inzivadan 2 gün sonra Girvan kasabasında buluştular. İnziva dönemleri: 2026-07-26 → 2026-08-03."
     },
     {
       "kisi1": "aspargus",
@@ -4057,43 +4315,43 @@
       "aciklama": "fra_giocondo ile pietro_d_abano: AYNI GÜN inzivaya geçtiler; hesaplar 2 gün arayla açılmış (çok yakın); ikisine de AYNI kişi(ler) güven puanı vermiş: khral. İnziva dönemleri: 2026-07-26 → (hâlâ inzivada)."
     },
     {
-      "kisi1": "gianfredo",
-      "kisi2": "pilone",
+      "kisi1": "elshar490",
+      "kisi2": "sciascia",
       "eslesme_sayisi": 1,
       "tam_eslesme": 0,
-      "skor": 54,
+      "skor": 52,
       "degerlendirme": "Orta",
       "ortak_donemler": [
         {
-          "giris": "2026-07-26",
+          "giris": "2026-07-28",
           "giris2": "2026-07-26",
-          "giris_fark": 0,
-          "cikis": "2026-08-01",
-          "cikis2": "2026-08-04",
+          "giris_fark": 2,
+          "cikis": "2026-07-30",
+          "cikis2": "2026-08-03",
           "ayni_cikis": false,
-          "cikis_fark": 3,
+          "cikis_fark": 4,
           "ayni_donus_kasabasi": false,
           "ayni_cikis_kasabasi": false,
-          "donus_kasaba": "Girvan",
-          "kalinan_gun_a": 6,
-          "kalinan_gun_b": 9,
+          "donus_kasaba": "Ardencaple",
+          "kalinan_gun_a": 2,
+          "kalinan_gun_b": 8,
           "tam": false
         }
       ],
-      "aile1": "Scuola Grande di San Rocco",
+      "aile1": "",
       "aile2": "",
-      "kayit1": "04 Haziran 2016",
-      "kayit2": "20 Haziran 2012",
+      "kayit1": "21 Temmuz 2017",
+      "kayit2": "10 Ekim 2025",
       "ayni_aile": false,
       "ayni_kayit_donemi": false,
-      "kayit_fark_gun": 1445,
+      "kayit_fark_gun": 3003,
       "grup_bagi": "",
       "gerekceler": [
-        "AYNI GÜN inzivaya geçtiler",
-        "3 gün arayla inzivadan çıktılar",
-        "ikisine de AYNI kişi(ler) güven puanı vermiş: kitialeah"
+        "2 gün arayla inzivaya geçtiler",
+        "4 gün arayla inzivadan çıktılar",
+        "ikisine de puan veren ortak kişi(ler) takip listemizde şüpheli: sensha"
       ],
-      "aciklama": "gianfredo ile pilone: AYNI GÜN inzivaya geçtiler; 3 gün arayla inzivadan çıktılar; ikisine de AYNI kişi(ler) güven puanı vermiş: kitialeah. İnziva dönemleri: 2026-07-26 → 2026-08-01."
+      "aciklama": "elshar490 ile sciascia: 2 gün arayla inzivaya geçtiler; 4 gün arayla inzivadan çıktılar; ikisine de puan veren ortak kişi(ler) takip listemizde şüpheli: sensha. İnziva dönemleri: 2026-07-28 → 2026-07-30."
     },
     {
       "kisi1": "andrea_zen",
@@ -4249,45 +4507,6 @@
         "ikisine de AYNI kişi(ler) güven puanı vermiş: lorelei, madcypriot"
       ],
       "aciklama": "mungojerry ile pilone: 8 gün arayla inzivaya geçtiler; AYNI GÜN inzivadan çıktılar; ikisine de AYNI kişi(ler) güven puanı vermiş: lorelei, madcypriot. İnziva dönemleri: 2026-08-03 → 2026-08-04."
-    },
-    {
-      "kisi1": "elshar490",
-      "kisi2": "sciascia",
-      "eslesme_sayisi": 1,
-      "tam_eslesme": 0,
-      "skor": 47,
-      "degerlendirme": "Orta",
-      "ortak_donemler": [
-        {
-          "giris": "2026-07-28",
-          "giris2": "2026-07-26",
-          "giris_fark": 2,
-          "cikis": "2026-07-30",
-          "cikis2": "2026-08-03",
-          "ayni_cikis": false,
-          "cikis_fark": 4,
-          "ayni_donus_kasabasi": false,
-          "ayni_cikis_kasabasi": false,
-          "donus_kasaba": "Ardencaple",
-          "kalinan_gun_a": 2,
-          "kalinan_gun_b": 8,
-          "tam": false
-        }
-      ],
-      "aile1": "",
-      "aile2": "",
-      "kayit1": "21 Temmuz 2017",
-      "kayit2": "10 Ekim 2025",
-      "ayni_aile": false,
-      "ayni_kayit_donemi": false,
-      "kayit_fark_gun": 3003,
-      "grup_bagi": "",
-      "gerekceler": [
-        "2 gün arayla inzivaya geçtiler",
-        "4 gün arayla inzivadan çıktılar",
-        "ikisine de AYNI kişi(ler) güven puanı vermiş: sensha"
-      ],
-      "aciklama": "elshar490 ile sciascia: 2 gün arayla inzivaya geçtiler; 4 gün arayla inzivadan çıktılar; ikisine de AYNI kişi(ler) güven puanı vermiş: sensha. İnziva dönemleri: 2026-07-28 → 2026-07-30."
     },
     {
       "kisi1": "allyn_tsuru",
@@ -4615,82 +4834,6 @@
         "2 gün arayla inzivadan çıktılar"
       ],
       "aciklama": "fantina_polo ile gianfredo: AYNI GÜN inzivaya geçtiler; 2 gün arayla inzivadan çıktılar. İnziva dönemleri: 2026-07-26 → 2026-08-03."
-    },
-    {
-      "kisi1": "gallorini",
-      "kisi2": "gianfredo",
-      "eslesme_sayisi": 1,
-      "tam_eslesme": 0,
-      "skor": 45,
-      "degerlendirme": "Orta",
-      "ortak_donemler": [
-        {
-          "giris": "2026-07-26",
-          "giris2": "2026-07-26",
-          "giris_fark": 0,
-          "cikis": "2026-08-03",
-          "cikis2": "2026-08-01",
-          "ayni_cikis": false,
-          "cikis_fark": 2,
-          "ayni_donus_kasabasi": false,
-          "ayni_cikis_kasabasi": false,
-          "donus_kasaba": "Wigtown",
-          "kalinan_gun_a": 8,
-          "kalinan_gun_b": 6,
-          "tam": false
-        }
-      ],
-      "aile1": "",
-      "aile2": "Scuola Grande di San Rocco",
-      "kayit1": "16 Nisan 2008",
-      "kayit2": "04 Haziran 2016",
-      "ayni_aile": false,
-      "ayni_kayit_donemi": false,
-      "kayit_fark_gun": 2971,
-      "grup_bagi": "",
-      "gerekceler": [
-        "AYNI GÜN inzivaya geçtiler",
-        "2 gün arayla inzivadan çıktılar"
-      ],
-      "aciklama": "gallorini ile gianfredo: AYNI GÜN inzivaya geçtiler; 2 gün arayla inzivadan çıktılar. İnziva dönemleri: 2026-07-26 → 2026-08-03."
-    },
-    {
-      "kisi1": "gianfredo",
-      "kisi2": "sciascia",
-      "eslesme_sayisi": 1,
-      "tam_eslesme": 0,
-      "skor": 45,
-      "degerlendirme": "Orta",
-      "ortak_donemler": [
-        {
-          "giris": "2026-07-26",
-          "giris2": "2026-07-26",
-          "giris_fark": 0,
-          "cikis": "2026-08-01",
-          "cikis2": "2026-08-03",
-          "ayni_cikis": false,
-          "cikis_fark": 2,
-          "ayni_donus_kasabasi": false,
-          "ayni_cikis_kasabasi": false,
-          "donus_kasaba": "Girvan",
-          "kalinan_gun_a": 6,
-          "kalinan_gun_b": 8,
-          "tam": false
-        }
-      ],
-      "aile1": "Scuola Grande di San Rocco",
-      "aile2": "",
-      "kayit1": "04 Haziran 2016",
-      "kayit2": "10 Ekim 2025",
-      "ayni_aile": false,
-      "ayni_kayit_donemi": false,
-      "kayit_fark_gun": 3415,
-      "grup_bagi": "",
-      "gerekceler": [
-        "AYNI GÜN inzivaya geçtiler",
-        "2 gün arayla inzivadan çıktılar"
-      ],
-      "aciklama": "gianfredo ile sciascia: AYNI GÜN inzivaya geçtiler; 2 gün arayla inzivadan çıktılar. İnziva dönemleri: 2026-07-26 → 2026-08-01."
     },
     {
       "kisi1": "dondina",
@@ -5570,6 +5713,44 @@
       "aciklama": "elshar490 ile mariarose: 2 gün arayla inzivaya geçtiler; 4 gün arayla inzivadan çıktılar. İnziva dönemleri: 2026-07-28 → 2026-07-30."
     },
     {
+      "kisi1": "al_lan",
+      "kisi2": "soulofanange",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 36,
+      "degerlendirme": "Orta",
+      "ortak_donemler": [
+        {
+          "giris": "2026-08-05",
+          "giris2": "2026-08-01",
+          "giris_fark": 4,
+          "cikis": "",
+          "cikis2": "",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": true,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Douglass",
+      "aile2": "Ceata lui Pițigoi",
+      "kayit1": "12 Aralık 2016",
+      "kayit2": "02 Nisan 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 1350,
+      "grup_bagi": "",
+      "gerekceler": [
+        "4 gün arayla inzivaya geçtiler",
+        "ikisine de puan veren ortak kişi(ler) takip listemizde şüpheli: gracelynn"
+      ],
+      "aciklama": "al_lan ile soulofanange: 4 gün arayla inzivaya geçtiler; ikisine de puan veren ortak kişi(ler) takip listemizde şüpheli: gracelynn. İnziva dönemleri: 2026-08-05 → (hâlâ inzivada)."
+    },
+    {
       "kisi1": "andrea_zen",
       "kisi2": "fantina_polo",
       "eslesme_sayisi": 1,
@@ -5986,6 +6167,44 @@
         "ikisine de AYNI kişi(ler) güven puanı vermiş: augustine."
       ],
       "aciklama": "dondina ile riomax: AYNI GÜN inzivaya geçtiler; ikisine de AYNI kişi(ler) güven puanı vermiş: augustine.. İnziva dönemleri: 2026-07-26 → 2026-08-04."
+    },
+    {
+      "kisi1": "elshar490",
+      "kisi2": "gildamccoy",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 36,
+      "degerlendirme": "Orta",
+      "ortak_donemler": [
+        {
+          "giris": "2026-07-28",
+          "giris2": "2026-08-01",
+          "giris_fark": 4,
+          "cikis": "2026-07-30",
+          "cikis2": "",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": true,
+          "donus_kasaba": "Ardencaple",
+          "kalinan_gun_a": 2,
+          "kalinan_gun_b": "",
+          "tam": false
+        }
+      ],
+      "aile1": "",
+      "aile2": "Mackay",
+      "kayit1": "21 Temmuz 2017",
+      "kayit2": "04 Ocak 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 1659,
+      "grup_bagi": "",
+      "gerekceler": [
+        "4 gün arayla inzivaya geçtiler",
+        "ikisine de puan veren ortak kişi(ler) takip listemizde şüpheli: sensha"
+      ],
+      "aciklama": "elshar490 ile gildamccoy: 4 gün arayla inzivaya geçtiler; ikisine de puan veren ortak kişi(ler) takip listemizde şüpheli: sensha. İnziva dönemleri: 2026-07-28 → 2026-07-30."
     },
     {
       "kisi1": "elshar490",
@@ -6711,42 +6930,80 @@
       "aciklama": "behruzbey ile soulofanange: 1 gün arayla inzivaya geçtiler; ikisine de AYNI kişi(ler) güven puanı vermiş: sywardus. İnziva dönemleri: 2026-08-02 → (hâlâ inzivada)."
     },
     {
-      "kisi1": "elshar490",
-      "kisi2": "gildamccoy",
+      "kisi1": "gildamccoy",
+      "kisi2": "sciascia",
       "eslesme_sayisi": 1,
       "tam_eslesme": 0,
       "skor": 31,
       "degerlendirme": "Orta",
       "ortak_donemler": [
         {
-          "giris": "2026-07-28",
-          "giris2": "2026-08-01",
-          "giris_fark": 4,
-          "cikis": "2026-07-30",
-          "cikis2": "",
+          "giris": "2026-08-01",
+          "giris2": "2026-07-26",
+          "giris_fark": 6,
+          "cikis": "",
+          "cikis2": "2026-08-03",
           "ayni_cikis": false,
           "cikis_fark": null,
           "ayni_donus_kasabasi": false,
-          "ayni_cikis_kasabasi": true,
-          "donus_kasaba": "Ardencaple",
-          "kalinan_gun_a": 2,
-          "kalinan_gun_b": "",
+          "ayni_cikis_kasabasi": false,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": 8,
           "tam": false
         }
       ],
-      "aile1": "",
-      "aile2": "Mackay",
-      "kayit1": "21 Temmuz 2017",
-      "kayit2": "04 Ocak 2013",
+      "aile1": "Mackay",
+      "aile2": "",
+      "kayit1": "04 Ocak 2013",
+      "kayit2": "10 Ekim 2025",
       "ayni_aile": false,
       "ayni_kayit_donemi": false,
-      "kayit_fark_gun": 1659,
+      "kayit_fark_gun": 4662,
       "grup_bagi": "",
       "gerekceler": [
-        "4 gün arayla inzivaya geçtiler",
-        "ikisine de AYNI kişi(ler) güven puanı vermiş: sensha"
+        "6 gün arayla inzivaya geçtiler",
+        "ikisine de puan veren ortak kişi(ler) takip listemizde şüpheli: sensha"
       ],
-      "aciklama": "elshar490 ile gildamccoy: 4 gün arayla inzivaya geçtiler; ikisine de AYNI kişi(ler) güven puanı vermiş: sensha. İnziva dönemleri: 2026-07-28 → 2026-07-30."
+      "aciklama": "gildamccoy ile sciascia: 6 gün arayla inzivaya geçtiler; ikisine de puan veren ortak kişi(ler) takip listemizde şüpheli: sensha. İnziva dönemleri: 2026-08-01 → (hâlâ inzivada)."
+    },
+    {
+      "kisi1": "al_lan",
+      "kisi2": "mungojerry",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 30,
+      "degerlendirme": "Orta",
+      "ortak_donemler": [
+        {
+          "giris": "2026-08-05",
+          "giris2": "2026-08-03",
+          "giris_fark": 2,
+          "cikis": "",
+          "cikis2": "2026-08-04",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": false,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": 1,
+          "tam": false
+        }
+      ],
+      "aile1": "Douglass",
+      "aile2": "Twynholm",
+      "kayit1": "12 Aralık 2016",
+      "kayit2": "27 Mart 2021",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 1566,
+      "grup_bagi": "",
+      "gerekceler": [
+        "2 gün arayla inzivaya geçtiler",
+        "ikisine de AYNI kişi(ler) güven puanı vermiş: lorelei, madcypriot"
+      ],
+      "aciklama": "al_lan ile mungojerry: 2 gün arayla inzivaya geçtiler; ikisine de AYNI kişi(ler) güven puanı vermiş: lorelei, madcypriot. İnziva dönemleri: 2026-08-05 → (hâlâ inzivada)."
     },
     {
       "kisi1": "mungojerry",
@@ -6785,6 +7042,44 @@
         "ikisine de AYNI kişi(ler) güven puanı vermiş: lorelei"
       ],
       "aciklama": "mungojerry ile soulofanange: 2 gün arayla inzivaya geçtiler; ikisine de AYNI kişi(ler) güven puanı vermiş: lorelei. İnziva dönemleri: 2026-08-03 → 2026-08-04."
+    },
+    {
+      "kisi1": "al_lan",
+      "kisi2": "behruzbey",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 29,
+      "degerlendirme": "Zayıf",
+      "ortak_donemler": [
+        {
+          "giris": "2026-08-05",
+          "giris2": "2026-08-02",
+          "giris_fark": 3,
+          "cikis": "",
+          "cikis2": "",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": false,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Douglass",
+      "aile2": "Selçuklu Ailesi",
+      "kayit1": "12 Aralık 2016",
+      "kayit2": "15 Nisan 2020",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 1220,
+      "grup_bagi": "",
+      "gerekceler": [
+        "3 gün arayla inzivaya geçtiler",
+        "ikisine de AYNI kişi(ler) güven puanı vermiş: madcypriot"
+      ],
+      "aciklama": "al_lan ile behruzbey: 3 gün arayla inzivaya geçtiler; ikisine de AYNI kişi(ler) güven puanı vermiş: madcypriot. İnziva dönemleri: 2026-08-05 → (hâlâ inzivada)."
     },
     {
       "kisi1": "allyn_tsuru",
@@ -7234,6 +7529,44 @@
         "ikisine de AYNI kişi(ler) güven puanı vermiş: sywardus"
       ],
       "aciklama": "sciascia ile soulofanange: 6 gün arayla inzivaya geçtiler; ikisine de AYNI kişi(ler) güven puanı vermiş: sywardus. İnziva dönemleri: 2026-07-26 → 2026-08-03."
+    },
+    {
+      "kisi1": "al_lan",
+      "kisi2": "allyn_tsuru",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 28,
+      "degerlendirme": "Zayıf",
+      "ortak_donemler": [
+        {
+          "giris": "2026-08-05",
+          "giris2": "2026-07-29",
+          "giris_fark": 7,
+          "cikis": "",
+          "cikis2": "2026-08-02",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": true,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": 4,
+          "tam": false
+        }
+      ],
+      "aile1": "Douglass",
+      "aile2": "",
+      "kayit1": "12 Aralık 2016",
+      "kayit2": "21 Ağustos 2016",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 113,
+      "grup_bagi": "",
+      "gerekceler": [
+        "7 gün arayla inzivaya geçtiler",
+        "ikisine de AYNI kişi(ler) güven puanı vermiş: lorelei"
+      ],
+      "aciklama": "al_lan ile allyn_tsuru: 7 gün arayla inzivaya geçtiler; ikisine de AYNI kişi(ler) güven puanı vermiş: lorelei. İnziva dönemleri: 2026-08-05 → (hâlâ inzivada)."
     },
     {
       "kisi1": "allyn_tsuru",
@@ -7830,44 +8163,6 @@
       "aciklama": "gildamccoy ile ragehammer.: AYNI GÜN inzivaya geçtiler. İnziva dönemleri: 2026-08-01 → (hâlâ inzivada)."
     },
     {
-      "kisi1": "gildamccoy",
-      "kisi2": "sciascia",
-      "eslesme_sayisi": 1,
-      "tam_eslesme": 0,
-      "skor": 26,
-      "degerlendirme": "Zayıf",
-      "ortak_donemler": [
-        {
-          "giris": "2026-08-01",
-          "giris2": "2026-07-26",
-          "giris_fark": 6,
-          "cikis": "",
-          "cikis2": "2026-08-03",
-          "ayni_cikis": false,
-          "cikis_fark": null,
-          "ayni_donus_kasabasi": false,
-          "ayni_cikis_kasabasi": false,
-          "donus_kasaba": "",
-          "kalinan_gun_a": "",
-          "kalinan_gun_b": 8,
-          "tam": false
-        }
-      ],
-      "aile1": "Mackay",
-      "aile2": "",
-      "kayit1": "04 Ocak 2013",
-      "kayit2": "10 Ekim 2025",
-      "ayni_aile": false,
-      "ayni_kayit_donemi": false,
-      "kayit_fark_gun": 4662,
-      "grup_bagi": "",
-      "gerekceler": [
-        "6 gün arayla inzivaya geçtiler",
-        "ikisine de AYNI kişi(ler) güven puanı vermiş: sensha, sywardus"
-      ],
-      "aciklama": "gildamccoy ile sciascia: 6 gün arayla inzivaya geçtiler; ikisine de AYNI kişi(ler) güven puanı vermiş: sensha, sywardus. İnziva dönemleri: 2026-08-01 → (hâlâ inzivada)."
-    },
-    {
       "kisi1": "incoronata",
       "kisi2": "pietro_d_abano",
       "eslesme_sayisi": 1,
@@ -8089,6 +8384,82 @@
         "ikisine de AYNI kişi(ler) güven puanı vermiş: lalenia"
       ],
       "aciklama": "riomax ile soulofanange: 6 gün arayla inzivaya geçtiler; ikisine de AYNI kişi(ler) güven puanı vermiş: lalenia. İnziva dönemleri: 2026-07-26 → (hâlâ inzivada)."
+    },
+    {
+      "kisi1": "al_lan",
+      "kisi2": "castagna",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 25,
+      "degerlendirme": "Zayıf",
+      "ortak_donemler": [
+        {
+          "giris": "2026-08-05",
+          "giris2": "2026-07-26",
+          "giris_fark": 10,
+          "cikis": "",
+          "cikis2": "2026-08-03",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": true,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": 8,
+          "tam": false
+        }
+      ],
+      "aile1": "Douglass",
+      "aile2": "Scuola Grande di San Rocco",
+      "kayit1": "12 Aralık 2016",
+      "kayit2": "17 Temmuz 2009",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 2705,
+      "grup_bagi": "",
+      "gerekceler": [
+        "10 gün arayla inzivaya geçtiler",
+        "ikisine de AYNI kişi(ler) güven puanı vermiş: lalenia"
+      ],
+      "aciklama": "al_lan ile castagna: 10 gün arayla inzivaya geçtiler; ikisine de AYNI kişi(ler) güven puanı vermiş: lalenia. İnziva dönemleri: 2026-08-05 → (hâlâ inzivada)."
+    },
+    {
+      "kisi1": "al_lan",
+      "kisi2": "pilone",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 25,
+      "degerlendirme": "Zayıf",
+      "ortak_donemler": [
+        {
+          "giris": "2026-08-05",
+          "giris2": "2026-07-26",
+          "giris_fark": 10,
+          "cikis": "",
+          "cikis2": "2026-08-04",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": true,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": 9,
+          "tam": false
+        }
+      ],
+      "aile1": "Douglass",
+      "aile2": "",
+      "kayit1": "12 Aralık 2016",
+      "kayit2": "20 Haziran 2012",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 1636,
+      "grup_bagi": "",
+      "gerekceler": [
+        "10 gün arayla inzivaya geçtiler",
+        "ikisine de AYNI kişi(ler) güven puanı vermiş: lorelei, madcypriot"
+      ],
+      "aciklama": "al_lan ile pilone: 10 gün arayla inzivaya geçtiler; ikisine de AYNI kişi(ler) güven puanı vermiş: lorelei, madcypriot. İnziva dönemleri: 2026-08-05 → (hâlâ inzivada)."
     },
     {
       "kisi1": "behruzbey",
@@ -8392,6 +8763,120 @@
         "ikisine de AYNI kişi(ler) güven puanı vermiş: madcypriot"
       ],
       "aciklama": "mungojerry ile riomax: 8 gün arayla inzivaya geçtiler; ikisine de AYNI kişi(ler) güven puanı vermiş: madcypriot. İnziva dönemleri: 2026-08-03 → 2026-08-04."
+    },
+    {
+      "kisi1": "al_lan",
+      "kisi2": "blodwyn",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 22,
+      "degerlendirme": "Zayıf",
+      "ortak_donemler": [
+        {
+          "giris": "2026-08-05",
+          "giris2": "2026-07-26",
+          "giris_fark": 10,
+          "cikis": "",
+          "cikis2": "2026-08-04",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": false,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": 9,
+          "tam": false
+        }
+      ],
+      "aile1": "Douglass",
+      "aile2": "",
+      "kayit1": "12 Aralık 2016",
+      "kayit2": "04 Nisan 2012",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 1713,
+      "grup_bagi": "",
+      "gerekceler": [
+        "10 gün arayla inzivaya geçtiler",
+        "ikisine de AYNI kişi(ler) güven puanı vermiş: madcypriot"
+      ],
+      "aciklama": "al_lan ile blodwyn: 10 gün arayla inzivaya geçtiler; ikisine de AYNI kişi(ler) güven puanı vermiş: madcypriot. İnziva dönemleri: 2026-08-05 → (hâlâ inzivada)."
+    },
+    {
+      "kisi1": "al_lan",
+      "kisi2": "incoronata",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 22,
+      "degerlendirme": "Zayıf",
+      "ortak_donemler": [
+        {
+          "giris": "2026-08-05",
+          "giris2": "2026-07-26",
+          "giris_fark": 10,
+          "cikis": "",
+          "cikis2": "2026-08-03",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": false,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": 8,
+          "tam": false
+        }
+      ],
+      "aile1": "Douglass",
+      "aile2": "",
+      "kayit1": "12 Aralık 2016",
+      "kayit2": "06 Ekim 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 1163,
+      "grup_bagi": "",
+      "gerekceler": [
+        "10 gün arayla inzivaya geçtiler",
+        "ikisine de AYNI kişi(ler) güven puanı vermiş: madcypriot"
+      ],
+      "aciklama": "al_lan ile incoronata: 10 gün arayla inzivaya geçtiler; ikisine de AYNI kişi(ler) güven puanı vermiş: madcypriot. İnziva dönemleri: 2026-08-05 → (hâlâ inzivada)."
+    },
+    {
+      "kisi1": "al_lan",
+      "kisi2": "riomax",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 22,
+      "degerlendirme": "Zayıf",
+      "ortak_donemler": [
+        {
+          "giris": "2026-08-05",
+          "giris2": "2026-07-26",
+          "giris_fark": 10,
+          "cikis": "",
+          "cikis2": "",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": false,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Douglass",
+      "aile2": "",
+      "kayit1": "12 Aralık 2016",
+      "kayit2": "15 Ağustos 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 1215,
+      "grup_bagi": "",
+      "gerekceler": [
+        "10 gün arayla inzivaya geçtiler",
+        "ikisine de AYNI kişi(ler) güven puanı vermiş: lalenia, madcypriot"
+      ],
+      "aciklama": "al_lan ile riomax: 10 gün arayla inzivaya geçtiler; ikisine de AYNI kişi(ler) güven puanı vermiş: lalenia, madcypriot. İnziva dönemleri: 2026-08-05 → (hâlâ inzivada)."
     },
     {
       "kisi1": "allyn_tsuru",
@@ -8984,6 +9469,80 @@
         "6 gün arayla inzivaya geçtiler"
       ],
       "aciklama": "pietro_d_abano ile soulofanange: 6 gün arayla inzivaya geçtiler. İnziva dönemleri: 2026-07-26 → (hâlâ inzivada)."
+    },
+    {
+      "kisi1": "al_lan",
+      "kisi2": "gildamccoy",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 18,
+      "degerlendirme": "Zayıf",
+      "ortak_donemler": [
+        {
+          "giris": "2026-08-05",
+          "giris2": "2026-08-01",
+          "giris_fark": 4,
+          "cikis": "",
+          "cikis2": "",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": false,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Douglass",
+      "aile2": "Mackay",
+      "kayit1": "12 Aralık 2016",
+      "kayit2": "04 Ocak 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 1438,
+      "grup_bagi": "",
+      "gerekceler": [
+        "4 gün arayla inzivaya geçtiler"
+      ],
+      "aciklama": "al_lan ile gildamccoy: 4 gün arayla inzivaya geçtiler. İnziva dönemleri: 2026-08-05 → (hâlâ inzivada)."
+    },
+    {
+      "kisi1": "al_lan",
+      "kisi2": "ragehammer.",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 18,
+      "degerlendirme": "Zayıf",
+      "ortak_donemler": [
+        {
+          "giris": "2026-08-05",
+          "giris2": "2026-08-01",
+          "giris_fark": 4,
+          "cikis": "",
+          "cikis2": "",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": false,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Douglass",
+      "aile2": "",
+      "kayit1": "12 Aralık 2016",
+      "kayit2": "19 Eylül 2006",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 3737,
+      "grup_bagi": "",
+      "gerekceler": [
+        "4 gün arayla inzivaya geçtiler"
+      ],
+      "aciklama": "al_lan ile ragehammer.: 4 gün arayla inzivaya geçtiler. İnziva dönemleri: 2026-08-05 → (hâlâ inzivada)."
     },
     {
       "kisi1": "elshar490",
@@ -10397,6 +10956,27 @@
       "aciklama": "behruzbey ile tar_aldarion: aynı gün (2026-07-28) inzivadan dönmüş görünüyorlar (tahmini). İnziva dönemleri: ."
     },
     {
+      "kisi1": "ninon_de_lenclos",
+      "kisi2": "sensha",
+      "eslesme_sayisi": 0,
+      "tam_eslesme": 0,
+      "skor": 16,
+      "degerlendirme": "Zayıf",
+      "ortak_donemler": [],
+      "aile1": "",
+      "aile2": "",
+      "kayit1": "",
+      "kayit2": "",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": null,
+      "grup_bagi": "",
+      "gerekceler": [
+        "aynı gün (2026-08-05) inzivadan dönmüş görünüyorlar (tahmini)"
+      ],
+      "aciklama": "ninon_de_lenclos ile sensha: aynı gün (2026-08-05) inzivadan dönmüş görünüyorlar (tahmini). İnziva dönemleri: ."
+    },
+    {
       "kisi1": "odar",
       "kisi2": "tar_aldarion",
       "eslesme_sayisi": 0,
@@ -10416,6 +10996,228 @@
         "aynı gün (2026-07-28) inzivadan dönmüş görünüyorlar (tahmini)"
       ],
       "aciklama": "odar ile tar_aldarion: aynı gün (2026-07-28) inzivadan dönmüş görünüyorlar (tahmini). İnziva dönemleri: ."
+    },
+    {
+      "kisi1": "al_lan",
+      "kisi2": "aspargus",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 15,
+      "degerlendirme": "Zayıf",
+      "ortak_donemler": [
+        {
+          "giris": "2026-08-05",
+          "giris2": "2026-07-26",
+          "giris_fark": 10,
+          "cikis": "",
+          "cikis2": "2026-08-04",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": true,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": 9,
+          "tam": false
+        }
+      ],
+      "aile1": "Douglass",
+      "aile2": "",
+      "kayit1": "12 Aralık 2016",
+      "kayit2": "01 Haziran 2015",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 560,
+      "grup_bagi": "",
+      "gerekceler": [
+        "10 gün arayla inzivaya geçtiler"
+      ],
+      "aciklama": "al_lan ile aspargus: 10 gün arayla inzivaya geçtiler. İnziva dönemleri: 2026-08-05 → (hâlâ inzivada)."
+    },
+    {
+      "kisi1": "al_lan",
+      "kisi2": "dondina",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 15,
+      "degerlendirme": "Zayıf",
+      "ortak_donemler": [
+        {
+          "giris": "2026-08-05",
+          "giris2": "2026-07-26",
+          "giris_fark": 10,
+          "cikis": "",
+          "cikis2": "2026-08-04",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": true,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": 9,
+          "tam": false
+        }
+      ],
+      "aile1": "Douglass",
+      "aile2": "",
+      "kayit1": "12 Aralık 2016",
+      "kayit2": "30 Ocak 2022",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 1875,
+      "grup_bagi": "",
+      "gerekceler": [
+        "10 gün arayla inzivaya geçtiler"
+      ],
+      "aciklama": "al_lan ile dondina: 10 gün arayla inzivaya geçtiler. İnziva dönemleri: 2026-08-05 → (hâlâ inzivada)."
+    },
+    {
+      "kisi1": "al_lan",
+      "kisi2": "fantina_polo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 15,
+      "degerlendirme": "Zayıf",
+      "ortak_donemler": [
+        {
+          "giris": "2026-08-05",
+          "giris2": "2026-07-26",
+          "giris_fark": 10,
+          "cikis": "",
+          "cikis2": "2026-08-03",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": true,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": 8,
+          "tam": false
+        }
+      ],
+      "aile1": "Douglass",
+      "aile2": "",
+      "kayit1": "12 Aralık 2016",
+      "kayit2": "09 Ağustos 2011",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 1952,
+      "grup_bagi": "",
+      "gerekceler": [
+        "10 gün arayla inzivaya geçtiler"
+      ],
+      "aciklama": "al_lan ile fantina_polo: 10 gün arayla inzivaya geçtiler. İnziva dönemleri: 2026-08-05 → (hâlâ inzivada)."
+    },
+    {
+      "kisi1": "al_lan",
+      "kisi2": "gallorini",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 15,
+      "degerlendirme": "Zayıf",
+      "ortak_donemler": [
+        {
+          "giris": "2026-08-05",
+          "giris2": "2026-07-26",
+          "giris_fark": 10,
+          "cikis": "",
+          "cikis2": "2026-08-03",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": true,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": 8,
+          "tam": false
+        }
+      ],
+      "aile1": "Douglass",
+      "aile2": "",
+      "kayit1": "12 Aralık 2016",
+      "kayit2": "16 Nisan 2008",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 3162,
+      "grup_bagi": "",
+      "gerekceler": [
+        "10 gün arayla inzivaya geçtiler"
+      ],
+      "aciklama": "al_lan ile gallorini: 10 gün arayla inzivaya geçtiler. İnziva dönemleri: 2026-08-05 → (hâlâ inzivada)."
+    },
+    {
+      "kisi1": "al_lan",
+      "kisi2": "pietro_d_abano",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 15,
+      "degerlendirme": "Zayıf",
+      "ortak_donemler": [
+        {
+          "giris": "2026-08-05",
+          "giris2": "2026-07-26",
+          "giris_fark": 10,
+          "cikis": "",
+          "cikis2": "",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": true,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Douglass",
+      "aile2": "",
+      "kayit1": "12 Aralık 2016",
+      "kayit2": "08 Eylül 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 3192,
+      "grup_bagi": "",
+      "gerekceler": [
+        "10 gün arayla inzivaya geçtiler"
+      ],
+      "aciklama": "al_lan ile pietro_d_abano: 10 gün arayla inzivaya geçtiler. İnziva dönemleri: 2026-08-05 → (hâlâ inzivada)."
+    },
+    {
+      "kisi1": "al_lan",
+      "kisi2": "sciascia",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 15,
+      "degerlendirme": "Zayıf",
+      "ortak_donemler": [
+        {
+          "giris": "2026-08-05",
+          "giris2": "2026-07-26",
+          "giris_fark": 10,
+          "cikis": "",
+          "cikis2": "2026-08-03",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": true,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": 8,
+          "tam": false
+        }
+      ],
+      "aile1": "Douglass",
+      "aile2": "",
+      "kayit1": "12 Aralık 2016",
+      "kayit2": "10 Ekim 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 3224,
+      "grup_bagi": "",
+      "gerekceler": [
+        "10 gün arayla inzivaya geçtiler"
+      ],
+      "aciklama": "al_lan ile sciascia: 10 gün arayla inzivaya geçtiler. İnziva dönemleri: 2026-08-05 → (hâlâ inzivada)."
     },
     {
       "kisi1": "andrea_zen",
@@ -10751,6 +11553,43 @@
       "aciklama": "behruzbey ile pietro_d_abano: 7 gün arayla inzivaya geçtiler. İnziva dönemleri: 2026-08-02 → (hâlâ inzivada)."
     },
     {
+      "kisi1": "al_lan",
+      "kisi2": "elshar490",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 14,
+      "degerlendirme": "Zayıf",
+      "ortak_donemler": [
+        {
+          "giris": "2026-08-05",
+          "giris2": "2026-07-28",
+          "giris_fark": 8,
+          "cikis": "",
+          "cikis2": "2026-07-30",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": false,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": 2,
+          "tam": false
+        }
+      ],
+      "aile1": "Douglass",
+      "aile2": "",
+      "kayit1": "12 Aralık 2016",
+      "kayit2": "21 Temmuz 2017",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 221,
+      "grup_bagi": "",
+      "gerekceler": [
+        "8 gün arayla inzivaya geçtiler"
+      ],
+      "aciklama": "al_lan ile elshar490: 8 gün arayla inzivaya geçtiler. İnziva dönemleri: 2026-08-05 → (hâlâ inzivada)."
+    },
+    {
       "kisi1": "andrea_zen",
       "kisi2": "mungojerry",
       "eslesme_sayisi": 1,
@@ -10823,11 +11662,160 @@
         "8 gün arayla inzivaya geçtiler"
       ],
       "aciklama": "mungojerry ile pietro_d_abano: 8 gün arayla inzivaya geçtiler. İnziva dönemleri: 2026-08-03 → 2026-08-04."
+    },
+    {
+      "kisi1": "al_lan",
+      "kisi2": "andrea_zen",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 12,
+      "degerlendirme": "Zayıf",
+      "ortak_donemler": [
+        {
+          "giris": "2026-08-05",
+          "giris2": "2026-07-26",
+          "giris_fark": 10,
+          "cikis": "",
+          "cikis2": "",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": false,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Douglass",
+      "aile2": "",
+      "kayit1": "12 Aralık 2016",
+      "kayit2": "29 Ağustos 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 3182,
+      "grup_bagi": "",
+      "gerekceler": [
+        "10 gün arayla inzivaya geçtiler"
+      ],
+      "aciklama": "al_lan ile andrea_zen: 10 gün arayla inzivaya geçtiler. İnziva dönemleri: 2026-08-05 → (hâlâ inzivada)."
+    },
+    {
+      "kisi1": "al_lan",
+      "kisi2": "fra_giocondo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 12,
+      "degerlendirme": "Zayıf",
+      "ortak_donemler": [
+        {
+          "giris": "2026-08-05",
+          "giris2": "2026-07-26",
+          "giris_fark": 10,
+          "cikis": "",
+          "cikis2": "",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": false,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": "",
+          "tam": false
+        }
+      ],
+      "aile1": "Douglass",
+      "aile2": "",
+      "kayit1": "12 Aralık 2016",
+      "kayit2": "10 Eylül 2025",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 3194,
+      "grup_bagi": "",
+      "gerekceler": [
+        "10 gün arayla inzivaya geçtiler"
+      ],
+      "aciklama": "al_lan ile fra_giocondo: 10 gün arayla inzivaya geçtiler. İnziva dönemleri: 2026-08-05 → (hâlâ inzivada)."
+    },
+    {
+      "kisi1": "al_lan",
+      "kisi2": "gianfredo",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 12,
+      "degerlendirme": "Zayıf",
+      "ortak_donemler": [
+        {
+          "giris": "2026-08-05",
+          "giris2": "2026-07-26",
+          "giris_fark": 10,
+          "cikis": "",
+          "cikis2": "2026-08-01",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": false,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": 6,
+          "tam": false
+        }
+      ],
+      "aile1": "Douglass",
+      "aile2": "Scuola Grande di San Rocco",
+      "kayit1": "12 Aralık 2016",
+      "kayit2": "04 Haziran 2016",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 191,
+      "grup_bagi": "",
+      "gerekceler": [
+        "10 gün arayla inzivaya geçtiler"
+      ],
+      "aciklama": "al_lan ile gianfredo: 10 gün arayla inzivaya geçtiler. İnziva dönemleri: 2026-08-05 → (hâlâ inzivada)."
+    },
+    {
+      "kisi1": "al_lan",
+      "kisi2": "mariarose",
+      "eslesme_sayisi": 1,
+      "tam_eslesme": 0,
+      "skor": 12,
+      "degerlendirme": "Zayıf",
+      "ortak_donemler": [
+        {
+          "giris": "2026-08-05",
+          "giris2": "2026-07-26",
+          "giris_fark": 10,
+          "cikis": "",
+          "cikis2": "2026-08-03",
+          "ayni_cikis": false,
+          "cikis_fark": null,
+          "ayni_donus_kasabasi": false,
+          "ayni_cikis_kasabasi": false,
+          "donus_kasaba": "",
+          "kalinan_gun_a": "",
+          "kalinan_gun_b": 8,
+          "tam": false
+        }
+      ],
+      "aile1": "Douglass",
+      "aile2": "",
+      "kayit1": "12 Aralık 2016",
+      "kayit2": "22 Nisan 2013",
+      "ayni_aile": false,
+      "ayni_kayit_donemi": false,
+      "kayit_fark_gun": 1330,
+      "grup_bagi": "",
+      "gerekceler": [
+        "10 gün arayla inzivaya geçtiler"
+      ],
+      "aciklama": "al_lan ile mariarose: 10 gün arayla inzivaya geçtiler. İnziva dönemleri: 2026-08-05 → (hâlâ inzivada)."
     }
   ],
   "multi_kumeler": [
     {
       "uyeler": [
+        "al_lan",
         "allyn_tsuru",
         "andrea_zen",
         "aspargus",
@@ -10851,18 +11839,19 @@
         "sciascia",
         "soulofanange"
       ],
-      "kisi_sayisi": 22,
-      "cift_sayisi": 185,
-      "en_yuksek_skor": 114,
+      "kisi_sayisi": 23,
+      "cift_sayisi": 196,
+      "en_yuksek_skor": 124,
       "tarihler": [
         "2026-07-26",
         "2026-07-28",
         "2026-07-29",
         "2026-08-01",
         "2026-08-02",
-        "2026-08-03"
+        "2026-08-03",
+        "2026-08-05"
       ],
-      "aciklama": "22 hesap birlikte İNZİVAYA giriyor: allyn_tsuru, andrea_zen, aspargus, behruzbey, blodwyn, castagna, dondina, elshar490, fantina_polo, fra_giocondo, gallorini, gianfredo, gildamccoy, incoronata, mariarose, mungojerry, pietro_d_abano, pilone, ragehammer., riomax, sciascia, soulofanange — inzivaya geçtikleri tarih(ler): 2026-07-26, 2026-07-28, 2026-07-29, 2026-08-01, 2026-08-02, 2026-08-03 — 25 kez aynı gün inzivadan da çıktılar — aile bağı: Ceata lui Pițigoi, Mackay, Scuola Grande di San Rocco, Selçuklu Ailesi, Twynholm."
+      "aciklama": "23 hesap birlikte İNZİVAYA giriyor: al_lan, allyn_tsuru, andrea_zen, aspargus, behruzbey, blodwyn, castagna, dondina, elshar490, fantina_polo, fra_giocondo, gallorini, gianfredo, gildamccoy, incoronata, mariarose, mungojerry, pietro_d_abano, pilone, ragehammer., riomax, sciascia, soulofanange — inzivaya geçtikleri tarih(ler): 2026-07-26, 2026-07-28, 2026-07-29, 2026-08-01, 2026-08-02, 2026-08-03, 2026-08-05 — 25 kez aynı gün inzivadan da çıktılar — aile bağı: Ceata lui Pițigoi, Douglass, Mackay, Scuola Grande di San Rocco, Selçuklu Ailesi, Twynholm."
     },
     {
       "uyeler": [
@@ -10880,12 +11869,12 @@
     {
       "karakter": "anaster",
       "kasaba": "Ardencaple",
-      "pr": 17
+      "pr": 18
     },
     {
       "karakter": "arous",
       "kasaba": "Ardencaple",
-      "pr": 12
+      "pr": 13
     },
     {
       "karakter": "atreides",
@@ -10965,7 +11954,7 @@
     {
       "karakter": "ironfoot",
       "kasaba": "Ardencaple",
-      "pr": 49
+      "pr": 50
     },
     {
       "karakter": "j34nny",
@@ -11010,7 +11999,7 @@
     {
       "karakter": "neromancer",
       "kasaba": "Ardencaple",
-      "pr": 10
+      "pr": 11
     },
     {
       "karakter": "nihilant",
@@ -11040,7 +12029,7 @@
     {
       "karakter": "tonali",
       "kasaba": "Ardencaple",
-      "pr": 11
+      "pr": 12
     },
     {
       "karakter": "toyga",
@@ -11108,11 +12097,6 @@
       "pr": 13
     },
     {
-      "karakter": "cameliae",
-      "kasaba": "Girvan",
-      "pr": 255
-    },
-    {
       "karakter": "chris_dominici",
       "kasaba": "Girvan",
       "pr": 255
@@ -11120,7 +12104,7 @@
     {
       "karakter": "corryvreckan",
       "kasaba": "Girvan",
-      "pr": 14
+      "pr": 15
     },
     {
       "karakter": "couston",
@@ -11178,6 +12162,11 @@
       "pr": 255
     },
     {
+      "karakter": "john1988vic",
+      "kasaba": "Girvan",
+      "pr": 255
+    },
+    {
       "karakter": "kravenmidnahaed",
       "kasaba": "Girvan",
       "pr": 255
@@ -11186,6 +12175,16 @@
       "karakter": "lannnister",
       "kasaba": "Girvan",
       "pr": 111
+    },
+    {
+      "karakter": "lorelei",
+      "kasaba": "Girvan",
+      "pr": 255
+    },
+    {
+      "karakter": "loren.zo.",
+      "kasaba": "Girvan",
+      "pr": 255
     },
     {
       "karakter": "maeva_emj",
@@ -11223,12 +12222,27 @@
       "pr": 255
     },
     {
+      "karakter": "pilone",
+      "kasaba": "Girvan",
+      "pr": 255
+    },
+    {
       "karakter": "reign7008",
       "kasaba": "Girvan",
       "pr": 55
     },
     {
       "karakter": "rhosyn",
+      "kasaba": "Girvan",
+      "pr": 255
+    },
+    {
+      "karakter": "sciascia",
+      "kasaba": "Girvan",
+      "pr": 43
+    },
+    {
+      "karakter": "sensha",
       "kasaba": "Girvan",
       "pr": 255
     },
@@ -11310,7 +12324,7 @@
     {
       "karakter": "coptik",
       "kasaba": "Glasgow",
-      "pr": 119
+      "pr": 120
     },
     {
       "karakter": "cullengen",
@@ -11340,7 +12354,7 @@
     {
       "karakter": "esnaf",
       "kasaba": "Glasgow",
-      "pr": 63
+      "pr": 64
     },
     {
       "karakter": "fredyy",
@@ -11369,6 +12383,11 @@
     },
     {
       "karakter": "odigan",
+      "kasaba": "Glasgow",
+      "pr": 255
+    },
+    {
+      "karakter": "partal",
       "kasaba": "Glasgow",
       "pr": 255
     },
@@ -11475,7 +12494,7 @@
     {
       "karakter": "baela",
       "kasaba": "Kirkcudbright",
-      "pr": 85
+      "pr": 86
     },
     {
       "karakter": "beramus",
@@ -11575,7 +12594,7 @@
     {
       "karakter": "bafetimbi",
       "kasaba": "Stirling",
-      "pr": 98
+      "pr": 99
     },
     {
       "karakter": "beannighe",
@@ -11648,7 +12667,7 @@
       "pr": 255
     },
     {
-      "karakter": "partal",
+      "karakter": "ninon_de_lenclos",
       "kasaba": "Stirling",
       "pr": 255
     },
@@ -11725,7 +12744,7 @@
     {
       "karakter": "angnes",
       "kasaba": "Whithorn",
-      "pr": 32
+      "pr": 33
     },
     {
       "karakter": "anne_v",
@@ -11805,12 +12824,17 @@
     {
       "karakter": "diadoxos",
       "kasaba": "Whithorn",
-      "pr": 49
+      "pr": 50
     },
     {
       "karakter": "dimitrios_megas",
       "kasaba": "Whithorn",
       "pr": 62
+    },
+    {
+      "karakter": "dondina",
+      "kasaba": "Whithorn",
+      "pr": 201
     },
     {
       "karakter": "drdeath",
@@ -11875,7 +12899,7 @@
     {
       "karakter": "julius_maximus",
       "kasaba": "Whithorn",
-      "pr": 50
+      "pr": 52
     },
     {
       "karakter": "katinew",
@@ -11995,7 +13019,7 @@
     {
       "karakter": "philippos.b",
       "kasaba": "Whithorn",
-      "pr": 49
+      "pr": 50
     },
     {
       "karakter": "pict",
@@ -12043,11 +13067,6 @@
       "pr": 31
     },
     {
-      "karakter": "al_lan",
-      "kasaba": "Wigtown",
-      "pr": 255
-    },
-    {
       "karakter": "alanclarks99",
       "kasaba": "Wigtown",
       "pr": 255
@@ -12088,6 +13107,11 @@
       "pr": 255
     },
     {
+      "karakter": "cameliae",
+      "kasaba": "Wigtown",
+      "pr": 255
+    },
+    {
       "karakter": "castagna",
       "kasaba": "Wigtown",
       "pr": 255
@@ -12116,11 +13140,6 @@
       "karakter": "comtesj",
       "kasaba": "Wigtown",
       "pr": 11
-    },
-    {
-      "karakter": "dondina",
-      "kasaba": "Wigtown",
-      "pr": 201
     },
     {
       "karakter": "duncan_little",
@@ -12163,11 +13182,6 @@
       "pr": 12
     },
     {
-      "karakter": "john1988vic",
-      "kasaba": "Wigtown",
-      "pr": 255
-    },
-    {
       "karakter": "kargath",
       "kasaba": "Wigtown",
       "pr": 76
@@ -12180,12 +13194,7 @@
     {
       "karakter": "lewist",
       "kasaba": "Wigtown",
-      "pr": 155
-    },
-    {
-      "karakter": "lorelei",
-      "kasaba": "Wigtown",
-      "pr": 255
+      "pr": 156
     },
     {
       "karakter": "makuta",
@@ -12195,7 +13204,7 @@
     {
       "karakter": "nojiko",
       "kasaba": "Wigtown",
-      "pr": 38
+      "pr": 39
     },
     {
       "karakter": "o1turkk",
@@ -12206,11 +13215,6 @@
       "karakter": "peeves",
       "kasaba": "Wigtown",
       "pr": 73
-    },
-    {
-      "karakter": "pilone",
-      "kasaba": "Wigtown",
-      "pr": 255
     },
     {
       "karakter": "promethea",
@@ -12226,11 +13230,6 @@
       "karakter": "redd.",
       "kasaba": "Wigtown",
       "pr": 6
-    },
-    {
-      "karakter": "sciascia",
-      "kasaba": "Wigtown",
-      "pr": 43
     },
     {
       "karakter": "serachin",
@@ -12260,7 +13259,7 @@
     {
       "karakter": "tavore",
       "kasaba": "Wigtown",
-      "pr": 128
+      "pr": 130
     },
     {
       "karakter": "telconta_r",
@@ -12288,14 +13287,24 @@
       "pr": 60
     }
   ],
-  "dilekce": "==============================================================================\nMULTI-ACCOUNT OBSERVATION REPORT / RAPPORT D'OBSERVATION DE MULTI-COMPTES\nDate / Date : 2026-08-04\n==============================================================================\n\n----------------------------- ENGLISH -----------------------------\n\nDear Administrators,\n\nI would like to submit for your review a number of accounts that entered\nseclusion on exactly the same day, and in several cases came back on\nexactly the same day as well.\n\nThese observations come from the publicly visible town resident lists,\nwhich I record once per day, together with the character pages, which I\nconsult to confirm that the character is indeed in seclusion. Accounts\nthat merely travelled to another town are NOT included here.\n\nI am not in a position to determine whether these accounts belong to the\nsame person, and I make no accusation. I am only providing the observed\ndates so that you can compare them with the data available to you.\n\n----------------------------- FRANÇAIS ----------------------------\n\nChers Administrateurs,\n\nJe souhaite soumettre à votre examen plusieurs comptes qui sont entrés\nen retraite exactement le même jour et qui, dans plusieurs cas, en sont\nrevenus exactement le même jour également.\n\nCes observations proviennent des listes publiques des habitants des\nvilles, que je relève une fois par jour, ainsi que des fiches de\npersonnage, que je consulte pour confirmer que le personnage est bien\nen retraite. Les comptes qui se sont simplement déplacés vers une autre\nville ne figurent PAS ici.\n\nIl ne m'appartient pas de déterminer si ces comptes appartiennent à la\nmême personne, et je ne porte aucune accusation. Je vous transmets\nuniquement les dates observées afin que vous puissiez les comparer aux\ndonnées dont vous disposez.\n\n==============================================================================\nOBSERVED DATA / DONNÉES OBSERVÉES\n==============================================================================\n\nCASE 1 / CAS 1 :  aspargus   &   pilone\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 01 Haziran 2015   |   20 Haziran 2012\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-04   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 2 / CAS 2 :  fantina_polo   &   gallorini\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 09 Ağustos 2011   |   16 Nisan 2008\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 3 / CAS 3 :  fantina_polo   &   sciascia\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 09 Ağustos 2011   |   10 Ekim 2025\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 4 / CAS 4 :  gallorini   &   sciascia\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 16 Nisan 2008   |   10 Ekim 2025\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 5 / CAS 5 :  aspargus   &   dondina\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 01 Haziran 2015   |   30 Ocak 2022\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-04   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 6 / CAS 6 :  castagna   &   fantina_polo\n   Family / Famille        : Scuola Grande di San Rocco   |   -\n   Registered / Inscrit le : 17 Temmuz 2009   |   09 Ağustos 2011\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 7 / CAS 7 :  castagna   &   gallorini\n   Family / Famille        : Scuola Grande di San Rocco   |   -\n   Registered / Inscrit le : 17 Temmuz 2009   |   16 Nisan 2008\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 8 / CAS 8 :  castagna   &   sciascia\n   Family / Famille        : Scuola Grande di San Rocco   |   -\n   Registered / Inscrit le : 17 Temmuz 2009   |   10 Ekim 2025\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 9 / CAS 9 :  dondina   &   pilone\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 30 Ocak 2022   |   20 Haziran 2012\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-04   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 10 / CAS 10 :  incoronata   &   mariarose\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 06 Ekim 2013   |   22 Nisan 2013\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 11 / CAS 11 :  gianfredo   &   incoronata\n   Family / Famille        : Scuola Grande di San Rocco   |   -\n   Registered / Inscrit le : 04 Haziran 2016   |   06 Ekim 2013\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 12 / CAS 12 :  allyn_tsuru   &   sciascia\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 21 Ağustos 2016   |   10 Ekim 2025\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-29 & 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 13 / CAS 13 :  allyn_tsuru   &   pilone\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 21 Ağustos 2016   |   20 Haziran 2012\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-29 & 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 14 / CAS 14 :  blodwyn   &   incoronata\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 04 Nisan 2012   |   06 Ekim 2013\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 15 / CAS 15 :  dondina   &   fantina_polo\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 30 Ocak 2022   |   09 Ağustos 2011\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 16 / CAS 16 :  pilone   &   sciascia\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 20 Haziran 2012   |   10 Ekim 2025\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 17 / CAS 17 :  gianfredo   &   mariarose\n   Family / Famille        : Scuola Grande di San Rocco   |   -\n   Registered / Inscrit le : 04 Haziran 2016   |   22 Nisan 2013\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 18 / CAS 18 :  blodwyn   &   gianfredo\n   Family / Famille        : -   |   Scuola Grande di San Rocco\n   Registered / Inscrit le : 04 Nisan 2012   |   04 Haziran 2016\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 19 / CAS 19 :  allyn_tsuru   &   castagna\n   Family / Famille        : -   |   Scuola Grande di San Rocco\n   Registered / Inscrit le : 21 Ağustos 2016   |   17 Temmuz 2009\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-29 & 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 20 / CAS 20 :  allyn_tsuru   &   fantina_polo\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 21 Ağustos 2016   |   09 Ağustos 2011\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-29 & 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 21 / CAS 21 :  allyn_tsuru   &   aspargus\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 21 Ağustos 2016   |   01 Haziran 2015\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-29 & 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 22 / CAS 22 :  allyn_tsuru   &   dondina\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 21 Ağustos 2016   |   30 Ocak 2022\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-29 & 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 23 / CAS 23 :  aspargus   &   blodwyn\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 01 Haziran 2015   |   04 Nisan 2012\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-04   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 24 / CAS 24 :  blodwyn   &   dondina\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 04 Nisan 2012   |   30 Ocak 2022\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-04   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 25 / CAS 25 :  blodwyn   &   pilone\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 04 Nisan 2012   |   20 Haziran 2012\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-04   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\n(+ 210 further pairs observed; available on request. /\n   + 210 autres paires observées ; disponibles sur demande.)\n\n==============================================================================\n\nThank you for your time and for looking into this matter.\n\nRespectfully yours,\n[YOUR CHARACTER NAME]\n\nJe vous remercie du temps que vous consacrerez à l'examen de ce rapport.\n\nRespectueusement,\n[NOM DE VOTRE PERSONNAGE]\n",
+  "dilekce": "==============================================================================\nMULTI-ACCOUNT OBSERVATION REPORT / RAPPORT D'OBSERVATION DE MULTI-COMPTES\nDate / Date : 2026-08-05\n==============================================================================\n\n----------------------------- ENGLISH -----------------------------\n\nDear Administrators,\n\nI would like to submit for your review a number of accounts that entered\nseclusion on exactly the same day, and in several cases came back on\nexactly the same day as well.\n\nThese observations come from the publicly visible town resident lists,\nwhich I record once per day, together with the character pages, which I\nconsult to confirm that the character is indeed in seclusion. Accounts\nthat merely travelled to another town are NOT included here.\n\nI am not in a position to determine whether these accounts belong to the\nsame person, and I make no accusation. I am only providing the observed\ndates so that you can compare them with the data available to you.\n\n----------------------------- FRANÇAIS ----------------------------\n\nChers Administrateurs,\n\nJe souhaite soumettre à votre examen plusieurs comptes qui sont entrés\nen retraite exactement le même jour et qui, dans plusieurs cas, en sont\nrevenus exactement le même jour également.\n\nCes observations proviennent des listes publiques des habitants des\nvilles, que je relève une fois par jour, ainsi que des fiches de\npersonnage, que je consulte pour confirmer que le personnage est bien\nen retraite. Les comptes qui se sont simplement déplacés vers une autre\nville ne figurent PAS ici.\n\nIl ne m'appartient pas de déterminer si ces comptes appartiennent à la\nmême personne, et je ne porte aucune accusation. Je vous transmets\nuniquement les dates observées afin que vous puissiez les comparer aux\ndonnées dont vous disposez.\n\n==============================================================================\nOBSERVED DATA / DONNÉES OBSERVÉES\n==============================================================================\n\nCASE 1 / CAS 1 :  gallorini   &   sciascia\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 16 Nisan 2008   |   10 Ekim 2025\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 2 / CAS 2 :  aspargus   &   pilone\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 01 Haziran 2015   |   20 Haziran 2012\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-04   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 3 / CAS 3 :  castagna   &   fantina_polo\n   Family / Famille        : Scuola Grande di San Rocco   |   -\n   Registered / Inscrit le : 17 Temmuz 2009   |   09 Ağustos 2011\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 4 / CAS 4 :  fantina_polo   &   gallorini\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 09 Ağustos 2011   |   16 Nisan 2008\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 5 / CAS 5 :  fantina_polo   &   sciascia\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 09 Ağustos 2011   |   10 Ekim 2025\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 6 / CAS 6 :  aspargus   &   dondina\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 01 Haziran 2015   |   30 Ocak 2022\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-04   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 7 / CAS 7 :  castagna   &   gallorini\n   Family / Famille        : Scuola Grande di San Rocco   |   -\n   Registered / Inscrit le : 17 Temmuz 2009   |   16 Nisan 2008\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 8 / CAS 8 :  castagna   &   sciascia\n   Family / Famille        : Scuola Grande di San Rocco   |   -\n   Registered / Inscrit le : 17 Temmuz 2009   |   10 Ekim 2025\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 9 / CAS 9 :  dondina   &   pilone\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 30 Ocak 2022   |   20 Haziran 2012\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-04   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 10 / CAS 10 :  incoronata   &   mariarose\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 06 Ekim 2013   |   22 Nisan 2013\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 11 / CAS 11 :  gianfredo   &   incoronata\n   Family / Famille        : Scuola Grande di San Rocco   |   -\n   Registered / Inscrit le : 04 Haziran 2016   |   06 Ekim 2013\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 12 / CAS 12 :  allyn_tsuru   &   sciascia\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 21 Ağustos 2016   |   10 Ekim 2025\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-29 & 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 13 / CAS 13 :  allyn_tsuru   &   pilone\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 21 Ağustos 2016   |   20 Haziran 2012\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-29 & 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 14 / CAS 14 :  gallorini   &   incoronata\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 16 Nisan 2008   |   06 Ekim 2013\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 15 / CAS 15 :  incoronata   &   sciascia\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 06 Ekim 2013   |   10 Ekim 2025\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique\n\nCASE 16 / CAS 16 :  blodwyn   &   incoronata\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 04 Nisan 2012   |   06 Ekim 2013\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 17 / CAS 17 :  dondina   &   fantina_polo\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 30 Ocak 2022   |   09 Ağustos 2011\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 18 / CAS 18 :  gallorini   &   pilone\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 16 Nisan 2008   |   20 Haziran 2012\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 19 / CAS 19 :  pilone   &   sciascia\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 20 Haziran 2012   |   10 Ekim 2025\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 20 / CAS 20 :  gianfredo   &   mariarose\n   Family / Famille        : Scuola Grande di San Rocco   |   -\n   Registered / Inscrit le : 04 Haziran 2016   |   22 Nisan 2013\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 21 / CAS 21 :  blodwyn   &   gianfredo\n   Family / Famille        : -   |   Scuola Grande di San Rocco\n   Registered / Inscrit le : 04 Nisan 2012   |   04 Haziran 2016\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 22 / CAS 22 :  gianfredo   &   pilone\n   Family / Famille        : Scuola Grande di San Rocco   |   -\n   Registered / Inscrit le : 04 Haziran 2016   |   20 Haziran 2012\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 23 / CAS 23 :  allyn_tsuru   &   castagna\n   Family / Famille        : -   |   Scuola Grande di San Rocco\n   Registered / Inscrit le : 21 Ağustos 2016   |   17 Temmuz 2009\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-29 & 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 24 / CAS 24 :  allyn_tsuru   &   fantina_polo\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 21 Ağustos 2016   |   09 Ağustos 2011\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-29 & 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\nCASE 25 / CAS 25 :  allyn_tsuru   &   aspargus\n   Family / Famille        : -   |   -\n   Registered / Inscrit le : 21 Ağustos 2016   |   01 Haziran 2015\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-29 & 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique\n\n(+ 233 further pairs observed; available on request. /\n   + 233 autres paires observées ; disponibles sur demande.)\n\n==============================================================================\n\nThank you for your time and for looking into this matter.\n\nRespectfully yours,\n[YOUR CHARACTER NAME]\n\nJe vous remercie du temps que vous consacrerez à l'examen de ce rapport.\n\nRespectueusement,\n[NOM DE VOTRE PERSONNAGE]\n",
   "dilekce_parcalari": {
     "giris": "2026-07-29 & 2026-07-26",
     "vakalar": [
       {
+        "kisi1": "gallorini",
+        "kisi2": "sciascia",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 16 Nisan 2008   |   10 Ekim 2025\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique"
+      },
+      {
         "kisi1": "aspargus",
         "kisi2": "pilone",
         "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 01 Haziran 2015   |   20 Haziran 2012\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-04   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "castagna",
+        "kisi2": "fantina_polo",
+        "govde": "   Family / Famille        : Scuola Grande di San Rocco   |   -\n   Registered / Inscrit le : 17 Temmuz 2009   |   09 Ağustos 2011\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique"
       },
       {
         "kisi1": "fantina_polo",
@@ -12308,19 +13317,9 @@
         "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 09 Ağustos 2011   |   10 Ekim 2025\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique"
       },
       {
-        "kisi1": "gallorini",
-        "kisi2": "sciascia",
-        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 16 Nisan 2008   |   10 Ekim 2025\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique"
-      },
-      {
         "kisi1": "aspargus",
         "kisi2": "dondina",
         "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 01 Haziran 2015   |   30 Ocak 2022\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-04   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique"
-      },
-      {
-        "kisi1": "castagna",
-        "kisi2": "fantina_polo",
-        "govde": "   Family / Famille        : Scuola Grande di San Rocco   |   -\n   Registered / Inscrit le : 17 Temmuz 2009   |   09 Ağustos 2011\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique"
       },
       {
         "kisi1": "castagna",
@@ -12358,6 +13357,16 @@
         "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 21 Ağustos 2016   |   20 Haziran 2012\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-29 & 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique"
       },
       {
+        "kisi1": "gallorini",
+        "kisi2": "incoronata",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 16 Nisan 2008   |   06 Ekim 2013\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "incoronata",
+        "kisi2": "sciascia",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 06 Ekim 2013   |   10 Ekim 2025\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-03   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique"
+      },
+      {
         "kisi1": "blodwyn",
         "kisi2": "incoronata",
         "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 04 Nisan 2012   |   06 Ekim 2013\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique"
@@ -12366,6 +13375,11 @@
         "kisi1": "dondina",
         "kisi2": "fantina_polo",
         "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 30 Ocak 2022   |   09 Ağustos 2011\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
+        "kisi1": "gallorini",
+        "kisi2": "pilone",
+        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 16 Nisan 2008   |   20 Haziran 2012\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique"
       },
       {
         "kisi1": "pilone",
@@ -12383,6 +13397,11 @@
         "govde": "   Family / Famille        : -   |   Scuola Grande di San Rocco\n   Registered / Inscrit le : 04 Nisan 2012   |   04 Haziran 2016\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique"
       },
       {
+        "kisi1": "gianfredo",
+        "kisi2": "pilone",
+        "govde": "   Family / Famille        : Scuola Grande di San Rocco   |   -\n   Registered / Inscrit le : 04 Haziran 2016   |   20 Haziran 2012\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique"
+      },
+      {
         "kisi1": "allyn_tsuru",
         "kisi2": "castagna",
         "govde": "   Family / Famille        : -   |   Scuola Grande di San Rocco\n   Registered / Inscrit le : 21 Ağustos 2016   |   17 Temmuz 2009\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-29 & 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique"
@@ -12396,26 +13415,6 @@
         "kisi1": "allyn_tsuru",
         "kisi2": "aspargus",
         "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 21 Ağustos 2016   |   01 Haziran 2015\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-29 & 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique"
-      },
-      {
-        "kisi1": "allyn_tsuru",
-        "kisi2": "dondina",
-        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 21 Ağustos 2016   |   30 Ocak 2022\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-29 & 2026-07-26   ->   still in seclusion or different return date / toujours en retraite ou retour à une date différente\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  0 with identical return date(s) / avec date de retour identique"
-      },
-      {
-        "kisi1": "aspargus",
-        "kisi2": "blodwyn",
-        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 01 Haziran 2015   |   04 Nisan 2012\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-04   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique"
-      },
-      {
-        "kisi1": "blodwyn",
-        "kisi2": "dondina",
-        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 04 Nisan 2012   |   30 Ocak 2022\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-04   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique"
-      },
-      {
-        "kisi1": "blodwyn",
-        "kisi2": "pilone",
-        "govde": "   Family / Famille        : -   |   -\n   Registered / Inscrit le : 04 Nisan 2012   |   20 Haziran 2012\n   Seclusion periods / Périodes de retraite :\n      - Entered / Entrés : 2026-07-26   ->   Returned / Revenus : 2026-08-04   (both accounts, same days / les deux comptes, mêmes jours)\n   Total: 1 shared seclusion period(s) / période(s) de retraite commune(s)  |  1 with identical return date(s) / avec date de retour identique"
       }
     ],
     "kapanis": "\n==============================================================================\n\nThank you for your time and for looking into this matter.\n\nRespectfully yours,\n[YOUR CHARACTER NAME]\n\nJe vous remercie du temps que vous consacrerez à l'examen de ce rapport.\n\nRespectueusement,\n[NOM DE VOTRE PERSONNAGE]\n"
