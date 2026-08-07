@@ -1,11 +1,1708 @@
 {
-  "son_guncelleme": "2026-08-06 17:12",
-  "rapor_tarihi": "2026-08-06",
+  "son_guncelleme": "2026-08-07 17:02",
+  "rapor_tarihi": "2026-08-07",
   "karakterler": [
+    {
+      "karakter": "ASAGRIM",
+      "kasaba": "Whithorn",
+      "akce": 40.09,
+      "esyalar": [
+        {
+          "isim": "Gül Kremi ve Gül Suyu",
+          "adet": 1
+        },
+        {
+          "isim": "Kayık",
+          "adet": 2
+        },
+        {
+          "isim": "Kiraz",
+          "adet": 1
+        },
+        {
+          "isim": "Kısa Merdiven",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Sebze",
+          "adet": 265
+        },
+        {
+          "isim": "Somun Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Yaban Çileği Likörü",
+          "adet": 1
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çeki Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 2
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 12
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 8
+        }
+      ]
+    },
+    {
+      "karakter": "VAMDER",
+      "kasaba": "Glasgow",
+      "akce": 32729.11,
+      "esyalar": [
+        {
+          "isim": "Ahşap Pipo",
+          "adet": 2
+        },
+        {
+          "isim": "Alman Mastifi",
+          "adet": 1
+        },
+        {
+          "isim": "Altın Gerdanlık",
+          "adet": 1
+        },
+        {
+          "isim": "Altın Kadeh",
+          "adet": 1
+        },
+        {
+          "isim": "Antik Bilezik",
+          "adet": 1
+        },
+        {
+          "isim": "Antik Defne Çelengi",
+          "adet": 1
+        },
+        {
+          "isim": "Antik Yunan Çömleği",
+          "adet": 1
+        },
+        {
+          "isim": "Arap Miğferi",
+          "adet": 1
+        },
+        {
+          "isim": "Balta",
+          "adet": 1
+        },
+        {
+          "isim": "Bebek Penguen",
+          "adet": 1
+        },
+        {
+          "isim": "Bellacamy'nin El Yazması Kitabı",
+          "adet": 1
+        },
+        {
+          "isim": "Biberiye filizi",
+          "adet": 1
+        },
+        {
+          "isim": "Bozkır Tuniği",
+          "adet": 1
+        },
+        {
+          "isim": "Bıçak",
+          "adet": 2
+        },
+        {
+          "isim": "Cadı Şapkası",
+          "adet": 1
+        },
+        {
+          "isim": "Civanperçemi Buketi",
+          "adet": 1
+        },
+        {
+          "isim": "Dini - 1",
+          "adet": 1
+        },
+        {
+          "isim": "Dört Hane Önlüğü",
+          "adet": 1
+        },
+        {
+          "isim": "Gayda",
+          "adet": 2
+        },
+        {
+          "isim": "Gece Tilkisi Maskesi",
+          "adet": 1
+        },
+        {
+          "isim": "Gelin Eldiveni (Kadın) - Deri Eldiven (Erkek)",
+          "adet": 1
+        },
+        {
+          "isim": "Gülhatmi Buketi",
+          "adet": 1
+        },
+        {
+          "isim": "Kahverengi Kaplumbağa",
+          "adet": 1
+        },
+        {
+          "isim": "Kar Kedisi",
+          "adet": 1
+        },
+        {
+          "isim": "Kar Pelerini",
+          "adet": 1
+        },
+        {
+          "isim": "Kartopu",
+          "adet": 6
+        },
+        {
+          "isim": "Kayık",
+          "adet": 1
+        },
+        {
+          "isim": "Kayık Küreği",
+          "adet": 2
+        },
+        {
+          "isim": "Kile Tuz",
+          "adet": 2
+        },
+        {
+          "isim": "Kova",
+          "adet": 3
+        },
+        {
+          "isim": "Kraliyet Muhafızlarının Göğüs Zırhı",
+          "adet": 1
+        },
+        {
+          "isim": "Kraliyet Muhafızlarının Tozlukları",
+          "adet": 2
+        },
+        {
+          "isim": "Kuyumcu Madalyonu",
+          "adet": 1
+        },
+        {
+          "isim": "Kuş Falı Botu",
+          "adet": 1
+        },
+        {
+          "isim": "Kâşif Arkaplanı",
+          "adet": 1
+        },
+        {
+          "isim": "Kâşif Atkısı (Siyah)",
+          "adet": 1
+        },
+        {
+          "isim": "Kâşif Gömleği",
+          "adet": 1
+        },
+        {
+          "isim": "Kâşif Gömleği (Siyah)",
+          "adet": 1
+        },
+        {
+          "isim": "Kâşif Çizmesi (Siyah)",
+          "adet": 1
+        },
+        {
+          "isim": "Kökboya Buketi",
+          "adet": 1
+        },
+        {
+          "isim": "Kömür Karası",
+          "adet": 1
+        },
+        {
+          "isim": "Kürklü Manto",
+          "adet": 1
+        },
+        {
+          "isim": "Kürklü Manto , Kış Sezonu 1465",
+          "adet": 1
+        },
+        {
+          "isim": "Maceracı Pelerini (Siyah)",
+          "adet": 1
+        },
+        {
+          "isim": "Madenci Başlığı",
+          "adet": 1
+        },
+        {
+          "isim": "Madenci Botu",
+          "adet": 3
+        },
+        {
+          "isim": "Manda Eti (100 Okka)",
+          "adet": 7
+        },
+        {
+          "isim": "Midas'ın Mütevazı Sandığı",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 2
+        },
+        {
+          "isim": "Muhafız Dizliği",
+          "adet": 1
+        },
+        {
+          "isim": "Muhafız Eldiveni",
+          "adet": 1
+        },
+        {
+          "isim": "Nasıl Yapılır? ''Azazil'in Pasta Tarifleri'' (Fırıncı)",
+          "adet": 1
+        },
+        {
+          "isim": "Nasıl Yapılır? ''Kaymak Birası'' (Değirmenci)",
+          "adet": 1
+        },
+        {
+          "isim": "Nasıl Yapılır? ''Tuzlu Yılbaşı Turtası'' (Kasap)",
+          "adet": 1
+        },
+        {
+          "isim": "Oryantal Ayakkabı",
+          "adet": 1
+        },
+        {
+          "isim": "Oryantal Kolye",
+          "adet": 1
+        },
+        {
+          "isim": "Parfümlü Dört Hane Eldivenleri",
+          "adet": 1
+        },
+        {
+          "isim": "Partizan Pelerini (Kan Kırmızısı)",
+          "adet": 1
+        },
+        {
+          "isim": "Ritüel Aksesuarı (İlahi)",
+          "adet": 1
+        },
+        {
+          "isim": "Sahte Cadı Burnu",
+          "adet": 1
+        },
+        {
+          "isim": "Selevkus Miğferi",
+          "adet": 1
+        },
+        {
+          "isim": "Sorianne'in Sapancısı",
+          "adet": 1
+        },
+        {
+          "isim": "Sıradan Ördek",
+          "adet": 2
+        },
+        {
+          "isim": "Sığır Eti (50 Okka)",
+          "adet": 25
+        },
+        {
+          "isim": "Tahta İçki Kadehi (Tankard)",
+          "adet": 1
+        },
+        {
+          "isim": "Taş",
+          "adet": 4
+        },
+        {
+          "isim": "Yaba",
+          "adet": 1
+        },
+        {
+          "isim": "Yağmur Kuğusu",
+          "adet": 2
+        },
+        {
+          "isim": "Yumurta Sepeti",
+          "adet": 1
+        },
+        {
+          "isim": "Yumurta Çikolata",
+          "adet": 2
+        },
+        {
+          "isim": "Yün Atkı",
+          "adet": 1
+        },
+        {
+          "isim": "Yılbaşı Kürkü , Kış Sezonu 1465",
+          "adet": 1
+        },
+        {
+          "isim": "Yılbaşı Küçük Ren Geyiği",
+          "adet": 2
+        },
+        {
+          "isim": "Zümrütlü Yeşim Kalkanı",
+          "adet": 2
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çelik Kepçe",
+          "adet": 1
+        },
+        {
+          "isim": "Çivit Otu Salkımı",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 130
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 32
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 20
+        },
+        {
+          "isim": "İpek Elbise",
+          "adet": 3
+        },
+        {
+          "isim": "İpek İskandinav Gömleği",
+          "adet": 1
+        },
+        {
+          "isim": "İskandinav Pelerini",
+          "adet": 1
+        },
+        {
+          "isim": "Şifa Şurubu",
+          "adet": 1
+        },
+        {
+          "isim": "Şifacı Kemeri",
+          "adet": 1
+        },
+        {
+          "isim": "Şifacı Manşeti",
+          "adet": 1
+        },
+        {
+          "isim": "Şifalı Su",
+          "adet": 1
+        }
+      ]
+    },
+    {
+      "karakter": "FRESHH",
+      "kasaba": "Ardencaple",
+      "akce": 120.4,
+      "esyalar": [
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 7
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 2
+        }
+      ]
+    },
+    {
+      "karakter": "JEDAY",
+      "kasaba": "Wigtown",
+      "akce": 167.18,
+      "esyalar": [
+        {
+          "isim": "Ballı Börek",
+          "adet": 1
+        },
+        {
+          "isim": "Kiraz",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Yaban Çileği Likörü",
+          "adet": 1
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çeki Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 769
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 12
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 8
+        }
+      ]
+    },
+    {
+      "karakter": "RAZIELON",
+      "kasaba": "Bilinmiyor",
+      "akce": 49.44,
+      "esyalar": [
+        {
+          "isim": "Et",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 6
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 4
+        }
+      ]
+    },
+    {
+      "karakter": "VERMITHOR",
+      "kasaba": "Whithorn",
+      "akce": 20942.85,
+      "esyalar": [
+        {
+          "isim": "Ayakkabı",
+          "adet": 2
+        },
+        {
+          "isim": "Ballı Börek",
+          "adet": 1
+        },
+        {
+          "isim": "Balık",
+          "adet": 1
+        },
+        {
+          "isim": "Bıçak",
+          "adet": 3
+        },
+        {
+          "isim": "Delice Doğan (8.yıl anısına)",
+          "adet": 1
+        },
+        {
+          "isim": "Erkek Gömleği",
+          "adet": 3
+        },
+        {
+          "isim": "Erkek Çorabı",
+          "adet": 3
+        },
+        {
+          "isim": "Gül Kremi ve Gül Suyu",
+          "adet": 1
+        },
+        {
+          "isim": "Hurma",
+          "adet": 1
+        },
+        {
+          "isim": "Kadın Gömleği",
+          "adet": 3
+        },
+        {
+          "isim": "Kadın Çorabı",
+          "adet": 1
+        },
+        {
+          "isim": "Kalkan",
+          "adet": 1
+        },
+        {
+          "isim": "Kiraz",
+          "adet": 1
+        },
+        {
+          "isim": "Kova",
+          "adet": 4
+        },
+        {
+          "isim": "Kuşak",
+          "adet": 2
+        },
+        {
+          "isim": "Küçük Yelken",
+          "adet": 2
+        },
+        {
+          "isim": "Kılıç",
+          "adet": 1
+        },
+        {
+          "isim": "Kısa Merdiven",
+          "adet": 1
+        },
+        {
+          "isim": "Likörlü Yılbaşı Çikolatası",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Sebze",
+          "adet": 127
+        },
+        {
+          "isim": "Sebzeli Turta",
+          "adet": 1
+        },
+        {
+          "isim": "Somun Ekmeği",
+          "adet": 355
+        },
+        {
+          "isim": "Takke",
+          "adet": 2
+        },
+        {
+          "isim": "Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Yaban Çileği Likörü",
+          "adet": 2
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çeki Taş",
+          "adet": 2
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 2
+        },
+        {
+          "isim": "Çuval Buğday",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 308
+        },
+        {
+          "isim": "İblis Beelzebub'ın Koz Helvası",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Belial'ın Armut Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Leviathan'ın Erik Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Lucifer'in Cevizli Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 11
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 12
+        },
+        {
+          "isim": "Şalvar",
+          "adet": 2
+        },
+        {
+          "isim": "Şeytani Badem Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "Şifa Şurubu",
+          "adet": 1
+        },
+        {
+          "isim": "Şişe Süt",
+          "adet": 132
+        }
+      ]
+    },
+    {
+      "karakter": "CPTCORSAIR",
+      "kasaba": "Bilinmiyor",
+      "akce": 49.21,
+      "esyalar": [
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 6
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 5
+        }
+      ]
+    },
+    {
+      "karakter": "SORCHADUSK",
+      "kasaba": "Wigtown",
+      "akce": 92.32,
+      "esyalar": [
+        {
+          "isim": "Antik Yunan Çömleği",
+          "adet": 1
+        },
+        {
+          "isim": "Gül Kremi ve Gül Suyu",
+          "adet": 1
+        },
+        {
+          "isim": "Kiraz",
+          "adet": 1
+        },
+        {
+          "isim": "Likörlü Yılbaşı Çikolatası",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Ritüel Cüppesi (İlahi)",
+          "adet": 1
+        },
+        {
+          "isim": "Taş",
+          "adet": 2
+        },
+        {
+          "isim": "Yaban Çileği Likörü",
+          "adet": 1
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çeki Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 2
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 831
+        },
+        {
+          "isim": "İblis Beelzebub'ın Koz Helvası",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Belial'ın Armut Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Leviathan'ın Erik Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Lucifer'in Cevizli Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 13
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 9
+        },
+        {
+          "isim": "Şeytani Badem Şekeri",
+          "adet": 1
+        }
+      ]
+    },
+    {
+      "karakter": "SEMIRAMIR",
+      "kasaba": "Bilinmiyor",
+      "akce": 115.68,
+      "esyalar": [
+        {
+          "isim": "Balık",
+          "adet": 1
+        },
+        {
+          "isim": "Külçe Demir",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Sebze",
+          "adet": 15
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çeki Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 7
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 2
+        },
+        {
+          "isim": "Şişe Süt",
+          "adet": 7
+        }
+      ]
+    },
+    {
+      "karakter": "NOUMAMA",
+      "kasaba": "Whithorn",
+      "akce": 126.4,
+      "esyalar": [
+        {
+          "isim": "Ballı Börek",
+          "adet": 1
+        },
+        {
+          "isim": "Kiraz",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Sebze",
+          "adet": 44
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 176
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 12
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 7
+        }
+      ]
+    },
+    {
+      "karakter": "FREDYY",
+      "kasaba": "Glasgow",
+      "akce": 5817.33,
+      "esyalar": [
+        {
+          "isim": "Bitki Saksısı",
+          "adet": 3
+        },
+        {
+          "isim": "Bıçak",
+          "adet": 3
+        },
+        {
+          "isim": "Gülhatmi Buketi",
+          "adet": 707
+        },
+        {
+          "isim": "Kayık",
+          "adet": 1
+        },
+        {
+          "isim": "Kiraz",
+          "adet": 1
+        },
+        {
+          "isim": "Kova",
+          "adet": 3
+        },
+        {
+          "isim": "Kısa Merdiven",
+          "adet": 1
+        },
+        {
+          "isim": "Mor Boya",
+          "adet": 21
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Sebzeli Turta",
+          "adet": 1
+        },
+        {
+          "isim": "Yaban Çileği Likörü",
+          "adet": 1
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (büyük)",
+          "adet": 2
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 28
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 36
+        }
+      ]
+    },
+    {
+      "karakter": "AIEGUS",
+      "kasaba": "Glasgow",
+      "akce": 31798.66,
+      "esyalar": [
+        {
+          "isim": "Biberiye filizi",
+          "adet": 1
+        },
+        {
+          "isim": "Bordeaux Şarabı",
+          "adet": 1
+        },
+        {
+          "isim": "Bıçak",
+          "adet": 6
+        },
+        {
+          "isim": "Dövülmemiş Balta Ağzı",
+          "adet": 2
+        },
+        {
+          "isim": "Kartopu",
+          "adet": 5
+        },
+        {
+          "isim": "Kasnaksız Kova",
+          "adet": 3
+        },
+        {
+          "isim": "Kile Tuz",
+          "adet": 2
+        },
+        {
+          "isim": "Kova",
+          "adet": 3
+        },
+        {
+          "isim": "Külçe Demir",
+          "adet": 45
+        },
+        {
+          "isim": "Külçe Çelik",
+          "adet": 4
+        },
+        {
+          "isim": "Kılıç Ağzı",
+          "adet": 20
+        },
+        {
+          "isim": "Midas'ın Mütevazı Sandığı",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 2
+        },
+        {
+          "isim": "Safran Viskisi",
+          "adet": 1
+        },
+        {
+          "isim": "Tomruk Odun",
+          "adet": 19
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çelik Kasnak",
+          "adet": 16
+        },
+        {
+          "isim": "Çuval Buğday",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 2
+        },
+        {
+          "isim": "İblis Beelzebub'ın Koz Helvası",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Leviathan'ın Erik Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Lucifer'in Cevizli Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 37
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 35
+        },
+        {
+          "isim": "İlkbahar Çiçek Tacı",
+          "adet": 1
+        },
+        {
+          "isim": "İpek",
+          "adet": 1
+        },
+        {
+          "isim": "Şeytani Badem Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "Şifa Şurubu",
+          "adet": 1
+        }
+      ]
+    },
+    {
+      "karakter": "BAINHALT",
+      "kasaba": "Ardencaple",
+      "akce": 83.26,
+      "esyalar": [
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Çeki Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 140
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 7
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 1
+        }
+      ]
+    },
+    {
+      "karakter": "COLONELL",
+      "kasaba": "Glasgow",
+      "akce": 25479.53,
+      "esyalar": [
+        {
+          "isim": "Ballı Börek",
+          "adet": 1
+        },
+        {
+          "isim": "Bitki Saksısı",
+          "adet": 4
+        },
+        {
+          "isim": "Kayık Küreği",
+          "adet": 1
+        },
+        {
+          "isim": "Kısa Merdiven",
+          "adet": 1
+        },
+        {
+          "isim": "Midas'ın Mütevazı Sandığı",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Yontma Taş",
+          "adet": 4
+        },
+        {
+          "isim": "Yumurta Çikolata",
+          "adet": 1
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çeki Taş",
+          "adet": 47
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 64
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 12
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 7
+        }
+      ]
+    },
+    {
+      "karakter": "DRONRON",
+      "kasaba": "Bilinmiyor",
+      "akce": 507.68,
+      "esyalar": [
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 18
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 4
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 4
+        }
+      ]
+    },
+    {
+      "karakter": "MAKUTA",
+      "kasaba": "Wigtown",
+      "akce": 252.12,
+      "esyalar": [
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Sebze",
+          "adet": 43
+        },
+        {
+          "isim": "Somun Ekmeği",
+          "adet": 2
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 4
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 8
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 3
+        }
+      ]
+    },
+    {
+      "karakter": "BILRIDER",
+      "kasaba": "Girvan",
+      "akce": 6395.19,
+      "esyalar": [
+        {
+          "isim": "Bıçak",
+          "adet": 3
+        },
+        {
+          "isim": "El Arabası",
+          "adet": 1
+        },
+        {
+          "isim": "Kalkan",
+          "adet": 1
+        },
+        {
+          "isim": "Kova",
+          "adet": 3
+        },
+        {
+          "isim": "Midas'ın Şık Sandığı",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Yaba",
+          "adet": 1
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 23
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 43
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 40
+        },
+        {
+          "isim": "Şişe Süt",
+          "adet": 37
+        }
+      ]
+    },
+    {
+      "karakter": "ONLYBLACK",
+      "kasaba": "Bilinmiyor",
+      "akce": 240.23,
+      "esyalar": [
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Somun Ekmeği",
+          "adet": 5
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 32
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 3
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 3
+        }
+      ]
+    },
+    {
+      "karakter": "BREMER",
+      "kasaba": "Girvan",
+      "akce": 6032.3,
+      "esyalar": [
+        {
+          "isim": "Bıçak",
+          "adet": 2
+        },
+        {
+          "isim": "Civanperçemi Buketi",
+          "adet": 1
+        },
+        {
+          "isim": "Gülhatmi Buketi",
+          "adet": 1
+        },
+        {
+          "isim": "Kova",
+          "adet": 3
+        },
+        {
+          "isim": "Kökboya Buketi",
+          "adet": 1
+        },
+        {
+          "isim": "Midas'ın Şık Sandığı",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Sebze",
+          "adet": 80
+        },
+        {
+          "isim": "Yumurta Çikolata",
+          "adet": 2
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çivit Otu Salkımı",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (büyük)",
+          "adet": 2
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 30
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 34
+        },
+        {
+          "isim": "Şişe Süt",
+          "adet": 26
+        }
+      ]
+    },
+    {
+      "karakter": "BRADLEY_RICHARDS",
+      "kasaba": "Kirkcudbright",
+      "akce": 102.6,
+      "esyalar": [
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Sebze",
+          "adet": 102
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çeki Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 8
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 3
+        }
+      ]
+    },
+    {
+      "karakter": "TAKARAKA",
+      "kasaba": "Glasgow",
+      "akce": 23590.77,
+      "esyalar": [
+        {
+          "isim": "Bitki Saksısı",
+          "adet": 6
+        },
+        {
+          "isim": "Gülhatmi Buketi",
+          "adet": 70
+        },
+        {
+          "isim": "Kayık Küreği",
+          "adet": 3
+        },
+        {
+          "isim": "Midas'ın Mütevazı Sandığı",
+          "adet": 1
+        },
+        {
+          "isim": "Mor Boya",
+          "adet": 3
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Sebze",
+          "adet": 3
+        },
+        {
+          "isim": "Sebzeli Turta",
+          "adet": 3
+        },
+        {
+          "isim": "Taş",
+          "adet": 2
+        },
+        {
+          "isim": "Yılbaşı Pulisi",
+          "adet": 1
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (büyük)",
+          "adet": 4
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 28
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 32
+        },
+        {
+          "isim": "Şifa Şurubu",
+          "adet": 1
+        }
+      ]
+    },
+    {
+      "karakter": "HARUDHA",
+      "kasaba": "Bilinmiyor",
+      "akce": 63.84,
+      "esyalar": [
+        {
+          "isim": "Gül Kremi ve Gül Suyu",
+          "adet": 2
+        },
+        {
+          "isim": "Mesir Macunu",
+          "adet": 2
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Somun Ekmeği",
+          "adet": 9
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 4
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 5
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 4
+        }
+      ]
+    },
+    {
+      "karakter": "GAELL",
+      "kasaba": "Ardencaple",
+      "akce": 86.47,
+      "esyalar": [
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Sebze",
+          "adet": 4
+        },
+        {
+          "isim": "Çeki Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 7
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 2
+        }
+      ]
+    },
+    {
+      "karakter": "MIHRIBANN",
+      "kasaba": "Bilinmiyor",
+      "akce": 52.69,
+      "esyalar": [
+        {
+          "isim": "Et",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Somun Ekmeği",
+          "adet": 18
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 6
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 5
+        }
+      ]
+    },
+    {
+      "karakter": "LEONPROF",
+      "kasaba": "Stirling",
+      "akce": 27522.65,
+      "esyalar": [
+        {
+          "isim": "Bıçak",
+          "adet": 3
+        },
+        {
+          "isim": "Kalkan",
+          "adet": 5
+        },
+        {
+          "isim": "Kar Çantası",
+          "adet": 1
+        },
+        {
+          "isim": "Kova",
+          "adet": 2
+        },
+        {
+          "isim": "Kısa Merdiven",
+          "adet": 1
+        },
+        {
+          "isim": "Midas'ın Mütevazı Sandığı",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Sebzeli Turta",
+          "adet": 5
+        },
+        {
+          "isim": "Uzun Merdiven",
+          "adet": 1
+        },
+        {
+          "isim": "Yaban Çileği Likörü",
+          "adet": 1
+        },
+        {
+          "isim": "Yağmur Kuğu Yavrusu",
+          "adet": 1
+        },
+        {
+          "isim": "Yumak Yün",
+          "adet": 8
+        },
+        {
+          "isim": "Yumurta Çikolata",
+          "adet": 2
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 3
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 11
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 6
+        }
+      ]
+    },
+    {
+      "karakter": "ESTEROS",
+      "kasaba": "Bilinmiyor",
+      "akce": 776.98,
+      "esyalar": [
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Somun Ekmeği",
+          "adet": 15
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 12
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 5
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 4
+        }
+      ]
+    },
+    {
+      "karakter": "YELLOWSMITH",
+      "kasaba": "Bilinmiyor",
+      "akce": 237.09,
+      "esyalar": [
+        {
+          "isim": "Et",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 25
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 7
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 5
+        }
+      ]
+    },
     {
       "karakter": "BAFETIMBI",
       "kasaba": "Stirling",
-      "akce": 3511.3,
+      "akce": 3508.52,
       "esyalar": [
         {
           "isim": "Balta",
@@ -48,6 +1745,10 @@
           "adet": 1
         },
         {
+          "isim": "Sebze",
+          "adet": 3
+        },
+        {
           "isim": "Uzun Merdiven",
           "adet": 1
         },
@@ -86,17 +1787,13 @@
         {
           "isim": "Şalvar",
           "adet": 1
-        },
-        {
-          "isim": "Şişe Süt",
-          "adet": 8
         }
       ]
     },
     {
-      "karakter": "TELEMIR",
-      "kasaba": "Glasgow",
-      "akce": 21085.03,
+      "karakter": "MARCHOSIAS",
+      "kasaba": "Bilinmiyor",
+      "akce": 64.78,
       "esyalar": [
         {
           "isim": "Kayık Küreği",
@@ -107,35 +1804,23 @@
           "adet": 1
         },
         {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çeki Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 4
+          "isim": "Somun Ekmeği",
+          "adet": 12
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 8
+          "adet": 5
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 3
+          "adet": 5
         }
       ]
     },
     {
       "karakter": "NOJIKO",
       "kasaba": "Wigtown",
-      "akce": 278.43,
+      "akce": 267.36,
       "esyalar": [
         {
           "isim": "Mucizevi Kiraz Merhemi",
@@ -147,7 +1832,7 @@
         },
         {
           "isim": "Sebze",
-          "adet": 40
+          "adet": 43
         },
         {
           "isim": "Somun Ekmeği",
@@ -180,316 +1865,16 @@
       ]
     },
     {
-      "karakter": "HARUDHA",
-      "kasaba": "Bilinmiyor",
-      "akce": 45.84,
-      "esyalar": [
-        {
-          "isim": "Gül Kremi ve Gül Suyu",
-          "adet": 2
-        },
-        {
-          "isim": "Mesir Macunu",
-          "adet": 2
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Somun Ekmeği",
-          "adet": 10
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 4
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 5
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 4
-        }
-      ]
-    },
-    {
-      "karakter": "NINGAUBLE",
-      "kasaba": "Girvan",
-      "akce": 32.83,
-      "esyalar": [
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Sebze",
-          "adet": 69
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 8
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 3
-        }
-      ]
-    },
-    {
-      "karakter": "FRESHH",
-      "kasaba": "Ardencaple",
-      "akce": 118.9,
-      "esyalar": [
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 7
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 2
-        }
-      ]
-    },
-    {
-      "karakter": "ONLYBLACK",
-      "kasaba": "Bilinmiyor",
-      "akce": 242.69,
-      "esyalar": [
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Somun Ekmeği",
-          "adet": 5
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 32
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 3
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 3
-        }
-      ]
-    },
-    {
-      "karakter": "COLONELL",
-      "kasaba": "Glasgow",
-      "akce": 25173.53,
-      "esyalar": [
-        {
-          "isim": "Ballı Börek",
-          "adet": 1
-        },
-        {
-          "isim": "Bitki Saksısı",
-          "adet": 4
-        },
-        {
-          "isim": "Kayık Küreği",
-          "adet": 1
-        },
-        {
-          "isim": "Kısa Merdiven",
-          "adet": 1
-        },
-        {
-          "isim": "Midas'ın Mütevazı Sandığı",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Yontma Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Yumurta Çikolata",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çeki Taş",
-          "adet": 47
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 76
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 12
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 7
-        }
-      ]
-    },
-    {
-      "karakter": "CATAPULT",
+      "karakter": "KARGATH",
       "kasaba": "Wigtown",
-      "akce": 321.51,
+      "akce": 205.05,
       "esyalar": [
         {
           "isim": "Ballı Börek",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Sebze",
-          "adet": 76
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çeki Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 12
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 7
-        }
-      ]
-    },
-    {
-      "karakter": "DUNCAN_LITTLE",
-      "kasaba": "Wigtown",
-      "akce": 225.12,
-      "esyalar": [
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Sebze",
-          "adet": 41
-        },
-        {
-          "isim": "Somun Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çeki Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 9
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 4
-        }
-      ]
-    },
-    {
-      "karakter": "AKBABA",
-      "kasaba": "Bilinmiyor",
-      "akce": 40.27,
-      "esyalar": [
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Somun Ekmeği",
-          "adet": 5
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 5
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 5
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 5
-        }
-      ]
-    },
-    {
-      "karakter": "ZIYECH",
-      "kasaba": "Stirling",
-      "akce": 32738.72,
-      "esyalar": [
-        {
-          "isim": "Aliii'nin Bebek Taşıyıcısı",
-          "adet": 1
-        },
-        {
-          "isim": "Ballı Börek",
-          "adet": 1
-        },
-        {
-          "isim": "Balta",
-          "adet": 1
-        },
-        {
-          "isim": "Bıçak",
-          "adet": 3
-        },
-        {
-          "isim": "Civanperçemi Buketi",
           "adet": 1
         },
         {
           "isim": "Gül Kremi ve Gül Suyu",
-          "adet": 1
-        },
-        {
-          "isim": "Gülhatmi Buketi",
           "adet": 1
         },
         {
@@ -497,27 +1882,11 @@
           "adet": 1
         },
         {
-          "isim": "Imagine'in 'Kırmızı Altın Parmak' Tasarımı",
+          "isim": "Kayık",
           "adet": 1
-        },
-        {
-          "isim": "Kasnaksız Kova",
-          "adet": 2
         },
         {
           "isim": "Kiraz",
-          "adet": 2
-        },
-        {
-          "isim": "Kova",
-          "adet": 3
-        },
-        {
-          "isim": "Kökboya Buketi",
-          "adet": 1
-        },
-        {
-          "isim": "Kısa Merdiven",
           "adet": 1
         },
         {
@@ -525,23 +1894,15 @@
           "adet": 1
         },
         {
-          "isim": "Midas'ın Mütevazı Sandığı",
+          "isim": "Mucizevi Kiraz Merhemi",
           "adet": 1
         },
         {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 2
+          "isim": "Sebze",
+          "adet": 6
         },
         {
           "isim": "Taş",
-          "adet": 2
-        },
-        {
-          "isim": "Tomruk Odun",
-          "adet": 9
-        },
-        {
-          "isim": "Uzun Merdiven",
           "adet": 1
         },
         {
@@ -549,24 +1910,20 @@
           "adet": 1
         },
         {
-          "isim": "Yumurta Çikolata",
-          "adet": 2
-        },
-        {
           "isim": "Çavdar Ekmeği",
           "adet": 1
         },
         {
           "isim": "Çeki Taş",
-          "adet": 2
-        },
-        {
-          "isim": "Çivit Otu Salkımı",
           "adet": 1
         },
         {
           "isim": "Çubuk Kil",
-          "adet": 1
+          "adet": 2
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 454
         },
         {
           "isim": "İblis Beelzebub'ın Koz Helvası",
@@ -586,11 +1943,11 @@
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 32
+          "adet": 13
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 32
+          "adet": 9
         },
         {
           "isim": "Şeytani Badem Şekeri",
@@ -599,9 +1956,9 @@
       ]
     },
     {
-      "karakter": "GAELL",
+      "karakter": "HIRILUK",
       "kasaba": "Ardencaple",
-      "akce": 84.85,
+      "akce": 106.68,
       "esyalar": [
         {
           "isim": "Mucizevi Kiraz Merhemi",
@@ -612,7 +1969,74 @@
           "adet": 4
         },
         {
-          "isim": "Çeki Taş",
+          "isim": "Somun Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 8
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 2
+        }
+      ]
+    },
+    {
+      "karakter": "MOIRAASH",
+      "kasaba": "Glasgow",
+      "akce": 26276.49,
+      "esyalar": [
+        {
+          "isim": "Ballı Börek",
+          "adet": 1
+        },
+        {
+          "isim": "Civanperçemi Buketi",
+          "adet": 1
+        },
+        {
+          "isim": "Gülhatmi Buketi",
+          "adet": 210
+        },
+        {
+          "isim": "Kayık Küreği",
+          "adet": 2
+        },
+        {
+          "isim": "Kiraz",
+          "adet": 1
+        },
+        {
+          "isim": "Kökboya Buketi",
+          "adet": 1
+        },
+        {
+          "isim": "Kısa Merdiven",
+          "adet": 1
+        },
+        {
+          "isim": "Midas'ın Mütevazı Sandığı",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Yaban Çileği Likörü",
+          "adet": 1
+        },
+        {
+          "isim": "Yumurta Çikolata",
+          "adet": 3
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çivit Otu Salkımı",
           "adet": 1
         },
         {
@@ -620,22 +2044,228 @@
           "adet": 1
         },
         {
+          "isim": "Çuval Buğday",
+          "adet": 82
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 1
+        },
+        {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 7
+          "adet": 11
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 9
+        }
+      ]
+    },
+    {
+      "karakter": "NINDALF",
+      "kasaba": "Bilinmiyor",
+      "akce": 1325.31,
+      "esyalar": [
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Somun Ekmeği",
+          "adet": 19
+        },
+        {
+          "isim": "Çapa",
+          "adet": 2
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 2
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 2
+        },
+        {
+          "isim": "İnegöl Köfte",
           "adet": 1
         }
       ]
     },
     {
-      "karakter": "DRONRON",
-      "kasaba": "Bilinmiyor",
-      "akce": 501.26,
+      "karakter": "JOYKING",
+      "kasaba": "Stirling",
+      "akce": 3679.26,
       "esyalar": [
         {
+          "isim": "Balta",
+          "adet": 3
+        },
+        {
+          "isim": "Balta Sapı (Sopa)",
+          "adet": 1
+        },
+        {
+          "isim": "Biberiye filizi",
+          "adet": 1
+        },
+        {
+          "isim": "Bıçak",
+          "adet": 3
+        },
+        {
+          "isim": "El Arabası",
+          "adet": 1
+        },
+        {
+          "isim": "Fındık",
+          "adet": 6
+        },
+        {
+          "isim": "Kartopu",
+          "adet": 3
+        },
+        {
+          "isim": "Kile Tuz",
+          "adet": 2
+        },
+        {
+          "isim": "Kova",
+          "adet": 3
+        },
+        {
+          "isim": "Külçe Demir",
+          "adet": 19
+        },
+        {
+          "isim": "Kısa Merdiven",
+          "adet": 1
+        },
+        {
+          "isim": "Likörlü Yılbaşı Çikolatası",
+          "adet": 1
+        },
+        {
           "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Orijinal Sakal Modeli n°8",
+          "adet": 1
+        },
+        {
+          "isim": "Sebze",
+          "adet": 3
+        },
+        {
+          "isim": "Tomruk Odun",
+          "adet": 18
+        },
+        {
+          "isim": "Yaban Çileği Likörü",
+          "adet": 1
+        },
+        {
+          "isim": "Yumurta Çikolata",
+          "adet": 3
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çelik Kasnak",
+          "adet": 12
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 2
+        },
+        {
+          "isim": "Çuval Buğday",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Beelzebub'ın Koz Helvası",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Belial'ın Armut Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Leviathan'ın Erik Şekeri",
+          "adet": 6
+        },
+        {
+          "isim": "İblis Lucifer'in Cevizli Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 34
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 31
+        },
+        {
+          "isim": "Şeytani Badem Şekeri",
+          "adet": 3
+        }
+      ]
+    },
+    {
+      "karakter": "BAELA",
+      "kasaba": "Kirkcudbright",
+      "akce": 27990.43,
+      "esyalar": [
+        {
+          "isim": "Ballı Börek",
+          "adet": 1
+        },
+        {
+          "isim": "Gül Kremi ve Gül Suyu",
+          "adet": 2
+        },
+        {
+          "isim": "Halat Kemer",
+          "adet": 1
+        },
+        {
+          "isim": "Kılıç",
+          "adet": 3
+        },
+        {
+          "isim": "Midas'ın Mütevazı Sandığı",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Sebze",
+          "adet": 189
+        },
+        {
+          "isim": "Somun Ekmeği",
+          "adet": 7
+        },
+        {
+          "isim": "Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Yaban Çileği Likörü",
+          "adet": 1
+        },
+        {
+          "isim": "Yumurta Çikolata",
           "adet": 1
         },
         {
@@ -643,23 +2273,82 @@
           "adet": 1
         },
         {
+          "isim": "Çeki Taş",
+          "adet": 2
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 3
+        },
+        {
           "isim": "Çuval Mısır",
-          "adet": 18
+          "adet": 5
+        },
+        {
+          "isim": "İblis Beelzebub'ın Koz Helvası",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Belial'ın Armut Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Leviathan'ın Erik Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Lucifer'in Cevizli Şekeri",
+          "adet": 1
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 4
+          "adet": 13
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 8
+        },
+        {
+          "isim": "Şeytani Badem Şekeri",
+          "adet": 1
+        }
+      ]
+    },
+    {
+      "karakter": "TONALI",
+      "kasaba": "Ardencaple",
+      "akce": 220.25,
+      "esyalar": [
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Sebze",
           "adet": 4
+        },
+        {
+          "isim": "Somun Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 8
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 2
         }
       ]
     },
     {
       "karakter": "THEBEAR",
       "kasaba": "Glasgow",
-      "akce": 26898.14,
+      "akce": 26870.14,
       "esyalar": [
         {
           "isim": "Bitki Saksısı",
@@ -671,7 +2360,7 @@
         },
         {
           "isim": "Gülhatmi Buketi",
-          "adet": 541
+          "adet": 565
         },
         {
           "isim": "Kayık",
@@ -688,10 +2377,6 @@
         {
           "isim": "Midas'ın Mütevazı Sandığı",
           "adet": 1
-        },
-        {
-          "isim": "Mor Boya",
-          "adet": 24
         },
         {
           "isim": "Mucizevi Kiraz Merhemi",
@@ -724,25 +2409,17 @@
       ]
     },
     {
-      "karakter": "SEMIRAMIR",
-      "kasaba": "Bilinmiyor",
-      "akce": 112.92,
+      "karakter": "TORTUGAL",
+      "kasaba": "Wigtown",
+      "akce": 48.09,
       "esyalar": [
         {
-          "isim": "Balık",
-          "adet": 1
-        },
-        {
-          "isim": "Külçe Demir",
+          "isim": "Ballı Börek",
           "adet": 1
         },
         {
           "isim": "Mucizevi Kiraz Merhemi",
           "adet": 1
-        },
-        {
-          "isim": "Sebze",
-          "adet": 15
         },
         {
           "isim": "Çavdar Ekmeği",
@@ -757,38 +2434,30 @@
           "adet": 1
         },
         {
+          "isim": "Çuval Mısır",
+          "adet": 769
+        },
+        {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 7
+          "adet": 12
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 1
-        },
-        {
-          "isim": "Şişe Süt",
           "adet": 7
         }
       ]
     },
     {
-      "karakter": "NIHILANT",
+      "karakter": "BETMEN",
       "kasaba": "Ardencaple",
-      "akce": 238.29,
+      "akce": 828.29,
       "esyalar": [
         {
           "isim": "Ballı Börek",
           "adet": 1
         },
         {
-          "isim": "Dini - 1",
-          "adet": 1
-        },
-        {
-          "isim": "Gül Kremi ve Gül Suyu",
-          "adet": 1
-        },
-        {
-          "isim": "Likörlü Yılbaşı Çikolatası",
+          "isim": "Kiraz",
           "adet": 1
         },
         {
@@ -797,14 +2466,10 @@
         },
         {
           "isim": "Sebze",
-          "adet": 208
+          "adet": 114
         },
         {
           "isim": "Somun Ekmeği",
-          "adet": 2
-        },
-        {
-          "isim": "Taş",
           "adet": 1
         },
         {
@@ -821,26 +2486,6 @@
         },
         {
           "isim": "Çubuk Kil",
-          "adet": 2
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 2
-        },
-        {
-          "isim": "İblis Beelzebub'ın Koz Helvası",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Belial'ın Armut Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Leviathan'ın Erik Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Lucifer'in Cevizli Şekeri",
           "adet": 1
         },
         {
@@ -849,61 +2494,75 @@
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 13
-        },
-        {
-          "isim": "Şeytani Badem Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "Şifa Şurubu",
-          "adet": 1
-        },
-        {
-          "isim": "Şövalye Miğferi",
-          "adet": 1
+          "adet": 8
         }
       ]
     },
     {
-      "karakter": "BEANNIGHE",
-      "kasaba": "Stirling",
-      "akce": 36518.05,
+      "karakter": "ERETHEA",
+      "kasaba": "Bilinmiyor",
+      "akce": 21.32,
       "esyalar": [
         {
-          "isim": "Ayakkabı",
-          "adet": 1
+          "isim": "Somun Ekmeği",
+          "adet": 7
         },
         {
-          "isim": "Azazil'in Lokum Kutusu",
-          "adet": 1
-        },
-        {
-          "isim": "Ballı & Cevizli Kek",
-          "adet": 1
-        },
-        {
-          "isim": "Balta",
-          "adet": 1
-        },
-        {
-          "isim": "Balta Sapı (Sopa)",
+          "isim": "Çuval Mısır",
           "adet": 8
         },
         {
-          "isim": "Biberiye filizi",
-          "adet": 1
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 3
         },
         {
-          "isim": "Bir Avuç Tahıl",
-          "adet": 70
-        },
-        {
-          "isim": "Bordeaux Şarabı",
-          "adet": 1
-        },
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 2
+        }
+      ]
+    },
+    {
+      "karakter": "MR.SHADOW",
+      "kasaba": "Bilinmiyor",
+      "akce": 1032.64,
+      "esyalar": [
         {
           "isim": "Bıçak",
+          "adet": 2
+        },
+        {
+          "isim": "Gül Kremi ve Gül Suyu",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Somun Ekmeği",
+          "adet": 3
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 34
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 4
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 4
+        }
+      ]
+    },
+    {
+      "karakter": "CULLENGEN",
+      "kasaba": "Glasgow",
+      "akce": 26911.29,
+      "esyalar": [
+        {
+          "isim": "Bitki Saksısı",
           "adet": 4
         },
         {
@@ -911,40 +2570,16 @@
           "adet": 1
         },
         {
-          "isim": "El Arabası",
-          "adet": 1
-        },
-        {
-          "isim": "Et",
-          "adet": 199
-        },
-        {
           "isim": "Gülhatmi Buketi",
           "adet": 1
         },
         {
-          "isim": "Kara Orman Jambonu",
-          "adet": 1
-        },
-        {
-          "isim": "Kartopu",
-          "adet": 2
-        },
-        {
-          "isim": "Kayık",
-          "adet": 1
-        },
-        {
-          "isim": "Kile Tuz",
-          "adet": 4
+          "isim": "Kayık Küreği",
+          "adet": 3
         },
         {
           "isim": "Kiraz",
           "adet": 1
-        },
-        {
-          "isim": "Kova",
-          "adet": 4
         },
         {
           "isim": "Kökboya Buketi",
@@ -956,55 +2591,39 @@
         },
         {
           "isim": "Likörlü Yılbaşı Çikolatası",
-          "adet": 3
+          "adet": 1
+        },
+        {
+          "isim": "Midas'ın Mütevazı Sandığı",
+          "adet": 1
         },
         {
           "isim": "Mucizevi Kiraz Merhemi",
           "adet": 1
         },
         {
-          "isim": "Nasıl Yapılır? ''Azazil'in Pasta Tarifleri'' (Fırıncı)",
+          "isim": "Taş",
           "adet": 1
         },
         {
-          "isim": "Parfümlü Dört Hane Eldivenleri",
-          "adet": 1
-        },
-        {
-          "isim": "Piskopos Asası",
-          "adet": 1
-        },
-        {
-          "isim": "Sahte Cadı Burnu",
-          "adet": 1
-        },
-        {
-          "isim": "Sebze",
-          "adet": 53
-        },
-        {
-          "isim": "Somun Ekmeği",
-          "adet": 50
-        },
-        {
-          "isim": "Sütlü Çörek",
-          "adet": 4
-        },
-        {
-          "isim": "Tomruk Odun",
-          "adet": 44
-        },
-        {
-          "isim": "Vitamin Hapı",
+          "isim": "Uzun Merdiven",
           "adet": 1
         },
         {
           "isim": "Yaban Çileği Likörü",
-          "adet": 2
+          "adet": 1
         },
         {
           "isim": "Yumurta Çikolata",
-          "adet": 2
+          "adet": 3
+        },
+        {
+          "isim": "Yılbaşı Pulisi",
+          "adet": 1
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
         },
         {
           "isim": "Çivit Otu Salkımı",
@@ -1012,19 +2631,15 @@
         },
         {
           "isim": "Çubuk Kil",
-          "adet": 4
+          "adet": 72
+        },
+        {
+          "isim": "Çuval Buğday",
+          "adet": 1
         },
         {
           "isim": "Çuval Mısır",
-          "adet": 268
-        },
-        {
-          "isim": "Çuval Un",
-          "adet": 67
-        },
-        {
-          "isim": "Üçkağıtçı Sepeti",
-          "adet": 1
+          "adet": 2
         },
         {
           "isim": "İblis Beelzebub'ın Koz Helvası",
@@ -1040,65 +2655,107 @@
         },
         {
           "isim": "İblis Lucifer'in Cevizli Şekeri",
-          "adet": 2
+          "adet": 1
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 36
+          "adet": 7
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 26
+          "adet": 6
         },
         {
-          "isim": "İpek",
-          "adet": 3
+          "isim": "İnegöl Köfte",
+          "adet": 1
         },
         {
           "isim": "Şeytani Badem Şekeri",
-          "adet": 2
-        },
-        {
-          "isim": "Şifa Şurubu",
           "adet": 1
-        },
-        {
-          "isim": "Şifalı Su",
-          "adet": 1
-        },
-        {
-          "isim": "Şişe Süt",
-          "adet": 888
         }
       ]
     },
     {
-      "karakter": "BREMER",
-      "kasaba": "Girvan",
-      "akce": 5537.82,
+      "karakter": "TOMMYTARA",
+      "kasaba": "Wigtown",
+      "akce": 190.82,
       "esyalar": [
         {
-          "isim": "Bıçak",
-          "adet": 2
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
         },
+        {
+          "isim": "Yaban Çileği Likörü",
+          "adet": 1
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çeki Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 398
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 12
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 7
+        }
+      ]
+    },
+    {
+      "karakter": "NINGAUBLE",
+      "kasaba": "Girvan",
+      "akce": 44.71,
+      "esyalar": [
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Sebze",
+          "adet": 67
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 8
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 3
+        }
+      ]
+    },
+    {
+      "karakter": "HELSINKII",
+      "kasaba": "Stirling",
+      "akce": 314.15,
+      "esyalar": [
         {
           "isim": "Civanperçemi Buketi",
           "adet": 1
         },
         {
-          "isim": "Gülhatmi Buketi",
-          "adet": 1
-        },
-        {
-          "isim": "Kova",
-          "adet": 3
-        },
-        {
           "isim": "Kökboya Buketi",
-          "adet": 1
-        },
-        {
-          "isim": "Midas'ın Şık Sandığı",
           "adet": 1
         },
         {
@@ -1106,47 +2763,27 @@
           "adet": 1
         },
         {
-          "isim": "Sebze",
-          "adet": 78
-        },
-        {
-          "isim": "Sebzeli Turta",
+          "isim": "Çubuk Kil",
           "adet": 1
         },
         {
-          "isim": "Yumurta Çikolata",
-          "adet": 2
-        },
-        {
-          "isim": "Çavdar Ekmeği",
+          "isim": "Çuval Buğday",
           "adet": 1
-        },
-        {
-          "isim": "Çivit Otu Salkımı",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (büyük)",
-          "adet": 2
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 30
+          "adet": 11
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 34
-        },
-        {
-          "isim": "Şişe Süt",
-          "adet": 26
+          "adet": 7
         }
       ]
     },
     {
       "karakter": "PEEVES",
       "kasaba": "Wigtown",
-      "akce": 4371.99,
+      "akce": 4384.51,
       "esyalar": [
         {
           "isim": "Ahşap Pipo",
@@ -1434,7 +3071,7 @@
         },
         {
           "isim": "Şişe Süt",
-          "adet": 12
+          "adet": 10
         },
         {
           "isim": "Şövalye Göğüs Zırhı",
@@ -1443,486 +3080,9 @@
       ]
     },
     {
-      "karakter": "TOMMYTARA",
-      "kasaba": "Wigtown",
-      "akce": 186.91,
-      "esyalar": [
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çeki Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 378
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 12
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 7
-        }
-      ]
-    },
-    {
-      "karakter": "BRADLEY_RICHARDS",
-      "kasaba": "Kirkcudbright",
-      "akce": 97.52,
-      "esyalar": [
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Sebze",
-          "adet": 102
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çeki Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 8
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 3
-        }
-      ]
-    },
-    {
-      "karakter": "VERMITHOR",
-      "kasaba": "Whithorn",
-      "akce": 20963.04,
-      "esyalar": [
-        {
-          "isim": "Ayakkabı",
-          "adet": 2
-        },
-        {
-          "isim": "Ballı Börek",
-          "adet": 1
-        },
-        {
-          "isim": "Balık",
-          "adet": 1
-        },
-        {
-          "isim": "Bıçak",
-          "adet": 3
-        },
-        {
-          "isim": "Delice Doğan (8.yıl anısına)",
-          "adet": 1
-        },
-        {
-          "isim": "Erkek Gömleği",
-          "adet": 3
-        },
-        {
-          "isim": "Erkek Çorabı",
-          "adet": 3
-        },
-        {
-          "isim": "Gül Kremi ve Gül Suyu",
-          "adet": 1
-        },
-        {
-          "isim": "Hurma",
-          "adet": 1
-        },
-        {
-          "isim": "Kadın Gömleği",
-          "adet": 3
-        },
-        {
-          "isim": "Kadın Çorabı",
-          "adet": 1
-        },
-        {
-          "isim": "Kalkan",
-          "adet": 1
-        },
-        {
-          "isim": "Kiraz",
-          "adet": 1
-        },
-        {
-          "isim": "Kova",
-          "adet": 4
-        },
-        {
-          "isim": "Kuşak",
-          "adet": 2
-        },
-        {
-          "isim": "Küçük Yelken",
-          "adet": 2
-        },
-        {
-          "isim": "Kılıç",
-          "adet": 1
-        },
-        {
-          "isim": "Kısa Merdiven",
-          "adet": 1
-        },
-        {
-          "isim": "Likörlü Yılbaşı Çikolatası",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Sebze",
-          "adet": 127
-        },
-        {
-          "isim": "Sebzeli Turta",
-          "adet": 1
-        },
-        {
-          "isim": "Somun Ekmeği",
-          "adet": 355
-        },
-        {
-          "isim": "Takke",
-          "adet": 2
-        },
-        {
-          "isim": "Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 2
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çeki Taş",
-          "adet": 2
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 2
-        },
-        {
-          "isim": "Çuval Buğday",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 308
-        },
-        {
-          "isim": "İblis Beelzebub'ın Koz Helvası",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Belial'ın Armut Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Leviathan'ın Erik Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Lucifer'in Cevizli Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 11
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 12
-        },
-        {
-          "isim": "Şalvar",
-          "adet": 2
-        },
-        {
-          "isim": "Şeytani Badem Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "Şifa Şurubu",
-          "adet": 1
-        },
-        {
-          "isim": "Şişe Süt",
-          "adet": 132
-        }
-      ]
-    },
-    {
-      "karakter": "ERETHEA",
-      "kasaba": "Bilinmiyor",
-      "akce": 15.98,
-      "esyalar": [
-        {
-          "isim": "Somun Ekmeği",
-          "adet": 6
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 7
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 3
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 2
-        }
-      ]
-    },
-    {
-      "karakter": "CULLENGEN",
-      "kasaba": "Glasgow",
-      "akce": 26623.65,
-      "esyalar": [
-        {
-          "isim": "Bitki Saksısı",
-          "adet": 1
-        },
-        {
-          "isim": "Civanperçemi Buketi",
-          "adet": 1
-        },
-        {
-          "isim": "Gülhatmi Buketi",
-          "adet": 1
-        },
-        {
-          "isim": "Kayık Küreği",
-          "adet": 3
-        },
-        {
-          "isim": "Kiraz",
-          "adet": 1
-        },
-        {
-          "isim": "Kökboya Buketi",
-          "adet": 1
-        },
-        {
-          "isim": "Kısa Merdiven",
-          "adet": 2
-        },
-        {
-          "isim": "Likörlü Yılbaşı Çikolatası",
-          "adet": 1
-        },
-        {
-          "isim": "Midas'ın Mütevazı Sandığı",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Sebze",
-          "adet": 3
-        },
-        {
-          "isim": "Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Uzun Merdiven",
-          "adet": 1
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 1
-        },
-        {
-          "isim": "Yumurta Çikolata",
-          "adet": 3
-        },
-        {
-          "isim": "Yılbaşı Pulisi",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çivit Otu Salkımı",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 84
-        },
-        {
-          "isim": "Çuval Buğday",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 2
-        },
-        {
-          "isim": "İblis Beelzebub'ın Koz Helvası",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Belial'ın Armut Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Leviathan'ın Erik Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Lucifer'in Cevizli Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 7
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 5
-        },
-        {
-          "isim": "İnegöl Köfte",
-          "adet": 1
-        },
-        {
-          "isim": "Şeytani Badem Şekeri",
-          "adet": 1
-        }
-      ]
-    },
-    {
-      "karakter": "BILRIDER",
-      "kasaba": "Girvan",
-      "akce": 5806.41,
-      "esyalar": [
-        {
-          "isim": "Bıçak",
-          "adet": 3
-        },
-        {
-          "isim": "El Arabası",
-          "adet": 1
-        },
-        {
-          "isim": "Kalkan",
-          "adet": 1
-        },
-        {
-          "isim": "Kova",
-          "adet": 3
-        },
-        {
-          "isim": "Midas'ın Şık Sandığı",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Yaba",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 23
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 42
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 40
-        },
-        {
-          "isim": "Şişe Süt",
-          "adet": 37
-        }
-      ]
-    },
-    {
-      "karakter": "KORHAN",
-      "kasaba": "Bilinmiyor",
-      "akce": 66.48,
-      "esyalar": [
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 20
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 5
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 5
-        }
-      ]
-    },
-    {
       "karakter": "PENCIHER",
       "kasaba": "Girvan",
-      "akce": 7975.64,
+      "akce": 8220.41,
       "esyalar": [
         {
           "isim": "Bıçak",
@@ -1954,7 +3114,7 @@
         },
         {
           "isim": "Sebze",
-          "adet": 12
+          "adet": 15
         },
         {
           "isim": "Tomruk Odun",
@@ -1987,9 +3147,9 @@
       ]
     },
     {
-      "karakter": "ADRAH",
+      "karakter": "TELCONTA_R",
       "kasaba": "Wigtown",
-      "akce": 1127.22,
+      "akce": 280.02,
       "esyalar": [
         {
           "isim": "Mucizevi Kiraz Merhemi",
@@ -1997,101 +3157,11 @@
         },
         {
           "isim": "Sebze",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Buğday",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 9
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 3
-        }
-      ]
-    },
-    {
-      "karakter": "NOUMAMA",
-      "kasaba": "Whithorn",
-      "akce": 139.05,
-      "esyalar": [
-        {
-          "isim": "Ballı Börek",
-          "adet": 1
-        },
-        {
-          "isim": "Kiraz",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Sebze",
-          "adet": 44
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 176
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 12
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 7
-        }
-      ]
-    },
-    {
-      "karakter": "BETMEN",
-      "kasaba": "Ardencaple",
-      "akce": 843.65,
-      "esyalar": [
-        {
-          "isim": "Ballı Börek",
-          "adet": 1
-        },
-        {
-          "isim": "Kiraz",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Sebze",
-          "adet": 111
+          "adet": 40
         },
         {
           "isim": "Somun Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 1
+          "adet": 2
         },
         {
           "isim": "Çavdar Ekmeği",
@@ -2106,148 +3176,23 @@
           "adet": 1
         },
         {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 12
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 8
-        }
-      ]
-    },
-    {
-      "karakter": "TAKARAKA",
-      "kasaba": "Glasgow",
-      "akce": 23395.83,
-      "esyalar": [
-        {
-          "isim": "Bitki Saksısı",
-          "adet": 6
-        },
-        {
-          "isim": "Gülhatmi Buketi",
-          "adet": 71
-        },
-        {
-          "isim": "Kayık Küreği",
-          "adet": 3
-        },
-        {
-          "isim": "Midas'ın Mütevazı Sandığı",
-          "adet": 1
-        },
-        {
-          "isim": "Mor Boya",
-          "adet": 18
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Sebzeli Turta",
-          "adet": 3
-        },
-        {
-          "isim": "Taş",
+          "isim": "Çuval Mısır",
           "adet": 2
         },
         {
-          "isim": "Yılbaşı Pulisi",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (büyük)",
-          "adet": 4
-        },
-        {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 28
+          "adet": 8
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 32
-        },
-        {
-          "isim": "Şifa Şurubu",
-          "adet": 1
-        }
-      ]
-    },
-    {
-      "karakter": "MAKUTA",
-      "kasaba": "Wigtown",
-      "akce": 244.15,
-      "esyalar": [
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Sebze",
-          "adet": 45
-        },
-        {
-          "isim": "Somun Ekmeği",
           "adet": 2
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 4
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 8
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 3
-        }
-      ]
-    },
-    {
-      "karakter": "DARKBRINGER",
-      "kasaba": "Bilinmiyor",
-      "akce": 228.03,
-      "esyalar": [
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Somun Ekmeği",
-          "adet": 17
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 6
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 8
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 4
         }
       ]
     },
     {
       "karakter": "ZANIOLO",
       "kasaba": "Glasgow",
-      "akce": 12457.32,
+      "akce": 12405.08,
       "esyalar": [
         {
           "isim": "Bitki Saksısı",
@@ -2270,12 +3215,12 @@
           "adet": 1
         },
         {
-          "isim": "Mor Boya",
-          "adet": 21
-        },
-        {
           "isim": "Mucizevi Kiraz Merhemi",
           "adet": 1
+        },
+        {
+          "isim": "Sebze",
+          "adet": 3
         },
         {
           "isim": "Sebzeli Turta",
@@ -2336,130 +3281,20 @@
       ]
     },
     {
-      "karakter": "HELIOSON",
-      "kasaba": "Bilinmiyor",
-      "akce": 57.32,
+      "karakter": "BEANNIGHE",
+      "kasaba": "Stirling",
+      "akce": 36721.65,
       "esyalar": [
         {
-          "isim": "Bıçak",
-          "adet": 6
-        },
-        {
-          "isim": "Külçe Demir",
+          "isim": "Ayakkabı",
           "adet": 1
         },
         {
-          "isim": "Mucizevi Kiraz Merhemi",
+          "isim": "Azazil'in Lokum Kutusu",
           "adet": 1
         },
         {
-          "isim": "Somun Ekmeği",
-          "adet": 5
-        },
-        {
-          "isim": "Çeki Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 30
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 6
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 1
-        }
-      ]
-    },
-    {
-      "karakter": "JEDAY",
-      "kasaba": "Wigtown",
-      "akce": 158.42,
-      "esyalar": [
-        {
-          "isim": "Ballı Börek",
-          "adet": 1
-        },
-        {
-          "isim": "Kiraz",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çeki Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 750
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 12
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 8
-        }
-      ]
-    },
-    {
-      "karakter": "VAMDER",
-      "kasaba": "Glasgow",
-      "akce": 32410.4,
-      "esyalar": [
-        {
-          "isim": "Ahşap Pipo",
-          "adet": 2
-        },
-        {
-          "isim": "Alman Mastifi",
-          "adet": 1
-        },
-        {
-          "isim": "Altın Gerdanlık",
-          "adet": 1
-        },
-        {
-          "isim": "Altın Kadeh",
-          "adet": 1
-        },
-        {
-          "isim": "Antik Bilezik",
-          "adet": 1
-        },
-        {
-          "isim": "Antik Defne Çelengi",
-          "adet": 1
-        },
-        {
-          "isim": "Antik Yunan Çömleği",
-          "adet": 1
-        },
-        {
-          "isim": "Arap Miğferi",
+          "isim": "Ballı & Cevizli Kek",
           "adet": 1
         },
         {
@@ -2467,171 +3302,79 @@
           "adet": 1
         },
         {
-          "isim": "Bebek Penguen",
-          "adet": 1
-        },
-        {
-          "isim": "Bellacamy'nin El Yazması Kitabı",
-          "adet": 1
+          "isim": "Balta Sapı (Sopa)",
+          "adet": 8
         },
         {
           "isim": "Biberiye filizi",
           "adet": 1
         },
         {
-          "isim": "Bozkır Tuniği",
+          "isim": "Bir Avuç Tahıl",
+          "adet": 70
+        },
+        {
+          "isim": "Bordeaux Şarabı",
           "adet": 1
         },
         {
           "isim": "Bıçak",
-          "adet": 2
-        },
-        {
-          "isim": "Cadı Şapkası",
-          "adet": 1
+          "adet": 4
         },
         {
           "isim": "Civanperçemi Buketi",
           "adet": 1
         },
         {
-          "isim": "Dini - 1",
+          "isim": "El Arabası",
           "adet": 1
         },
         {
-          "isim": "Dört Hane Önlüğü",
-          "adet": 1
-        },
-        {
-          "isim": "Gayda",
-          "adet": 2
-        },
-        {
-          "isim": "Gece Tilkisi Maskesi",
-          "adet": 1
-        },
-        {
-          "isim": "Gelin Eldiveni (Kadın) - Deri Eldiven (Erkek)",
-          "adet": 1
+          "isim": "Et",
+          "adet": 199
         },
         {
           "isim": "Gülhatmi Buketi",
           "adet": 1
         },
         {
-          "isim": "Kahverengi Kaplumbağa",
-          "adet": 1
-        },
-        {
-          "isim": "Kar Kedisi",
-          "adet": 1
-        },
-        {
-          "isim": "Kar Pelerini",
+          "isim": "Kara Orman Jambonu",
           "adet": 1
         },
         {
           "isim": "Kartopu",
-          "adet": 6
+          "adet": 2
         },
         {
           "isim": "Kayık",
           "adet": 1
         },
         {
-          "isim": "Kayık Küreği",
-          "adet": 2
+          "isim": "Kile Tuz",
+          "adet": 4
         },
         {
-          "isim": "Kile Tuz",
-          "adet": 2
+          "isim": "Kiraz",
+          "adet": 1
         },
         {
           "isim": "Kova",
-          "adet": 3
-        },
-        {
-          "isim": "Kraliyet Muhafızlarının Göğüs Zırhı",
-          "adet": 1
-        },
-        {
-          "isim": "Kraliyet Muhafızlarının Tozlukları",
-          "adet": 2
-        },
-        {
-          "isim": "Kuyumcu Madalyonu",
-          "adet": 1
-        },
-        {
-          "isim": "Kuş Falı Botu",
-          "adet": 1
-        },
-        {
-          "isim": "Kâşif Arkaplanı",
-          "adet": 1
-        },
-        {
-          "isim": "Kâşif Atkısı (Siyah)",
-          "adet": 1
-        },
-        {
-          "isim": "Kâşif Gömleği",
-          "adet": 1
-        },
-        {
-          "isim": "Kâşif Gömleği (Siyah)",
-          "adet": 1
-        },
-        {
-          "isim": "Kâşif Çizmesi (Siyah)",
-          "adet": 1
+          "adet": 4
         },
         {
           "isim": "Kökboya Buketi",
           "adet": 1
         },
         {
-          "isim": "Kömür Karası",
-          "adet": 1
-        },
-        {
-          "isim": "Kürklü Manto",
-          "adet": 1
-        },
-        {
-          "isim": "Kürklü Manto , Kış Sezonu 1465",
-          "adet": 1
-        },
-        {
-          "isim": "Maceracı Pelerini (Siyah)",
-          "adet": 1
-        },
-        {
-          "isim": "Madenci Başlığı",
-          "adet": 1
-        },
-        {
-          "isim": "Madenci Botu",
-          "adet": 3
-        },
-        {
-          "isim": "Manda Eti (100 Okka)",
-          "adet": 7
-        },
-        {
-          "isim": "Midas'ın Mütevazı Sandığı",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
+          "isim": "Kısa Merdiven",
           "adet": 2
         },
         {
-          "isim": "Muhafız Dizliği",
-          "adet": 1
+          "isim": "Likörlü Yılbaşı Çikolatası",
+          "adet": 3
         },
         {
-          "isim": "Muhafız Eldiveni",
+          "isim": "Mucizevi Kiraz Merhemi",
           "adet": 1
         },
         {
@@ -2639,31 +3382,11 @@
           "adet": 1
         },
         {
-          "isim": "Nasıl Yapılır? ''Kaymak Birası'' (Değirmenci)",
-          "adet": 1
-        },
-        {
-          "isim": "Nasıl Yapılır? ''Tuzlu Yılbaşı Turtası'' (Kasap)",
-          "adet": 1
-        },
-        {
-          "isim": "Oryantal Ayakkabı",
-          "adet": 1
-        },
-        {
-          "isim": "Oryantal Kolye",
-          "adet": 1
-        },
-        {
           "isim": "Parfümlü Dört Hane Eldivenleri",
           "adet": 1
         },
         {
-          "isim": "Partizan Pelerini (Kan Kırmızısı)",
-          "adet": 1
-        },
-        {
-          "isim": "Ritüel Aksesuarı (İlahi)",
+          "isim": "Piskopos Asası",
           "adet": 1
         },
         {
@@ -2672,211 +3395,113 @@
         },
         {
           "isim": "Sebze",
-          "adet": 3
+          "adet": 53
         },
         {
-          "isim": "Selevkus Miğferi",
+          "isim": "Somun Ekmeği",
+          "adet": 50
+        },
+        {
+          "isim": "Sütlü Çörek",
+          "adet": 18
+        },
+        {
+          "isim": "Tomruk Odun",
+          "adet": 41
+        },
+        {
+          "isim": "Vitamin Hapı",
           "adet": 1
         },
         {
-          "isim": "Sorianne'in Sapancısı",
-          "adet": 1
-        },
-        {
-          "isim": "Sıradan Ördek",
+          "isim": "Yaban Çileği Likörü",
           "adet": 2
-        },
-        {
-          "isim": "Sığır Eti (50 Okka)",
-          "adet": 25
-        },
-        {
-          "isim": "Tahta İçki Kadehi (Tankard)",
-          "adet": 1
-        },
-        {
-          "isim": "Taş",
-          "adet": 4
-        },
-        {
-          "isim": "Yaba",
-          "adet": 1
-        },
-        {
-          "isim": "Yağmur Kuğusu",
-          "adet": 2
-        },
-        {
-          "isim": "Yumurta Sepeti",
-          "adet": 1
         },
         {
           "isim": "Yumurta Çikolata",
           "adet": 2
         },
         {
-          "isim": "Yün Atkı",
-          "adet": 1
-        },
-        {
-          "isim": "Yılbaşı Kürkü , Kış Sezonu 1465",
-          "adet": 1
-        },
-        {
-          "isim": "Yılbaşı Küçük Ren Geyiği",
-          "adet": 2
-        },
-        {
-          "isim": "Zümrütlü Yeşim Kalkanı",
-          "adet": 2
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çelik Kepçe",
-          "adet": 1
-        },
-        {
           "isim": "Çivit Otu Salkımı",
           "adet": 1
         },
         {
+          "isim": "Çubuk Kil",
+          "adet": 4
+        },
+        {
           "isim": "Çuval Mısır",
-          "adet": 130
+          "adet": 268
+        },
+        {
+          "isim": "Çuval Un",
+          "adet": 61
+        },
+        {
+          "isim": "Üçkağıtçı Sepeti",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Beelzebub'ın Koz Helvası",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Belial'ın Armut Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Leviathan'ın Erik Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Lucifer'in Cevizli Şekeri",
+          "adet": 2
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 32
+          "adet": 36
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 20
+          "adet": 26
         },
         {
-          "isim": "İpek Elbise",
+          "isim": "İpek",
           "adet": 3
         },
         {
-          "isim": "İpek İskandinav Gömleği",
-          "adet": 1
-        },
-        {
-          "isim": "İskandinav Pelerini",
-          "adet": 1
+          "isim": "Şeytani Badem Şekeri",
+          "adet": 2
         },
         {
           "isim": "Şifa Şurubu",
           "adet": 1
         },
         {
-          "isim": "Şifacı Kemeri",
-          "adet": 1
-        },
-        {
-          "isim": "Şifacı Manşeti",
-          "adet": 1
-        },
-        {
           "isim": "Şifalı Su",
           "adet": 1
+        },
+        {
+          "isim": "Şişe Süt",
+          "adet": 852
         }
       ]
     },
     {
-      "karakter": "MARCHOSIAS",
-      "kasaba": "Bilinmiyor",
-      "akce": 71.52,
-      "esyalar": [
-        {
-          "isim": "Kayık Küreği",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Somun Ekmeği",
-          "adet": 12
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 5
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 5
-        }
-      ]
-    },
-    {
-      "karakter": "TONALI",
+      "karakter": "NEROMANCER",
       "kasaba": "Ardencaple",
-      "akce": 221.84,
+      "akce": 288.74,
       "esyalar": [
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Somun Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 7
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 2
-        }
-      ]
-    },
-    {
-      "karakter": "ASAGRIM",
-      "kasaba": "Whithorn",
-      "akce": 28.21,
-      "esyalar": [
-        {
-          "isim": "Gül Kremi ve Gül Suyu",
-          "adet": 1
-        },
-        {
-          "isim": "Kayık",
-          "adet": 2
-        },
-        {
-          "isim": "Kiraz",
-          "adet": 1
-        },
-        {
-          "isim": "Kısa Merdiven",
-          "adet": 1
-        },
         {
           "isim": "Mucizevi Kiraz Merhemi",
           "adet": 1
         },
         {
           "isim": "Sebze",
-          "adet": 267
+          "adet": 2
         },
         {
           "isim": "Somun Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
           "adet": 1
         },
         {
@@ -2888,34 +3513,22 @@
           "adet": 1
         },
         {
-          "isim": "Çuval Mısır",
-          "adet": 2
-        },
-        {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 12
+          "adet": 7
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 7
+          "adet": 2
         }
       ]
     },
     {
-      "karakter": "SORCHADUSK",
+      "karakter": "ARGAIOS",
       "kasaba": "Wigtown",
-      "akce": 93.36,
+      "akce": 1410.01,
       "esyalar": [
         {
-          "isim": "Antik Yunan Çömleği",
-          "adet": 1
-        },
-        {
           "isim": "Gül Kremi ve Gül Suyu",
-          "adet": 1
-        },
-        {
-          "isim": "Kiraz",
           "adet": 1
         },
         {
@@ -2927,19 +3540,15 @@
           "adet": 1
         },
         {
-          "isim": "Ritüel Cüppesi (İlahi)",
+          "isim": "Sebze",
           "adet": 1
         },
         {
           "isim": "Taş",
-          "adet": 2
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
           "adet": 1
         },
         {
-          "isim": "Çavdar Ekmeği",
+          "isim": "Yaban Çileği Likörü",
           "adet": 1
         },
         {
@@ -2952,7 +3561,7 @@
         },
         {
           "isim": "Çuval Mısır",
-          "adet": 815
+          "adet": 117
         },
         {
           "isim": "İblis Beelzebub'ın Koz Helvası",
@@ -2972,7 +3581,7 @@
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 13
+          "adet": 14
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
@@ -2985,283 +3594,16 @@
       ]
     },
     {
-      "karakter": "MR.SHADOW",
-      "kasaba": "Bilinmiyor",
-      "akce": 1025.44,
-      "esyalar": [
-        {
-          "isim": "Bıçak",
-          "adet": 2
-        },
-        {
-          "isim": "Gül Kremi ve Gül Suyu",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Somun Ekmeği",
-          "adet": 4
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 34
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 4
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 4
-        }
-      ]
-    },
-    {
-      "karakter": "HELSINKII",
-      "kasaba": "Stirling",
-      "akce": 345.39,
-      "esyalar": [
-        {
-          "isim": "Civanperçemi Buketi",
-          "adet": 1
-        },
-        {
-          "isim": "Kökboya Buketi",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Tomruk Odun",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Buğday",
-          "adet": 2
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 11
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 7
-        }
-      ]
-    },
-    {
-      "karakter": "ESTEROS",
-      "kasaba": "Bilinmiyor",
-      "akce": 762.64,
-      "esyalar": [
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Somun Ekmeği",
-          "adet": 16
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 10
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 5
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 4
-        }
-      ]
-    },
-    {
-      "karakter": "IRONFOOT",
-      "kasaba": "Ardencaple",
-      "akce": 447.8,
+      "karakter": "WOLFGANGG",
+      "kasaba": "Whithorn",
+      "akce": 53.39,
       "esyalar": [
         {
           "isim": "Ballı Börek",
           "adet": 1
         },
         {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Sebze",
-          "adet": 97
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 2
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 13
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 8
-        }
-      ]
-    },
-    {
-      "karakter": "JOYKING",
-      "kasaba": "Stirling",
-      "akce": 3683.9,
-      "esyalar": [
-        {
-          "isim": "Balta",
-          "adet": 3
-        },
-        {
-          "isim": "Balta Sapı (Sopa)",
-          "adet": 1
-        },
-        {
-          "isim": "Biberiye filizi",
-          "adet": 1
-        },
-        {
           "isim": "Bıçak",
-          "adet": 3
-        },
-        {
-          "isim": "El Arabası",
-          "adet": 1
-        },
-        {
-          "isim": "Fındık",
-          "adet": 5
-        },
-        {
-          "isim": "Kartopu",
-          "adet": 3
-        },
-        {
-          "isim": "Kile Tuz",
-          "adet": 2
-        },
-        {
-          "isim": "Kova",
-          "adet": 3
-        },
-        {
-          "isim": "Külçe Demir",
-          "adet": 19
-        },
-        {
-          "isim": "Kısa Merdiven",
-          "adet": 1
-        },
-        {
-          "isim": "Likörlü Yılbaşı Çikolatası",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Orijinal Sakal Modeli n°8",
-          "adet": 1
-        },
-        {
-          "isim": "Tomruk Odun",
-          "adet": 18
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 1
-        },
-        {
-          "isim": "Yumurta Çikolata",
-          "adet": 3
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çelik Kasnak",
-          "adet": 12
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 2
-        },
-        {
-          "isim": "Çuval Buğday",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Beelzebub'ın Koz Helvası",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Belial'ın Armut Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Leviathan'ın Erik Şekeri",
-          "adet": 6
-        },
-        {
-          "isim": "İblis Lucifer'in Cevizli Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 34
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 31
-        },
-        {
-          "isim": "Şeytani Badem Şekeri",
-          "adet": 3
-        },
-        {
-          "isim": "Şişe Süt",
-          "adet": 4
-        }
-      ]
-    },
-    {
-      "karakter": "WHISPERBANE",
-      "kasaba": "Girvan",
-      "akce": 40.31,
-      "esyalar": [
-        {
-          "isim": "Ballı Börek",
-          "adet": 1
-        },
-        {
-          "isim": "Gül Kremi ve Gül Suyu",
-          "adet": 1
-        },
-        {
-          "isim": "Hurma",
           "adet": 1
         },
         {
@@ -3274,10 +3616,10 @@
         },
         {
           "isim": "Sebze",
-          "adet": 82
+          "adet": 230
         },
         {
-          "isim": "Taş",
+          "isim": "Somun Ekmeği",
           "adet": 1
         },
         {
@@ -3294,11 +3636,101 @@
         },
         {
           "isim": "Çubuk Kil",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 11
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 6
+        }
+      ]
+    },
+    {
+      "karakter": "CATAPULT",
+      "kasaba": "Wigtown",
+      "akce": 311.48,
+      "esyalar": [
+        {
+          "isim": "Ballı Börek",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Sebze",
+          "adet": 76
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çeki Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 12
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 7
+        }
+      ]
+    },
+    {
+      "karakter": "ATREIDES",
+      "kasaba": "Ardencaple",
+      "akce": 479.21,
+      "esyalar": [
+        {
+          "isim": "Gül Kremi ve Gül Suyu",
+          "adet": 1
+        },
+        {
+          "isim": "Kısa Merdiven",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çeki Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
           "adet": 2
         },
         {
+          "isim": "Çuval Buğday",
+          "adet": 85
+        },
+        {
           "isim": "Çuval Mısır",
-          "adet": 615
+          "adet": 2
+        },
+        {
+          "isim": "İblis Beelzebub'ın Koz Helvası",
+          "adet": 1
         },
         {
           "isim": "İblis Belial'ın Armut Şekeri",
@@ -3314,11 +3746,11 @@
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 12
+          "adet": 13
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 10
+          "adet": 11
         },
         {
           "isim": "Şeytani Badem Şekeri",
@@ -3331,21 +3763,33 @@
       ]
     },
     {
-      "karakter": "TELCONTA_R",
+      "karakter": "TYPHOONN",
       "kasaba": "Wigtown",
-      "akce": 266.06,
+      "akce": 340.62,
       "esyalar": [
+        {
+          "isim": "Aile Boyu Kaz Ciğeri",
+          "adet": 1
+        },
+        {
+          "isim": "Ballı Börek",
+          "adet": 1
+        },
+        {
+          "isim": "Kiraz",
+          "adet": 1
+        },
         {
           "isim": "Mucizevi Kiraz Merhemi",
           "adet": 1
         },
         {
           "isim": "Sebze",
-          "adet": 42
+          "adet": 102
         },
         {
-          "isim": "Somun Ekmeği",
-          "adet": 2
+          "isim": "Yaban Çileği Likörü",
+          "adet": 1
         },
         {
           "isim": "Çavdar Ekmeği",
@@ -3360,23 +3804,162 @@
           "adet": 1
         },
         {
-          "isim": "Çuval Mısır",
-          "adet": 2
-        },
-        {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 8
+          "adet": 13
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 8
+        }
+      ]
+    },
+    {
+      "karakter": "ZIYECH",
+      "kasaba": "Stirling",
+      "akce": 32953.48,
+      "esyalar": [
+        {
+          "isim": "Aliii'nin Bebek Taşıyıcısı",
+          "adet": 1
+        },
+        {
+          "isim": "Ballı Börek",
+          "adet": 1
+        },
+        {
+          "isim": "Balta",
+          "adet": 1
+        },
+        {
+          "isim": "Bıçak",
+          "adet": 3
+        },
+        {
+          "isim": "Civanperçemi Buketi",
+          "adet": 1
+        },
+        {
+          "isim": "Gül Kremi ve Gül Suyu",
+          "adet": 1
+        },
+        {
+          "isim": "Gülhatmi Buketi",
+          "adet": 1
+        },
+        {
+          "isim": "Hurma",
+          "adet": 1
+        },
+        {
+          "isim": "Imagine'in 'Kırmızı Altın Parmak' Tasarımı",
+          "adet": 1
+        },
+        {
+          "isim": "Kasnaksız Kova",
           "adet": 2
+        },
+        {
+          "isim": "Kiraz",
+          "adet": 2
+        },
+        {
+          "isim": "Kova",
+          "adet": 2
+        },
+        {
+          "isim": "Kökboya Buketi",
+          "adet": 1
+        },
+        {
+          "isim": "Kısa Merdiven",
+          "adet": 1
+        },
+        {
+          "isim": "Likörlü Yılbaşı Çikolatası",
+          "adet": 1
+        },
+        {
+          "isim": "Midas'ın Mütevazı Sandığı",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 2
+        },
+        {
+          "isim": "Taş",
+          "adet": 2
+        },
+        {
+          "isim": "Tomruk Odun",
+          "adet": 10
+        },
+        {
+          "isim": "Uzun Merdiven",
+          "adet": 1
+        },
+        {
+          "isim": "Yaban Çileği Likörü",
+          "adet": 1
+        },
+        {
+          "isim": "Yumurta Çikolata",
+          "adet": 2
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çeki Taş",
+          "adet": 2
+        },
+        {
+          "isim": "Çivit Otu Salkımı",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Beelzebub'ın Koz Helvası",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Belial'ın Armut Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Leviathan'ın Erik Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Lucifer'in Cevizli Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 32
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 32
+        },
+        {
+          "isim": "Şeytani Badem Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "Şişe Süt",
+          "adet": 8
         }
       ]
     },
     {
       "karakter": "MR.BUTCHER",
       "kasaba": "Glasgow",
-      "akce": 51269.69,
+      "akce": 51839.3,
       "esyalar": [
         {
           "isim": "Ahşap Pano",
@@ -3459,6 +4042,10 @@
           "adet": 1
         },
         {
+          "isim": "Manda Eti (100 Okka)",
+          "adet": 1
+        },
+        {
           "isim": "Midas'ın Şık Sandığı",
           "adet": 1
         },
@@ -3537,236 +4124,13 @@
         {
           "isim": "Şifalı Su",
           "adet": 1
-        },
-        {
-          "isim": "Şişe Süt",
-          "adet": 1
         }
       ]
     },
     {
-      "karakter": "WOLFGANGG",
-      "kasaba": "Whithorn",
-      "akce": 38.21,
-      "esyalar": [
-        {
-          "isim": "Ballı Börek",
-          "adet": 1
-        },
-        {
-          "isim": "Bıçak",
-          "adet": 1
-        },
-        {
-          "isim": "Kiraz",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Sebze",
-          "adet": 232
-        },
-        {
-          "isim": "Somun Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çeki Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 10
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 6
-        }
-      ]
-    },
-    {
-      "karakter": "SERACHIN",
-      "kasaba": "Wigtown",
-      "akce": 199.01,
-      "esyalar": [
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Sebze",
-          "adet": 18
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çeki Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 8
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 3
-        }
-      ]
-    },
-    {
-      "karakter": "CPTCORSAIR",
-      "kasaba": "Bilinmiyor",
-      "akce": 66.25,
-      "esyalar": [
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 6
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 5
-        }
-      ]
-    },
-    {
-      "karakter": "DRAKANIA",
-      "kasaba": "Bilinmiyor",
-      "akce": 57.28,
-      "esyalar": [
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Somun Ekmeği",
-          "adet": 17
-        },
-        {
-          "isim": "Uzun Merdiven",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 40
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 2
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 2
-        }
-      ]
-    },
-    {
-      "karakter": "MOIRAASH",
-      "kasaba": "Glasgow",
-      "akce": 26050.73,
-      "esyalar": [
-        {
-          "isim": "Ballı Börek",
-          "adet": 1
-        },
-        {
-          "isim": "Civanperçemi Buketi",
-          "adet": 1
-        },
-        {
-          "isim": "Gülhatmi Buketi",
-          "adet": 210
-        },
-        {
-          "isim": "Kayık Küreği",
-          "adet": 2
-        },
-        {
-          "isim": "Kiraz",
-          "adet": 1
-        },
-        {
-          "isim": "Kökboya Buketi",
-          "adet": 1
-        },
-        {
-          "isim": "Kısa Merdiven",
-          "adet": 1
-        },
-        {
-          "isim": "Midas'ın Mütevazı Sandığı",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 1
-        },
-        {
-          "isim": "Yumurta Çikolata",
-          "adet": 3
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çivit Otu Salkımı",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Buğday",
-          "adet": 72
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 11
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 9
-        }
-      ]
-    },
-    {
-      "karakter": "BAELA",
-      "kasaba": "Kirkcudbright",
-      "akce": 27753.17,
+      "karakter": "GRIMWARDEN",
+      "kasaba": "Girvan",
+      "akce": 695.82,
       "esyalar": [
         {
           "isim": "Ballı Börek",
@@ -3774,18 +4138,18 @@
         },
         {
           "isim": "Gül Kremi ve Gül Suyu",
-          "adet": 2
-        },
-        {
-          "isim": "Halat Kemer",
           "adet": 1
         },
         {
-          "isim": "Kılıç",
-          "adet": 3
+          "isim": "Hurma",
+          "adet": 1
         },
         {
-          "isim": "Midas'ın Mütevazı Sandığı",
+          "isim": "Kiraz",
+          "adet": 1
+        },
+        {
+          "isim": "Likörlü Yılbaşı Çikolatası",
           "adet": 1
         },
         {
@@ -3794,11 +4158,7 @@
         },
         {
           "isim": "Sebze",
-          "adet": 186
-        },
-        {
-          "isim": "Somun Ekmeği",
-          "adet": 7
+          "adet": 244
         },
         {
           "isim": "Taş",
@@ -3809,24 +4169,20 @@
           "adet": 1
         },
         {
-          "isim": "Yumurta Çikolata",
-          "adet": 1
-        },
-        {
           "isim": "Çavdar Ekmeği",
           "adet": 1
         },
         {
           "isim": "Çeki Taş",
-          "adet": 2
+          "adet": 1
         },
         {
           "isim": "Çubuk Kil",
-          "adet": 3
+          "adet": 2
         },
         {
           "isim": "Çuval Mısır",
-          "adet": 5
+          "adet": 2
         },
         {
           "isim": "İblis Beelzebub'ın Koz Helvası",
@@ -3850,72 +4206,304 @@
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 8
+          "adet": 13
         },
         {
           "isim": "Şeytani Badem Şekeri",
           "adet": 1
+        },
+        {
+          "isim": "Şifa Şurubu",
+          "adet": 1
         }
       ]
     },
     {
-      "karakter": "HIRILUK",
+      "karakter": "DWADU",
       "kasaba": "Ardencaple",
-      "akce": 87.88,
+      "akce": 380.89,
       "esyalar": [
         {
+          "isim": "Azazil'in Lokum Kutusu",
+          "adet": 2
+        },
+        {
+          "isim": "Biberiye filizi",
+          "adet": 1
+        },
+        {
+          "isim": "Bıçak",
+          "adet": 3
+        },
+        {
+          "isim": "Goblen",
+          "adet": 2
+        },
+        {
+          "isim": "Gül Kremi ve Gül Suyu",
+          "adet": 1
+        },
+        {
+          "isim": "Kartopu",
+          "adet": 5
+        },
+        {
+          "isim": "Kasnaksız Kova",
+          "adet": 10
+        },
+        {
+          "isim": "Kelebek Kanadı",
+          "adet": 5
+        },
+        {
+          "isim": "Kile Tuz",
+          "adet": 2
+        },
+        {
+          "isim": "Kiraz",
+          "adet": 1
+        },
+        {
+          "isim": "Kova",
+          "adet": 3
+        },
+        {
+          "isim": "Külçe Demir",
+          "adet": 18
+        },
+        {
+          "isim": "Kısa Merdiven",
+          "adet": 1
+        },
+        {
+          "isim": "Likörlü Yılbaşı Çikolatası",
+          "adet": 1
+        },
+        {
           "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Nasıl Yapılır? ''Azazil'in Pasta Tarifleri'' (Fırıncı)",
+          "adet": 1
+        },
+        {
+          "isim": "Nasıl Yapılır? ''Kaymak Birası'' (Değirmenci)",
+          "adet": 1
+        },
+        {
+          "isim": "Nasıl Yapılır? ''Tuzlu Yılbaşı Turtası'' (Kasap)",
+          "adet": 1
+        },
+        {
+          "isim": "Safran Viskisi",
+          "adet": 1
+        },
+        {
+          "isim": "Sahte Beyaz Sakal",
           "adet": 1
         },
         {
           "isim": "Sebze",
-          "adet": 6
+          "adet": 10
         },
         {
-          "isim": "Somun Ekmeği",
+          "isim": "Taş",
+          "adet": 4
+        },
+        {
+          "isim": "Tomruk Odun",
+          "adet": 10
+        },
+        {
+          "isim": "Yaban Çileği Likörü",
           "adet": 1
         },
         {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 8
+          "isim": "Yumurta Çikolata",
+          "adet": 2
         },
         {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 2
-        }
-      ]
-    },
-    {
-      "karakter": "NINDALF",
-      "kasaba": "Bilinmiyor",
-      "akce": 1324.08,
-      "esyalar": [
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
+          "isim": "Yılbaşı Şarap Şişesi",
           "adet": 1
-        },
-        {
-          "isim": "Somun Ekmeği",
-          "adet": 19
-        },
-        {
-          "isim": "Çapa",
-          "adet": 2
         },
         {
           "isim": "Çavdar Ekmeği",
           "adet": 1
         },
         {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "isim": "Çeki Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Çelik Kasnak",
+          "adet": 12
+        },
+        {
+          "isim": "Çubuk Kil",
           "adet": 2
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 2
+        },
+        {
+          "isim": "İblis Asmodeus'un Cevizli Şekeri",
+          "adet": 2
+        },
+        {
+          "isim": "İblis Lucifer'in Cevizli Şekeri",
+          "adet": 2
+        },
+        {
+          "isim": "İblis Satan'ın Badem Şekeri",
+          "adet": 2
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 24
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 24
+        },
+        {
+          "isim": "Şeytani Badem Şekeri",
+          "adet": 4
+        },
+        {
+          "isim": "Şifa Şurubu",
+          "adet": 1
+        },
+        {
+          "isim": "Şifalı Su",
+          "adet": 1
+        },
+        {
+          "isim": "Şişe Süt",
+          "adet": 83
+        }
+      ]
+    },
+    {
+      "karakter": "COPTIK",
+      "kasaba": "Glasgow",
+      "akce": 10735.17,
+      "esyalar": [
+        {
+          "isim": "Bitki Saksısı",
+          "adet": 6
+        },
+        {
+          "isim": "Bıçak",
+          "adet": 3
+        },
+        {
+          "isim": "Civanperçemi Buketi",
+          "adet": 14
+        },
+        {
+          "isim": "El Arabası",
+          "adet": 1
+        },
+        {
+          "isim": "Gülhatmi Buketi",
+          "adet": 473
+        },
+        {
+          "isim": "Kayık",
           "adet": 2
         },
         {
-          "isim": "İnegöl Köfte",
+          "isim": "Kova",
+          "adet": 3
+        },
+        {
+          "isim": "Kökboya Buketi",
+          "adet": 1
+        },
+        {
+          "isim": "Manda Eti (100 Okka)",
+          "adet": 2
+        },
+        {
+          "isim": "Meyve",
+          "adet": 1
+        },
+        {
+          "isim": "Mor Boya",
+          "adet": 3
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Parfümlü Dört Hane Eldivenleri",
+          "adet": 1
+        },
+        {
+          "isim": "Sahte Cadı Burnu",
+          "adet": 1
+        },
+        {
+          "isim": "Saksı Çiçeği",
+          "adet": 1
+        },
+        {
+          "isim": "Taş",
+          "adet": 2
+        },
+        {
+          "isim": "Uzun Merdiven",
+          "adet": 1
+        },
+        {
+          "isim": "Yumurta Çikolata",
+          "adet": 2
+        },
+        {
+          "isim": "Yılbaşı Pulisi",
+          "adet": 1
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çeki Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Çivit Otu Salkımı",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 2
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 276
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (büyük)",
+          "adet": 6
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 29
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 32
+        },
+        {
+          "isim": "Şeytani Badem Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "Şifa Şurubu",
           "adet": 1
         }
       ]
@@ -3923,7 +4511,7 @@
     {
       "karakter": "TOYGA",
       "kasaba": "Ardencaple",
-      "akce": 776.45,
+      "akce": 780.21,
       "esyalar": [
         {
           "isim": "Acıbadem Likörü",
@@ -3955,7 +4543,7 @@
         },
         {
           "isim": "Sebze",
-          "adet": 84
+          "adet": 86
         },
         {
           "isim": "Tomruk Odun",
@@ -3979,7 +4567,7 @@
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 23
+          "adet": 24
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
@@ -3990,7 +4578,7 @@
     {
       "karakter": "TANTALOS",
       "kasaba": "Wigtown",
-      "akce": 635.82,
+      "akce": 643.79,
       "esyalar": [
         {
           "isim": "4 Yapraklı Yonca",
@@ -4098,21 +4686,25 @@
         },
         {
           "isim": "Şişe Süt",
-          "adet": 14
+          "adet": 12
         }
       ]
     },
     {
-      "karakter": "TYPHOONN",
-      "kasaba": "Wigtown",
-      "akce": 335.67,
+      "karakter": "WHISPERBANE",
+      "kasaba": "Girvan",
+      "akce": 44.27,
       "esyalar": [
         {
-          "isim": "Aile Boyu Kaz Ciğeri",
+          "isim": "Ballı Börek",
           "adet": 1
         },
         {
-          "isim": "Ballı Börek",
+          "isim": "Gül Kremi ve Gül Suyu",
+          "adet": 1
+        },
+        {
+          "isim": "Hurma",
           "adet": 1
         },
         {
@@ -4125,109 +4717,7 @@
         },
         {
           "isim": "Sebze",
-          "adet": 101
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çeki Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 12
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 8
-        }
-      ]
-    },
-    {
-      "karakter": "RAZIELON",
-      "kasaba": "Bilinmiyor",
-      "akce": 45.15,
-      "esyalar": [
-        {
-          "isim": "Et",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 6
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 4
-        }
-      ]
-    },
-    {
-      "karakter": "DARWINN",
-      "kasaba": "Glasgow",
-      "akce": 28584.45,
-      "esyalar": [
-        {
-          "isim": "Ballı Börek",
-          "adet": 1
-        },
-        {
-          "isim": "Bitki Saksısı",
-          "adet": 6
-        },
-        {
-          "isim": "Bıçak",
-          "adet": 2
-        },
-        {
-          "isim": "Deniz Yağmacısı Kemeri",
-          "adet": 1
-        },
-        {
-          "isim": "Deri",
-          "adet": 5
-        },
-        {
-          "isim": "Gülhatmi Buketi",
-          "adet": 1047
-        },
-        {
-          "isim": "Kiraz",
-          "adet": 1
-        },
-        {
-          "isim": "Kısa Merdiven",
-          "adet": 2
-        },
-        {
-          "isim": "Likörlü Yılbaşı Çikolatası",
-          "adet": 1
-        },
-        {
-          "isim": "Midas'ın Mütevazı Sandığı",
-          "adet": 1
-        },
-        {
-          "isim": "Mor Boya",
-          "adet": 3
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
+          "adet": 80
         },
         {
           "isim": "Taş",
@@ -4250,16 +4740,8 @@
           "adet": 2
         },
         {
-          "isim": "Çuval Buğday",
-          "adet": 1
-        },
-        {
           "isim": "Çuval Mısır",
-          "adet": 2
-        },
-        {
-          "isim": "İblis Beelzebub'ın Koz Helvası",
-          "adet": 1
+          "adet": 614
         },
         {
           "isim": "İblis Belial'ın Armut Şekeri",
@@ -4279,18 +4761,165 @@
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 8
+          "adet": 10
         },
         {
           "isim": "Şeytani Badem Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "Şifa Şurubu",
           "adet": 1
         }
       ]
     },
     {
-      "karakter": "NEROMANCER",
-      "kasaba": "Ardencaple",
-      "akce": 281.86,
+      "karakter": "RENEGRADE",
+      "kasaba": "Glasgow",
+      "akce": 37665.68,
+      "esyalar": [
+        {
+          "isim": "Acıbadem Likörü",
+          "adet": 1
+        },
+        {
+          "isim": "Biberiye filizi",
+          "adet": 1
+        },
+        {
+          "isim": "El Arabası",
+          "adet": 1
+        },
+        {
+          "isim": "Et",
+          "adet": 107
+        },
+        {
+          "isim": "Fındık",
+          "adet": 7
+        },
+        {
+          "isim": "Gülhatmi Buketi",
+          "adet": 389
+        },
+        {
+          "isim": "Kara Orman Jambonu",
+          "adet": 1
+        },
+        {
+          "isim": "Kartopu",
+          "adet": 5
+        },
+        {
+          "isim": "Kiraz",
+          "adet": 1
+        },
+        {
+          "isim": "Kökboya Buketi",
+          "adet": 1
+        },
+        {
+          "isim": "Kılıç",
+          "adet": 1
+        },
+        {
+          "isim": "Midas'ın Şık Sandığı",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 2
+        },
+        {
+          "isim": "Parfümlü Dört Hane Eldivenleri",
+          "adet": 1
+        },
+        {
+          "isim": "Sahte Beyaz Sakal",
+          "adet": 1
+        },
+        {
+          "isim": "Sahte Cadı Burnu",
+          "adet": 1
+        },
+        {
+          "isim": "Sebze",
+          "adet": 514
+        },
+        {
+          "isim": "Sebzeli Turta",
+          "adet": 16
+        },
+        {
+          "isim": "Somun Ekmeği",
+          "adet": 567
+        },
+        {
+          "isim": "Sütlü Çörek",
+          "adet": 7
+        },
+        {
+          "isim": "Taş",
+          "adet": 6
+        },
+        {
+          "isim": "Tomruk Odun",
+          "adet": 4
+        },
+        {
+          "isim": "Yaban Çileği Likörü",
+          "adet": 1
+        },
+        {
+          "isim": "Yumurta Çikolata",
+          "adet": 2
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çivit Otu Salkımı",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 7
+        },
+        {
+          "isim": "Çuval Un",
+          "adet": 24
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 35
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 36
+        },
+        {
+          "isim": "İpek",
+          "adet": 1
+        },
+        {
+          "isim": "Şatobiryan",
+          "adet": 2
+        },
+        {
+          "isim": "Şifa Şurubu",
+          "adet": 4
+        },
+        {
+          "isim": "Şişe Süt",
+          "adet": 11
+        }
+      ]
+    },
+    {
+      "karakter": "ADRAH",
+      "kasaba": "Wigtown",
+      "akce": 1125.98,
       "esyalar": [
         {
           "isim": "Mucizevi Kiraz Merhemi",
@@ -4298,14 +4927,10 @@
         },
         {
           "isim": "Sebze",
-          "adet": 4
+          "adet": 3
         },
         {
-          "isim": "Somun Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çeki Taş",
+          "isim": "Çavdar Ekmeği",
           "adet": 1
         },
         {
@@ -4313,53 +4938,38 @@
           "adet": 1
         },
         {
+          "isim": "Çuval Buğday",
+          "adet": 1
+        },
+        {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 7
+          "adet": 9
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 2
+          "adet": 3
         }
       ]
     },
     {
-      "karakter": "YELLOWSMITH",
-      "kasaba": "Bilinmiyor",
-      "akce": 259.09,
-      "esyalar": [
-        {
-          "isim": "Et",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 25
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 7
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 5
-        }
-      ]
-    },
-    {
-      "karakter": "ATREIDES",
+      "karakter": "NIHILANT",
       "kasaba": "Ardencaple",
-      "akce": 476.74,
+      "akce": 227.05,
       "esyalar": [
+        {
+          "isim": "Ballı Börek",
+          "adet": 1
+        },
+        {
+          "isim": "Dini - 1",
+          "adet": 1
+        },
         {
           "isim": "Gül Kremi ve Gül Suyu",
           "adet": 1
         },
         {
-          "isim": "Kısa Merdiven",
+          "isim": "Likörlü Yılbaşı Çikolatası",
           "adet": 1
         },
         {
@@ -4367,7 +4977,19 @@
           "adet": 1
         },
         {
+          "isim": "Sebze",
+          "adet": 211
+        },
+        {
+          "isim": "Somun Ekmeği",
+          "adet": 2
+        },
+        {
           "isim": "Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Yaban Çileği Likörü",
           "adet": 1
         },
         {
@@ -4381,10 +5003,6 @@
         {
           "isim": "Çubuk Kil",
           "adet": 2
-        },
-        {
-          "isim": "Çuval Buğday",
-          "adet": 85
         },
         {
           "isim": "Çuval Mısır",
@@ -4412,7 +5030,7 @@
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 11
+          "adet": 13
         },
         {
           "isim": "Şeytani Badem Şekeri",
@@ -4421,20 +5039,55 @@
         {
           "isim": "Şifa Şurubu",
           "adet": 1
+        },
+        {
+          "isim": "Şövalye Miğferi",
+          "adet": 1
         }
       ]
     },
     {
-      "karakter": "TORTUGAL",
-      "kasaba": "Wigtown",
-      "akce": 44.13,
+      "karakter": "KORHAN",
+      "kasaba": "Bilinmiyor",
+      "akce": 57.64,
       "esyalar": [
         {
-          "isim": "Ballı Börek",
+          "isim": "Mucizevi Kiraz Merhemi",
           "adet": 1
         },
         {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 20
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 5
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 5
+        }
+      ]
+    },
+    {
+      "karakter": "DUNCAN_LITTLE",
+      "kasaba": "Wigtown",
+      "akce": 231.06,
+      "esyalar": [
+        {
           "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Sebze",
+          "adet": 43
+        },
+        {
+          "isim": "Somun Ekmeği",
           "adet": 1
         },
         {
@@ -4451,54 +5104,42 @@
         },
         {
           "isim": "Çuval Mısır",
-          "adet": 772
+          "adet": 1
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 12
+          "adet": 9
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 7
+          "adet": 4
         }
       ]
     },
     {
-      "karakter": "PATEK",
-      "kasaba": "Glasgow",
-      "akce": 21438.85,
+      "karakter": "SERACHIN",
+      "kasaba": "Wigtown",
+      "akce": 222.77,
       "esyalar": [
-        {
-          "isim": "Bıçak",
-          "adet": 2
-        },
-        {
-          "isim": "Deri",
-          "adet": 15
-        },
-        {
-          "isim": "Midas'ın Mütevazı Sandığı",
-          "adet": 1
-        },
         {
           "isim": "Mucizevi Kiraz Merhemi",
           "adet": 1
         },
         {
-          "isim": "Yumak Yün",
-          "adet": 22
+          "isim": "Sebze",
+          "adet": 16
         },
         {
           "isim": "Çavdar Ekmeği",
           "adet": 1
         },
         {
-          "isim": "Çubuk Kil",
+          "isim": "Çeki Taş",
           "adet": 1
         },
         {
-          "isim": "Çuval Mısır",
-          "adet": 3
+          "isim": "Çubuk Kil",
+          "adet": 1
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
@@ -4511,9 +5152,120 @@
       ]
     },
     {
+      "karakter": "DARWINN",
+      "kasaba": "Glasgow",
+      "akce": 28772.39,
+      "esyalar": [
+        {
+          "isim": "Ballı Börek",
+          "adet": 1
+        },
+        {
+          "isim": "Bitki Saksısı",
+          "adet": 6
+        },
+        {
+          "isim": "Bıçak",
+          "adet": 2
+        },
+        {
+          "isim": "Deniz Yağmacısı Kemeri",
+          "adet": 1
+        },
+        {
+          "isim": "Deri",
+          "adet": 6
+        },
+        {
+          "isim": "Gülhatmi Buketi",
+          "adet": 1046
+        },
+        {
+          "isim": "Kiraz",
+          "adet": 1
+        },
+        {
+          "isim": "Kısa Merdiven",
+          "adet": 2
+        },
+        {
+          "isim": "Likörlü Yılbaşı Çikolatası",
+          "adet": 1
+        },
+        {
+          "isim": "Midas'ın Mütevazı Sandığı",
+          "adet": 1
+        },
+        {
+          "isim": "Mor Boya",
+          "adet": 6
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Yaban Çileği Likörü",
+          "adet": 1
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çeki Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 2
+        },
+        {
+          "isim": "Çuval Buğday",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 2
+        },
+        {
+          "isim": "İblis Beelzebub'ın Koz Helvası",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Belial'ın Armut Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Leviathan'ın Erik Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Lucifer'in Cevizli Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 13
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 8
+        },
+        {
+          "isim": "Şeytani Badem Şekeri",
+          "adet": 1
+        }
+      ]
+    },
+    {
       "karakter": "ANASTER",
       "kasaba": "Ardencaple",
-      "akce": 561.9,
+      "akce": 565.66,
       "esyalar": [
         {
           "isim": "Ahşap Pipo",
@@ -4769,7 +5521,7 @@
         },
         {
           "isim": "Kova",
-          "adet": 3
+          "adet": 2
         },
         {
           "isim": "Kraliyet Muhafızlarının Göğüs Zırhı",
@@ -4905,7 +5657,7 @@
         },
         {
           "isim": "Sebze",
-          "adet": 77
+          "adet": 75
         },
         {
           "isim": "Selevkus Arkaplanları",
@@ -5133,7 +5885,7 @@
         },
         {
           "isim": "Şişe Süt",
-          "adet": 15
+          "adet": 17
         },
         {
           "isim": "Şövalye Tozluğu",
@@ -5142,9 +5894,161 @@
       ]
     },
     {
+      "karakter": "TELEMIR",
+      "kasaba": "Glasgow",
+      "akce": 21094.13,
+      "esyalar": [
+        {
+          "isim": "Kayık Küreği",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çeki Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 4
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 8
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 3
+        }
+      ]
+    },
+    {
+      "karakter": "DRAKANIA",
+      "kasaba": "Bilinmiyor",
+      "akce": 61.58,
+      "esyalar": [
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Somun Ekmeği",
+          "adet": 17
+        },
+        {
+          "isim": "Uzun Merdiven",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 40
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 2
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 2
+        }
+      ]
+    },
+    {
+      "karakter": "JARG",
+      "kasaba": "Wigtown",
+      "akce": 276.84,
+      "esyalar": [
+        {
+          "isim": "Ballı Börek",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Sebze",
+          "adet": 61
+        },
+        {
+          "isim": "Yaban Çileği Likörü",
+          "adet": 1
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çeki Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 12
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 8
+        }
+      ]
+    },
+    {
+      "karakter": "IRONFOOT",
+      "kasaba": "Ardencaple",
+      "akce": 455.62,
+      "esyalar": [
+        {
+          "isim": "Ballı Börek",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Sebze",
+          "adet": 95
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 2
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 13
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 9
+        }
+      ]
+    },
+    {
       "karakter": "REDBRAND",
       "kasaba": "Bilinmiyor",
-      "akce": 102.44,
+      "akce": 108.98,
       "esyalar": [
         {
           "isim": "Kayık Küreği",
@@ -5160,7 +6064,7 @@
         },
         {
           "isim": "Somun Ekmeği",
-          "adet": 13
+          "adet": 11
         },
         {
           "isim": "Sığır Eti (50 Okka)",
@@ -5172,7 +6076,7 @@
         },
         {
           "isim": "Çuval Mısır",
-          "adet": 16
+          "adet": 19
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
@@ -5185,302 +6089,67 @@
       ]
     },
     {
-      "karakter": "COPTIK",
-      "kasaba": "Glasgow",
-      "akce": 10798.23,
+      "karakter": "AROUS",
+      "kasaba": "Ardencaple",
+      "akce": 241.8,
       "esyalar": [
-        {
-          "isim": "Bitki Saksısı",
-          "adet": 5
-        },
-        {
-          "isim": "Bıçak",
-          "adet": 2
-        },
-        {
-          "isim": "Civanperçemi Buketi",
-          "adet": 14
-        },
-        {
-          "isim": "El Arabası",
-          "adet": 1
-        },
-        {
-          "isim": "Gülhatmi Buketi",
-          "adet": 474
-        },
-        {
-          "isim": "Kayık",
-          "adet": 2
-        },
-        {
-          "isim": "Kova",
-          "adet": 3
-        },
-        {
-          "isim": "Kökboya Buketi",
-          "adet": 1
-        },
-        {
-          "isim": "Manda Eti (100 Okka)",
-          "adet": 3
-        },
-        {
-          "isim": "Meyve",
-          "adet": 1
-        },
-        {
-          "isim": "Mor Boya",
-          "adet": 3
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Parfümlü Dört Hane Eldivenleri",
-          "adet": 1
-        },
-        {
-          "isim": "Sahte Cadı Burnu",
-          "adet": 1
-        },
-        {
-          "isim": "Saksı Çiçeği",
-          "adet": 1
-        },
-        {
-          "isim": "Taş",
-          "adet": 2
-        },
-        {
-          "isim": "Uzun Merdiven",
-          "adet": 1
-        },
-        {
-          "isim": "Yumurta Çikolata",
-          "adet": 2
-        },
-        {
-          "isim": "Yılbaşı Pulisi",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çeki Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Çivit Otu Salkımı",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 2
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 276
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (büyük)",
-          "adet": 6
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 28
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 32
-        },
-        {
-          "isim": "Şeytani Badem Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "Şifa Şurubu",
-          "adet": 1
-        }
-      ]
-    },
-    {
-      "karakter": "MIHRIBANN",
-      "kasaba": "Bilinmiyor",
-      "akce": 60.13,
-      "esyalar": [
-        {
-          "isim": "Et",
-          "adet": 1
-        },
         {
           "isim": "Mucizevi Kiraz Merhemi",
           "adet": 1
         },
         {
           "isim": "Somun Ekmeği",
-          "adet": 18
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Mısır",
           "adet": 1
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 6
+          "adet": 8
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 5
+          "adet": 2
         }
       ]
     },
     {
-      "karakter": "KARGATH",
-      "kasaba": "Wigtown",
-      "akce": 200.05,
+      "karakter": "AKBABA",
+      "kasaba": "Bilinmiyor",
+      "akce": 51.06,
       "esyalar": [
-        {
-          "isim": "Ballı Börek",
-          "adet": 1
-        },
-        {
-          "isim": "Gül Kremi ve Gül Suyu",
-          "adet": 1
-        },
-        {
-          "isim": "Hurma",
-          "adet": 1
-        },
-        {
-          "isim": "Kayık",
-          "adet": 1
-        },
-        {
-          "isim": "Kiraz",
-          "adet": 1
-        },
-        {
-          "isim": "Likörlü Yılbaşı Çikolatası",
-          "adet": 1
-        },
         {
           "isim": "Mucizevi Kiraz Merhemi",
           "adet": 1
         },
         {
-          "isim": "Sebze",
-          "adet": 8
-        },
-        {
-          "isim": "Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çeki Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 2
+          "isim": "Somun Ekmeği",
+          "adet": 4
         },
         {
           "isim": "Çuval Mısır",
-          "adet": 454
-        },
-        {
-          "isim": "İblis Beelzebub'ın Koz Helvası",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Belial'ın Armut Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Leviathan'ın Erik Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Lucifer'in Cevizli Şekeri",
-          "adet": 1
+          "adet": 5
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 13
+          "adet": 5
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 9
-        },
-        {
-          "isim": "Şeytani Badem Şekeri",
-          "adet": 1
+          "adet": 5
         }
       ]
     },
     {
-      "karakter": "AIEGUS",
+      "karakter": "PATEK",
       "kasaba": "Glasgow",
-      "akce": 31435.93,
+      "akce": 21592.61,
       "esyalar": [
         {
-          "isim": "Biberiye filizi",
-          "adet": 1
-        },
-        {
-          "isim": "Bordeaux Şarabı",
-          "adet": 1
-        },
-        {
           "isim": "Bıçak",
-          "adet": 6
-        },
-        {
-          "isim": "Dövülmemiş Balta Ağzı",
-          "adet": 2
-        },
-        {
-          "isim": "Kartopu",
-          "adet": 5
-        },
-        {
-          "isim": "Kasnaksız Kova",
           "adet": 3
         },
         {
-          "isim": "Kile Tuz",
-          "adet": 2
-        },
-        {
-          "isim": "Kova",
-          "adet": 3
-        },
-        {
-          "isim": "Külçe Demir",
-          "adet": 46
-        },
-        {
-          "isim": "Külçe Çelik",
-          "adet": 4
-        },
-        {
-          "isim": "Kılıç Ağzı",
-          "adet": 20
+          "isim": "Deri",
+          "adet": 19
         },
         {
           "isim": "Midas'ın Mütevazı Sandığı",
@@ -5488,81 +6157,14 @@
         },
         {
           "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 2
-        },
-        {
-          "isim": "Safran Viskisi",
           "adet": 1
         },
         {
-          "isim": "Tomruk Odun",
-          "adet": 20
+          "isim": "Yumak Yün",
+          "adet": 22
         },
         {
           "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çelik Kasnak",
-          "adet": 16
-        },
-        {
-          "isim": "Çuval Buğday",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 2
-        },
-        {
-          "isim": "İblis Beelzebub'ın Koz Helvası",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Leviathan'ın Erik Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Lucifer'in Cevizli Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 37
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 35
-        },
-        {
-          "isim": "İlkbahar Çiçek Tacı",
-          "adet": 1
-        },
-        {
-          "isim": "İpek",
-          "adet": 1
-        },
-        {
-          "isim": "Şeytani Badem Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "Şifa Şurubu",
-          "adet": 1
-        }
-      ]
-    },
-    {
-      "karakter": "BAINHALT",
-      "kasaba": "Ardencaple",
-      "akce": 83.97,
-      "esyalar": [
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Çeki Taş",
           "adet": 1
         },
         {
@@ -5571,144 +6173,57 @@
         },
         {
           "isim": "Çuval Mısır",
-          "adet": 120
+          "adet": 3
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 7
+          "adet": 9
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 1
+          "adet": 3
         }
       ]
     },
     {
-      "karakter": "FREDYY",
-      "kasaba": "Glasgow",
-      "akce": 5725.13,
+      "karakter": "DARKBRINGER",
+      "kasaba": "Bilinmiyor",
+      "akce": 225.57,
       "esyalar": [
-        {
-          "isim": "Bitki Saksısı",
-          "adet": 5
-        },
-        {
-          "isim": "Bıçak",
-          "adet": 3
-        },
-        {
-          "isim": "Gülhatmi Buketi",
-          "adet": 689
-        },
-        {
-          "isim": "Kayık",
-          "adet": 1
-        },
-        {
-          "isim": "Kiraz",
-          "adet": 1
-        },
-        {
-          "isim": "Kova",
-          "adet": 3
-        },
-        {
-          "isim": "Kısa Merdiven",
-          "adet": 1
-        },
-        {
-          "isim": "Mor Boya",
-          "adet": 3
-        },
         {
           "isim": "Mucizevi Kiraz Merhemi",
           "adet": 1
         },
         {
-          "isim": "Sebzeli Turta",
-          "adet": 1
+          "isim": "Somun Ekmeği",
+          "adet": 17
         },
         {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (büyük)",
-          "adet": 2
+          "isim": "Çuval Mısır",
+          "adet": 6
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 28
+          "adet": 8
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 36
-        },
-        {
-          "isim": "Şişe Süt",
-          "adet": 8
-        }
-      ]
-    },
-    {
-      "karakter": "JARG",
-      "kasaba": "Wigtown",
-      "akce": 272.88,
-      "esyalar": [
-        {
-          "isim": "Ballı Börek",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Sebze",
-          "adet": 60
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çeki Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 12
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 8
+          "adet": 4
         }
       ]
     },
     {
       "karakter": "DAVOSS",
       "kasaba": "Glasgow",
-      "akce": 12961.46,
+      "akce": 12893.25,
       "esyalar": [
         {
           "isim": "Bitki Saksısı",
-          "adet": 4
+          "adet": 5
         },
         {
           "isim": "Gülhatmi Buketi",
-          "adet": 483
+          "adet": 505
         },
         {
           "isim": "Kısa Merdiven",
@@ -5720,7 +6235,7 @@
         },
         {
           "isim": "Mor Boya",
-          "adet": 21
+          "adet": 3
         },
         {
           "isim": "Mucizevi Kiraz Merhemi",
@@ -5740,7 +6255,7 @@
         },
         {
           "isim": "Çuval Buğday",
-          "adet": 1
+          "adet": 9
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (büyük)",
@@ -5748,7 +6263,7 @@
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 28
+          "adet": 29
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
@@ -5760,414 +6275,6 @@
         },
         {
           "isim": "Şifa Şurubu",
-          "adet": 1
-        }
-      ]
-    },
-    {
-      "karakter": "GRIMWARDEN",
-      "kasaba": "Girvan",
-      "akce": 703.84,
-      "esyalar": [
-        {
-          "isim": "Ballı Börek",
-          "adet": 1
-        },
-        {
-          "isim": "Gül Kremi ve Gül Suyu",
-          "adet": 1
-        },
-        {
-          "isim": "Hurma",
-          "adet": 1
-        },
-        {
-          "isim": "Kiraz",
-          "adet": 1
-        },
-        {
-          "isim": "Likörlü Yılbaşı Çikolatası",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Sebze",
-          "adet": 244
-        },
-        {
-          "isim": "Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çeki Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 2
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 2
-        },
-        {
-          "isim": "İblis Beelzebub'ın Koz Helvası",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Belial'ın Armut Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Leviathan'ın Erik Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Lucifer'in Cevizli Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 13
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 13
-        },
-        {
-          "isim": "Şeytani Badem Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "Şifa Şurubu",
-          "adet": 1
-        }
-      ]
-    },
-    {
-      "karakter": "DWADU",
-      "kasaba": "Ardencaple",
-      "akce": 377.13,
-      "esyalar": [
-        {
-          "isim": "Azazil'in Lokum Kutusu",
-          "adet": 2
-        },
-        {
-          "isim": "Biberiye filizi",
-          "adet": 1
-        },
-        {
-          "isim": "Bıçak",
-          "adet": 3
-        },
-        {
-          "isim": "Goblen",
-          "adet": 2
-        },
-        {
-          "isim": "Gül Kremi ve Gül Suyu",
-          "adet": 1
-        },
-        {
-          "isim": "Kartopu",
-          "adet": 5
-        },
-        {
-          "isim": "Kasnaksız Kova",
-          "adet": 10
-        },
-        {
-          "isim": "Kelebek Kanadı",
-          "adet": 5
-        },
-        {
-          "isim": "Kile Tuz",
-          "adet": 2
-        },
-        {
-          "isim": "Kiraz",
-          "adet": 1
-        },
-        {
-          "isim": "Kova",
-          "adet": 3
-        },
-        {
-          "isim": "Külçe Demir",
-          "adet": 18
-        },
-        {
-          "isim": "Kısa Merdiven",
-          "adet": 1
-        },
-        {
-          "isim": "Likörlü Yılbaşı Çikolatası",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Nasıl Yapılır? ''Azazil'in Pasta Tarifleri'' (Fırıncı)",
-          "adet": 1
-        },
-        {
-          "isim": "Nasıl Yapılır? ''Kaymak Birası'' (Değirmenci)",
-          "adet": 1
-        },
-        {
-          "isim": "Nasıl Yapılır? ''Tuzlu Yılbaşı Turtası'' (Kasap)",
-          "adet": 1
-        },
-        {
-          "isim": "Safran Viskisi",
-          "adet": 1
-        },
-        {
-          "isim": "Sahte Beyaz Sakal",
-          "adet": 1
-        },
-        {
-          "isim": "Sebze",
-          "adet": 9
-        },
-        {
-          "isim": "Taş",
-          "adet": 4
-        },
-        {
-          "isim": "Tomruk Odun",
-          "adet": 10
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 1
-        },
-        {
-          "isim": "Yumurta Çikolata",
-          "adet": 2
-        },
-        {
-          "isim": "Yılbaşı Şarap Şişesi",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çeki Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Çelik Kasnak",
-          "adet": 12
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 2
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 2
-        },
-        {
-          "isim": "İblis Asmodeus'un Cevizli Şekeri",
-          "adet": 2
-        },
-        {
-          "isim": "İblis Lucifer'in Cevizli Şekeri",
-          "adet": 2
-        },
-        {
-          "isim": "İblis Satan'ın Badem Şekeri",
-          "adet": 2
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 24
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 24
-        },
-        {
-          "isim": "Şeytani Badem Şekeri",
-          "adet": 4
-        },
-        {
-          "isim": "Şifa Şurubu",
-          "adet": 1
-        },
-        {
-          "isim": "Şifalı Su",
-          "adet": 1
-        },
-        {
-          "isim": "Şişe Süt",
-          "adet": 83
-        }
-      ]
-    },
-    {
-      "karakter": "LEONPROF",
-      "kasaba": "Stirling",
-      "akce": 27298.89,
-      "esyalar": [
-        {
-          "isim": "Bıçak",
-          "adet": 3
-        },
-        {
-          "isim": "Kalkan",
-          "adet": 5
-        },
-        {
-          "isim": "Kar Çantası",
-          "adet": 1
-        },
-        {
-          "isim": "Kova",
-          "adet": 2
-        },
-        {
-          "isim": "Kısa Merdiven",
-          "adet": 1
-        },
-        {
-          "isim": "Midas'ın Mütevazı Sandığı",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Sebzeli Turta",
-          "adet": 5
-        },
-        {
-          "isim": "Uzun Merdiven",
-          "adet": 1
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 1
-        },
-        {
-          "isim": "Yağmur Kuğu Yavrusu",
-          "adet": 1
-        },
-        {
-          "isim": "Yumak Yün",
-          "adet": 1
-        },
-        {
-          "isim": "Yumurta Çikolata",
-          "adet": 2
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 3
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 11
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 6
-        },
-        {
-          "isim": "Şişe Süt",
-          "adet": 8
-        }
-      ]
-    },
-    {
-      "karakter": "ARGAIOS",
-      "kasaba": "Wigtown",
-      "akce": 1404.02,
-      "esyalar": [
-        {
-          "isim": "Gül Kremi ve Gül Suyu",
-          "adet": 1
-        },
-        {
-          "isim": "Likörlü Yılbaşı Çikolatası",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Sebze",
-          "adet": 3
-        },
-        {
-          "isim": "Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 1
-        },
-        {
-          "isim": "Çeki Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 2
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 117
-        },
-        {
-          "isim": "İblis Beelzebub'ın Koz Helvası",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Belial'ın Armut Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Leviathan'ın Erik Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Lucifer'in Cevizli Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 14
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 9
-        },
-        {
-          "isim": "Şeytani Badem Şekeri",
           "adet": 1
         }
       ]
@@ -6175,654 +6282,73 @@
     {
       "karakter": "SCAMENDER",
       "kasaba": "Bilinmiyor",
-      "akce": 16.5,
+      "akce": 16.64,
       "esyalar": [
         {
           "isim": "Somun Ekmeği",
-          "adet": 2
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 23
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 2
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
           "adet": 3
-        }
-      ]
-    },
-    {
-      "karakter": "AROUS",
-      "kasaba": "Ardencaple",
-      "akce": 239.33,
-      "esyalar": [
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Somun Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 7
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 2
-        }
-      ]
-    },
-    {
-      "karakter": "RENEGRADE",
-      "kasaba": "Glasgow",
-      "akce": 37549.83,
-      "esyalar": [
-        {
-          "isim": "Acıbadem Likörü",
-          "adet": 1
-        },
-        {
-          "isim": "Biberiye filizi",
-          "adet": 1
-        },
-        {
-          "isim": "El Arabası",
-          "adet": 1
-        },
-        {
-          "isim": "Et",
-          "adet": 107
-        },
-        {
-          "isim": "Fındık",
-          "adet": 7
-        },
-        {
-          "isim": "Gülhatmi Buketi",
-          "adet": 389
-        },
-        {
-          "isim": "Kara Orman Jambonu",
-          "adet": 1
-        },
-        {
-          "isim": "Kartopu",
-          "adet": 5
-        },
-        {
-          "isim": "Kiraz",
-          "adet": 1
-        },
-        {
-          "isim": "Kökboya Buketi",
-          "adet": 1
-        },
-        {
-          "isim": "Kılıç",
-          "adet": 1
-        },
-        {
-          "isim": "Midas'ın Şık Sandığı",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 2
-        },
-        {
-          "isim": "Parfümlü Dört Hane Eldivenleri",
-          "adet": 1
-        },
-        {
-          "isim": "Sahte Beyaz Sakal",
-          "adet": 1
-        },
-        {
-          "isim": "Sahte Cadı Burnu",
-          "adet": 1
-        },
-        {
-          "isim": "Sebze",
-          "adet": 546
-        },
-        {
-          "isim": "Sebzeli Turta",
-          "adet": 1
-        },
-        {
-          "isim": "Somun Ekmeği",
-          "adet": 590
-        },
-        {
-          "isim": "Sütlü Çörek",
-          "adet": 7
-        },
-        {
-          "isim": "Taş",
-          "adet": 6
-        },
-        {
-          "isim": "Tomruk Odun",
-          "adet": 4
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 1
-        },
-        {
-          "isim": "Yumurta Çikolata",
-          "adet": 2
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çivit Otu Salkımı",
-          "adet": 1
         },
         {
           "isim": "Çuval Mısır",
-          "adet": 7
-        },
-        {
-          "isim": "Çuval Un",
           "adet": 24
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 35
+          "adet": 2
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 35
-        },
-        {
-          "isim": "İpek",
-          "adet": 1
-        },
-        {
-          "isim": "Şatobiryan",
-          "adet": 2
-        },
-        {
-          "isim": "Şifa Şurubu",
-          "adet": 4
-        }
-      ]
-    },
-    {
-      "karakter": "NIGHTSHADER",
-      "kasaba": "Whithorn",
-      "akce": 48.58,
-      "esyalar": [
-        {
-          "isim": "Gül Kremi ve Gül Suyu",
-          "adet": 1
-        },
-        {
-          "isim": "Hurma",
-          "adet": 1
-        },
-        {
-          "isim": "Kayık Küreği",
-          "adet": 1
-        },
-        {
-          "isim": "Kiraz",
-          "adet": 1
-        },
-        {
-          "isim": "Likörlü Yılbaşı Çikolatası",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çeki Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 2
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 525
-        },
-        {
-          "isim": "İblis Beelzebub'ın Koz Helvası",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Belial'ın Armut Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Leviathan'ın Erik Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Lucifer'in Cevizli Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 13
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 10
-        },
-        {
-          "isim": "Şeytani Badem Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "Şifa Şurubu",
-          "adet": 1
-        }
-      ]
-    },
-    {
-      "karakter": "CORRYVRECKAN",
-      "kasaba": "Girvan",
-      "akce": 2433.28,
-      "esyalar": [
-        {
-          "isim": "Gül Kremi ve Gül Suyu",
-          "adet": 1
-        },
-        {
-          "isim": "Kiraz",
-          "adet": 1
-        },
-        {
-          "isim": "Köstebek",
-          "adet": 1
-        },
-        {
-          "isim": "Likörlü Yılbaşı Çikolatası",
-          "adet": 1
-        },
-        {
-          "isim": "Midas'ın Mütevazı Sandığı",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çeki Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 2
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 765
-        },
-        {
-          "isim": "İblis Beelzebub'ın Koz Helvası",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Belial'ın Armut Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Leviathan'ın Erik Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Lucifer'in Cevizli Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 14
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 9
-        },
-        {
-          "isim": "Şeytani Badem Şekeri",
-          "adet": 1
-        }
-      ]
-    },
-    {
-      "karakter": "DRAYEN",
-      "kasaba": "Glasgow",
-      "akce": 29792.07,
-      "esyalar": [
-        {
-          "isim": "Bitki Saksısı",
-          "adet": 2
-        },
-        {
-          "isim": "Bıçak",
           "adet": 3
-        },
-        {
-          "isim": "Gülhatmi Buketi",
-          "adet": 981
-        },
-        {
-          "isim": "Kova",
-          "adet": 3
-        },
-        {
-          "isim": "Kısa Merdiven",
-          "adet": 1
-        },
-        {
-          "isim": "Midas'ın Mütevazı Sandığı",
-          "adet": 1
-        },
-        {
-          "isim": "Mor Boya",
-          "adet": 3
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 1
-        },
-        {
-          "isim": "Yumak Yün",
-          "adet": 12
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Buğday",
-          "adet": 2
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 13
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 9
-        },
-        {
-          "isim": "Şişe Süt",
-          "adet": 8
         }
       ]
     },
     {
-      "karakter": "DERVORIN",
-      "kasaba": "Stirling",
-      "akce": 220.92,
+      "karakter": "HELIOSON",
+      "kasaba": "Bilinmiyor",
+      "akce": 53.46,
       "esyalar": [
         {
           "isim": "Bıçak",
-          "adet": 3
+          "adet": 6
         },
         {
-          "isim": "Kova",
-          "adet": 3
+          "isim": "Külçe Demir",
+          "adet": 1
         },
         {
           "isim": "Mucizevi Kiraz Merhemi",
           "adet": 1
         },
         {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
-          "isim": "Çeki Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Çubuk Kil",
-          "adet": 1
-        },
-        {
-          "isim": "Çuval Un",
+          "isim": "Somun Ekmeği",
           "adet": 5
         },
         {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 12
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 8
-        }
-      ]
-    },
-    {
-      "karakter": "RANROK",
-      "kasaba": "Wigtown",
-      "akce": 62.85,
-      "esyalar": [
-        {
-          "isim": "Civanperçemi Buketi",
-          "adet": 1
-        },
-        {
-          "isim": "Gül Kremi ve Gül Suyu",
-          "adet": 1
-        },
-        {
-          "isim": "Gülhatmi Buketi",
-          "adet": 1
-        },
-        {
-          "isim": "Hurma",
-          "adet": 1
-        },
-        {
-          "isim": "Kiraz",
-          "adet": 1
-        },
-        {
-          "isim": "Kökboya Buketi",
-          "adet": 1
-        },
-        {
-          "isim": "Kısa Merdiven",
-          "adet": 1
-        },
-        {
-          "isim": "Likörlü Yılbaşı Çikolatası",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Taş",
-          "adet": 1
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
-          "adet": 1
-        },
-        {
-          "isim": "Yumurta Çikolata",
-          "adet": 1
-        },
-        {
-          "isim": "Çavdar Ekmeği",
-          "adet": 1
-        },
-        {
           "isim": "Çeki Taş",
           "adet": 1
         },
         {
-          "isim": "Çivit Otu Salkımı",
-          "adet": 1
-        },
-        {
           "isim": "Çubuk Kil",
-          "adet": 2
-        },
-        {
-          "isim": "Çuval Mısır",
-          "adet": 962
-        },
-        {
-          "isim": "İblis Beelzebub'ın Koz Helvası",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Belial'ın Armut Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Leviathan'ın Erik Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İblis Lucifer'in Cevizli Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 13
-        },
-        {
-          "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 10
-        },
-        {
-          "isim": "Şeytani Badem Şekeri",
-          "adet": 1
-        },
-        {
-          "isim": "Şifa Şurubu",
-          "adet": 1
-        }
-      ]
-    },
-    {
-      "karakter": "BERAMUS",
-      "kasaba": "Kirkcudbright",
-      "akce": 27139.62,
-      "esyalar": [
-        {
-          "isim": "Bıçak",
-          "adet": 3
-        },
-        {
-          "isim": "Hurma",
-          "adet": 1
-        },
-        {
-          "isim": "Kasnaksız Kova",
-          "adet": 1
-        },
-        {
-          "isim": "Kiraz",
-          "adet": 1
-        },
-        {
-          "isim": "Kova",
-          "adet": 3
-        },
-        {
-          "isim": "Midas'ın Mütevazı Sandığı",
-          "adet": 1
-        },
-        {
-          "isim": "Mucizevi Kiraz Merhemi",
-          "adet": 1
-        },
-        {
-          "isim": "Sebze",
-          "adet": 39
-        },
-        {
-          "isim": "Tomruk Odun",
-          "adet": 10
-        },
-        {
-          "isim": "Yaban Çileği Likörü",
           "adet": 1
         },
         {
           "isim": "Çuval Mısır",
-          "adet": 3
+          "adet": 30
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (küçük)",
-          "adet": 13
+          "adet": 6
         },
         {
           "isim": "İbn-i Sînâ'nın İlacı (orta)",
-          "adet": 8
-        },
-        {
-          "isim": "Şişe Süt",
-          "adet": 102
+          "adet": 1
         }
       ]
     },
     {
       "karakter": "KARDEMAR",
       "kasaba": "Ardencaple",
-      "akce": 493.08,
+      "akce": 603.96,
       "esyalar": [
         {
           "isim": "1472 Lüks Yılbaşı Pelerini (Mavi)",
@@ -6851,10 +6377,6 @@
         {
           "isim": "Damıtıcı Dövmesi",
           "adet": 1
-        },
-        {
-          "isim": "Et",
-          "adet": 3
         },
         {
           "isim": "Folichon'un Kılıçlı Askeri",
@@ -7005,16 +6527,474 @@
           "adet": 2
         },
         {
-          "isim": "Şatobiryan",
-          "adet": 2
-        },
-        {
           "isim": "Şifacı Yeleği (Menekşe)",
           "adet": 1
         },
         {
           "isim": "Şişe Süt",
           "adet": 9
+        }
+      ]
+    },
+    {
+      "karakter": "RANROK",
+      "kasaba": "Wigtown",
+      "akce": 61.81,
+      "esyalar": [
+        {
+          "isim": "Civanperçemi Buketi",
+          "adet": 1
+        },
+        {
+          "isim": "Gül Kremi ve Gül Suyu",
+          "adet": 1
+        },
+        {
+          "isim": "Gülhatmi Buketi",
+          "adet": 1
+        },
+        {
+          "isim": "Hurma",
+          "adet": 1
+        },
+        {
+          "isim": "Kiraz",
+          "adet": 1
+        },
+        {
+          "isim": "Kökboya Buketi",
+          "adet": 1
+        },
+        {
+          "isim": "Kısa Merdiven",
+          "adet": 1
+        },
+        {
+          "isim": "Likörlü Yılbaşı Çikolatası",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Yaban Çileği Likörü",
+          "adet": 1
+        },
+        {
+          "isim": "Yumurta Çikolata",
+          "adet": 1
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çeki Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Çivit Otu Salkımı",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 2
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 961
+        },
+        {
+          "isim": "İblis Beelzebub'ın Koz Helvası",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Belial'ın Armut Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Leviathan'ın Erik Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Lucifer'in Cevizli Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 13
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 11
+        },
+        {
+          "isim": "Şeytani Badem Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "Şifa Şurubu",
+          "adet": 1
+        }
+      ]
+    },
+    {
+      "karakter": "BERAMUS",
+      "kasaba": "Kirkcudbright",
+      "akce": 27377.58,
+      "esyalar": [
+        {
+          "isim": "Bıçak",
+          "adet": 3
+        },
+        {
+          "isim": "Hurma",
+          "adet": 1
+        },
+        {
+          "isim": "Kasnaksız Kova",
+          "adet": 1
+        },
+        {
+          "isim": "Kiraz",
+          "adet": 1
+        },
+        {
+          "isim": "Kova",
+          "adet": 3
+        },
+        {
+          "isim": "Manda Eti (100 Okka)",
+          "adet": 1
+        },
+        {
+          "isim": "Midas'ın Mütevazı Sandığı",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Sebze",
+          "adet": 39
+        },
+        {
+          "isim": "Tomruk Odun",
+          "adet": 10
+        },
+        {
+          "isim": "Yaban Çileği Likörü",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 3
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 13
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 8
+        },
+        {
+          "isim": "Şişe Süt",
+          "adet": 102
+        }
+      ]
+    },
+    {
+      "karakter": "CORRYVRECKAN",
+      "kasaba": "Girvan",
+      "akce": 2657.24,
+      "esyalar": [
+        {
+          "isim": "Gül Kremi ve Gül Suyu",
+          "adet": 1
+        },
+        {
+          "isim": "Kiraz",
+          "adet": 1
+        },
+        {
+          "isim": "Köstebek",
+          "adet": 1
+        },
+        {
+          "isim": "Likörlü Yılbaşı Çikolatası",
+          "adet": 1
+        },
+        {
+          "isim": "Midas'ın Mütevazı Sandığı",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Yaban Çileği Likörü",
+          "adet": 1
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çeki Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 2
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 764
+        },
+        {
+          "isim": "İblis Beelzebub'ın Koz Helvası",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Belial'ın Armut Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Leviathan'ın Erik Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Lucifer'in Cevizli Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 14
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 9
+        },
+        {
+          "isim": "Şeytani Badem Şekeri",
+          "adet": 1
+        }
+      ]
+    },
+    {
+      "karakter": "DERVORIN",
+      "kasaba": "Stirling",
+      "akce": 206.6,
+      "esyalar": [
+        {
+          "isim": "Bıçak",
+          "adet": 3
+        },
+        {
+          "isim": "Kova",
+          "adet": 3
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Yaban Çileği Likörü",
+          "adet": 1
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çeki Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 12
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 8
+        }
+      ]
+    },
+    {
+      "karakter": "DRAYEN",
+      "kasaba": "Glasgow",
+      "akce": 30075.01,
+      "esyalar": [
+        {
+          "isim": "Bitki Saksısı",
+          "adet": 3
+        },
+        {
+          "isim": "Bıçak",
+          "adet": 3
+        },
+        {
+          "isim": "Deri",
+          "adet": 4
+        },
+        {
+          "isim": "Gülhatmi Buketi",
+          "adet": 1000
+        },
+        {
+          "isim": "Kova",
+          "adet": 3
+        },
+        {
+          "isim": "Kısa Merdiven",
+          "adet": 1
+        },
+        {
+          "isim": "Midas'ın Mütevazı Sandığı",
+          "adet": 1
+        },
+        {
+          "isim": "Mor Boya",
+          "adet": 6
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Yaban Çileği Likörü",
+          "adet": 1
+        },
+        {
+          "isim": "Yumak Yün",
+          "adet": 12
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 1
+        },
+        {
+          "isim": "Çuval Buğday",
+          "adet": 2
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 13
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 9
+        }
+      ]
+    },
+    {
+      "karakter": "NIGHTSHADER",
+      "kasaba": "Whithorn",
+      "akce": 51.22,
+      "esyalar": [
+        {
+          "isim": "Gül Kremi ve Gül Suyu",
+          "adet": 1
+        },
+        {
+          "isim": "Hurma",
+          "adet": 1
+        },
+        {
+          "isim": "Kayık Küreği",
+          "adet": 1
+        },
+        {
+          "isim": "Kiraz",
+          "adet": 1
+        },
+        {
+          "isim": "Likörlü Yılbaşı Çikolatası",
+          "adet": 1
+        },
+        {
+          "isim": "Mucizevi Kiraz Merhemi",
+          "adet": 1
+        },
+        {
+          "isim": "Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Yaban Çileği Likörü",
+          "adet": 1
+        },
+        {
+          "isim": "Çavdar Ekmeği",
+          "adet": 1
+        },
+        {
+          "isim": "Çeki Taş",
+          "adet": 1
+        },
+        {
+          "isim": "Çubuk Kil",
+          "adet": 2
+        },
+        {
+          "isim": "Çuval Mısır",
+          "adet": 539
+        },
+        {
+          "isim": "İblis Beelzebub'ın Koz Helvası",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Belial'ın Armut Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Leviathan'ın Erik Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İblis Lucifer'in Cevizli Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (küçük)",
+          "adet": 13
+        },
+        {
+          "isim": "İbn-i Sînâ'nın İlacı (orta)",
+          "adet": 10
+        },
+        {
+          "isim": "Şeytani Badem Şekeri",
+          "adet": 1
+        },
+        {
+          "isim": "Şifa Şurubu",
+          "adet": 1
         }
       ]
     }
