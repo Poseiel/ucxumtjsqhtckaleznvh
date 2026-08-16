@@ -462,6 +462,8 @@ async function hareketYukle() {
     multiCiftler = veri.multi_ciftler || [];
     multiKumeler = veri.multi_kumeler || [];
     sakinlerListesi = veri.sakinler || [];
+    sakinlerBizim = veri.bizim_sayilar || {};
+    sakinlerBizimToplam = veri.bizim_toplam || 0;
     inzivaDilekce = veri.dilekce || "";
     inzivaDilekceParcalari = veri.dilekce_parcalari || null;
     document.getElementById("sakinler-tarih").textContent = veri.son_gun || "bilinmiyor";
@@ -555,6 +557,10 @@ let inzivaDilekce = "";
 let inzivaDilekceParcalari = null;
 let multiKumeler = [];
 let sakinlerListesi = [];
+// Kasaba başına KENDİ hesap sayımız (isim değil, sadece sayı — bkz.
+// pazar_json_uret.bizim_hesaplari_say güvenlik notu).
+let sakinlerBizim = {};
+let sakinlerBizimToplam = 0;
 
 // Öne çıkan bulgular: ham tablo yerine okunabilir cümleler.
 function oneCikanlariCiz() {
@@ -655,10 +661,15 @@ function sakinlerCiz() {
 
   const sayim = new Map();
   sakinlerListesi.forEach((s) => sayim.set(s.kasaba, (sayim.get(s.kasaba) || 0) + 1));
+  // İkinci satır: bu sayının kaçı BİZİM hesabımız. Veri yoksa (eski
+  // hareket.json) satır hiç basılmaz — sayfa eski hâlinde çalışır.
+  const bizimSatir = (n) =>
+    sakinlerBizimToplam ? `<span class="ozet-bizim">🤝 bizim: ${n || 0}</span>` : "";
+
   document.getElementById("sakinler-ozet").innerHTML =
-    `<div class="ozet-kart ozet-kart-toplam"><span class="ozet-etiket">👥 Toplam</span><span class="ozet-deger">${sakinlerListesi.length}</span></div>` +
+    `<div class="ozet-kart ozet-kart-toplam"><span class="ozet-etiket">👥 Toplam</span><span class="ozet-deger">${sakinlerListesi.length}</span>${bizimSatir(sakinlerBizimToplam)}</div>` +
     [...sayim.entries()].sort((a, b) => b[1] - a[1]).map(([k, n]) =>
-      `<div class="ozet-kart"><span class="ozet-etiket">${k}</span><span class="ozet-deger">${n}</span></div>`
+      `<div class="ozet-kart"><span class="ozet-etiket">${k}</span><span class="ozet-deger">${n}</span>${bizimSatir(sakinlerBizim[k])}</div>`
     ).join("");
 
   sakinlerTabloCiz();
