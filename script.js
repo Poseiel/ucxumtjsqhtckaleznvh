@@ -646,6 +646,10 @@ async function hareketYukle() {
     sakinlerListesi = veri.sakinler || [];
     sakinlerBizim = veri.bizim_sayilar || {};
     sakinlerBizimToplam = veri.bizim_toplam || 0;
+    // 🆕 Yeni hesap takibi — eski hareket.json'larda bu alanlar YOKTUR,
+    // o zaman listeler boş kalır ve sayfa eskisi gibi çalışır.
+    yeniHesaplar = veri.yeni_hesaplar || [];
+    yeniHesapGruplari = veri.yeni_hesap_gruplari || [];
     inzivaDilekce = veri.dilekce || "";
     inzivaDilekceParcalari = veri.dilekce_parcalari || null;
     document.getElementById("sakinler-tarih").textContent = veri.son_gun || "bilinmiyor";
@@ -829,7 +833,53 @@ function oneCikanlariCiz() {
 
 // ---------------------------------------------------------
 // KİM NEREDE SEKMESİ (bugünün tam kasaba listesi)
+// + 🆕 YENİ HESAPLAR (20.08.2026)
+//
+// Neden burada: karakter 25. seviyeye kadar SEYAHAT EDEMEZ, yani yeni bir
+// hesabın bulunduğu kasaba doğduğu kasabadır — "kim nerede" sorusunun
+// doğrudan parçası. İnziva sekmesine konmadı; orası kullanıcı kuralı gereği
+// yalnızca gerçekten inzivada olanlar içindir.
+// Veri: hareket.json -> yeni_hesaplar / yeni_hesap_gruplari (town_module
+// hesaplar, ekstra sayfa açılmaz).
 // ---------------------------------------------------------
+let yeniHesaplar = [];
+let yeniHesapGruplari = [];
+let yeniHesapAdlari = new Set();
+
+function yeniHesaplariCiz() {
+  yeniHesapAdlari = new Set(yeniHesaplar.map((h) => h.ad));
+
+  // Gruplar — en şüpheli en üstte (veri zaten sıralı gelir).
+  const kap = document.getElementById("yeni-hesap-gruplar");
+  kap.innerHTML = yeniHesapGruplari.map((g) => {
+    const rozet = g.degerlendirme === "Çok güçlü" || g.degerlendirme === "Güçlü"
+      ? "skor-rozet skor-yuksek" : "skor-rozet";
+    const uyeler = g.uyeler.map((u) => `<span class="kume-uye">${u}</span>`).join("");
+    return `<div class="kume-karti"><div class="skor-satiri">` +
+      `<span class="${rozet}">${g.degerlendirme}</span>` +
+      `<span class="skor-rozet">🚨 ${g.uyeler.length} HESAP</span>` +
+      `</div><p>${g.aciklama}</p><div>${uyeler}</div></div>`;
+  }).join("");
+
+  const govde = document.getElementById("yeni-hesap-tablo-govde");
+  govde.innerHTML = "";
+  [...yeniHesaplar]
+    .sort((a, b) => (a.ilk_gorulme < b.ilk_gorulme ? 1 : -1))
+    .forEach((h) => {
+      const satir = document.createElement("tr");
+      // Seyahat edemeyen bir hesap yer değiştirmişse (25+ seviye) ayrıca not.
+      const not = h.yer_degistirdi
+        ? ` <span class="kume-uye">şu an ${h.kasaba}</span>` : "";
+      satir.innerHTML = `<td>${h.ad}</td>` +
+        `<td><span class="konum-rozet">${h.ilk_kasaba}</span>${not}</td>` +
+        `<td>${h.ilk_gorulme}</td>` +
+        `<td>${h.gun_yasi} gün</td>` +
+        `<td>${h.pr}</td>`;
+      govde.appendChild(satir);
+    });
+  document.getElementById("yeni-hesap-yok").hidden = yeniHesaplar.length !== 0;
+}
+
 function sakinlerCiz() {
   const kasabalar = [...new Set(sakinlerListesi.map((s) => s.kasaba))]
     .sort((a, b) => a.localeCompare(b, "tr"));
@@ -848,29 +898,39 @@ function sakinlerCiz() {
   const bizimSatir = (n) =>
     sakinlerBizimToplam ? `<span class="ozet-bizim">🤝 bizim: ${n || 0}</span>` : "";
 
+  const yeniKart = yeniHesaplar.length
+    ? `<div class="ozet-kart ozet-kart-supheli"><span class="ozet-etiket">🆕 Yeni hesap</span><span class="ozet-deger">${yeniHesaplar.length}</span></div>`
+    : "";
+
   document.getElementById("sakinler-ozet").innerHTML =
     `<div class="ozet-kart ozet-kart-toplam"><span class="ozet-etiket">👥 Toplam</span><span class="ozet-deger">${sakinlerListesi.length}</span>${bizimSatir(sakinlerBizimToplam)}</div>` +
+    yeniKart +
     [...sayim.entries()].sort((a, b) => b[1] - a[1]).map(([k, n]) =>
       `<div class="ozet-kart"><span class="ozet-etiket">${k}</span><span class="ozet-deger">${n}</span>${bizimSatir(sakinlerBizim[k])}</div>`
     ).join("");
 
+  yeniHesaplariCiz();
   sakinlerTabloCiz();
 }
 
 function sakinlerTabloCiz() {
   const arama = document.getElementById("sakinler-arama").value.trim().toLocaleLowerCase("tr-TR");
   const kasabaFiltre = document.getElementById("sakinler-kasaba-filtre").value;
+  const sadeceYeni = document.getElementById("sakinler-yeni-filtre").checked;
 
   const filtreli = sakinlerListesi.filter((s) =>
     (!arama || s.karakter.toLocaleLowerCase("tr-TR").includes(arama)) &&
-    (!kasabaFiltre || s.kasaba === kasabaFiltre)
+    (!kasabaFiltre || s.kasaba === kasabaFiltre) &&
+    (!sadeceYeni || yeniHesapAdlari.has(s.karakter))
   );
 
   const govde = document.getElementById("sakinler-tablo-govde");
   govde.innerHTML = "";
   filtreli.forEach((s) => {
     const satir = document.createElement("tr");
-    satir.innerHTML = `<td>${s.karakter}</td>` +
+    const yeniMi = yeniHesapAdlari.has(s.karakter);
+    if (yeniMi) satir.className = "sancak-onemli";
+    satir.innerHTML = `<td>${yeniMi ? "🆕 " : ""}${s.karakter}</td>` +
       `<td><span class="konum-rozet">${s.kasaba}</span></td>` +
       `<td>${s.pr >= 0 ? s.pr : "-"}</td>`;
     govde.appendChild(satir);
@@ -880,6 +940,7 @@ function sakinlerTabloCiz() {
 
 document.getElementById("sakinler-arama").addEventListener("input", sakinlerTabloCiz);
 document.getElementById("sakinler-kasaba-filtre").addEventListener("change", sakinlerTabloCiz);
+document.getElementById("sakinler-yeni-filtre").addEventListener("change", sakinlerTabloCiz);
 
 function inzivaOzetCiz() {
   const say = (d) => hareketKayiplar.filter((k) => k.durum === d).length;
