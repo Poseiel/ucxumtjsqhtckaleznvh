@@ -272,11 +272,14 @@
          konmadı (orası yalnızca gerçekten inzivada olanlar içindir). -->
     <h3 class="hareket-alt-baslik">🆕 Yeni açılmış hesaplar</h3>
     <p class="bolum-aciklama" id="yeni-hesap-aciklama">
-      Son günlerde kasabalarımızda <b>ilk kez görünen</b> ve güven puanı çok
-      düşük hesaplar. Karakterler <b>25. seviyeye kadar seyahat edemediği</b>
-      için bunların bulunduğu kasaba = <b>doğdukları kasabadır</b>.
-      Aynı gün ve aynı kasabada beliren 2+ hesap, tek kişinin arka arkaya
-      açtığı hesaplar olabilir.
+      Kasabalarımızda <b>güven puanı 0-1 iken ilk kez görünen</b>, yani orada
+      <b>doğmuş</b> hesaplar. Karakterler <b>25. seviyeye kadar seyahat
+      edemediği</b> için ilk görüldükleri kasaba doğdukları kasabadır.<br>
+      ⚠️ <b>Aynı kasabada doğmak kanıt değildir</b> — oyun doğulacak kasabayı
+      <b>rastgele</b> atar, peş peşe açılan hesaplardan bir kaçı aynı yere
+      düşebilir. Asıl ağır şüphe: <b>farklı kasabalarda doğup sonradan aynı
+      kasabada buluşanlar</b>. Buluşmak için 25. seviyeye çıkıp bilerek
+      seyahat etmek gerekir, tesadüf olamaz.
     </p>
     <div id="yeni-hesap-gruplar"></div>
     <div class="tablo-sarici">
@@ -285,14 +288,15 @@
           <tr>
             <th>Karakter</th>
             <th>Doğduğu kasaba</th>
-            <th>İlk görülme</th>
+            <th>Şu an</th>
+            <th>Doğum günü</th>
             <th>Kaç gün önce</th>
-            <th>PR</th>
+            <th>PR (doğumda → bugün)</th>
           </tr>
         </thead>
         <tbody id="yeni-hesap-tablo-govde"></tbody>
       </table>
-      <p id="yeni-hesap-yok" class="bos-durum" hidden>Takip penceresinde yeni hesap yok.</p>
+      <p id="yeni-hesap-yok" class="bos-durum" hidden>Doğum penceresinde yeni hesap yok.</p>
     </div>
 
     <h3 class="hareket-alt-baslik">📋 Bugünkü tam liste</h3>
