@@ -27,6 +27,7 @@
 <nav class="tab-bar">
   <button class="tab-btn active" data-tab="pazar">Pazar</button>
   <button class="tab-btn" data-tab="envanter">Envanter</button>
+  <button class="tab-btn" data-tab="sancak">Sancak Envanteri</button>
   <button class="tab-btn" data-tab="gelisim">Gelişim</button>
   <button class="tab-btn" data-tab="hareket">Hareket</button>
   <button class="tab-btn" data-tab="inziva">İnziva</button>
@@ -83,6 +84,40 @@
       <p id="envanter-sonuc-yok" class="bos-durum" hidden>Aradığın eşya bulunamadı.</p>
     </div>
     <div id="envanter-toplam" class="envanter-toplam"></div>
+  </section>
+
+  <!-- SANCAK ENVANTERİ (Ticaret Nazırı'nın makamından okunan EYALET deposu).
+       Kişisel Envanter sekmesiyle aynı mantık; tek fark filtrenin kasaba
+       değil SANCAK olması. Veri: sancak.json (divan_ticaret.py → rapor →
+       pazar_json_uret.sancak_uret). -->
+  <section id="tab-sancak" class="tab-panel">
+    <p class="envanter-tarih-notu">Rapor tarihi: <span id="sancak-rapor-tarihi">yükleniyor...</span></p>
+    <p class="bolum-aciklama">Bu, kendi çantalarımız değil <b>eyaletin (sancağın) ortak deposudur</b> —
+      Ticaret Nazırı hesabımızın makamından her gün okunur. Birden fazla sancakta görevimiz varsa
+      hepsi aşağıdaki listeye girer, sancak kutusundan süzebilirsin.</p>
+    <div id="sancak-ozet" class="envanter-ozet"></div>
+    <div class="pazar-arac-cubugu">
+      <input type="text" id="sancak-arama" placeholder="Ürün ara... (örn. Demir)">
+      <select id="sancak-urun-filtre">
+        <option value="">▼ Ürün seç (aramadan)</option>
+      </select>
+      <select id="sancak-sancak-filtre">
+        <option value="">Tüm sancaklar</option>
+      </select>
+      <label class="pasa-toggle">
+        <input type="checkbox" id="sancak-onemli-filtre" checked>
+        ⭐ Sadece önemli ürünler
+      </label>
+      <button id="sancak-kopyala">📋 Listeyi kopyala</button>
+      <span id="sancak-kopya-durum" class="dilekce-durum"></span>
+    </div>
+    <div class="tablo-sarici tablo-sarici-yapiskan">
+      <table id="sancak-tablo">
+        <thead id="sancak-tablo-baslik"></thead>
+        <tbody id="sancak-tablo-govde"></tbody>
+      </table>
+      <p id="sancak-sonuc-yok" class="bos-durum" hidden>Kayıt bulunamadı.</p>
+    </div>
   </section>
 
   <section id="tab-gelisim" class="tab-panel">
