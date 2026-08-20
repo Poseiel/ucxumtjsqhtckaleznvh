@@ -364,7 +364,10 @@ async function sancakYukle() {
     sancakOzetCiz();
     sancakTabloCiz();
   } catch (e) {
-    document.getElementById("sancak-rapor-tarihi").textContent = "yüklenemedi";
+    // Henüz hiç okunmamışsa (Ticaret Nazırı turu atmamışsa) sancak.json YOK.
+    // Sessizce boş kalmasın — kullanıcı "site bozuk mu?" diye düşünmesin.
+    document.getElementById("sancak-rapor-tarihi").textContent = "henüz veri yok";
+    document.getElementById("sancak-sonuc-yok").hidden = false;
     console.error("Sancak envanteri yüklenemedi:", e);
   }
 }
@@ -393,7 +396,10 @@ function sancakSuzulmus() {
     if (sancakFiltre && s.sancak !== sancakFiltre) return false;
     // ⚠️ Tik AÇIKKEN yalnızca önemli kalemler görünür; arama/ürün seçimi
     // yapıldıysa tik yok sayılır (aradığını bulamamak can sıkıcı olurdu).
-    if (sadeceOnemli && !arama && !urunFiltre && !sancakOnemli.includes(s.isim)) return false;
+    // ⚠️ Liste boşsa (eski bir sancak.json) tik YOK SAYILIR — yoksa tablo
+    //    tamamen boşalır ve veri yokmuş gibi görünür.
+    if (sadeceOnemli && sancakOnemli.length && !arama && !urunFiltre
+        && !sancakOnemli.includes(s.isim)) return false;
     return true;
   });
 }
