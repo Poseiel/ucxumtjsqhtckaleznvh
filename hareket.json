@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-08-19 17:15",
+  "son_guncelleme": "2026-08-20 06:47",
   "gun_sayisi": 6,
   "ilk_gun": "2026-08-14",
   "son_gun": "2026-08-19",
@@ -22069,6 +22069,73 @@
       "pr": 67
     }
   ],
+  "yeni_hesaplar": [
+    {
+      "ad": "gorgoyle",
+      "pr": 0,
+      "ilk_gorulme": "2026-08-17",
+      "ilk_kasaba": "Glasgow",
+      "kasaba": "Glasgow",
+      "gun_yasi": 2,
+      "yer_degistirdi": false
+    },
+    {
+      "ad": "imokay",
+      "pr": 0,
+      "ilk_gorulme": "2026-08-15",
+      "ilk_kasaba": "Ardencaple",
+      "kasaba": "Ardencaple",
+      "gun_yasi": 4,
+      "yer_degistirdi": false
+    },
+    {
+      "ad": "mcwolf",
+      "pr": 1,
+      "ilk_gorulme": "2026-08-11",
+      "ilk_kasaba": "Girvan",
+      "kasaba": "Girvan",
+      "gun_yasi": 8,
+      "yer_degistirdi": false
+    },
+    {
+      "ad": "tomond",
+      "pr": 0,
+      "ilk_gorulme": "2026-08-16",
+      "ilk_kasaba": "Girvan",
+      "kasaba": "Girvan",
+      "gun_yasi": 3,
+      "yer_degistirdi": false
+    },
+    {
+      "ad": "zyvon",
+      "pr": 1,
+      "ilk_gorulme": "2026-08-14",
+      "ilk_kasaba": "Kirkcudbright",
+      "kasaba": "Kirkcudbright",
+      "gun_yasi": 5,
+      "yer_degistirdi": false
+    }
+  ],
+  "yeni_hesap_gruplari": [
+    {
+      "tur": "kasaba",
+      "uyeler": [
+        "mcwolf",
+        "tomond"
+      ],
+      "ilk": "2026-08-11",
+      "son": "2026-08-16",
+      "aralik_gun": 5,
+      "kasabalar": {
+        "Girvan": 2
+      },
+      "ayni_gun": false,
+      "ayni_kasaba": true,
+      "degerlendirme": "Orta",
+      "aciklama": "2 hesap Girvan kasabasında 5 gün arayla (2026-08-11 – 2026-08-16) ortaya çıktı: mcwolf, tomond."
+    }
+  ],
+  "yeni_hesap_esik": 1,
   "bizim_sayilar": {
     "Ardencaple": 15,
     "Girvan": 7,
