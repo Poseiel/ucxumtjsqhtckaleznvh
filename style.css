@@ -94,7 +94,7 @@ input[type="text"], select, button {
   color: var(--text);
 }
 
-#pazar-arama, #envanter-arama { flex: 1 1 240px; }
+#pazar-arama, #envanter-arama, #sancak-arama { flex: 1 1 240px; }
 
 button {
   background: var(--accent);
@@ -155,6 +155,19 @@ button:hover { filter: brightness(1.08); }
   font-weight: 700;
   font-size: 1.02rem;
 }
+/* Sancak Envanteri özet kartındaki ikinci satır: çeşit sayısı + kasaba. */
+.ozet-alt {
+  color: var(--text-dim);
+  font-size: 0.74rem;
+  margin-top: 0.15rem;
+}
+/* Ticaret Nazırı'nın en çok baktığı kalemler (demir/taş/kil/boya/akçe)
+   listede kaybolmasın diye vurgulanır. Liste sancak.json'dan gelir. */
+#sancak-tablo tr.sancak-onemli td {
+  font-weight: 700;
+  color: var(--accent-2);
+}
+
 /* "Kim Nerede" özet kartlarında ikinci satır: kaçı bizim hesabımız. */
 .ozet-bizim {
   color: var(--accent);
