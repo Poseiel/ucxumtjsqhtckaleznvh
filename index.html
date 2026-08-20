@@ -265,11 +265,46 @@
   <section id="tab-sakinler" class="tab-panel">
     <p class="envanter-tarih-notu">Liste tarihi: <span id="sakinler-tarih">yükleniyor...</span></p>
     <div id="sakinler-ozet" class="envanter-ozet"></div>
+
+    <!-- 🆕 YENİ HESAPLAR — burada duruyor çünkü karakter 25. seviyeye kadar
+         SEYAHAT EDEMEZ: yeni bir hesabın bulunduğu kasaba, doğduğu kasabadır.
+         Yani "kim nerede" sorusunun doğrudan parçası. İnziva sekmesine
+         konmadı (orası yalnızca gerçekten inzivada olanlar içindir). -->
+    <h3 class="hareket-alt-baslik">🆕 Yeni açılmış hesaplar</h3>
+    <p class="bolum-aciklama" id="yeni-hesap-aciklama">
+      Son günlerde kasabalarımızda <b>ilk kez görünen</b> ve güven puanı çok
+      düşük hesaplar. Karakterler <b>25. seviyeye kadar seyahat edemediği</b>
+      için bunların bulunduğu kasaba = <b>doğdukları kasabadır</b>.
+      Aynı gün ve aynı kasabada beliren 2+ hesap, tek kişinin arka arkaya
+      açtığı hesaplar olabilir.
+    </p>
+    <div id="yeni-hesap-gruplar"></div>
+    <div class="tablo-sarici">
+      <table id="yeni-hesap-tablo">
+        <thead>
+          <tr>
+            <th>Karakter</th>
+            <th>Doğduğu kasaba</th>
+            <th>İlk görülme</th>
+            <th>Kaç gün önce</th>
+            <th>PR</th>
+          </tr>
+        </thead>
+        <tbody id="yeni-hesap-tablo-govde"></tbody>
+      </table>
+      <p id="yeni-hesap-yok" class="bos-durum" hidden>Takip penceresinde yeni hesap yok.</p>
+    </div>
+
+    <h3 class="hareket-alt-baslik">📋 Bugünkü tam liste</h3>
     <div class="pazar-arac-cubugu">
       <input type="text" id="sakinler-arama" placeholder="Karakter ara...">
       <select id="sakinler-kasaba-filtre">
         <option value="">Tüm kasabalar</option>
       </select>
+      <label class="pasa-toggle">
+        <input type="checkbox" id="sakinler-yeni-filtre">
+        🆕 Sadece yeni hesaplar
+      </label>
     </div>
     <div class="tablo-sarici tablo-sarici-yapiskan">
       <table id="sakinler-tablo">
