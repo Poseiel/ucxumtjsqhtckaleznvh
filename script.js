@@ -318,6 +318,7 @@ document.getElementById("envanter-esya-filtre").addEventListener("change", envan
 let sancakKayitlari = [];   // [{sancak, kasaba, nazir, hazine, akce, esyalar:[]}]
 let sancakSatirlari = [];   // düz liste: [{isim, adet, sancak, akceMi}]
 let sancakOnemli = [];      // sancak.json -> onemli
+let sancakEsik = 0;         // sancak.json -> onemli_esik (0 = uyarı yok)
 
 async function sancakYukle() {
   try {
@@ -325,6 +326,9 @@ async function sancakYukle() {
     const veri = await yanit.json();
     sancakKayitlari = veri.sancaklar || [];
     sancakOnemli = veri.onemli || [];
+    // Eşik de JSON'dan gelir (tek kaynak: divan_ticaret.ONEMLI_ESIK,
+    // rapor başlığına yazılır). Eski dosyalarda yoksa 0 → uyarı çizilmez.
+    sancakEsik = Number(veri.onemli_esik) || 0;
     document.getElementById("sancak-rapor-tarihi").textContent = veri.rapor_tarihi || "bilinmiyor";
 
     // Akçe de aranabilir bir "ürün" gibi listeye girer (Envanter ile aynı).
@@ -426,11 +430,16 @@ function sancakTabloCiz() {
     .sort((a, b) => sira(a) - sira(b) || b.adet - a.adet)
     .forEach((s) => {
       const satir = document.createElement("tr");
-      if (sancakOnemli.includes(s.isim)) satir.className = "sancak-onemli";
+      const onemliMi = sancakOnemli.includes(s.isim);
+      if (onemliMi) satir.className = "sancak-onemli";
       const adetMetni = s.akceMi ? akceFormat(s.adet) : s.adet;
+      // Telegram özetiyle AYNI kural: önemli bir kalem eşiğin altındaysa ⚠️.
+      // (Akçe bir eşya değil, para satırı — ona uyarı konmaz.)
+      const uyari = (onemliMi && !s.akceMi && sancakEsik && s.adet < sancakEsik)
+        ? "⚠️ " : "";
       satir.innerHTML = cokSancak
-        ? `<td>${adetMetni}</td><td>${s.isim}</td><td>${s.sancak}</td>`
-        : `<td>${adetMetni}</td><td>${s.isim}</td>`;
+        ? `<td>${adetMetni}</td><td>${uyari}${s.isim}</td><td>${s.sancak}</td>`
+        : `<td>${adetMetni}</td><td>${uyari}${s.isim}</td>`;
       govde.appendChild(satir);
     });
 
