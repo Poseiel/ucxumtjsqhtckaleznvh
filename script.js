@@ -308,6 +308,173 @@ document.getElementById("envanter-kasaba-filtre").addEventListener("change", env
 document.getElementById("envanter-esya-filtre").addEventListener("change", envanterTabloCiz);
 
 // ---------------------------------------------------------
+// SANCAK ENVANTERİ SEKMESİ
+// Veri: sancak.json (divan_ticaret.py Ticaret Nazırı makamından okur ->
+// Town_Reports/Sancak_Envanteri_*.txt -> pazar_json_uret.sancak_uret).
+// Envanter sekmesiyle AYNI mantık; tek fark filtrenin kasaba değil SANCAK
+// olması. "Önemli ürünler" listesi JSON'dan gelir (tek kaynak:
+// pazar_json_uret.SANCAK_ONEMLI_URUNLER) — burada ikinci bir kopya TUTMA.
+// ---------------------------------------------------------
+let sancakKayitlari = [];   // [{sancak, kasaba, nazir, hazine, akce, esyalar:[]}]
+let sancakSatirlari = [];   // düz liste: [{isim, adet, sancak, akceMi}]
+let sancakOnemli = [];      // sancak.json -> onemli
+
+async function sancakYukle() {
+  try {
+    const yanit = await fetch("sancak.json?_=" + Date.now());
+    const veri = await yanit.json();
+    sancakKayitlari = veri.sancaklar || [];
+    sancakOnemli = veri.onemli || [];
+    document.getElementById("sancak-rapor-tarihi").textContent = veri.rapor_tarihi || "bilinmiyor";
+
+    // Akçe de aranabilir bir "ürün" gibi listeye girer (Envanter ile aynı).
+    sancakSatirlari = [];
+    sancakKayitlari.forEach((s) => {
+      if (s.akce > 0) {
+        sancakSatirlari.push({ isim: "Akçe", adet: s.akce, sancak: s.sancak, akceMi: true });
+      }
+      (s.esyalar || []).forEach((e) => {
+        sancakSatirlari.push({ isim: e.isim, adet: e.adet, sancak: s.sancak, akceMi: false });
+      });
+    });
+
+    const sancakSecim = document.getElementById("sancak-sancak-filtre");
+    [...new Set(sancakKayitlari.map((s) => s.sancak))]
+      .sort((a, b) => a.localeCompare(b, "tr"))
+      .forEach((ad) => {
+        const opt = document.createElement("option");
+        opt.value = ad;
+        opt.textContent = ad;
+        sancakSecim.appendChild(opt);
+      });
+
+    const urunToplam = new Map();
+    sancakSatirlari.forEach((s) => {
+      if (s.akceMi) return;
+      urunToplam.set(s.isim, (urunToplam.get(s.isim) || 0) + s.adet);
+    });
+    const urunSecim = document.getElementById("sancak-urun-filtre");
+    [...urunToplam.keys()].sort((a, b) => a.localeCompare(b, "tr")).forEach((isim) => {
+      const opt = document.createElement("option");
+      opt.value = isim;
+      opt.textContent = `${isim} — ${urunToplam.get(isim)} adet`;
+      urunSecim.appendChild(opt);
+    });
+
+    sancakOzetCiz();
+    sancakTabloCiz();
+  } catch (e) {
+    document.getElementById("sancak-rapor-tarihi").textContent = "yüklenemedi";
+    console.error("Sancak envanteri yüklenemedi:", e);
+  }
+}
+
+function sancakOzetCiz() {
+  const el = document.getElementById("sancak-ozet");
+  el.innerHTML = sancakKayitlari
+    .map((s) =>
+      `<div class="ozet-kart"><span class="ozet-etiket">${s.sancak}</span>` +
+      `<span class="ozet-deger">${akceFormat(s.akce)}</span>` +
+      `<span class="ozet-alt">${(s.esyalar || []).length} çeşit · ${s.kasaba}</span></div>`)
+    .join("");
+}
+
+// Şu an ekranda görünen satırlar (kopyalama butonu da bunu kullanır — yani
+// kopyalanan liste ile görülen liste HER ZAMAN aynıdır).
+function sancakSuzulmus() {
+  const arama = document.getElementById("sancak-arama").value.trim().toLocaleLowerCase("tr-TR");
+  const urunFiltre = document.getElementById("sancak-urun-filtre").value;
+  const sancakFiltre = document.getElementById("sancak-sancak-filtre").value;
+  const sadeceOnemli = document.getElementById("sancak-onemli-filtre").checked;
+
+  return sancakSatirlari.filter((s) => {
+    if (arama && !s.isim.toLocaleLowerCase("tr-TR").includes(arama)) return false;
+    if (urunFiltre && s.isim !== urunFiltre) return false;
+    if (sancakFiltre && s.sancak !== sancakFiltre) return false;
+    // ⚠️ Tik AÇIKKEN yalnızca önemli kalemler görünür; arama/ürün seçimi
+    // yapıldıysa tik yok sayılır (aradığını bulamamak can sıkıcı olurdu).
+    if (sadeceOnemli && !arama && !urunFiltre && !sancakOnemli.includes(s.isim)) return false;
+    return true;
+  });
+}
+
+function sancakTabloCiz() {
+  const baslik = document.getElementById("sancak-tablo-baslik");
+  const govde = document.getElementById("sancak-tablo-govde");
+  const sonucYok = document.getElementById("sancak-sonuc-yok");
+  const cokSancak = new Set(sancakKayitlari.map((s) => s.sancak)).size > 1;
+  govde.innerHTML = "";
+
+  baslik.innerHTML = cokSancak
+    ? "<tr><th>Adet</th><th>Ürün</th><th>Sancak</th></tr>"
+    : "<tr><th>Adet</th><th>Ürün</th></tr>";
+
+  const filtreli = sancakSuzulmus();
+  // Önemli kalemler listenin başında, JSON'daki sırayla (akçe → demir → taş
+  // → kil → boya); gerisi adede göre büyükten küçüğe.
+  const sira = (s) => {
+    const i = sancakOnemli.indexOf(s.isim);
+    return i === -1 ? 999 : i;
+  };
+  [...filtreli]
+    .sort((a, b) => sira(a) - sira(b) || b.adet - a.adet)
+    .forEach((s) => {
+      const satir = document.createElement("tr");
+      if (sancakOnemli.includes(s.isim)) satir.className = "sancak-onemli";
+      const adetMetni = s.akceMi ? akceFormat(s.adet) : s.adet;
+      satir.innerHTML = cokSancak
+        ? `<td>${adetMetni}</td><td>${s.isim}</td><td>${s.sancak}</td>`
+        : `<td>${adetMetni}</td><td>${s.isim}</td>`;
+      govde.appendChild(satir);
+    });
+
+  sonucYok.hidden = filtreli.length !== 0;
+}
+
+// Kopyalanan metin oyuna/foruma yapıştırılacak: "adet isim", oyunun kendi
+// gösterimiyle aynı sıra.
+function sancakKopyaMetni() {
+  const tarih = document.getElementById("sancak-rapor-tarihi").textContent;
+  const sancakFiltre = document.getElementById("sancak-sancak-filtre").value;
+  const baslik = (sancakFiltre || "Sancak") + " — Envanter (" + tarih + ")";
+  const sira = (s) => {
+    const i = sancakOnemli.indexOf(s.isim);
+    return i === -1 ? 999 : i;
+  };
+  const satirlar = [...sancakSuzulmus()]
+    .sort((a, b) => sira(a) - sira(b) || b.adet - a.adet)
+    .map((s) => {
+      const adet = s.akceMi ? akceFormat(s.adet) : s.adet;
+      const ek = sancakFiltre ? "" : `  (${s.sancak})`;
+      return `${adet} ${s.isim}${ek}`;
+    });
+  return [baslik, ...satirlar].join("\n");
+}
+
+document.getElementById("sancak-arama").addEventListener("input", sancakTabloCiz);
+document.getElementById("sancak-urun-filtre").addEventListener("change", sancakTabloCiz);
+document.getElementById("sancak-sancak-filtre").addEventListener("change", sancakTabloCiz);
+document.getElementById("sancak-onemli-filtre").addEventListener("change", sancakTabloCiz);
+document.getElementById("sancak-kopyala").addEventListener("click", async () => {
+  const durum = document.getElementById("sancak-kopya-durum");
+  const metin = sancakKopyaMetni();
+  try {
+    await navigator.clipboard.writeText(metin);
+    durum.textContent = "✅ kopyalandı";
+  } catch (e) {
+    // Pano izni yoksa (bazı tarayıcı/HTTP durumları) eski yönteme düş.
+    const kutu = document.createElement("textarea");
+    kutu.value = metin;
+    document.body.appendChild(kutu);
+    kutu.select();
+    try { document.execCommand("copy"); durum.textContent = "✅ kopyalandı"; }
+    catch (e2) { durum.textContent = "⚠️ kopyalanamadı"; }
+    document.body.removeChild(kutu);
+  }
+  setTimeout(() => { durum.textContent = ""; }, 2500);
+});
+
+// ---------------------------------------------------------
 // GELİŞİM SEKMESİ
 // Veri: gelisim.json (pazar_json_uret.py, botun her gün yazdığı
 // Gelisim_Durumu_*.txt dosyalarının en güncel iki gününü karşılaştırır).
@@ -1203,6 +1370,7 @@ document.getElementById("rota-bul-btn").addEventListener("click", () => {
 
 pazarYukle();
 envanterYukle();
+sancakYukle();
 gelisimYukle();
 hareketYukle();
 haritaYukle();
