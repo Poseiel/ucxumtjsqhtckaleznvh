@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-08-20 16:52",
+  "son_guncelleme": "2026-08-20 20:51",
   "gun_sayisi": 6,
   "ilk_gun": "2026-08-15",
   "son_gun": "2026-08-20",
@@ -25180,70 +25180,95 @@
   ],
   "yeni_hesaplar": [
     {
+      "ad": "baudoin_messonier",
+      "pr": 3,
+      "dogum_pr": 0,
+      "ilk_gorulme": "2026-06-30",
+      "ilk_kasaba": "Girvan",
+      "kasaba": "Girvan",
+      "gun_yasi": 51,
+      "taze": false,
+      "yer_degistirdi": false
+    },
+    {
       "ad": "gorgoyle",
       "pr": 0,
+      "dogum_pr": 0,
       "ilk_gorulme": "2026-08-17",
       "ilk_kasaba": "Glasgow",
       "kasaba": "Glasgow",
       "gun_yasi": 3,
+      "taze": true,
       "yer_degistirdi": false
     },
     {
       "ad": "imokay",
       "pr": 0,
+      "dogum_pr": 0,
       "ilk_gorulme": "2026-08-15",
       "ilk_kasaba": "Ardencaple",
       "kasaba": "Ardencaple",
       "gun_yasi": 5,
+      "taze": true,
+      "yer_degistirdi": false
+    },
+    {
+      "ad": "leucien_hepty",
+      "pr": 0,
+      "dogum_pr": 0,
+      "ilk_gorulme": "2026-08-08",
+      "ilk_kasaba": "Ardencaple",
+      "kasaba": "Ardencaple",
+      "gun_yasi": 12,
+      "taze": false,
       "yer_degistirdi": false
     },
     {
       "ad": "lllll4",
       "pr": 0,
+      "dogum_pr": 0,
       "ilk_gorulme": "2026-08-20",
       "ilk_kasaba": "Glasgow",
       "kasaba": "Glasgow",
       "gun_yasi": 0,
+      "taze": true,
+      "yer_degistirdi": false
+    },
+    {
+      "ad": "mcwolf",
+      "pr": 3,
+      "dogum_pr": 0,
+      "ilk_gorulme": "2026-08-11",
+      "ilk_kasaba": "Girvan",
+      "kasaba": "Girvan",
+      "gun_yasi": 9,
+      "taze": true,
       "yer_degistirdi": false
     },
     {
       "ad": "tomond",
       "pr": 0,
+      "dogum_pr": 0,
       "ilk_gorulme": "2026-08-16",
       "ilk_kasaba": "Girvan",
       "kasaba": "Girvan",
       "gun_yasi": 4,
+      "taze": true,
       "yer_degistirdi": false
     },
     {
       "ad": "zyvon",
       "pr": 1,
+      "dogum_pr": 1,
       "ilk_gorulme": "2026-08-14",
       "ilk_kasaba": "Kirkcudbright",
       "kasaba": "Kirkcudbright",
       "gun_yasi": 6,
+      "taze": true,
       "yer_degistirdi": false
     }
   ],
-  "yeni_hesap_gruplari": [
-    {
-      "tur": "kasaba",
-      "uyeler": [
-        "gorgoyle",
-        "lllll4"
-      ],
-      "ilk": "2026-08-17",
-      "son": "2026-08-20",
-      "aralik_gun": 3,
-      "kasabalar": {
-        "Glasgow": 2
-      },
-      "ayni_gun": false,
-      "ayni_kasaba": true,
-      "degerlendirme": "Güçlü",
-      "aciklama": "2 hesap Glasgow kasabasında 3 gün arayla (2026-08-17 – 2026-08-20) ortaya çıktı: gorgoyle, lllll4."
-    }
-  ],
+  "yeni_hesap_gruplari": [],
   "yeni_hesap_esik": 1,
   "bizim_sayilar": {
     "Ardencaple": 15,
