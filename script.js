@@ -855,10 +855,16 @@ function yeniHesaplariCiz() {
     const rozet = g.degerlendirme === "Çok güçlü" || g.degerlendirme === "Güçlü"
       ? "skor-rozet skor-yuksek" : "skor-rozet";
     const uyeler = g.uyeler.map((u) => `<span class="kume-uye">${u}</span>`).join("");
+    // "Buluşma" grupları asıl kanıttır; "aynı gün doğum" tek başına zayıftır.
+    const tur = g.tur === "bulusma"
+      ? `<span class="skor-rozet skor-yuksek">🤝 BULUŞMA</span>`
+      : `<span class="skor-rozet">📅 AYNI GÜN</span>`;
+    // Metindeki **vurgu** işaretlerini kalın yaz.
+    const metin = (g.aciklama || "").replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
     return `<div class="kume-karti"><div class="skor-satiri">` +
-      `<span class="${rozet}">${g.degerlendirme}</span>` +
-      `<span class="skor-rozet">🚨 ${g.uyeler.length} HESAP</span>` +
-      `</div><p>${g.aciklama}</p><div>${uyeler}</div></div>`;
+      `<span class="${rozet}">${g.degerlendirme}</span>${tur}` +
+      `<span class="skor-rozet">${g.uyeler.length} HESAP</span>` +
+      `</div><p>${metin}</p><div>${uyeler}</div></div>`;
   }).join("");
 
   const govde = document.getElementById("yeni-hesap-tablo-govde");
@@ -867,14 +873,19 @@ function yeniHesaplariCiz() {
     .sort((a, b) => (a.ilk_gorulme < b.ilk_gorulme ? 1 : -1))
     .forEach((h) => {
       const satir = document.createElement("tr");
-      // Seyahat edemeyen bir hesap yer değiştirmişse (25+ seviye) ayrıca not.
-      const not = h.yer_degistirdi
-        ? ` <span class="kume-uye">şu an ${h.kasaba}</span>` : "";
-      satir.innerHTML = `<td>${h.ad}</td>` +
-        `<td><span class="konum-rozet">${h.ilk_kasaba}</span>${not}</td>` +
+      // ⚠️ Yer değiştirmiş olmak KRİTİK: 25. seviyeye kadar seyahat yok,
+      //    yani taşınabilmiş hesap artık buluşabilir. Vurgulanır.
+      if (h.yer_degistirdi) satir.className = "sancak-onemli";
+      const simdi = h.yer_degistirdi
+        ? `<span class="konum-rozet">➜ ${h.kasaba}</span>`
+        : `<span class="fark-esit">aynı yerde</span>`;
+      const taze = h.taze ? "🆕 " : "";
+      satir.innerHTML = `<td>${taze}${h.ad}</td>` +
+        `<td><span class="konum-rozet">${h.ilk_kasaba}</span></td>` +
+        `<td>${simdi}</td>` +
         `<td>${h.ilk_gorulme}</td>` +
         `<td>${h.gun_yasi} gün</td>` +
-        `<td>${h.pr}</td>`;
+        `<td>${h.dogum_pr} → ${h.pr}</td>`;
       govde.appendChild(satir);
     });
   document.getElementById("yeni-hesap-yok").hidden = yeniHesaplar.length !== 0;
