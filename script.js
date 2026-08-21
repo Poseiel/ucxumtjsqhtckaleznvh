@@ -490,6 +490,160 @@ document.getElementById("sancak-kopyala").addEventListener("click", async () => 
 });
 
 // ---------------------------------------------------------
+// BELEDİYE ENVANTERİ SEKMESİ
+// Veri: belediye.json (divan_belediye.py Belediye Reisi makamından okur ->
+// Town_Reports/Belediye_Envanteri_*.txt -> pazar_json_uret.belediye_uret).
+// Sancak Envanteri ile AYNI mantık, İKİ fark (kullanıcı isteği 21.08.2026):
+//   1) Filtre "sancak" değil KASABA (Ardencaple / Glasgow / Girvan / ...).
+//   2) "Önemli ürünler" kavramı YOK — tüm ürünler dümdüz listelenir, o
+//      yüzden burada ⭐ tiki ve eşik uyarısı da YOKTUR.
+// ---------------------------------------------------------
+let belediyeKayitlari = [];  // [{kasaba, sancak, reis, akce, agirlik, esyalar:[]}]
+let belediyeSatirlari = [];  // düz liste: [{isim, adet, kasaba, akceMi}]
+
+async function belediyeYukle() {
+  try {
+    const yanit = await fetch("belediye.json?_=" + Date.now());
+    const veri = await yanit.json();
+    belediyeKayitlari = veri.belediyeler || [];
+    document.getElementById("belediye-rapor-tarihi").textContent = veri.rapor_tarihi || "bilinmiyor";
+
+    // Akçe de aranabilir bir "ürün" gibi listeye girer (Envanter ile aynı).
+    belediyeSatirlari = [];
+    belediyeKayitlari.forEach((b) => {
+      if (b.akce > 0) {
+        belediyeSatirlari.push({ isim: "Akçe", adet: b.akce, kasaba: b.kasaba, akceMi: true });
+      }
+      (b.esyalar || []).forEach((e) => {
+        belediyeSatirlari.push({ isim: e.isim, adet: e.adet, kasaba: b.kasaba, akceMi: false });
+      });
+    });
+
+    const kasabaSecim = document.getElementById("belediye-kasaba-filtre");
+    [...new Set(belediyeKayitlari.map((b) => b.kasaba))]
+      .sort((a, b) => a.localeCompare(b, "tr"))
+      .forEach((ad) => {
+        const opt = document.createElement("option");
+        opt.value = ad;
+        opt.textContent = ad;
+        kasabaSecim.appendChild(opt);
+      });
+
+    const urunToplam = new Map();
+    belediyeSatirlari.forEach((s) => {
+      if (s.akceMi) return;
+      urunToplam.set(s.isim, (urunToplam.get(s.isim) || 0) + s.adet);
+    });
+    const urunSecim = document.getElementById("belediye-urun-filtre");
+    [...urunToplam.keys()].sort((a, b) => a.localeCompare(b, "tr")).forEach((isim) => {
+      const opt = document.createElement("option");
+      opt.value = isim;
+      opt.textContent = `${isim} — ${urunToplam.get(isim)} adet`;
+      urunSecim.appendChild(opt);
+    });
+
+    belediyeOzetCiz();
+    belediyeTabloCiz();
+  } catch (e) {
+    // Henüz hiç okunmamışsa (Belediye Reisi turu atmamışsa) belediye.json YOK.
+    // Sessizce boş kalmasın — kullanıcı "site bozuk mu?" diye düşünmesin.
+    document.getElementById("belediye-rapor-tarihi").textContent = "henüz veri yok";
+    document.getElementById("belediye-sonuc-yok").hidden = false;
+    console.error("Belediye envanteri yüklenemedi:", e);
+  }
+}
+
+function belediyeOzetCiz() {
+  const el = document.getElementById("belediye-ozet");
+  el.innerHTML = belediyeKayitlari
+    .map((b) =>
+      `<div class="ozet-kart"><span class="ozet-etiket">${b.kasaba}</span>` +
+      `<span class="ozet-deger">${akceFormat(b.akce)}</span>` +
+      `<span class="ozet-alt">${(b.esyalar || []).length} çeşit · ${b.sancak}</span></div>`)
+    .join("");
+}
+
+// Şu an ekranda görünen satırlar (kopyalama butonu da bunu kullanır — yani
+// kopyalanan liste ile görülen liste HER ZAMAN aynıdır).
+function belediyeSuzulmus() {
+  const arama = document.getElementById("belediye-arama").value.trim().toLocaleLowerCase("tr-TR");
+  const urunFiltre = document.getElementById("belediye-urun-filtre").value;
+  const kasabaFiltre = document.getElementById("belediye-kasaba-filtre").value;
+
+  return belediyeSatirlari.filter((s) => {
+    if (arama && !s.isim.toLocaleLowerCase("tr-TR").includes(arama)) return false;
+    if (urunFiltre && s.isim !== urunFiltre) return false;
+    if (kasabaFiltre && s.kasaba !== kasabaFiltre) return false;
+    return true;
+  });
+}
+
+function belediyeTabloCiz() {
+  const baslik = document.getElementById("belediye-tablo-baslik");
+  const govde = document.getElementById("belediye-tablo-govde");
+  const sonucYok = document.getElementById("belediye-sonuc-yok");
+  const cokKasaba = new Set(belediyeKayitlari.map((b) => b.kasaba)).size > 1;
+  govde.innerHTML = "";
+
+  baslik.innerHTML = cokKasaba
+    ? "<tr><th>Adet</th><th>Ürün</th><th>Kasaba</th></tr>"
+    : "<tr><th>Adet</th><th>Ürün</th></tr>";
+
+  // Önemli ürün ayrımı YOK — akçe en üstte, gerisi adede göre büyükten küçüğe.
+  const filtreli = belediyeSuzulmus();
+  [...filtreli]
+    .sort((a, b) => (b.akceMi ? 1 : 0) - (a.akceMi ? 1 : 0) || b.adet - a.adet)
+    .forEach((s) => {
+      const satir = document.createElement("tr");
+      const adetMetni = s.akceMi ? akceFormat(s.adet) : s.adet;
+      satir.innerHTML = cokKasaba
+        ? `<td>${adetMetni}</td><td>${s.isim}</td><td>${s.kasaba}</td>`
+        : `<td>${adetMetni}</td><td>${s.isim}</td>`;
+      govde.appendChild(satir);
+    });
+
+  sonucYok.hidden = filtreli.length !== 0;
+}
+
+// Kopyalanan metin oyuna/foruma yapıştırılacak: "adet isim", oyunun kendi
+// gösterimiyle aynı sıra.
+function belediyeKopyaMetni() {
+  const tarih = document.getElementById("belediye-rapor-tarihi").textContent;
+  const kasabaFiltre = document.getElementById("belediye-kasaba-filtre").value;
+  const baslik = (kasabaFiltre || "Belediye") + " — Envanter (" + tarih + ")";
+  const satirlar = [...belediyeSuzulmus()]
+    .sort((a, b) => (b.akceMi ? 1 : 0) - (a.akceMi ? 1 : 0) || b.adet - a.adet)
+    .map((s) => {
+      const adet = s.akceMi ? akceFormat(s.adet) : s.adet;
+      const ek = kasabaFiltre ? "" : `  (${s.kasaba})`;
+      return `${adet} ${s.isim}${ek}`;
+    });
+  return [baslik, ...satirlar].join("\n");
+}
+
+document.getElementById("belediye-arama").addEventListener("input", belediyeTabloCiz);
+document.getElementById("belediye-urun-filtre").addEventListener("change", belediyeTabloCiz);
+document.getElementById("belediye-kasaba-filtre").addEventListener("change", belediyeTabloCiz);
+document.getElementById("belediye-kopyala").addEventListener("click", async () => {
+  const durum = document.getElementById("belediye-kopya-durum");
+  const metin = belediyeKopyaMetni();
+  try {
+    await navigator.clipboard.writeText(metin);
+    durum.textContent = "✅ kopyalandı";
+  } catch (e) {
+    // Pano izni yoksa (bazı tarayıcı/HTTP durumları) eski yönteme düş.
+    const kutu = document.createElement("textarea");
+    kutu.value = metin;
+    document.body.appendChild(kutu);
+    kutu.select();
+    try { document.execCommand("copy"); durum.textContent = "✅ kopyalandı"; }
+    catch (e2) { durum.textContent = "⚠️ kopyalanamadı"; }
+    document.body.removeChild(kutu);
+  }
+  setTimeout(() => { durum.textContent = ""; }, 2500);
+});
+
+// ---------------------------------------------------------
 // GELİŞİM SEKMESİ
 // Veri: gelisim.json (pazar_json_uret.py, botun her gün yazdığı
 // Gelisim_Durumu_*.txt dosyalarının en güncel iki gününü karşılaştırır).
@@ -1458,6 +1612,7 @@ document.getElementById("rota-bul-btn").addEventListener("click", () => {
 pazarYukle();
 envanterYukle();
 sancakYukle();
+belediyeYukle();
 gelisimYukle();
 hareketYukle();
 haritaYukle();
