@@ -26,6 +26,7 @@
 
 <nav class="tab-bar">
   <button class="tab-btn active" data-tab="pazar">Pazar</button>
+  <button class="tab-btn" data-tab="emir">📨 Emir</button>
   <button class="tab-btn" data-tab="envanter">Envanter</button>
   <button class="tab-btn" data-tab="sancak">Sancak Envanteri</button>
   <button class="tab-btn" data-tab="belediye">Belediye Envanteri</button>
@@ -379,6 +380,114 @@
     <p class="harita-not">Şehir adı olan noktalara tıklayıp "Nereden"/"Nereye" kutularına otomatik doldurabilirsin.</p>
   </section>
 
+  <!-- =======================================================
+       📨 EMİR GÖNDER — Telegram şablonlarını formla üretir.
+       Amaç: elle yazarken oluşan yazım hatasını SIFIRLAMAK.
+       Eşya listeleri canlı JSON'lardan gelir:
+         satış  -> envanter.json (o karakterde GERÇEKTEN ne varsa)
+         alım   -> pazar.json    (pazarda GERÇEKTEN ne satılıyorsa)
+         ödenek -> sancak.json   (eyalet deposunda ne varsa)
+       ======================================================= -->
+  <section id="tab-emir" class="tab-panel">
+    <p class="bolum-aciklama">
+      Kutuları doldur, aşağıdaki mesaj kendiliğinden oluşsun, <strong>Gönder</strong>'e bas.
+      Eşya adlarını elle yazmana gerek yok — yazmaya başlayınca o karakterde/pazarda
+      gerçekten olan adlar çıkar. Böylece bot emri yanlış anlayamaz.
+    </p>
+
+    <div class="emir-tur-secim">
+      <button class="emir-tur-btn active" data-tur="sat">💰 Satış</button>
+      <button class="emir-tur-btn" data-tur="al">🛒 Alım</button>
+      <button class="emir-tur-btn" data-tur="odenek">📜 Ödenek</button>
+    </div>
+
+    <!-- ---------------- SATIŞ ---------------- -->
+    <div class="emir-form active" id="emir-form-sat">
+      <div class="emir-satir">
+        <label>Satacak hesap
+          <input list="emir-hesap-listesi" id="sat-hesap" placeholder="yazmaya başla… (örn. coptik)" autocomplete="off">
+        </label>
+        <label>Malzeme
+          <input list="sat-mal-listesi" id="sat-mal" placeholder="önce hesabı seç" autocomplete="off">
+          <datalist id="sat-mal-listesi"></datalist>
+        </label>
+      </div>
+      <p class="emir-ipucu" id="sat-bilgi"></p>
+      <div class="emir-satir">
+        <label>Adet
+          <input type="number" id="sat-adet" min="1" step="1" placeholder="örn. 50">
+        </label>
+        <label>Fiyat
+          <select id="sat-fiyat-mod">
+            <option value="en düşük">en düşük (pazardaki en ucuza in)</option>
+            <option value="en yüksek">en yüksek</option>
+            <option value="sayi">elle gireceğim (akçe)</option>
+          </select>
+        </label>
+        <label id="sat-fiyat-sayi-kutu" hidden>Akçe
+          <input type="number" id="sat-fiyat-sayi" min="0" step="0.01" placeholder="örn. 10">
+        </label>
+      </div>
+      <div class="emir-satir">
+        <label>Kime rezerve edilsin? <span class="emir-kucuk">(boş bırakırsan herkese açık satılır)</span>
+          <input list="emir-hesap-listesi" id="sat-alici" placeholder="boş = herkese açık" autocomplete="off">
+        </label>
+      </div>
+    </div>
+
+    <!-- ---------------- ALIM ---------------- -->
+    <div class="emir-form" id="emir-form-al">
+      <div class="emir-satir">
+        <label>Alacak hesap
+          <input list="emir-hesap-listesi" id="al-hesap" placeholder="yazmaya başla… (örn. odigan)" autocomplete="off">
+        </label>
+        <label>Malzeme <span class="emir-kucuk">(pazarda olanlar)</span>
+          <input list="al-mal-listesi" id="al-mal" placeholder="örn. Çuval Mısır" autocomplete="off">
+          <datalist id="al-mal-listesi"></datalist>
+        </label>
+      </div>
+      <p class="emir-ipucu" id="al-bilgi"></p>
+      <div class="emir-satir">
+        <label>Adet
+          <input type="number" id="al-adet" min="1" step="1" placeholder="örn. 50">
+        </label>
+        <label>Azami toplam akçe
+          <input type="number" id="al-azami" min="0" step="0.01" placeholder="otomatik hesaplanır">
+        </label>
+        <button type="button" id="al-azami-oner" class="emir-mini-btn">🔢 pazara göre hesapla</button>
+      </div>
+    </div>
+
+    <!-- ---------------- ÖDENEK ---------------- -->
+    <div class="emir-form" id="emir-form-odenek">
+      <div class="emir-satir">
+        <label>Ödenek atılacak kişi
+          <input list="emir-hesap-listesi" id="od-kisi" placeholder="örn. Tar_aldarion" autocomplete="off">
+        </label>
+        <label>Hangi sancaktan? <span class="emir-kucuk">(eşya listesi buna göre gelir)</span>
+          <select id="od-sancak"></select>
+        </label>
+      </div>
+      <div id="od-mallar"></div>
+      <button type="button" id="od-satir-ekle" class="emir-mini-btn">➕ mal satırı ekle</button>
+      <p class="emir-ipucu" id="od-bilgi"></p>
+    </div>
+
+    <!-- ---------------- ÖNİZLEME + GÖNDER ---------------- -->
+    <h3 class="emir-baslik">Gidecek mesaj</h3>
+    <pre id="emir-onizleme" class="emir-onizleme">Kutuları doldur…</pre>
+    <p id="emir-uyari" class="emir-uyari" hidden></p>
+
+    <div class="emir-dugmeler">
+      <button id="emir-gonder" class="emir-ana-btn" disabled>📨 Gönder</button>
+      <button id="emir-kopyala" class="emir-mini-btn">📋 Kopyala</button>
+      <span id="emir-durum" class="dilekce-durum"></span>
+    </div>
+    <p class="emir-kucuk emir-dipnot" id="emir-dipnot"></p>
+
+    <datalist id="emir-hesap-listesi"></datalist>
+  </section>
+
 </main>
 
 <footer class="site-footer">
@@ -386,5 +495,6 @@
 </footer>
 
 <script src="script.js"></script>
+<script src="emir.js"></script>
 </body>
 </html>
