@@ -37,8 +37,15 @@ const RK_KARE = 80, RK_DX = 60, RK_DY = 25;
 const RK_KIYI_PAYI = 2, RK_KIYI_BEDELI = 0.6;
 /* Gün maliyetleri — tek bir "gün" birimine çevirip birlikte hesaplarız */
 const RK_DENIZ_HAMLE_GUN = 1 / 10;     // günde 10 hamle
-const RK_BINIS_GUN = 1;                // gemiye binmek 1 gün
+/* ⚠️ Gemiye binmek grupta değilsen ANIDIR (oyun rehberi + kullanıcı);
+   inmek 1 gün sürer. Eskiden ikisi de 1 gün sayılıyordu ve limandan
+   çıkarken olmayan bir "kara adımı" görünüyordu. */
+const RK_BINIS_GUN = 0.05;             // pratikte anında
 const RK_INIS_GUN = 1;                 // gemiden inmek 1 gün
+/* Zorlanmış kare (aslında kara) — sadece limana girip çıkmak için. */
+const RK_ZORLANMIS_BEDELI = 0.8;
+/* Yön değiştirme cezası — düz gitmeyi yeğlet (zikzak çözümü). */
+const RK_DONUS_BEDELI = 0.004;
 
 function rkAnahtar(x, y) { return x + "," + y; }
 function rkPiksel(x, y) { return [(x - RK_DX) * RK_KARE + RK_KARE / 2,
@@ -90,6 +97,11 @@ async function rkYukle() {
   for (const y in RK.veri.su) {
     for (const x of RK.veri.su[y]) RK.su.add(rkAnahtar(x, Number(y)));
   }
+  // ⚠️ Gerçek suda OLMAYAN, yalnızca limana girip çıkmak için açılmış
+  //    kareler. Bunlar PAHALI sayılır; yoksa rota onları kestirme diye
+  //    kullanıp KARADAN geçiyordu (kullanıcının "Stirling çıkışı" ekran
+  //    görüntüsündeki hata).
+  RK.zorlanmis = new Set(RK.veri.zorlanmis || []);
   RK.limanSet = new Set(RK.veri.limanlar.map((l) => l[0]));
   rkKutulariDoldur();
   return true;
@@ -222,12 +234,15 @@ function rkBirlesikRota(basId, bitId, jeton) {
       // limansa gemiye bin
       if (RK.limanSet.has(Number(id))) {
         for (const k of rkLimanCikis(id)) {
-          const s = "D" + k, yeni = m + RK_BINIS_GUN;
+          const s = "D" + k, yeni = m + RK_BINIS_GUN;   // yön yok = ilk hamle
           if (yeni < (uz.get(s) ?? Infinity)) { uz.set(s, yeni); onc.set(s, n); y.it(yeni, s); }
         }
       }
     } else {
-      const kare = n.slice(1);
+      // "D<x>,<y>|<dx><dy>" — yön, zikzak cezası için durumda taşınır.
+      const boru = n.indexOf("|");
+      const kare = boru < 0 ? n.slice(1) : n.slice(1, boru);
+      const yon = boru < 0 ? null : Number(n.slice(boru + 1));
       const [x, yy] = kare.split(",").map(Number);
       for (let a = -1; a <= 1; a++)
         for (let b = -1; b <= 1; b++) {
@@ -235,9 +250,16 @@ function rkBirlesikRota(basId, bitId, jeton) {
           const k = rkAnahtar(x + a, yy + b);
           if (!RK.su.has(k)) continue;
           const ku = kiyi.get(k);
-          const ek = (ku !== undefined && ku < RK_KIYI_PAYI)
+          let ek = (ku !== undefined && ku < RK_KIYI_PAYI)
             ? RK_KIYI_BEDELI * (RK_KIYI_PAYI - ku) * RK_DENIZ_HAMLE_GUN : 0;
-          const s = "D" + k, yeni = m + RK_DENIZ_HAMLE_GUN + ek;
+          // Zorlanmış kare = aslında kara. Sadece limana girip çıkmak için
+          // kullanılsın diye ağır bedel.
+          if (RK.zorlanmis.has(k)) ek += RK_ZORLANMIS_BEDELI;
+          // Yön değiştirmeye küçük ceza — eşit maliyetli yollar arasından
+          // DÜZ olanı seçilsin (yoksa açık denizde zikzak çiziyordu).
+          const yonKod = (a + 1) * 3 + (b + 1);      // 0..8, tek rakam
+          if (yon !== null && yon !== yonKod) ek += RK_DONUS_BEDELI;
+          const s = "D" + k + "|" + yonKod, yeni = m + RK_DENIZ_HAMLE_GUN + ek;
           if (yeni < (uz.get(s) ?? Infinity)) { uz.set(s, yeni); onc.set(s, n); y.it(yeni, s); }
         }
       // yakındaki limana karaya çık (önceden eşlenmiş listeden)
@@ -267,9 +289,11 @@ function rkParcalariCiz(yol) {
   let simdi = null;
   for (const n of yol) {
     const tur = n[0] === "K" ? "kara" : "deniz";
+    const ham = n[0] === "K" ? n.slice(1)
+      : (n.indexOf("|") < 0 ? n.slice(1) : n.slice(1, n.indexOf("|")));
     const nokta = n[0] === "K"
-      ? rkPiksel(RK.veri.dugumler[n.slice(1)][0], RK.veri.dugumler[n.slice(1)][1])
-      : rkPiksel(...n.slice(1).split(",").map(Number));
+      ? rkPiksel(RK.veri.dugumler[ham][0], RK.veri.dugumler[ham][1])
+      : rkPiksel(...ham.split(",").map(Number));
     const ll = RK.rc.unproject(nokta);
     if (!simdi || simdi.tur !== tur) {
       if (simdi) { simdi.noktalar.push(ll); parcalar.push(simdi); }
@@ -342,11 +366,29 @@ function rkHesapla() {
     } else {
       rkParcalariCiz(bir.yol);
       const denizHamle = bir.yol.filter((n) => n[0] === "D").length;
-      const karaAdimB = bir.yol.filter((n) => n[0] === "K").length - 1;
-      metin += `~${Math.ceil(bir.gun)} gün · ` +
-        `${karaAdimB} kara adımı + ${denizHamle} deniz hamlesi` +
+      // ⚠️ Kara adımı = yalnızca KARA→KARA geçişleri. Eskiden "K düğümü
+      //    sayısı - 1" deniyordu; limandan gemiye binmek de kara adımı
+      //    sanılıyor ve her rotada "1 kara adımı" görünüyordu.
+      let karaAdimB = 0, inis = 0;
+      for (let i = 1; i < bir.yol.length; i++) {
+        const o = bir.yol[i - 1][0], y = bir.yol[i][0];
+        if (o === "K" && y === "K") karaAdimB++;
+        if (o === "D" && y === "K") inis++;      // gemiden inmek 1 gün
+      }
+      // ⚠️⚠️ GÜN, ARAMA MALİYETİNDEN HESAPLANMAZ. Dijkstra'nın maliyetine
+      //    kıyıdan uzak durma ve zikzak cezaları da giriyor; onlar sadece
+      //    rotayı SEÇMEK için var, gerçek süre değil. (Ardencaple →
+      //    Kirkcudbright 10 hamle = 1 gün yelken; eski hesap 4 gün diyordu.)
+      const denizGun = Math.ceil(denizHamle / 10);
+      const karaGun = Math.ceil(karaAdimB / (jeton ? 3 : 2));
+      const toplam = denizGun + karaGun + inis;
+      const parcalar = [];
+      if (denizHamle) parcalar.push(`${denizHamle} deniz hamlesi = ${denizGun} gün`);
+      if (karaAdimB) parcalar.push(`${karaAdimB} kara adımı = ${karaGun} gün`);
+      if (inis) parcalar.push(`${inis} × karaya çıkış = ${inis} gün`);
+      metin += `${toplam} gün (${parcalar.join(" + ")})` +
         (karaAdim !== undefined
-          ? ` (yalnız karadan ${Math.ceil(karaAdim / (jeton ? 3 : 2))} gün)` : "") +
+          ? ` · yalnız karadan ${Math.ceil(karaAdim / (jeton ? 3 : 2))} gün` : "") +
         ` · ${ms} ms`;
     }
   }
@@ -447,6 +489,27 @@ async function rkKur() {
   RK.map.setView(RK.rc.unproject([10000, 15000]), 3);
 
   rkIzgaraKur();
+
+  // Tam ekran düğmesi (eklenti yok — tarayıcının kendi Fullscreen API'si).
+  const TamEkran = L.Control.extend({
+    options: { position: "topleft" },
+    onAdd: function () {
+      const k = L.DomUtil.create("div", "leaflet-bar leaflet-control");
+      const a = L.DomUtil.create("a", "rk-tamekran", k);
+      a.href = "#"; a.title = "Tam ekran"; a.innerHTML = "⛶";
+      L.DomEvent.on(a, "click", (e) => {
+        L.DomEvent.stop(e);
+        const kap = document.getElementById("rk-harita");
+        if (document.fullscreenElement) document.exitFullscreen();
+        else if (kap.requestFullscreen) kap.requestFullscreen();
+        setTimeout(() => RK.map.invalidateSize(), 200);
+      });
+      return k;
+    },
+  });
+  RK.map.addControl(new TamEkran());
+  document.addEventListener("fullscreenchange",
+    () => setTimeout(() => { if (RK.map) RK.map.invalidateSize(); }, 120));
 
   RK.map.on("click", (e) => {
     const p = RK.rc.project(e.latlng);
