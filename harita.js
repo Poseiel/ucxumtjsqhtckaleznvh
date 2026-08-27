@@ -277,6 +277,59 @@ function rkBirlesikRota(basId, bitId, jeton) {
   return { yol, gun: uz.get(hedefDugum) };
 }
 
+/* ---------------- YALNIZ DENİZ rotası ----------------
+   ⚠️ NEDEN AYRI BİR MOD: birleşik rota bazen iki liman arasını KARADAN
+      yürüyor. Gemiyle seyahat ederken bu olmaz — gemiyi bir limanda
+      bırakıp karadan gidersen onu geri alamayabilirsin (kullanıcı,
+      27.08.2026). Bu mod hiç karaya çıkmaz, baştan sona denizdedir.
+------------------------------------------------------ */
+function rkDenizRota(basId, bitId) {
+  if (!RK.limanSet.has(Number(basId)) || !RK.limanSet.has(Number(bitId)))
+    return { hata: "İki uç da LİMAN olmalı (gemi yalnız limana yanaşır)." };
+  const cikis = rkLimanCikis(basId);
+  const varis = new Set(rkLimanCikis(bitId));
+  if (!cikis.length || !varis.size)
+    return { hata: "Limanlardan biri denize açılmıyor." };
+
+  const kiyi = rkDenizKiyi();
+  const uz = new Map(), onc = new Map();
+  const y = new RKYigin();
+  for (const k of cikis) {
+    const s = "D" + k + "|9";
+    uz.set(s, 0); y.it(0, s);
+  }
+  let son = null;
+  while (y.boy) {
+    const [m, n] = y.cek();
+    if (m > (uz.get(n) ?? Infinity)) continue;
+    const boru = n.indexOf("|");
+    const kare = n.slice(1, boru);
+    const yon = Number(n.slice(boru + 1));
+    if (varis.has(kare)) { son = n; break; }
+    const [x, yy] = kare.split(",").map(Number);
+    for (let a = -1; a <= 1; a++)
+      for (let b = -1; b <= 1; b++) {
+        if (!a && !b) continue;
+        const k = rkAnahtar(x + a, yy + b);
+        if (!RK.su.has(k)) continue;
+        const ku = kiyi.get(k);
+        let ek = (ku !== undefined && ku < RK_KIYI_PAYI)
+          ? RK_KIYI_BEDELI * (RK_KIYI_PAYI - ku) * RK_DENIZ_HAMLE_GUN : 0;
+        if (RK.zorlanmis.has(k)) ek += RK_ZORLANMIS_BEDELI;
+        const yonKod = (a + 1) * 3 + (b + 1);
+        if (yon !== 9 && yon !== yonKod) ek += RK_DONUS_BEDELI;
+        const s = "D" + k + "|" + yonKod, v = m + RK_DENIZ_HAMLE_GUN + ek;
+        if (v < (uz.get(s) ?? Infinity)) { uz.set(s, v); onc.set(s, n); y.it(v, s); }
+      }
+  }
+  if (!son) return { hata: "Bu iki liman arasında DENİZ yolu bulunamadı." };
+  const yol = [];
+  let k = son;
+  while (k !== undefined) { yol.push(k); k = onc.get(k); }
+  yol.reverse();
+  return { yol };
+}
+
 /* ---------------- çizim ---------------- */
 function rkTemizle() {
   RK.katman.forEach((k) => RK.map.removeLayer(k));
@@ -352,7 +405,19 @@ function rkHesapla() {
   const mod = document.querySelector('input[name="rk-mod"]:checked').value;
   let metin = `${RK.bas.ad} → ${RK.bit.ad}: `;
 
-  if (mod === "kara") {
+  if (mod === "deniz") {
+    const r = rkDenizRota(RK.bas.id, RK.bit.id);
+    if (r.hata) {
+      metin += r.hata;
+    } else {
+      rkParcalariCiz(r.yol);
+      const hamle = r.yol.length - 1;
+      const gun = Math.ceil(hamle / 10);
+      metin += `${hamle} deniz hamlesi = ${gun} gün ` +
+        `(mürettebat tam: günde 10) + 1 gün karaya çıkış = ${gun + 1} gün · ` +
+        `${ms} ms · hiç karaya çıkılmaz`;
+    }
+  } else if (mod === "kara") {
     if (karaAdim === undefined) {
       metin += "kara yolu YOK (arada deniz var). 'Kara + Deniz' seçeneğini dene.";
     } else {
