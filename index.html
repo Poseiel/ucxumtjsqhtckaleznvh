@@ -6,6 +6,32 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Poseidon Pazar &amp; Harita</title>
 <link rel="stylesheet" href="style.css">
+
+<!-- 🗺️ Harita & Rota sekmesi icin Leaflet ve eklentileri.
+     ⚠️ Harita kutucuklari bu depoya KOPYALANMAZ; tarayici dogrudan
+        herkese acik kmanev/RKMap deposundan ceker. -->
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet-polylinedecorator@1.6.0/dist/leaflet.polylineDecorator.js"></script>
+<script>
+/* leaflet-rastercoords (kucuk oldugu icin CDN yerine buraya gomuldu) */
+L.RasterCoords = function (map, imgsize, tilesize) {
+  this.map = map; this.width = imgsize[0]; this.height = imgsize[1];
+  this.tilesize = tilesize || 256; this.zoom = this.zoomLevel();
+  if (this.width && this.height) this.setMaxBounds();
+};
+L.RasterCoords.prototype = {
+  zoomLevel: function () {
+    return Math.ceil(Math.log(Math.max(this.width, this.height) / this.tilesize) / Math.log(2));
+  },
+  unproject: function (c) { return this.map.unproject(c, this.zoom); },
+  project: function (c) { return this.map.project(c, this.zoom); },
+  setMaxBounds: function () {
+    var sw = this.unproject([0, this.height]), ne = this.unproject([this.width, 0]);
+    this.map.setMaxBounds(new L.LatLngBounds(sw, ne));
+  }
+};
+</script>
 </head>
 <body>
 
@@ -34,8 +60,7 @@
   <button class="tab-btn" data-tab="hareket">Hareket</button>
   <button class="tab-btn" data-tab="inziva">İnziva</button>
   <button class="tab-btn" data-tab="sakinler">Kim Nerede</button>
-  <button class="tab-btn" data-tab="harita">Harita &amp; Seyahat</button>
-  <button class="tab-btn" data-tab="deniz">🚢 Deniz Rotası</button>
+  <button class="tab-btn" data-tab="harita">🗺️ Harita &amp; Rota</button>
 </nav>
 
 <main>
@@ -360,56 +385,44 @@
   </section>
 
   <section id="tab-harita" class="tab-panel">
-    <p class="bolum-aciklama">Kara yolu haritası. Noktalar oyunun <b>gerçek koordinatlarından</b> çizilir (eskiden yay düzeniyle dağıtılıyordu, o yüzden anlaşılmıyordu). Deniz yolu için "🚢 Deniz Rotası" sekmesine bak.</p>
-    <div class="seyahat-arac-cubugu">
-      <select id="seyahat-nereden">
-        <option value="">Nereden?</option>
-      </select>
-      <select id="seyahat-nereye">
-        <option value="">Nereye?</option>
-      </select>
-      <label class="pasa-toggle">
-        <input type="checkbox" id="pasa-paketli">
-        Paşa paketli (günde 3 adım, yoksa 2)
-      </label>
-      <button id="rota-bul-btn">Rota Bul</button>
-    </div>
-    <p id="rota-sonuc" class="rota-sonuc"></p>
-    <div class="harita-sarici">
-      <svg id="harita-svg" viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid meet"></svg>
-    </div>
-    <p class="harita-not">Şehir adı olan noktalara tıklayıp "Nereden"/"Nereye" kutularına otomatik doldurabilirsin.</p>
-  </section>
-
-  <!-- =======================================================
-       🚢 DENİZ ROTASI — kare kare su/kara haritamız + gemi rotası.
-       ⚠️ Oyunun harita GÖRSELİ kullanılmaz; her kare `deniz.json`
-          içindeki kendi verimizden çizilir.
-       Veri: deniz_haritasi_uret.py --site
-       ======================================================= -->
-  <section id="tab-deniz" class="tab-panel">
     <p class="bolum-aciklama">
-      Geminin gerçekte hangi karelerden geçebileceğini gösterir. Mavi kareler
-      SU, açık zemin KARA. İki liman seç (ya da haritaya tıkla) — bot hangi
-      rotayı hesaplıyorsa aynısı çizilir, yön okları hamle sırasını gösterir.
-      Böylece oyuna girmeden, rüzgâra bakmadan rotayı gözle doğrulayabilirsin.
+      Oyunun gerçek haritası üzerinde <b>kara</b>, <b>deniz</b> ve
+      <b>kara→deniz→kara</b> rotası. Kareler oyunun kendi ızgarasıdır —
+      gemi tam bu karelerden ilerler, rüzgâr da kare kare değişir.
+      İki şehir seç ya da haritaya tıkla; mavi çizgi kara yolu, kırmızı
+      çizgi deniz yolu, oklar gidiş yönüdür.
     </p>
     <div class="seyahat-arac-cubugu">
-      <select id="deniz-bas"><option value="">— liman seç —</option></select>
-      <select id="deniz-bit"><option value="">— liman seç —</option></select>
-      <button id="deniz-sifirla">Temizle</button>
+      <select id="rk-bas"><option value="">— şehir seç —</option></select>
+      <select id="rk-bit"><option value="">— şehir seç —</option></select>
+      <label class="pasa-toggle">
+        <input type="radio" name="rk-mod" value="karadeniz" checked>
+        Kara + Deniz
+      </label>
+      <label class="pasa-toggle">
+        <input type="radio" name="rk-mod" value="kara">
+        Yalnız kara
+      </label>
+      <label class="pasa-toggle">
+        <input type="checkbox" id="rk-jeton">
+        Paşa paketli (günde 3 adım)
+      </label>
+      <label class="pasa-toggle">
+        <input type="checkbox" id="rk-izgara" checked>
+        Kareleri göster
+      </label>
+      <button id="rk-temizle">Temizle</button>
     </div>
-    <p id="deniz-durum" class="rota-sonuc">Sekmeye geçince harita yüklenir…</p>
-    <div class="deniz-sarici">
-      <canvas id="deniz-kanvas"></canvas>
-    </div>
+    <p id="rk-durum" class="rota-sonuc">Sekmeye geçince harita yüklenir…</p>
+    <div id="rk-harita" class="rk-harita-sarici"></div>
     <p class="harita-not">
-      Tekerlek = yaklaştır/uzaklaştır · sürükle = kaydır · kareye tıkla =
-      en yakın limanı uç olarak seç. Kırmızı çizgi rota, oklar gidiş yönü.
+      Tekerlek = yaklaştır · sürükle = kaydır · haritaya tıkla = en yakın
+      şehri uç olarak seç. Kare çizgileri yakınlaştıkça sıklaşır; en yakın
+      seviyede oyunun gerçek kareleri ve koordinat numaraları görünür.
     </p>
   </section>
 
-  <!-- =======================================================
+    <!-- =======================================================
        📨 EMİR GÖNDER — Telegram şablonlarını formla üretir.
        Amaç: elle yazarken oluşan yazım hatasını SIFIRLAMAK.
        Eşya listeleri canlı JSON'lardan gelir:
@@ -525,6 +538,6 @@
 
 <script src="script.js"></script>
 <script src="emir.js"></script>
-<script src="deniz.js"></script>
+<script src="harita.js"></script>
 </body>
 </html>
