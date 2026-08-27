@@ -819,3 +819,13 @@ tbody tr:hover { background: var(--bg-panel-2); }
 /* Leaflet kendi yazı rengini sitenin koyu temasından almasın. */
 .rk-harita-sarici .leaflet-container { background: #4a5a68; }
 .rk-harita-sarici .leaflet-control-attribution { font-size: 10px; }
+/* Tam ekran düğmesi (Leaflet çubuğu içinde) */
+a.rk-tamekran {
+  font-size: 18px;
+  line-height: 26px;
+  text-align: center;
+  text-decoration: none;
+  color: #333;
+}
+/* Tam ekranda harita tüm alanı kaplasın. */
+#rk-harita:fullscreen { width: 100vw; height: 100vh; border-radius: 0; }
