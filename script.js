@@ -1450,6 +1450,7 @@ async function haritaYukle() {
 
 function haritaCiz(kenarlar) {
   const svg = document.getElementById("harita-svg");
+  if (!svg) return;   // eski SVG harita kaldırıldı (bkz. harita.js)
   svg.innerHTML = "";
 
   const ns = "http://www.w3.org/2000/svg";
@@ -1564,7 +1565,11 @@ function enKisaYol(baslangic, hedef) {
   return null; // rota yok (bağlantısız parça)
 }
 
-document.getElementById("rota-bul-btn").addEventListener("click", () => {
+// ⚠️ 27.08.2026: Harita sekmesi Leaflet tabanlı `harita.js`e taşındı;
+//    bu düğme artık sayfada YOK. Korumasız `addEventListener` çağrısı
+//    burada patlayıp AŞAĞIDAKİ TÜM sekmelerin yüklenmesini engelliyordu.
+const _rotaBulBtn = document.getElementById("rota-bul-btn");
+if (_rotaBulBtn) _rotaBulBtn.addEventListener("click", () => {
   const nereden = parseInt(document.getElementById("seyahat-nereden").value, 10);
   const nereye = parseInt(document.getElementById("seyahat-nereye").value, 10);
   const sonucEl = document.getElementById("rota-sonuc");
