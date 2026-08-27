@@ -383,7 +383,8 @@ function rkHesapla() {
       const karaGun = Math.ceil(karaAdimB / (jeton ? 3 : 2));
       const toplam = denizGun + karaGun + inis;
       const parcalar = [];
-      if (denizHamle) parcalar.push(`${denizHamle} deniz hamlesi = ${denizGun} gün`);
+      if (denizHamle) parcalar.push(
+        `${denizHamle} deniz hamlesi = ${denizGun} gün (mürettebat tam: günde 10)`);
       if (karaAdimB) parcalar.push(`${karaAdimB} kara adımı = ${karaGun} gün`);
       if (inis) parcalar.push(`${inis} × karaya çıkış = ${inis} gün`);
       metin += `${toplam} gün (${parcalar.join(" + ")})` +
