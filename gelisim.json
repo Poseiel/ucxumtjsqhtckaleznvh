@@ -1,7 +1,7 @@
 {
-  "son_guncelleme": "2026-08-27 18:55",
-  "bugun_tarihi": "2026-08-27",
-  "dun_tarihi": "2026-08-26",
+  "son_guncelleme": "2026-08-28 16:55",
+  "bugun_tarihi": "2026-08-28",
+  "dun_tarihi": "2026-08-27",
   "karakterler": [
     {
       "karakter": "mr.butcher",
@@ -14,7 +14,14 @@
       "karizma": 255,
       "guven": 205,
       "akce": 61906.0,
-      "dun": null
+      "dun": {
+        "seviye": 283,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 255,
+        "guven": 205,
+        "akce": 61906.0
+      }
     },
     {
       "karakter": "toyga",
@@ -25,15 +32,15 @@
       "kuvvet": 255,
       "zeka": 154,
       "karizma": 255,
-      "guven": 188,
-      "akce": 30928.0,
+      "guven": 189,
+      "akce": 31433.0,
       "dun": {
-        "seviye": 191,
+        "seviye": 192,
         "kuvvet": 255,
         "zeka": 154,
         "karizma": 255,
-        "guven": 187,
-        "akce": 30428.0
+        "guven": 188,
+        "akce": 30928.0
       }
     },
     {
@@ -41,79 +48,19 @@
       "kasaba": "Glasgow",
       "meslek": "Fırıncı",
       "yol": "medecine",
-      "seviye": 243,
+      "seviye": 244,
       "kuvvet": 255,
       "zeka": 255,
       "karizma": 255,
       "guven": 192,
-      "akce": 47443.0,
+      "akce": 47264.0,
       "dun": {
         "seviye": 243,
         "kuvvet": 255,
         "zeka": 255,
         "karizma": 255,
         "guven": 192,
-        "akce": 47047.0
-      }
-    },
-    {
-      "karakter": "corryvreckan",
-      "kasaba": "Girvan",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 98,
-      "kuvvet": 181,
-      "zeka": 51,
-      "karizma": 21,
-      "guven": 21,
-      "akce": 7370.0,
-      "dun": {
-        "seviye": 98,
-        "kuvvet": 179,
-        "zeka": 51,
-        "karizma": 21,
-        "guven": 21,
-        "akce": 7139.0
-      }
-    },
-    {
-      "karakter": "ranrok",
-      "kasaba": "Wigtown",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 99,
-      "kuvvet": 117,
-      "zeka": 49,
-      "karizma": 59,
-      "guven": 31,
-      "akce": 44.0,
-      "dun": {
-        "seviye": 98,
-        "kuvvet": 117,
-        "zeka": 47,
-        "karizma": 59,
-        "guven": 31,
-        "akce": 53.0
-      }
-    },
-    {
-      "karakter": "kardemar",
-      "kasaba": "Ardencaple",
-      "meslek": "Kasap",
-      "yol": "-",
-      "seviye": 94,
-      "kuvvet": 114,
-      "zeka": 194,
-      "karizma": 40,
-      "guven": 58,
-      "akce": 385.0,
-      "dun": {
-        "seviye": 94,
-        "kuvvet": 112,
-        "zeka": 194,
-        "karizma": 40,
-        "guven": 57,
-        "akce": 396.0
+        "akce": 47443.0
       }
     },
     {
@@ -123,57 +70,37 @@
       "yol": "-",
       "seviye": 96,
       "kuvvet": 255,
-      "zeka": 141,
+      "zeka": 145,
       "karizma": 52,
       "guven": 14,
-      "akce": 35697.0,
+      "akce": 36033.0,
       "dun": {
         "seviye": 96,
         "kuvvet": 255,
-        "zeka": 138,
+        "zeka": 141,
         "karizma": 52,
         "guven": 14,
-        "akce": 35552.0
+        "akce": 35697.0
       }
     },
     {
-      "karakter": "beramus",
-      "kasaba": "Kirkcudbright",
-      "meslek": "Marangoz",
+      "karakter": "corryvreckan",
+      "kasaba": "Girvan",
+      "meslek": "-",
       "yol": "-",
-      "seviye": 93,
-      "kuvvet": 255,
-      "zeka": 96,
+      "seviye": 98,
+      "kuvvet": 183,
+      "zeka": 51,
       "karizma": 21,
-      "guven": 18,
-      "akce": 29796.0,
+      "guven": 22,
+      "akce": 7609.0,
       "dun": {
-        "seviye": 93,
-        "kuvvet": 255,
-        "zeka": 94,
+        "seviye": 98,
+        "kuvvet": 181,
+        "zeka": 51,
         "karizma": 21,
-        "guven": 18,
-        "akce": 29722.0
-      }
-    },
-    {
-      "karakter": "dervorin",
-      "kasaba": "Stirling",
-      "meslek": "Değirmenci",
-      "yol": "-",
-      "seviye": 89,
-      "kuvvet": 255,
-      "zeka": 112,
-      "karizma": 22,
-      "guven": 31,
-      "akce": 814.0,
-      "dun": {
-        "seviye": 89,
-        "kuvvet": 255,
-        "zeka": 109,
-        "karizma": 22,
-        "guven": 31,
-        "akce": 846.0
+        "guven": 21,
+        "akce": 7370.0
       }
     },
     {
@@ -186,274 +113,154 @@
       "zeka": 104,
       "karizma": 22,
       "guven": 41,
-      "akce": 45.0,
+      "akce": 58.0,
       "dun": {
         "seviye": 98,
         "kuvvet": 244,
         "zeka": 104,
         "karizma": 22,
         "guven": 41,
-        "akce": 42.0
+        "akce": 45.0
       }
     },
     {
-      "karakter": "tortugal",
+      "karakter": "ranrok",
       "kasaba": "Wigtown",
       "meslek": "-",
       "yol": "-",
-      "seviye": 88,
-      "kuvvet": 79,
-      "zeka": 42,
-      "karizma": 42,
-      "guven": 18,
-      "akce": 55.0,
+      "seviye": 99,
+      "kuvvet": 117,
+      "zeka": 49,
+      "karizma": 59,
+      "guven": 31,
+      "akce": 64.0,
       "dun": {
-        "seviye": 88,
-        "kuvvet": 79,
-        "zeka": 40,
-        "karizma": 42,
-        "guven": 18,
-        "akce": 50.0
+        "seviye": 99,
+        "kuvvet": 117,
+        "zeka": 49,
+        "karizma": 59,
+        "guven": 31,
+        "akce": 44.0
       }
     },
     {
-      "karakter": "argaios",
-      "kasaba": "Wigtown",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 97,
-      "kuvvet": 108,
-      "zeka": 65,
-      "karizma": 96,
-      "guven": 65,
-      "akce": 1158.0,
-      "dun": {
-        "seviye": 97,
-        "kuvvet": 108,
-        "zeka": 63,
-        "karizma": 96,
-        "guven": 63,
-        "akce": 1162.0
-      }
-    },
-    {
-      "karakter": "tommytara",
-      "kasaba": "Wigtown",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 88,
-      "kuvvet": 96,
-      "zeka": 44,
-      "karizma": 132,
-      "guven": 45,
-      "akce": 166.0,
-      "dun": {
-        "seviye": 88,
-        "kuvvet": 96,
-        "zeka": 44,
-        "karizma": 132,
-        "guven": 45,
-        "akce": 162.0
-      }
-    },
-    {
-      "karakter": "sorchadusk",
-      "kasaba": "Wigtown",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 96,
-      "kuvvet": 110,
-      "zeka": 44,
-      "karizma": 45,
-      "guven": 35,
-      "akce": 70.0,
-      "dun": {
-        "seviye": 96,
-        "kuvvet": 110,
-        "zeka": 44,
-        "karizma": 45,
-        "guven": 35,
-        "akce": 48.0
-      }
-    },
-    {
-      "karakter": "beannighe",
-      "kasaba": "Stirling",
-      "meslek": "Fırıncı",
-      "yol": "eglise",
-      "seviye": 225,
-      "kuvvet": 255,
-      "zeka": 255,
-      "karizma": 255,
-      "guven": 190,
-      "akce": 34087.0,
-      "dun": {
-        "seviye": 224,
-        "kuvvet": 255,
-        "zeka": 255,
-        "karizma": 255,
-        "guven": 190,
-        "akce": 34017.0
-      }
-    },
-    {
-      "karakter": "baela",
-      "kasaba": "Kirkcudbright",
+      "karakter": "kardemar",
+      "kasaba": "Ardencaple",
       "meslek": "Kasap",
       "yol": "-",
-      "seviye": 92,
+      "seviye": 94,
+      "kuvvet": 116,
+      "zeka": 194,
+      "karizma": 40,
+      "guven": 58,
+      "akce": 369.0,
+      "dun": {
+        "seviye": 94,
+        "kuvvet": 114,
+        "zeka": 194,
+        "karizma": 40,
+        "guven": 58,
+        "akce": 385.0
+      }
+    },
+    {
+      "karakter": "dervorin",
+      "kasaba": "Stirling",
+      "meslek": "Değirmenci",
+      "yol": "-",
+      "seviye": 90,
       "kuvvet": 255,
-      "zeka": 55,
-      "karizma": 88,
-      "guven": 96,
-      "akce": 30591.0,
-      "dun": {
-        "seviye": 92,
-        "kuvvet": 255,
-        "zeka": 55,
-        "karizma": 86,
-        "guven": 96,
-        "akce": 30702.0
-      }
-    },
-    {
-      "karakter": "patek",
-      "kasaba": "Glasgow",
-      "meslek": "Terzi",
-      "yol": "-",
-      "seviye": 73,
-      "kuvvet": 255,
-      "zeka": 67,
-      "karizma": 23,
-      "guven": 42,
-      "akce": 25925.0,
-      "dun": {
-        "seviye": 73,
-        "kuvvet": 255,
-        "zeka": 64,
-        "karizma": 23,
-        "guven": 42,
-        "akce": 25742.0
-      }
-    },
-    {
-      "karakter": "helioson",
-      "kasaba": "La Spezia",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 59,
-      "kuvvet": 16,
-      "zeka": 18,
-      "karizma": 15,
-      "guven": 14,
-      "akce": 37.0,
-      "dun": {
-        "seviye": 59,
-        "kuvvet": 16,
-        "zeka": 18,
-        "karizma": 15,
-        "guven": 14,
-        "akce": 38.0
-      }
-    },
-    {
-      "karakter": "jarg",
-      "kasaba": "Wigtown",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 89,
-      "kuvvet": 80,
-      "zeka": 47,
-      "karizma": 237,
-      "guven": 83,
-      "akce": 168.0,
+      "zeka": 115,
+      "karizma": 22,
+      "guven": 31,
+      "akce": 847.0,
       "dun": {
         "seviye": 89,
-        "kuvvet": 80,
-        "zeka": 45,
-        "karizma": 237,
-        "guven": 83,
-        "akce": 164.0
+        "kuvvet": 255,
+        "zeka": 112,
+        "karizma": 22,
+        "guven": 31,
+        "akce": 814.0
       }
     },
     {
-      "karakter": "kargath",
-      "kasaba": "Wigtown",
-      "meslek": "-",
+      "karakter": "beramus",
+      "kasaba": "Kirkcudbright",
+      "meslek": "Marangoz",
       "yol": "-",
-      "seviye": 96,
-      "kuvvet": 99,
-      "zeka": 55,
-      "karizma": 211,
-      "guven": 80,
-      "akce": 153.0,
+      "seviye": 94,
+      "kuvvet": 255,
+      "zeka": 98,
+      "karizma": 21,
+      "guven": 18,
+      "akce": 29850.0,
       "dun": {
-        "seviye": 96,
-        "kuvvet": 99,
-        "zeka": 53,
-        "karizma": 211,
-        "guven": 80,
-        "akce": 146.0
+        "seviye": 93,
+        "kuvvet": 255,
+        "zeka": 96,
+        "karizma": 21,
+        "guven": 18,
+        "akce": 29796.0
       }
     },
     {
-      "karakter": "vamder",
-      "kasaba": "Glasgow",
-      "meslek": "Kasap",
-      "yol": "medecine",
-      "seviye": 227,
+      "karakter": "bremer",
+      "kasaba": "Girvan",
+      "meslek": "Marangoz",
+      "yol": "-",
+      "seviye": 180,
       "kuvvet": 255,
       "zeka": 255,
-      "karizma": 255,
-      "guven": 255,
-      "akce": 37958.0,
+      "karizma": 76,
+      "guven": 137,
+      "akce": 10600.0,
       "dun": {
-        "seviye": 227,
+        "seviye": 180,
         "kuvvet": 255,
         "zeka": 255,
-        "karizma": 255,
-        "guven": 255,
-        "akce": 37587.0
+        "karizma": 74,
+        "guven": 137,
+        "akce": 10615.0
       }
     },
     {
-      "karakter": "vermithor",
-      "kasaba": "Whithorn",
-      "meslek": "Kasap",
-      "yol": "-",
-      "seviye": 91,
-      "kuvvet": 255,
-      "zeka": 83,
-      "karizma": 21,
-      "guven": 69,
-      "akce": 17456.0,
-      "dun": {
-        "seviye": 91,
-        "kuvvet": 253,
-        "zeka": 83,
-        "karizma": 21,
-        "guven": 68,
-        "akce": 17946.0
-      }
-    },
-    {
-      "karakter": "makuta",
-      "kasaba": "Wigtown",
+      "karakter": "scamender",
+      "kasaba": "Massa",
       "meslek": "-",
       "yol": "-",
       "seviye": 69,
-      "kuvvet": 45,
-      "zeka": 30,
-      "karizma": 151,
-      "guven": 43,
-      "akce": 174.0,
+      "kuvvet": 17,
+      "zeka": 15,
+      "karizma": 31,
+      "guven": 28,
+      "akce": 41.0,
       "dun": {
         "seviye": 69,
-        "kuvvet": 45,
-        "zeka": 28,
-        "karizma": 151,
-        "guven": 43,
-        "akce": 165.0
+        "kuvvet": 17,
+        "zeka": 15,
+        "karizma": 31,
+        "guven": 28,
+        "akce": 37.0
+      }
+    },
+    {
+      "karakter": "colonell",
+      "kasaba": "Glasgow",
+      "meslek": "Heykeltraş",
+      "yol": "-",
+      "seviye": 88,
+      "kuvvet": 255,
+      "zeka": 105,
+      "karizma": 50,
+      "guven": 15,
+      "akce": 31105.0,
+      "dun": {
+        "seviye": 88,
+        "kuvvet": 255,
+        "zeka": 102,
+        "karizma": 50,
+        "guven": 15,
+        "akce": 30913.0
       }
     },
     {
@@ -466,34 +273,14 @@
       "zeka": 255,
       "karizma": 255,
       "guven": 255,
-      "akce": 13309.0,
+      "akce": 13598.0,
       "dun": {
-        "seviye": 239,
+        "seviye": 240,
         "kuvvet": 255,
         "zeka": 255,
         "karizma": 255,
         "guven": 255,
-        "akce": 13145.0
-      }
-    },
-    {
-      "karakter": "zaniolo",
-      "kasaba": "Glasgow",
-      "meslek": "Bahçıvan",
-      "yol": "etat",
-      "seviye": 181,
-      "kuvvet": 255,
-      "zeka": 255,
-      "karizma": 255,
-      "guven": 116,
-      "akce": 12756.0,
-      "dun": {
-        "seviye": 180,
-        "kuvvet": 255,
-        "zeka": 255,
-        "karizma": 255,
-        "guven": 116,
-        "akce": 12810.0
+        "akce": 13309.0
       }
     },
     {
@@ -503,517 +290,37 @@
       "yol": "-",
       "seviye": 90,
       "kuvvet": 255,
-      "zeka": 193,
+      "zeka": 196,
       "karizma": 20,
       "guven": 24,
-      "akce": 31774.0,
+      "akce": 32172.0,
       "dun": {
-        "seviye": 89,
+        "seviye": 90,
         "kuvvet": 255,
-        "zeka": 190,
+        "zeka": 193,
         "karizma": 20,
         "guven": 24,
-        "akce": 31555.0
+        "akce": 31774.0
       }
     },
     {
-      "karakter": "mr.shadow",
-      "kasaba": "Massa",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 79,
-      "kuvvet": 42,
-      "zeka": 53,
-      "karizma": 36,
-      "guven": 46,
-      "akce": 16.0,
-      "dun": {
-        "seviye": 79,
-        "kuvvet": 42,
-        "zeka": 53,
-        "karizma": 36,
-        "guven": 46,
-        "akce": 17.0
-      }
-    },
-    {
-      "karakter": "helsinkii",
-      "kasaba": "Stirling",
-      "meslek": "Bahçıvan",
-      "yol": "-",
-      "seviye": 86,
-      "kuvvet": 255,
-      "zeka": 117,
-      "karizma": 31,
-      "guven": 36,
-      "akce": 303.0,
-      "dun": {
-        "seviye": 86,
-        "kuvvet": 255,
-        "zeka": 114,
-        "karizma": 21,
-        "guven": 36,
-        "akce": 320.0
-      }
-    },
-    {
-      "karakter": "wolftrap",
-      "kasaba": "Lewes",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 18,
-      "kuvvet": 2,
-      "zeka": 0,
-      "karizma": 0,
-      "guven": 0,
-      "akce": 57.0,
-      "dun": {
-        "seviye": 16,
-        "kuvvet": 0,
-        "zeka": 0,
-        "karizma": 0,
-        "guven": 0,
-        "akce": 54.0
-      }
-    },
-    {
-      "karakter": "bainhalt",
-      "kasaba": "Ardencaple",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 63,
-      "kuvvet": 55,
-      "zeka": 52,
-      "karizma": 32,
-      "guven": 5,
-      "akce": 178.0,
-      "dun": {
-        "seviye": 63,
-        "kuvvet": 53,
-        "zeka": 52,
-        "karizma": 32,
-        "guven": 5,
-        "akce": 176.0
-      }
-    },
-    {
-      "karakter": "harudha",
-      "kasaba": "Massa",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 81,
-      "kuvvet": 155,
-      "zeka": 32,
-      "karizma": 79,
-      "guven": 31,
-      "akce": 43.0,
-      "dun": {
-        "seviye": 81,
-        "kuvvet": 152,
-        "zeka": 22,
-        "karizma": 79,
-        "guven": 31,
-        "akce": 50.0
-      }
-    },
-    {
-      "karakter": "marchosias",
-      "kasaba": "Massa",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 95,
-      "kuvvet": 238,
-      "zeka": 28,
-      "karizma": 88,
-      "guven": 105,
-      "akce": 52.0,
-      "dun": {
-        "seviye": 95,
-        "kuvvet": 238,
-        "zeka": 28,
-        "karizma": 88,
-        "guven": 105,
-        "akce": 40.0
-      }
-    },
-    {
-      "karakter": "drakania",
-      "kasaba": "Massa",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 79,
-      "kuvvet": 211,
-      "zeka": 63,
-      "karizma": 66,
-      "guven": 46,
-      "akce": 56.0,
-      "dun": {
-        "seviye": 79,
-        "kuvvet": 208,
-        "zeka": 63,
-        "karizma": 66,
-        "guven": 46,
-        "akce": 66.0
-      }
-    },
-    {
-      "karakter": "favore",
-      "kasaba": "Ardencaple",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 12,
-      "kuvvet": 0,
-      "zeka": 0,
-      "karizma": 0,
-      "guven": 0,
-      "akce": 28.0,
-      "dun": {
-        "seviye": 10,
-        "kuvvet": 0,
-        "zeka": 0,
-        "karizma": 0,
-        "guven": 0,
-        "akce": 19.0
-      }
-    },
-    {
-      "karakter": "asensioo",
-      "kasaba": "Barcelona",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 18,
-      "kuvvet": 3,
-      "zeka": 0,
-      "karizma": 0,
-      "guven": 1,
-      "akce": 38.0,
-      "dun": {
-        "seviye": 16,
-        "kuvvet": 0,
-        "zeka": 0,
-        "karizma": 0,
-        "guven": 1,
-        "akce": 51.0
-      }
-    },
-    {
-      "karakter": "razielon",
-      "kasaba": "Massa",
-      "meslek": "-",
-      "yol": "medecine",
-      "seviye": 162,
-      "kuvvet": 255,
-      "zeka": 255,
-      "karizma": 151,
-      "guven": 255,
-      "akce": 55.0,
-      "dun": {
-        "seviye": 162,
-        "kuvvet": 255,
-        "zeka": 255,
-        "karizma": 151,
-        "guven": 255,
-        "akce": 47.0
-      }
-    },
-    {
-      "karakter": "whisperbane",
-      "kasaba": "Girvan",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 95,
-      "kuvvet": 176,
-      "zeka": 55,
-      "karizma": 56,
-      "guven": 17,
-      "akce": 32.0,
-      "dun": {
-        "seviye": 95,
-        "kuvvet": 174,
-        "zeka": 55,
-        "karizma": 56,
-        "guven": 17,
-        "akce": 51.0
-      }
-    },
-    {
-      "karakter": "akbaba",
-      "kasaba": "Massa",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 79,
-      "kuvvet": 197,
-      "zeka": 42,
-      "karizma": 105,
-      "guven": 34,
-      "akce": 14.0,
-      "dun": {
-        "seviye": 79,
-        "kuvvet": 197,
-        "zeka": 42,
-        "karizma": 105,
-        "guven": 34,
-        "akce": 20.0
-      }
-    },
-    {
-      "karakter": "telemir",
-      "kasaba": "Glasgow",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 70,
-      "kuvvet": 255,
-      "zeka": 49,
-      "karizma": 21,
-      "guven": 46,
-      "akce": 20663.0,
-      "dun": {
-        "seviye": 70,
-        "kuvvet": 255,
-        "zeka": 46,
-        "karizma": 21,
-        "guven": 46,
-        "akce": 20678.0
-      }
-    },
-    {
-      "karakter": "fredyy",
-      "kasaba": "Glasgow",
-      "meslek": "Bahçıvan",
-      "yol": "-",
-      "seviye": 196,
-      "kuvvet": 255,
-      "zeka": 255,
-      "karizma": 160,
-      "guven": 113,
-      "akce": 6540.0,
-      "dun": {
-        "seviye": 195,
-        "kuvvet": 255,
-        "zeka": 255,
-        "karizma": 157,
-        "guven": 113,
-        "akce": 6451.0
-      }
-    },
-    {
-      "karakter": "anaster",
-      "kasaba": "Ardencaple",
-      "meslek": "Marangoz",
-      "yol": "-",
-      "seviye": 99,
-      "kuvvet": 146,
-      "zeka": 187,
-      "karizma": 25,
-      "guven": 28,
-      "akce": 559.0,
-      "dun": {
-        "seviye": 99,
-        "kuvvet": 144,
-        "zeka": 187,
-        "karizma": 25,
-        "guven": 28,
-        "akce": 574.0
-      }
-    },
-    {
-      "karakter": "onlyblack",
-      "kasaba": "Montpellier",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 77,
-      "kuvvet": 129,
-      "zeka": 95,
-      "karizma": 83,
-      "guven": 33,
-      "akce": 253.0,
-      "dun": {
-        "seviye": 77,
-        "kuvvet": 129,
-        "zeka": 95,
-        "karizma": 83,
-        "guven": 33,
-        "akce": 246.0
-      }
-    },
-    {
-      "karakter": "nojiko",
-      "kasaba": "Wigtown",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 74,
-      "kuvvet": 52,
-      "zeka": 41,
-      "karizma": 167,
-      "guven": 48,
-      "akce": 125.0,
-      "dun": {
-        "seviye": 73,
-        "kuvvet": 52,
-        "zeka": 39,
-        "karizma": 167,
-        "guven": 48,
-        "akce": 138.0
-      }
-    },
-    {
-      "karakter": "telconta_r",
-      "kasaba": "Wigtown",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 68,
-      "kuvvet": 39,
-      "zeka": 30,
-      "karizma": 147,
-      "guven": 36,
-      "akce": 140.0,
-      "dun": {
-        "seviye": 68,
-        "kuvvet": 39,
-        "zeka": 28,
-        "karizma": 147,
-        "guven": 36,
-        "akce": 152.0
-      }
-    },
-    {
-      "karakter": "ziyech",
-      "kasaba": "Stirling",
-      "meslek": "Marangoz",
-      "yol": "-",
-      "seviye": 190,
-      "kuvvet": 255,
-      "zeka": 255,
-      "karizma": 244,
-      "guven": 56,
-      "akce": 38274.0,
-      "dun": {
-        "seviye": 190,
-        "kuvvet": 255,
-        "zeka": 255,
-        "karizma": 241,
-        "guven": 56,
-        "akce": 37946.0
-      }
-    },
-    {
-      "karakter": "nindalf",
-      "kasaba": "Chiavari",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 160,
-      "kuvvet": 255,
-      "zeka": 255,
-      "karizma": 70,
-      "guven": 255,
-      "akce": 951.0,
-      "dun": {
-        "seviye": 160,
-        "kuvvet": 255,
-        "zeka": 255,
-        "karizma": 67,
-        "guven": 255,
-        "akce": 960.0
-      }
-    },
-    {
-      "karakter": "cullengen",
-      "kasaba": "Glasgow",
-      "meslek": "Heykeltraş",
-      "yol": "-",
-      "seviye": 88,
-      "kuvvet": 255,
-      "zeka": 120,
-      "karizma": 98,
-      "guven": 10,
-      "akce": 32428.0,
-      "dun": {
-        "seviye": 88,
-        "kuvvet": 255,
-        "zeka": 117,
-        "karizma": 88,
-        "guven": 10,
-        "akce": 32088.0
-      }
-    },
-    {
-      "karakter": "darwinn",
-      "kasaba": "Glasgow",
-      "meslek": "Bahçıvan",
-      "yol": "-",
-      "seviye": 92,
-      "kuvvet": 255,
-      "zeka": 140,
-      "karizma": 64,
-      "guven": 38,
-      "akce": 33991.0,
-      "dun": {
-        "seviye": 92,
-        "kuvvet": 255,
-        "zeka": 137,
-        "karizma": 64,
-        "guven": 38,
-        "akce": 33811.0
-      }
-    },
-    {
-      "karakter": "wolfgangg",
+      "karakter": "vermithor",
       "kasaba": "Whithorn",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 81,
-      "kuvvet": 163,
-      "zeka": 53,
-      "karizma": 58,
-      "guven": 16,
-      "akce": 56.0,
-      "dun": {
-        "seviye": 81,
-        "kuvvet": 163,
-        "zeka": 53,
-        "karizma": 56,
-        "guven": 16,
-        "akce": 41.0
-      }
-    },
-    {
-      "karakter": "peeves",
-      "kasaba": "Wigtown",
       "meslek": "Kasap",
       "yol": "-",
-      "seviye": 100,
-      "kuvvet": 126,
-      "zeka": 175,
-      "karizma": 73,
-      "guven": 84,
-      "akce": 6274.0,
+      "seviye": 91,
+      "kuvvet": 255,
+      "zeka": 85,
+      "karizma": 41,
+      "guven": 69,
+      "akce": 17317.0,
       "dun": {
-        "seviye": 100,
-        "kuvvet": 126,
-        "zeka": 173,
-        "karizma": 73,
-        "guven": 84,
-        "akce": 6272.0
-      }
-    },
-    {
-      "karakter": "grimwarden",
-      "kasaba": "Girvan",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 96,
-      "kuvvet": 231,
-      "zeka": 61,
-      "karizma": 81,
-      "guven": 49,
-      "akce": 396.0,
-      "dun": {
-        "seviye": 95,
-        "kuvvet": 229,
-        "zeka": 61,
-        "karizma": 81,
-        "guven": 48,
-        "akce": 411.0
+        "seviye": 91,
+        "kuvvet": 255,
+        "zeka": 83,
+        "karizma": 21,
+        "guven": 69,
+        "akce": 17456.0
       }
     },
     {
@@ -1026,94 +333,14 @@
       "zeka": 255,
       "karizma": 255,
       "guven": 120,
-      "akce": 12142.0,
+      "akce": 12053.0,
       "dun": {
         "seviye": 172,
         "kuvvet": 255,
         "zeka": 255,
         "karizma": 255,
         "guven": 120,
-        "akce": 12101.0
-      }
-    },
-    {
-      "karakter": "darkbringer",
-      "kasaba": "Montpellier",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 75,
-      "kuvvet": 188,
-      "zeka": 45,
-      "karizma": 76,
-      "guven": 29,
-      "akce": 246.0,
-      "dun": {
-        "seviye": 75,
-        "kuvvet": 188,
-        "zeka": 45,
-        "karizma": 76,
-        "guven": 29,
-        "akce": 235.0
-      }
-    },
-    {
-      "karakter": "freshh",
-      "kasaba": "Ardencaple",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 66,
-      "kuvvet": 44,
-      "zeka": 65,
-      "karizma": 69,
-      "guven": 29,
-      "akce": 228.0,
-      "dun": {
-        "seviye": 66,
-        "kuvvet": 42,
-        "zeka": 65,
-        "karizma": 69,
-        "guven": 28,
-        "akce": 238.0
-      }
-    },
-    {
-      "karakter": "nihilant",
-      "kasaba": "Ardencaple",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 97,
-      "kuvvet": 106,
-      "zeka": 112,
-      "karizma": 127,
-      "guven": 46,
-      "akce": 243.0,
-      "dun": {
-        "seviye": 97,
-        "kuvvet": 104,
-        "zeka": 112,
-        "karizma": 127,
-        "guven": 46,
-        "akce": 253.0
-      }
-    },
-    {
-      "karakter": "erethea",
-      "kasaba": "Montpellier",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 71,
-      "kuvvet": 31,
-      "zeka": 16,
-      "karizma": 55,
-      "guven": 26,
-      "akce": 114.0,
-      "dun": {
-        "seviye": 71,
-        "kuvvet": 31,
-        "zeka": 16,
-        "karizma": 55,
-        "guven": 26,
-        "akce": 107.0
+        "akce": 12142.0
       }
     },
     {
@@ -1121,559 +348,79 @@
       "kasaba": "Massa",
       "meslek": "-",
       "yol": "-",
-      "seviye": 114,
+      "seviye": 115,
       "kuvvet": 255,
       "zeka": 199,
       "karizma": 20,
       "guven": 132,
-      "akce": 41.0,
+      "akce": 53.0,
       "dun": {
         "seviye": 114,
         "kuvvet": 255,
-        "zeka": 196,
+        "zeka": 199,
         "karizma": 20,
         "guven": 132,
-        "akce": 60.0
-      }
-    },
-    {
-      "karakter": "esteros",
-      "kasaba": "Montpellier",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 166,
-      "kuvvet": 255,
-      "zeka": 255,
-      "karizma": 255,
-      "guven": 255,
-      "akce": 963.0,
-      "dun": {
-        "seviye": 166,
-        "kuvvet": 255,
-        "zeka": 255,
-        "karizma": 255,
-        "guven": 255,
-        "akce": 956.0
-      }
-    },
-    {
-      "karakter": "tantalos",
-      "kasaba": "Wigtown",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 94,
-      "kuvvet": 104,
-      "zeka": 149,
-      "karizma": 150,
-      "guven": 62,
-      "akce": 497.0,
-      "dun": {
-        "seviye": 94,
-        "kuvvet": 104,
-        "zeka": 147,
-        "karizma": 150,
-        "guven": 62,
-        "akce": 604.0
-      }
-    },
-    {
-      "karakter": "bilrider",
-      "kasaba": "Girvan",
-      "meslek": "Kasap",
-      "yol": "etat",
-      "seviye": 252,
-      "kuvvet": 255,
-      "zeka": 255,
-      "karizma": 255,
-      "guven": 232,
-      "akce": 10992.0,
-      "dun": {
-        "seviye": 252,
-        "kuvvet": 255,
-        "zeka": 255,
-        "karizma": 255,
-        "guven": 232,
-        "akce": 11026.0
-      }
-    },
-    {
-      "karakter": "asagrim",
-      "kasaba": "Whithorn",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 89,
-      "kuvvet": 193,
-      "zeka": 68,
-      "karizma": 48,
-      "guven": 40,
-      "akce": 42.0,
-      "dun": {
-        "seviye": 88,
-        "kuvvet": 193,
-        "zeka": 68,
-        "karizma": 46,
-        "guven": 40,
-        "akce": 39.0
-      }
-    },
-    {
-      "karakter": "typhoonn",
-      "kasaba": "Wigtown",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 92,
-      "kuvvet": 91,
-      "zeka": 50,
-      "karizma": 228,
-      "guven": 71,
-      "akce": 236.0,
-      "dun": {
-        "seviye": 92,
-        "kuvvet": 91,
-        "zeka": 48,
-        "karizma": 228,
-        "guven": 71,
-        "akce": 245.0
-      }
-    },
-    {
-      "karakter": "moiraash",
-      "kasaba": "Glasgow",
-      "meslek": "Değirmenci",
-      "yol": "-",
-      "seviye": 95,
-      "kuvvet": 255,
-      "zeka": 140,
-      "karizma": 27,
-      "guven": 27,
-      "akce": 28449.0,
-      "dun": {
-        "seviye": 95,
-        "kuvvet": 255,
-        "zeka": 137,
-        "karizma": 27,
-        "guven": 27,
-        "akce": 28481.0
-      }
-    },
-    {
-      "karakter": "bradley_richards",
-      "kasaba": "Kirkcudbright",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 70,
-      "kuvvet": 140,
-      "zeka": 22,
-      "karizma": 65,
-      "guven": 6,
-      "akce": 66.0,
-      "dun": {
-        "seviye": 70,
-        "kuvvet": 138,
-        "zeka": 22,
-        "karizma": 65,
-        "guven": 6,
-        "akce": 79.0
-      }
-    },
-    {
-      "karakter": "redbrand",
-      "kasaba": "Montpellier",
-      "meslek": "-",
-      "yol": "armee",
-      "seviye": 157,
-      "kuvvet": 255,
-      "zeka": 255,
-      "karizma": 255,
-      "guven": 255,
-      "akce": 202.0,
-      "dun": {
-        "seviye": 157,
-        "kuvvet": 255,
-        "zeka": 255,
-        "karizma": 255,
-        "guven": 255,
-        "akce": 195.0
-      }
-    },
-    {
-      "karakter": "arous",
-      "kasaba": "Ardencaple",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 67,
-      "kuvvet": 28,
-      "zeka": 63,
-      "karizma": 91,
-      "guven": 29,
-      "akce": 306.0,
-      "dun": {
-        "seviye": 66,
-        "kuvvet": 26,
-        "zeka": 63,
-        "karizma": 91,
-        "guven": 28,
-        "akce": 317.0
-      }
-    },
-    {
-      "karakter": "noumama",
-      "kasaba": "Whithorn",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 87,
-      "kuvvet": 173,
-      "zeka": 66,
-      "karizma": 41,
-      "guven": 13,
-      "akce": 62.0,
-      "dun": {
-        "seviye": 87,
-        "kuvvet": 173,
-        "zeka": 66,
-        "karizma": 39,
-        "guven": 13,
-        "akce": 46.0
-      }
-    },
-    {
-      "karakter": "mihribann",
-      "kasaba": "Massa",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 99,
-      "kuvvet": 255,
-      "zeka": 121,
-      "karizma": 22,
-      "guven": 115,
-      "akce": 45.0,
-      "dun": {
-        "seviye": 99,
-        "kuvvet": 255,
-        "zeka": 118,
-        "karizma": 22,
-        "guven": 115,
-        "akce": 57.0
-      }
-    },
-    {
-      "karakter": "scamender",
-      "kasaba": "La Spezia",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 69,
-      "kuvvet": 17,
-      "zeka": 15,
-      "karizma": 31,
-      "guven": 28,
-      "akce": 37.0,
-      "dun": {
-        "seviye": 69,
-        "kuvvet": 14,
-        "zeka": 15,
-        "karizma": 31,
-        "guven": 28,
-        "akce": 51.0
-      }
-    },
-    {
-      "karakter": "ningauble",
-      "kasaba": "Girvan",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 71,
-      "kuvvet": 171,
-      "zeka": 37,
-      "karizma": 46,
-      "guven": 9,
-      "akce": 111.0,
-      "dun": {
-        "seviye": 70,
-        "kuvvet": 169,
-        "zeka": 37,
-        "karizma": 46,
-        "guven": 9,
-        "akce": 112.0
-      }
-    },
-    {
-      "karakter": "hiriluk",
-      "kasaba": "Ardencaple",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 68,
-      "kuvvet": 49,
-      "zeka": 83,
-      "karizma": 90,
-      "guven": 7,
-      "akce": 225.0,
-      "dun": {
-        "seviye": 67,
-        "kuvvet": 47,
-        "zeka": 83,
-        "karizma": 90,
-        "guven": 7,
-        "akce": 224.0
-      }
-    },
-    {
-      "karakter": "duncan_little",
-      "kasaba": "Wigtown",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 74,
-      "kuvvet": 46,
-      "zeka": 30,
-      "karizma": 181,
-      "guven": 49,
-      "akce": 184.0,
-      "dun": {
-        "seviye": 74,
-        "kuvvet": 46,
-        "zeka": 28,
-        "karizma": 181,
-        "guven": 49,
-        "akce": 202.0
-      }
-    },
-    {
-      "karakter": "tonali",
-      "kasaba": "Ardencaple",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 67,
-      "kuvvet": 42,
-      "zeka": 55,
-      "karizma": 81,
-      "guven": 27,
-      "akce": 232.0,
-      "dun": {
-        "seviye": 66,
-        "kuvvet": 40,
-        "zeka": 55,
-        "karizma": 81,
-        "guven": 26,
-        "akce": 239.0
-      }
-    },
-    {
-      "karakter": "ironfoot",
-      "kasaba": "Ardencaple",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 94,
-      "kuvvet": 82,
-      "zeka": 111,
-      "karizma": 141,
-      "guven": 61,
-      "akce": 538.0,
-      "dun": {
-        "seviye": 94,
-        "kuvvet": 80,
-        "zeka": 111,
-        "karizma": 141,
-        "guven": 61,
-        "akce": 549.0
-      }
-    },
-    {
-      "karakter": "thebear",
-      "kasaba": "Glasgow",
-      "meslek": "Bahçıvan",
-      "yol": "-",
-      "seviye": 94,
-      "kuvvet": 255,
-      "zeka": 124,
-      "karizma": 75,
-      "guven": 31,
-      "akce": 29845.0,
-      "dun": {
-        "seviye": 93,
-        "kuvvet": 255,
-        "zeka": 121,
-        "karizma": 75,
-        "guven": 31,
-        "akce": 29758.0
-      }
-    },
-    {
-      "karakter": "davoss",
-      "kasaba": "Glasgow",
-      "meslek": "Bahçıvan",
-      "yol": "armee",
-      "seviye": 177,
-      "kuvvet": 255,
-      "zeka": 255,
-      "karizma": 255,
-      "guven": 109,
-      "akce": 12770.0,
-      "dun": {
-        "seviye": 177,
-        "kuvvet": 255,
-        "zeka": 255,
-        "karizma": 255,
-        "guven": 109,
-        "akce": 12899.0
-      }
-    },
-    {
-      "karakter": "takaraka",
-      "kasaba": "Glasgow",
-      "meslek": "Bahçıvan",
-      "yol": "etat",
-      "seviye": 173,
-      "kuvvet": 255,
-      "zeka": 255,
-      "karizma": 255,
-      "guven": 106,
-      "akce": 28660.0,
-      "dun": {
-        "seviye": 173,
-        "kuvvet": 255,
-        "zeka": 255,
-        "karizma": 255,
-        "guven": 106,
-        "akce": 28539.0
-      }
-    },
-    {
-      "karakter": "adrah",
-      "kasaba": "Wigtown",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 73,
-      "kuvvet": 46,
-      "zeka": 41,
-      "karizma": 116,
-      "guven": 40,
-      "akce": 1182.0,
-      "dun": {
-        "seviye": 73,
-        "kuvvet": 46,
-        "zeka": 39,
-        "karizma": 116,
-        "guven": 39,
-        "akce": 1191.0
-      }
-    },
-    {
-      "karakter": "semiramir",
-      "kasaba": "Massa",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 63,
-      "kuvvet": 62,
-      "zeka": 26,
-      "karizma": 21,
-      "guven": 6,
-      "akce": 54.0,
-      "dun": {
-        "seviye": 62,
-        "kuvvet": 62,
-        "zeka": 24,
-        "karizma": 21,
-        "guven": 6,
         "akce": 41.0
       }
     },
     {
-      "karakter": "colonell",
-      "kasaba": "Glasgow",
-      "meslek": "Heykeltraş",
-      "yol": "-",
-      "seviye": 88,
-      "kuvvet": 255,
-      "zeka": 102,
-      "karizma": 50,
-      "guven": 15,
-      "akce": 30913.0,
-      "dun": {
-        "seviye": 87,
-        "kuvvet": 255,
-        "zeka": 99,
-        "karizma": 50,
-        "guven": 15,
-        "akce": 30299.0
-      }
-    },
-    {
-      "karakter": "dronron",
+      "karakter": "cptcorsair",
       "kasaba": "Massa",
       "meslek": "-",
       "yol": "-",
-      "seviye": 148,
-      "kuvvet": 254,
-      "zeka": 255,
-      "karizma": 254,
-      "guven": 255,
-      "akce": 14.0,
+      "seviye": 85,
+      "kuvvet": 218,
+      "zeka": 22,
+      "karizma": 80,
+      "guven": 39,
+      "akce": 49.0,
       "dun": {
-        "seviye": 147,
-        "kuvvet": 254,
-        "zeka": 255,
-        "karizma": 254,
-        "guven": 255,
-        "akce": 15.0
+        "seviye": 85,
+        "kuvvet": 215,
+        "zeka": 22,
+        "karizma": 80,
+        "guven": 39,
+        "akce": 61.0
       }
     },
     {
-      "karakter": "jeday",
-      "kasaba": "Wigtown",
+      "karakter": "favore",
+      "kasaba": "Ardencaple",
       "meslek": "-",
       "yol": "-",
-      "seviye": 90,
-      "kuvvet": 67,
-      "zeka": 41,
-      "karizma": 64,
-      "guven": 15,
-      "akce": 74.0,
+      "seviye": 14,
+      "kuvvet": 0,
+      "zeka": 0,
+      "karizma": 0,
+      "guven": 0,
+      "akce": 40.0,
       "dun": {
-        "seviye": 90,
-        "kuvvet": 67,
-        "zeka": 39,
-        "karizma": 64,
-        "guven": 15,
-        "akce": 92.0
+        "seviye": 12,
+        "kuvvet": 0,
+        "zeka": 0,
+        "karizma": 0,
+        "guven": 0,
+        "akce": 28.0
       }
     },
     {
-      "karakter": "dwadu",
-      "kasaba": "Ardencaple",
-      "meslek": "Demirci",
+      "karakter": "telemir",
+      "kasaba": "Glasgow",
+      "meslek": "-",
       "yol": "-",
-      "seviye": 182,
+      "seviye": 70,
       "kuvvet": 255,
-      "zeka": 255,
-      "karizma": 214,
-      "guven": 117,
-      "akce": 464.0,
+      "zeka": 52,
+      "karizma": 21,
+      "guven": 46,
+      "akce": 20631.0,
       "dun": {
-        "seviye": 182,
+        "seviye": 70,
         "kuvvet": 255,
-        "zeka": 255,
-        "karizma": 214,
-        "guven": 116,
-        "akce": 456.0
-      }
-    },
-    {
-      "karakter": "neromancer",
-      "kasaba": "Ardencaple",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 64,
-      "kuvvet": 47,
-      "zeka": 65,
-      "karizma": 93,
-      "guven": 25,
-      "akce": 324.0,
-      "dun": {
-        "seviye": 64,
-        "kuvvet": 45,
-        "zeka": 65,
-        "karizma": 93,
-        "guven": 25,
-        "akce": 339.0
+        "zeka": 49,
+        "karizma": 21,
+        "guven": 46,
+        "akce": 20663.0
       }
     },
     {
@@ -1684,36 +431,36 @@
       "seviye": 72,
       "kuvvet": 46,
       "zeka": 34,
-      "karizma": 159,
+      "karizma": 161,
       "guven": 40,
-      "akce": 180.0,
+      "akce": 184.0,
       "dun": {
         "seviye": 72,
         "kuvvet": 46,
-        "zeka": 32,
+        "zeka": 34,
         "karizma": 159,
         "guven": 40,
-        "akce": 169.0
+        "akce": 180.0
       }
     },
     {
-      "karakter": "aiegus",
-      "kasaba": "Glasgow",
-      "meslek": "Demirci",
-      "yol": "armee",
-      "seviye": 254,
-      "kuvvet": 255,
-      "zeka": 255,
-      "karizma": 255,
-      "guven": 239,
-      "akce": 37027.0,
+      "karakter": "ironfoot",
+      "kasaba": "Ardencaple",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 94,
+      "kuvvet": 84,
+      "zeka": 111,
+      "karizma": 141,
+      "guven": 61,
+      "akce": 521.0,
       "dun": {
-        "seviye": 253,
-        "kuvvet": 255,
-        "zeka": 255,
-        "karizma": 255,
-        "guven": 239,
-        "akce": 36780.0
+        "seviye": 94,
+        "kuvvet": 82,
+        "zeka": 111,
+        "karizma": 141,
+        "guven": 61,
+        "akce": 538.0
       }
     },
     {
@@ -1726,74 +473,274 @@
       "zeka": 255,
       "karizma": 255,
       "guven": 233,
-      "akce": 4360.0,
+      "akce": 4357.0,
       "dun": {
         "seviye": 227,
         "kuvvet": 255,
         "zeka": 255,
         "karizma": 255,
         "guven": 233,
-        "akce": 4603.0
+        "akce": 4360.0
       }
     },
     {
-      "karakter": "catapult",
+      "karakter": "jarg",
       "kasaba": "Wigtown",
       "meslek": "-",
       "yol": "-",
-      "seviye": 88,
-      "kuvvet": 87,
-      "zeka": 40,
-      "karizma": 216,
-      "guven": 85,
-      "akce": 153.0,
+      "seviye": 90,
+      "kuvvet": 80,
+      "zeka": 47,
+      "karizma": 239,
+      "guven": 83,
+      "akce": 174.0,
       "dun": {
-        "seviye": 87,
-        "kuvvet": 87,
-        "zeka": 38,
-        "karizma": 216,
-        "guven": 85,
-        "akce": 147.0
+        "seviye": 89,
+        "kuvvet": 80,
+        "zeka": 47,
+        "karizma": 237,
+        "guven": 83,
+        "akce": 168.0
       }
     },
     {
-      "karakter": "yellowsmith",
+      "karakter": "wolfgangg",
+      "kasaba": "Whithorn",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 82,
+      "kuvvet": 166,
+      "zeka": 53,
+      "karizma": 58,
+      "guven": 16,
+      "akce": 42.0,
+      "dun": {
+        "seviye": 81,
+        "kuvvet": 163,
+        "zeka": 53,
+        "karizma": 58,
+        "guven": 16,
+        "akce": 56.0
+      }
+    },
+    {
+      "karakter": "semiramir",
       "kasaba": "Massa",
       "meslek": "-",
       "yol": "-",
-      "seviye": 93,
-      "kuvvet": 255,
-      "zeka": 131,
-      "karizma": 181,
-      "guven": 120,
-      "akce": 153.0,
+      "seviye": 63,
+      "kuvvet": 62,
+      "zeka": 28,
+      "karizma": 21,
+      "guven": 6,
+      "akce": 38.0,
       "dun": {
-        "seviye": 92,
-        "kuvvet": 255,
-        "zeka": 128,
-        "karizma": 181,
-        "guven": 120,
-        "akce": 174.0
+        "seviye": 63,
+        "kuvvet": 62,
+        "zeka": 26,
+        "karizma": 21,
+        "guven": 6,
+        "akce": 54.0
       }
     },
     {
-      "karakter": "gaell",
+      "karakter": "beannighe",
+      "kasaba": "Stirling",
+      "meslek": "Fırıncı",
+      "yol": "eglise",
+      "seviye": 225,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 255,
+      "guven": 190,
+      "akce": 34259.0,
+      "dun": {
+        "seviye": 225,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 255,
+        "guven": 190,
+        "akce": 34087.0
+      }
+    },
+    {
+      "karakter": "cullengen",
+      "kasaba": "Glasgow",
+      "meslek": "Heykeltraş",
+      "yol": "-",
+      "seviye": 89,
+      "kuvvet": 255,
+      "zeka": 143,
+      "karizma": 88,
+      "guven": 10,
+      "akce": 32764.0,
+      "dun": {
+        "seviye": 88,
+        "kuvvet": 255,
+        "zeka": 120,
+        "karizma": 98,
+        "guven": 10,
+        "akce": 32428.0
+      }
+    },
+    {
+      "karakter": "freshh",
       "kasaba": "Ardencaple",
       "meslek": "-",
       "yol": "-",
-      "seviye": 63,
-      "kuvvet": 39,
-      "zeka": 42,
-      "karizma": 70,
-      "guven": 15,
-      "akce": 211.0,
+      "seviye": 66,
+      "kuvvet": 46,
+      "zeka": 65,
+      "karizma": 69,
+      "guven": 29,
+      "akce": 212.0,
       "dun": {
-        "seviye": 63,
-        "kuvvet": 37,
-        "zeka": 42,
-        "karizma": 70,
-        "guven": 15,
-        "akce": 210.0
+        "seviye": 66,
+        "kuvvet": 44,
+        "zeka": 65,
+        "karizma": 69,
+        "guven": 29,
+        "akce": 228.0
+      }
+    },
+    {
+      "karakter": "kargath",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 97,
+      "kuvvet": 99,
+      "zeka": 55,
+      "karizma": 213,
+      "guven": 80,
+      "akce": 158.0,
+      "dun": {
+        "seviye": 96,
+        "kuvvet": 99,
+        "zeka": 55,
+        "karizma": 211,
+        "guven": 80,
+        "akce": 153.0
+      }
+    },
+    {
+      "karakter": "zaniolo",
+      "kasaba": "Glasgow",
+      "meslek": "Bahçıvan",
+      "yol": "etat",
+      "seviye": 181,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 255,
+      "guven": 116,
+      "akce": 12686.0,
+      "dun": {
+        "seviye": 181,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 255,
+        "guven": 116,
+        "akce": 12756.0
+      }
+    },
+    {
+      "karakter": "hiriluk",
+      "kasaba": "Ardencaple",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 68,
+      "kuvvet": 51,
+      "zeka": 83,
+      "karizma": 90,
+      "guven": 7,
+      "akce": 225.0,
+      "dun": {
+        "seviye": 68,
+        "kuvvet": 49,
+        "zeka": 83,
+        "karizma": 90,
+        "guven": 7,
+        "akce": 225.0
+      }
+    },
+    {
+      "karakter": "duncan_little",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 75,
+      "kuvvet": 46,
+      "zeka": 30,
+      "karizma": 183,
+      "guven": 49,
+      "akce": 201.0,
+      "dun": {
+        "seviye": 74,
+        "kuvvet": 46,
+        "zeka": 30,
+        "karizma": 181,
+        "guven": 49,
+        "akce": 184.0
+      }
+    },
+    {
+      "karakter": "redbrand",
+      "kasaba": "Montpellier",
+      "meslek": "-",
+      "yol": "armee",
+      "seviye": 158,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 255,
+      "guven": 255,
+      "akce": 161.0,
+      "dun": {
+        "seviye": 157,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 255,
+        "guven": 255,
+        "akce": 202.0
+      }
+    },
+    {
+      "karakter": "baela",
+      "kasaba": "Kirkcudbright",
+      "meslek": "Kasap",
+      "yol": "-",
+      "seviye": 92,
+      "kuvvet": 255,
+      "zeka": 55,
+      "karizma": 90,
+      "guven": 96,
+      "akce": 30526.0,
+      "dun": {
+        "seviye": 92,
+        "kuvvet": 255,
+        "zeka": 55,
+        "karizma": 88,
+        "guven": 96,
+        "akce": 30591.0
+      }
+    },
+    {
+      "karakter": "adrah",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 73,
+      "kuvvet": 46,
+      "zeka": 41,
+      "karizma": 118,
+      "guven": 40,
+      "akce": 1182.0,
+      "dun": {
+        "seviye": 73,
+        "kuvvet": 46,
+        "zeka": 41,
+        "karizma": 116,
+        "guven": 40,
+        "akce": 1182.0
       }
     },
     {
@@ -1806,14 +753,1074 @@
       "zeka": 88,
       "karizma": 24,
       "guven": 49,
-      "akce": 422.0,
+      "akce": 420.0,
       "dun": {
-        "seviye": 99,
-        "kuvvet": 96,
+        "seviye": 100,
+        "kuvvet": 98,
         "zeka": 88,
         "karizma": 24,
         "guven": 49,
-        "akce": 417.0
+        "akce": 422.0
+      }
+    },
+    {
+      "karakter": "bilrider",
+      "kasaba": "Girvan",
+      "meslek": "Kasap",
+      "yol": "etat",
+      "seviye": 252,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 255,
+      "guven": 233,
+      "akce": 10847.0,
+      "dun": {
+        "seviye": 252,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 255,
+        "guven": 232,
+        "akce": 10992.0
+      }
+    },
+    {
+      "karakter": "mr.shadow",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 79,
+      "kuvvet": 42,
+      "zeka": 53,
+      "karizma": 36,
+      "guven": 46,
+      "akce": 15.0,
+      "dun": {
+        "seviye": 79,
+        "kuvvet": 42,
+        "zeka": 53,
+        "karizma": 36,
+        "guven": 46,
+        "akce": 16.0
+      }
+    },
+    {
+      "karakter": "moiraash",
+      "kasaba": "Glasgow",
+      "meslek": "Değirmenci",
+      "yol": "-",
+      "seviye": 95,
+      "kuvvet": 255,
+      "zeka": 143,
+      "karizma": 27,
+      "guven": 27,
+      "akce": 28418.0,
+      "dun": {
+        "seviye": 95,
+        "kuvvet": 255,
+        "zeka": 140,
+        "karizma": 27,
+        "guven": 27,
+        "akce": 28449.0
+      }
+    },
+    {
+      "karakter": "dronron",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 148,
+      "kuvvet": 254,
+      "zeka": 255,
+      "karizma": 254,
+      "guven": 255,
+      "akce": 15.0,
+      "dun": {
+        "seviye": 148,
+        "kuvvet": 254,
+        "zeka": 255,
+        "karizma": 254,
+        "guven": 255,
+        "akce": 14.0
+      }
+    },
+    {
+      "karakter": "argaios",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 98,
+      "kuvvet": 108,
+      "zeka": 65,
+      "karizma": 97,
+      "guven": 65,
+      "akce": 1162.0,
+      "dun": {
+        "seviye": 97,
+        "kuvvet": 108,
+        "zeka": 65,
+        "karizma": 96,
+        "guven": 65,
+        "akce": 1158.0
+      }
+    },
+    {
+      "karakter": "telconta_r",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 68,
+      "kuvvet": 39,
+      "zeka": 30,
+      "karizma": 149,
+      "guven": 36,
+      "akce": 160.0,
+      "dun": {
+        "seviye": 68,
+        "kuvvet": 39,
+        "zeka": 30,
+        "karizma": 147,
+        "guven": 36,
+        "akce": 140.0
+      }
+    },
+    {
+      "karakter": "tommytara",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 89,
+      "kuvvet": 96,
+      "zeka": 44,
+      "karizma": 134,
+      "guven": 45,
+      "akce": 188.0,
+      "dun": {
+        "seviye": 88,
+        "kuvvet": 96,
+        "zeka": 44,
+        "karizma": 132,
+        "guven": 45,
+        "akce": 166.0
+      }
+    },
+    {
+      "karakter": "ningauble",
+      "kasaba": "Girvan",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 71,
+      "kuvvet": 173,
+      "zeka": 37,
+      "karizma": 46,
+      "guven": 9,
+      "akce": 98.0,
+      "dun": {
+        "seviye": 71,
+        "kuvvet": 171,
+        "zeka": 37,
+        "karizma": 46,
+        "guven": 9,
+        "akce": 111.0
+      }
+    },
+    {
+      "karakter": "esteros",
+      "kasaba": "Montpellier",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 166,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 255,
+      "guven": 255,
+      "akce": 944.0,
+      "dun": {
+        "seviye": 166,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 255,
+        "guven": 255,
+        "akce": 963.0
+      }
+    },
+    {
+      "karakter": "bradley_richards",
+      "kasaba": "Kirkcudbright",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 71,
+      "kuvvet": 142,
+      "zeka": 22,
+      "karizma": 65,
+      "guven": 6,
+      "akce": 68.0,
+      "dun": {
+        "seviye": 70,
+        "kuvvet": 140,
+        "zeka": 22,
+        "karizma": 65,
+        "guven": 6,
+        "akce": 66.0
+      }
+    },
+    {
+      "karakter": "takaraka",
+      "kasaba": "Glasgow",
+      "meslek": "Bahçıvan",
+      "yol": "etat",
+      "seviye": 174,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 255,
+      "guven": 106,
+      "akce": 28849.0,
+      "dun": {
+        "seviye": 173,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 255,
+        "guven": 106,
+        "akce": 28660.0
+      }
+    },
+    {
+      "karakter": "mihribann",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 99,
+      "kuvvet": 255,
+      "zeka": 121,
+      "karizma": 22,
+      "guven": 115,
+      "akce": 59.0,
+      "dun": {
+        "seviye": 99,
+        "kuvvet": 255,
+        "zeka": 121,
+        "karizma": 22,
+        "guven": 115,
+        "akce": 45.0
+      }
+    },
+    {
+      "karakter": "neromancer",
+      "kasaba": "Ardencaple",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 64,
+      "kuvvet": 47,
+      "zeka": 65,
+      "karizma": 95,
+      "guven": 25,
+      "akce": 324.0,
+      "dun": {
+        "seviye": 64,
+        "kuvvet": 47,
+        "zeka": 65,
+        "karizma": 93,
+        "guven": 25,
+        "akce": 324.0
+      }
+    },
+    {
+      "karakter": "harudha",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 81,
+      "kuvvet": 156,
+      "zeka": 22,
+      "karizma": 79,
+      "guven": 31,
+      "akce": 60.0,
+      "dun": {
+        "seviye": 81,
+        "kuvvet": 155,
+        "zeka": 32,
+        "karizma": 79,
+        "guven": 31,
+        "akce": 43.0
+      }
+    },
+    {
+      "karakter": "whisperbane",
+      "kasaba": "Girvan",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 96,
+      "kuvvet": 176,
+      "zeka": 55,
+      "karizma": 58,
+      "guven": 17,
+      "akce": 54.0,
+      "dun": {
+        "seviye": 95,
+        "kuvvet": 176,
+        "zeka": 55,
+        "karizma": 56,
+        "guven": 17,
+        "akce": 32.0
+      }
+    },
+    {
+      "karakter": "noumama",
+      "kasaba": "Whithorn",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 88,
+      "kuvvet": 175,
+      "zeka": 66,
+      "karizma": 41,
+      "guven": 13,
+      "akce": 46.0,
+      "dun": {
+        "seviye": 87,
+        "kuvvet": 173,
+        "zeka": 66,
+        "karizma": 41,
+        "guven": 13,
+        "akce": 62.0
+      }
+    },
+    {
+      "karakter": "razielon",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "medecine",
+      "seviye": 163,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 154,
+      "guven": 255,
+      "akce": 46.0,
+      "dun": {
+        "seviye": 162,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 151,
+        "guven": 255,
+        "akce": 55.0
+      }
+    },
+    {
+      "karakter": "peeves",
+      "kasaba": "Wigtown",
+      "meslek": "Kasap",
+      "yol": "-",
+      "seviye": 100,
+      "kuvvet": 126,
+      "zeka": 177,
+      "karizma": 73,
+      "guven": 84,
+      "akce": 6278.0,
+      "dun": {
+        "seviye": 100,
+        "kuvvet": 126,
+        "zeka": 175,
+        "karizma": 73,
+        "guven": 84,
+        "akce": 6274.0
+      }
+    },
+    {
+      "karakter": "darkbringer",
+      "kasaba": "Montpellier",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 75,
+      "kuvvet": 191,
+      "zeka": 45,
+      "karizma": 76,
+      "guven": 29,
+      "akce": 203.0,
+      "dun": {
+        "seviye": 75,
+        "kuvvet": 188,
+        "zeka": 45,
+        "karizma": 76,
+        "guven": 29,
+        "akce": 246.0
+      }
+    },
+    {
+      "karakter": "grimwarden",
+      "kasaba": "Girvan",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 96,
+      "kuvvet": 233,
+      "zeka": 61,
+      "karizma": 81,
+      "guven": 50,
+      "akce": 385.0,
+      "dun": {
+        "seviye": 96,
+        "kuvvet": 231,
+        "zeka": 61,
+        "karizma": 81,
+        "guven": 49,
+        "akce": 396.0
+      }
+    },
+    {
+      "karakter": "nojiko",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 74,
+      "kuvvet": 52,
+      "zeka": 41,
+      "karizma": 169,
+      "guven": 48,
+      "akce": 134.0,
+      "dun": {
+        "seviye": 74,
+        "kuvvet": 52,
+        "zeka": 41,
+        "karizma": 167,
+        "guven": 48,
+        "akce": 125.0
+      }
+    },
+    {
+      "karakter": "fredyy",
+      "kasaba": "Glasgow",
+      "meslek": "Bahçıvan",
+      "yol": "-",
+      "seviye": 196,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 163,
+      "guven": 113,
+      "akce": 6450.0,
+      "dun": {
+        "seviye": 196,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 160,
+        "guven": 113,
+        "akce": 6540.0
+      }
+    },
+    {
+      "karakter": "helsinkii",
+      "kasaba": "Stirling",
+      "meslek": "Bahçıvan",
+      "yol": "-",
+      "seviye": 86,
+      "kuvvet": 255,
+      "zeka": 120,
+      "karizma": 21,
+      "guven": 36,
+      "akce": 274.0,
+      "dun": {
+        "seviye": 86,
+        "kuvvet": 255,
+        "zeka": 117,
+        "karizma": 31,
+        "guven": 36,
+        "akce": 303.0
+      }
+    },
+    {
+      "karakter": "patek",
+      "kasaba": "Glasgow",
+      "meslek": "Terzi",
+      "yol": "-",
+      "seviye": 74,
+      "kuvvet": 255,
+      "zeka": 70,
+      "karizma": 23,
+      "guven": 42,
+      "akce": 26149.0,
+      "dun": {
+        "seviye": 73,
+        "kuvvet": 255,
+        "zeka": 67,
+        "karizma": 23,
+        "guven": 42,
+        "akce": 25925.0
+      }
+    },
+    {
+      "karakter": "akbaba",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 79,
+      "kuvvet": 197,
+      "zeka": 42,
+      "karizma": 105,
+      "guven": 34,
+      "akce": 15.0,
+      "dun": {
+        "seviye": 79,
+        "kuvvet": 197,
+        "zeka": 42,
+        "karizma": 105,
+        "guven": 34,
+        "akce": 14.0
+      }
+    },
+    {
+      "karakter": "ziyech",
+      "kasaba": "Stirling",
+      "meslek": "Marangoz",
+      "yol": "-",
+      "seviye": 191,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 247,
+      "guven": 56,
+      "akce": 38537.0,
+      "dun": {
+        "seviye": 190,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 244,
+        "guven": 56,
+        "akce": 38274.0
+      }
+    },
+    {
+      "karakter": "wolftrap",
+      "kasaba": "Lewes",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 19,
+      "kuvvet": 2,
+      "zeka": 2,
+      "karizma": 0,
+      "guven": 0,
+      "akce": 63.0,
+      "dun": {
+        "seviye": 18,
+        "kuvvet": 2,
+        "zeka": 0,
+        "karizma": 0,
+        "guven": 0,
+        "akce": 57.0
+      }
+    },
+    {
+      "karakter": "gaell",
+      "kasaba": "Ardencaple",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 63,
+      "kuvvet": 39,
+      "zeka": 42,
+      "karizma": 72,
+      "guven": 15,
+      "akce": 211.0,
+      "dun": {
+        "seviye": 63,
+        "kuvvet": 39,
+        "zeka": 42,
+        "karizma": 70,
+        "guven": 15,
+        "akce": 211.0
+      }
+    },
+    {
+      "karakter": "drakania",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 79,
+      "kuvvet": 214,
+      "zeka": 63,
+      "karizma": 66,
+      "guven": 46,
+      "akce": 46.0,
+      "dun": {
+        "seviye": 79,
+        "kuvvet": 211,
+        "zeka": 63,
+        "karizma": 66,
+        "guven": 46,
+        "akce": 56.0
+      }
+    },
+    {
+      "karakter": "tonali",
+      "kasaba": "Ardencaple",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 67,
+      "kuvvet": 44,
+      "zeka": 55,
+      "karizma": 81,
+      "guven": 27,
+      "akce": 241.0,
+      "dun": {
+        "seviye": 67,
+        "kuvvet": 42,
+        "zeka": 55,
+        "karizma": 81,
+        "guven": 27,
+        "akce": 232.0
+      }
+    },
+    {
+      "karakter": "darwinn",
+      "kasaba": "Glasgow",
+      "meslek": "Bahçıvan",
+      "yol": "-",
+      "seviye": 92,
+      "kuvvet": 255,
+      "zeka": 143,
+      "karizma": 64,
+      "guven": 38,
+      "akce": 34171.0,
+      "dun": {
+        "seviye": 92,
+        "kuvvet": 255,
+        "zeka": 140,
+        "karizma": 64,
+        "guven": 38,
+        "akce": 33991.0
+      }
+    },
+    {
+      "karakter": "typhoonn",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 92,
+      "kuvvet": 91,
+      "zeka": 50,
+      "karizma": 230,
+      "guven": 72,
+      "akce": 243.0,
+      "dun": {
+        "seviye": 92,
+        "kuvvet": 91,
+        "zeka": 50,
+        "karizma": 228,
+        "guven": 71,
+        "akce": 236.0
+      }
+    },
+    {
+      "karakter": "helioson",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 59,
+      "kuvvet": 16,
+      "zeka": 18,
+      "karizma": 15,
+      "guven": 14,
+      "akce": 47.0,
+      "dun": {
+        "seviye": 59,
+        "kuvvet": 16,
+        "zeka": 18,
+        "karizma": 15,
+        "guven": 14,
+        "akce": 37.0
+      }
+    },
+    {
+      "karakter": "aiegus",
+      "kasaba": "Glasgow",
+      "meslek": "Demirci",
+      "yol": "armee",
+      "seviye": 254,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 255,
+      "guven": 239,
+      "akce": 37463.0,
+      "dun": {
+        "seviye": 254,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 255,
+        "guven": 239,
+        "akce": 37027.0
+      }
+    },
+    {
+      "karakter": "bainhalt",
+      "kasaba": "Ardencaple",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 63,
+      "kuvvet": 57,
+      "zeka": 52,
+      "karizma": 32,
+      "guven": 5,
+      "akce": 178.0,
+      "dun": {
+        "seviye": 63,
+        "kuvvet": 55,
+        "zeka": 52,
+        "karizma": 32,
+        "guven": 5,
+        "akce": 178.0
+      }
+    },
+    {
+      "karakter": "asagrim",
+      "kasaba": "Whithorn",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 89,
+      "kuvvet": 193,
+      "zeka": 68,
+      "karizma": 50,
+      "guven": 40,
+      "akce": 61.0,
+      "dun": {
+        "seviye": 89,
+        "kuvvet": 193,
+        "zeka": 68,
+        "karizma": 48,
+        "guven": 40,
+        "akce": 42.0
+      }
+    },
+    {
+      "karakter": "onlyblack",
+      "kasaba": "Montpellier",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 77,
+      "kuvvet": 132,
+      "zeka": 95,
+      "karizma": 83,
+      "guven": 33,
+      "akce": 220.0,
+      "dun": {
+        "seviye": 77,
+        "kuvvet": 129,
+        "zeka": 95,
+        "karizma": 83,
+        "guven": 33,
+        "akce": 253.0
+      }
+    },
+    {
+      "karakter": "makuta",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 69,
+      "kuvvet": 45,
+      "zeka": 30,
+      "karizma": 153,
+      "guven": 43,
+      "akce": 181.0,
+      "dun": {
+        "seviye": 69,
+        "kuvvet": 45,
+        "zeka": 30,
+        "karizma": 151,
+        "guven": 43,
+        "akce": 174.0
+      }
+    },
+    {
+      "karakter": "marchosias",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 95,
+      "kuvvet": 241,
+      "zeka": 28,
+      "karizma": 88,
+      "guven": 105,
+      "akce": 43.0,
+      "dun": {
+        "seviye": 95,
+        "kuvvet": 238,
+        "zeka": 28,
+        "karizma": 88,
+        "guven": 105,
+        "akce": 52.0
+      }
+    },
+    {
+      "karakter": "nihilant",
+      "kasaba": "Ardencaple",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 97,
+      "kuvvet": 108,
+      "zeka": 112,
+      "karizma": 127,
+      "guven": 46,
+      "akce": 227.0,
+      "dun": {
+        "seviye": 97,
+        "kuvvet": 106,
+        "zeka": 112,
+        "karizma": 127,
+        "guven": 46,
+        "akce": 243.0
+      }
+    },
+    {
+      "karakter": "asensioo",
+      "kasaba": "Barcelona",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 19,
+      "kuvvet": 3,
+      "zeka": 0,
+      "karizma": 0,
+      "guven": 1,
+      "akce": 54.0,
+      "dun": {
+        "seviye": 18,
+        "kuvvet": 3,
+        "zeka": 0,
+        "karizma": 0,
+        "guven": 1,
+        "akce": 38.0
+      }
+    },
+    {
+      "karakter": "anaster",
+      "kasaba": "Ardencaple",
+      "meslek": "Marangoz",
+      "yol": "-",
+      "seviye": 99,
+      "kuvvet": 148,
+      "zeka": 187,
+      "karizma": 25,
+      "guven": 28,
+      "akce": 543.0,
+      "dun": {
+        "seviye": 99,
+        "kuvvet": 146,
+        "zeka": 187,
+        "karizma": 25,
+        "guven": 28,
+        "akce": 559.0
+      }
+    },
+    {
+      "karakter": "arous",
+      "kasaba": "Ardencaple",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 67,
+      "kuvvet": 30,
+      "zeka": 63,
+      "karizma": 91,
+      "guven": 29,
+      "akce": 294.0,
+      "dun": {
+        "seviye": 67,
+        "kuvvet": 28,
+        "zeka": 63,
+        "karizma": 91,
+        "guven": 29,
+        "akce": 306.0
+      }
+    },
+    {
+      "karakter": "tantalos",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 95,
+      "kuvvet": 104,
+      "zeka": 151,
+      "karizma": 150,
+      "guven": 63,
+      "akce": 460.0,
+      "dun": {
+        "seviye": 94,
+        "kuvvet": 104,
+        "zeka": 149,
+        "karizma": 150,
+        "guven": 62,
+        "akce": 497.0
+      }
+    },
+    {
+      "karakter": "nindalf",
+      "kasaba": "Chiavari",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 160,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 73,
+      "guven": 255,
+      "akce": 942.0,
+      "dun": {
+        "seviye": 160,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 70,
+        "guven": 255,
+        "akce": 951.0
+      }
+    },
+    {
+      "karakter": "sorchadusk",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 97,
+      "kuvvet": 110,
+      "zeka": 44,
+      "karizma": 45,
+      "guven": 35,
+      "akce": 94.0,
+      "dun": {
+        "seviye": 96,
+        "kuvvet": 110,
+        "zeka": 44,
+        "karizma": 45,
+        "guven": 35,
+        "akce": 70.0
+      }
+    },
+    {
+      "karakter": "tortugal",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 89,
+      "kuvvet": 79,
+      "zeka": 42,
+      "karizma": 42,
+      "guven": 18,
+      "akce": 61.0,
+      "dun": {
+        "seviye": 88,
+        "kuvvet": 79,
+        "zeka": 42,
+        "karizma": 42,
+        "guven": 18,
+        "akce": 55.0
+      }
+    },
+    {
+      "karakter": "betmen",
+      "kasaba": "Ardencaple",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 92,
+      "kuvvet": 71,
+      "zeka": 70,
+      "karizma": 142,
+      "guven": 39,
+      "akce": 876.0,
+      "dun": {
+        "seviye": 92,
+        "kuvvet": 68,
+        "zeka": 70,
+        "karizma": 142,
+        "guven": 38,
+        "akce": 870.0
+      }
+    },
+    {
+      "karakter": "erethea",
+      "kasaba": "Montpellier",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 71,
+      "kuvvet": 31,
+      "zeka": 18,
+      "karizma": 55,
+      "guven": 26,
+      "akce": 80.0,
+      "dun": {
+        "seviye": 71,
+        "kuvvet": 31,
+        "zeka": 16,
+        "karizma": 55,
+        "guven": 26,
+        "akce": 114.0
+      }
+    },
+    {
+      "karakter": "vamder",
+      "kasaba": "Glasgow",
+      "meslek": "Kasap",
+      "yol": "medecine",
+      "seviye": 228,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 255,
+      "guven": 255,
+      "akce": 37688.0,
+      "dun": {
+        "seviye": 227,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 255,
+        "guven": 255,
+        "akce": 37958.0
+      }
+    },
+    {
+      "karakter": "jeday",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 91,
+      "kuvvet": 67,
+      "zeka": 41,
+      "karizma": 64,
+      "guven": 15,
+      "akce": 95.0,
+      "dun": {
+        "seviye": 90,
+        "kuvvet": 67,
+        "zeka": 41,
+        "karizma": 64,
+        "guven": 15,
+        "akce": 74.0
+      }
+    },
+    {
+      "karakter": "yellowsmith",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 93,
+      "kuvvet": 255,
+      "zeka": 134,
+      "karizma": 181,
+      "guven": 120,
+      "akce": 132.0,
+      "dun": {
+        "seviye": 93,
+        "kuvvet": 255,
+        "zeka": 131,
+        "karizma": 181,
+        "guven": 120,
+        "akce": 153.0
+      }
+    },
+    {
+      "karakter": "dwadu",
+      "kasaba": "Ardencaple",
+      "meslek": "Demirci",
+      "yol": "-",
+      "seviye": 182,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 214,
+      "guven": 117,
+      "akce": 463.0,
+      "dun": {
+        "seviye": 182,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 214,
+        "guven": 117,
+        "akce": 464.0
       }
     },
     {
@@ -1826,74 +1833,74 @@
       "zeka": 255,
       "karizma": 255,
       "guven": 99,
-      "akce": 4818.0,
+      "akce": 4763.0,
       "dun": {
         "seviye": 181,
         "kuvvet": 255,
         "zeka": 255,
         "karizma": 255,
         "guven": 99,
-        "akce": 4914.0
+        "akce": 4818.0
       }
     },
     {
-      "karakter": "betmen",
-      "kasaba": "Ardencaple",
-      "meslek": "-",
-      "yol": "-",
-      "seviye": 92,
-      "kuvvet": 68,
-      "zeka": 70,
-      "karizma": 142,
-      "guven": 38,
-      "akce": 870.0,
-      "dun": {
-        "seviye": 92,
-        "kuvvet": 65,
-        "zeka": 70,
-        "karizma": 142,
-        "guven": 38,
-        "akce": 885.0
-      }
-    },
-    {
-      "karakter": "bremer",
-      "kasaba": "Girvan",
-      "meslek": "Marangoz",
-      "yol": "-",
-      "seviye": 180,
+      "karakter": "davoss",
+      "kasaba": "Glasgow",
+      "meslek": "Bahçıvan",
+      "yol": "armee",
+      "seviye": 178,
       "kuvvet": 255,
       "zeka": 255,
-      "karizma": 74,
-      "guven": 137,
-      "akce": 10615.0,
+      "karizma": 255,
+      "guven": 109,
+      "akce": 12761.0,
       "dun": {
-        "seviye": 180,
+        "seviye": 177,
         "kuvvet": 255,
         "zeka": 255,
-        "karizma": 72,
-        "guven": 137,
-        "akce": 10569.0
+        "karizma": 255,
+        "guven": 109,
+        "akce": 12770.0
       }
     },
     {
-      "karakter": "cptcorsair",
-      "kasaba": "Massa",
+      "karakter": "catapult",
+      "kasaba": "Wigtown",
       "meslek": "-",
       "yol": "-",
-      "seviye": 85,
-      "kuvvet": 215,
-      "zeka": 22,
-      "karizma": 80,
-      "guven": 39,
-      "akce": 61.0,
+      "seviye": 88,
+      "kuvvet": 87,
+      "zeka": 40,
+      "karizma": 218,
+      "guven": 85,
+      "akce": 174.0,
       "dun": {
-        "seviye": 84,
-        "kuvvet": 215,
-        "zeka": 22,
-        "karizma": 80,
-        "guven": 39,
-        "akce": 49.0
+        "seviye": 88,
+        "kuvvet": 87,
+        "zeka": 40,
+        "karizma": 216,
+        "guven": 85,
+        "akce": 153.0
+      }
+    },
+    {
+      "karakter": "thebear",
+      "kasaba": "Glasgow",
+      "meslek": "Bahçıvan",
+      "yol": "-",
+      "seviye": 94,
+      "kuvvet": 255,
+      "zeka": 127,
+      "karizma": 75,
+      "guven": 31,
+      "akce": 29787.0,
+      "dun": {
+        "seviye": 94,
+        "kuvvet": 255,
+        "zeka": 124,
+        "karizma": 75,
+        "guven": 31,
+        "akce": 29845.0
       }
     }
   ]
