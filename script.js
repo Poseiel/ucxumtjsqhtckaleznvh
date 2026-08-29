@@ -1784,9 +1784,14 @@ function filoSuzulmus() {
     .trim().toLocaleLowerCase("tr-TR");
   const liman = document.getElementById("filo-liman-filtre").value;
   const taraf = document.getElementById("filo-taraf-filtre").value;
+  const turEl = document.getElementById("filo-tur-filtre");
+  const tur = turEl ? turEl.value : "";
   return filoSatirlari.filter((s) => {
     if (liman && s.liman !== liman) return false;
     if (taraf && s.taraf !== taraf) return false;
+    // ⚠️ Türü BİLİNMEYEN gemi, tür seçiliyken listeye girmez — "Mavna
+    //    seç, tüm mavnaları gör" beklentisi bozulmasın.
+    if (tur && (s.tur || "") !== tur) return false;
     if (arama) {
       const yig = (s.armator + " " + s.gemi).toLocaleLowerCase("tr-TR");
       if (!yig.includes(arama)) return false;
@@ -1796,7 +1801,33 @@ function filoSuzulmus() {
 }
 
 function filoOzetCiz() {
-  document.getElementById("filo-ozet").innerHTML = filoKayitlari.map((l) =>
+  // ⚠️ Bir TÜR seçiliyse kartlar o türü sayar — kullanıcı: *"mavna seçince
+  //    tüm mavnaları göreyim, hangi şehirde kaç tane var."*
+  const turEl = document.getElementById("filo-tur-filtre");
+  const tur = turEl ? turEl.value : "";
+  const kutu = document.getElementById("filo-ozet");
+  if (tur) {
+    const say = new Map();
+    filoSatirlari.forEach((s) => {
+      if ((s.tur || "") !== tur) return;
+      say.set(s.liman, (say.get(s.liman) || 0) + 1);
+    });
+    if (!say.size) {
+      kutu.innerHTML = `<div class="ozet-kart"><span class="ozet-etiket">` +
+        `${tur}</span><span class="ozet-deger">0</span>` +
+        `<span class="ozet-alt">hiçbir limanda yok</span></div>`;
+      return;
+    }
+    kutu.innerHTML = [...say.entries()]
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "tr"))
+      .map(([liman, n]) =>
+        `<div class="ozet-kart"><span class="ozet-etiket">${liman}</span>` +
+        `<span class="ozet-deger">${n} ${tur}</span>` +
+        `<span class="ozet-alt">toplam ${say.size} limanda</span></div>`)
+      .join("");
+    return;
+  }
+  kutu.innerHTML = filoKayitlari.map((l) =>
     `<div class="ozet-kart"><span class="ozet-etiket">${l.liman}</span>` +
     `<span class="ozet-deger">${l.gemiler.length} gemi</span>` +
     `<span class="ozet-alt">🟢${l.sayim.bizim} 🔵${l.sayim.dost} 🔴${l.sayim.yabanci}</span></div>`
@@ -1857,6 +1888,24 @@ async function filoYukle() {
         o.value = ad; o.textContent = ad; secim.appendChild(o);
       });
 
+    // ⚠️ Tür listesi VERİDEN üretilir (sabit liste tutulmaz): oyun yeni
+    //    bir gemi türü çıkarırsa kendiliğinden görünür.
+    const turSecim = document.getElementById("filo-tur-filtre");
+    if (turSecim) {
+      const turSay = new Map();
+      filoSatirlari.forEach((s) => {
+        if (!s.tur) return;
+        turSay.set(s.tur, (turSay.get(s.tur) || 0) + 1);
+      });
+      [...turSay.keys()].sort((a, b) => a.localeCompare(b, "tr"))
+        .forEach((ad) => {
+          const o = document.createElement("option");
+          o.value = ad;
+          o.textContent = `${ad} — ${turSay.get(ad)} gemi`;
+          turSecim.appendChild(o);
+        });
+    }
+
     filoOzetCiz();
     filoTabloCiz();
   } catch (e) {
@@ -1866,9 +1915,15 @@ async function filoYukle() {
   }
 }
 
-["filo-arama", "filo-liman-filtre", "filo-taraf-filtre"].forEach((id) => {
+["filo-arama", "filo-liman-filtre", "filo-taraf-filtre",
+ "filo-tur-filtre"].forEach((id) => {
   const el = document.getElementById(id);
-  if (el) el.addEventListener(id === "filo-arama" ? "input" : "change", filoTabloCiz);
+  if (el) {
+    el.addEventListener(id === "filo-arama" ? "input" : "change", () => {
+      filoOzetCiz();      // tür seçilince kartlar da değişsin
+      filoTabloCiz();
+    });
+  }
 });
 
 pazarYukle();
