@@ -44,6 +44,10 @@ const RK_BINIS_GUN = 0.05;             // pratikte anında
 const RK_INIS_GUN = 1;                 // gemiden inmek 1 gün
 /* Zorlanmış kare (aslında kara) — sadece limana girip çıkmak için. */
 const RK_ZORLANMIS_BEDELI = 0.8;
+/* 🌑 Derin (koyu) su — açık Atlantik'te oyun seyahate izin vermiyor
+   (29.08.2026). Botla aynı kural: hamle başına EK bedel (hamle sayısıyla
+   çarpılır), yani tercih — başka yol yoksa yine geçilir. */
+const RK_DERIN_BEDELI = 3.0;
 /* Yön değiştirme cezası — düz gitmeyi yeğlet (zikzak çözümü). */
 const RK_DONUS_BEDELI = 0.004;
 
@@ -102,6 +106,11 @@ async function rkYukle() {
   //    kullanıp KARADAN geçiyordu (kullanıcının "Stirling çıkışı" ekran
   //    görüntüsündeki hata).
   RK.zorlanmis = new Set(RK.veri.zorlanmis || []);
+  // 🌑 Derin (koyu) su kareleri — veri yoksa küme boş = eski davranış.
+  RK.derin = new Set();
+  for (const y in (RK.veri.derin || {})) {
+    for (const x of RK.veri.derin[y]) RK.derin.add(rkAnahtar(x, Number(y)));
+  }
   RK.limanSet = new Set(RK.veri.limanlar.map((l) => l[0]));
   rkKutulariDoldur();
   return true;
@@ -255,6 +264,8 @@ function rkBirlesikRota(basId, bitId, jeton) {
           // Zorlanmış kare = aslında kara. Sadece limana girip çıkmak için
           // kullanılsın diye ağır bedel.
           if (RK.zorlanmis.has(k)) ek += RK_ZORLANMIS_BEDELI;
+          // 🌑 Derin (koyu) su — açık okyanusta oyun izin vermiyor.
+          if (RK.derin.has(k)) ek += RK_DERIN_BEDELI * RK_DENIZ_HAMLE_GUN;
           // Yön değiştirmeye küçük ceza — eşit maliyetli yollar arasından
           // DÜZ olanı seçilsin (yoksa açık denizde zikzak çiziyordu).
           const yonKod = (a + 1) * 3 + (b + 1);      // 0..8, tek rakam
@@ -316,6 +327,8 @@ function rkDenizRota(basId, bitId) {
         let ek = (ku !== undefined && ku < RK_KIYI_PAYI)
           ? RK_KIYI_BEDELI * (RK_KIYI_PAYI - ku) * RK_DENIZ_HAMLE_GUN : 0;
         if (RK.zorlanmis.has(k)) ek += RK_ZORLANMIS_BEDELI;
+        // 🌑 Derin (koyu) su — açık okyanusta oyun izin vermiyor.
+        if (RK.derin.has(k)) ek += RK_DERIN_BEDELI * RK_DENIZ_HAMLE_GUN;
         const yonKod = (a + 1) * 3 + (b + 1);
         if (yon !== 9 && yon !== yonKod) ek += RK_DONUS_BEDELI;
         const s = "D" + k + "|" + yonKod, v = m + RK_DENIZ_HAMLE_GUN + ek;
