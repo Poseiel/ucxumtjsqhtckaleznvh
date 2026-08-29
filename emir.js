@@ -572,8 +572,12 @@ function emirOlaylariBagla() {
     //    bot artık BAŞKALARININ yazdığı şablonları görebiliyor.
     var kopyalandi = await emirPanoyaYaz(metin);
     if (kopyalandi) {
-      durum.textContent = "📋 Kopyalandı — Telegram'da 🛒 Pazar / 👑 Divan " +
-                          "başlığına yapıştır ve gönder.";
+      // ⚠️ ÖLÇÜLDÜ: bot mesajları YALNIZCA sohbet numarasına göre süzüyor
+      //    (`divan_modul.cevaplari_topla` → chat.id), konu başlığına
+      //    BAKMIYOR. Yani HANGİ başlığa yapıştırılırsa yapıştırılsın emir
+      //    işlenir; başlık sadece bizim düzenimiz için.
+      durum.textContent = "📋 Kopyalandı — Telegram grubunda HERHANGİ bir " +
+                          "başlığa yapıştır (düzen için 🛒 Pazar / 👑 Divan).";
     } else {
       durum.textContent = "⚠️ Kopyalanamadı — aşağıdaki metni elle seçip kopyala.";
     }
