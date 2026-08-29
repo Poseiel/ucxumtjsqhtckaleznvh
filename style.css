@@ -829,3 +829,37 @@ a.rk-tamekran {
 }
 /* Tam ekranda harita tüm alanı kaplasın. */
 #rk-harita:fullscreen { width: 100vw; height: 100vh; border-radius: 0; }
+
+/* ── 📖 Kullanım kılavuzu sekmesi (29.08.2026) ───────────────────── */
+.rehber { max-width: 900px; }
+.rehber h2 { margin: 0 0 .4rem; }
+.rehber h3 {
+  margin: 1.6rem 0 .5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--cizgi, #d5dad5);
+}
+.rehber-tablo { width: 100%; border-collapse: collapse; margin: .5rem 0; }
+.rehber-tablo th, .rehber-tablo td {
+  padding: .5rem .6rem;
+  border-bottom: 1px solid var(--cizgi, #d5dad5);
+  text-align: left;
+  vertical-align: top;
+}
+.rehber-tablo th { font-weight: 600; }
+.rehber-tablo td:first-child { white-space: nowrap; }
+.rehber-akis {
+  padding: .7rem .9rem;
+  border-radius: 8px;
+  background: rgba(127, 127, 127, .12);
+  line-height: 1.7;
+}
+.rehber-not {
+  font-size: .92em;
+  opacity: .85;
+  margin: .4rem 0 0;
+}
+.rehber-eski { font-size: .7em; opacity: .6; font-weight: normal; }
+/* Dar ekranda tablo taşmasın */
+@media (max-width: 640px) {
+  .rehber-tablo td:first-child { white-space: normal; }
+}
