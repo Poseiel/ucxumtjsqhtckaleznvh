@@ -45,8 +45,19 @@ const RK_INIS_GUN = 1;                 // gemiden inmek 1 gün
 /* Zorlanmış kare (aslında kara) — sadece limana girip çıkmak için. */
 const RK_ZORLANMIS_BEDELI = 0.8;
 /* 🌑 Derin (koyu) su — açık Atlantik'te oyun seyahate izin vermiyor
-   (29.08.2026). Botla aynı kural: hamle başına EK bedel (hamle sayısıyla
-   çarpılır), yani tercih — başka yol yoksa yine geçilir. */
+   (29.08.2026, Anıl ölçtü ve haritada kırmızıyla çizdi).
+
+   ⚠️⚠️ BU SAYI `kaptan_modul.DERIN_BEDELI` İLE **AYNI OLMAK ZORUNDA.**
+   Kullanıcı kuralı (29.08.2026): *"botun kendisi nasıl davranacaksa
+   sitede öyle davransın."* Site, botun ne yapacağını ÖNCEDEN GÖRMEK için
+   var; iki taraf farklı olursa site yanlış rota gösterir ve plan boşa
+   gider.
+   ⚠️ Bir tarafı değiştirirsen DİĞERİNİ DE değiştir:
+        kaptan_modul.py  → DERIN_BEDELI
+        docs/harita.js   → RK_DERIN_BEDELI
+   ⚠️ Bedel bir TERCİHTİR, yasak değil (kullanıcı: *"meyilli ol,
+      engelleme değil"*): başka yol yoksa derin sudan yine geçilir —
+      o durumda rota metnine uyarı satırı düşer. */
 const RK_DERIN_BEDELI = 3.0;
 /* Yön değiştirme cezası — düz gitmeyi yeğlet (zikzak çözümü). */
 const RK_DONUS_BEDELI = 0.004;
@@ -465,9 +476,17 @@ function rkHesapla() {
         `${denizHamle} deniz hamlesi = ${denizGun} gün (mürettebat tam: günde 10)`);
       if (karaAdimB) parcalar.push(`${karaAdimB} kara adımı = ${karaGun} gün`);
       if (inis) parcalar.push(`${inis} × karaya çıkış = ${inis} gün`);
+      // ⚠️ Rota derin sudan geçiyorsa SÖYLE. Bedel bir tercih olduğu için
+      //    başka yol yoksa oradan geçilebiliyor; kullanıcı bunu bilmeli
+      //    (oyun açık Atlantik'te seyahate izin vermiyor).
+      const derinAdim = bir.yol.filter(
+        (n) => n[0] === "D" && RK.derin.has(n.slice(2))).length;
       metin += `${toplam} gün (${parcalar.join(" + ")})` +
         (karaAdim !== undefined
           ? ` · yalnız karadan ${Math.ceil(karaAdim / (jeton ? 3 : 2))} gün` : "") +
+        (derinAdim
+          ? ` · ⚠️ ${derinAdim} kare DERİN SUDAN geçiyor (oyun izin vermeyebilir)`
+          : "") +
         ` · ${ms} ms`;
     }
   }
