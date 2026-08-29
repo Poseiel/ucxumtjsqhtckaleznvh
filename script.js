@@ -1813,7 +1813,7 @@ function filoTabloCiz() {
     tr.innerHTML =
       `<td>${s.liman}</td>` +
       `<td>${simge} ${s.armator}</td>` +
-      `<td>${s.gemi || "?"}</td>` +
+      `<td>${s.gemi || "?"}${s.durum ? ' <span class="filo-durum">🛠️ ' + s.durum + "</span>" : ""}</td>` +
       `<td>${s.tur || ""}</td>` +
       `<td><button class="emir-mini-btn filo-mesaj-btn">✉️</button></td>`;
     // ⚠️ Dinleyici doğrudan bağlanır (innerHTML'e onclick GÖMÜLMEZ —
@@ -1844,7 +1844,7 @@ async function filoYukle() {
       (l.gemiler || []).forEach((g) => {
         filoSatirlari.push({
           liman: l.liman, armator: g.armator, gemi: g.gemi,
-          tur: g.tur, taraf: g.taraf,
+          tur: g.tur, taraf: g.taraf, durum: g.durum || "",
         });
       });
     });
