@@ -328,6 +328,29 @@ function emirMesajiKur() {
     };
   }
 
+  // ---------------- ✉️ MESAJ ----------------
+  // Kullanıcı isteği (29.08.2026): sitedeki Filo listesinden bir geminin
+  // sahibine oyun içi mesaj yollamak. Filo sekmesindeki "Mesaj at" düğmesi
+  // bu formu doldurup buraya getiriyor.
+  // ⚠️ Şablon `divan_modul.yeni_mesaj_coz` ile BİREBİR aynı olmalı —
+  //    birini değiştirirsen diğerini de değiştir.
+  if (emirTur === "mesaj") {
+    var mKimden = emirDeger("ms-kimden");
+    var mKime = emirDeger("ms-kime");
+    var mKonu = emirDeger("ms-konu");
+    var mMetin = emirDeger("ms-metin");
+    var mEksik = [];
+    if (!mKimden) mEksik.push("gönderecek karakter");
+    if (!mKime) mEksik.push("alıcı");
+    if (!mMetin) mEksik.push("mesaj metni");
+    if (mEksik.length) return { hata: "Eksik: " + mEksik.join(", ") };
+    var msatir = ["MESAJ", "kimden: " + mKimden, "kime: " + mKime];
+    // ⚠️ Konu BOŞ BIRAKILABİLİR — oyun boş konuyu kabul ediyor.
+    if (mKonu) msatir.push("konu: " + mKonu);
+    msatir.push(mMetin);
+    return { metin: msatir.join(EMIR_NL) };
+  }
+
   var kisi = emirDeger("od-kisi");
   var mallar = emirOdenekSatirlari();
   if (!kisi) return { hata: "Eksik: ödenek atılacak kişi" };
@@ -346,6 +369,52 @@ function emirMesajiKur() {
       emirSayiYaz(toplam) + " akçe (bot geri ödemeyi 5 gün sonrasına yazar).";
   }
   return { metin: osatirlar.join(EMIR_NL) };
+}
+
+// ⚠️⚠️ GÖNDERECEK KARAKTER ADI SİTEYE YAZILMAZ. Kullanıcı kararı
+//    (29.08.2026): *"tamam o zaman elle yazarız karakter adını."*
+//    Daha önce yazdıkların YALNIZCA kendi tarayıcının belleğinde tutulur
+//    (localStorage) — hiçbir yere gönderilmez, dosyaya yazılmaz.
+var MS_BELLEK = "poseidon_mesaj_gonderenler";
+
+function msGonderenleriHatirla(ad) {
+  if (!ad) return;
+  try {
+    var liste = JSON.parse(localStorage.getItem(MS_BELLEK) || "[]");
+    if (liste.indexOf(ad) === -1) {
+      liste.push(ad);
+      liste = liste.slice(-20);            // en son 20 ad yeter
+      localStorage.setItem(MS_BELLEK, JSON.stringify(liste));
+    }
+  } catch (e) { /* özel sekmede yazma engelli olabilir — sorun değil */ }
+}
+
+function msGonderenleriDoldur() {
+  var dl = document.getElementById("ms-kimden-listesi");
+  if (!dl) return;
+  var liste = [];
+  try { liste = JSON.parse(localStorage.getItem(MS_BELLEK) || "[]"); }
+  catch (e) { liste = []; }
+  dl.innerHTML = liste.sort().map(function (a) {
+    return "<option value=" + String.fromCharCode(34) + emirKacis(a) +
+           String.fromCharCode(34) + "></option>";
+  }).join("");
+}
+
+/* Filo sekmesindeki "Mesaj at" düğmesi buraya atlar. */
+function emirMesajAc(alici, gemi) {
+  var btn = document.querySelector(".emir-tur-btn[data-tur=" +
+                                   String.fromCharCode(34) + "mesaj" +
+                                   String.fromCharCode(34) + "]");
+  if (btn) btn.click();
+  var kime = document.getElementById("ms-kime");
+  if (kime) kime.value = alici || "";
+  var konu = document.getElementById("ms-konu");
+  if (konu && !konu.value && gemi) konu.value = gemi;
+  msGonderenleriDoldur();
+  var kimden = document.getElementById("ms-kimden");
+  if (kimden) kimden.focus();
+  emirGuncelle();
 }
 
 function emirGuncelle() {
@@ -410,6 +479,19 @@ function emirOlaylariBagla() {
       emirGuncelle();
     });
   });
+
+  // ✉️ Mesaj formu dinleyicileri
+  ["ms-kimden", "ms-kime", "ms-konu", "ms-metin"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener("input", emirGuncelle);
+  });
+  var _msK = document.getElementById("ms-kimden");
+  if (_msK) {
+    _msK.addEventListener("change", function () {
+      msGonderenleriHatirla(_msK.value.trim());
+    });
+  }
+  msGonderenleriDoldur();
 
   document.getElementById("sat-hesap").addEventListener("input", function () {
     emirSatisMalDoldur();
