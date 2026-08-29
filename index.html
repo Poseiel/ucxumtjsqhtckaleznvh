@@ -56,11 +56,14 @@ L.RasterCoords.prototype = {
   <button class="tab-btn" data-tab="envanter">Envanter</button>
   <button class="tab-btn" data-tab="sancak">Sancak Envanteri</button>
   <button class="tab-btn" data-tab="belediye">Belediye Envanteri</button>
+  <button class="tab-btn" data-tab="liman">Liman Envanteri</button>
+  <button class="tab-btn" data-tab="filo">⛵ Filo</button>
   <button class="tab-btn" data-tab="gelisim">Gelişim</button>
   <button class="tab-btn" data-tab="hareket">Hareket</button>
   <button class="tab-btn" data-tab="inziva">İnziva</button>
   <button class="tab-btn" data-tab="sakinler">Kim Nerede</button>
   <button class="tab-btn" data-tab="harita">🗺️ Harita &amp; Rota</button>
+  <button class="tab-btn" data-tab="rehber">📖 Nasıl Kullanılır</button>
 </nav>
 
 <main>
@@ -176,6 +179,126 @@ L.RasterCoords.prototype = {
         <tbody id="belediye-tablo-govde"></tbody>
       </table>
       <p id="belediye-sonuc-yok" class="bos-durum" hidden>Kayıt bulunamadı.</p>
+    </div>
+  </section>
+
+  <!-- ⚓ LİMAN ENVANTERİ — kullanıcı isteği 29.08.2026: "belediye ve liman
+       envanteri aynı sekmede olsa bile AYRI GÖSTERİLMESİ lazım."
+       Veri: liman.json (divan_liman.py → rapor → pazar_json_uret.liman_uret). -->
+  <section id="tab-liman" class="tab-panel">
+    <p class="envanter-tarih-notu">Rapor tarihi: <span id="liman-rapor-tarihi">yükleniyor...</span></p>
+    <p class="bolum-aciklama">Bu, <b>limanın ortak deposudur</b> — Liman Şefi hesabımızın makamından
+      her gün okunur. <b>Gemi yapımı buradaki akçeye bakar</b>: Mavna/Celiyye 500, Dişli 1500,
+      Korvet 2000 akçe. Yani liman kasası boşsa gemi inşa edilemez.</p>
+    <div id="liman-ozet" class="envanter-ozet"></div>
+    <div class="pazar-arac-cubugu">
+      <input type="text" id="liman-arama" placeholder="Ürün ara... (örn. Odun)">
+      <select id="liman-urun-filtre">
+        <option value="">▼ Ürün seç (aramadan)</option>
+      </select>
+      <select id="liman-kasaba-filtre">
+        <option value="">Tüm limanlar</option>
+      </select>
+      <button id="liman-kopyala">📋 Listeyi kopyala</button>
+      <span id="liman-kopya-durum" class="dilekce-durum"></span>
+    </div>
+    <div class="tablo-sarici tablo-sarici-yapiskan">
+      <table id="liman-tablo">
+        <thead id="liman-tablo-baslik"></thead>
+        <tbody id="liman-tablo-govde"></tbody>
+      </table>
+      <p id="liman-sonuc-yok" class="bos-durum" hidden>Kayıt bulunamadı.</p>
+    </div>
+  </section>
+
+  <!-- ⛵ FİLO — hangi limanda hangi gemi var. Veri: filo.json
+       (filo_modul.py → Liman_Gemileri_*.txt → pazar_json_uret.filo_uret).
+       Kullanıcı isteği 29.08.2026: *"bunu siteye de yüklesin ve gemi
+       sahibine mesaj at seçeneği ekle yanına."* -->
+  <section id="tab-filo" class="tab-panel">
+    <p class="envanter-tarih-notu">Rapor tarihi: <span id="filo-rapor-tarihi">yükleniyor...</span></p>
+    <p class="bolum-aciklama">Ajanlarımızın her sabah <b>rıhtımda gördüğü gemiler</b>.
+      🟢 bizim · 🔵 dost (aile) · 🔴 yabancı. Denizdeki gemiler burada görünmez —
+      onları ancak bitişik karedeysen görebiliyorsun.
+      Bir geminin sahibine oyun içi mesaj yollamak için yanındaki <b>✉️</b> düğmesine bas:
+      Emir sekmesi açılır, alıcı hazır gelir.</p>
+    <div id="filo-ozet" class="envanter-ozet"></div>
+    <div class="pazar-arac-cubugu">
+      <input type="text" id="filo-arama" placeholder="Gemi ya da sahip ara...">
+      <select id="filo-liman-filtre">
+        <option value="">Tüm limanlar</option>
+      </select>
+      <select id="filo-taraf-filtre">
+        <option value="">Tüm taraflar</option>
+        <option value="bizim">🟢 bizim</option>
+        <option value="dost">🔵 dost</option>
+        <option value="yabanci">🔴 yabancı</option>
+      </select>
+    </div>
+    <div class="tablo-sarici tablo-sarici-yapiskan">
+      <table id="filo-tablo">
+        <thead><tr><th>Liman</th><th>Sahip</th><th>Gemi</th><th>Tür</th><th></th></tr></thead>
+        <tbody id="filo-tablo-govde"></tbody>
+      </table>
+      <p id="filo-sonuc-yok" class="bos-durum" hidden>Kayıt bulunamadı.</p>
+    </div>
+  </section>
+
+  <!-- 📖 KULLANIM KILAVUZU — kullanıcı isteği 29.08.2026: siteye erişimi
+       olan arkadaşların neyi nasıl kullanacağını anlatan sayfa. -->
+  <section id="tab-rehber" class="tab-panel">
+    <div class="rehber">
+      <h2>📖 Bu site ne işe yarar?</h2>
+      <p class="bolum-aciklama">Bot her sabah ~92 hesabı gezip oyundan bilgi topluyor.
+        Bu site o bilgilerin okunabilir hâli. <b>Bilgi okuma</b> sekmeleri var, bir de
+        <b>bota iş verme</b> sekmesi (Emir). Aşağıda hangisi ne yapar, kısaca yazdım.</p>
+
+      <h3>🔎 Sadece bakılan sekmeler</h3>
+      <table class="rehber-tablo">
+        <tr><th>Sekme</th><th>Ne gösterir</th><th>Ne zaman güncellenir</th></tr>
+        <tr><td><b>Pazar</b></td><td>7 kasabanın pazarındaki ilanlar, fiyatlar</td><td>Sabah (ajanlar bitince)</td></tr>
+        <tr><td><b>Envanter</b></td><td>Kendi hesaplarımızın çanta + ev sandığı toplamı</td><td>Akşam (tur bitince)</td></tr>
+        <tr><td><b>Sancak / Belediye / Liman Envanteri</b></td><td>Eyaletin, kasabanın ve limanın ortak depoları</td><td>O makamdaki hesap girince</td></tr>
+        <tr><td><b>⛵ Filo</b></td><td>Hangi limanda hangi gemi var, sahibi kim (🟢 bizim · 🔵 dost · 🔴 yabancı)</td><td>Sabah</td></tr>
+        <tr><td><b>Gelişim</b></td><td>Karakterlerin dünkü hâline göre stat değişimi (▲ = ▼)</td><td>Akşam</td></tr>
+        <tr><td><b>Hareket / İnziva / Kim Nerede</b></td><td>Kim nereye gitti, kim inzivaya girdi, multi şüphesi</td><td>Sabah</td></tr>
+        <tr><td><b>Harita</b></td><td>Kara + deniz rotası hesaplayıcı (iki şehir seç, kaç gün sürer söyler)</td><td>Sabit</td></tr>
+      </table>
+      <p class="rehber-not">⚠️ Bir sekmede <b>“henüz veri yok”</b> yazıyorsa bozuk değildir —
+        o bilgiyi toplayan hesap o gün henüz oyuna girmemiştir.</p>
+
+      <h3>✍️ Bota iş verme — <b>Emir</b> sekmesi</h3>
+      <p>Site oyuna doğrudan bağlanamaz. Zincir şöyle işler:</p>
+      <p class="rehber-akis">Sen kutuları doldurursun → site hazır metni üretir →
+        <b>Telegram’a gönderirsin</b> → bot okur → sıradaki turda oyunda yapar</p>
+      <p class="rehber-not">⚠️ Mesajın <b>senin hesabından</b> çıkması şart. Bot kendi
+        yazdığı mesajı okuyamıyor (ölçüldü), o yüzden “Gönder”e basınca Telegram
+        hazır metinle açılır, sen sadece gönder tuşuna basarsın.</p>
+      <table class="rehber-tablo">
+        <tr><th>Emir türü</th><th>Ne yapar</th></tr>
+        <tr><td>💰 <b>Satış</b></td><td>Seçtiğin hesabın malını pazara çıkarır. İstersen belli bir kişiye rezerve eder.</td></tr>
+        <tr><td>🛒 <b>Alım</b></td><td>Pazardan mal aldırır, tavan fiyat belirlersin.</td></tr>
+        <tr><td>📜 <b>Ödenek</b></td><td>Sancak kasasından bir kişiye ödenek (sözleşme) çıkarır.</td></tr>
+        <tr><td>✉️ <b>Mesaj</b></td><td><b>YENİ:</b> oyun içi mesaj yollar. Filo sekmesinde bir geminin yanındaki ✉️ düğmesine basarsan alıcı hazır gelir.</td></tr>
+      </table>
+      <p class="rehber-not">✉️ Mesajda <b>gönderecek karakteri elle yazarsın</b> —
+        o ad hiçbir yere kaydedilmez, yalnızca kendi tarayıcın hatırlar.
+        <b>Konu başlığı boş bırakılabilir.</b></p>
+
+      <h3>💬 Telegram’dan cevap yazma <span class="rehber-eski">(bunu zaten biliyorsunuz)</span></h3>
+      <p>Divan/belediye hesaplarımıza oyunda mesaj gelince bot bunu Telegram’a düşürür
+        (orijinali + Türkçesi). O mesaja Telegram’da <b>“Yanıtla”</b> ile cevap yazarsan,
+        bot o cevabı kuyruğa alır ve <b>ilgili karakter oyuna girdiğinde</b> gönderir.</p>
+      <p class="rehber-not">Kim yazarsa yazsın kabul edilir; kuyruğa kimin yazdığı not düşülür.
+        Konu başlığına otomatik <b>“re:”</b> eklenir. Bu düzen değişmedi.</p>
+
+      <h3>❓ Sık sorulanlar</h3>
+      <table class="rehber-tablo">
+        <tr><td><b>Emri gönderdim, ne zaman olur?</b></td><td>O karakter sıradaki turda oyuna girdiğinde. Bot sabah erken başlıyor.</td></tr>
+        <tr><td><b>Yanlış emir gönderdim</b></td><td>Telegram’a yaz, ana makinedeki kişi kuyruktan düşürebilir.</td></tr>
+        <tr><td><b>Site eski veri gösteriyor</b></td><td>Sayfayı yenile (Ctrl+F5). Tarih satırı her sekmenin üstünde yazıyor.</td></tr>
+        <tr><td><b>Denizdeki gemiler neden Filo’da yok?</b></td><td>Oyun onları göstermiyor — bir gemiyi ancak yakınındaysan görüyorsun. Filo yalnızca <b>rıhtımdaki</b> gemileri sayar.</td></tr>
+      </table>
     </div>
   </section>
 
@@ -445,6 +568,7 @@ L.RasterCoords.prototype = {
       <button class="emir-tur-btn active" data-tur="sat">💰 Satış</button>
       <button class="emir-tur-btn" data-tur="al">🛒 Alım</button>
       <button class="emir-tur-btn" data-tur="odenek">📜 Ödenek</button>
+      <button class="emir-tur-btn" data-tur="mesaj">✉️ Mesaj</button>
     </div>
 
     <!-- ---------------- SATIŞ ---------------- -->
@@ -518,6 +642,30 @@ L.RasterCoords.prototype = {
       <button type="button" id="od-satir-ekle" class="emir-mini-btn">➕ mal satırı ekle</button>
       <p class="emir-ipucu" id="od-bilgi"></p>
     </div>
+    <!-- ✉️ MESAJ — Filo sekmesindeki "Mesaj at" düğmesi buraya getirir.
+         ⚠️ Şablon divan_modul.yeni_mesaj_coz ile BİREBİR aynı olmalı. -->
+    <div class="emir-form" id="emir-form-mesaj">
+      <div class="emir-satir">
+        <label>Gönderecek karakter
+          <input list="ms-kimden-listesi" id="ms-kimden" placeholder="kendi karakterin (elle yaz)" autocomplete="off">
+          <datalist id="ms-kimden-listesi"></datalist>
+        </label>
+        <label>Kime (gemi sahibi)
+          <input id="ms-kime" placeholder="örn. tedy_macalpine" autocomplete="off">
+        </label>
+      </div>
+      <div class="emir-satir">
+        <label>Konu başlığı
+          <input id="ms-konu" placeholder="boş bırakılabilir" autocomplete="off">
+        </label>
+      </div>
+      <label>Mesaj
+        <textarea id="ms-metin" rows="4" placeholder="Oyunda gönderilecek metin…"></textarea>
+      </label>
+      <p class="emir-ipucu">Gönderecek karakterin adı <b>hiçbir yere kaydedilmez</b> —
+        yalnızca kendi tarayıcın hatırlar. Bot bu mesajı, o karakter oyuna girdiğinde yollar.</p>
+    </div>
+
 
     <!-- ---------------- ÖNİZLEME + GÖNDER ---------------- -->
     <h3 class="emir-baslik">Gidecek mesaj</h3>
