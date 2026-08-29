@@ -863,3 +863,10 @@ a.rk-tamekran {
 @media (max-width: 640px) {
   .rehber-tablo td:first-child { white-space: normal; }
 }
+
+/* 🛠️ Filo: tamirdeki gemi rozeti (29.08.2026) */
+.filo-durum {
+  font-size: .82em;
+  opacity: .8;
+  white-space: nowrap;
+}
