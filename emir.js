@@ -443,7 +443,10 @@ function emirDipnotYaz() {
   if (!el) return;
   el.textContent = EMIR_NTFY_AKTIF
     ? "Gönder'e basınca emir doğrudan bota gider; bot sıradaki turda uygular ve Telegram'a bilgi mesajı yazar."
-    : "Gönder'e basınca Telegram hazır mesajla açılır — sadece gönder tuşuna basman yeterli. (Mesajın senin hesabından çıkması şart: bot kendi yazdığı mesajı okuyamıyor.)";
+    : "Gönder'e basınca metin PANOYA kopyalanır — Telegram'da ilgili başlığa " +
+      "(🛒 Pazar / 👑 Divan / ⚓ Deniz) yapıştırıp gönder. " +
+      "Mesajın SENİN hesabından çıkması şart: Telegram, botun kendi " +
+      "yazdığı mesajı bota geri vermiyor (gruba geçmek bunu değiştirmedi).";
 }
 
 async function emirPanoyaYaz(metin) {
@@ -554,9 +557,27 @@ function emirOlaylariBagla() {
       }
     }
 
-    emirTelegramdaAc(metin);
-    durum.textContent = "Telegram açıldı — gönder tuşuna bas (metin panoda da duruyor)";
-    setTimeout(function () { durum.textContent = ""; }, 6000);
+    // ⚠️⚠️ 29.08.2026 — ÖLÇÜLDÜ: `t.me/share/url` bağlantısı çoğu
+    //    tarayıcıda düzgün açılmıyor (Pontiac: *"Gönder'e basınca
+    //    Telegram'a yönlendiriyor ama o da tam açılmıyor, kopyalayıp
+    //    kendim yapıştırayım"*).
+    //    Bu yüzden ASIL yol artık PANO: metin kopyalanır, kullanıcı
+    //    Telegram'da ilgili konuya yapıştırır. Telegram'ı açma denemesi
+    //    yine yapılır ama artık "işe yaramazsa" değil "bonus" konumunda.
+    //
+    // ⚠️⚠️ NEDEN BOT KENDİ GÖNDERMİYOR: Telegram Bot API, botun KENDİ
+    //    mesajını `getUpdates` ile ona GERİ VERMEZ. Bu kanal/grup farkı
+    //    DEĞİL, platformun kuralıdır — gruba geçmek bunu değiştirmedi.
+    //    Gruba geçmenin kazandırdığı şey ayrı: gizlilik modu kapatılınca
+    //    bot artık BAŞKALARININ yazdığı şablonları görebiliyor.
+    var kopyalandi = await emirPanoyaYaz(metin);
+    if (kopyalandi) {
+      durum.textContent = "📋 Kopyalandı — Telegram'da 🛒 Pazar / 👑 Divan " +
+                          "başlığına yapıştır ve gönder.";
+    } else {
+      durum.textContent = "⚠️ Kopyalanamadı — aşağıdaki metni elle seçip kopyala.";
+    }
+    setTimeout(function () { durum.textContent = ""; }, 9000);
   });
 
   document.getElementById("emir-kopyala").addEventListener("click", async function () {
