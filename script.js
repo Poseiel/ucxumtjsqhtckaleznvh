@@ -1614,10 +1614,269 @@ if (_rotaBulBtn) _rotaBulBtn.addEventListener("click", () => {
   rotaGrubu.appendChild(polyline);
 });
 
+
+// ---------------------------------------------------------
+// ⚓ LİMAN ENVANTERİ SEKMESİ  (29.08.2026)
+// Veri: liman.json (divan_liman.py Liman Şefi makamından okur ->
+// Town_Reports/Liman_Envanteri_*.txt -> pazar_json_uret.liman_uret).
+//
+// Kullanıcı isteği: *"belediye ve liman envanteri aynı sekmede olsa bile
+// AYRI GÖSTERİLMESİ lazım."* -> ayrı sekme, ayrı JSON, ayrı tablo.
+//
+// ⚠️ Belediye sekmesiyle aynı desen, ama kod KOPYALANMADI: aşağıdaki
+//    `envanterSekmesiKur` GENEL bir kurucudur, yalnızca DOM önekini ve
+//    JSON alan adlarını alır. Belediye bloğuna DOKUNULMADI (çalışan site
+//    JS'inde bir hata TÜM sekmeleri düşürüyor - `rota-bul-btn` vakası);
+//    ileride belediye de bu kurucuya taşınabilir.
+// ---------------------------------------------------------
+function envanterSekmesiKur(onek, jsonAdi, veriAnahtari, baslikAdi) {
+  const G = (ek) => document.getElementById(onek + "-" + ek);
+  let kayitlar = [];
+  let satirlar = [];
+
+  function suzulmus() {
+    const arama = (G("arama").value || "").trim().toLocaleLowerCase("tr-TR");
+    const urun = G("urun-filtre").value;
+    const kasaba = G("kasaba-filtre").value;
+    return satirlar.filter((s) => {
+      if (arama && !s.isim.toLocaleLowerCase("tr-TR").includes(arama)) return false;
+      if (urun && s.isim !== urun) return false;
+      if (kasaba && s.kasaba !== kasaba) return false;
+      return true;
+    });
+  }
+
+  function sirala(liste) {
+    // Akçe en üstte, gerisi adede göre büyükten küçüğe (belediye ile aynı).
+    return [...liste].sort(
+      (a, b) => (b.akceMi ? 1 : 0) - (a.akceMi ? 1 : 0) || b.adet - a.adet);
+  }
+
+  function ozetCiz() {
+    G("ozet").innerHTML = kayitlar.map((b) =>
+      `<div class="ozet-kart"><span class="ozet-etiket">${b.kasaba}</span>` +
+      `<span class="ozet-deger">${akceFormat(b.akce)}</span>` +
+      `<span class="ozet-alt">${(b.esyalar || []).length} çeşit · ${b.sancak}</span></div>`
+    ).join("");
+  }
+
+  function tabloCiz() {
+    const baslik = G("tablo-baslik");
+    const govde = G("tablo-govde");
+    const cokKasaba = new Set(kayitlar.map((b) => b.kasaba)).size > 1;
+    govde.innerHTML = "";
+    baslik.innerHTML = cokKasaba
+      ? "<tr><th>Adet</th><th>Ürün</th><th>Liman</th></tr>"
+      : "<tr><th>Adet</th><th>Ürün</th></tr>";
+    const filtreli = suzulmus();
+    sirala(filtreli).forEach((s) => {
+      const tr = document.createElement("tr");
+      const adet = s.akceMi ? akceFormat(s.adet) : s.adet;
+      tr.innerHTML = cokKasaba
+        ? `<td>${adet}</td><td>${s.isim}</td><td>${s.kasaba}</td>`
+        : `<td>${adet}</td><td>${s.isim}</td>`;
+      govde.appendChild(tr);
+    });
+    G("sonuc-yok").hidden = filtreli.length !== 0;
+  }
+
+  function kopyaMetni() {
+    const tarih = G("rapor-tarihi").textContent;
+    const kasaba = G("kasaba-filtre").value;
+    const bas = (kasaba || baslikAdi) + " — Envanter (" + tarih + ")";
+    const sat = sirala(suzulmus()).map((s) => {
+      const adet = s.akceMi ? akceFormat(s.adet) : s.adet;
+      return `${adet} ${s.isim}${kasaba ? "" : "  (" + s.kasaba + ")"}`;
+    });
+    return [bas, ...sat].join("\n");
+  }
+
+  async function yukle() {
+    try {
+      const yanit = await fetch(jsonAdi + "?_=" + Date.now());
+      const veri = await yanit.json();
+      kayitlar = veri[veriAnahtari] || [];
+      G("rapor-tarihi").textContent = veri.rapor_tarihi || "bilinmiyor";
+
+      satirlar = [];
+      kayitlar.forEach((b) => {
+        if (b.akce > 0) {
+          satirlar.push({ isim: "Akçe", adet: b.akce, kasaba: b.kasaba, akceMi: true });
+        }
+        (b.esyalar || []).forEach((e) => {
+          satirlar.push({ isim: e.isim, adet: e.adet, kasaba: b.kasaba, akceMi: false });
+        });
+      });
+
+      const kSecim = G("kasaba-filtre");
+      [...new Set(kayitlar.map((b) => b.kasaba))]
+        .sort((a, b) => a.localeCompare(b, "tr"))
+        .forEach((ad) => {
+          const o = document.createElement("option");
+          o.value = ad; o.textContent = ad; kSecim.appendChild(o);
+        });
+
+      const toplam = new Map();
+      satirlar.forEach((s) => {
+        if (s.akceMi) return;
+        toplam.set(s.isim, (toplam.get(s.isim) || 0) + s.adet);
+      });
+      const uSecim = G("urun-filtre");
+      [...toplam.keys()].sort((a, b) => a.localeCompare(b, "tr")).forEach((isim) => {
+        const o = document.createElement("option");
+        o.value = isim; o.textContent = `${isim} — ${toplam.get(isim)} adet`;
+        uSecim.appendChild(o);
+      });
+
+      ozetCiz();
+      tabloCiz();
+    } catch (e) {
+      // ⚠️ Henüz hiç okunmamışsa JSON YOK — site "bozuk" görünmesin.
+      G("rapor-tarihi").textContent = "henüz veri yok";
+      G("sonuc-yok").hidden = false;
+      console.error(baslikAdi + " envanteri yüklenemedi:", e);
+    }
+  }
+
+  // ⚠️ Panel HTML'i yoksa (eski index.html) hiçbir dinleyici bağlanmaz —
+  //    aksi halde null'a addEventListener çağrılır ve TÜM site JS'i düşer.
+  if (!G("arama")) return;
+  G("arama").addEventListener("input", tabloCiz);
+  G("urun-filtre").addEventListener("change", tabloCiz);
+  G("kasaba-filtre").addEventListener("change", tabloCiz);
+  G("kopyala").addEventListener("click", async () => {
+    const durum = G("kopya-durum");
+    const metin = kopyaMetni();
+    try {
+      await navigator.clipboard.writeText(metin);
+      durum.textContent = "✅ kopyalandı";
+    } catch (e) {
+      const kutu = document.createElement("textarea");
+      kutu.value = metin;
+      document.body.appendChild(kutu);
+      kutu.select();
+      try { document.execCommand("copy"); durum.textContent = "✅ kopyalandı"; }
+      catch (e2) { durum.textContent = "⚠️ kopyalanamadı"; }
+      document.body.removeChild(kutu);
+    }
+    setTimeout(() => { durum.textContent = ""; }, 2500);
+  });
+  yukle();
+}
+
+
+// ---------------------------------------------------------
+// ⛵ FİLO SEKMESİ  (29.08.2026)
+// Veri: filo.json (filo_modul.py → Town_Reports/Liman_Gemileri_*.txt →
+// pazar_json_uret.filo_uret). Ajanların rıhtımda gördüğü gemiler.
+//
+// ⚠️ "Mesaj at" düğmesi Emir sekmesine atlar (emir.js → emirMesajAc).
+//    Site oyuna doğrudan mesaj GÖNDEREMEZ; zincir pazar emirleriyle aynı:
+//    site metni üretir → Telegram → bot kuyruğa alır → karakter girince yollar.
+// ---------------------------------------------------------
+let filoKayitlari = [];
+let filoSatirlari = [];
+
+const FILO_SIMGE = { bizim: "🟢", dost: "🔵", yabanci: "🔴" };
+
+function filoSuzulmus() {
+  const arama = (document.getElementById("filo-arama").value || "")
+    .trim().toLocaleLowerCase("tr-TR");
+  const liman = document.getElementById("filo-liman-filtre").value;
+  const taraf = document.getElementById("filo-taraf-filtre").value;
+  return filoSatirlari.filter((s) => {
+    if (liman && s.liman !== liman) return false;
+    if (taraf && s.taraf !== taraf) return false;
+    if (arama) {
+      const yig = (s.armator + " " + s.gemi).toLocaleLowerCase("tr-TR");
+      if (!yig.includes(arama)) return false;
+    }
+    return true;
+  });
+}
+
+function filoOzetCiz() {
+  document.getElementById("filo-ozet").innerHTML = filoKayitlari.map((l) =>
+    `<div class="ozet-kart"><span class="ozet-etiket">${l.liman}</span>` +
+    `<span class="ozet-deger">${l.gemiler.length} gemi</span>` +
+    `<span class="ozet-alt">🟢${l.sayim.bizim} 🔵${l.sayim.dost} 🔴${l.sayim.yabanci}</span></div>`
+  ).join("");
+}
+
+function filoTabloCiz() {
+  const govde = document.getElementById("filo-tablo-govde");
+  govde.innerHTML = "";
+  const filtreli = filoSuzulmus();
+  filtreli.forEach((s) => {
+    const tr = document.createElement("tr");
+    const simge = FILO_SIMGE[s.taraf] || "";
+    tr.innerHTML =
+      `<td>${s.liman}</td>` +
+      `<td>${simge} ${s.armator}</td>` +
+      `<td>${s.gemi || "?"}</td>` +
+      `<td>${s.tur || ""}</td>` +
+      `<td><button class="emir-mini-btn filo-mesaj-btn">✉️</button></td>`;
+    // ⚠️ Dinleyici doğrudan bağlanır (innerHTML'e onclick GÖMÜLMEZ —
+    //    gemi adları kullanıcı tarafından yazılıyor, kod kaçışı riski var).
+    const btn = tr.querySelector(".filo-mesaj-btn");
+    btn.title = s.armator + " adlı oyuncuya mesaj yaz";
+    btn.addEventListener("click", () => {
+      const sekme = document.querySelector('.tab-btn[data-tab="emir"]');
+      if (sekme) sekme.click();
+      if (typeof emirMesajAc === "function") emirMesajAc(s.armator, s.gemi);
+    });
+    govde.appendChild(tr);
+  });
+  document.getElementById("filo-sonuc-yok").hidden = filtreli.length !== 0;
+}
+
+async function filoYukle() {
+  const t = document.getElementById("filo-rapor-tarihi");
+  if (!t) return;                       // eski index.html — sessizce çık
+  try {
+    const yanit = await fetch("filo.json?_=" + Date.now());
+    const veri = await yanit.json();
+    filoKayitlari = veri.limanlar || [];
+    t.textContent = veri.rapor_tarihi || "bilinmiyor";
+
+    filoSatirlari = [];
+    filoKayitlari.forEach((l) => {
+      (l.gemiler || []).forEach((g) => {
+        filoSatirlari.push({
+          liman: l.liman, armator: g.armator, gemi: g.gemi,
+          tur: g.tur, taraf: g.taraf,
+        });
+      });
+    });
+
+    const secim = document.getElementById("filo-liman-filtre");
+    filoKayitlari.map((l) => l.liman)
+      .sort((a, b) => a.localeCompare(b, "tr"))
+      .forEach((ad) => {
+        const o = document.createElement("option");
+        o.value = ad; o.textContent = ad; secim.appendChild(o);
+      });
+
+    filoOzetCiz();
+    filoTabloCiz();
+  } catch (e) {
+    t.textContent = "henüz veri yok";
+    document.getElementById("filo-sonuc-yok").hidden = false;
+    console.error("Filo yüklenemedi:", e);
+  }
+}
+
+["filo-arama", "filo-liman-filtre", "filo-taraf-filtre"].forEach((id) => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener(id === "filo-arama" ? "input" : "change", filoTabloCiz);
+});
+
 pazarYukle();
 envanterYukle();
 sancakYukle();
 belediyeYukle();
+envanterSekmesiKur("liman", "liman.json", "limanlar", "Liman");
+filoYukle();
 gelisimYukle();
 hareketYukle();
 haritaYukle();
