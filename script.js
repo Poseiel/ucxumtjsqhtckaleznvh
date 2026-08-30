@@ -653,18 +653,76 @@ document.getElementById("belediye-kopyala").addEventListener("click", async () =
 let gelisimKarakterler = [];
 let gelisimSiralama = { anahtar: "kuvvet", azalan: true }; // varsayılan: KP'ye göre
 
+// ⚠️ [30.08.2026] YENİ SÜTUNLAR — kullanıcı ve arkadaşının isteği:
+//   *"bu gelişim listesinde hesapların açılma tarihi ve renklerini de
+//     koyar mısın, onlara göre bir seçim yapalım"* (5 kaptan adayı seçmek
+//     için) + *"meslekleri ve tarlaları, bir turda yetenekleri kayıt
+//     ederiz"* + *"aile üyelerini ekle, bizim ailede olanlara Selçuklu
+//     Ailesi yaz"*.
+// ⚠️ Hiçbiri için EKSTRA SAYFA AÇILMIYOR:
+//     renk    → stats sayfasının üst başlığından (zaten açık)
+//     mülk    → Mulk_Tipleri.json (mülk taraması zaten yapıyor)
+//     yetenek → Yetenek_Agaci.json (yetenek modülü zaten yazıyor)
+//     aile    → dost_hesaplar.txt (filo takibi zaten kullanıyor)
+//     tarih   → Hesap_Kayit_Tarihleri.json (BİR KEZ üretildi, değişmez)
 const GELISIM_SUTUNLAR = [
   { anahtar: "karakter", etiket: "Karakter", sayisal: false },
   { anahtar: "kasaba", etiket: "Kasaba", sayisal: false },
+  { anahtar: "aile", etiket: "Aile", sayisal: false },
   { anahtar: "meslek", etiket: "Meslek", sayisal: false },
+  { anahtar: "mulk", etiket: "Tarla", sayisal: false },
   { anahtar: "yol", etiket: "Yol", sayisal: false },
+  { anahtar: "renk", etiket: "Renk", sayisal: false },
+  { anahtar: "kayit_tarihi", etiket: "Kayıt", sayisal: false },
   { anahtar: "seviye", etiket: "Seviye", sayisal: true },
   { anahtar: "kuvvet", etiket: "Kuvvet", sayisal: true },
   { anahtar: "zeka", etiket: "Zeka", sayisal: true },
   { anahtar: "karizma", etiket: "Karizma", sayisal: true },
   { anahtar: "guven", etiket: "Güven", sayisal: true },
   { anahtar: "akce", etiket: "Akçe", sayisal: true, ondalik: true },
+  { anahtar: "mucevher", etiket: "💎", sayisal: false },
+  // ⚠️ [30.08.2026] Kullanıcı: *"hepsini siteye koymak orayı çok şişirecek
+  //    ... bir anda hepsi gözükmesin, detay istersek gözüksün."*
+  //    Bu yüzden yetenek ağacı 5 sütun DEĞİL tek ÖZET sütun; medrese de
+  //    tek özet. Ayrıntı satıra tıklayınca altta açılır (`detaySatiri`).
+  { anahtar: "yetenek_ozet", etiket: "Yetenek", sayisal: false },
+  { anahtar: "medrese_ozet", etiket: "Medrese", sayisal: false },
 ];
+
+// Yetenek ağacı özeti: "İ100 S100 Z100 E0" — dar ama okunur.
+function yetenekOzet(k) {
+  const p = [["İ", k.yetenek_is], ["S", k.yetenek_siyaset],
+             ["Z", k.yetenek_ziraat], ["E", k.yetenek_el]];
+  if (p.every(([, v]) => v === undefined || v === null || v === "")) return "-";
+  const metin = p.map(([h, v]) => h + (v === "" || v === undefined || v === null ? "?" : v)).join(" ");
+  const bos = k.yetenek_puan;
+  return metin + (bos ? ` <span class="bos-puan">+${bos}</span>` : "");
+}
+
+// Medrese özeti: en ilerlemiş 2 ana başlık, ör. "Dnz 8/8 · Dil 4/5".
+const MEDRESE_KISA = {
+  "Denizcilik": "Dnz", "Devlet": "Dvl", "İlim": "İlm",
+  "Ordu": "Ord", "Bilim": "Blm", "Dil": "Dil", "Din": "Din",
+};
+function medreseOzet(k) {
+  const m = k.medrese || {};
+  const anahtarlar = Object.keys(m);
+  if (!anahtarlar.length) return "-";
+  const sirali = anahtarlar
+    .map((b) => ({ b, ...m[b] }))
+    .sort((a, b) => (b.tamam / Math.max(b.toplam, 1)) - (a.tamam / Math.max(a.toplam, 1)));
+  const ilk = sirali.slice(0, 2)
+    .map((x) => `${MEDRESE_KISA[x.b] || x.b} ${x.tamam}/${x.toplam}`).join(" · ");
+  const kalan = sirali.length - 2;
+  return ilk + (kalan > 0 ? ` <span class="kalan-sayi">+${kalan}</span>` : "");
+}
+
+// Renk adını oyundaki rengiyle göster (metin aynen kalır, sadece nokta).
+const RENK_KODU = {
+  "Beyaz": "#e8e8e8", "Sarı": "#e8d44d", "Yeşil": "#5cb85c",
+  "Mavi": "#5b9bd5", "Turuncu": "#e8903a", "Kırmızı": "#d9534f",
+  "Kahverengi": "#8b5a2b", "Siyah": "#333333",
+};
 
 function farkRozeti(bugunDeger, dunDeger, ondalikMi) {
   if (dunDeger === undefined || dunDeger === null) return "";
@@ -710,6 +768,89 @@ async function gelisimYukle() {
   }
 }
 
+// Satıra tıklanınca açılan ayrıntı paneli: yetenek ağacının dört dalı,
+// medresenin TÜM ana başlıkları ve yarım kalmış dersler.
+// ⚠️ Tamamlanmış dersler TEK TEK yazılmaz (45 satır olurdu) — yalnızca
+//    "x/y tamam" özeti + hâlâ eksik olanlar listelenir; asıl merak edilen
+//    "hangisini çalıştırayım" sorusunun cevabı odur.
+function detayIcerigi(k) {
+  const bolumler = [];
+
+  const agac = [["İş", k.yetenek_is], ["Siyaset", k.yetenek_siyaset],
+                ["Ziraat", k.yetenek_ziraat], ["El becerisi", k.yetenek_el]]
+    .filter(([, v]) => v !== undefined && v !== null && v !== "");
+  if (agac.length) {
+    bolumler.push(
+      `<div class="detay-blok"><h4>🌳 Yetenek ağacı</h4>` +
+      agac.map(([ad, v]) =>
+        `<div class="detay-cubuk"><span>${ad}</span>` +
+        `<div class="cubuk"><div style="width:${Math.min(v, 100)}%"></div></div>` +
+        `<b>%${v}</b></div>`).join("") +
+      (k.yetenek_puan ? `<p class="detay-not">Harcanmamış puan: <b>${k.yetenek_puan}</b></p>` : "") +
+      `</div>`);
+  }
+
+  // 🎓 MEDRESE — her ana başlık için çubuk + ALTINDA o başlığın DERSLERİ.
+  // ⚠️⚠️ [30.08.2026] TAMAMLANANLAR DA GÖSTERİLİR. Kullanıcı: *"tamamlanmış
+  //    dersleri de görelim, bizim kafamız karışır onu göremezsek."*
+  //    ✔ = tamamlanmış · yüzdeli = yarım kalmış.
+  const m = k.medrese || {};
+  const tumDersler = k.medrese_dersler || {};
+  const basliklar = Object.keys(m).sort();
+  if (basliklar.length) {
+    const grup = {};
+    Object.keys(tumDersler).forEach((ad) => {
+      const b = (ad.split("-")[0] || "").replace(/[0-9]+$/, "").trim();
+      (grup[b] = grup[b] || []).push(ad);
+    });
+    // Ders numarasina gore sirala (Din1, Din2 ... Din10 dogru sirada)
+    const numara = (ad) => {
+      const mm = /(\d+)/.exec(ad.split("-")[0] || "");
+      return mm ? parseInt(mm[1], 10) : 0;
+    };
+    bolumler.push(
+      `<div class="detay-blok detay-genis"><h4>🎓 Medrese</h4>` +
+      basliklar.map((b) => {
+        const dersler = (grup[b] || []).sort((x, y) => numara(x) - numara(y));
+        const liste = dersler.map((ad) => {
+          const yz = tumDersler[ad];
+          const kisa = ad.split("-").slice(1).join("-").trim() || ad;
+          return yz >= 100
+            ? `<li class="ders-tamam">✔ ${kisa}</li>`
+            : `<li class="ders-eksik">${kisa} <b>%${yz}</b></li>`;
+        }).join("");
+        return `<div class="medrese-baslik">` +
+          `<div class="detay-cubuk"><span>${b}</span>` +
+          `<div class="cubuk"><div style="width:${Math.min(m[b].yuzde, 100)}%"></div></div>` +
+          `<b>${m[b].tamam}/${m[b].toplam}</b></div>` +
+          (liste ? `<ul class="ders-liste">${liste}</ul>` : "") +
+          `</div>`;
+      }).join("") +
+      `</div>`);
+  }
+
+  // 📖 ÖNCELİK LİSTESİ — yarım kalan dersler, en ilerlemiş önce.
+  // Üstteki medrese bloğu HEPSİNİ gösteriyor; bu bölüm "hangisini
+  // çalıştırayım" sorusunun cevabını ayrıca öne çıkarır.
+  const eksik = k.medrese_eksik || {};
+  const eksikAdlar = Object.keys(eksik).sort((a, b) => eksik[b] - eksik[a]);
+  if (eksikAdlar.length) {
+    bolumler.push(
+      `<div class="detay-blok"><h4>📖 Öncelik: yarım kalanlar ` +
+      `<span class="detay-not">(${eksikAdlar.length})</span></h4>` +
+      `<ul class="detay-liste">` +
+      eksikAdlar.map((a) => `<li>${a} — <b>%${eksik[a]}</b></li>`).join("") +
+      `</ul></div>`);
+  }
+
+  if (!bolumler.length) {
+    return `<p class="detay-not">Bu hesap için henüz ayrıntı toplanmadı. ` +
+           `Medrese yetenekleri her hesapta bir kez okunur; ders çalışan ` +
+           `hesaplarda her turda tazelenir.</p>`;
+  }
+  return `<div class="detay-sarmal">${bolumler.join("")}</div>`;
+}
+
 function gelisimTabloCiz() {
   const kasabaFiltre = document.getElementById("gelisim-kasaba-filtre").value;
   const baslik = document.getElementById("gelisim-tablo-baslik");
@@ -741,19 +882,62 @@ function gelisimTabloCiz() {
   const sutun = GELISIM_SUTUNLAR.find((s) => s.anahtar === gelisimSiralama.anahtar);
   const yon = gelisimSiralama.azalan ? -1 : 1;
   [...filtreli].sort((a, b) => {
-    if (sutun.sayisal) return (a[sutun.anahtar] - b[sutun.anahtar]) * yon;
-    return String(a[sutun.anahtar]).localeCompare(String(b[sutun.anahtar]), "tr") * yon;
+    // ⚠️ Yeni sütunlar eski kayıtlarda boş olabilir; boşlar sona düşsün ki
+    //    sıralama "undefined" yüzünden karışmasın.
+    const av = a[sutun.anahtar], bv = b[sutun.anahtar];
+    const abos = av === undefined || av === null || av === "";
+    const bbos = bv === undefined || bv === null || bv === "";
+    if (abos && bbos) return 0;
+    if (abos) return 1;
+    if (bbos) return -1;
+    if (sutun.sayisal) return (av - bv) * yon;
+    return String(av).localeCompare(String(bv), "tr") * yon;
   }).forEach((k) => {
     const dun = k.dun;
     const hucreler = GELISIM_SUTUNLAR.map((s) => {
-      if (!s.sayisal) return `<td class="gelisim-metin">${k[s.anahtar]}</td>`;
+      if (!s.sayisal) {
+        // Hesaplanan özet sütunları (tabloda tek hücre, ayrıntı altta).
+        if (s.anahtar === "yetenek_ozet")
+          return `<td class="gelisim-metin ozet-hucre">${yetenekOzet(k)}</td>`;
+        if (s.anahtar === "medrese_ozet")
+          return `<td class="gelisim-metin ozet-hucre">${medreseOzet(k)}</td>`;
+        // ⚠️ Yeni sütunlar ESKİ gelisim.json'da olmayabilir → boşsa "-".
+        const ham = (k[s.anahtar] === undefined || k[s.anahtar] === null
+                     || k[s.anahtar] === "") ? "-" : k[s.anahtar];
+        // Renk sütununda küçük bir renk noktası: gözle taramak kolay olsun.
+        if (s.anahtar === "renk" && RENK_KODU[ham]) {
+          return `<td class="gelisim-metin"><span class="renk-nokta" `
+               + `style="background:${RENK_KODU[ham]}"></span>${ham}</td>`;
+        }
+        return `<td class="gelisim-metin">${ham}</td>`;
+      }
+      // Yetenek sütunları henüz yoksa boş göster (0 yazıp yanıltmasın).
+      if (k[s.anahtar] === undefined || k[s.anahtar] === null
+          || k[s.anahtar] === "") return `<td>-</td>`;
       const deger = s.ondalik ? akceFormat(k[s.anahtar]) : k[s.anahtar];
       const rozet = farkRozeti(k[s.anahtar], dun ? dun[s.anahtar] : null, s.ondalik);
       return `<td>${deger}${rozet}</td>`;
     }).join("");
     const satir = document.createElement("tr");
+    satir.className = "gelisim-satir";
     satir.innerHTML = hucreler;
     govde.appendChild(satir);
+
+    // ▾ DETAY SATIRI — tıklayınca açılır/kapanır.
+    // ⚠️ Kullanıcı: *"bir anda hepsi gözükmesin, detay istersek gözüksün."*
+    //    Bu yüzden başlangıçta GİZLİ ve DOM'a yalnızca bir kez eklenir.
+    const detay = document.createElement("tr");
+    detay.className = "gelisim-detay";
+    detay.hidden = true;
+    const hucre = document.createElement("td");
+    hucre.colSpan = GELISIM_SUTUNLAR.length;
+    hucre.innerHTML = detayIcerigi(k);
+    detay.appendChild(hucre);
+    govde.appendChild(detay);
+    satir.addEventListener("click", () => {
+      detay.hidden = !detay.hidden;
+      satir.classList.toggle("acik", !detay.hidden);
+    });
   });
 
   document.getElementById("gelisim-sonuc-yok").hidden = filtreli.length !== 0;
