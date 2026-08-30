@@ -870,3 +870,76 @@ a.rk-tamekran {
   opacity: .8;
   white-space: nowrap;
 }
+
+
+/* 🎨 Gelişim tablosundaki RP derecesi noktası (30.08.2026) */
+.renk-nokta {
+  display: inline-block;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  margin-right: 6px;
+  border: 1px solid rgba(0,0,0,.35);
+  vertical-align: middle;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   📊 GELİŞİM — katlanabilir ayrıntı (30.08.2026)
+   Kullanıcı: "bir anda hepsi gözükmesin, detay istersek gözüksün."
+   ══════════════════════════════════════════════════════════════ */
+.gelisim-satir { cursor: pointer; }
+.gelisim-satir:hover { background: rgba(255,255,255,.05); }
+.gelisim-satir.acik { background: rgba(120,170,255,.10); }
+.gelisim-satir.acik td:first-child::before { content: "▾ "; opacity: .7; }
+
+.ozet-hucre { white-space: nowrap; font-variant-numeric: tabular-nums; }
+.bos-puan, .kalan-sayi {
+  display: inline-block; margin-left: 4px; padding: 0 5px;
+  border-radius: 8px; font-size: .82em;
+  background: rgba(120,170,255,.22);
+}
+
+.gelisim-detay > td { padding: 0 !important; background: rgba(0,0,0,.16); }
+.detay-sarmal {
+  display: flex; flex-wrap: wrap; gap: 18px;
+  padding: 14px 18px;
+}
+.detay-blok { flex: 1 1 260px; min-width: 240px; }
+.detay-blok h4 { margin: 0 0 8px; font-size: .95em; opacity: .9; }
+.detay-not { opacity: .65; font-size: .85em; margin: 6px 0 0; }
+
+.detay-cubuk {
+  display: grid; grid-template-columns: 92px 1fr 52px;
+  align-items: center; gap: 8px; margin: 3px 0; font-size: .88em;
+}
+.detay-cubuk .cubuk {
+  height: 8px; border-radius: 4px; overflow: hidden;
+  background: rgba(255,255,255,.13);
+}
+.detay-cubuk .cubuk > div {
+  height: 100%; border-radius: 4px;
+  background: linear-gradient(90deg, #4a90d9, #62c98d);
+}
+.detay-cubuk b { text-align: right; font-variant-numeric: tabular-nums; }
+
+.detay-liste {
+  margin: 0; padding-left: 18px; font-size: .86em;
+  max-height: 190px; overflow-y: auto;
+}
+.detay-liste li { margin: 2px 0; }
+
+
+/* 🎓 Medrese ayrıntısı: her ana başlığın altında dersleri (30.08.2026)
+   Kullanıcı: "tamamlanmış dersleri de görelim, kafamız karışır." */
+.detay-genis { flex: 1 1 100%; }
+.medrese-baslik { margin-bottom: 10px; }
+.ders-liste {
+  list-style: none; margin: 4px 0 0 100px; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 1px 14px; font-size: .82em;
+}
+.ders-liste li { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ders-tamam { opacity: .55; }
+.ders-eksik { color: #f0c674; }
+.ders-eksik b { font-weight: 700; }
+@media (max-width: 700px) { .ders-liste { margin-left: 0; } }
