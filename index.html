@@ -572,6 +572,7 @@ L.RasterCoords.prototype = {
       <button class="emir-tur-btn" data-tur="al">🛒 Alım</button>
       <button class="emir-tur-btn" data-tur="odenek">📜 Ödenek</button>
       <button class="emir-tur-btn" data-tur="mesaj">✉️ Mesaj</button>
+      <button class="emir-tur-btn" data-tur="ayar">🖥️ Ayar</button>
     </div>
 
     <!-- ---------------- SATIŞ ---------------- -->
@@ -669,6 +670,104 @@ L.RasterCoords.prototype = {
         yalnızca kendi tarayıcın hatırlar. Bot bu mesajı, o karakter oyuna girdiğinde yollar.</p>
     </div>
 
+
+    <!-- ---------------- 🖥️ AYAR (launcher'ın site karşılığı) ---------------- -->
+    <!-- Kullanıcı: *"launcher'ı siteye taşıyacaksın ya, bildiğin işlem o :)"* +
+         *"seçilebilen değiştirilebilen tüm görevleri siteden de verebilelim."* +
+         *"pc'den de aynı şekilde devam edecek; siteden emir gelince sonraki
+         tur o ayarlara geçecek."*
+         ⚠️ Her kutunun varsayılanı "— değiştirme —": yalnızca DOKUNDUĞUN
+            ayar gönderilir, geri kalanı launcher'daki hâliyle kalır. -->
+    <div class="emir-form" id="emir-form-ayar">
+      <div class="emir-satir">
+        <label>Hangi hesap
+          <input list="emir-hesap-listesi" id="ay-hesap" placeholder="örn. Vamder" autocomplete="off">
+        </label>
+        <label>Takip modu
+          <select id="ay-takip">
+            <option value="">— değiştirme —</option>
+            <option value="Yok">Yok</option>
+            <option value="Grup Takip">Grup Takip</option>
+            <option value="Ordu Takip">Ordu Takip</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="emir-satir">
+        <label>🕌 İnziva
+          <select id="ay-inziva">
+            <option value="">— değiştirme —</option>
+            <option value="açık">açık (inzivaya çekilsin)</option>
+            <option value="kapalı">kapalı (inzivadan çıksın)</option>
+          </select>
+        </label>
+        <label>🚢 Gemi (tayfa)
+          <select id="ay-gemi">
+            <option value="">— değiştirme —</option>
+            <option value="açık">açık</option>
+            <option value="kapalı">kapalı</option>
+          </select>
+        </label>
+        <label>⚓ Kaptan
+          <select id="ay-kaptan">
+            <option value="">— değiştirme —</option>
+            <option value="açık">açık</option>
+            <option value="kapalı">kapalı</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="emir-satir">
+        <label>🛡️ Ases
+          <select id="ay-ases">
+            <option value="">— değiştirme —</option>
+            <option value="açık">açık</option>
+            <option value="kapalı">kapalı</option>
+          </select>
+        </label>
+        <label>⭐ Puan üreten
+          <select id="ay-puan">
+            <option value="">— değiştirme —</option>
+            <option value="açık">açık</option>
+            <option value="kapalı">kapalı</option>
+          </select>
+        </label>
+        <label>👑 Divan görevi
+          <select id="ay-divan">
+            <option value="">— değiştirme —</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="emir-satir">
+        <label>🌍 Seyahat hedefi
+          <input list="ay-sehir-listesi" id="ay-seyahat" placeholder="boş = değiştirme · &quot;iptal&quot; = seyahati kapat" autocomplete="off">
+          <datalist id="ay-sehir-listesi"></datalist>
+        </label>
+        <label>🎓 Ders alanı
+          <input id="ay-ders" placeholder="boş = değiştirme · &quot;iptal&quot; = dersi kapat" autocomplete="off">
+        </label>
+        <label>⛵ Hangi gemi (armatör)
+          <input list="emir-hesap-listesi" id="ay-armator" placeholder="boş = değiştirme" autocomplete="off">
+        </label>
+      </div>
+
+      <!-- 🧭 GÖREV ZİNCİRİ — launcher'daki "🧭 Görevler" sekmesinin karşılığı -->
+      <h4 class="emir-baslik">🧭 Görev zinciri <span class="emir-ipucu-kucuk">(sırayla yapacağı işler)</span></h4>
+      <div id="ay-gorev-satirlar"></div>
+      <div class="emir-satir">
+        <button type="button" class="emir-mini-btn" id="ay-gorev-ekle">➕ Adım ekle</button>
+        <button type="button" class="emir-mini-btn" id="ay-gorev-temizle">🗑️ Görevi iptal et</button>
+      </div>
+      <p class="emir-ipucu">Hiç adım eklemezsen görev satırı <b>gönderilmez</b>
+        (hesabın mevcut görevi olduğu gibi kalır). “Görevi iptal et” dersen
+        varsa mevcut görevi silinir.</p>
+
+      <p class="emir-ipucu">⚠️ Yalnızca <b>dokunduğun</b> ayarlar gönderilir.
+        Bot bunu <b>sıradaki turda</b> uygular; bilgisayardaki launcher aynı
+        şekilde çalışmaya devam eder. Bir ayarı geri almak için aynı kutuyu
+        “kapalı” yapıp tekrar gönder.</p>
+    </div>
 
     <!-- ---------------- ÖNİZLEME + GÖNDER ---------------- -->
     <h3 class="emir-baslik">Gidecek mesaj</h3>
