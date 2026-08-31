@@ -668,6 +668,11 @@ let gelisimSiralama = { anahtar: "kuvvet", azalan: true }; // varsayılan: KP'ye
 const GELISIM_SUTUNLAR = [
   { anahtar: "karakter", etiket: "Karakter", sayisal: false },
   { anahtar: "kasaba", etiket: "Kasaba", sayisal: false },
+  // 🏷️ [30.08.2026] AKTİF GÖREV — kullanıcı: *"hepsine hesapların
+  //    bilgilerini ekleyelim mi diyordun, hepsini de ekle"*. Roller
+  //    `ayarlar.json`daki tiklerden üretiliyor (ajan/kaptan/divan dahil,
+  //    kullanıcı açıkça seçti). Hiçbir ekstra sayfa açılmıyor.
+  { anahtar: "gorev_ozet", etiket: "Aktif Görev", sayisal: false },
   { anahtar: "aile", etiket: "Aile", sayisal: false },
   { anahtar: "meslek", etiket: "Meslek", sayisal: false },
   { anahtar: "mulk", etiket: "Tarla", sayisal: false },
@@ -901,6 +906,13 @@ function gelisimTabloCiz() {
           return `<td class="gelisim-metin ozet-hucre">${yetenekOzet(k)}</td>`;
         if (s.anahtar === "medrese_ozet")
           return `<td class="gelisim-metin ozet-hucre">${medreseOzet(k)}</td>`;
+        // 🏷️ Roller ayrı ayrı rozet olarak çizilir (gözle taramak kolay olsun).
+        if (s.anahtar === "gorev_ozet") {
+          const roller = k.gorevler || [];
+          if (!roller.length) return `<td class="gelisim-metin gorev-bos">—</td>`;
+          return `<td class="gelisim-metin">` + roller.map(
+            (r) => `<span class="gorev-rozet">${r}</span>`).join(" ") + `</td>`;
+        }
         // ⚠️ Yeni sütunlar ESKİ gelisim.json'da olmayabilir → boşsa "-".
         const ham = (k[s.anahtar] === undefined || k[s.anahtar] === null
                      || k[s.anahtar] === "") ? "-" : k[s.anahtar];
