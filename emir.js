@@ -334,6 +334,9 @@ function emirMesajiKur() {
   // bu formu doldurup buraya getiriyor.
   // ⚠️ Şablon `divan_modul.yeni_mesaj_coz` ile BİREBİR aynı olmalı —
   //    birini değiştirirsen diğerini de değiştir.
+  // 🖥️ AYAR EMRİ — launcher'ın site karşılığı.
+  if (emirTur === "ayar") return ayMesajiKur();
+
   if (emirTur === "mesaj") {
     var mKimden = emirDeger("ms-kimden");
     var mKime = emirDeger("ms-kime");
@@ -594,5 +597,212 @@ function emirOlaylariBagla() {
   });
 }
 
+
+/* =========================================================
+   🖥️ AYAR EMRİ — launcher'ın site karşılığı (30.08.2026)
+   ---------------------------------------------------------
+   Kullanıcı: *"launcher'ı siteye taşıyacaksın ya, bildiğin işlem o :)"* +
+   *"seçilebilen değiştirilebilen tüm görevleri siteden de verebilelim."* +
+   *"pc'den de aynı şekilde devam edecek; siteden emir gelince sonraki
+   tur o ayarlara geçecek."*
+
+   ⚠️⚠️ YALNIZCA DOKUNULAN AYAR GÖNDERİLİR. Her kutunun varsayılanı
+      "— değiştirme —"; boş bırakılan alan mesaja hiç yazılmaz, yani
+      launcher'daki hâli korunur. Aksi hâlde site her gönderimde tüm
+      ayarları ezerdi.
+
+   ⚠️ Görev adımları `gorev_zinciri`nin anladığı biçimde üretilir
+      (`seyahat:Ardencaple, gemiye_bin:mr.butcher`) — kullanıcı hiçbir şey
+      ezberlemez, kutulardan seçer.
+   ========================================================= */
+
+var AY_ADIM_TIPLERI = [
+  ["seyahat", "🚶 Kasabaya git"],
+  ["gemiye_bin", "⛵ Gemiye bin"],
+  ["satin_al", "🛒 Pazardan al"],
+  ["bekle", "⏳ Bekle"]
+];
+
+var ayGorevSayac = 0;
+
+function ayTirnak(m) {
+  return String.fromCharCode(34) + m + String.fromCharCode(34);
+}
+
+/* Kasaba listesi: harita_render.json (sitede zaten var). */
+function ayKasabalariDoldur() {
+  var dl = document.getElementById("ay-sehir-listesi");
+  if (!dl) return;
+  fetch("harita_render.json?_=" + Date.now())
+    .then(function (r) { return r.json(); })
+    .then(function (h) {
+      var adlar = [];
+      var d = (h && (h.dugumler || h.nodes)) || {};
+      Object.keys(d).forEach(function (k) {
+        var ad = d[k] && (d[k].ad || d[k].isim || d[k].name);
+        if (typeof d[k] === "string") ad = d[k];
+        if (ad) adlar.push(ad);
+      });
+      adlar.sort(function (a, b) { return a.localeCompare(b, "tr"); });
+      dl.innerHTML = adlar.map(function (a) {
+        return "<option value=" + ayTirnak(emirKacis(a)) + "></option>";
+      }).join("");
+    })
+    .catch(function () { /* harita yoksa kutu serbest yazıya düşer */ });
+}
+
+/* Divan görevleri: sabit liste (oyunun makamları). */
+var AY_DIVAN = ["", "Ziraat Nazırı", "Ticaret Nazırı", "Belediye Reisi",
+                "Maliye Nazırı", "İçişleri Nazırı", "Ordu Komutanı"];
+
+function ayDivaniDoldur() {
+  var sec = document.getElementById("ay-divan");
+  if (!sec) return;
+  var html = "<option value=" + ayTirnak("") + ">— değiştirme —</option>";
+  html += "<option value=" + ayTirnak("iptal") + ">— görevi kaldır —</option>";
+  AY_DIVAN.forEach(function (g) {
+    if (!g) return;
+    html += "<option value=" + ayTirnak(emirKacis(g)) + ">" + emirKacis(g) + "</option>";
+  });
+  sec.innerHTML = html;
+}
+
+/* --- görev adımı satırı --- */
+function ayGorevSatiriEkle() {
+  var kap = document.getElementById("ay-gorev-satirlar");
+  if (!kap) return;
+  var no = ++ayGorevSayac;
+  var kutu = document.createElement("div");
+  kutu.className = "emir-satir ay-gorev-satir";
+  var tipHtml = AY_ADIM_TIPLERI.map(function (t) {
+    return "<option value=" + ayTirnak(t[0]) + ">" + t[1] + "</option>";
+  }).join("");
+  kutu.innerHTML =
+    "<label>Ne yapsın" +
+    "<select class=" + ayTirnak("ay-gorev-tip") + ">" + tipHtml + "</select></label>" +
+    "<label>Nereye / Kim / Ne" +
+    "<input class=" + ayTirnak("ay-gorev-hedef") + " list=" + ayTirnak("ay-sehir-listesi") +
+    " placeholder=" + ayTirnak("örn. Ardencaple") + " autocomplete=" + ayTirnak("off") + "></label>" +
+    "<label>Adet<input class=" + ayTirnak("ay-gorev-adet") + " type=" + ayTirnak("number") +
+    " min=" + ayTirnak("1") + " placeholder=" + ayTirnak("1") + " disabled></label>" +
+    "<button type=" + ayTirnak("button") + " class=" + ayTirnak("emir-mini-btn ay-gorev-sil") + ">➖</button>";
+  kap.appendChild(kutu);
+
+  var tip = kutu.querySelector(".ay-gorev-tip");
+  var hedef = kutu.querySelector(".ay-gorev-hedef");
+  var adet = kutu.querySelector(".ay-gorev-adet");
+  tip.addEventListener("change", function () {
+    // ⚠️ Adım türüne göre yardım listesi ve adet kutusu değişir —
+    //    kullanıcı hiçbir şey ezberlemesin.
+    var t = tip.value;
+    adet.disabled = (t !== "satin_al");
+    if (t === "seyahat") {
+      hedef.setAttribute("list", "ay-sehir-listesi");
+      hedef.placeholder = "örn. Ardencaple";
+    } else if (t === "gemiye_bin") {
+      hedef.setAttribute("list", "emir-hesap-listesi");
+      hedef.placeholder = "geminin SAHİBİ (armatör)";
+    } else if (t === "satin_al") {
+      // ⚠ "al-mal-listesi" ALIM formunun listesidir ve pazar.json'dan
+      //   ZATEN doluyor (emirPazarListesiDoldur) — ikinci bir liste
+      //   tutmuyoruz, tek kaynak.
+      hedef.setAttribute("list", "al-mal-listesi");
+      hedef.placeholder = "örn. Çuval Buğday";
+    } else {
+      hedef.removeAttribute("list");
+      hedef.placeholder = "kaç tur beklesin (örn. 2)";
+    }
+    emirGuncelle();
+  });
+  [hedef, adet].forEach(function (el) {
+    el.addEventListener("input", emirGuncelle);
+  });
+  kutu.querySelector(".ay-gorev-sil").addEventListener("click", function () {
+    kutu.remove();
+    emirGuncelle();
+  });
+  emirGuncelle();
+  return no;
+}
+
+/* Kutulardan `gorev_zinciri` biçiminde metin üretir. */
+function ayGorevMetni() {
+  var parcalar = [];
+  var satirlar = document.querySelectorAll("#ay-gorev-satirlar .ay-gorev-satir");
+  for (var i = 0; i < satirlar.length; i++) {
+    var tip = satirlar[i].querySelector(".ay-gorev-tip").value;
+    var hedef = (satirlar[i].querySelector(".ay-gorev-hedef").value || "").trim();
+    if (!hedef) continue;                 // ⚠️ boş adım gönderilmez
+    if (tip === "satin_al") {
+      var a = parseInt(satirlar[i].querySelector(".ay-gorev-adet").value, 10);
+      hedef += " x" + (a > 0 ? a : 1);
+    }
+    parcalar.push(tip + ":" + hedef);
+  }
+  return parcalar.join(", ");
+}
+
+/* Emir metnini kurar — `emirMesajiKur` buradan çağırır. */
+function ayMesajiKur() {
+  var hesap = emirDeger("ay-hesap");
+  if (!hesap) return { hata: "Eksik: hangi hesap" };
+
+  var satirlar = ["AYAR", "hesap: " + hesap];
+  function ekle(etiket, deger) {
+    if (deger) satirlar.push(etiket + ": " + deger);
+  }
+  ekle("takip", emirDeger("ay-takip"));
+  ekle("inziva", emirDeger("ay-inziva"));
+  ekle("gemi", emirDeger("ay-gemi"));
+  ekle("kaptan", emirDeger("ay-kaptan"));
+  ekle("ases", emirDeger("ay-ases"));
+  ekle("puan", emirDeger("ay-puan"));
+  ekle("divan", emirDeger("ay-divan"));
+  ekle("seyahat", emirDeger("ay-seyahat"));
+  ekle("ders", emirDeger("ay-ders"));
+  ekle("armatör", emirDeger("ay-armator"));
+
+  if (document.getElementById("ay-gorev-satirlar").dataset.iptal === "1") {
+    satirlar.push("görev: iptal");
+  } else {
+    var g = ayGorevMetni();
+    if (g) satirlar.push("görev: " + g);
+  }
+
+  if (satirlar.length < 3) {
+    return { hata: "Hiçbir ayara dokunmadın — değiştirmek istediğin kutuyu seç." };
+  }
+  return { metin: satirlar.join(EMIR_NL) };
+}
+
+function ayKur() {
+  ayKasabalariDoldur();
+  ayDivaniDoldur();
+  var ekle = document.getElementById("ay-gorev-ekle");
+  var temizle = document.getElementById("ay-gorev-temizle");
+  var kap = document.getElementById("ay-gorev-satirlar");
+  if (ekle) ekle.addEventListener("click", function () {
+    kap.dataset.iptal = "0";
+    ayGorevSatiriEkle();
+  });
+  if (temizle) temizle.addEventListener("click", function () {
+    kap.innerHTML = "";
+    // ⚠️ "iptal" ayrı bir durumdur: adım YOK demek "değiştirme",
+    //    iptal demek "varsa mevcut görevi sil".
+    kap.dataset.iptal = kap.dataset.iptal === "1" ? "0" : "1";
+    emirGuncelle();
+  });
+  ["ay-hesap", "ay-takip", "ay-inziva", "ay-gemi", "ay-kaptan", "ay-ases",
+   "ay-puan", "ay-divan", "ay-seyahat", "ay-ders", "ay-armator"
+  ].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) {
+      el.addEventListener("input", emirGuncelle);
+      el.addEventListener("change", emirGuncelle);
+    }
+  });
+}
+
 emirOlaylariBagla();
+ayKur();
 emirYukle();
