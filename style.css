@@ -943,3 +943,25 @@ a.rk-tamekran {
 .ders-eksik { color: #f0c674; }
 .ders-eksik b { font-weight: 700; }
 @media (max-width: 700px) { .ders-liste { margin-left: 0; } }
+
+/* 🏷️ AKTİF GÖREV ROZETLERİ (30.08.2026)
+   Kullanıcı: *"hepsine hesapların bilgilerini ekleyelim mi diyordun,
+   hepsini de ekle"*. Roller tek tek rozet olarak çizilir ki gözle
+   taramak kolay olsun; satırı şişirmemesi için küçük ve kısa. */
+.gorev-rozet {
+  display: inline-block;
+  padding: 1px 7px;
+  margin: 1px 2px 1px 0;
+  border-radius: 10px;
+  background: #eef3fb;
+  border: 1px solid #cddcf0;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.gorev-bos { color: #b9c2cc; }
+
+/* AYAR EMIRLERI (30.08.2026) - launcher'in site karsiligi */
+.emir-ipucu-kucuk { font-weight: normal; font-size: 12px; color: #7f8c8d; }
+.ay-gorev-satir { align-items: flex-end; }
+.ay-gorev-satir .ay-gorev-adet { max-width: 90px; }
+#emir-form-ayar h4.emir-baslik { margin-top: 14px; }
