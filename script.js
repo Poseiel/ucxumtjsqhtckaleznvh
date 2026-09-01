@@ -685,7 +685,12 @@ const GELISIM_SUTUNLAR = [
   { anahtar: "karizma", etiket: "Karizma", sayisal: true },
   { anahtar: "guven", etiket: "Güven", sayisal: true },
   { anahtar: "akce", etiket: "Akçe", sayisal: true, ondalik: true },
-  { anahtar: "mucevher", etiket: "💎", sayisal: false },
+  // ⚠️⚠️ [01.09.2026] `sayisal: false` İDİ → mücevher METİN gibi sıralanıyordu:
+  //    "75" > "380" (önce ilk harfe bakılır). Kullanıcı: *"sitede jetona göre
+  //    sıralama çalışmıyor?"* Değerler gelisim.json'a METİN olarak yazılıyor
+  //    ("370"), o yüzden karşılaştırma sayıya ÇEVİREREK yapılır (bkz. alttaki
+  //    `sayiya_cevir`) — eski kayıtlardaki "-" de bu sayede sona düşer.
+  { anahtar: "mucevher", etiket: "💎", sayisal: true },
   // ⚠️ [30.08.2026] Kullanıcı: *"hepsini siteye koymak orayı çok şişirecek
   //    ... bir anda hepsi gözükmesin, detay istersek gözüksün."*
   //    Bu yüzden yetenek ağacı 5 sütun DEĞİL tek ÖZET sütun; medrese de
@@ -895,7 +900,18 @@ function gelisimTabloCiz() {
     if (abos && bbos) return 0;
     if (abos) return 1;
     if (bbos) return -1;
-    if (sutun.sayisal) return (av - bv) * yon;
+    // ⚠️ [01.09.2026] Sayısal sütunun değeri METİN olabilir (mücevher
+    //    gelisim.json'a "370" diye yazılıyor) ya da "-" olabilir. Ham
+    //    çıkarma ("-" - 5) NaN üretir ve NaN dönen karşılaştırma
+    //    sıralamayı sessizce bozar; bu yüzden sayıya çevrilir ve
+    //    çevrilemeyen değer SONA atılır.
+    if (sutun.sayisal) {
+      const an = sayiya_cevir(av), bn = sayiya_cevir(bv);
+      if (an === null && bn === null) return 0;
+      if (an === null) return 1;
+      if (bn === null) return -1;
+      return (an - bn) * yon;
+    }
     return String(av).localeCompare(String(bv), "tr") * yon;
   }).forEach((k) => {
     const dun = k.dun;
