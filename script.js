@@ -734,6 +734,25 @@ const RENK_KODU = {
   "Kahverengi": "#8b5a2b", "Siyah": "#333333",
 };
 
+// ⚠️⚠️ [01.09.2026] BU FONKSİYON UNUTULMUŞTU ve sayfayı KOMPLE KIRDI.
+//    Sıralama satırında `sayiya_cevir` çağrılıyordu ama tanımı yoktu →
+//    ReferenceError → Gelişim tablosu HİÇ çizilmedi ("sitedeki gelişim
+//    ekranı komple sıfırlanmış" şikâyeti bundandı).
+//    📌 DERS: script.js'e yeni bir yardımcı çağrısı eklerken tanımının da
+//       yazıldığını doğrula; JS'te eksik fonksiyon sessiz değil ÖLÜMCÜLDÜR
+//       (o andan sonraki tüm çizim durur).
+function sayiya_cevir(deger) {
+  if (deger === null || deger === undefined || deger === "") return null;
+  if (typeof deger === "number") return isNaN(deger) ? null : deger;
+  // "1.234,56" (oyun biçimi) ve "370" (düz metin) ikisi de gelebilir.
+  const metin = String(deger).trim().replace(/\s/g, "");
+  if (!metin || metin === "-") return null;
+  const sayi = Number(metin.indexOf(",") >= 0
+    ? metin.replace(/\./g, "").replace(",", ".")
+    : metin);
+  return isNaN(sayi) ? null : sayi;
+}
+
 function farkRozeti(bugunDeger, dunDeger, ondalikMi) {
   if (dunDeger === undefined || dunDeger === null) return "";
   const fark = bugunDeger - dunDeger;
