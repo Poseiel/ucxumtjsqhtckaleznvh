@@ -149,6 +149,40 @@ L.RasterCoords.prototype = {
       </table>
       <p id="sancak-sonuc-yok" class="bos-durum" hidden>Kayıt bulunamadı.</p>
     </div>
+
+    <!-- 🏛️ SATIŞ KUTUSU — oyundaki satış penceresinin sadeleştirilmiş
+         hâli. Tablodaki "Sat" düğmesi açar; Tamam'a basınca Emir sekmesine
+         hazır emir olarak geçer (mesaj biçimi TEK yerde üretilir). -->
+    <div id="sancak-sat-perde" class="sat-perde" hidden>
+      <div class="sat-kutu" role="dialog" aria-labelledby="sancak-sat-baslik">
+        <h3 id="sancak-sat-baslik">🏛️ Eyalet adına sat</h3>
+        <p class="sat-kutu-urun"><span id="sancak-sat-urun">—</span>
+          <span class="emir-kucuk" id="sancak-sat-stok"></span></p>
+        <label>Adet
+          <input type="number" id="sancak-sat-adet" min="1" step="1" value="1">
+        </label>
+        <label>Fiyat
+          <select id="sancak-sat-fiyat-mod">
+            <option value="maks">maks (999,95 — eyalet tavanı)</option>
+            <option value="elle">elle gireceğim</option>
+          </select>
+        </label>
+        <label id="sancak-sat-fiyat-kutu" hidden>Akçe
+          <input type="number" id="sancak-sat-fiyat" min="0.05" max="999.95"
+                 step="0.05" value="999.95">
+        </label>
+        <label>Kime rezerve edilsin?
+          <input list="emir-hesap-listesi" id="sancak-sat-alici"
+                 placeholder="boş = akçesi 10.000+ olan ilk hesabımız alır"
+                 autocomplete="off">
+        </label>
+        <p class="emir-ipucu" id="sancak-sat-ozet"></p>
+        <div class="sat-kutu-dugmeler">
+          <button id="sancak-sat-iptal" class="ikincil">Vazgeç</button>
+          <button id="sancak-sat-tamam">Tamam → Emir sekmesine geç</button>
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- BELEDİYE ENVANTERİ (Belediye Reisi'nin makamından okunan KASABA deposu).
@@ -626,6 +660,22 @@ L.RasterCoords.prototype = {
           <input list="emir-hesap-listesi" id="sat-alici" placeholder="boş = herkese açık" autocomplete="off">
         </label>
       </div>
+      <!-- 🏛️ EYALET ADINA SATIŞ — mal hesabın çantasından değil SANCAK
+           deposundan çıkar, para eyalet hazinesine girer. Sancak Envanteri
+           sekmesindeki "Sat" düğmesi bu kutuyu işaretleyerek gelir. -->
+      <div class="emir-satir">
+        <label class="emir-tik">
+          <input type="checkbox" id="sat-eyalet">
+          🏛️ Eyalet adına sat <span class="emir-kucuk">(sancak deposundan; para hazineye gider, azami fiyat 999,95)</span>
+        </label>
+      </div>
+      <p class="emir-ipucu" id="sat-eyalet-bilgi" hidden>
+        Bu satışı <b>Ticaret Nazırı</b> hesabı yapar. Rezerve boş bırakırsan
+        akçesi <b>10.000’den fazla</b> olan ilk hesabımız satın alır ve
+        <b>biri alınca diğerleri boşuna bakmaz</b>; rezerve yazarsan
+        <b>yalnızca o hesap</b> alır. Fiyat elle girilmeli — eyalette
+        “en düşük/en yüksek” yok.
+      </p>
     </div>
 
     <!-- ---------------- ALIM ---------------- -->
