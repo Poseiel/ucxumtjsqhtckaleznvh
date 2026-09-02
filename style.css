@@ -1000,3 +1000,61 @@ a.rk-tamekran {
 .gelisim-yardim b { color: var(--accent, #2f6fb0); }
 .gelisim-yardim ul { margin: 0.4rem 0 0; padding-left: 1.2rem; }
 .gelisim-yardim li { margin: 0.15rem 0; }
+
+/* ---------------------------------------------------------------
+   🏛️ EYALET SATIŞ KUTUSU (Sancak Envanteri sekmesi)
+   Oyundaki satış penceresinin sadeleştirilmiş hâli. Sitede başka
+   modal yoktu, ilk desen burada kuruldu.
+   --------------------------------------------------------------- */
+.sat-perde {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 60;
+  padding: 1rem;
+}
+.sat-perde[hidden] { display: none; }
+.sat-kutu {
+  background: var(--kart, #fff);
+  color: var(--text, #222);
+  border-radius: 10px;
+  padding: 1.1rem 1.2rem;
+  width: min(420px, 100%);
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+}
+.sat-kutu h3 { margin: 0 0 0.6rem; font-size: 1.05rem; }
+.sat-kutu-urun { margin: 0 0 0.8rem; font-weight: 600; }
+.sat-kutu label {
+  display: block;
+  margin: 0.55rem 0;
+  font-size: 0.9rem;
+}
+.sat-kutu input,
+.sat-kutu select {
+  width: 100%;
+  margin-top: 0.2rem;
+  padding: 0.4rem 0.5rem;
+  box-sizing: border-box;
+}
+.sat-kutu-dugmeler {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin-top: 0.9rem;
+}
+.sat-kutu-dugmeler button { padding: 0.45rem 0.8rem; cursor: pointer; }
+.sat-kutu-dugmeler .ikincil { background: transparent; }
+/* Tablodaki küçük "Sat" düğmesi */
+.satir-sat-btn {
+  padding: 0.1rem 0.5rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.emir-tik { display: flex; align-items: center; gap: 0.4rem; }
+.emir-tik input { width: auto; }
