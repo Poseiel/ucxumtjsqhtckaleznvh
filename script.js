@@ -415,9 +415,11 @@ function sancakTabloCiz() {
   const cokSancak = new Set(sancakKayitlari.map((s) => s.sancak)).size > 1;
   govde.innerHTML = "";
 
+  // 🏛️ [01.09.2026] "Sat" sütunu — eyalet adına satış emri üretir.
+  // ⚠️ Akçe satırında düğme YOKTUR (para satılmaz).
   baslik.innerHTML = cokSancak
-    ? "<tr><th>Adet</th><th>Ürün</th><th>Sancak</th></tr>"
-    : "<tr><th>Adet</th><th>Ürün</th></tr>";
+    ? "<tr><th>Adet</th><th>Ürün</th><th>Sancak</th><th>Sat</th></tr>"
+    : "<tr><th>Adet</th><th>Ürün</th><th>Sat</th></tr>";
 
   const filtreli = sancakSuzulmus();
   // Önemli kalemler listenin başında, JSON'daki sırayla (akçe → demir → taş
@@ -437,13 +439,135 @@ function sancakTabloCiz() {
       // (Akçe bir eşya değil, para satırı — ona uyarı konmaz.)
       const uyari = (onemliMi && !s.akceMi && sancakEsik && s.adet < sancakEsik)
         ? "⚠️ " : "";
+      // Akçe satılamaz; diğer her ürün için "Sat" düğmesi.
+      const satHucre = s.akceMi
+        ? "<td></td>"
+        : '<td><button class="satir-sat-btn" type="button">Sat</button></td>';
       satir.innerHTML = cokSancak
-        ? `<td>${adetMetni}</td><td>${uyari}${s.isim}</td><td>${s.sancak}</td>`
-        : `<td>${adetMetni}</td><td>${uyari}${s.isim}</td>`;
+        ? `<td>${adetMetni}</td><td>${uyari}${s.isim}</td><td>${s.sancak}</td>${satHucre}`
+        : `<td>${adetMetni}</td><td>${uyari}${s.isim}</td>${satHucre}`;
+      const btn = satir.querySelector(".satir-sat-btn");
+      if (btn) btn.addEventListener("click", () => sancakSatKutusuAc(s));
       govde.appendChild(satir);
     });
 
   sonucYok.hidden = filtreli.length !== 0;
+}
+
+// ---------------------------------------------------------------------
+// 🏛️ EYALET SATIŞ KUTUSU (01.09.2026)
+// ---------------------------------------------------------------------
+// Kullanıcı: *"eyalet envanter listesinin yanında satış kutucuğu koy,
+// basınca açılsın oyundakine benzer."*
+// ⚠️ Emir METNİ burada üretilmez — Tamam'a basınca `emir.js`teki
+//    `eyaletSatisiAc` formu doldurur, metin TEK yerde (`emirMesajiKur`)
+//    kurulur. Aksi halde iki ayrı yerde iki farklı biçim doğardı.
+let sancakSatSecili = null;
+
+function sancakSatNaziriBul(sancakAdi) {
+  // Satışı yapacak hesap, o sancağın TİCARET NAZIRI'dır — raporu zaten
+  // o yazdı, `sancak.json` içinde `nazir` alanında duruyor.
+  const kayit = sancakKayitlari.find((k) => k.sancak === sancakAdi);
+  return (kayit && kayit.nazir) || "";
+}
+
+function sancakSatOzetYaz() {
+  const el = document.getElementById("sancak-sat-ozet");
+  if (!el || !sancakSatSecili) return;
+  const alici = (document.getElementById("sancak-sat-alici").value || "").trim();
+  const adet = Number(document.getElementById("sancak-sat-adet").value) || 0;
+  const nazir = sancakSatNaziriBul(sancakSatSecili.sancak);
+  const kim = alici
+    ? `yalnızca <b>${alici}</b> alabilir`
+    : "akçesi <b>10.000’den fazla</b> olan ilk hesabımız alır (biri alınca diğerleri bakmaz)";
+  const satici = nazir
+    ? `<b>${nazir}</b> (Ticaret Nazırı)`
+    : "<b>Ticaret Nazırı</b> hesabı";
+  el.innerHTML = `${satici} ${adet} adet satışa çıkaracak; ${kim}. ` +
+    "Para eyalet hazinesine girer.";
+}
+
+function sancakSatKutusuAc(satir) {
+  sancakSatSecili = satir;
+  const perde = document.getElementById("sancak-sat-perde");
+  if (!perde) return;
+  document.getElementById("sancak-sat-urun").textContent = satir.isim;
+  document.getElementById("sancak-sat-stok").textContent =
+    `(depoda ${satir.adet} adet` +
+    (satir.sancak ? ` · ${satir.sancak}` : "") + ")";
+  const adetKutu = document.getElementById("sancak-sat-adet");
+  adetKutu.max = satir.adet;
+  adetKutu.value = satir.adet;          // varsayılan: hepsi
+  document.getElementById("sancak-sat-fiyat-mod").value = "maks";
+  document.getElementById("sancak-sat-fiyat-kutu").hidden = true;
+  document.getElementById("sancak-sat-fiyat").value = 999.95;
+  document.getElementById("sancak-sat-alici").value = "";
+  perde.hidden = false;
+  sancakSatOzetYaz();
+  adetKutu.focus();
+}
+
+function sancakSatKutusuKapat() {
+  const perde = document.getElementById("sancak-sat-perde");
+  if (perde) perde.hidden = true;
+  sancakSatSecili = null;
+}
+
+function sancakSatOnayla() {
+  if (!sancakSatSecili) return;
+  const mod = document.getElementById("sancak-sat-fiyat-mod").value;
+  let fiyat = 999.95;
+  if (mod === "elle") {
+    fiyat = Number(document.getElementById("sancak-sat-fiyat").value) || 0;
+    // ⚠️ Oyun tavanı — üstünü yazarsa sessizce kırpmak yerine düzeltip
+    //    kutuda da gösteriyoruz ki kullanıcı ne gittiğini görsün.
+    if (fiyat > 999.95) fiyat = 999.95;
+    if (fiyat <= 0) {
+      document.getElementById("sancak-sat-ozet").textContent =
+        "Fiyat 0’dan büyük olmalı.";
+      return;
+    }
+  }
+  let adet = Math.round(Number(document.getElementById("sancak-sat-adet").value) || 0);
+  if (adet < 1) adet = 1;
+  if (adet > sancakSatSecili.adet) adet = sancakSatSecili.adet;
+
+  const bilgi = {
+    nazir: sancakSatNaziriBul(sancakSatSecili.sancak),
+    urun: sancakSatSecili.isim,
+    adet: adet,
+    fiyat: fiyat,
+    alici: (document.getElementById("sancak-sat-alici").value || "").trim()
+  };
+  sancakSatKutusuKapat();
+  // Emir sekmesine geç
+  const sekme = document.querySelector('.tab-btn[data-tab="emir"]');
+  if (sekme) sekme.click();
+  if (typeof eyaletSatisiAc === "function") eyaletSatisiAc(bilgi);
+}
+
+function sancakSatOlaylariBagla() {
+  const perde = document.getElementById("sancak-sat-perde");
+  if (!perde) return;
+  document.getElementById("sancak-sat-iptal")
+    .addEventListener("click", sancakSatKutusuKapat);
+  document.getElementById("sancak-sat-tamam")
+    .addEventListener("click", sancakSatOnayla);
+  // Perdenin BOŞLUĞUNA tıklayınca kapansın (kutunun içine tıklayınca değil)
+  perde.addEventListener("click", (e) => {
+    if (e.target === perde) sancakSatKutusuKapat();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && !perde.hidden) sancakSatKutusuKapat();
+  });
+  document.getElementById("sancak-sat-fiyat-mod")
+    .addEventListener("change", (e) => {
+      document.getElementById("sancak-sat-fiyat-kutu").hidden =
+        e.target.value !== "elle";
+    });
+  ["sancak-sat-adet", "sancak-sat-alici"].forEach((id) => {
+    document.getElementById(id).addEventListener("input", sancakSatOzetYaz);
+  });
 }
 
 // Kopyalanan metin oyuna/foruma yapıştırılacak: "adet isim", oyunun kendi
@@ -470,6 +594,7 @@ document.getElementById("sancak-arama").addEventListener("input", sancakTabloCiz
 document.getElementById("sancak-urun-filtre").addEventListener("change", sancakTabloCiz);
 document.getElementById("sancak-sancak-filtre").addEventListener("change", sancakTabloCiz);
 document.getElementById("sancak-onemli-filtre").addEventListener("change", sancakTabloCiz);
+sancakSatOlaylariBagla();
 document.getElementById("sancak-kopyala").addEventListener("click", async () => {
   const durum = document.getElementById("sancak-kopya-durum");
   const metin = sancakKopyaMetni();
