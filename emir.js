@@ -21,6 +21,11 @@ var EMIR_NTFY_KONU = "poseidon-emir-7b3f9c21a5d4";
 var EMIR_NTFY_AKTIF = false; // bot tarafı yayına girince true yapılır
 
 var EMIR_NL = String.fromCharCode(10);
+// 🏛️ Oyunun eyalet pazarındaki fiyat tavanı — `pazar_ekstra.py` ve
+//    `pazar_emirleri.py` ile AYNI sayı olmalı (üç yerde de 999,95).
+var EYALET_AZAMI_FIYAT = 999.95;
+// Rezerve boşsa satın alacak hesabın en az akçesi (pazar_emirleri.py).
+var EYALET_ALICI_ASGARI_AKCE = 10000;
 
 var emirEnvanter = [];   // [{karakter, kasaba, akce, esyalar:[{isim,adet}]}]
 var emirPazar = [];      // [{isim, adet, fiyat, kasaba}]
@@ -286,6 +291,9 @@ function emirMesajiKur() {
     var adet = emirSayi("sat-adet");
     var mod = emirDeger("sat-fiyat-mod");
     var alici = emirDeger("sat-alici");
+    // 🏛️ Eyalet adına satış: mal sancak deposundan çıkar, para hazineye.
+    var eyaletKutu = document.getElementById("sat-eyalet");
+    var eyalet = !!(eyaletKutu && eyaletKutu.checked);
     var eksik = [];
     if (!hesap) eksik.push("satacak hesap");
     if (!mal) eksik.push("malzeme");
@@ -294,7 +302,13 @@ function emirMesajiKur() {
     if (mod === "sayi") {
       var f = emirSayi("sat-fiyat-sayi");
       if (!f) eksik.push("fiyat (akçe)");
+      // ⚠️ Oyun eyalet pazarında 999,95 üstünü KABUL ETMİYOR.
+      if (f && eyalet && f > EYALET_AZAMI_FIYAT) f = EYALET_AZAMI_FIYAT;
       fiyatMetni = emirSayiYaz(f);
+    } else if (eyalet) {
+      // ⚠️ Sancak envanterinde pazarın fiyat listesi GÖRÜNMÜYOR; bot
+      //    "en düşük/en yüksek"i hesaplayamaz, uydurmak yerine engelliyoruz.
+      eksik.push("fiyat (eyalette 'en düşük/en yüksek' yok, elle gir)");
     }
     if (eksik.length) return { hata: "Eksik: " + eksik.join(", ") };
     var satirlar = [
@@ -303,6 +317,7 @@ function emirMesajiKur() {
       "adet: " + Math.round(adet),
       "fiyat: " + fiyatMetni
     ];
+    if (eyalet) satirlar.push("eyalet: evet");
     if (alici) satirlar.push("alacak: " + alici);
     return { metin: satirlar.join(EMIR_NL) };
   }
@@ -420,6 +435,43 @@ function emirMesajAc(alici, gemi) {
   emirGuncelle();
 }
 
+// ---------------------------------------------------------
+// 🏛️ EYALET SATIŞI — Sancak Envanteri sekmesinden gelir
+// ---------------------------------------------------------
+// `script.js`'teki satış kutusu Tamam'a basınca burayı çağırır. Emir
+// METNİ tek yerde (emirMesajiKur) üretilir; burası yalnızca formu doldurur.
+function eyaletSatisiAc(bilgi) {
+  bilgi = bilgi || {};
+  var btn = document.querySelector(".emir-tur-btn[data-tur=" +
+                                   String.fromCharCode(34) + "sat" +
+                                   String.fromCharCode(34) + "]");
+  if (btn) btn.click();
+
+  function yaz(id, deger) {
+    var el = document.getElementById(id);
+    if (el && deger !== undefined && deger !== null) el.value = deger;
+  }
+  yaz("sat-hesap", bilgi.nazir || "");
+  yaz("sat-mal", bilgi.urun || "");
+  yaz("sat-adet", bilgi.adet || 1);
+  yaz("sat-fiyat-mod", "sayi");          // eyalette elle fiyat ŞART
+  yaz("sat-fiyat-sayi", bilgi.fiyat || EYALET_AZAMI_FIYAT);
+  yaz("sat-alici", bilgi.alici || "");
+
+  var eyaletKutu = document.getElementById("sat-eyalet");
+  if (eyaletKutu) eyaletKutu.checked = true;
+  // Fiyat kutusu "sayi" seçilince açılır — olayı elle tetikle.
+  var mod = document.getElementById("sat-fiyat-mod");
+  if (mod) mod.dispatchEvent(new Event("change"));
+  var ey = document.getElementById("sat-eyalet");
+  if (ey) ey.dispatchEvent(new Event("change"));
+
+  emirGuncelle();
+  var kutu = document.getElementById("emir-onizleme");
+  if (kutu && kutu.scrollIntoView) kutu.scrollIntoView({ block: "center" });
+}
+window.eyaletSatisiAc = eyaletSatisiAc;
+
 function emirGuncelle() {
   var sonuc = emirMesajiKur();
   var onizleme = document.getElementById("emir-onizleme");
@@ -515,6 +567,25 @@ function emirOlaylariBagla() {
   ["sat-adet", "sat-fiyat-sayi", "sat-alici"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", emirGuncelle);
   });
+  // 🏛️ Eyalet tiki: açıklama satırını göster/gizle + önizlemeyi tazele
+  var satEyalet = document.getElementById("sat-eyalet");
+  if (satEyalet) {
+    satEyalet.addEventListener("change", function () {
+      var bilgi = document.getElementById("sat-eyalet-bilgi");
+      if (bilgi) bilgi.hidden = !satEyalet.checked;
+      // Eyalette "en düşük/en yüksek" yok — tik açılınca elle fiyata geç.
+      if (satEyalet.checked) {
+        var m = document.getElementById("sat-fiyat-mod");
+        if (m && m.value !== "sayi") {
+          m.value = "sayi";
+          m.dispatchEvent(new Event("change"));
+        }
+        var fk = document.getElementById("sat-fiyat-sayi");
+        if (fk && !fk.value) fk.value = EYALET_AZAMI_FIYAT;
+      }
+      emirGuncelle();
+    });
+  }
 
   document.getElementById("al-mal").addEventListener("input", function () {
     emirAlimBilgi();
