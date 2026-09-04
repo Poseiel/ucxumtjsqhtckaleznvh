@@ -79,11 +79,71 @@ async function emirYukle() {
     console.error("Emir verisi yüklenemedi", hata);
   }
   emirHesaplariDoldur();
+  dersListesiniDoldur();
   emirPazarListesiDoldur();
   emirSancakDoldur();
   emirOdenekSatirEkle();
   emirDipnotYaz();
   emirGuncelle();
+}
+
+// 🎓 [03.09.2026] OYUNUN TAM DERS LİSTESİ (43 ders).
+// Kaynak: canlı `select#connaissance` (ders verme ekranı).
+// ⚠️ Tek kaynak `ders_dinleme.TUM_DERSLER` — burası onun kopyasıdır;
+//    biri değişirse diğeri de güncellenmeli.
+var DERS_LISTESI = [
+  "Dil1 - Latince",
+  "Dil3 - Osmanlıca",
+  "Dil2 - Antik Yunanca",
+  "Dil4 - Arapça",
+  "İlim1 - Biyolojinin Temelleri",
+  "Devlet1 - Tarihe Giriş",
+  "Devlet2 - Devlet Kurumlarının İncelenmesi",
+  "Devlet3 - Hukuk İlkeleri",
+  "Devlet4 - İletişim Teknikleri",
+  "Devlet5 - Vergi Toplama Yöntemleri",
+  "Devlet6 - Ticaret",
+  "Din5 - İslam Dini: Düzeni ve Tarihi",
+  "Din1 - İbn-i Rüşt'ün Ahlak Kuralları",
+  "İlim2 - Anatominin Temelleri",
+  "İlim3 - Tıbbın Temelleri",
+  "İlim4 - Temel Kimya",
+  "İlim5 - İlkyardım",
+  "İlim6 - Yıldızbilimi",
+  "İlim8 - Bitkisel Tedavi",
+  "İlim9 - Bitki Bilimi",
+  "İlim7 - Gelişmiş Tıp",
+  "Din2 - Mantık",
+  "Din3 - Varoluş Yetisi",
+  "Din4 - Kainatın Başlangıcı",
+  "Ordu1 - Askeriyenin Temelleri",
+  "Ordu2 - Temel Taktik",
+  "Ordu3 - Temel Strateji",
+  "Ordu4 - Gelişmiş Strateji",
+  "Bilim1 - Taş Ustalığı",
+  "Denizcilik1 - Temel Denizcilik",
+  "Denizcilik2 - Astronomi",
+  "Denizcilik3 - Gelişmiş Denizcilik",
+  "Denizcilik4 - Temel Gemi Mühendisliği",
+  "Denizcilik5 - Gelişmiş Gemi Mühendisliği",
+  "Denizcilik6 - Uzman Denizcilik",
+  "Denizcilik7 - Temel Deniz Muharebesi",
+  "Denizcilik8 - Gelişmiş Deniz Muharebesi",
+  "İlim10 - Damıtımcılık",
+  "İlim11 - Temel Eczacılık",
+  "İlim12 - Temel Doğa Bilimi",
+  "İlim13 - Gelişmiş Eczacılık",
+  "İlim14 - Gelişmiş Doğa Bilimi",
+  "Dil5 - Lingua Prohibita (Yasak Dil)"
+];
+
+function dersListesiniDoldur() {
+  var dl = document.getElementById("ders-listesi");
+  if (!dl) return;
+  dl.innerHTML = DERS_LISTESI.map(function (a) {
+    return "<option value=" + String.fromCharCode(34) + emirKacis(a) +
+           String.fromCharCode(34) + "></option>";
+  }).join("");
 }
 
 function emirHesaplariDoldur() {
@@ -94,6 +154,70 @@ function emirHesaplariDoldur() {
   dl.innerHTML = adlar.map(function (a) {
     return "<option value=" + String.fromCharCode(34) + emirKacis(a) + String.fromCharCode(34) + "></option>";
   }).join("");
+}
+
+// =========================================================
+// 🏛️ KASABA KISITI — mal NEREDE satılabiliyorsa alıcı da ORADA olmalı
+// =========================================================
+// Kullanıcı (03.09.2026, birebir): *"sancak envanteri satılırken sadece
+// başkentteki pazarda satılıyor. o yüzden sitede eyalet adına satta
+// karakter seçtirirken sadece o eyaletin başkentindeki şehirdeki hesaplar
+// çıksın."* + *"emir verirken de girdiğim hesap hangi kasabadaysa o
+// kasabadakilere satabilir, seçenekleri o kasabadakilere azaltsan."*
+//
+// ⚠️ Sebep: oyunda pazar KASABA bazlıdır. Başka kasabadaki bir hesabı
+//    alıcı yazmak, malın orada beklemesi ve kimsenin alamaması demektir.
+var SANCAK_BASKENTI = {
+  "glasgow": "Glasgow",     // KUZEY  — Glasgow · Stirling · Ardencaple
+  "galloway": "Wigtown"     // GÜNEY  — Whithorn · Wigtown · Kirkcudbright · Girvan
+};
+
+function emirBaskentBul(sancakAdi) {
+  var a = emirKucult(sancakAdi || "").trim();
+  for (var k in SANCAK_BASKENTI) {
+    if (a.indexOf(k) >= 0) return SANCAK_BASKENTI[k];
+  }
+  return "";   // tanınmayan sancak → kısıt UYGULANMAZ (eski davranış)
+}
+
+function emirKasabadakiler(kasaba) {
+  var a = emirKucult(kasaba || "").trim();
+  if (!a) return null;                 // kasaba bilinmiyor → kısıtlama yok
+  var liste = [];
+  for (var i = 0; i < emirEnvanter.length; i++) {
+    if (emirKucult(emirEnvanter[i].kasaba || "") === a) {
+      if (emirEnvanter[i].karakter) liste.push(emirEnvanter[i].karakter);
+    }
+  }
+  return liste;
+}
+
+function emirListeYaz(dlId, adlar) {
+  var dl = document.getElementById(dlId);
+  if (!dl) return;
+  // ⚠️ Liste BOŞ ya da null ise TÜM hesaplar gösterilir — kullanıcıyı
+  //    kilitlemeyiz (veri eksikse eski davranışa düşülür).
+  var l = (adlar && adlar.length) ? adlar.slice()
+        : emirEnvanter.map(function (k) { return k.karakter; }).filter(Boolean);
+  l.sort(function (a, b) { return a.localeCompare(b, "tr"); });
+  dl.innerHTML = l.map(function (a) {
+    return "<option value=" + String.fromCharCode(34) + emirKacis(a) +
+           String.fromCharCode(34) + "></option>";
+  }).join("");
+}
+
+// Satıcının kasabasındaki hesapları alıcı listesine yazar.
+function emirAliciListesiTazele() {
+  var k = emirKarakterBul(emirDeger("sat-hesap"));
+  var kasaba = k ? (k.kasaba || "") : "";
+  emirListeYaz("emir-hesap-kasaba", emirKasabadakiler(kasaba));
+  var ipucu = document.getElementById("sat-alici-ipucu");
+  if (ipucu) {
+    ipucu.textContent = kasaba
+      ? ("🏙️ Yalnızca " + kasaba + " kasabasındaki hesaplar listeleniyor "
+         + "(pazar kasaba bazlıdır).")
+      : "";
+  }
 }
 
 function emirKarakterBul(ad) {
@@ -553,6 +677,7 @@ function emirOlaylariBagla() {
 
   document.getElementById("sat-hesap").addEventListener("input", function () {
     emirSatisMalDoldur();
+    emirAliciListesiTazele();   // 🏙️ alıcılar satıcının kasabasıyla sınırlı
     emirGuncelle();
   });
   document.getElementById("sat-mal").addEventListener("input", function () {
@@ -832,6 +957,9 @@ function ayMesajiKur() {
   ekle("seyahat", emirDeger("ay-seyahat"));
   ekle("ders", emirDeger("ay-ders"));
   ekle("armatör", emirDeger("ay-armator"));
+  // 🎓👷 [03.09.2026] Hocalık + işçi tutma (bkz. site_emirleri._IZINLI_ALANLAR)
+  ekle("ders verme", emirDeger("ay-ders-verme"));
+  ekle("işçi", emirDeger("ay-isci"));
 
   if (document.getElementById("ay-gorev-satirlar").dataset.iptal === "1") {
     satirlar.push("görev: iptal");
@@ -864,7 +992,7 @@ function ayKur() {
     emirGuncelle();
   });
   ["ay-hesap", "ay-takip", "ay-inziva", "ay-gemi", "ay-kaptan", "ay-ases",
-   "ay-puan", "ay-divan", "ay-seyahat", "ay-ders", "ay-armator"
+   "ay-puan", "ay-divan", "ay-seyahat", "ay-ders", "ay-armator", "ay-ders-verme", "ay-isci"
   ].forEach(function (id) {
     var el = document.getElementById(id);
     if (el) {
