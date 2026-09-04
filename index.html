@@ -172,9 +172,10 @@ L.RasterCoords.prototype = {
                  step="0.05" value="999.95">
         </label>
         <label>Kime rezerve edilsin?
-          <input list="emir-hesap-listesi" id="sancak-sat-alici"
+          <input list="emir-hesap-baskent" id="sancak-sat-alici"
                  placeholder="boş = akçesi 10.000+ olan ilk hesabımız alır"
                  autocomplete="off">
+          <div id="sancak-sat-baskent-ipucu" class="alt-not"></div>
         </label>
         <p class="emir-ipucu" id="sancak-sat-ozet"></p>
         <div class="sat-kutu-dugmeler">
@@ -657,7 +658,8 @@ L.RasterCoords.prototype = {
       </div>
       <div class="emir-satir">
         <label>Kime rezerve edilsin? <span class="emir-kucuk">(boş bırakırsan herkese açık satılır)</span>
-          <input list="emir-hesap-listesi" id="sat-alici" placeholder="boş = herkese açık" autocomplete="off">
+          <input list="emir-hesap-kasaba" id="sat-alici" placeholder="boş = herkese açık" autocomplete="off">
+          <div id="sat-alici-ipucu" class="alt-not"></div>
         </label>
       </div>
       <!-- 🏛️ EYALET ADINA SATIŞ — mal hesabın çantasından değil SANCAK
@@ -819,6 +821,17 @@ L.RasterCoords.prototype = {
         <label>⛵ Hangi gemi (armatör)
           <input list="emir-hesap-listesi" id="ay-armator" placeholder="boş = değiştirme" autocomplete="off">
         </label>
+        <!-- 🎓👷 [03.09.2026] Hocalık + işçi tutma -->
+        <label>🎓 Vereceği ders (hocalık)
+          <input list="ders-listesi" id="ay-ders-verme" placeholder="boş = değiştirme · &quot;iptal&quot; = ders verme" autocomplete="off">
+        </label>
+        <label>👷 İşçi tut (tarlada kendi çalışmasın)
+          <select id="ay-isci">
+            <option value="">— değiştirme —</option>
+            <option value="açık">açık</option>
+            <option value="kapalı">kapalı</option>
+          </select>
+        </label>
       </div>
 
       <!-- 🧭 GÖREV ZİNCİRİ — launcher'daki "🧭 Görevler" sekmesinin karşılığı -->
@@ -851,6 +864,13 @@ L.RasterCoords.prototype = {
     <p class="emir-kucuk emir-dipnot" id="emir-dipnot"></p>
 
     <datalist id="emir-hesap-listesi"></datalist>
+    <!-- 🏙️ [03.09.2026] Pazar KASABA bazlıdır: alıcı, satıcıyla
+         AYNI kasabada olmalı. Eyalet malı ise yalnızca SANCAK
+         BAŞKENTİNDE satılabilir (Glasgow / Wigtown). -->
+    <!-- 🎓 Oyunun 43 dersi (emir.js dolduruyor) -->
+    <datalist id="ders-listesi"></datalist>
+    <datalist id="emir-hesap-kasaba"></datalist>
+    <datalist id="emir-hesap-baskent"></datalist>
   </section>
 
 </main>
