@@ -502,6 +502,27 @@ function sancakSatKutusuAc(satir) {
   document.getElementById("sancak-sat-fiyat-kutu").hidden = true;
   document.getElementById("sancak-sat-fiyat").value = 999.95;
   document.getElementById("sancak-sat-alici").value = "";
+  // 🏛️ [03.09.2026] EYALET MALI YALNIZCA SANCAK BAŞKENTİNDE SATILIR.
+  // Kullanıcı: *"sancak envanteri satılırken sadece başkentteki pazarda
+  // satılıyor, o yüzden sadece o eyaletin başkentindeki hesaplar çıksın."*
+  // KUZEY = Glasgow sancağı → başkent Glasgow
+  // GÜNEY = Galloway sancağı → başkent Wigtown
+  try {
+    var _bask = (typeof emirBaskentBul === "function")
+      ? emirBaskentBul(satir.sancak) : "";
+    if (typeof emirListeYaz === "function") {
+      emirListeYaz("emir-hesap-baskent",
+                   _bask ? emirKasabadakiler(_bask) : null);
+    }
+    var _ip = document.getElementById("sancak-sat-baskent-ipucu");
+    if (_ip) {
+      _ip.textContent = _bask
+        ? ("🏛️ " + satir.sancak + " sancağının malı yalnızca başkent "
+           + _bask + " pazarında satılabilir — liste " + _bask
+           + " hesaplarıyla sınırlı.")
+        : "";
+    }
+  } catch (e) { /* liste doldurulamazsa TÜM hesaplar görünür (eski hâl) */ }
   perde.hidden = false;
   sancakSatOzetYaz();
   adetKutu.focus();
