@@ -859,6 +859,13 @@ a.rk-tamekran {
   margin: .4rem 0 0;
 }
 .rehber-eski { font-size: .7em; opacity: .6; font-weight: normal; }
+/* 🖥️ Ayar emrinin "bilmen gereken üç şey" listesi (04.09.2026) */
+.rehber-liste {
+  margin: .4rem 0 .8rem 1.2rem;
+  padding: 0;
+  line-height: 1.55;
+}
+.rehber-liste li { margin-bottom: .35rem; }
 /* Dar ekranda tablo taşmasın */
 @media (max-width: 640px) {
   .rehber-tablo td:first-child { white-space: normal; }
