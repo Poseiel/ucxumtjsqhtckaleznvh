@@ -287,23 +287,45 @@ L.RasterCoords.prototype = {
   <section id="tab-rehber" class="tab-panel">
     <div class="rehber">
       <h2>📖 Bu site ne işe yarar?</h2>
-      <p class="bolum-aciklama">Bot her sabah ~92 hesabı gezip oyundan bilgi topluyor.
-        Bu site o bilgilerin okunabilir hâli. <b>Bilgi okuma</b> sekmeleri var, bir de
-        <b>bota iş verme</b> sekmesi (Emir). Aşağıda hangisi ne yapar, kısaca yazdım.</p>
+      <p class="bolum-aciklama">Bot her sabah <b>98 hesabı</b> tek tek gezip oyundan bilgi
+        topluyor. Bu site o bilgilerin okunabilir hâli — oyuna girmeden, tek ekrandan
+        her şeyi görürsün. İki tür sekme var: <b>bilgi okuma</b> (11 sekme) ve
+        <b>bota iş verme</b> (Emir). Aşağıda hangisi ne işe yarar, hepsi tek tek yazılı.</p>
 
-      <h3>🔎 Sadece bakılan sekmeler</h3>
+      <h3>⏰ Önce şunu bil: site günde <b>İKİ KEZ</b> güncellenir</h3>
       <table class="rehber-tablo">
-        <tr><th>Sekme</th><th>Ne gösterir</th><th>Ne zaman güncellenir</th></tr>
-        <tr><td><b>Pazar</b></td><td>7 kasabanın pazarındaki ilanlar, fiyatlar</td><td>Sabah (ajanlar bitince)</td></tr>
-        <tr><td><b>Envanter</b></td><td>Kendi hesaplarımızın çanta + ev sandığı toplamı</td><td>Akşam (tur bitince)</td></tr>
-        <tr><td><b>Sancak / Belediye / Liman Envanteri</b></td><td>Eyaletin, kasabanın ve limanın ortak depoları</td><td>O makamdaki hesap girince</td></tr>
-        <tr><td><b>⛵ Filo</b></td><td>Hangi limanda hangi gemi var, sahibi kim (🟢 bizim · 🔵 dost · 🔴 yabancı)</td><td>Sabah</td></tr>
-        <tr><td><b>Gelişim</b></td><td>Karakterlerin dünkü hâline göre stat değişimi (▲ = ▼)</td><td>Akşam</td></tr>
-        <tr><td><b>Hareket / İnziva / Kim Nerede</b></td><td>Kim nereye gitti, kim inzivaya girdi, multi şüphesi</td><td>Sabah</td></tr>
-        <tr><td><b>Harita</b></td><td>Kara + deniz rotası hesaplayıcı (iki şehir seç, kaç gün sürer söyler)</td><td>Sabit</td></tr>
+        <tr><th>Ne zaman</th><th>Ne gelir</th><th>Neden</th></tr>
+        <tr><td><b>Sabah ~09:00</b><br><span class="rehber-eski">7 ajan hesabı bitince</span></td>
+            <td>Pazar · Hareket · İnziva · Kim Nerede · Filo</td>
+            <td>Bu bilgileri yalnızca 7 “ajan” hesap topluyor ve onlar günün <b>en başında</b> giriyor — böylece kimi takip edeceğini sabah öğreniyorsun.</td></tr>
+        <tr><td><b>Akşam ~21:00</b><br><span class="rehber-eski">bütün tur bitince</span></td>
+            <td>Envanter · Gelişim <span class="rehber-eski">(+ diğerleri tazelenir)</span></td>
+            <td>Bunlar 98 hesabın hepsi girmeden tamamlanmıyor.</td></tr>
+      </table>
+      <p class="rehber-not">⚠️ Yani <b>sabah Envanter ve Gelişim sekmelerinde DÜNÜN verisi durur</b> —
+        bozuk değildir. Her sekmenin üstünde hangi güne ait olduğu yazıyor.</p>
+
+      <h3>🔎 Bilgi okuma sekmeleri (11 tane)</h3>
+      <table class="rehber-tablo">
+        <tr><th>Sekme</th><th>Ne gösterir</th><th>Ne işine yarar</th></tr>
+        <tr><td><b>Pazar</b></td><td>7 kasabanın pazarındaki bütün ilanlar, fiyatlar, satıcılar</td><td>Bir malı nereden ucuza alacağını, kendi malının fiyatının piyasaya göre nerede durduğunu görürsün. Arama kutusu <b>kısmi</b> arar; yanındaki liste <b>tam ad</b> seçtirir.</td></tr>
+        <tr><td><b>Envanter</b></td><td>Kendi hesaplarımızın çantası + ev sandığı <b>toplamı</b></td><td>“Şu mal kimde var?” sorusunun cevabı. Eşya seçince tablo o eşyaya göre dizilir. Çanta ve ev ayrı ayrı DEĞİL, toplam gösterilir.</td></tr>
+        <tr><td><b>Sancak Envanteri</b></td><td>Eyaletin ortak deposu (Ticaret Nazırı okur)</td><td>Eyalette ne var, neyi satabiliriz. Satırdaki <b>Sat</b> düğmesi doğrudan emir hazırlar.</td></tr>
+        <tr><td><b>Belediye Envanteri</b></td><td>Kasabanın ortak deposu (Belediye Reisi okur)</td><td>Kasaba kasasında ne birikmiş.</td></tr>
+        <tr><td><b>Liman Envanteri</b></td><td>Limanın deposu + tersanedeki gemi yapım yuvaları</td><td>Gemi yapımı için neyin eksik olduğunu gösterir.</td></tr>
+        <tr><td><b>⛵ Filo</b></td><td>Hangi limanda hangi gemi duruyor, sahibi kim<br>🟢 bizim · 🔵 dost · 🔴 yabancı</td><td>Limanımıza yabancı gemi girdiyse sabah görürsün. Gemi satırındaki ✉️ ile sahibine oyun içi mesaj yazabilirsin.</td></tr>
+        <tr><td><b>Gelişim</b></td><td>Her hesabın düne göre stat değişimi, rengi, kayıt tarihi, aktif görevi</td><td><b>Kaptan/ajan adayı seçerken buraya bak.</b> Satıra tıklayınca yetenek ağacı ve medrese dersleri açılır.</td></tr>
+        <tr><td><b>Hareket</b></td><td>Son 6 günün rotaları — kim nereden nereye gitti</td><td>Birinin düzenli mi yoksa şüpheli mi hareket ettiğini gösterir.</td></tr>
+        <tr><td><b>İnziva</b></td><td>Aynı gün birlikte inzivaya girip çıkanlar</td><td>Multi şüphesinin <b>tek</b> ölçütü budur. Seyahat edenler masumdur, buraya girmez.</td></tr>
+        <tr><td><b>Kim Nerede</b></td><td>Bugün 7 kasabada kim var — hareket etmeyenler dahil <b>herkes</b></td><td>Bir kişiyi arıyorsan en hızlı yer. Kartlarda <b>🤝 bizim: N</b> satırı o kasabadaki kendi hesap sayımızdır.</td></tr>
+        <tr><td><b>🗺️ Harita &amp; Rota</b></td><td>Kara yolu rota hesaplayıcı + <b>🚢 Deniz Rotası</b></td><td>İki şehir seç → kaç gün sürdüğünü söyler (Paşa paketi varsa günde 3 adım, yoksa 2). Deniz kısmı gemi rotasını kare kare çizer.</td></tr>
       </table>
       <p class="rehber-not">⚠️ Bir sekmede <b>“henüz veri yok”</b> yazıyorsa bozuk değildir —
-        o bilgiyi toplayan hesap o gün henüz oyuna girmemiştir.</p>
+        o bilgiyi toplayan hesap o gün henüz oyuna girmemiştir. Örneğin Sancak Envanteri,
+        Ticaret Nazırı hesabı girene kadar boş görünür.</p>
+      <p class="rehber-not">🔐 Siteye ilk girişte <b>şifre</b> sorulur; şifreyi her akşam
+        botun Telegram’a attığı son mesajda bulursun. Tarayıcın hatırlar, her seferinde
+        sormaz.</p>
 
       <h3>✍️ Bota iş verme — <b>Emir</b> sekmesi</h3>
       <p>Site oyuna doğrudan bağlanamaz. Zincir şöyle işler:</p>
@@ -313,15 +335,42 @@ L.RasterCoords.prototype = {
         yazdığı mesajı okuyamıyor (ölçüldü), o yüzden “Gönder”e basınca Telegram
         hazır metinle açılır, sen sadece gönder tuşuna basarsın.</p>
       <table class="rehber-tablo">
-        <tr><th>Emir türü</th><th>Ne yapar</th></tr>
-        <tr><td>💰 <b>Satış</b></td><td>Seçtiğin hesabın malını pazara çıkarır. İstersen belli bir kişiye rezerve eder.</td></tr>
-        <tr><td>🛒 <b>Alım</b></td><td>Pazardan mal aldırır, tavan fiyat belirlersin.</td></tr>
-        <tr><td>📜 <b>Ödenek</b></td><td>Sancak kasasından bir kişiye ödenek (sözleşme) çıkarır.</td></tr>
-        <tr><td>✉️ <b>Mesaj</b></td><td><b>YENİ:</b> oyun içi mesaj yollar. Filo sekmesinde bir geminin yanındaki ✉️ düğmesine basarsan alıcı hazır gelir.</td></tr>
+        <tr><th>Emir türü</th><th>Ne yapar</th><th>Dikkat</th></tr>
+        <tr><td>💰 <b>Satış</b></td><td>Seçtiğin hesabın malını pazara çıkarır. Fiyatı “en düşük / en yüksek / elle” seçersin. İstersen belli bir kişiye <b>rezerve</b> edersin — o zaman yalnızca o kişi alabilir.</td><td>Emirle verilen fiyata bot <b>indirim uygulamaz</b>; ne yazdıysan o.</td></tr>
+        <tr><td>🛒 <b>Alım</b></td><td>Pazardan mal aldırır. <b>Tavan fiyat</b> belirlersin, o fiyatın üstüne çıkmaz. “🔢 pazara göre hesapla” düğmesi güncel fiyattan makul bir tavan önerir.</td><td>Hesabın parası yetmezse eldeki kadar alır, emri boşa harcamaz.</td></tr>
+        <tr><td>📜 <b>Ödenek</b></td><td>Sancak kasasından bir kişiye ödenek (sözleşme) çıkarır. Birden çok mal satırı ekleyebilirsin.</td><td>Bot içeriği <b>doğrulamadan</b> kimseye vermez; uyuşmazsa ödeneği iptal eder.</td></tr>
+        <tr><td>✉️ <b>Mesaj</b></td><td>Oyun içi mesaj yollar. Filo sekmesinde bir geminin yanındaki ✉️ düğmesine basarsan alıcı hazır gelir.</td><td>Gönderecek karakteri <b>elle</b> yazarsın; o ad hiçbir yere kaydedilmez, yalnızca kendi tarayıcın hatırlar. Konu boş bırakılabilir.</td></tr>
+        <tr><td>🖥️ <b>Ayar</b><br><span class="rehber-eski">en güçlüsü</span></td><td><b>Launcher’ın yaptığı her hesap ayarını buradan verirsin</b> — bilgisayarın başında olmana gerek kalmaz. Takip modu, ders, seyahat, gemi, kaptan, ases, inziva, divan görevi, puan, işçi, armatör ve <b>görev zinciri</b>.</td><td>Aşağıdaki iki uyarıyı mutlaka oku.</td></tr>
       </table>
-      <p class="rehber-not">✉️ Mesajda <b>gönderecek karakteri elle yazarsın</b> —
-        o ad hiçbir yere kaydedilmez, yalnızca kendi tarayıcın hatırlar.
-        <b>Konu başlığı boş bırakılabilir.</b></p>
+
+      <h4>🖥️ Ayar emri — bilmen gereken üç şey</h4>
+      <ol class="rehber-liste">
+        <li><b>Dokunmadığın kutu değişmez.</b> Her kutunun varsayılanı
+          <b>“— değiştirme —”</b>. Yalnızca elini sürdüğün ayar mesaja yazılır,
+          gerisi olduğu gibi kalır.</li>
+        <li><b>Emir kalıcıdır.</b> İptal edene kadar her turda uygulanır — yani
+          bilgisayardaki launcher’dan yapılan değişiklik, aynı ayar için site emri
+          varsa <b>tutmaz</b>. Geri almak için değeri <b>“kapalı”</b> ya da
+          <b>“iptal”</b> yap.</li>
+        <li><b>Kullanıcı adı ve şifre değiştirilemez.</b> Bilerek böyle: Telegram’a
+          düşen bir mesaj hiçbir hesabın kimliğini değiştiremesin.</li>
+      </ol>
+
+      <h4>🚚 Görev zinciri (Ayar emrinin içinde)</h4>
+      <p>Hesaba <b>sıralı iş listesi</b> verir; bot her turda <b>bir adım</b> ilerletir.
+        Örnek: <span class="rehber-akis">seyahat:Ardencaple → satin_al:Çuval Mısır x10 → seyahat:Glasgow</span>
+        Bu üç adım üç günde biter, sen bir daha dokunmazsın.</p>
+      <p class="rehber-not">⚠️ Karakter iki şehir arasındayken oyun konum vermez;
+        bot bunu “varmadı” değil <b>“bilinmiyor”</b> sayar ve üstüne yeni emir yazmaz —
+        yani rota bozulmaz.</p>
+
+      <h4>🛒 Takip modundaki yeni seçenek: Alışverişçi</h4>
+      <p>Bu modu verdiğin hesap önce Midas sandığıyla para biriktirir
+        (<b>günde en çok 5.000 akçe</b> ve <b>45 dakika</b>), cebinde 10.000 akçe
+        olunca pazardaki <b>37 hedef üründen</b> tavanı aşmayan ne varsa toplar ve
+        evine koyar. Sonra tarla/maden rutinine devam eder.</p>
+      <p class="rehber-not">⚠️ Bu moddaki hesap <b>topladığı malı satmaz</b> —
+        biriktirmek için var. Aynı hesapta seyahat modunu açma, ikisi çakışır.</p>
 
       <h3>💬 Telegram’dan cevap yazma <span class="rehber-eski">(bunu zaten biliyorsunuz)</span></h3>
       <p>Divan/belediye hesaplarımıza oyunda mesaj gelince bot bunu Telegram’a düşürür
@@ -332,10 +381,28 @@ L.RasterCoords.prototype = {
 
       <h3>❓ Sık sorulanlar</h3>
       <table class="rehber-tablo">
-        <tr><td><b>Emri gönderdim, ne zaman olur?</b></td><td>O karakter sıradaki turda oyuna girdiğinde. Bot sabah erken başlıyor.</td></tr>
-        <tr><td><b>Yanlış emir gönderdim</b></td><td>Telegram’a yaz, ana makinedeki kişi kuyruktan düşürebilir.</td></tr>
-        <tr><td><b>Site eski veri gösteriyor</b></td><td>Sayfayı yenile (Ctrl+F5). Tarih satırı her sekmenin üstünde yazıyor.</td></tr>
-        <tr><td><b>Denizdeki gemiler neden Filo’da yok?</b></td><td>Oyun onları göstermiyor — bir gemiyi ancak yakınındaysan görüyorsun. Filo yalnızca <b>rıhtımdaki</b> gemileri sayar.</td></tr>
+        <tr><td><b>Emri gönderdim, ne zaman olur?</b></td><td>O karakter sıradaki turda oyuna girdiğinde. Bot sabah erken başlıyor. <b>Pazar emirleri</b> için ayrıca: bot <b>2 hesapta bir</b> Telegram’ı yeniden okur, yani gün içinde yazdığın emir ertesi güne kalmaz.</td></tr>
+        <tr><td><b>Emir gitti mi, anlayamıyorum</b></td><td>Bot bir emri işlediğinde Telegram’a haber düşer. Hiç ses çıkmadıysa mesaj şablona uymamış olabilir — site kutularıyla oluşturduğun metni <b>değiştirmeden</b> gönder.</td></tr>
+        <tr><td><b>Yanlış emir gönderdim</b></td><td>Telegram’a yaz, ana makinedeki kişi kuyruktan düşürebilir. Ayar emri için daha kolayı: aynı kutuyu <b>“kapalı”</b>/<b>“iptal”</b> yapıp yeniden gönder.</td></tr>
+        <tr><td><b>Site eski veri gösteriyor</b></td><td>Önce tarih satırına bak (her sekmenin üstünde). Gerçekten eskiyse sayfayı <b>Ctrl+F5</b> ile yenile. Sabah Envanter/Gelişim’in dünkü olması normaldir.</td></tr>
+        <tr><td><b>Bir hesabı sitede bulamıyorum</b></td><td>Kim Nerede yalnızca <b>7 ajan kasabasını</b> kapsar. Hesap başka kasabadaysa ya da yoldaysa orada görünmez — <b>Gelişim</b> sekmesinde ise her hesap vardır.</td></tr>
+        <tr><td><b>Denizdeki gemiler neden Filo’da yok?</b></td><td>Oyun onları göstermiyor — bir gemiyi ancak yakınındaysan görüyorsun. Filo yalnızca <b>rıhtımdaki</b> gemileri sayar. Kaptanın çevresindeki gemileri günlük kaptan raporunda görürsün.</td></tr>
+        <tr><td><b>Hareket sekmesinde biri “Şehir Dışı” görünüyor, inzivada mı?</b></td><td>Hayır. İnziva ayrı sekmede ve <b>tek ölçüt</b> odur. “Şehir Dışı” çoğu zaman seyahattir — masumdur.</td></tr>
+        <tr><td><b>Haritadaki rota kaç günde biter?</b></td><td>Hesaplayıcı bunu söyler. Paşa paketi olan hesap günde <b>3</b>, olmayan <b>2</b> adım gider. Deniz rotası rüzgâra bağlı olduğu için tahminidir.</td></tr>
+        <tr><td><b>Şifreyi unuttum</b></td><td>Botun her akşam Telegram’a attığı <b>son mesajda</b> site linki ve şifre birlikte yazar.</td></tr>
+        <tr><td><b>Telefondan kullanabilir miyim?</b></td><td>Evet. Geniş tablolar (Gelişim, Envanter) <b>sağa kaydırılır</b>, sütunlar devam eder.</td></tr>
+      </table>
+
+      <h3>🧭 Hızlı başlangıç — “ne yapmak istiyorum?”</h3>
+      <table class="rehber-tablo">
+        <tr><th>İstediğin</th><th>Nereye git</th></tr>
+        <tr><td>Bir malı ucuza almak</td><td><b>Pazar</b> → ürünü seç → fiyatları karşılaştır → <b>Emir → 🛒 Alım</b></td></tr>
+        <tr><td>Elimdeki malı satmak</td><td><b>Envanter</b> → kimde olduğunu bul → <b>Emir → 💰 Satış</b></td></tr>
+        <tr><td>Bir hesabı başka şehre taşımak</td><td><b>Emir → 🖥️ Ayar</b> → görev zinciri → <span class="rehber-eski">seyahat:ŞehirAdı</span></td></tr>
+        <tr><td>Kaptan adayı seçmek</td><td><b>Gelişim</b> → renk, kayıt tarihi ve statlara bak</td></tr>
+        <tr><td>Birinin multi olup olmadığına bakmak</td><td><b>İnziva</b> (aynı gün girip çıkanlar) — Hareket değil</td></tr>
+        <tr><td>Limanımıza kim geldi görmek</td><td><b>⛵ Filo</b> → 🔴 yabancı işaretlileri</td></tr>
+        <tr><td>Bir hesaba ders/gemi/ases görevi vermek</td><td><b>Emir → 🖥️ Ayar</b> → ilgili kutu</td></tr>
       </table>
     </div>
   </section>
@@ -760,6 +827,7 @@ L.RasterCoords.prototype = {
             <option value="Yok">Yok</option>
             <option value="Grup Takip">Grup Takip</option>
             <option value="Ordu Takip">Ordu Takip</option>
+            <option value="Alışverişçi">🛒 Alışverişçi</option>
           </select>
         </label>
       </div>
