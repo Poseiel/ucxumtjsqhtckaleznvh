@@ -513,9 +513,10 @@ L.RasterCoords.prototype = {
 
       <h4>⚡ Takip modundaki yeni seçenek: Hızlı Maden / Hızlı Cami (yeni hesaplar)</h4>
       <p>Yeni açılan hesaplar için <b>2 dakikalık</b> tur: hesap girer, karakter
-        ölmüşse <b>"Hayata dön"e basar</b>, sonra <b>madene</b> (Hızlı Maden) ya da
-        <b>camiye</b> (Hızlı Cami) girip çıkar. Yemek, ödül, posta, Midas, pazar,
-        tarla — <b>hiçbiri yapılmaz</b>. Kendi Chrome profili ve taze IP kuralı
+        ölmüşse <b>"Hayata dön"e basar</b> (ve yalnızca o gün ödülleri toplar),
+        sonra <b>madene</b> (Hızlı Maden) ya da <b>camiye</b> (Hızlı Cami) girip
+        çıkar. Yemek, posta, Midas, pazar, tarla — <b>hiçbiri yapılmaz</b>; ödül
+        toplama da dirilme günü dışında yapılmaz. Kendi Chrome profili ve taze IP kuralı
         aynen geçerlidir.</p>
       <p class="rehber-not">⚠️ Bu hesaplar yemek yemediği için birkaç günde bir ölür;
         bot ertesi girişte diriltir. Maden kapalıysa camiye, cami doluysa madene düşer.
@@ -583,6 +584,7 @@ L.RasterCoords.prototype = {
       </ul>
     </div>
     <p class="envanter-tarih-notu">Karşılaştırma: <span id="gelisim-tarih-notu">yükleniyor...</span></p>
+    <p class="envanter-tarih-notu" id="gelisim-sev6-notu" hidden></p>
     <div class="pazar-arac-cubugu">
       <select id="gelisim-kasaba-filtre">
         <option value="">Tüm kasabalar</option>
@@ -896,6 +898,9 @@ L.RasterCoords.prototype = {
       <button class="emir-tur-btn" data-tur="al">🛒 Alım</button>
       <button class="emir-tur-btn" data-tur="odenek">📜 Ödenek</button>
       <button class="emir-tur-btn" data-tur="mesaj">✉️ Mesaj</button>
+      <button class="emir-tur-btn" data-tur="forum">📣 Forum</button>
+      <button class="emir-tur-btn" data-tur="yanasma">⚓ Yanaşma</button>
+      <button class="emir-tur-btn" data-tur="gemi">⛵ Gemi Al</button>
       <button class="emir-tur-btn" data-tur="ayar">🖥️ Ayar</button>
     </div>
 
@@ -941,6 +946,12 @@ L.RasterCoords.prototype = {
           🏛️ Eyalet adına sat <span class="emir-kucuk">(sancak deposundan; para hazineye gider, azami fiyat 999,95)</span>
         </label>
       </div>
+      <div class="emir-satir">
+        <label class="emir-tik">
+          <input type="checkbox" id="sat-hemen">
+          ⚡ Hemen yap <span class="emir-kucuk">(bot bu hesaba SIRADAKİ hesap olarak girer; tiksiz → hesabın kendi sırasında, sırası geçtiyse yarın)</span>
+        </label>
+      </div>
       <p class="emir-ipucu" id="sat-eyalet-bilgi" hidden>
         Bu satışı <b>Ticaret Nazırı</b> hesabı yapar. Rezerve boş bırakırsan
         akçesi <b>10.000’den fazla</b> olan ilk hesabımız satın alır ve
@@ -971,6 +982,39 @@ L.RasterCoords.prototype = {
         </label>
         <button type="button" id="al-azami-oner" class="emir-mini-btn">🔢 pazara göre hesapla</button>
       </div>
+      <div id="al-kasaba-ipucu" class="alt-not"></div>
+      <div class="emir-satir">
+        <label class="emir-tik">
+          <input type="checkbox" id="al-hemen">
+          ⚡ Hemen yap <span class="emir-kucuk">(bot bu hesaba SIRADAKİ hesap olarak girer)</span>
+        </label>
+      </div>
+    </div>
+
+    <!-- ---------------- ⛵ GEMİ AL (Deniz Pazarı) ----------------
+         Kullanıcı (11.09.2026): *"Şu kaptandan al diye emir yazacağız.
+         sitede ve hemen olacak bu tikli olmasına gerek yok."*
+         ⚠️ Şablon `pazar_emirleri.gemi_emri_coz` ile BİREBİR aynı olmalı. -->
+    <div class="emir-form" id="emir-form-gemi">
+      <div class="emir-satir">
+        <label>Gemiyi alacak hesap
+          <input list="emir-hesap-listesi" id="gm-hesap" placeholder="örn. Toyga" autocomplete="off">
+        </label>
+        <label>Satan kaptan <span class="emir-kucuk">(oyundaki login)</span>
+          <input id="gm-kaptan" placeholder="örn. seldomseen" autocomplete="off">
+        </label>
+      </div>
+      <div class="emir-satir">
+        <label>Azami ödenecek akçe <span class="emir-kucuk">(ekrandaki Ücret)</span>
+          <input type="number" id="gm-azami" min="1" step="0.01" placeholder="örn. 12000">
+        </label>
+        <label>Gemi adı <span class="emir-kucuk">(isteğe bağlı)</span>
+          <input id="gm-gemi" placeholder="örn. Red October" autocomplete="off">
+        </label>
+      </div>
+      <p class="emir-ipucu">Hesap, geminin satışa çıktığı limanın kasabasında olmalı.
+         Aynı kaptanın birden çok gemisi listedeyse bot — yanlış gemiyi almamak
+         için — hiçbirine teklif vermez; o zaman <b>gemi adını da yaz</b>.</p>
     </div>
 
     <!-- ---------------- ÖDENEK ---------------- -->
@@ -1007,8 +1051,63 @@ L.RasterCoords.prototype = {
       <label>Mesaj
         <textarea id="ms-metin" rows="4" placeholder="Oyunda gönderilecek metin…"></textarea>
       </label>
+      <div class="emir-satir">
+        <label class="emir-tik">
+          <input type="checkbox" id="ms-hemen">
+          ⚡ Hemen yap <span class="emir-kucuk">(bot bu hesaba SIRADAKİ hesap olarak girer ve mesajı yollar)</span>
+        </label>
+      </div>
       <p class="emir-ipucu">Gönderecek karakterin adı <b>hiçbir yere kaydedilmez</b> —
         yalnızca kendi tarayıcın hatırlar. Bot bu mesajı, o karakter oyuna girdiğinde yollar.</p>
+    </div>
+
+    <!-- ---------------- 📣 FORUM CEVABI (11.09.2026) ---------------- -->
+    <!-- Kullanıcı: *"sitede linki sor emir olarak, yazılacak cevabı sor,
+         gönder diyince emri gönder; karakter oyuna girince o forumda o
+         başlığa gidip cevap yazsın."* Şablon: pazar_emirleri.forum_emri_coz
+         → forum_modul.emri_coz. `hemen:` satırı `mesaj:`ten ÖNCE yazılır. -->
+    <div class="emir-form" id="emir-form-forum">
+      <div class="emir-satir">
+        <label>Yazacak karakter
+          <input list="emir-hesap-listesi" id="fr-hesap" placeholder="örn. Tar_aldarion" autocomplete="off">
+        </label>
+        <label>Forum konusu (adres)
+          <input id="fr-konu" placeholder="https://forum.renaissancekingdoms.com/viewtopic.php?t=…" autocomplete="off">
+        </label>
+      </div>
+      <label>Cevap metni
+        <textarea id="fr-mesaj" rows="4" placeholder="Foruma yazılacak cevap…"></textarea>
+      </label>
+      <div class="emir-satir">
+        <label class="emir-tik">
+          <input type="checkbox" id="fr-hemen">
+          ⚡ Hemen yap <span class="emir-kucuk">(bot bu hesaba SIRADAKİ hesap olarak girer ve cevabı yazar)</span>
+        </label>
+      </div>
+      <p class="emir-ipucu">Yalnızca oyunun forumu (<code>forum.renaissancekingdoms.com/viewtopic.php</code>) kabul edilir — bot başka adres açmaz.</p>
+    </div>
+
+    <!-- ---------------- ⚓ YANAŞMA İZNİ (11.09.2026) ---------------- -->
+    <!-- Kullanıcı: *"liman şeflerine 'şu armatörün yanaşma iznini kabul et'
+         diye bir emir koyalım; ilk fırsatta yapılacak şekilde."*
+         ⚠️ Kabul ve Reddet AYNI action=233 — fark a=11/a=12; kod üç kapıyla
+         yalnızca KABUL'e basar (divan_liman.yanasma_izinlerini_kabul_et). -->
+    <div class="emir-form" id="emir-form-yanasma">
+      <div class="emir-satir">
+        <label>Liman şefi hesabı
+          <input list="emir-hesap-listesi" id="ya-hesap" placeholder="örn. Toyga" autocomplete="off">
+        </label>
+        <label>Armatör (gemi sahibinin oyun adı)
+          <input id="ya-armator" placeholder="örn. seldomseen" autocomplete="off">
+        </label>
+      </div>
+      <div class="emir-satir">
+        <label class="emir-tik">
+          <input type="checkbox" id="ya-hemen" checked>
+          ⚡ Hemen yap <span class="emir-kucuk">(liman şefi SIRADAKİ hesap olarak girer; isteği yoksa emir kuyrukta bekler)</span>
+        </label>
+      </div>
+      <p class="emir-ipucu">Emir verilmeden bot HİÇBİR yanaşma iznini kabul etmez. Armatör adı oyunun <b>login</b> adıdır (küçük/büyük harf fark etmez).</p>
     </div>
 
 
