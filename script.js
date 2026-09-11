@@ -950,6 +950,18 @@ async function gelisimYukle() {
     } else {
       tarihEl.textContent = `${veri.bugun_tarihi} (ilk gün — karşılaştırma yarın başlar)`;
     }
+    // 🎓 sev6 (yol seçmiş) özeti — pazar_json_uret.gelisim_uret üretir;
+    //    eski gelisim.json'da alan yoksa satır hiç basılmaz.
+    try {
+      const sev6El = document.getElementById("gelisim-sev6-notu");
+      if (sev6El && typeof veri.sev6_sayisi === "number") {
+        const dag = Object.entries(veri.sev6_dagilim || {})
+          .sort((a, b) => b[1] - a[1]).map(([y, n]) => `${y} ${n}`).join(" · ");
+        sev6El.textContent = `🎓 Yol seçmiş (sev6): ${veri.sev6_sayisi} hesap` + (dag ? ` — ${dag}` : "");
+        sev6El.title = (veri.sev6_hesaplar || []).join(", ");
+        sev6El.hidden = false;
+      }
+    } catch (e) { /* özet isteğe bağlı */ }
 
     const kasabalar = [...new Set(gelisimKarakterler.map((k) => k.kasaba))]
       .sort((a, b) => a.localeCompare(b, "tr"));
@@ -2275,6 +2287,10 @@ function emirTurAdi(t) {
   if (t === "sat") return "💰 Satış";
   if (t === "al") return "🛒 Alım";
   if (t === "odenek") return "📜 Ödenek";
+  if (t === "forum") return "📣 Forum";
+  if (t === "yanasma") return "⚓ Yanaşma";
+  if (t === "mesaj") return "✉️ Mesaj";
+  if (t === "gemi") return "⛵ Gemi Al";
   return t || "—";
 }
 
@@ -2303,9 +2319,12 @@ async function emirDurumYukle() {
       const tr = document.createElement("tr");
       const etiketler =
         (e.eyalet ? ' <span class="emir-etiket">eyalet</span>' : "") +
-        (e.serbest ? ' <span class="emir-etiket">serbest</span>' : "");
+        (e.serbest ? ' <span class="emir-etiket">serbest</span>' : "") +
+        (e.hemen ? ' <span class="emir-etiket">⚡ hemen</span>' : "");
       const denemeMetni =
-        e.tur === "sat" ? e.deneme + "/" + e.azami_deneme : "—";
+        (e.tur === "sat" || e.tur === "gemi")
+          ? e.deneme + "/" + e.azami_deneme
+          : "—";
       tr.innerHTML =
         "<td>" + (e.kod || "") + "</td>" +
         "<td>" + emirTurAdi(e.tur) + etiketler + "</td>" +
