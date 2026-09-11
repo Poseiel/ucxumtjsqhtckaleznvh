@@ -294,10 +294,51 @@ function emirPazarOzet() {
   return harita;
 }
 
+// ⚡ "Hemen yap" tiki (varsa ve işaretliyse).
+function emirHemen(id) {
+  var el = document.getElementById(id);
+  return !!(el && el.checked);
+}
+
+// 🏙️ [11.09.2026] ALIM KASABA SÜZGECİ — kullanıcı: *"emir alım hangi
+//    kasabadaysa o kasabanın pazar listesini seçtirsin."* Alacak hesabın
+//    kasabası (envanter.json) biliniyorsa yalnızca o kasabanın pazar
+//    ürünleri listelenir; bilinmiyorsa ESKİ davranış (hepsi).
+function emirAlimKasabasi() {
+  var k = emirKarakterBul(emirDeger("al-hesap"));
+  return k ? (k.kasaba || "") : "";
+}
+
+function emirPazarOzetKasaba(kasaba) {
+  var a = emirKucult(kasaba || "").trim();
+  if (!a) return emirPazarOzet();
+  var harita = new Map();
+  emirPazar.forEach(function (u) {
+    if (!u.isim || emirKucult(u.kasaba || "") !== a) return;
+    var v = harita.get(u.isim) || { isim: u.isim, adet: 0, enUcuz: null, kasaba: "" };
+    v.adet += u.adet || 0;
+    if (v.enUcuz === null || (u.fiyat || 0) < v.enUcuz) {
+      v.enUcuz = u.fiyat || 0;
+      v.kasaba = u.kasaba || "";
+    }
+    harita.set(u.isim, v);
+  });
+  // ⚠️ O kasabanın pazarı raporda hiç yoksa (ajan uğramamış) kullanıcıyı
+  //    kilitleme: tüm liste gösterilir.
+  return harita.size ? harita : emirPazarOzet();
+}
+
 function emirPazarListesiDoldur() {
   var dl = document.getElementById("al-mal-listesi");
   if (!dl) return;
-  var liste = Array.from(emirPazarOzet().values());
+  var kasaba = emirAlimKasabasi();
+  var ipucu = document.getElementById("al-kasaba-ipucu");
+  if (ipucu) {
+    ipucu.textContent = kasaba
+      ? ("🏙️ Yalnızca " + kasaba + " pazarındaki ürünler listeleniyor (pazar kasaba bazlıdır).")
+      : "";
+  }
+  var liste = Array.from(emirPazarOzetKasaba(kasaba).values());
   liste.sort(function (a, b) { return a.isim.localeCompare(b.isim, "tr"); });
   dl.innerHTML = liste.map(function (x) {
     return emirSecenek(x.isim, x.adet + " adet · en ucuz " + emirSayiYaz(x.enUcuz) + " akçe (" + x.kasaba + ")");
@@ -443,6 +484,7 @@ function emirMesajiKur() {
     ];
     if (eyalet) satirlar.push("eyalet: evet");
     if (alici) satirlar.push("alacak: " + alici);
+    if (emirHemen("sat-hemen")) satirlar.push("hemen: evet");
     return { metin: satirlar.join(EMIR_NL) };
   }
 
@@ -457,14 +499,71 @@ function emirMesajiKur() {
     if (!aadet) aeksik.push("adet");
     if (!azami) aeksik.push("azami akçe");
     if (aeksik.length) return { hata: "Eksik: " + aeksik.join(", ") };
-    return {
-      metin: [
-        "alacak: " + ahesap,
-        "malzeme: " + amal,
-        "adet: " + Math.round(aadet),
-        "azami: " + emirSayiYaz(azami)
-      ].join(EMIR_NL)
-    };
+    var asatirlar = [
+      "alacak: " + ahesap,
+      "malzeme: " + amal,
+      "adet: " + Math.round(aadet),
+      "azami: " + emirSayiYaz(azami)
+    ];
+    if (emirHemen("al-hemen")) asatirlar.push("hemen: evet");
+    return { metin: asatirlar.join(EMIR_NL) };
+  }
+
+  // ---------------- 📣 FORUM / ⚓ YANAŞMA (11.09.2026) ----------------
+  // Şablonlar bot tarafında pazar_emirleri.forum_emri_coz /
+  // yanasma_emri_coz ile BİREBİR aynı olmalı — birini değiştirirsen
+  // diğerini de değiştir. ⚠️ Forumda `hemen:` satırı `mesaj:`ten ÖNCE.
+  if (emirTur === "forum") {
+    var fHesap = emirDeger("fr-hesap");
+    var fKonu = emirDeger("fr-konu");
+    var fMesaj = emirDeger("fr-mesaj");
+    var fEksik = [];
+    if (!fHesap) fEksik.push("yazacak karakter");
+    if (!fKonu) fEksik.push("forum konusu adresi");
+    else if (fKonu.indexOf("forum.renaissancekingdoms.com") < 0 ||
+             fKonu.indexOf("viewtopic.php") < 0)
+      fEksik.push("adres oyunun forumu olmalı (viewtopic.php)");
+    if (!fMesaj) fEksik.push("cevap metni");
+    if (fEksik.length) return { hata: "Eksik: " + fEksik.join(", ") };
+    var fsatir = ["FORUM", "hesap: " + fHesap, "konu: " + fKonu];
+    if (emirHemen("fr-hemen")) fsatir.push("hemen: evet");
+    fsatir.push("mesaj: " + fMesaj);
+    return { metin: fsatir.join(EMIR_NL) };
+  }
+
+  if (emirTur === "yanasma") {
+    var yHesap = emirDeger("ya-hesap");
+    var yArm = emirDeger("ya-armator");
+    var yEksik = [];
+    if (!yHesap) yEksik.push("liman şefi hesabı");
+    if (!yArm) yEksik.push("armatör");
+    if (yEksik.length) return { hata: "Eksik: " + yEksik.join(", ") };
+    var ysatir = ["YANAŞMA", "hesap: " + yHesap, "armatör: " + yArm];
+    if (emirHemen("ya-hemen")) ysatir.push("hemen: evet");
+    return { metin: ysatir.join(EMIR_NL) };
+  }
+
+  // ---------------- ⛵ GEMİ AL (Deniz Pazarı) ----------------
+  // Kullanıcı (11.09.2026): *"Şu kaptandan al diye emir yazacağız.
+  // sitede ve hemen olacak bu tikli olmasına gerek yok."*
+  // ⚠️ Şablon `pazar_emirleri.gemi_emri_coz` ile BİREBİR aynı olmalı —
+  //    birini değiştirirsen diğerini de değiştir.
+  // ⚠️ `azami` ZORUNLU: gemi alımı botun yaptığı en büyük ve GERİ
+  //    ALINAMAZ harcamadır, tavansız emir kabul edilmiyor.
+  if (emirTur === "gemi") {
+    var gHesap = emirDeger("gm-hesap");
+    var gKaptan = emirDeger("gm-kaptan");
+    var gAzami = emirSayi("gm-azami");
+    var gGemi = emirDeger("gm-gemi");
+    var gEksik = [];
+    if (!gHesap) gEksik.push("gemiyi alacak hesap");
+    if (!gKaptan) gEksik.push("satan kaptan");
+    if (!gAzami) gEksik.push("azami akçe");
+    if (gEksik.length) return { hata: "Eksik: " + gEksik.join(", ") };
+    var gsatir = ["GEMİ AL", "hesap: " + gHesap, "kaptan: " + gKaptan,
+                  "azami: " + emirSayiYaz(gAzami)];
+    if (gGemi) gsatir.push("gemi: " + gGemi);
+    return { metin: gsatir.join(EMIR_NL) };
   }
 
   // ---------------- ✉️ MESAJ ----------------
@@ -489,6 +588,8 @@ function emirMesajiKur() {
     var msatir = ["MESAJ", "kimden: " + mKimden, "kime: " + mKime];
     // ⚠️ Konu BOŞ BIRAKILABİLİR — oyun boş konuyu kabul ediyor.
     if (mKonu) msatir.push("konu: " + mKonu);
+    // ⚡ `hemen:` gövdeden ÖNCE (divan_modul.yeni_mesaj_coz her alanı bir kez okur).
+    if (emirHemen("ms-hemen")) msatir.push("hemen: evet");
     msatir.push(mMetin);
     return { metin: msatir.join(EMIR_NL) };
   }
@@ -675,6 +776,12 @@ function emirOlaylariBagla() {
   }
   msGonderenleriDoldur();
 
+  // ⛵ Gemi alma formu dinleyicileri
+  ["gm-hesap", "gm-kaptan", "gm-azami", "gm-gemi"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener("input", emirGuncelle);
+  });
+
   document.getElementById("sat-hesap").addEventListener("input", function () {
     emirSatisMalDoldur();
     emirAliciListesiTazele();   // 🏙️ alıcılar satıcının kasabasıyla sınırlı
@@ -718,6 +825,17 @@ function emirOlaylariBagla() {
   });
   ["al-hesap", "al-adet", "al-azami"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", emirGuncelle);
+  });
+  // 🏙️ Alacak hesap değişince pazar listesi o kasabaya süzülür.
+  document.getElementById("al-hesap").addEventListener("input", emirPazarListesiDoldur);
+  // ⚡ hemen tikleri + 📣 forum + ⚓ yanaşma alanları
+  ["sat-hemen", "al-hemen", "ms-hemen", "fr-hemen", "ya-hemen"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener("change", emirGuncelle);
+  });
+  ["fr-hesap", "fr-konu", "fr-mesaj", "ya-hesap", "ya-armator"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener("input", emirGuncelle);
   });
   document.getElementById("al-azami-oner").addEventListener("click", emirAzamiOner);
 
