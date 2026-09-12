@@ -1,6 +1,6 @@
 {
-  "son_guncelleme": "2026-09-11 18:23",
-  "rapor_tarihi": "2026-09-11",
+  "son_guncelleme": "2026-09-12 09:53",
+  "rapor_tarihi": "2026-09-12",
   "limanlar": [
     {
       "liman": "Ardencaple",
@@ -35,13 +35,6 @@
         },
         {
           "armator": "seldomseen",
-          "gemi": "Red October",
-          "tur": "Korvet",
-          "taraf": "yabanci",
-          "durum": ""
-        },
-        {
-          "armator": "seldomseen",
           "gemi": "Aurora mirage",
           "tur": "Ceneviz Gemisi",
           "taraf": "yabanci",
@@ -62,6 +55,13 @@
           "durum": ""
         },
         {
+          "armator": "toyga",
+          "gemi": "Red October",
+          "tur": "Korvet",
+          "taraf": "bizim",
+          "durum": ""
+        },
+        {
           "armator": "trkr",
           "gemi": "Triton´s Ventures // Zephyr",
           "tur": "Ceneviz Gemisi",
@@ -77,9 +77,9 @@
         }
       ],
       "sayim": {
-        "bizim": 0,
+        "bizim": 1,
         "dost": 1,
-        "yabanci": 9
+        "yabanci": 8
       }
     },
     {
@@ -237,59 +237,7 @@
         "dost": 6,
         "yabanci": 0
       }
-    },
-    {
-      "liman": "Whithorn",
-      "gemiler": [
-        {
-          "armator": "caileach_sevi_pocos",
-          "gemi": "Red Cap",
-          "tur": "Mavna",
-          "taraf": "yabanci",
-          "durum": ""
-        },
-        {
-          "armator": "castagna",
-          "gemi": "Sainte Marie des Anges",
-          "tur": "Ceneviz Gemisi",
-          "taraf": "yabanci",
-          "durum": ""
-        },
-        {
-          "armator": "dunc_macleod",
-          "gemi": "La Spinalienne",
-          "tur": "Dişli",
-          "taraf": "yabanci",
-          "durum": ""
-        },
-        {
-          "armator": "dunc_macleod",
-          "gemi": "GUARDIAN V.",
-          "tur": "Korvet",
-          "taraf": "yabanci",
-          "durum": ""
-        },
-        {
-          "armator": "evan_t",
-          "gemi": "Nautilus",
-          "tur": "Dişli",
-          "taraf": "yabanci",
-          "durum": ""
-        },
-        {
-          "armator": "nuthatch",
-          "gemi": "Niseag",
-          "tur": "Dişli",
-          "taraf": "yabanci",
-          "durum": ""
-        }
-      ],
-      "sayim": {
-        "bizim": 0,
-        "dost": 0,
-        "yabanci": 6
-      }
     }
   ],
-  "bizim_sayisi": 0
+  "bizim_sayisi": 1
 }
