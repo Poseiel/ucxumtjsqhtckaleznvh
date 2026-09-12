@@ -346,16 +346,36 @@ L.RasterCoords.prototype = {
         <tr><th>Emir türü</th><th>Ne yapar</th><th>Dikkat</th></tr>
         <tr><td>💰 <b>Satış</b></td><td>Seçtiğin hesabın malını pazara çıkarır. Fiyatı “en düşük / en yüksek / elle” seçersin. İstersen belli bir kişiye <b>rezerve</b> edersin — o zaman yalnızca o kişi alabilir.</td><td>Emirle verilen fiyata bot <b>indirim uygulamaz</b>; ne yazdıysan o.</td></tr>
         <tr><td>🛒 <b>Alım</b></td><td>Pazardan mal aldırır. <b>Tavan fiyat</b> belirlersin, o fiyatın üstüne çıkmaz. “🔢 pazara göre hesapla” düğmesi güncel fiyattan makul bir tavan önerir.</td><td>Hesabın parası yetmezse eldeki kadar alır, emri boşa harcamaz.</td></tr>
+        <tr><td>⛵ <b>Gemi Al</b><br><span class="rehber-eski">Deniz Pazarı</span></td><td>Limandaki <b>Deniz Pazarı</b>’nda satılan bir gemiye teklif verir. Hangi <b>kaptandan</b> alacağını yazarsın; aynı kaptanın birden çok gemisi varsa <b>gemi adını</b> da yazman gerekir.</td><td><b>Azami fiyat ZORUNLU.</b> Bu botun yaptığı <b>en büyük ve geri alınamaz</b> harcama (ölçülen örnek 12.000 akçe). Ücret azamiyi aşarsa ya da para yetmezse <b>teklif verilmez</b>. Emir verildiği an uygulanır, beklemez.</td></tr>
         <tr><td>📜 <b>Ödenek</b></td><td>Sancak kasasından bir kişiye ödenek (sözleşme) çıkarır. Birden çok mal satırı ekleyebilirsin.</td><td>Bot içeriği <b>doğrulamadan</b> kimseye vermez; uyuşmazsa ödeneği iptal eder.</td></tr>
         <tr><td>✉️ <b>Mesaj</b></td><td>Oyun içi mesaj yollar. Filo sekmesinde bir geminin yanındaki ✉️ düğmesine basarsan alıcı hazır gelir.</td><td>Gönderecek karakteri <b>elle</b> yazarsın; o ad hiçbir yere kaydedilmez, yalnızca kendi tarayıcın hatırlar. Konu boş bırakılabilir.</td></tr>
+        <tr><td>📣 <b>Forum</b></td><td>Oyunun forumunda <b>bir başlığa cevap</b> yazdırır. Başlığın adresini (linkini) ve yazılacak metni verirsin.</td><td>Yalnızca oyunun kendi forum adresi kabul edilir — başka bir siteye gitmez. Yeni başlık <b>açmaz</b>, sadece cevap yazar.</td></tr>
+        <tr><td>⚓ <b>Yanaşma</b></td><td>Liman şefi olan hesaba, <b>şu armatörün gemisinin limana yanaşmasına izin ver</b> dedirtir.</td><td>Armatörün <b>oyun içi kullanıcı adını</b> yaz (ekranda görünen büyük harfli ad değil). Emir vermediğin hiçbir gemi kabul edilmez; bot kendiliğinden yanaşma onaylamaz.</td></tr>
         <tr><td>🚫 <b>İptal</b></td><td>Bekleyen bir emri kuyruktan düşürür. <b>📊 Emir Durumu</b> sekmesindeki düğmeden üretilir.</td><td>Metin panoya kopyalanır, Telegram’a yapıştırırsın; anında değildir.</td></tr>
         <tr><td>🖥️ <b>Ayar</b><br><span class="rehber-eski">en güçlüsü</span></td><td><b>Launcher’ın yaptığı her hesap ayarını buradan verirsin</b> — bilgisayarın başında olmana gerek kalmaz. Takip modu, ders, seyahat, gemi, kaptan, ases, inziva, divan görevi, puan, işçi, armatör ve <b>görev zinciri</b>.</td><td>Aşağıdaki iki uyarıyı mutlaka oku.</td></tr>
       </table>
 
+      <h3>⚡ “Hemen yap” tiki — emri <b>aynı gün</b> yaptırmak</h3>
+      <p>Normalde bir emir <b>kuyrukta bekler</b> ve o hesabın sırası geldiğinde
+        yapılır. Sıra çoktan geçtiyse ertesi güne kalır. Satış · Alım · Mesaj ·
+        Forum · Yanaşma formlarındaki <b>⚡ hemen yap</b> tikini işaretlersen
+        bot beklemez:</p>
+      <table class="rehber-tablo">
+        <tr><th>Hesap o gün</th><th>⚡ tik AÇIK</th><th>⚡ tik kapalı</th></tr>
+        <tr><td>Henüz girilmedi</td><td><b>Sıradaki hesap olarak şimdi girer</b>, kendi sırası atlanır</td><td>Kendi sırasında yapar</td></tr>
+        <tr><td>Zaten girilmişti</td><td><b>Hesaba yeniden girilir</b> ve emir yapılır</td><td><b>Yarına kalır</b></td></tr>
+      </table>
+      <p class="rehber-not">⚠️ Bot Telegram’ı <b>5 hesapta bir</b> okur — yani
+        “hemen” demek “bu saniye” değil, <b>birkaç dakika içinde</b> demektir.</p>
+      <p class="rehber-not">⛵ <b>Gemi Al emrinde tik yoktur</b> — o emir
+        <b>her zaman</b> hemen uygulanır.</p>
+      <p class="rehber-not">📌 Bir hesaba aynı anda 3 emir verdiysen <b>tek
+        giriş</b> yapılır, üçü birden yapılır — 3 ayrı giriş değil.</p>
+
       <h3>📊 Emirlerin son durumu — <b>Emir Durumu</b> sekmesi</h3>
-      <p>Verdiğin emir hemen olmaz; <b>kuyrukta bekler</b> ve o hesap her oyuna
-        girdiğinde yeniden denenir. “Ne oldu, oldu mu, kaç gün kaldı?” sorusunun
-        cevabı bu sekmede.</p>
+      <p>“Ne oldu, oldu mu, kaç gün kaldı?” sorusunun cevabı bu sekmede.
+        Emir yapılır yapılmaz bu sekme <b>kendiliğinden tazelenir</b> —
+        akşamı beklemene gerek yok.</p>
       <table class="rehber-tablo">
         <tr><th>Sütun</th><th>Ne anlatır</th></tr>
         <tr><td><b>Kalan</b></td><td>Emrin ömrü <b>14 gün</b>. Süre dolarsa emir kendiliğinden bırakılır ve Telegram’a haber düşer. <span class="emir-uyari">3-7 gün turuncu</span>, <span class="emir-kritik">3 günden az kırmızı</span> yazar.</td></tr>
@@ -559,6 +579,10 @@ L.RasterCoords.prototype = {
         <tr><td>Verdiğim emir ne oldu görmek</td><td><b>📊 Emir Durumu</b> → üstte bekleyenler, altta geçmiş</td></tr>
         <tr><td>Yanlış verdiğim emri geri almak</td><td><b>📊 Emir Durumu</b> → o satırda <b>🚫 İptal</b></td></tr>
         <tr><td>Tek bir karakterin eşyalarını görmek</td><td><b>Envanter</b> → <b>👤 Karakter ara</b> kutusuna adını yaz</td></tr>
+        <tr><td>Satılık bir gemi almak</td><td><b>Emir → ⛵ Gemi Al</b> — kaptanın adını ve <b>azami fiyatı</b> yaz</td></tr>
+        <tr><td>Forumda bir başlığa cevap yazdırmak</td><td><b>Emir → 📣 Forum</b> — başlığın linkini ve metni yaz</td></tr>
+        <tr><td>Limanımıza bir gemiyi kabul etmek</td><td><b>Emir → ⚓ Yanaşma</b> — liman şefi hesabı + armatörün kullanıcı adı</td></tr>
+        <tr><td>Bir emri <b>bugün</b> yaptırmak (yarını beklememek)</td><td>Emir formundaki <b>⚡ hemen yap</b> tikini işaretle</td></tr>
       </table>
     </div>
   </section>
