@@ -14,13 +14,15 @@
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet-polylinedecorator@1.6.0/dist/leaflet.polylineDecorator.js"></script>
 <script>
-/* leaflet-rastercoords (kucuk oldugu icin CDN yerine buraya gomuldu) */
-L.RasterCoords = function (map, imgsize, tilesize) {
+/* leaflet-rastercoords (kucuk oldugu icin CDN yerine buraya gomuldu)
+   ⚠️ [13.09.2026] Leaflet yüklenemezse (internetsiz açılış) bu satır
+      patlıyor ve konsola hata düşüyordu; artık atlanır, site çalışır. */
+if (window.L) L.RasterCoords = function (map, imgsize, tilesize) {
   this.map = map; this.width = imgsize[0]; this.height = imgsize[1];
   this.tilesize = tilesize || 256; this.zoom = this.zoomLevel();
   if (this.width && this.height) this.setMaxBounds();
 };
-L.RasterCoords.prototype = {
+if (window.L) L.RasterCoords.prototype = {
   zoomLevel: function () {
     return Math.ceil(Math.log(Math.max(this.width, this.height) / this.tilesize) / Math.log(2));
   },
@@ -46,30 +48,95 @@ L.RasterCoords.prototype = {
 </div>
 
 <header class="site-header">
-  <h1>🔱 Poseidon Pazar &amp; Harita</h1>
-  <p class="son-guncelleme">Son güncelleme: <span id="son-guncelleme-metni">yükleniyor...</span></p>
+  <div class="baslik-satiri">
+    <h1>🔱 Poseidon Pazar &amp; Harita</h1>
+    <p class="son-guncelleme">Botun topladığı bilgiler + bota emir verme ·
+      Son güncelleme: <span id="son-guncelleme-metni">yükleniyor...</span></p>
+  </div>
+  <!-- 🔍 [13.09.2026] TEK ARAMA KUTUSU — hesap, eşya, kişi, gemi. Siteyi
+       ilk kez açan biri hangi sekmeye bakacağını bilmese de buraya yazar;
+       sonuç onu doğru sekmeye götürür (panel.js → genelArama). -->
+  <div class="genel-arama">
+    <input type="search" id="genel-arama" autocomplete="off"
+           placeholder="🔍 Hesap, eşya, kişi ya da gemi ara… (örn. aiegus · Çuval Mısır)">
+    <div id="genel-arama-sonuc" class="arama-sonuc" hidden></div>
+  </div>
 </header>
 
-<nav class="tab-bar">
-  <button class="tab-btn active" data-tab="pazar">Pazar</button>
-  <button class="tab-btn" data-tab="emir">📨 Emir</button>
-  <button class="tab-btn" data-tab="emirdurum">📊 Emir Durumu</button>
-  <button class="tab-btn" data-tab="envanter">Envanter</button>
-  <button class="tab-btn" data-tab="sancak">Sancak Envanteri</button>
-  <button class="tab-btn" data-tab="belediye">Belediye Envanteri</button>
-  <button class="tab-btn" data-tab="liman">Liman Envanteri</button>
-  <button class="tab-btn" data-tab="filo">⛵ Filo</button>
-  <button class="tab-btn" data-tab="gelisim">Gelişim</button>
-  <button class="tab-btn" data-tab="hareket">Hareket</button>
-  <button class="tab-btn" data-tab="inziva">İnziva</button>
-  <button class="tab-btn" data-tab="sakinler">Kim Nerede</button>
-  <button class="tab-btn" data-tab="harita">🗺️ Harita &amp; Rota</button>
-  <button class="tab-btn" data-tab="rehber">📖 Nasıl Kullanılır</button>
+<!-- 🧭 [13.09.2026] İKİ KATLI GEZİNME.
+     Eskiden 14 hap düğme iki satıra yayılıyordu; "bilgi okuma" ile "bota
+     iş verme" birbirinden ayrılmıyordu ve 🖥️ Ayar (en güçlü özellik)
+     Emir sekmesinin İÇİNDE bir düğme olarak kayboluyordu.
+     Üst çubuk = 6 ana bölüm, alt çubuk = o bölümün sekmeleri.
+     ⚠️ HİÇBİR sekme silinmedi: `.tab-btn[data-tab]` düğmelerinin hepsi
+        duruyor, yalnızca `data-grup` ile gruplandı (panel.js gösterir/gizler). -->
+<nav class="grup-bar" id="grup-bar" aria-label="Ana bölümler">
+  <button class="grup-btn active" data-grup="baslangic"><span class="grup-ikon">🏠</span><span class="grup-ad">Başlangıç</span><span class="grup-ad-kisa">Başlangıç</span></button>
+  <button class="grup-btn" data-grup="depo"><span class="grup-ikon">📦</span><span class="grup-ad">Pazar &amp; Depolar</span><span class="grup-ad-kisa">Depolar</span></button>
+  <button class="grup-btn" data-grup="takip"><span class="grup-ikon">👥</span><span class="grup-ad">Kişi Takibi</span><span class="grup-ad-kisa">Kişiler</span></button>
+  <button class="grup-btn" data-grup="deniz"><span class="grup-ikon">🗺️</span><span class="grup-ad">Harita &amp; Deniz</span><span class="grup-ad-kisa">Harita</span></button>
+  <button class="grup-btn grup-emir" data-grup="emir"><span class="grup-ikon">📨</span><span class="grup-ad">Bota Emir Ver</span><span class="grup-ad-kisa">Emir Ver</span></button>
+  <button class="grup-btn" data-grup="rehber"><span class="grup-ikon">📖</span><span class="grup-ad">Rehber</span><span class="grup-ad-kisa">Rehber</span></button>
+</nav>
+<nav class="tab-bar" id="tab-bar" aria-label="Sekmeler">
+  <button class="tab-btn active" data-tab="baslangic" data-grup="baslangic">🏠 Başlangıç</button>
+  <button class="tab-btn" data-tab="pazar" data-grup="depo">🛒 Pazar (fiyatlar)</button>
+  <button class="tab-btn" data-tab="envanter" data-grup="depo">🎒 Envanter (hesaplarımız)</button>
+  <button class="tab-btn" data-tab="sancak" data-grup="depo">🏛️ Sancak Envanteri</button>
+  <button class="tab-btn" data-tab="belediye" data-grup="depo">🏘️ Belediye Envanteri</button>
+  <button class="tab-btn" data-tab="liman" data-grup="depo">⚓ Liman Envanteri</button>
+  <button class="tab-btn" data-tab="sakinler" data-grup="takip">📍 Kim Nerede</button>
+  <button class="tab-btn" data-tab="hareket" data-grup="takip">🔄 Hareket (rotalar)</button>
+  <button class="tab-btn" data-tab="inziva" data-grup="takip">🔒 İnziva (multi şüphesi)</button>
+  <button class="tab-btn" data-tab="gelisim" data-grup="takip">📊 Gelişim (hesap tablosu)</button>
+  <button class="tab-btn" data-tab="harita" data-grup="deniz">🗺️ Harita &amp; Rota</button>
+  <button class="tab-btn" data-tab="filo" data-grup="deniz">⛵ Filo (rıhtımdaki gemiler)</button>
+  <button class="tab-btn" data-tab="emir" data-grup="emir">📨 Emir ver</button>
+  <button class="tab-btn" data-tab="emirdurum" data-grup="emir">📊 Emir Durumu</button>
+  <button class="tab-btn" data-tab="rehber" data-grup="rehber">📖 Nasıl Kullanılır</button>
 </nav>
 
 <main>
 
-  <section id="tab-pazar" class="tab-panel active">
+  <!-- 🏠 [13.09.2026] BAŞLANGIÇ — siteyi açan ilk bunu görür.
+       İçerik panel.js tarafından mevcut JSON'lardan türetilir (yeni veri
+       dosyası gerekmez): özet kartlar → ilgili sekmeye tıklanır,
+       "ne yapmak istiyorsun" listesi → doğru forma götürür,
+       tazelik tablosu → "veri eski mi" sorusunu cevaplar. -->
+  <section id="tab-baslangic" class="tab-panel active">
+    <div class="bas-giris">
+      <h2 class="bas-baslik">Bugün ne var?</h2>
+      <p class="bolum-aciklama">Bot her sabah hesaplarımızı tek tek gezip oyundan bilgi
+        topluyor; bu sayfa o bilgilerin <b>özeti</b>. Bir karta tıkla → ayrıntı sekmesi
+        açılır. Bota bir iş yaptırmak istiyorsan üstteki <a href="#emir" class="bas-link">📨 Bota
+        Emir Ver</a> bölümüne git; nasıl çalıştığını <a href="#rehber" class="bas-link">📖
+        Rehber</a> anlatıyor.</p>
+    </div>
+    <div id="bas-kartlar" class="bas-kartlar"><p class="bos-durum">Veriler yükleniyor…</p></div>
+
+    <h3 class="hareket-alt-baslik">🧭 Ne yapmak istiyorsun?</h3>
+    <p class="bolum-aciklama">Tıkla, doğru sekme ve form açılır — hiçbir şey ezberlemen gerekmez.</p>
+    <div id="bas-eylemler" class="bas-eylemler"></div>
+
+    <div id="bas-mesajlar"></div>
+
+    <h3 class="hareket-alt-baslik">🕐 Veriler ne kadar taze?</h3>
+    <p class="bolum-aciklama">Site günde iki kez güncellenir: <b>sabah ~09:00</b> (7 ajan hesabı
+      bitince: pazar · kim nerede · hareket · inziva · filo) ve <b>akşam ~21:00</b> (tüm tur
+      bitince: envanter · gelişim). Sabah Envanter ve Gelişim'de <b>dünün</b> verisi durur,
+      bozuk değildir.</p>
+    <div class="tablo-sarici">
+      <table id="bas-tazelik">
+        <thead><tr><th>Bilgi</th><th>Tarih</th><th>Sekme</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="tab-pazar" class="tab-panel">
+    <p class="bolum-aciklama">7 ajan kasabasının pazarındaki <b>bütün ilanlar</b>: ürün, adet,
+      fiyat, kasaba. Arama kutusu kısmi arar ("bıç" → Bıçak), yanındaki liste tam ad seçtirir.
+      Bir malı aldırmak istiyorsan <a href="#emir/al" class="bas-link">🛒 Alım emri</a> ver.</p>
     <div class="pazar-arac-cubugu">
       <input type="text" id="pazar-arama" placeholder="Ürün ara... (örn. Bıçak)">
       <select id="pazar-urun-filtre">
@@ -97,6 +164,9 @@ L.RasterCoords.prototype = {
   </section>
 
   <section id="tab-envanter" class="tab-panel">
+    <p class="bolum-aciklama">Kendi hesaplarımızın <b>çanta + ev sandığı toplamı</b>. "Şu mal kimde
+      var?" için eşya seç ya da ara; "bu kişide ne var?" için 👤 karakter ara. Bir hesabın adına
+      tıklayınca <b>hesap kartı</b> açılır (para, eşyalar, bekleyen emirleri, hızlı emir düğmeleri).</p>
     <p class="envanter-tarih-notu">Rapor tarihi: <span id="envanter-rapor-tarihi">yükleniyor...</span></p>
     <div id="envanter-ozet" class="envanter-ozet"></div>
     <div class="pazar-arac-cubugu">
@@ -264,7 +334,8 @@ L.RasterCoords.prototype = {
       🟢 bizim · 🔵 dost (aile) · 🔴 yabancı. Denizdeki gemiler burada görünmez —
       onları ancak bitişik karedeysen görebiliyorsun.
       Bir geminin sahibine oyun içi mesaj yollamak için yanındaki <b>✉️</b> düğmesine bas:
-      Emir sekmesi açılır, alıcı hazır gelir.</p>
+      Emir sekmesi açılır, alıcı hazır gelir. Kendi gemimizin ve takip edilen orduların
+      konumu için: <a href="#harita/ordu" class="bas-link">🗺️ Harita → 🪖 Ordular &amp; gemimiz</a>.</p>
     <div id="filo-ozet" class="envanter-ozet"></div>
     <div class="pazar-arac-cubugu">
       <input type="text" id="filo-arama" placeholder="Gemi ya da sahip ara...">
@@ -843,6 +914,12 @@ L.RasterCoords.prototype = {
         <input type="checkbox" id="rk-izgara" checked>
         Kareleri göster
       </label>
+      <!-- 🪖 [13.09.2026] Ordu + gemi katmanı (harita.js → rkOrduKatmaniCiz).
+           Veri: ordu.json (pazar_json_uret.ordu_uret). -->
+      <label class="pasa-toggle">
+        <input type="checkbox" id="rk-ordu" checked>
+        🪖 Ordular &amp; ⛵ gemimiz
+      </label>
       <button id="rk-temizle">Temizle</button>
     </div>
     <p id="rk-durum" class="rota-sonuc">Sekmeye geçince harita yüklenir…</p>
@@ -851,7 +928,26 @@ L.RasterCoords.prototype = {
       Tekerlek = yaklaştır · sürükle = kaydır · haritaya tıkla = en yakın
       şehri uç olarak seç. Kare çizgileri yakınlaştıkça sıklaşır; en yakın
       seviyede oyunun gerçek kareleri ve koordinat numaraları görünür.
+      Haritadaki <b>🪖</b> işaretleri orduları gösterir: 🟢 yeşil çerçeve =
+      şehrin içinde, 🟠 turuncu çerçeve (karenin dışında) = şehir kapısına
+      dayanmış. <b>⛵</b> gemimizin son bilinen karesidir; mor kesikli çizgi
+      hedef limana gider.
     </p>
+
+    <!-- 🪖 ORDULAR + ⛵ GEMİMİZ — liste (Leaflet yüklenemese de görünür).
+         Kullanıcının ortağı: *"düşman orduları şehirde gözüksün, şehir içi /
+         şehir dışı konumları, alım modunda olup olmadıkları da."*
+         ⚠️ "Alım modu" verisi Armies_*.json'da YOK → "bilinmiyor" yazılır,
+            bot toplamaya başlayınca kendiliğinden dolar (tahmin yok). -->
+    <div id="rk-ordu-bolum">
+      <h3 class="hareket-alt-baslik">🪖 Takip edilen ordular ve ⛵ gemimiz</h3>
+      <p class="bolum-aciklama">Ajan hesaplarımız her sabah kendi kasabalarının <b>ordu sekmesini</b>
+        okur: hangi ordu şehrin <b>içinde</b> (🟢), hangisi <b>şehir kapısına dayanmış</b> (🟠).
+        Düne göre değişim yanında yazar. Gemimizin konumu kaptan kaydından gelir.
+        🛒 <b>Alım modu</b> bilgisi henüz toplanmıyor — bot o alanı okumaya başlayınca burada
+        kendiliğinden görünecek. Satırdaki <b>🗺️ Haritada</b> düğmesi o noktaya yaklaştırır.</p>
+      <div id="rk-ordu-liste"><p class="bos-durum">Ordu verisi yükleniyor…</p></div>
+    </div>
   </section>
 
     <!-- =======================================================
@@ -917,15 +1013,26 @@ L.RasterCoords.prototype = {
       gerçekten olan adlar çıkar. Böylece bot emri yanlış anlayamaz.
     </p>
 
+    <!-- 🖥️ [13.09.2026] EMİR TÜRLERİ İKİ GRUPTA. Kullanıcının ortağı
+         "taşınma eksik" dedi — oysa özellik vardı (Ayar → görev zinciri →
+         "Evi buraya taşı"), dört seviye derinde kaybolmuştu. Hesap yönetimi
+         düğmeleri artık ayrı ve adıyla söylüyor ne yaptığını. -->
     <div class="emir-tur-secim">
-      <button class="emir-tur-btn active" data-tur="sat">💰 Satış</button>
-      <button class="emir-tur-btn" data-tur="al">🛒 Alım</button>
-      <button class="emir-tur-btn" data-tur="odenek">📜 Ödenek</button>
-      <button class="emir-tur-btn" data-tur="mesaj">✉️ Mesaj</button>
-      <button class="emir-tur-btn" data-tur="forum">📣 Forum</button>
-      <button class="emir-tur-btn" data-tur="yanasma">⚓ Yanaşma</button>
-      <button class="emir-tur-btn" data-tur="gemi">⛵ Gemi Al</button>
-      <button class="emir-tur-btn" data-tur="ayar">🖥️ Ayar</button>
+      <div class="emir-tur-grup">
+        <span class="emir-tur-etiket">Alım · satım · mesaj</span>
+        <button class="emir-tur-btn active" data-tur="sat">💰 Satış</button>
+        <button class="emir-tur-btn" data-tur="al">🛒 Alım</button>
+        <button class="emir-tur-btn" data-tur="odenek">📜 Ödenek</button>
+        <button class="emir-tur-btn" data-tur="mesaj">✉️ Mesaj</button>
+        <button class="emir-tur-btn" data-tur="forum">📣 Forum</button>
+        <button class="emir-tur-btn" data-tur="yanasma">⚓ Yanaşma</button>
+        <button class="emir-tur-btn" data-tur="gemi">⛵ Gemi Al</button>
+      </div>
+      <div class="emir-tur-grup emir-tur-grup-hesap">
+        <span class="emir-tur-etiket">Hesap yönetimi <span class="emir-kucuk">(launcher'ın site hâli)</span></span>
+        <button class="emir-tur-btn emir-tur-onemli" data-tur="ayar">🖥️ Ayar &amp; görev zinciri <span class="emir-kucuk">taşı · mod · rol</span></button>
+        <button class="emir-tur-btn" data-tur="hesapekle">➕ Hesap ekle</button>
+      </div>
     </div>
 
     <!-- ---------------- SATIŞ ---------------- -->
@@ -1135,6 +1242,39 @@ L.RasterCoords.prototype = {
     </div>
 
 
+    <!-- ---------------- ➕ HESAP EKLE (13.09.2026) ----------------
+         Kullanıcının ortağı: *"multileri ekleyebilme seçeneği gelse güzel
+         olur, sana yazdırmak yerine emir girsem."* Bot tarafı:
+         site_emirleri.hesap_ekle_coz — şablon BİREBİR aynı olmalı.
+         ⚠️ Şifre kutusu type="text": kullanıcı yazdığını GÖRMELİ (kural).
+         ⚠️ Şifre sitede SAKLANMAZ; yalnızca üretilen mesaj metnine girer.
+         ⚠️ Takip listesi launcher.py ile BİREBİR aynı (6 seçenek). -->
+    <div class="emir-form" id="emir-form-hesapekle">
+      <p class="emir-ipucu">Yeni açılan bir oyun hesabını <b>botun listesine</b> ekler. Bot ertesi
+        turda o hesaba da girer. Var olan bir hesabın adı ya da şifresi bu yoldan
+        <b>değiştirilemez</b> — ad listede varsa bot hiçbir şey yapmaz.</p>
+      <div class="emir-satir">
+        <label>Oyun kullanıcı adı
+          <input id="he-hesap" placeholder="örn. Yenikral" autocomplete="off">
+        </label>
+        <label>Şifre <span class="emir-kucuk">(görünür yazılır — sitede saklanmaz, yalnızca mesaja girer)</span>
+          <input id="he-sifre" type="text" placeholder="örn. Gizli.123" autocomplete="off" spellcheck="false">
+        </label>
+        <label>Takip modu <span class="emir-kucuk">(yeni hesap için Hızlı Maden önerilir)</span>
+          <select id="he-takip">
+            <option value="Hızlı Maden">⚡ Hızlı Maden (yeni hesap: 2 dk'lık tur, madene girer)</option>
+            <option value="Hızlı Cami">⚡ Hızlı Cami (yeni hesap: camiye girer)</option>
+            <option value="Yok">Yok (normal tam tur)</option>
+            <option value="Grup Takip">Grup Takip</option>
+            <option value="Ordu Takip">Ordu Takip</option>
+            <option value="Alışverişçi">🛒 Alışverişçi</option>
+          </select>
+        </label>
+      </div>
+      <p class="emir-ipucu">⚠️ Mesaj Telegram geçmişinde <b>düz metin</b> kalır (kanal özel, kullanıcı
+        kararı 13.09.2026). Bot eklemeden önce <code>ayarlar.json</code>'un yedeğini alır.</p>
+    </div>
+
     <!-- ---------------- 🖥️ AYAR (launcher'ın site karşılığı) ---------------- -->
     <!-- Kullanıcı: *"launcher'ı siteye taşıyacaksın ya, bildiğin işlem o :)"* +
          *"seçilebilen değiştirilebilen tüm görevleri siteden de verebilelim."* +
@@ -1143,10 +1283,45 @@ L.RasterCoords.prototype = {
          ⚠️ Her kutunun varsayılanı "— değiştirme —": yalnızca DOKUNDUĞUN
             ayar gönderilir, geri kalanı launcher'daki hâliyle kalır. -->
     <div class="emir-form" id="emir-form-ayar">
+      <p class="emir-ipucu">Bilgisayardaki launcher'ın yaptığı <b>her hesap ayarı</b> buradan verilir.
+        Yalnızca <b>dokunduğun</b> kutu gönderilir; gerisi olduğu gibi kalır.</p>
+      <fieldset class="ay-bolum">
+        <legend>1 · Hangi hesap?</legend>
+        <div class="emir-satir">
+          <label>Hesap
+            <input list="emir-hesap-listesi" id="ay-hesap" placeholder="yazmaya başla… (örn. Vamder)" autocomplete="off">
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- 🧭 GÖREV ZİNCİRİ — launcher'daki "🧭 Görevler" sekmesinin karşılığı.
+           [13.09.2026] En üste alındı ve HAZIR PLANLAR eklendi: "hesabı başka
+           şehre taşı" gibi sık işler tek seçimle doluyor (adımları
+           gorev_zinciri.py'nin anladığı sırayla). -->
+      <fieldset class="ay-bolum ay-bolum-gorev">
+        <legend>2 · 🧭 Görev zinciri <span class="emir-ipucu-kucuk">— hesabı taşı, alışveriş yaptır, gemiye bindir (sırayla yapacağı işler)</span></legend>
+        <div class="emir-satir">
+          <label>📋 Hazır plan seç <span class="emir-kucuk">(adımları kendiliğinden doldurur, sonra düzenleyebilirsin)</span>
+            <select id="ay-plan">
+              <option value="">— kendim adım ekleyeceğim —</option>
+            </select>
+          </label>
+        </div>
+        <p class="emir-ipucu" id="ay-plan-aciklama" hidden></p>
+        <div id="ay-gorev-satirlar"></div>
+        <div class="emir-satir">
+          <button type="button" class="emir-mini-btn" id="ay-gorev-ekle">➕ Adım ekle</button>
+          <button type="button" class="emir-mini-btn" id="ay-gorev-temizle">🗑️ Görevi iptal et</button>
+        </div>
+        <p class="emir-ipucu">Hiç adım eklemezsen görev satırı <b>gönderilmez</b>
+          (hesabın mevcut görevi olduğu gibi kalır). “Görevi iptal et” dersen
+          varsa mevcut görevi silinir. Adımların ne yaptığı:
+          <a href="#rehber/gorev" class="bas-link">📖 Rehber → Görev zinciri</a>.</p>
+      </fieldset>
+
+      <fieldset class="ay-bolum">
+        <legend>3 · Takip modu &amp; roller</legend>
       <div class="emir-satir">
-        <label>Hangi hesap
-          <input list="emir-hesap-listesi" id="ay-hesap" placeholder="örn. Vamder" autocomplete="off">
-        </label>
         <label>Takip modu
           <select id="ay-takip">
             <option value="">— değiştirme —</option>
@@ -1206,6 +1381,10 @@ L.RasterCoords.prototype = {
         </label>
       </div>
 
+      </fieldset>
+
+      <fieldset class="ay-bolum">
+        <legend>4 · Seyahat · ders · gemi · iş</legend>
       <div class="emir-satir">
         <label>🌍 Seyahat hedefi
           <input list="ay-sehir-listesi" id="ay-seyahat" placeholder="boş = değiştirme · &quot;iptal&quot; = seyahati kapat" autocomplete="off">
@@ -1272,16 +1451,7 @@ L.RasterCoords.prototype = {
         </label>
       </div>
 
-      <!-- 🧭 GÖREV ZİNCİRİ — launcher'daki "🧭 Görevler" sekmesinin karşılığı -->
-      <h4 class="emir-baslik">🧭 Görev zinciri <span class="emir-ipucu-kucuk">(sırayla yapacağı işler)</span></h4>
-      <div id="ay-gorev-satirlar"></div>
-      <div class="emir-satir">
-        <button type="button" class="emir-mini-btn" id="ay-gorev-ekle">➕ Adım ekle</button>
-        <button type="button" class="emir-mini-btn" id="ay-gorev-temizle">🗑️ Görevi iptal et</button>
-      </div>
-      <p class="emir-ipucu">Hiç adım eklemezsen görev satırı <b>gönderilmez</b>
-        (hesabın mevcut görevi olduğu gibi kalır). “Görevi iptal et” dersen
-        varsa mevcut görevi silinir.</p>
+      </fieldset>
 
       <p class="emir-ipucu">⚠️ Yalnızca <b>dokunduğun</b> ayarlar gönderilir.
         Bot bunu <b>sıradaki turda</b> uygular; bilgisayardaki launcher aynı
@@ -1320,5 +1490,6 @@ L.RasterCoords.prototype = {
 <script src="script.js"></script>
 <script src="emir.js"></script>
 <script src="harita.js"></script>
+<script src="panel.js"></script>
 </body>
 </html>
