@@ -1080,3 +1080,231 @@ a.rk-tamekran {
 }
 .emir-iptal-btn:hover { background: #ffebee; }
 .emir-durum { margin-left: 10px; font-size: .9em; }
+
+/* ══════════════════════════════════════════════════════════════════
+   🧭 13.09.2026 — İKİ KATLI GEZİNME · 🏠 BAŞLANGIÇ · 🔍 ARAMA ·
+   👤 HESAP KARTI · 📖 KATLANIR REHBER · 📱 TELEFON DÜZENİ
+   Neden: 14 hap düğme iki satıra yayılıyordu, telefonda sayfa yana
+   taşıyordu (400 px ekranda 439 px ölçüldü), "bilgi okuma" ile "bota iş
+   verme" ayrılmıyordu ve 🖥️ Ayar dört seviye derinde kayboluyordu.
+   ══════════════════════════════════════════════════════════════════ */
+:root {
+  --vurgu-zemin: rgba(47, 165, 216, 0.12);
+  --uyari: #e08a2e;
+}
+html, body { max-width: 100%; overflow-x: hidden; }   /* telefonda yana taşma yok */
+
+/* Başlık + arama */
+.site-header { padding: 1rem 1rem 0.5rem; }
+.site-header h1 { font-size: 1.35rem; }
+.baslik-satiri { margin-bottom: 0.6rem; }
+.genel-arama { position: relative; max-width: 640px; margin: 0 auto; }
+.genel-arama input[type="search"] {
+  width: 100%; font-size: 1rem; padding: 0.65rem 0.9rem;
+  border-radius: 12px; border: 1px solid var(--border);
+  background: var(--bg-panel); color: var(--text);
+}
+.genel-arama input:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+.arama-sonuc {
+  position: absolute; left: 0; right: 0; top: calc(100% + 4px); z-index: 80;
+  background: var(--bg-panel); border: 1px solid var(--border); border-radius: 12px;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.35); padding: 0.4rem 0.6rem;
+  max-height: 60vh; overflow-y: auto; text-align: left;
+}
+.arama-grup { padding: 0.35rem 0; border-bottom: 1px solid var(--border); }
+.arama-grup:last-child { border-bottom: 0; }
+.arama-baslik { font-size: 0.78rem; color: var(--text-dim); font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; margin: 0.2rem 0; }
+.arama-satir { padding: 0.25rem 0.2rem; font-size: 0.95rem; }
+.arama-satir a { color: var(--text); text-decoration: none; }
+.arama-satir a:hover { color: var(--accent); }
+.arama-satir .emir-kucuk a { color: var(--accent); }
+.arama-esya a { color: var(--accent); text-decoration: none; }
+
+/* Grup çubuğu (6 ana bölüm) */
+.grup-bar {
+  display: flex; gap: 0.35rem; justify-content: center; flex-wrap: wrap;
+  padding: 0.5rem 1rem 0.25rem; position: sticky; top: 0; z-index: 50;
+  background: var(--bg);
+}
+.grup-btn {
+  display: inline-flex; align-items: center; gap: 0.4rem;
+  background: var(--bg-panel); color: var(--text); border: 1px solid var(--border);
+  border-radius: 12px; padding: 0.55rem 0.95rem; font-size: 0.98rem; font-weight: 600; cursor: pointer;
+}
+.grup-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.grup-btn.grup-emir:not(.active) { border-color: var(--accent-2); color: var(--accent-2); }
+.grup-ikon { font-size: 1.1rem; line-height: 1; }
+.grup-ad-kisa { display: none; }
+/* Görev satırında Adet kutusu yalnızca "Pazardan al" adımında anlamlı;
+   pasifken gizle (telefonda boşuna bir satır tutuyordu). */
+.ay-gorev-satir label:has(.ay-gorev-adet:disabled) { display: none; }
+.ay-gorev-hedef.ay-eksik { outline: 2px solid var(--accent-2); outline-offset: -1px; }
+
+/* Alt sekmeler: yalnız o grubun sekmeleri görünür; telefonda yana kayar */
+.tab-bar { justify-content: center; padding: 0.25rem 1rem 0.75rem; }
+.tab-bar.tek { display: none; }
+.tab-btn { font-size: 0.9rem; padding: 0.4rem 0.9rem; }
+.tab-btn[hidden] { display: none; }
+
+/* Sayfa içi bağlantı */
+.bas-link { color: var(--accent); text-decoration: none; font-weight: 600; }
+.bas-link:hover { text-decoration: underline; }
+.sekme-yardim {
+  float: right; font-size: 0.8rem; color: var(--text-dim); text-decoration: none;
+  margin: 0 0 0.4rem 0.6rem; border: 1px dashed var(--border); border-radius: 999px; padding: 0.1rem 0.6rem;
+}
+.sekme-yardim:hover { color: var(--accent); border-color: var(--accent); }
+#tab-gelisim .sekme-yardim { float: none; display: inline-block; margin-bottom: 0.6rem; }
+
+/* 🏠 Başlangıç */
+.bas-baslik { margin: 0.2rem 0 0.4rem; font-size: 1.35rem; }
+.bas-kartlar {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 0.6rem; margin: 0.75rem 0 1.2rem;
+}
+.bas-kart {
+  display: flex; gap: 0.6rem; align-items: center; text-decoration: none; color: var(--text);
+  background: var(--bg-panel); border: 1px solid var(--border); border-radius: 12px; padding: 0.7rem 0.85rem;
+  transition: transform 0.08s, border-color 0.08s;
+}
+.bas-kart:hover { transform: translateY(-1px); border-color: var(--accent); }
+.bas-kart-ikon { font-size: 1.5rem; line-height: 1; }
+.bas-kart-govde { display: flex; flex-direction: column; gap: 0.05rem; min-width: 0; }
+.bas-kart-deger { font-size: 1.35rem; font-weight: 800; line-height: 1.1; }
+.bas-kart-etiket { font-size: 0.86rem; color: var(--text-dim); }
+.bas-kart-alt { font-size: 0.74rem; color: var(--text-dim); opacity: 0.85; }
+.bas-kart-vurgu { border-color: var(--accent); background: var(--vurgu-zemin); }
+.bas-kart-uyari { border-color: var(--uyari); }
+.bas-kart-uyari .bas-kart-deger { color: var(--uyari); }
+.bas-eylemler { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0.45rem; }
+.bas-eylem {
+  display: flex; gap: 0.6rem; align-items: flex-start; text-decoration: none; color: var(--text);
+  background: var(--bg-panel); border: 1px solid var(--border); border-radius: 10px; padding: 0.55rem 0.75rem; font-size: 0.92rem;
+}
+.bas-eylem:hover { border-color: var(--accent); }
+.bas-eylem-ikon { font-size: 1.25rem; line-height: 1.2; }
+.bas-eylem b { display: block; }
+.bas-eylem-alt { display: block; font-size: 0.78rem; color: var(--text-dim); }
+.taze { font-size: 0.75rem; border-radius: 999px; padding: 0.05rem 0.5rem; margin-left: 0.3rem; font-weight: 700; }
+.taze-bugun { background: rgba(53, 185, 92, 0.18); color: #35b95c; }
+.taze-dun { background: rgba(216, 165, 47, 0.18); color: var(--accent-2); }
+.taze-eski { background: rgba(216, 90, 90, 0.18); color: var(--danger); }
+.mesaj-liste { display: grid; gap: 0.5rem; }
+.mesaj-kart { background: var(--bg-panel); border: 1px solid var(--border); border-left: 4px solid var(--accent-2); border-radius: 10px; padding: 0.6rem 0.8rem; }
+.mesaj-ust { font-size: 0.9rem; }
+.mesaj-konu { font-weight: 600; margin-top: 0.2rem; }
+.mesaj-metin { margin: 0.3rem 0 0.5rem; white-space: pre-wrap; font-size: 0.92rem; }
+.mesaj-cevap { text-decoration: none; display: inline-block; }
+
+/* 👤 Hesap kartı */
+.hesap-karti { width: min(640px, 100%); position: relative; padding-top: 1.4rem; }
+.kart-kapat {
+  position: absolute; top: 0.5rem; right: 0.6rem; background: transparent; color: var(--text-dim);
+  border: 1px solid var(--border); border-radius: 999px; width: 2rem; height: 2rem; padding: 0; font-size: 1rem; line-height: 1;
+}
+.hesap-karti h3 { margin-right: 2.4rem; }
+.hesap-karti h4 { margin: 1rem 0 0.4rem; font-size: 0.95rem; color: var(--text-dim); }
+.kart-roller { margin: -0.2rem 0 0.6rem; }
+.kart-eylemler { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.7rem; }
+.kart-eylemler a { text-decoration: none; }
+.kart-bilgi { display: grid; grid-template-columns: max-content 1fr; gap: 0.15rem 0.8rem; margin: 0; font-size: 0.9rem; }
+.kart-bilgi dt { color: var(--text-dim); }
+.kart-bilgi dd { margin: 0; }
+.kart-liste { margin: 0; padding-left: 1.1rem; font-size: 0.9rem; }
+.kart-esyalar { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+.kart-esya {
+  text-decoration: none; color: var(--text); background: var(--bg-panel-2); border: 1px solid var(--border);
+  border-radius: 8px; padding: 0.15rem 0.5rem; font-size: 0.85rem;
+}
+.kart-esya:hover { border-color: var(--accent); }
+td.hesap-ad { cursor: pointer; color: var(--accent); }
+td.hesap-ad:hover { text-decoration: underline; }
+.sat-kutu { background: var(--bg-panel); color: var(--text); }
+
+/* 📖 Rehber katlanır bölümler */
+.rehber-toc { background: var(--bg-panel); border: 1px solid var(--border); border-radius: 12px; padding: 0.6rem 0.9rem; margin: 0.8rem 0 1rem; display: flex; flex-wrap: wrap; gap: 0.3rem 0.9rem; }
+.rehber-toc-baslik { flex: 1 1 100%; font-weight: 700; color: var(--text-dim); display: flex; justify-content: space-between; align-items: center; }
+.rehber-toc a { color: var(--accent); text-decoration: none; font-size: 0.92rem; }
+.rehber-bolum { border-top: 1px solid var(--border); margin-top: 1rem; padding-top: 0.6rem; }
+.rehber-bolum > summary { cursor: pointer; font-size: 1.1rem; font-weight: 700; list-style: none; padding: 0.3rem 0; }
+.rehber-bolum > summary::before { content: "▸ "; color: var(--accent); }
+.rehber-bolum[open] > summary::before { content: "▾ "; }
+.rehber-bolum > summary::-webkit-details-marker { display: none; }
+.rehber h3 { border-top: 0; margin: 0.2rem 0; padding-top: 0; }
+
+/* 📨 Emir: tür grupları, Ayar bölümleri */
+.emir-tur-grup { display: flex; flex-wrap: wrap; align-items: center; gap: 0.4rem; margin-bottom: 0.4rem; }
+.emir-tur-etiket { flex: 1 1 100%; font-size: 0.78rem; color: var(--text-dim); font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; }
+.emir-tur-grup-hesap { background: var(--vurgu-zemin); border: 1px dashed var(--accent); border-radius: 12px; padding: 0.5rem 0.7rem 0.6rem; }
+.emir-tur-onemli { border-color: var(--accent-2) !important; font-weight: 700; }
+.emir-tur-btn .emir-kucuk { display: block; font-size: 0.7rem; font-weight: 400; color: inherit; opacity: 0.8; }
+.ay-bolum { border: 1px solid var(--border); border-radius: 12px; padding: 0.4rem 0.9rem 0.6rem; margin: 0 0 0.8rem; min-width: 0; }
+.ay-bolum > legend { padding: 0 0.4rem; font-weight: 700; color: var(--accent); font-size: 0.95rem; }
+.ay-bolum-gorev { border-color: var(--accent-2); }
+.ay-bolum-gorev > legend { color: var(--accent-2); }
+
+/* 📱 TELEFON */
+@media (max-width: 700px) {
+  .site-header { padding: 0.7rem 0.8rem 0.4rem; }
+  .site-header h1 { font-size: 1.15rem; }
+  .son-guncelleme { font-size: 0.78rem; }
+  main { padding: 0 0.6rem 5.5rem; }          /* alttaki sabit çubuk için pay */
+  /* Ana bölümler: alta sabit uygulama çubuğu (başparmakla ulaşılır) */
+  .grup-bar {
+    position: fixed; top: auto; bottom: 0; left: 0; right: 0; z-index: 70;
+    justify-content: space-around; flex-wrap: nowrap; gap: 0;
+    padding: 0.25rem 0.2rem calc(0.25rem + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--border); background: var(--bg-panel);
+  }
+  .grup-btn {
+    flex: 1 1 0; flex-direction: column; gap: 0.1rem; padding: 0.3rem 0.1rem;
+    border: 0; border-radius: 8px; background: transparent; font-size: 0.62rem; font-weight: 600; min-width: 0;
+  }
+  .grup-btn .grup-ad { display: none; }
+  .grup-btn .grup-ad-kisa { display: block; white-space: nowrap; }
+  .grup-btn.active { background: var(--accent); color: #fff; }
+  .grup-ikon { font-size: 1.25rem; }
+  /* Alt sekmeler: tek satır, yana kayar, üstte yapışık */
+  .tab-bar {
+    position: sticky; top: 0; z-index: 50; background: var(--bg);
+    flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start;
+    gap: 0.35rem; padding: 0.45rem 0.6rem; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .tab-bar::-webkit-scrollbar { display: none; }
+  .tab-btn { flex: 0 0 auto; white-space: nowrap; font-size: 0.85rem; padding: 0.4rem 0.8rem; }
+  /* Araç çubukları: kutular tam genişlik, alt alta */
+  .pazar-arac-cubugu, .seyahat-arac-cubugu { gap: 0.5rem; }
+  .pazar-arac-cubugu > input, .pazar-arac-cubugu > select,
+  .seyahat-arac-cubugu > select { flex: 1 1 100%; width: 100%; min-width: 0; }
+  th, td { padding: 0.5rem 0.6rem; font-size: 0.86rem; }
+  table { min-width: 0; }
+  #sakinler-tablo, #pazar-tablo { min-width: 0; }
+  .bas-kartlar { grid-template-columns: repeat(2, 1fr); gap: 0.45rem; }
+  .bas-kart { padding: 0.55rem 0.6rem; gap: 0.45rem; }
+  .bas-kart-deger { font-size: 1.15rem; }
+  .bas-eylemler { grid-template-columns: 1fr; }
+  .sekme-yardim { float: none; display: inline-block; margin: 0 0 0.5rem; }
+  .emir-satir label { flex: 1 1 100%; }
+  .emir-tur-btn { font-size: 0.88rem; padding: 0.4rem 0.8rem; }
+  .sat-perde { align-items: flex-end; padding: 0; }
+  .sat-kutu { border-radius: 14px 14px 0 0; max-height: 88vh; width: 100%; }
+  .kart-bilgi { grid-template-columns: 1fr; gap: 0; }
+  .kart-bilgi dt { margin-top: 0.35rem; font-size: 0.78rem; }
+  #tab-gelisim.active { width: auto; max-width: none; margin-left: 0; margin-right: 0; }
+  .rk-harita-sarici { height: 60vh; min-height: 360px; }
+  .genel-arama input[type="search"] { font-size: 0.95rem; padding: 0.55rem 0.75rem; }
+  .arama-sonuc { max-height: 50vh; }
+}
+
+/* 🪖 Ordu + ⛵ gemi katmanı (harita.js, 13.09.2026) */
+.rk-ordu-ikon, .rk-gemi-ikon {
+  width: auto !important; height: auto !important; white-space: nowrap;
+  font-size: 12px; font-weight: 700; line-height: 1.2; padding: 2px 7px; border-radius: 8px;
+  background: rgba(20, 28, 36, 0.86); color: #fff; border: 2px solid #2ecc71;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+.rk-ordu-disi { border-color: #e67e22; background: rgba(90, 45, 10, 0.9); }
+.rk-gemi-ikon { border-color: #8e44ad; background: rgba(60, 20, 80, 0.9); }
+.rk-popup { font-size: 0.9rem; line-height: 1.45; color: #222; }
+.rk-popup .emir-kucuk { color: #555; }
+.rk-ordu-tablo td, .rk-ordu-tablo th { white-space: nowrap; }
+.rk-ordu-satir-disi td:first-child { border-left: 3px solid #e67e22; }
