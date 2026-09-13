@@ -45,6 +45,18 @@ async function sha256Hex(metin) {
 })();
 
 // ---------------------------------------------------------
+// 📣 [13.09.2026] "veri hazır" duyurusu — panel.js (Başlangıç kartları,
+// arama, hesap kartı) hangi JSON'un yüklendiğini buradan öğrenir.
+// Yalnızca bir olay atar; dinleyen yoksa hiçbir şey olmaz.
+// ---------------------------------------------------------
+function veriHazir(ad) {
+  try { document.dispatchEvent(new CustomEvent("veri-hazir", { detail: ad })); }
+  catch (e) { /* çok eski tarayıcı — kartlar zamanlayıcıyla dolar */ }
+}
+// 📊 Emir Durumu verisi (panel.js hesap kartında "bekleyen emirleri" için)
+let emirDurumVerisi = null;
+
+// ---------------------------------------------------------
 // SEKME GEÇİŞİ
 // ---------------------------------------------------------
 document.querySelectorAll(".tab-btn").forEach((btn) => {
@@ -90,6 +102,7 @@ async function pazarYukle() {
     });
 
     pazarTabloCiz();
+    veriHazir("pazar");
   } catch (e) {
     document.getElementById("son-guncelleme-metni").textContent = "yüklenemedi";
     console.error("Pazar verisi yüklenemedi:", e);
@@ -203,6 +216,7 @@ async function envanterYukle() {
 
     envanterOzetCiz();
     envanterTabloCiz();
+    veriHazir("envanter");
   } catch (e) {
     document.getElementById("envanter-rapor-tarihi").textContent = "yüklenemedi";
     console.error("Envanter verisi yüklenemedi:", e);
@@ -393,6 +407,7 @@ async function sancakYukle() {
 
     sancakOzetCiz();
     sancakTabloCiz();
+    veriHazir("sancak");
   } catch (e) {
     // Henüz hiç okunmamışsa (Ticaret Nazırı turu atmamışsa) sancak.json YOK.
     // Sessizce boş kalmasın — kullanıcı "site bozuk mu?" diye düşünmesin.
@@ -716,6 +731,7 @@ async function belediyeYukle() {
 
     belediyeOzetCiz();
     belediyeTabloCiz();
+    veriHazir("belediye");
   } catch (e) {
     // Henüz hiç okunmamışsa (Belediye Reisi turu atmamışsa) belediye.json YOK.
     // Sessizce boş kalmasın — kullanıcı "site bozuk mu?" diye düşünmesin.
@@ -974,6 +990,7 @@ async function gelisimYukle() {
     });
 
     gelisimTabloCiz();
+    veriHazir("gelisim");
   } catch (e) {
     document.getElementById("gelisim-tarih-notu").textContent = "veri yok";
     document.getElementById("gelisim-sonuc-yok").hidden = false;
@@ -1056,12 +1073,16 @@ function detayIcerigi(k) {
       `</ul></div>`);
   }
 
+  // 👤 [13.09.2026] Hesap kartı (panel.js): eşyalar + bekleyen emirler + hızlı emir.
+  const kartBtn = `<p class="detay-not"><button type="button" class="emir-mini-btn" ` +
+    `onclick="event.stopPropagation(); if (window.hesapKartiAc) hesapKartiAc(this.dataset.ad)" ` +
+    `data-ad="${String(k.karakter || "").replace(/"/g, "&quot;")}">👤 Hesap kartını aç</button></p>`;
   if (!bolumler.length) {
-    return `<p class="detay-not">Bu hesap için henüz ayrıntı toplanmadı. ` +
+    return kartBtn + `<p class="detay-not">Bu hesap için henüz ayrıntı toplanmadı. ` +
            `Medrese yetenekleri her hesapta bir kez okunur; ders çalışan ` +
            `hesaplarda her turda tazelenir.</p>`;
   }
-  return `<div class="detay-sarmal">${bolumler.join("")}</div>`;
+  return kartBtn + `<div class="detay-sarmal">${bolumler.join("")}</div>`;
 }
 
 function gelisimTabloCiz() {
@@ -1240,6 +1261,7 @@ async function hareketYukle() {
     hareketTabloCiz();
     inzivaCiz();
     sakinlerCiz();
+    veriHazir("hareket");
   } catch (e) {
     document.getElementById("hareket-tarih-notu").textContent = "veri yok";
     document.getElementById("hareket-sonuc-yok").hidden = false;
@@ -1936,6 +1958,7 @@ function sehirSecimleriniDoldur() {
 
   const nerdenSecim = document.getElementById("seyahat-nereden");
   const nereyeSecim = document.getElementById("seyahat-nereye");
+  if (!nerdenSecim || !nereyeSecim) return;   // eski SVG kutuları kaldırıldı (27.08.2026)
 
   isimliler.forEach((d) => {
     const opt1 = document.createElement("option");
@@ -2145,6 +2168,7 @@ function envanterSekmesiKur(onek, jsonAdi, veriAnahtari, baslikAdi) {
 
       ozetCiz();
       tabloCiz();
+      veriHazir(onek);
     } catch (e) {
       // ⚠️ Henüz hiç okunmamışsa JSON YOK — site "bozuk" görünmesin.
       G("rapor-tarihi").textContent = "henüz veri yok";
@@ -2309,6 +2333,7 @@ async function emirDurumYukle() {
   try {
     const yanit = await fetch("emirler.json?_=" + Date.now());
     const veri = await yanit.json();
+    emirDurumVerisi = veri;          // panel.js hesap kartı okur
     t.textContent = veri.son_guncelleme || "bilinmiyor";
 
     const bekleyen = veri.bekleyen || [];
@@ -2379,6 +2404,7 @@ async function emirDurumYukle() {
       gGovde.appendChild(tr);
     });
     gBos.hidden = gecmis.length !== 0;
+    veriHazir("emirler");
   } catch (e) {
     t.textContent = "yüklenemedi";
     console.error("Emir durumu yüklenemedi:", e);
@@ -2433,6 +2459,7 @@ async function filoYukle() {
 
     filoOzetCiz();
     filoTabloCiz();
+    veriHazir("filo");
   } catch (e) {
     t.textContent = "henüz veri yok";
     document.getElementById("filo-sonuc-yok").hidden = false;
