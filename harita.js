@@ -29,6 +29,7 @@ const RK = {
   isaret: [],
 };
 
+window.RK = RK;   // panel.js adresle gelince harita boyutunu tazelemek için bakar
 const RK_TILE = "https://raw.githubusercontent.com/kmanev/RKMap/master/{z}/{x}/{y}.png";
 const RK_GORSEL = [19200, 21200];
 const RK_KARE = 80, RK_DX = 60, RK_DY = 25;
@@ -587,6 +588,9 @@ async function rkKur() {
   RK.map.setView(RK.rc.unproject([10000, 15000]), 3);
 
   rkIzgaraKur();
+  rkOrduKatmaniCiz();           // 🪖 ordular + ⚓ gemimiz (veri geldiyse)
+  const orduTik = document.getElementById("rk-ordu");
+  if (orduTik) orduTik.addEventListener("change", rkOrduKatmaniCiz);
 
   // Tam ekran düğmesi (eklenti yok — tarayıcının kendi Fullscreen API'si).
   const TamEkran = L.Control.extend({
@@ -668,5 +672,226 @@ document.addEventListener("DOMContentLoaded", () => {
   btn.addEventListener("click", () => {
     rkKur();
     setTimeout(() => { if (RK.map) RK.map.invalidateSize(); }, 60);
+  });
+});
+
+
+/* ==========================================================================
+   🪖 ORDULAR + ⚓ GEMİMİZ — harita katmanı + Leaflet'siz liste (13.09.2026)
+   --------------------------------------------------------------------------
+   Kullanıcının ortağı: *"Gemi ve ordularımızın konumları harita rota
+   üzerinde görünsün. Takip ettiğimiz düşman orduları da şehirde gözüksün.
+   Şehir içi / şehir dışı konumları, alım modunda olup olmadıkları da."*
+
+   Veri: docs/ordu.json (pazar_json_uret.ordu_uret) ← Town_Data/Armies_*.json
+   + Kaptan_Durumu.json. Hesap adı JSON'a YAZILMAZ; gemi adı + konum var.
+
+   ⚠️ "Alım modu" alanı VERİDE YOK (100 günlük Armies dosyasında ölçüldü);
+      `alim_modu` null gelir, burada "bilinmiyor" yazılır. Tahmin edilmez.
+   ⚠️ Leaflet yüklenemese de (internetsiz) altta LİSTE görünür — katman
+      yalnızca görsel katmandır, bilgi kaybolmaz.
+   ⚠️ Ordu şehrin İÇİNDEyse işaret karenin içine, DIŞINDAysa ("kapıya
+      dayandı") karenin hemen dışına (sağ üst) konur — oyunun kendi
+      ayrımıyla aynı iki durum.
+   ========================================================================== */
+RK.ordu = null;            // ordu.json içeriği
+RK.orduKatman = null;      // L.layerGroup
+RK.orduIsaretler = {};     // ordu adı → marker
+RK.gemiIsaretler = {};     // gemi adı → marker
+RK.orduBekleyen = "";      // adresle istenen ordu (harita kurulmadan geldiyse)
+
+function rkKacis(m) {
+  return String(m == null ? "" : m)
+    .split("&").join("&amp;").split("<").join("&lt;").split(">").join("&gt;")
+    .split(String.fromCharCode(34)).join("&quot;");
+}
+function rkKucult(m) { return String(m || "").toLocaleLowerCase("tr-TR").trim(); }
+
+/* Kasaba adından düğüm kimliği (deniz.json dugumler: id → [x, y, ad]). */
+function rkDugumAdiyla(ad) {
+  if (!RK.veri || !ad) return null;
+  const a = rkKucult(ad);
+  for (const id in RK.veri.dugumler) {
+    if (rkKucult(RK.veri.dugumler[id][2]) === a) return id;
+  }
+  return null;
+}
+
+function rkOrduDegisimMetni(o) {
+  if (o.degisim === "yeni") return "🆕 dün bu kasabada görünmüyordu";
+  if (o.degisim === "tasindi") return "➡️ dün " + rkKacis(o.onceki_kasaba || "?") + " kasabasındaydı";
+  if (o.degisim === "degisti") return "🔁 dün: " + rkKacis(o.onceki_durum || "?");
+  return "= dün de aynı durumdaydı";
+}
+
+function rkOrduPopup(o) {
+  const disarida = o.durum === "Şehir Dışında";
+  return '<div class="rk-popup"><b>🪖 ' + rkKacis(o.ad) + "</b><br>" +
+    "👤 Komutan: " + rkKacis(o.komutan || "?") + "<br>" +
+    "📍 " + rkKacis(o.kasaba) + " · " + (disarida ? "🟠 " : "🟢 ") + rkKacis(o.durum) +
+    (o.ham_durum ? ' <span class="emir-kucuk">(' + rkKacis(o.ham_durum) + ")</span>" : "") + "<br>" +
+    rkOrduDegisimMetni(o) + "<br>" +
+    '<span class="emir-kucuk">🛒 Alım modu: ' + (o.alim_modu === null || o.alim_modu === undefined
+      ? "bilinmiyor — bot bu bilgiyi henüz toplamıyor" : rkKacis(o.alim_modu)) + "</span></div>";
+}
+
+function rkGemiPopup(g) {
+  return '<div class="rk-popup"><b>⛵ ' + rkKacis(g.gemi) + "</b>" +
+    (g.gemi_turu ? " · " + rkKacis(g.gemi_turu) : "") + "<br>" +
+    "📍 Kare " + g.x + ", " + g.y + (g.rihtimda ? " · rıhtımda" : " · denizde") + "<br>" +
+    (g.hedef ? "🎯 Hedef: " + rkKacis(g.hedef) + "<br>" : "") +
+    (g.hareket_puani !== null && g.hareket_puani !== undefined ? "🧭 Hareket puanı: " + g.hareket_puani + "<br>" : "") +
+    (g.yelken ? "⛵ Yelken: " + rkKacis(g.yelken) + "<br>" : "") +
+    '<span class="emir-kucuk">Kayıt: ' + rkKacis(g.tarih || "?") +
+    " — kaptanlık bizde değilken kayıt tazelenmez</span></div>";
+}
+
+async function rkOrduYukle() {
+  try {
+    const c = await fetch("ordu.json", { cache: "no-store" });
+    if (!c.ok) throw new Error("ordu.json yok");
+    RK.ordu = await c.json();
+  } catch (e) {
+    RK.ordu = null;
+  }
+  window.orduVerisi = RK.ordu;                // panel.js kartları + arama
+  if (typeof veriHazir === "function") veriHazir("ordu");
+  rkOrduListesiYaz();
+  if (RK.map) rkOrduKatmaniCiz();
+}
+
+function rkOrduKatmaniCiz() {
+  if (!RK.map || !RK.veri || !window.L) return;
+  if (RK.orduKatman) { RK.map.removeLayer(RK.orduKatman); RK.orduKatman = null; }
+  RK.orduKatman = L.layerGroup();
+  RK.orduIsaretler = {}; RK.gemiIsaretler = {};
+  const tik = document.getElementById("rk-ordu");
+  const acik = tik ? tik.checked : true;
+  if (!RK.ordu) return;
+
+  // 🪖 Ordular — aynı kasabada birden çok ordu alt alta dizilir.
+  const sayac = {};
+  (RK.ordu.ordular || []).forEach((o) => {
+    const id = rkDugumAdiyla(o.kasaba);
+    if (!id) return;                         // haritada olmayan kasaba (yabancı krallık)
+    const [x, y] = RK.veri.dugumler[id];
+    const n = sayac[o.kasaba] = (sayac[o.kasaba] || 0) + 1;
+    const disarida = o.durum === "Şehir Dışında";
+    const px = (x - RK_DX) * RK_KARE + (disarida ? RK_KARE + 4 : 4);
+    const py = (y - RK_DY) * RK_KARE + (disarida ? -22 : 4) + (n - 1) * 24;
+    const ikon = L.divIcon({
+      className: "rk-ordu-ikon " + (disarida ? "rk-ordu-disi" : "rk-ordu-ici"),
+      html: "🪖 " + rkKacis(o.ad), iconAnchor: [0, 0],
+    });
+    const m = L.marker(RK.rc.unproject([px, py]), { icon: ikon, title: o.ad })
+      .bindPopup(rkOrduPopup(o));
+    m.addTo(RK.orduKatman);
+    RK.orduIsaretler[o.ad] = m;
+  });
+
+  // ⛵ Gemimiz — karenin ortası; hedef liman biliniyorsa kesikli çizgi.
+  (RK.ordu.gemiler || []).forEach((g) => {
+    const merkez = RK.rc.unproject(rkPiksel(g.x, g.y));
+    const ikon = L.divIcon({ className: "rk-gemi-ikon", html: "⛵ " + rkKacis(g.gemi), iconAnchor: [0, 0] });
+    const m = L.marker(merkez, { icon: ikon, title: g.gemi }).bindPopup(rkGemiPopup(g));
+    m.addTo(RK.orduKatman);
+    RK.gemiIsaretler[g.gemi] = m;
+    const hid = rkDugumAdiyla(g.hedef);
+    if (hid) {
+      const [hx, hy] = RK.veri.dugumler[hid];
+      L.polyline([merkez, RK.rc.unproject(rkPiksel(hx, hy))],
+        { color: "#8e44ad", weight: 2, dashArray: "6 8", opacity: 0.8 }).addTo(RK.orduKatman);
+    }
+  });
+
+  if (acik) RK.orduKatman.addTo(RK.map);
+  if (RK.orduBekleyen) { const ad = RK.orduBekleyen; RK.orduBekleyen = ""; rkOrduGoster(ad); }
+}
+
+/* Listeden / adresten: o orduya (ya da gemiye) yaklaş, baloncuğunu aç. */
+function rkOrduGoster(ad) {
+  if (!RK.map || !RK.orduKatman) { RK.orduBekleyen = ad; return; }
+  const m = RK.orduIsaretler[ad] || RK.gemiIsaretler[ad];
+  if (!m) return;
+  if (!RK.map.hasLayer(RK.orduKatman)) {
+    const tik = document.getElementById("rk-ordu");
+    if (tik) tik.checked = true;
+    RK.orduKatman.addTo(RK.map);
+  }
+  RK.map.setView(m.getLatLng(), Math.max(RK.map.getZoom(), 5));
+  m.openPopup();
+  const kap = document.getElementById("rk-harita");
+  if (kap && kap.scrollIntoView) kap.scrollIntoView({ block: "start", behavior: "smooth" });
+}
+
+/* Leaflet olsun olmasın görünen liste (bilgi haritaya bağlı kalmasın). */
+function rkOrduListesiYaz() {
+  const kap = document.getElementById("rk-ordu-liste");
+  if (!kap) return;
+  const v = RK.ordu;
+  if (!v) {
+    kap.innerHTML = '<p class="bos-durum">Ordu verisi henüz yok (ordu.json) — ajanlar kasabalarını ' +
+      "taradıktan sonraki ilk yayında oluşur.</p>";
+    return;
+  }
+  const ordular = v.ordular || [], gemiler = v.gemiler || [], ayrilan = v.ayrilanlar || [];
+  const disarida = ordular.filter((o) => o.durum === "Şehir Dışında").length;
+  let html = '<div class="envanter-ozet">' +
+    '<div class="ozet-kart ozet-kart-toplam"><span class="ozet-etiket">🪖 Ordu</span><span class="ozet-deger">' + ordular.length + "</span>" +
+    '<span class="ozet-alt">' + (v.rapor_tarihi || "") + "</span></div>" +
+    '<div class="ozet-kart' + (disarida ? " ozet-kart-supheli" : "") + '"><span class="ozet-etiket">🟠 Şehir dışında (kapıda)</span><span class="ozet-deger">' + disarida + "</span></div>" +
+    '<div class="ozet-kart"><span class="ozet-etiket">🟢 Şehir içinde</span><span class="ozet-deger">' + (ordular.length - disarida) + "</span></div>" +
+    '<div class="ozet-kart"><span class="ozet-etiket">⛵ Gemimiz</span><span class="ozet-deger">' + gemiler.length + "</span></div></div>";
+
+  const goster = (ad) => '<button type="button" class="emir-mini-btn rk-ordu-git" data-ad="' + rkKacis(ad) + '"' +
+    (window.L ? "" : " disabled title=\"Harita yüklenemedi\"") + ">🗺️ Haritada</button>";
+
+  html += '<div class="tablo-sarici"><table class="rk-ordu-tablo"><thead><tr>' +
+    "<th>Ordu</th><th>Kasaba</th><th>Konum</th><th>Komutan</th><th>Düne göre</th><th>🛒 Alım modu</th><th></th></tr></thead><tbody>" +
+    (ordular.length ? ordular.map((o) => {
+      const d = o.durum === "Şehir Dışında";
+      return "<tr" + (d ? ' class="rk-ordu-satir-disi"' : "") + "><td><b>" + rkKacis(o.ad) + "</b></td><td>" + rkKacis(o.kasaba) + "</td>" +
+        '<td><span class="konum-rozet' + (d ? " konum-disari" : "") + '">' + (d ? "🟠 " : "🟢 ") + rkKacis(o.durum) + "</span></td>" +
+        "<td>" + rkKacis(o.komutan) + "</td><td>" + rkOrduDegisimMetni(o) + "</td>" +
+        '<td class="emir-kucuk">' + (o.alim_modu === null || o.alim_modu === undefined ? "bilinmiyor" : rkKacis(o.alim_modu)) + "</td>" +
+        "<td>" + goster(o.ad) + "</td></tr>";
+    }).join("") : '<tr><td colspan="7" class="bos-durum">Bugün kasabalarımızda ordu görülmedi.</td></tr>') +
+    "</tbody></table></div>";
+
+  if (ayrilan.length) {
+    html += '<p class="bolum-aciklama" style="margin-top:.6rem">🚪 Dün vardı, bugün görünmeyen: ' +
+      ayrilan.map((o) => "<b>" + rkKacis(o.ad) + "</b> (" + rkKacis(o.kasaba) + ")").join(" · ") + "</p>";
+  }
+
+  html += '<h4 class="hareket-alt-baslik">⛵ Gemimiz</h4>' +
+    (gemiler.length ? '<div class="tablo-sarici"><table class="rk-ordu-tablo"><thead><tr>' +
+      "<th>Gemi</th><th>Kare</th><th>Durum</th><th>Hedef</th><th>Hareket puanı</th><th>Kayıt</th><th></th></tr></thead><tbody>" +
+      gemiler.map((g) => "<tr><td><b>" + rkKacis(g.gemi) + "</b>" + (g.gemi_turu ? ' <span class="emir-kucuk">' + rkKacis(g.gemi_turu) + "</span>" : "") + "</td>" +
+        "<td>" + g.x + ", " + g.y + "</td><td>" + (g.rihtimda ? "⚓ rıhtımda" : "🌊 denizde") + "</td>" +
+        "<td>" + rkKacis(g.hedef || "—") + "</td><td>" + (g.hareket_puani === null || g.hareket_puani === undefined ? "—" : g.hareket_puani) + "</td>" +
+        '<td class="emir-kucuk">' + rkKacis(g.tarih || "?") + "</td><td>" + goster(g.gemi) + "</td></tr>").join("") +
+      "</tbody></table></div>" +
+      '<p class="bolum-aciklama">Kayıt tarihi eskiyse gemi o günden beri bizim kaptanlığımızda değildir — ' +
+      "kaptanlık bizde değilken bot hamle yapmaz ve konum tazelenmez.</p>"
+      : '<p class="bos-durum">Kaptan kaydı yok.</p>');
+
+  kap.innerHTML = html;
+  kap.querySelectorAll(".rk-ordu-git").forEach((b) => {
+    b.addEventListener("click", () => {
+      if (typeof rkKur === "function") rkKur();
+      setTimeout(() => rkOrduGoster(b.dataset.ad), 150);
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  rkOrduYukle();
+  // panel.js: #harita/ordu[/<ad>] adresiyle gelince
+  document.addEventListener("harita-alt", (e) => {
+    const d = (e && e.detail) || {};
+    if (d.alt !== "ordu") return;
+    const bolum = document.getElementById("rk-ordu-bolum");
+    if (d.deger) { RK.orduBekleyen = d.deger; if (RK.map && RK.orduKatman) rkOrduGoster(d.deger); }
+    else if (bolum && bolum.scrollIntoView) setTimeout(() => bolum.scrollIntoView({ block: "start", behavior: "smooth" }), 200);
   });
 });
