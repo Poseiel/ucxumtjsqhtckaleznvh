@@ -1,0 +1,68 @@
+{
+  "son_guncelleme": "2026-09-13 09:24",
+  "rapor_tarihi": "2026-09-13",
+  "onceki_tarih": "2026-09-12",
+  "ordular": [
+    {
+      "ad": "Highlands Blacksquirrells",
+      "kasaba": "Girvan",
+      "komutan": "Kazasker: Berengario",
+      "durum": "Şehir İçinde",
+      "ham_durum": "Ordu şehirde",
+      "alim_modu": null,
+      "degisim": "ayni",
+      "onceki_kasaba": "Girvan",
+      "onceki_durum": "Şehir İçinde"
+    },
+    {
+      "ad": "The Excelsior",
+      "kasaba": "Glasgow",
+      "komutan": "Kazasker: Emmalogan",
+      "durum": "Şehir Dışında",
+      "ham_durum": "Ordu, Şehir kapılarına dayandı.",
+      "alim_modu": null,
+      "degisim": "ayni",
+      "onceki_kasaba": "Glasgow",
+      "onceki_durum": "Şehir Dışında"
+    },
+    {
+      "ad": "Glasgow",
+      "kasaba": "Stirling",
+      "komutan": "Kazasker: Mavisari",
+      "durum": "Şehir Dışında",
+      "ham_durum": "Ordu, Şehir kapılarına dayandı.",
+      "alim_modu": null,
+      "degisim": "ayni",
+      "onceki_kasaba": "Stirling",
+      "onceki_durum": "Şehir Dışında"
+    },
+    {
+      "ad": "Wigtown",
+      "kasaba": "Wigtown",
+      "komutan": "Kazasker: Catani",
+      "durum": "Şehir İçinde",
+      "ham_durum": "Ordu şehirde",
+      "alim_modu": null,
+      "degisim": "ayni",
+      "onceki_kasaba": "Wigtown",
+      "onceki_durum": "Şehir İçinde"
+    }
+  ],
+  "ayrilanlar": [],
+  "gemiler": [
+    {
+      "gemi": "RSN Enterprise",
+      "x": 113,
+      "y": 159,
+      "hedef": "Calais",
+      "rihtimda": false,
+      "tarih": "2026-09-08",
+      "hareket_puani": 7,
+      "yelken": "kare",
+      "gemi_turu": "",
+      "onerilen_yon": "",
+      "ruzgar": ""
+    }
+  ],
+  "not": "alim_modu alanı henüz toplanmıyor (Armies_*.json'da yok); bot okumaya başlayınca doldurulacak."
+}
