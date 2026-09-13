@@ -574,6 +574,8 @@ function emirMesajiKur() {
   //    birini değiştirirsen diğerini de değiştir.
   // 🖥️ AYAR EMRİ — launcher'ın site karşılığı.
   if (emirTur === "ayar") return ayMesajiKur();
+  // ➕ HESAP EKLE (13.09.2026) — şablon site_emirleri.hesap_ekle_coz ile aynı.
+  if (emirTur === "hesapekle") return hesapEkleMesajiKur();
 
   if (emirTur === "mesaj") {
     var mKimden = emirDeger("ms-kimden");
@@ -1103,6 +1105,109 @@ function ayGorevMetni() {
   return parcalar.join(", ");
 }
 
+/* =========================================================
+   ➕ HESAP EKLE (13.09.2026)
+   Kullanıcının ortağı: *"multileri ekleyebilme seçeneği gelse güzel olur,
+   sana yazdırmak yerine emir girsem."*
+   ⚠️ Şablon bot tarafındaki `site_emirleri.hesap_ekle_coz` ile BİREBİR:
+        HESAP EKLE / hesap: / şifre: / takip:
+   ⚠️ Şifre hiçbir yere YAZILMAZ (localStorage dahil) — yalnızca metne girer.
+   ⚠️ Takip listesi (he-takip) launcher.py ile aynı 6 seçenek; varsayılan
+      Hızlı Maden (yeni hesap için 2 dakikalık tur).
+   ========================================================= */
+function hesapEkleMesajiKur() {
+  var ad = emirDeger("he-hesap");
+  var sifre = emirDeger("he-sifre");
+  var takip = emirDeger("he-takip");
+  var eksik = [];
+  if (!ad) eksik.push("oyun kullanıcı adı");
+  if (!sifre) eksik.push("şifre");
+  if (/\s/.test(ad)) return { hata: "Kullanıcı adında boşluk olamaz (oyunun login adı)." };
+  if (eksik.length) return { hata: "Eksik: " + eksik.join(", ") };
+  // Zaten listedeyse bot hiçbir şey yapmaz — kullanıcı boşuna beklemesin.
+  if (emirKarakterBul(ad)) {
+    return { hata: "'" + ad + "' zaten hesaplarımız arasında görünüyor. Var olan hesabın " +
+                   "şifresi bu yoldan değiştirilemez (bilerek)." };
+  }
+  var satirlar = ["HESAP EKLE", "hesap: " + ad, "şifre: " + sifre];
+  if (takip) satirlar.push("takip: " + takip);
+  return { metin: satirlar.join(EMIR_NL) };
+}
+
+/* =========================================================
+   📋 HAZIR PLANLAR — görev zincirini tek seçimle doldurur (13.09.2026)
+   Ortak "taşınma eksik" demişti; özellik vardı ama dört seviye derindeydi.
+   Adım sıraları `gorev_zinciri.py` ve rehberdeki örneklerle AYNI
+   (ör. evi taşımada hersey_sat BAŞTA olmak zorunda — sandık boş değilse
+   bot taşımayı reddeder).
+   Her adım: [tip, hedef, adet]. `{x}` yer tutucuları kullanıcı doldurur.
+   ========================================================= */
+var AY_PLANLAR = [
+  ["tasi", "🚚 Hesabı başka şehre taşı (her şeyi sat → git → evi taşı → ev+tarla → atölye)",
+   "Önce ev sandığını boşaltıp satar (20 günlük yiyecek kalır), sonra yola çıkar, varınca evi taşır, " +
+   "tarla ve atölye alır. Alıcı hesap, hedef şehir ve meslek kutularını doldur.",
+   [["hersey_sat", "", 0], ["seyahat", "", 0], ["ev_tasi", "", 0], ["ev_al", "", 0], ["atolye", "", 0]]],
+  ["gitaldon", "🛒 Git, al, dön (başka şehirden mal getir)",
+   "Hedef şehre gider, vardığı gün alışverişi yapar ve AYNI gün dönüş emrini verir. Boşa gün geçmez.",
+   [["seyahat", "", 0], ["satin_al", "", 10], ["seyahat", "", 0]]],
+  ["kita", "⛵ Kıta şehrine git (limana yürü → gemiye bin → bekle → karada yürü)",
+   "Kıta şehirlerine kara yolu YOK. Önce limana gidilir, gemiye binilir, geçiş süresi bekle: ile geçirilir. " +
+   "Yemeği binmeden önce aldırmak için alım adımı gemiden öncedir.",
+   [["seyahat", "Ardencaple", 0], ["satin_al", "", 30], ["gemiye_bin", "", 0], ["bekle", "12", 0], ["seyahat", "", 0]]],
+  ["lider", "👥 Toplu taşıma — LİDER (yola çık → varınca grubu dağıt → ev + atölye)",
+   "Lideri 👥 Grup Ayarları'nda tanımladıktan sonra: hedefe gider, varınca grubu dağıtır (takipçilerin " +
+   "Grup Takip modu kendiliğinden kapanır), ev + atölye alır.",
+   [["seyahat", "", 0], ["grup_dagit", "", 0], ["ev_al", "", 0], ["atolye", "", 0]]],
+  ["takipci", "🤝 Toplu taşıma — TAKİPÇİ (varmayı bekle → takibi kapat → ev + atölye)",
+   "Takipçiye seyahat: YAZILMAZ, onu grup taşır. Vardığında takip modu kapanır ve aynı gün ev/atölye alınır. " +
+   "Hesabın takip modunu ayrıca 'Grup Takip' yap.",
+   [["varinca", "", 0], ["takip", "Yok", 0], ["ev_al", "", 0], ["atolye", "", 0]]],
+  ["evkur", "🏠 Bulunduğu şehirde ev + tarla + atölye kur (evsiz hesap)",
+   "Parası 130 akçenin altındaysa hiçbir şey almaz (yarım kurulum olmasın).",
+   [["ev_al", "", 0], ["atolye", "", 0]]]
+];
+
+function ayPlaniDoldur() {
+  var sec = document.getElementById("ay-plan");
+  if (!sec) return;
+  var html = "<option value=" + ayTirnak("") + ">— kendim adım ekleyeceğim —</option>";
+  AY_PLANLAR.forEach(function (p) {
+    html += "<option value=" + ayTirnak(p[0]) + ">" + emirKacis(p[1]) + "</option>";
+  });
+  sec.innerHTML = html;
+  sec.addEventListener("change", function () { ayPlanUygula(sec.value); });
+}
+
+function ayPlanUygula(kod) {
+  var kap = document.getElementById("ay-gorev-satirlar");
+  var aciklama = document.getElementById("ay-plan-aciklama");
+  if (!kap) return;
+  var plan = null;
+  AY_PLANLAR.forEach(function (p) { if (p[0] === kod) plan = p; });
+  if (!plan) { if (aciklama) aciklama.hidden = true; return; }
+  kap.innerHTML = "";
+  kap.dataset.iptal = "0";
+  plan[3].forEach(function (adim) {
+    ayGorevSatiriEkle();
+    var satir = kap.lastElementChild;
+    if (!satir) return;
+    var tip = satir.querySelector(".ay-gorev-tip");
+    var hedef = satir.querySelector(".ay-gorev-hedef");
+    var adet = satir.querySelector(".ay-gorev-adet");
+    tip.value = adim[0];
+    tip.dispatchEvent(new Event("change"));       // yardım listesi + adet kutusu ayarlansın
+    if (hedef && !hedef.disabled) hedef.value = adim[1] || "";
+    if (adet && !adet.disabled && adim[2]) adet.value = adim[2];
+    // Boş kalan hedef kutusu dikkat çeksin (kullanıcı dolduracak).
+    if (hedef && !hedef.disabled && !hedef.value) hedef.classList.add("ay-eksik");
+    if (hedef) hedef.addEventListener("input", function () { hedef.classList.remove("ay-eksik"); });
+  });
+  if (aciklama) { aciklama.textContent = "📋 " + plan[2]; aciklama.hidden = false; }
+  emirGuncelle();
+  var ilkBos = kap.querySelector(".ay-gorev-hedef.ay-eksik");
+  if (ilkBos) ilkBos.focus();
+}
+
 /* Emir metnini kurar — `emirMesajiKur` buradan çağırır. */
 function ayMesajiKur() {
   var hesap = emirDeger("ay-hesap");
@@ -1129,6 +1234,10 @@ function ayMesajiKur() {
   if (document.getElementById("ay-gorev-satirlar").dataset.iptal === "1") {
     satirlar.push("görev: iptal");
   } else {
+    // 📋 Hazır plandan kalan BOŞ kutu varsa adım sessizce düşer; kullanıcı
+    //    bunu fark etsin (eksik adımlı zincir yanlış iş yaptırır).
+    var bosKutu = document.querySelectorAll("#ay-gorev-satirlar .ay-gorev-hedef.ay-eksik").length;
+    if (bosKutu) return { hata: "Görev zincirinde " + bosKutu + " kutu boş kaldı (sarı çerçeveli) — doldur ya da o adımı ➖ ile sil." };
     var g = ayGorevMetni();
     if (g) satirlar.push("görev: " + g);
   }
@@ -1142,6 +1251,15 @@ function ayMesajiKur() {
 function ayKur() {
   ayKasabalariDoldur();
   ayDivaniDoldur();
+  ayPlaniDoldur();
+  // ➕ Hesap ekleme formu dinleyicileri
+  ["he-hesap", "he-sifre", "he-takip"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) {
+      el.addEventListener("input", emirGuncelle);
+      el.addEventListener("change", emirGuncelle);
+    }
+  });
   var ekle = document.getElementById("ay-gorev-ekle");
   var temizle = document.getElementById("ay-gorev-temizle");
   var kap = document.getElementById("ay-gorev-satirlar");
