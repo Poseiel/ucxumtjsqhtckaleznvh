@@ -951,7 +951,12 @@ var AY_ADIM_TIPLERI = [
 
 /* ⚠️ DEĞER İSTEMEYEN adımlar — `gorev_zinciri` ile BİREBİR aynı liste.
    Bunlarda hedef kutusu kapatılır ve boş olsa bile adım gönderilir. */
-var AY_DEGERSIZ = ["ev_al", "grup_kur", "grup_dagit"];
+/* ⚠️⚠️ [14.09.2026] `ev_al` ARTIK DEĞER ALABİLİR → listeden ÇIKARILDI.
+   Ölçülen hata: `ev_al` tarlayı alıyor ama TİPİNİ seçmiyordu (ekilemez
+   tarla). Artık hedefe TARLA TİPİ yazılabiliyor (`ev_al:Sebze`); boş
+   bırakılırsa eski davranış sürer, meslek adı yazılırsa atölye olarak
+   çalışır — yani eski `ev_al:<meslek>` yazımı da bozulmadı. */
+var AY_DEGERSIZ = ["grup_kur", "grup_dagit"];
 
 /* Takip modu seçenekleri (launcher'daki listeyle aynı). */
 var AY_TAKIP_MODLARI = ["Yok", "Grup Takip", "Ordu Takip", "Alışverişçi",
@@ -1040,11 +1045,13 @@ function ayGorevSatiriEkle() {
       emirGuncelle();
       return;
     }
-    if (t === "tarla_al") {
+    if (t === "tarla_al" || t === "ev_al") {
       // ⚠️ Liste `ev_atolye_modul.TARLA_TIPLERI` ile BİREBİR aynı olmalı
       //    (canlı HTML'den ölçüldü, 12 tip).
       hedef.setAttribute("list", "ay-tarla-listesi");
-      hedef.placeholder = "örn. Mısır (boş = tip seçilmez)";
+      hedef.placeholder = (t === "ev_al"
+        ? "tarla tipi — örn. Sebze (boş = tip seçilmez)"
+        : "örn. Mısır (boş = tip seçilmez)");
     } else if (t === "takip") {
       hedef.setAttribute("list", "ay-takip-listesi");
       hedef.placeholder = "Yok / Grup Takip / Ordu Takip / Hızlı Maden";
@@ -1147,6 +1154,13 @@ var AY_PLANLAR = [
    "Önce ev sandığını boşaltıp satar (20 günlük yiyecek kalır), sonra yola çıkar, varınca evi taşır, " +
    "tarla ve atölye alır. Alıcı hesap, hedef şehir ve meslek kutularını doldur.",
    [["hersey_sat", "", 0], ["seyahat", "", 0], ["ev_tasi", "", 0], ["ev_al", "", 0], ["atolye", "", 0]]],
+  ["tasi2tarla", "🚚🥬 Hesabı taşı + 2 SEBZE tarlası (sat → git → evi taşı → 2 tarla)",
+   "Tam otomatik: satıcı ALICIDAN ÖNCE girer, malı en düşük fiyattan ona rezerveli satar ve alıcıya " +
+   "otomatik ALIM emri açar. Alıcı malı aldığı gün satıcıya TEKRAR girilir, zincir kapanır ve hesap " +
+   "AYNI GÜN yola çıkar. Varınca evi taşır, 2 sebze tarlası alır ve bekleme moduna döner. " +
+   "Sadece alıcı hesabı ve hedef şehri doldur.",
+   [["hersey_sat", "", 0], ["seyahat", "", 0], ["ev_tasi", "", 0],
+    ["tarla_al", "Sebze", 0], ["tarla_al", "Sebze", 0]]],
   ["gitaldon", "🛒 Git, al, dön (başka şehirden mal getir)",
    "Hedef şehre gider, vardığı gün alışverişi yapar ve AYNI gün dönüş emrini verir. Boşa gün geçmez.",
    [["seyahat", "", 0], ["satin_al", "", 10], ["seyahat", "", 0]]],
