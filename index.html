@@ -1317,6 +1317,35 @@ if (window.L) L.RasterCoords.prototype = {
           (hesabın mevcut görevi olduğu gibi kalır). “Görevi iptal et” dersen
           varsa mevcut görevi silinir. Adımların ne yaptığı:
           <a href="#rehber/gorev" class="bas-link">📖 Rehber → Görev zinciri</a>.</p>
+
+        <!-- 💸➡️🌍 [14.09.2026] "Her şeyi sat" zincirinin ARKA PLANDA
+             kendiliğinden yaptıkları. Kullanıcı: *"sitedeki emir verme
+             yerinde bununla ilgili not filan yaz, sitedeki emirlerde
+             görelim bu işlemleri de."* -->
+        <details class="ay-otomatik-not">
+          <summary>💸➡️🌍 “Her şeyi sat” yazınca bot bunları <b>kendi</b> yapar
+            (sen araya girmiyorsun)</summary>
+          <ol class="ay-otomatik-liste">
+            <li><b>Satıcı, alıcıdan ÖNCE girer.</b> Sıralama kendiliğinden
+              düzeltilir — alıcı pazara geldiğinde ilan orada olsun diye.</li>
+            <li><b>Mal en düşük fiyattan, alıcıya REZERVELİ satılır</b>
+              (üstünde 20 günlük yiyecek kalır, yolda aç kalmasın).</li>
+            <li><b>Alıcıya otomatik ALIM emri açılır.</b> Bu emirleri
+              <a href="#emirdurum" class="bas-link">📊 Emir Durumu</a>
+              sekmesinde görebilirsin — kod, ürün, adet ve tavan fiyatla
+              birlikte. Tavan = satış fiyatı × adet, yani alıcı fazla ödemez.</li>
+            <li><b>Alıcı malı aldığı gün satıcıya TEKRAR girilir</b> ve zincir
+              aynı gün sıradaki adıma (genelde 🚶 seyahat) geçer. Bir gün
+              kaybedilmez.</li>
+            <li><b>Seyahat bekleyen hesaba uzun iş verilmez</b> — işi gün
+              dönümünden önce bitecek şekilde kısalır, yoksa yola çıkamaz.</li>
+          </ol>
+          <p class="emir-ipucu">⚠️ Alıcı <b>bizim hesabımız</b> olmalı;
+            yabancıya satışta otomatik alım emri açılmaz. Alıcı 5 tur almazsa
+            Telegram’a uyarı düşer (parası yetmiyor olabilir) ama hesap
+            <b>yola çıkmaz</b> — malı satılmadan gitmesi ağırlık yüzünden
+            seyahati düşürürdü.</p>
+        </details>
       </fieldset>
 
       <fieldset class="ay-bolum">
