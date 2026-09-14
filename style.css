@@ -1308,3 +1308,24 @@ td.hesap-ad:hover { text-decoration: underline; }
 .rk-popup .emir-kucuk { color: #555; }
 .rk-ordu-tablo td, .rk-ordu-tablo th { white-space: nowrap; }
 .rk-ordu-satir-disi td:first-child { border-left: 3px solid #e67e22; }
+
+/* 💸➡️🌍 [14.09.2026] "Her şeyi sat" otomasyon notu — Ayar sekmesi.
+   Kullanıcı: "sitedeki emir verme yerinde bununla ilgili not filan yaz." */
+.ay-otomatik-not {
+  margin: 10px 0 0;
+  padding: 8px 10px;
+  border: 1px solid var(--cizgi, #3a3f4b);
+  border-radius: 8px;
+  background: var(--kart, rgba(255, 255, 255, .03));
+}
+.ay-otomatik-not > summary {
+  cursor: pointer;
+  font-weight: 600;
+  line-height: 1.45;
+}
+.ay-otomatik-liste {
+  margin: 8px 0 4px;
+  padding-left: 20px;
+  line-height: 1.55;
+}
+.ay-otomatik-liste li { margin: 4px 0; }
