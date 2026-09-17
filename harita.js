@@ -822,7 +822,12 @@ function rkGunRengi(gun) {
       hangisinin ölçüm, hangisinin tahmin olduğunu görsün. */
 function rkKafileListesi(k) {
   const satirlar = (k.hesaplar || []).map(function (h) {
-    const ikon = h.tur === "takip" ? (h.tahmin ? "❓ " : "👥 ") : "🧭 ";
+    /* 👑 lider · 👥 takipçi · ❓ üyeliği konumdan çıkarılmış takipçi
+       · 🧭 tek hareket eden. Rol ayardan geliyor: "Grup Takip" ise
+       gruptadır, "seyahat aktif" ise ya liderdir ya tek gidiyordur. */
+    const ikon = h.tur === "takip"
+      ? (h.tahmin ? "❓ " : "👥 ")
+      : (h.rol === "lider" ? "👑 " : "🧭 ");
     return ikon + rkKacis(h.hesap);
   });
   return satirlar.join("<br>");
@@ -847,7 +852,8 @@ function rkSeyahatPopup(k, g) {
     ? "🧑‍🤝‍🧑 " + k.kisi + " hesap birlikte" +
       (k.grup ? ' <span class="emir-etiket">👥 ' + rkKacis(k.lider) +
         " grubu</span>" : "") + rkUyelikRozeti(k)
-    : "🧭 " + rkKacis((k.hesaplar[0] || {}).hesap || "?");
+    : "🧭 " + rkKacis((k.hesaplar[0] || {}).hesap || "?") +
+      (k.yalniz ? ' <span class="emir-kucuk">tek hareket ediyor</span>' : "");
   return '<div class="rk-popup"><b>' + baslik + "</b><br>" +
     (k.kisi > 1 ? '<span class="emir-kucuk">' + rkKafileListesi(k) +
       "</span><br>" : "") +
@@ -974,7 +980,9 @@ function rkSeyahatListesiYaz() {
           ((k.hesaplar[0] || {}).tur === "takip"
             ? '<br><span class="emir-kucuk">👥 ' +
               rkKacis((k.hesaplar[0] || {}).lider || "?") + " takipçisi</span>"
-            : "")) +
+            : (k.yalniz
+              ? '<br><span class="emir-kucuk">🧭 tek hareket ediyor</span>'
+              : ""))) +
       "</td>" +
       "<td>" + rkKacis(k.nereden) + "</td><td>" + rkKacis(k.hedef) + "</td>" +
       "<td><b>" + k.kalan_gun + " gün</b><br>" +
@@ -990,9 +998,17 @@ function rkSeyahatListesiYaz() {
   if (bek.length) {
     // ⚠️ "Çizilemedi" ≠ "yolda değil". Sebebi AÇIKÇA yazılır ki kimse
     //    eksik veriyi "sorun yok" diye okumasın.
+    /* ⚠️ "Grup Takip" AYARI bir niyettir, kanıt değil — hesap gruptan
+       düşmüş olabilir. Bu yüzden rozet "grupta" DEMEZ, ayarın ne
+       dediğini söyler; konumu liderden ayrılmışsa ayrıca uyarır. */
     html += '<p class="bolum-aciklama" style="margin-top:.6rem">❔ Rotası ' +
-      "çizilemeyenler: " + bek.map((b) => "<b>" + rkKacis(b.hesap) + "</b> (" +
-      rkKacis(b.sebep) + ")").join(" · ") + "</p>";
+      "çizilemeyenler: " + bek.map((b) => "<b>" + rkKacis(b.hesap) + "</b>" +
+      (b.dusmus_olabilir
+        ? ' <span class="emir-etiket" title="Lideriyle aynı noktada değil — gruptan düşmüş olabilir.">🚪 düşmüş olabilir</span>'
+        : (b.ayar_grup_takip
+          ? ' <span class="emir-etiket" title="Ayarı Grup Takip; bu bir niyettir, hesap gruptan düşmüş de olabilir.">👥 ayar: takip</span>'
+          : "")) +
+      " (" + rkKacis(b.sebep) + ")").join(" · ") + "</p>";
   }
   kap.innerHTML = html;
 }
