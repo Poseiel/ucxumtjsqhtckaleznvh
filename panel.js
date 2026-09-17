@@ -249,7 +249,8 @@
     ["✉️", "Gemi sahibine oyun içi mesaj", "#filo", "Satırdaki ✉️ düğmesi"],
     ["📣", "Foruma cevap yazdırmak", "#emir/forum", "Başlığın linki + metin"],
     ["⚓", "Limana bir gemiyi kabul etmek", "#emir/yanasma", "Liman şefi hesabı + armatör"],
-    ["🪖", "Ordular ve gemimiz nerede?", "#harita/ordu", "Haritada katman + liste"]
+    ["🪖", "Ordular ve gemimiz nerede?", "#harita/ordu", "Haritada katman + liste"],
+    ["🧭", "Kim yolda, kaç gün kaldı?", "#harita/seyahat", "Haritada kırmızı oklar"]
   ];
 
   var _basZaman = null;
@@ -313,9 +314,26 @@
     var ordu = g("orduVerisi", null);
     if (ordu && ordu.ordular) {
       var disarida = ordu.ordular.filter(function (o) { return o.durum === "Şehir Dışında"; }).length;
-      k.push(kart("🪖", "takip edilen ordu", ordu.ordular.length,
-        disarida ? disarida + " tanesi şehir kapısında" : "hepsi şehir içinde",
-        "#harita/ordu", disarida ? "bas-kart-uyari" : ""));
+      // ⚔️ [17.09.2026] Asker alımı artık toplanıyor — kartın alt satırında
+      //    görünsün ki "ordu asker topluyor" bilgisi Başlangıç'ta fark edilsin.
+      //    ⚠️ null = bilinmiyor (17.09 öncesi kayıt), sayıma GİRMEZ.
+      var asker = ordu.ordular.filter(function (o) { return o.alim_modu === true; }).length;
+      var alt = disarida ? disarida + " tanesi şehir kapısında" : "hepsi şehir içinde";
+      if (asker) alt += " · ⚔️ " + asker + " tanesi asker alıyor";
+      k.push(kart("🪖", "takip edilen ordu", ordu.ordular.length, alt,
+        "#harita/ordu", (disarida || asker) ? "bas-kart-uyari" : ""));
+    }
+
+    // 🧭 [17.09.2026] YOLDAKİ HESAPLAR. Kullanıcı: "hareket hâlindeki
+    //    seyahat modu aktifleri ya da aynı grupta olanları da nerede
+    //    olduklarını görebilir miyiz."
+    var syh = g("seyahatVerisi", null);
+    if (syh && syh.yolcular && syh.yolcular.length) {
+      var enUzun = Math.max.apply(null, syh.yolcular.map(function (y) {
+        return y.kalan_gun || 0;
+      }));
+      k.push(kart("🧭", "hesap yolda", syh.yolcular.length,
+        "en uzak varış " + enUzun + " gün", "#harita/seyahat"));
     }
 
     var msj = g("panelMesajlar", null);
@@ -493,6 +511,17 @@
         ' <span class="emir-kucuk">' + kacis(s.armator) + " · " + kacis(s.liman) + '</span></a>';
     }), gm.length]);
 
+    // Yoldakiler (seyahat.json — harita katmanı yüklediyse)
+    var syh2 = g("seyahatVerisi", null);
+    var ys = ((syh2 && syh2.yolcular) || []).filter(function (y) {
+      return kucult(y.hesap + " " + y.nereden + " " + y.hedef).indexOf(a) >= 0;
+    });
+    if (ys.length) gruplar.push(["🧭 Yoldakiler", ys.slice(0, SINIR).map(function (y) {
+      return '<a href="#harita/seyahat">' + kacis(y.hesap) +
+        ' <span class="emir-kucuk">' + kacis(y.nereden) + " → " + kacis(y.hedef) +
+        " · " + y.kalan_gun + " gün</span></a>";
+    }), ys.length]);
+
     // Ordular (ordu.json — harita katmanı yüklediyse)
     var ordu = g("orduVerisi", null);
     var os = ((ordu && ordu.ordular) || []).filter(function (o) {
@@ -500,7 +529,9 @@
     });
     if (os.length) gruplar.push(["🪖 Ordular", os.slice(0, SINIR).map(function (o) {
       return '<a href="#harita/ordu/' + encodeURIComponent(o.ad) + '">' + kacis(o.ad) +
-        ' <span class="emir-kucuk">' + kacis(o.kasaba) + " · " + kacis(o.durum) + '</span></a>';
+        ' <span class="emir-kucuk">' + kacis(o.kasaba) + " · " + kacis(o.durum) +
+        (o.alim_modu === true ? " · ⚔️ asker alıyor" : "") +
+        (o.danisman === true ? " · 🎖️ danışman arıyor" : "") + '</span></a>';
     }), os.length]);
 
     if (!gruplar.length) {
