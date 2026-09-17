@@ -1,22 +1,153 @@
 {
-  "son_guncelleme": "2026-09-17 21:39",
+  "son_guncelleme": "2026-09-17 21:43",
   "adim_hakki_normal": 2,
   "adim_hakki_jetonlu": 3,
-  "yolcular": [],
-  "beklemede": [
+  "yolcular": [
     {
       "hesap": "Asensioo",
       "tur": "seyahat",
+      "nereden": "Narbonne - Gerona Yolu Üzerinde",
+      "yolda": true,
+      "bot_kalan_gun": 3,
+      "nereden_id": 585,
       "hedef": "Béziers",
-      "nereden": "",
-      "sebep": "yolda (kasaba okunamadı — iki kasaba arasında)"
+      "hedef_id": 315,
+      "jetonlu": false,
+      "adim_hakki": 2,
+      "rota": [
+        {
+          "id": 585,
+          "isim": "Narbonne - Gerona arası"
+        },
+        {
+          "id": 584,
+          "isim": "Narbonne - Gerona arası"
+        },
+        {
+          "id": 600,
+          "isim": "Narbonne - Béziers arası"
+        },
+        {
+          "id": 317,
+          "isim": "Narbonne"
+        },
+        {
+          "id": 316,
+          "isim": "Béziers - Narbonne arası"
+        },
+        {
+          "id": 315,
+          "isim": "Béziers"
+        }
+      ],
+      "kalan_adim": 5,
+      "kalan_gun": 3,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 600,
+          "varis": "Narbonne - Béziers arası",
+          "duraklar": [
+            {
+              "id": 584,
+              "isim": "Narbonne - Gerona arası"
+            },
+            {
+              "id": 600,
+              "isim": "Narbonne - Béziers arası"
+            }
+          ]
+        },
+        {
+          "gun": 2,
+          "varis_id": 316,
+          "varis": "Béziers - Narbonne arası",
+          "duraklar": [
+            {
+              "id": 317,
+              "isim": "Narbonne"
+            },
+            {
+              "id": 316,
+              "isim": "Béziers - Narbonne arası"
+            }
+          ]
+        },
+        {
+          "gun": 3,
+          "varis_id": 315,
+          "varis": "Béziers",
+          "duraklar": [
+            {
+              "id": 315,
+              "isim": "Béziers"
+            }
+          ]
+        }
+      ],
+      "lider": ""
     },
     {
       "hesap": "Favore",
       "tur": "seyahat",
+      "nereden": "Wigtown - Girvan Yolu Üzerinde",
+      "yolda": true,
+      "bot_kalan_gun": 2,
+      "nereden_id": 835,
       "hedef": "Kirkcudbright",
-      "nereden": "",
-      "sebep": "yolda (kasaba okunamadı — iki kasaba arasında)"
+      "hedef_id": 758,
+      "jetonlu": false,
+      "adim_hakki": 2,
+      "rota": [
+        {
+          "id": 835,
+          "isim": "Wigtown - Girvan arası"
+        },
+        {
+          "id": 760,
+          "isim": "Wigtown"
+        },
+        {
+          "id": 759,
+          "isim": "Kirkcudbright - Wigtown arası"
+        },
+        {
+          "id": 758,
+          "isim": "Kirkcudbright"
+        }
+      ],
+      "kalan_adim": 3,
+      "kalan_gun": 2,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 759,
+          "varis": "Kirkcudbright - Wigtown arası",
+          "duraklar": [
+            {
+              "id": 760,
+              "isim": "Wigtown"
+            },
+            {
+              "id": 759,
+              "isim": "Kirkcudbright - Wigtown arası"
+            }
+          ]
+        },
+        {
+          "gun": 2,
+          "varis_id": 758,
+          "varis": "Kirkcudbright",
+          "duraklar": [
+            {
+              "id": 758,
+              "isim": "Kirkcudbright"
+            }
+          ]
+        }
+      ],
+      "lider": ""
     }
-  ]
+  ],
+  "beklemede": []
 }
