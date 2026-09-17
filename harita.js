@@ -591,6 +591,9 @@ async function rkKur() {
   rkOrduKatmaniCiz();           // 🪖 ordular + ⚓ gemimiz (veri geldiyse)
   const orduTik = document.getElementById("rk-ordu");
   if (orduTik) orduTik.addEventListener("change", rkOrduKatmaniCiz);
+  rkSeyahatKatmaniCiz();        // 🧭 seyahat rotaları (kırmızı oklar)
+  const seyahatTik = document.getElementById("rk-seyahat");
+  if (seyahatTik) seyahatTik.addEventListener("change", rkSeyahatKatmaniCiz);
 
   // Tam ekran düğmesi (eklenti yok — tarayıcının kendi Fullscreen API'si).
   const TamEkran = L.Control.extend({
@@ -686,8 +689,9 @@ document.addEventListener("DOMContentLoaded", () => {
    Veri: docs/ordu.json (pazar_json_uret.ordu_uret) ← Town_Data/Armies_*.json
    + Kaptan_Durumu.json. Hesap adı JSON'a YAZILMAZ; gemi adı + konum var.
 
-   ⚠️ "Alım modu" alanı VERİDE YOK (100 günlük Armies dosyasında ölçüldü);
-      `alim_modu` null gelir, burada "bilinmiyor" yazılır. Tahmin edilmez.
+   ⚔️ [17.09.2026] "Alım modu" ARTIK TOPLANIYOR (kullanıcının gönderdiği
+      canlı HTML ile): ordu asker alımını açtıysa ⚔️, danışman arıyorsa 🎖️
+      rozeti çıkar. 17.09 ÖNCESİ kayıtlarda alan yok → "bilinmiyor".
    ⚠️ Leaflet yüklenemese de (internetsiz) altta LİSTE görünür — katman
       yalnızca görsel katmandır, bilgi kaybolmaz.
    ⚠️ Ordu şehrin İÇİNDEyse işaret karenin içine, DIŞINDAysa ("kapıya
@@ -724,6 +728,29 @@ function rkOrduDegisimMetni(o) {
   return "= dün de aynı durumdaydı";
 }
 
+/* ⚔️🎖️ [17.09.2026] ALIM MODU ARTIK GERÇEK VERİ.
+   Kullanıcının ortağı (16.09): *"şu an ordu takibi yaptığımız sistem alım
+   modu ve asker alımlarını görüntüleyemiyor."* Haklıydı — "Başvur"/"Danış"
+   birer `<input type="submit">` olduğu için `body.text`e girmiyordu.
+   Kullanıcı 17.09'da o ekranın canlı HTML'ini gönderdi; `town_module`
+   artık `#zoneTexte2`den okuyor (EKSTRA SAYFA AÇMADAN).
+   ⚠️⚠️ ÜÇ DURUM AYRI: açık (true) · kapalı (false) · BİLİNMİYOR (null).
+      Eski Armies_*.json dosyalarında alan YOK → null kalır ve "bilinmiyor"
+      yazılır. `false` ile karıştırılmaz. */
+function rkAlimModu(o) {
+  const a = o.alim_modu, d = o.danisman;
+  if ((a === null || a === undefined) && (d === null || d === undefined)) {
+    return '<span class="emir-kucuk">bilinmiyor (17.09 öncesi kayıt)</span>';
+  }
+  const p = [];
+  if (a) p.push('<span class="emir-etiket">⚔️ asker alıyor</span>');
+  if (d) {
+    p.push('<span class="emir-etiket">🎖️ danışman arıyor' +
+           (o.danisman_puan ? " (" + o.danisman_puan + " puan)" : "") + "</span>");
+  }
+  return p.length ? p.join(" ") : '<span class="emir-kucuk">kapalı</span>';
+}
+
 function rkOrduPopup(o) {
   const disarida = o.durum === "Şehir Dışında";
   return '<div class="rk-popup"><b>🪖 ' + rkKacis(o.ad) + "</b><br>" +
@@ -731,8 +758,9 @@ function rkOrduPopup(o) {
     "📍 " + rkKacis(o.kasaba) + " · " + (disarida ? "🟠 " : "🟢 ") + rkKacis(o.durum) +
     (o.ham_durum ? ' <span class="emir-kucuk">(' + rkKacis(o.ham_durum) + ")</span>" : "") + "<br>" +
     rkOrduDegisimMetni(o) + "<br>" +
-    '<span class="emir-kucuk">🛒 Alım modu: ' + (o.alim_modu === null || o.alim_modu === undefined
-      ? "bilinmiyor — bot bu bilgiyi henüz toplamıyor" : rkKacis(o.alim_modu)) + "</span></div>";
+    "🛒 Alım modu: " + rkAlimModu(o) +
+    (o.danisman && o.danisman_maas ? '<br><span class="emir-kucuk">💰 Danışman maaşı: ' +
+      rkKacis(o.danisman_maas) + " Akçe</span>" : "") + "</div>";
 }
 
 function rkGemiPopup(g) {
@@ -744,6 +772,166 @@ function rkGemiPopup(g) {
     (g.yelken ? "⛵ Yelken: " + rkKacis(g.yelken) + "<br>" : "") +
     '<span class="emir-kucuk">Kayıt: ' + rkKacis(g.tarih || "?") +
     " — kaptanlık bizde değilken kayıt tazelenmez</span></div>";
+}
+
+/* ==========================================================================
+   🧭 SEYAHAT ROTALARI — HER HAMLEYE BİR KIRMIZI OK (17.09.2026)
+   --------------------------------------------------------------------------
+   Kullanıcı, birebir: *"Haritada hareket hâlindeki seyahat modu aktifleri
+   ya da aynı grupta olanları da nerede olduklarını görebilir miyiz acaba?
+   Harita üzerinden kalan günlerini ve nereden gideceklerini de görsek güzel
+   olur; **kırmızı oklarla** filan, her hamleye bir kırmızı ok ve o hamle
+   sonunda nerede olacağını göreceğimiz şekilde."*
+
+   Veri: docs/seyahat.json (pazar_json_uret.seyahat_uret)
+         ← ayarlar.json + Site_Ayarlari.json + harita.json + Gelisim_Durumu
+
+   ⚠️ ROTA TAHMİNİDİR, kesin değil: bot her turda en kısa yolu YENİDEN
+      hesaplıyor ve aynı uzunlukta birden çok yol olabilir. Günlük dilim
+      botun kendi kuralıyla aynı: günde `adim_hakki` düğüm
+      (3 jetonluysa, değilse 2 — `travel_module`).
+   ⚠️ Karakter İKİ KASABA ARASINDAYSA oyun kasaba adı vermez → o hesabın
+      rotası ÇİZİLMEZ, "beklemede" listesinde sebebiyle görünür. TAHMİN
+      EDİLMEZ (kural 0).
+   ========================================================================== */
+RK.seyahat = null;            // seyahat.json içeriği
+RK.seyahatKatman = null;      // L.layerGroup
+
+async function rkSeyahatYukle() {
+  try {
+    const c = await fetch("seyahat.json", { cache: "no-store" });
+    if (!c.ok) throw new Error("seyahat.json yok");
+    RK.seyahat = await c.json();
+  } catch (e) {
+    RK.seyahat = null;
+  }
+  window.seyahatVerisi = RK.seyahat;          // panel.js kartları + arama
+  if (typeof veriHazir === "function") veriHazir("seyahat");
+  rkSeyahatListesiYaz();
+  if (RK.map) rkSeyahatKatmaniCiz();
+}
+
+/* Gün numarasına göre renk: yaklaşan hamle koyu, uzak günler soluk. */
+function rkGunRengi(gun) {
+  const tonlar = ["#c0392b", "#d35400", "#e67e22", "#e8a33d", "#efc389"];
+  return tonlar[Math.min(gun - 1, tonlar.length - 1)];
+}
+
+function rkSeyahatPopup(y, g) {
+  const son = g ? g.varis : y.hedef;
+  return '<div class="rk-popup"><b>🧭 ' + rkKacis(y.hesap) + "</b>" +
+    (y.tur === "takip" ? ' <span class="emir-etiket">👥 ' + rkKacis(y.lider) +
+      " takipçisi</span>" : "") + "<br>" +
+    "📍 " + rkKacis(y.nereden) + " → 🎯 " + rkKacis(y.hedef) + "<br>" +
+    (g ? "🔴 <b>" + g.gun + ". gün sonunda:</b> " + rkKacis(son) + "<br>" : "") +
+    "🗓️ Kalan: <b>" + y.kalan_gun + " gün</b> · " + y.kalan_adim + " adım<br>" +
+    '<span class="emir-kucuk">Günde ' + y.adim_hakki + " adım" +
+    (y.jetonlu ? " (⚡ jetonlu)" : "") + " · tahmini rota</span></div>";
+}
+
+function rkSeyahatKatmaniCiz() {
+  if (!RK.map || !RK.veri || !window.L) return;
+  if (RK.seyahatKatman) { RK.map.removeLayer(RK.seyahatKatman); RK.seyahatKatman = null; }
+  RK.seyahatKatman = L.layerGroup();
+  const tik = document.getElementById("rk-seyahat");
+  const acik = tik ? tik.checked : true;
+  if (!RK.seyahat) return;
+
+  (RK.seyahat.yolcular || []).forEach((y) => {
+    // ⚠️ Rota düğüm KİMLİKLERİ ile geliyor; harita `RK.veri.dugumler`
+    //    aynı kimlikleri kullanıyor (ikisi de harita.json'dan türüyor).
+    const nokta = (id) => {
+      const d = RK.veri.dugumler[id];
+      return d ? RK.rc.unproject(rkPiksel(d[0], d[1])) : null;
+    };
+    const bas = nokta(y.nereden_id);
+    if (!bas) return;                       // haritada olmayan düğüm
+
+    let onceki = bas;
+    (y.gunler || []).forEach((g) => {
+      // 🔴 HER HAMLEYE BİR OK: o günün geçtiği düğümler tek çizgi,
+      //    ucunda o gün nerede olunacağını söyleyen işaret.
+      const ara = [onceki];
+      (g.duraklar || []).forEach((d) => {
+        const p = nokta(d.id);
+        if (p) ara.push(p);
+      });
+      if (ara.length < 2) return;
+      const renk = rkGunRengi(g.gun);
+      L.polyline(ara, { color: renk, weight: 3, opacity: 0.9 })
+        .bindPopup(rkSeyahatPopup(y, g)).addTo(RK.seyahatKatman);
+      const varis = ara[ara.length - 1];
+      const ikon = L.divIcon({
+        className: "rk-seyahat-ikon",
+        html: '<span style="border-color:' + renk + ';color:' + renk + '">➤ ' +
+              g.gun + ". gün<br>" + rkKacis(g.varis || "?") + "</span>",
+        iconAnchor: [0, 0],
+      });
+      L.marker(varis, { icon: ikon, title: y.hesap + " · " + g.gun + ". gün" })
+        .bindPopup(rkSeyahatPopup(y, g)).addTo(RK.seyahatKatman);
+      onceki = varis;
+    });
+
+    // 🧍 Hesabın ŞU ANKİ yeri
+    const ikon = L.divIcon({
+      className: "rk-seyahat-yolcu",
+      html: (y.tur === "takip" ? "👥 " : "🧭 ") + rkKacis(y.hesap),
+      iconAnchor: [0, 0],
+    });
+    L.marker(bas, { icon: ikon, title: y.hesap })
+      .bindPopup(rkSeyahatPopup(y, null)).addTo(RK.seyahatKatman);
+  });
+
+  if (acik) RK.seyahatKatman.addTo(RK.map);
+}
+
+function rkSeyahatListesiYaz() {
+  const kap = document.getElementById("rk-seyahat-liste");
+  if (!kap) return;
+  const v = RK.seyahat;
+  if (!v) {
+    kap.innerHTML = '<p class="bos-durum">seyahat.json yok — bot bir tur ' +
+      "attıktan sonra dolar.</p>";
+    return;
+  }
+  const yol = v.yolcular || [], bek = v.beklemede || [];
+  let html = '<div class="envanter-ozet">' +
+    '<div class="ozet-kart ozet-kart-toplam"><span class="ozet-etiket">🧭 Yolda</span><span class="ozet-deger">' +
+      yol.length + "</span></div>" +
+    '<div class="ozet-kart"><span class="ozet-etiket">👥 Grup takipçisi</span><span class="ozet-deger">' +
+      yol.filter((y) => y.tur === "takip").length + "</span></div>" +
+    '<div class="ozet-kart"><span class="ozet-etiket">⏳ En uzun yol</span><span class="ozet-deger">' +
+      (yol.length ? Math.max.apply(null, yol.map((y) => y.kalan_gun)) + " gün" : "—") + "</span></div>" +
+    '<div class="ozet-kart' + (bek.length ? " ozet-kart-supheli" : "") +
+      '"><span class="ozet-etiket">❔ Çizilemeyen</span><span class="ozet-deger">' +
+      bek.length + "</span></div></div>";
+
+  html += '<div class="tablo-sarici"><table class="rk-ordu-tablo"><thead><tr>' +
+    "<th>Hesap</th><th>Nerede</th><th>Hedef</th><th>Kalan</th>" +
+    "<th>Gün gün nerede olacak</th></tr></thead><tbody>" +
+    (yol.length ? yol.map((y) =>
+      "<tr><td><b>" + rkKacis(y.hesap) + "</b>" +
+      (y.tur === "takip" ? '<br><span class="emir-kucuk">👥 ' + rkKacis(y.lider) +
+        " takipçisi</span>" : "") + "</td>" +
+      "<td>" + rkKacis(y.nereden) + "</td><td>" + rkKacis(y.hedef) + "</td>" +
+      "<td><b>" + y.kalan_gun + " gün</b><br>" +
+      '<span class="emir-kucuk">' + y.kalan_adim + " adım · günde " +
+      y.adim_hakki + "</span></td>" +
+      '<td class="emir-kucuk">' + (y.gunler || []).map((g) =>
+        '<span class="emir-etiket" style="border-color:' + rkGunRengi(g.gun) + '">' +
+        g.gun + ". gün → " + rkKacis(g.varis || "?") + "</span>").join(" ") +
+      "</td></tr>").join("")
+     : '<tr><td colspan="5" class="bos-durum">Şu an yolda olan hesap yok.</td></tr>') +
+    "</tbody></table></div>";
+
+  if (bek.length) {
+    // ⚠️ "Çizilemedi" ≠ "yolda değil". Sebebi AÇIKÇA yazılır ki kimse
+    //    eksik veriyi "sorun yok" diye okumasın.
+    html += '<p class="bolum-aciklama" style="margin-top:.6rem">❔ Rotası ' +
+      "çizilemeyenler: " + bek.map((b) => "<b>" + rkKacis(b.hesap) + "</b> (" +
+      rkKacis(b.sebep) + ")").join(" · ") + "</p>";
+  }
+  kap.innerHTML = html;
 }
 
 async function rkOrduYukle() {
@@ -853,7 +1041,7 @@ function rkOrduListesiYaz() {
       return "<tr" + (d ? ' class="rk-ordu-satir-disi"' : "") + "><td><b>" + rkKacis(o.ad) + "</b></td><td>" + rkKacis(o.kasaba) + "</td>" +
         '<td><span class="konum-rozet' + (d ? " konum-disari" : "") + '">' + (d ? "🟠 " : "🟢 ") + rkKacis(o.durum) + "</span></td>" +
         "<td>" + rkKacis(o.komutan) + "</td><td>" + rkOrduDegisimMetni(o) + "</td>" +
-        '<td class="emir-kucuk">' + (o.alim_modu === null || o.alim_modu === undefined ? "bilinmiyor" : rkKacis(o.alim_modu)) + "</td>" +
+        "<td>" + rkAlimModu(o) + "</td>" +
         "<td>" + goster(o.ad) + "</td></tr>";
     }).join("") : '<tr><td colspan="7" class="bos-durum">Bugün kasabalarımızda ordu görülmedi.</td></tr>') +
     "</tbody></table></div>";
@@ -886,6 +1074,17 @@ function rkOrduListesiYaz() {
 
 document.addEventListener("DOMContentLoaded", () => {
   rkOrduYukle();
+  rkSeyahatYukle();          // 🧭 seyahat rotaları (kırmızı oklar)
+  // panel.js: #harita/seyahat adresiyle gelince
+  document.addEventListener("harita-alt", (e) => {
+    const d = (e && e.detail) || {};
+    if (d.alt !== "seyahat") return;
+    if (typeof rkKur === "function") rkKur();
+    const bolum = document.getElementById("rk-seyahat-bolum");
+    if (bolum && bolum.scrollIntoView) {
+      setTimeout(() => bolum.scrollIntoView({ block: "start", behavior: "smooth" }), 200);
+    }
+  });
   // panel.js: #harita/ordu[/<ad>] adresiyle gelince
   document.addEventListener("harita-alt", (e) => {
     const d = (e && e.detail) || {};
