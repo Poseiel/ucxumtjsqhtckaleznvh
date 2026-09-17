@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-17 08:17",
+  "son_guncelleme": "2026-09-17 09:10",
   "azami_gun": 14,
   "azami_deneme": 7,
   "bekleyen": [
@@ -44,6 +44,28 @@
       "kapanma": ""
     },
     {
+      "kod": "E21",
+      "tur": "al",
+      "hesap": "DWADU",
+      "urun": "Midas'ın Mütevazı Sandığı",
+      "adet": 1,
+      "fiyat": "azami 50.00 akçe",
+      "alici": "",
+      "hemen": false,
+      "eyalet": false,
+      "serbest": false,
+      "yazan": "otomatik (E20)",
+      "eklenme": "2026-09-17 09:10",
+      "gecen_gun": 0,
+      "kalan_gun": 14,
+      "deneme": 0,
+      "azami_deneme": 7,
+      "sonuc": "",
+      "kapanma": ""
+    }
+  ],
+  "gecmis": [
+    {
       "kod": "E20",
       "tur": "sat",
       "hesap": "TONALI",
@@ -60,11 +82,9 @@
       "kalan_gun": 14,
       "deneme": 0,
       "azami_deneme": 7,
-      "sonuc": "",
-      "kapanma": ""
-    }
-  ],
-  "gecmis": [
+      "sonuc": "✅ SATILDI (1 adet · 50.00 akçe)",
+      "kapanma": "2026-09-17 09:10"
+    },
     {
       "kod": "E17",
       "tur": "al",
@@ -78,8 +98,8 @@
       "serbest": false,
       "yazan": "otomatik (E13)",
       "eklenme": "2026-09-12 08:49",
-      "gecen_gun": 4,
-      "kalan_gun": 10,
+      "gecen_gun": 5,
+      "kalan_gun": 9,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "✅ ALINDI (30 adet)",
@@ -98,8 +118,8 @@
       "serbest": false,
       "yazan": "Feyyaz",
       "eklenme": "2026-09-07 08:42",
-      "gecen_gun": 9,
-      "kalan_gun": 5,
+      "gecen_gun": 10,
+      "kalan_gun": 4,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "✅ SATILDI (30 adet · 999.95 akçe)",
@@ -138,8 +158,8 @@
       "serbest": false,
       "yazan": "Feyyaz",
       "eklenme": "2026-09-07 08:42",
-      "gecen_gun": 9,
-      "kalan_gun": 5,
+      "gecen_gun": 10,
+      "kalan_gun": 4,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "✅ SATILDI (30 adet · 999.95 akçe)",
@@ -158,8 +178,8 @@
       "serbest": false,
       "yazan": "Feyyaz",
       "eklenme": "2026-09-07 08:42",
-      "gecen_gun": 9,
-      "kalan_gun": 5,
+      "gecen_gun": 10,
+      "kalan_gun": 4,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "🚫 İPTAL (Feyyaz)",
