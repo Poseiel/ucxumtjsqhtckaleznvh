@@ -1242,6 +1242,29 @@ td.hesap-ad:hover { text-decoration: underline; }
 .ay-bolum-gorev { border-color: var(--accent-2); }
 .ay-bolum-gorev > legend { color: var(--accent-2); }
 
+/* 👑 ÇOKLU MAKAM SEÇİCİ (17.09.2026) — bir hesap birden çok makam tutabilir,
+   o yüzden tek seçimli açılır kutu yerine tikli liste kullanılıyor. */
+.ay-makam-kutu { display: block; }
+.ay-ipucu { display: block; font-size: 0.72rem; font-weight: 400; opacity: 0.75; margin: 0.1rem 0 0.25rem; }
+.ay-tik-liste { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 0.15rem 0.6rem; border: 1px solid var(--border); border-radius: 10px;
+                padding: 0.45rem 0.6rem; max-height: 168px; overflow-y: auto; }
+.ay-tik-tek { display: flex; align-items: center; gap: 0.35rem; font-weight: 400;
+              font-size: 0.85rem; cursor: pointer; }
+.ay-tik-tek input { width: auto; margin: 0; }
+
+/* 👥 GRUPLAR sekmesi — yeni açılan grup satırı göze çarpsın. */
+tr.grup-yeni > td { background: color-mix(in srgb, var(--accent-2) 12%, transparent); }
+#gruplar-taranan { color: var(--text-dim); font-size: 0.82rem; }
+
+/* 🧭 SEYAHAT ROTALARI (17.09.2026) — her hamle bir ok, ucunda o günün varışı. */
+.rk-seyahat-ikon span { display: inline-block; background: var(--bg-panel);
+  border: 2px solid currentColor; border-radius: 8px; padding: 1px 5px;
+  font-size: 0.68rem; font-weight: 700; line-height: 1.15; white-space: nowrap; }
+.rk-seyahat-yolcu { background: var(--bg-panel); border: 2px solid var(--accent-2);
+  border-radius: 8px; padding: 1px 6px; font-size: 0.72rem; font-weight: 700;
+  white-space: nowrap; }
+
 /* 📱 TELEFON */
 @media (max-width: 700px) {
   .site-header { padding: 0.7rem 0.8rem 0.4rem; }
