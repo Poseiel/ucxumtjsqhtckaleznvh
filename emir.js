@@ -936,6 +936,7 @@ var AY_ADIM_TIPLERI = [
   ["seyahat", "🚶 Kasabaya git"],
   ["varinca", "📍 Oraya VARILMASINI bekle"],
   ["gemiye_bin", "⛵ Gemiye bin"],
+  ["karaya_cik", "🏝️ Karaya çık (gemiden in)"],
   ["satin_al", "🛒 Pazardan al"],
   ["hersey_sat", "💸 Her şeyi sat"],
   ["ev_al", "🏠 Ev + tarla al"],
@@ -956,7 +957,10 @@ var AY_ADIM_TIPLERI = [
    tarla). Artık hedefe TARLA TİPİ yazılabiliyor (`ev_al:Sebze`); boş
    bırakılırsa eski davranış sürer, meslek adı yazılırsa atölye olarak
    çalışır — yani eski `ev_al:<meslek>` yazımı da bozulmadı. */
-var AY_DEGERSIZ = ["grup_kur", "grup_dagit"];
+/* ⚓ [17.09.2026] `karaya_cik` de değer istemez: gemi güvertesindeki
+   "Karaya Çıkış" düğmesine basar, hedef kutusu gereksizdir.
+   ⚠️ Bu HAMLE harcar — aynı turda kaptan ayrıca hamle yapmaz. */
+var AY_DEGERSIZ = ["grup_kur", "grup_dagit", "karaya_cik"];
 
 /* Takip modu seçenekleri (launcher'daki listeyle aynı). */
 var AY_TAKIP_MODLARI = ["Yok", "Grup Takip", "Ordu Takip", "Alışverişçi",
@@ -990,20 +994,49 @@ function ayKasabalariDoldur() {
     .catch(function () { /* harita yoksa kutu serbest yazıya düşer */ });
 }
 
-/* Divan görevleri: sabit liste (oyunun makamları). */
-var AY_DIVAN = ["", "Ziraat Nazırı", "Ticaret Nazırı", "Belediye Reisi",
-                "Maliye Nazırı", "İçişleri Nazırı", "Ordu Komutanı"];
+/* 👑 MAKAM LİSTESİ — `trade_config.DIVAN_GOREVLERI` ile BİREBİR aynı olmalı.
+   ⚠️⚠️ [17.09.2026 — DÜZELTİLDİ] Burada eskiden oyunda OLMAYAN üç makam
+      vardı ("Maliye Nazırı", "İçişleri Nazırı", "Ordu Komutanı") ve
+      gerçek listedeki sekiz makam (Sancak Beyi, Kazasker, Savcı, Kadı…)
+      EKSİKTİ. Siteden "Maliye Nazırı" seçilse bot onu tanımaz, hesabı
+      görevsiz sayardı. CLAUDE.md kuralı: "kısıtlı seçenekli alanın
+      seçenekleri launcher ile BİREBİR aynı olmalıdır."
+   ⚠️ Yeni makam eklenecekse önce `trade_config.DIVAN_GOREVLERI`, sonra
+      burası. `testler/test_site_emir.py` ikisinin ayrışmasını engelliyor. */
+var AY_DIVAN = ["Sancak Beyi", "Maden Mütevellîsi", "Sözcü", "Kazasker",
+                "Ticaret Nazırı", "Serdar-ı Ekrem", "Savcı", "Kadı",
+                "Yeniçeri Ağası", "Ziraat Nazırı", "Belediye Reisi",
+                "Liman Şefi"];
 
 function ayDivaniDoldur() {
-  var sec = document.getElementById("ay-divan");
-  if (!sec) return;
-  var html = "<option value=" + ayTirnak("") + ">— değiştirme —</option>";
-  html += "<option value=" + ayTirnak("iptal") + ">— görevi kaldır —</option>";
-  AY_DIVAN.forEach(function (g) {
+  var kap = document.getElementById("ay-divan-kutular");
+  if (!kap) return;
+  var html = "";
+  AY_DIVAN.forEach(function (g, i) {
     if (!g) return;
-    html += "<option value=" + ayTirnak(emirKacis(g)) + ">" + emirKacis(g) + "</option>";
+    html += '<label class="ay-tik-tek"><input type="checkbox" class="ay-divan-tik"'
+          + ' data-gorev=' + ayTirnak(emirKacis(g)) + ' id="ay-divan-' + i + '"> '
+          + emirKacis(g) + "</label>";
   });
-  sec.innerHTML = html;
+  kap.innerHTML = html;
+  Array.prototype.forEach.call(kap.querySelectorAll(".ay-divan-tik"), function (el) {
+    el.addEventListener("change", emirGuncelle);
+  });
+  var sil = document.getElementById("ay-divan-sil");
+  if (sil) sil.addEventListener("change", emirGuncelle);
+}
+
+/* Seçili makamları emir satırına çevirir. "" = değiştirme. */
+function ayMakamDegeri() {
+  var sil = document.getElementById("ay-divan-sil");
+  if (sil && sil.checked) return "iptal";
+  var secili = [];
+  Array.prototype.forEach.call(
+    document.querySelectorAll("#ay-divan-kutular .ay-divan-tik"), function (el) {
+      if (el.checked) secili.push(el.getAttribute("data-gorev"));
+    });
+  /* ⚠️ Ayırıcı `trade_config.GOREV_AYIRACI` ile aynı olmalı: " + ". */
+  return secili.join(" + ");
 }
 
 /* --- görev adımı satırı --- */
@@ -1237,7 +1270,8 @@ function ayMesajiKur() {
   ekle("kaptan", emirDeger("ay-kaptan"));
   ekle("ases", emirDeger("ay-ases"));
   ekle("puan", emirDeger("ay-puan"));
-  ekle("divan", emirDeger("ay-divan"));
+  ekle("ordu", emirDeger("ay-ordu"));   /* 🎖️ hangi ordu (ordu puanı) */
+  ekle("divan", ayMakamDegeri());   /* 👑 çoklu makam (tikli liste) */
   ekle("seyahat", emirDeger("ay-seyahat"));
   ekle("ders", emirDeger("ay-ders"));
   ekle("armatör", emirDeger("ay-armator"));
@@ -1289,7 +1323,8 @@ function ayKur() {
     emirGuncelle();
   });
   ["ay-hesap", "ay-takip", "ay-inziva", "ay-gemi", "ay-kaptan", "ay-ases",
-   "ay-puan", "ay-divan", "ay-seyahat", "ay-ders", "ay-armator", "ay-ders-verme", "ay-isci"
+   "ay-puan", "ay-ordu", "ay-seyahat", "ay-ders", "ay-armator",
+   "ay-ders-verme", "ay-isci"
   ].forEach(function (id) {
     var el = document.getElementById(id);
     if (el) {
