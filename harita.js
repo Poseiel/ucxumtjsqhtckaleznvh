@@ -817,16 +817,45 @@ function rkGunRengi(gun) {
   return tonlar[Math.min(gun - 1, tonlar.length - 1)];
 }
 
-function rkSeyahatPopup(y, g) {
-  const son = g ? g.varis : y.hedef;
-  return '<div class="rk-popup"><b>🧭 ' + rkKacis(y.hesap) + "</b>" +
-    (y.tur === "takip" ? ' <span class="emir-etiket">👥 ' + rkKacis(y.lider) +
-      " takipçisi</span>" : "") + "<br>" +
-    "📍 " + rkKacis(y.nereden) + " → 🎯 " + rkKacis(y.hedef) + "<br>" +
+/* 🧑‍🤝‍🧑 Kafiledeki hesapları alt alta yazar (grupsa lideri belirtir).
+   ⚠️ Üyeliği KONUMDAN çıkarılanlar "❓" ile işaretlenir — bakan kişi
+      hangisinin ölçüm, hangisinin tahmin olduğunu görsün. */
+function rkKafileListesi(k) {
+  const satirlar = (k.hesaplar || []).map(function (h) {
+    const ikon = h.tur === "takip" ? (h.tahmin ? "❓ " : "👥 ") : "🧭 ";
+    return ikon + rkKacis(h.hesap);
+  });
+  return satirlar.join("<br>");
+}
+
+/* 📏 Grup üyeliği OYUNDAN mı ölçüldü, konumdan mı çıkarıldı?
+   Kaynaklar: "gruplarimiz" (kendi kurduğumuz grup) · "oyun_tablosu"
+   (oyunun kasaba grup tablosu) · "ayar" · "ayni_nokta" (çıkarım).
+   ⚠️ Eski seyahat.json'larda bu alan YOK — o zaman rozet basılmaz. */
+function rkUyelikRozeti(k) {
+  if (k.kisi < 2 || k.olculdu === undefined) return "";
+  return k.olculdu
+    ? ' <span class="emir-kucuk" title="Grup üyeliği oyunun kendi kaydından okundu (kurduğumuz grup ya da oyunun kasaba grup tablosu).">📏 oyundan ölçüldü</span>'
+    : ' <span class="emir-kucuk" title="Grup ayarı boştu ve oyun kaydında da yoktu; aynı noktadan aynı yere gittikleri için birlikte sayıldılar.">❓ konumdan tahmin</span>';
+}
+
+function rkSeyahatPopup(k, g) {
+  /* ⚠️ Artık KAFİLE alır (tek hesap da 1 kişilik kafiledir): aynı
+     noktadan aynı yere gidenler TEK ok takımı paylaşır. */
+  const son = g ? g.varis : k.hedef;
+  const baslik = k.kisi > 1
+    ? "🧑‍🤝‍🧑 " + k.kisi + " hesap birlikte" +
+      (k.grup ? ' <span class="emir-etiket">👥 ' + rkKacis(k.lider) +
+        " grubu</span>" : "") + rkUyelikRozeti(k)
+    : "🧭 " + rkKacis((k.hesaplar[0] || {}).hesap || "?");
+  return '<div class="rk-popup"><b>' + baslik + "</b><br>" +
+    (k.kisi > 1 ? '<span class="emir-kucuk">' + rkKafileListesi(k) +
+      "</span><br>" : "") +
+    "📍 " + rkKacis(k.nereden) + " → 🎯 " + rkKacis(k.hedef) + "<br>" +
     (g ? "🔴 <b>" + g.gun + ". gün sonunda:</b> " + rkKacis(son) + "<br>" : "") +
-    "🗓️ Kalan: <b>" + y.kalan_gun + " gün</b> · " + y.kalan_adim + " adım<br>" +
-    '<span class="emir-kucuk">Günde ' + y.adim_hakki + " adım" +
-    (y.jetonlu ? " (⚡ jetonlu)" : "") + " · tahmini rota</span></div>";
+    "🗓️ Kalan: <b>" + k.kalan_gun + " gün</b> · " + k.kalan_adim + " adım<br>" +
+    '<span class="emir-kucuk">Günde ' + k.adim_hakki + " adım" +
+    (k.jetonlu ? " (⚡ jetonlu)" : "") + " · tahmini rota</span></div>";
 }
 
 function rkSeyahatKatmaniCiz() {
@@ -837,7 +866,17 @@ function rkSeyahatKatmaniCiz() {
   const acik = tik ? tik.checked : true;
   if (!RK.seyahat) return;
 
-  (RK.seyahat.yolcular || []).forEach((y) => {
+  /* ⚠️⚠️ KAFİLE BAŞINA TEK OK TAKIMI. Kullanıcı: "hepsine ok çizerse
+     ortalık karışabilir." 8 kişilik grup eskiden 8 kat üst üste ok
+     demekti. Eski `yolcular` listesi YEDEK olarak duruyor (eski
+     seyahat.json'lar da açılabilsin). */
+  const _kafileler = RK.seyahat.kafileler
+    || (RK.seyahat.yolcular || []).map(function (y) {
+         return Object.assign({}, y, { kisi: 1, grup: false,
+                                       hesaplar: [{ hesap: y.hesap, tur: y.tur,
+                                                    lider: y.lider || "" }] });
+       });
+  _kafileler.forEach((y) => {
     // ⚠️ Rota düğüm KİMLİKLERİ ile geliyor; harita `RK.veri.dugumler`
     //    aynı kimlikleri kullanıyor (ikisi de harita.json'dan türüyor).
     const nokta = (id) => {
@@ -872,13 +911,17 @@ function rkSeyahatKatmaniCiz() {
       onceki = varis;
     });
 
-    // 🧍 Hesabın ŞU ANKİ yeri
+    // 🧍 Kafilenin ŞU ANKİ yeri — tek hesapsa adı, çoksa sayısı yazar.
+    const _tekAd = ((y.hesaplar || [])[0] || {}).hesap || "?";
     const ikon = L.divIcon({
-      className: "rk-seyahat-yolcu",
-      html: (y.tur === "takip" ? "👥 " : "🧭 ") + rkKacis(y.hesap),
+      className: "rk-seyahat-yolcu" + (y.kisi > 1 ? " rk-seyahat-kafile" : ""),
+      html: (y.kisi > 1
+        ? "🧑‍🤝‍🧑 " + y.kisi + " hesap" + (y.grup ? " (👥 grup)" : "")
+        : ((y.hesaplar[0] || {}).tur === "takip" ? "👥 " : "🧭 ") + rkKacis(_tekAd)),
       iconAnchor: [0, 0],
     });
-    L.marker(bas, { icon: ikon, title: y.hesap })
+    L.marker(bas, { icon: ikon, title: (y.hesaplar || []).map(function (h) {
+        return h.hesap; }).join(", ") })
       .bindPopup(rkSeyahatPopup(y, null)).addTo(RK.seyahatKatman);
   });
 
@@ -898,6 +941,9 @@ function rkSeyahatListesiYaz() {
   let html = '<div class="envanter-ozet">' +
     '<div class="ozet-kart ozet-kart-toplam"><span class="ozet-etiket">🧭 Yolda</span><span class="ozet-deger">' +
       yol.length + "</span></div>" +
+    '<div class="ozet-kart"><span class="ozet-etiket">🧑‍🤝‍🧑 Kafile</span><span class="ozet-deger">' +
+      (v.kafileler || []).length + "</span>" +
+      '<span class="ozet-alt">aynı yoldakiler birlikte</span></div>' +
     '<div class="ozet-kart"><span class="ozet-etiket">👥 Grup takipçisi</span><span class="ozet-deger">' +
       yol.filter((y) => y.tur === "takip").length + "</span></div>" +
     '<div class="ozet-kart"><span class="ozet-etiket">⏳ En uzun yol</span><span class="ozet-deger">' +
@@ -906,18 +952,35 @@ function rkSeyahatListesiYaz() {
       '"><span class="ozet-etiket">❔ Çizilemeyen</span><span class="ozet-deger">' +
       bek.length + "</span></div></div>";
 
+  /* 🧑‍🤝‍🧑 TABLO ARTIK KAFİLE BAZLI. Kullanıcı: "aynı noktada olup aynı
+     yere giden hesapları alt alta göstersin site, yoksa çok karışır...
+     grupça hareket edenleri filan da görebiliyorsak grup üyeleri filan
+     yazsak yani." Aynı yoldaki hesaplar TEK SATIRDA, adları alt alta. */
+  const kaf = v.kafileler || yol.map(function (y) {
+    return Object.assign({}, y, { kisi: 1, grup: false,
+      hesaplar: [{ hesap: y.hesap, tur: y.tur, lider: y.lider || "" }] });
+  });
   html += '<div class="tablo-sarici"><table class="rk-ordu-tablo"><thead><tr>' +
-    "<th>Hesap</th><th>Nerede</th><th>Hedef</th><th>Kalan</th>" +
+    "<th>Kim gidiyor</th><th>Nerede</th><th>Hedef</th><th>Kalan</th>" +
     "<th>Gün gün nerede olacak</th></tr></thead><tbody>" +
-    (yol.length ? yol.map((y) =>
-      "<tr><td><b>" + rkKacis(y.hesap) + "</b>" +
-      (y.tur === "takip" ? '<br><span class="emir-kucuk">👥 ' + rkKacis(y.lider) +
-        " takipçisi</span>" : "") + "</td>" +
-      "<td>" + rkKacis(y.nereden) + "</td><td>" + rkKacis(y.hedef) + "</td>" +
-      "<td><b>" + y.kalan_gun + " gün</b><br>" +
-      '<span class="emir-kucuk">' + y.kalan_adim + " adım · günde " +
-      y.adim_hakki + "</span></td>" +
-      '<td class="emir-kucuk">' + (y.gunler || []).map((g) =>
+    (kaf.length ? kaf.map((k) =>
+      "<tr" + (k.kisi > 1 ? ' class="rk-kafile-satir"' : "") + "><td>" +
+      (k.kisi > 1
+        ? "<b>🧑‍🤝‍🧑 " + k.kisi + " hesap birlikte</b>" +
+          (k.grup ? ' <span class="emir-etiket">👥 ' + rkKacis(k.lider) +
+            " grubu</span>" : "") + rkUyelikRozeti(k) +
+          '<div class="emir-kucuk rk-kafile-uyeler">' + rkKafileListesi(k) + "</div>"
+        : "<b>" + rkKacis((k.hesaplar[0] || {}).hesap || "?") + "</b>" +
+          ((k.hesaplar[0] || {}).tur === "takip"
+            ? '<br><span class="emir-kucuk">👥 ' +
+              rkKacis((k.hesaplar[0] || {}).lider || "?") + " takipçisi</span>"
+            : "")) +
+      "</td>" +
+      "<td>" + rkKacis(k.nereden) + "</td><td>" + rkKacis(k.hedef) + "</td>" +
+      "<td><b>" + k.kalan_gun + " gün</b><br>" +
+      '<span class="emir-kucuk">' + k.kalan_adim + " adım · günde " +
+      k.adim_hakki + "</span></td>" +
+      '<td class="emir-kucuk">' + (k.gunler || []).map((g) =>
         '<span class="emir-etiket" style="border-color:' + rkGunRengi(g.gun) + '">' +
         g.gun + ". gün → " + rkKacis(g.varis || "?") + "</span>").join(" ") +
       "</td></tr>").join("")
