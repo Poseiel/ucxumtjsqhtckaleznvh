@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-17 15:53",
+  "son_guncelleme": "2026-09-17 21:25",
   "rapor_tarihi": "2026-09-17",
   "onceki_tarih": "2026-09-16",
   "ordular": [
@@ -10,6 +10,10 @@
       "durum": "Şehir İçinde",
       "ham_durum": "Ordu şehirde",
       "alim_modu": null,
+      "danisman": null,
+      "danisman_puan": null,
+      "danisman_maas": "",
+      "komutan_login": "",
       "degisim": "ayni",
       "onceki_kasaba": "Girvan",
       "onceki_durum": "Şehir İçinde"
@@ -21,6 +25,10 @@
       "durum": "Şehir Dışında",
       "ham_durum": "Ordu, Şehir kapılarına dayandı.",
       "alim_modu": null,
+      "danisman": null,
+      "danisman_puan": null,
+      "danisman_maas": "",
+      "komutan_login": "",
       "degisim": "ayni",
       "onceki_kasaba": "Glasgow",
       "onceki_durum": "Şehir Dışında"
@@ -32,6 +40,10 @@
       "durum": "Şehir Dışında",
       "ham_durum": "Ordu, Şehir kapılarına dayandı.",
       "alim_modu": null,
+      "danisman": null,
+      "danisman_puan": null,
+      "danisman_maas": "",
+      "komutan_login": "",
       "degisim": "ayni",
       "onceki_kasaba": "Stirling",
       "onceki_durum": "Şehir Dışında"
@@ -43,6 +55,10 @@
       "durum": "Şehir İçinde",
       "ham_durum": "Ordu şehirde",
       "alim_modu": null,
+      "danisman": null,
+      "danisman_puan": null,
+      "danisman_maas": "",
+      "komutan_login": "",
       "degisim": "ayni",
       "onceki_kasaba": "Wigtown",
       "onceki_durum": "Şehir İçinde"
@@ -50,5 +66,5 @@
   ],
   "ayrilanlar": [],
   "gemiler": [],
-  "not": "alim_modu alanı henüz toplanmıyor (Armies_*.json'da yok); bot okumaya başlayınca doldurulacak."
+  "not": "alim_modu/danisman 17.09.2026'dan itibaren toplanıyor; daha eski günlerde null (bilinmiyor) görünür."
 }
