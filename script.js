@@ -2307,6 +2307,16 @@ function filoTabloCiz() {
    Verisi: emirler.json (pazar_json_uret.emirler_uret)
    ⚠️ Eski index.html'de bu sekme yoksa fonksiyon sessizce çıkar.
    ========================================================== */
+/* HTML kaçışı — site ayarları Telegram'dan geliyor, ham basılmamalı.
+   ⚠️ `emir.js`teki `emirKacis` ile aynı işi yapar ama script.js tek
+   başına da çalışabilsin diye burada duruyor (emir.js yüklenmemiş
+   olabilir: eski bir index.html ya da kısmi yayın). */
+function kacis(metin) {
+  return String(metin === null || metin === undefined ? "" : metin)
+    .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
 function emirTurAdi(t) {
   if (t === "sat") return "💰 Satış";
   if (t === "al") return "🛒 Alım";
@@ -2404,6 +2414,31 @@ async function emirDurumYukle() {
       gGovde.appendChild(tr);
     });
     gBos.hidden = gecmis.length !== 0;
+
+    /* 🖥️ [17.09.2026] SİTEDEN YÖNETİLEN HESAP AYARLARI.
+       Kullanıcı: "Sitede emirler yazmıyor?" — Site_Ayarlari.json pazar
+       emirlerinden AYRI bir kuyruk ve hiç yayınlanmıyordu. Artık
+       emirler.json içinde "ayarlar" olarak geliyor.
+       ⚠️ Eski emirler.json'larda bu alan YOK → bölüm sessizce boş kalır. */
+    const ayarlar = veri.ayarlar || [];
+    const aGovde = document.getElementById("emirayar-govde");
+    const aBos = document.getElementById("emirayar-bos");
+    const aTarih = document.getElementById("emirayar-tarih");
+    if (aTarih) aTarih.textContent = veri.ayar_guncelleme || "—";
+    if (aGovde) {
+      aGovde.innerHTML = "";
+      ayarlar.forEach((h) => {
+        const tr = document.createElement("tr");
+        const rozetler = (h.alanlar || []).map(function (a) {
+          return '<span class="emir-etiket">' + kacis(a.ad) + ": " +
+                 kacis(a.deger) + "</span>";
+        }).join(" ");
+        tr.innerHTML = "<td>" + kacis(h.hesap || "") + "</td>" +
+                       '<td class="emirayar-alanlar">' + rozetler + "</td>";
+        aGovde.appendChild(tr);
+      });
+      if (aBos) aBos.hidden = ayarlar.length !== 0;
+    }
     veriHazir("emirler");
   } catch (e) {
     t.textContent = "yüklenemedi";
@@ -2411,6 +2446,126 @@ async function emirDurumYukle() {
   }
 }
 
+
+/* ===================================================================
+   👥 GRUPLAR (17.09.2026)
+   Kullanıcının ortağı: "grupları da takip edebilir miyiz knk, yeni
+   açılan gruplar / mevcut gruplar şeklinde."
+   ⚠️ Veri `Town_Data/Gruplar_*.json`tan geliyordu ama hiçbir sekme
+      okumuyordu — yalnızca multi raporuna/Telegram'a düşüyordu.
+   =================================================================== */
+var gruplarVerisi = { gruplar: [], ayrilanlar: [] };
+
+function gruplarOzetCiz() {
+  const kap = document.getElementById("gruplar-ozet");
+  if (!kap) return;
+  const g = gruplarVerisi.gruplar || [];
+  const yeni = g.filter((x) => x.yeni).length;
+  const degisen = g.filter((x) => x.degisim).length;
+  const kisi = g.reduce((t, x) => t + (x.kisi || 0), 0);
+  const kartlar = [
+    ["👥 Grup", g.length],
+    ["🆕 Yeni açılan", yeni],
+    ["🔄 Değişen", degisen],
+    ["🧍 Toplam kişi", kisi],
+    ["➖ Listeden düşen", (gruplarVerisi.ayrilanlar || []).length],
+  ];
+  kap.innerHTML = kartlar.map(function (k) {
+    return '<div class="ozet-kart"><div class="ozet-etiket">' + kacis(k[0]) +
+           '</div><div class="ozet-deger">' + k[1] + "</div></div>";
+  }).join("");
+}
+
+function gruplarTabloCiz() {
+  const govde = document.getElementById("gruplar-govde");
+  if (!govde) return;
+  const ara = (document.getElementById("gruplar-arama") || {}).value || "";
+  const kasaba = (document.getElementById("gruplar-kasaba-filtre") || {}).value || "";
+  const durum = (document.getElementById("gruplar-durum-filtre") || {}).value || "";
+  const k = ara.toLocaleLowerCase("tr-TR").trim();
+
+  const satirlar = (gruplarVerisi.gruplar || []).filter(function (g) {
+    if (kasaba && g.kasaba !== kasaba) return false;
+    if (durum === "yeni" && !g.yeni) return false;
+    if (durum === "degisen" && !g.degisim) return false;
+    if (durum === "kalabalik" && (g.kisi || 0) < 2) return false;
+    if (!k) return true;
+    const havuz = [g.lider, g.kasaba, g.tur].concat(g.uyeler || [])
+      .join(" ").toLocaleLowerCase("tr-TR");
+    return havuz.indexOf(k) >= 0;
+  });
+
+  govde.innerHTML = satirlar.map(function (g) {
+    const rozet = g.yeni ? '<span class="emir-etiket">🆕 YENİ</span>'
+                         : (g.degisim ? "🔄" : "•");
+    return "<tr" + (g.yeni ? ' class="grup-yeni"' : "") + ">" +
+      "<td>" + rozet + "</td>" +
+      "<td>" + kacis(g.kasaba) + "</td>" +
+      "<td>" + kacis(g.lider) + "</td>" +
+      "<td>" + (g.kisi || 0) + "</td>" +
+      "<td>" + kacis((g.uyeler || []).join(", ")) + "</td>" +
+      "<td>" + kacis(g.katilim) + "</td>" +
+      "<td>" + (g.gun || 1) + " gün</td>" +
+      "<td>" + kacis(g.degisim || "") + "</td>" +
+      "</tr>";
+  }).join("");
+  const bos = document.getElementById("gruplar-bos");
+  if (bos) bos.hidden = satirlar.length !== 0;
+}
+
+async function gruplarYukle() {
+  const t = document.getElementById("gruplar-tarih");
+  if (!t) return;                       // eski index.html — sessizce çık
+  try {
+    const yanit = await fetch("gruplar.json?_=" + Date.now());
+    const veri = await yanit.json();
+    gruplarVerisi = veri;
+    t.textContent = veri.rapor_tarihi || "bilinmiyor";
+    const tar = document.getElementById("gruplar-taranan");
+    if (tar) {
+      const liste = veri.taranan_kasabalar || [];
+      tar.textContent = liste.length
+        ? "taranan kasabalar: " + liste.join(", ")
+        : "taranan kasaba bilgisi yok";
+    }
+
+    const sec = document.getElementById("gruplar-kasaba-filtre");
+    if (sec) {
+      const kasabalar = [...new Set((veri.gruplar || []).map((g) => g.kasaba))]
+        .filter(Boolean).sort((a, b) => a.localeCompare(b, "tr"));
+      kasabalar.forEach(function (ad) {
+        const o = document.createElement("option");
+        o.value = ad; o.textContent = ad; sec.appendChild(o);
+      });
+    }
+
+    const aGovde = document.getElementById("grupayrilan-govde");
+    const aBos = document.getElementById("grupayrilan-bos");
+    if (aGovde) {
+      const ayrilan = veri.ayrilanlar || [];
+      aGovde.innerHTML = ayrilan.map(function (g) {
+        return "<tr><td>" + kacis(g.kasaba) + "</td><td>" + kacis(g.lider) +
+               "</td><td>" + (g.kisi || 0) + "</td><td>" +
+               kacis((g.uyeler || []).join(", ")) + "</td></tr>";
+      }).join("");
+      if (aBos) aBos.hidden = ayrilan.length !== 0;
+    }
+
+    gruplarOzetCiz();
+    gruplarTabloCiz();
+    veriHazir("gruplar");
+  } catch (e) {
+    t.textContent = "henüz veri yok";
+    console.error("Gruplar yüklenemedi:", e);
+  }
+}
+
+["gruplar-arama", "gruplar-kasaba-filtre", "gruplar-durum-filtre"]
+  .forEach(function (id) {
+    const el = document.getElementById(id);
+    if (el) el.addEventListener(id === "gruplar-arama" ? "input" : "change",
+                                gruplarTabloCiz);
+  });
 
 async function filoYukle() {
   const t = document.getElementById("filo-rapor-tarihi");
@@ -2484,6 +2639,7 @@ sancakYukle();
 belediyeYukle();
 envanterSekmesiKur("liman", "liman.json", "limanlar", "Liman");
 filoYukle();
+gruplarYukle();
 emirDurumYukle();
 gelisimYukle();
 hareketYukle();
