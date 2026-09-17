@@ -88,6 +88,7 @@ if (window.L) L.RasterCoords.prototype = {
   <button class="tab-btn" data-tab="sakinler" data-grup="takip">📍 Kim Nerede</button>
   <button class="tab-btn" data-tab="hareket" data-grup="takip">🔄 Hareket (rotalar)</button>
   <button class="tab-btn" data-tab="inziva" data-grup="takip">🔒 İnziva (multi şüphesi)</button>
+  <button class="tab-btn" data-tab="gruplar" data-grup="takip">👥 Gruplar (yeni/mevcut)</button>
   <button class="tab-btn" data-tab="gelisim" data-grup="takip">📊 Gelişim (hesap tablosu)</button>
   <button class="tab-btn" data-tab="harita" data-grup="deniz">🗺️ Harita &amp; Rota</button>
   <button class="tab-btn" data-tab="filo" data-grup="deniz">⛵ Filo (rıhtımdaki gemiler)</button>
@@ -920,6 +921,12 @@ if (window.L) L.RasterCoords.prototype = {
         <input type="checkbox" id="rk-ordu" checked>
         🪖 Ordular &amp; ⛵ gemimiz
       </label>
+      <!-- 🧭 [17.09.2026] Seyahat rotaları katmanı (harita.js →
+           rkSeyahatKatmaniCiz). Veri: seyahat.json -->
+      <label class="pasa-toggle">
+        <input type="checkbox" id="rk-seyahat" checked>
+        🧭 Yoldakiler (kırmızı oklar)
+      </label>
       <button id="rk-temizle">Temizle</button>
     </div>
     <p id="rk-durum" class="rota-sonuc">Sekmeye geçince harita yüklenir…</p>
@@ -944,9 +951,30 @@ if (window.L) L.RasterCoords.prototype = {
       <p class="bolum-aciklama">Ajan hesaplarımız her sabah kendi kasabalarının <b>ordu sekmesini</b>
         okur: hangi ordu şehrin <b>içinde</b> (🟢), hangisi <b>şehir kapısına dayanmış</b> (🟠).
         Düne göre değişim yanında yazar. Gemimizin konumu kaptan kaydından gelir.
-        🛒 <b>Alım modu</b> bilgisi henüz toplanmıyor — bot o alanı okumaya başlayınca burada
-        kendiliğinden görünecek. Satırdaki <b>🗺️ Haritada</b> düğmesi o noktaya yaklaştırır.</p>
+        ⚔️ <b>Alım modu</b> 17.09.2026'dan beri toplanıyor: ordu <b>asker alıyorsa</b> ⚔️,
+        <b>danışman arıyorsa</b> 🎖️ rozeti çıkar (danışman ilanı = o orduya puan üretilebilir).
+        Daha eski günlerde bu alan "bilinmiyor" görünür.
+        Satırdaki <b>🗺️ Haritada</b> düğmesi o noktaya yaklaştırır.</p>
       <div id="rk-ordu-liste"><p class="bos-durum">Ordu verisi yükleniyor…</p></div>
+    </div>
+
+    <!-- 🧭 [17.09.2026] SEYAHAT ROTALARI. Kullanıcı: "haritada hareket
+         hâlindeki seyahat modu aktifleri ya da aynı grupta olanları da
+         nerede olduklarını görebilir miyiz... kalan günlerini ve nereden
+         gideceklerini de görsek güzel olur, kırmızı oklarla filan, her
+         hamleye bir kırmızı ok ve o hamle sonunda nerede olacağını
+         göreceğimiz şekilde." -->
+    <div id="rk-seyahat-bolum">
+      <h3>🧭 Yoldaki hesaplar <span class="rehber-eski">(her hamle bir ok)</span></h3>
+      <p class="bolum-aciklama">Seyahat modu açık hesaplar ve <b>grup takipçileri</b>.
+        Haritadaki her ok <b>bir günlük hamledir</b>; okun ucundaki etiket
+        <b>o günün sonunda nerede olacağını</b> söyler. Renk yaklaştıkça koyulaşır.
+        Günde kaç adım gidildiği botun kendi kuralıdır: <b>jetonluysa 3, değilse 2</b>.
+        <br>⚠️ Rota <b>tahminidir</b> — bot her turda en kısa yolu yeniden hesaplar ve
+        aynı uzunlukta başka bir yol seçebilir.
+        <br>⚠️ Karakter <b>iki kasaba arasındaysa</b> oyun kasaba adı vermez; o hesabın
+        rotası çizilmez ve aşağıda sebebiyle listelenir — konumu <b>tahmin edilmez</b>.</p>
+      <div id="rk-seyahat-liste"><p class="bos-durum">Seyahat verisi yükleniyor…</p></div>
     </div>
   </section>
 
@@ -961,6 +989,64 @@ if (window.L) L.RasterCoords.prototype = {
   <!-- 📊 EMİR DURUMU — kullanıcı: *"emirler son durumu gibi bişey olsa"*
        + *"kaç gün kaldı ne oldu ne yaptı filan"* + *"her gün güncellensin"*.
        Verisi: docs/emirler.json (pazar_json_uret.emirler_uret). -->
+  <!-- 👥 [17.09.2026] GRUPLAR. Kullanıcının ortağı: "grupları da takip
+       edebilir miyiz knk, yeni açılan gruplar / mevcut gruplar şeklinde."
+       Veri ZATEN toplanıyordu (Town_Data/Gruplar_*.json) ama hiçbir sekme
+       okumuyordu; yalnızca multi raporuna ve Telegram'a düşüyordu. -->
+  <section id="tab-gruplar" class="tab-panel">
+    <p class="bolum-aciklama">
+      Kasabalarımızda kurulmuş <strong>silahlı/serbest gruplar</strong>.
+      Ajanlar her gün "Gruplar ve Liderleri" tablosunu okuyor.
+      <strong>🆕 Yeni</strong> = dün listede YOKTU.
+      <strong>Kaç gün</strong> = o grubu kaç gündür görüyoruz.
+      <strong>Değişim</strong> = dün bugün arasında kasaba ya da üye farkı.
+    </p>
+    <p class="bolum-aciklama">
+      ⚠️ Bir grup <strong>yalnızca taranan kasabalarda</strong> görünür; başka
+      kasabada kurulmuş bir grup burada olmaz. Dünün verisi yoksa
+      <strong>hiçbir grup "yeni" sayılmaz</strong> — "veri yok" ile "hayır"
+      aynı şey değildir.
+    </p>
+    <p class="envanter-tarih-notu">Rapor tarihi:
+      <span id="gruplar-tarih">yükleniyor...</span> ·
+      <span id="gruplar-taranan"></span></p>
+
+    <div id="gruplar-ozet" class="envanter-ozet"></div>
+
+    <div class="pazar-arac-cubugu">
+      <input type="text" id="gruplar-arama" placeholder="Lider, üye ya da grup ara...">
+      <select id="gruplar-kasaba-filtre"><option value="">🏙️ Tüm kasabalar</option></select>
+      <select id="gruplar-durum-filtre">
+        <option value="">Hepsi</option>
+        <option value="yeni">🆕 Yalnızca yeni açılanlar</option>
+        <option value="degisen">🔄 Yalnızca değişenler</option>
+        <option value="kalabalik">👥 2+ kişilik gruplar</option>
+      </select>
+    </div>
+
+    <div class="tablo-sarici tablo-sarici-yapiskan">
+      <table id="gruplar-tablo">
+        <thead><tr>
+          <th>Durum</th><th>Kasaba</th><th>Lider</th><th>Kişi</th>
+          <th>Üyeler</th><th>Katılım</th><th>Kaç gün</th><th>Değişim</th>
+        </tr></thead>
+        <tbody id="gruplar-govde"></tbody>
+      </table>
+      <p id="gruplar-bos" class="bos-durum" hidden>Aramaya uyan grup yok.</p>
+    </div>
+
+    <h3>➖ Listeden düşen gruplar <span class="rehber-eski">(dün vardı, bugün yok)</span></h3>
+    <p class="bolum-aciklama">Grup dağıtılmış olabilir — üyeleri "Kim Nerede"
+      sekmesinde hâlâ görünüyorsa kimse gitmemiş, yalnızca grup kapatılmıştır.</p>
+    <div class="tablo-sarici">
+      <table id="grupayrilan-tablo">
+        <thead><tr><th>Kasaba</th><th>Lider</th><th>Kişi</th><th>Üyeler</th></tr></thead>
+        <tbody id="grupayrilan-govde"></tbody>
+      </table>
+      <p id="grupayrilan-bos" class="bos-durum" hidden>Dünden bugüne düşen grup yok.</p>
+    </div>
+  </section>
+
   <section id="tab-emirdurum" class="tab-panel">
     <p class="bolum-aciklama">
       Verdiğin emirlerin <strong>şu anki durumu</strong>. Bir emir yapılana kadar
@@ -1003,6 +1089,28 @@ if (window.L) L.RasterCoords.prototype = {
         <tbody id="emirgecmis-govde"></tbody>
       </table>
       <p id="emirgecmis-bos" class="bos-durum" hidden>Henüz kapanmış emir kaydı yok.</p>
+    </div>
+
+    <!-- 🖥️ [17.09.2026] SİTEDEN YÖNETİLEN HESAP AYARLARI.
+         Kullanıcı: "Sitede emirler yazmıyor?" — konsol "SİTEDEN YÖNETİLEN
+         HESAP: 3 adet" diyordu ama sitede hiçbir izi yoktu. Kaynak
+         Site_Ayarlari.json; pazar emirlerinden AYRI bir kuyruktur, o
+         yüzden yukarıdaki tablolarda görünmüyordu. -->
+    <h3>🖥️ Siteden yönetilen hesap ayarları</h3>
+    <p class="bolum-aciklama">
+      Bunlar <strong>Ayar</strong> emriyle verilmiş ve <strong>kalıcı</strong> olan
+      hesap ayarlarıdır — her turda yeniden uygulanırlar. Launcher'dan yapılan
+      değişiklik, aynı alan burada yazıyorsa <strong>tutmaz</strong>.
+      Kaldırmak için Telegram'a: <code>AYAR / hesap: &lt;ad&gt; / &lt;alan&gt;: kapalı</code>
+    </p>
+    <p class="envanter-tarih-notu">Ayar dosyası güncellemesi:
+      <span id="emirayar-tarih">—</span></p>
+    <div class="tablo-sarici">
+      <table id="emirayar-tablo">
+        <thead><tr><th>Hesap</th><th>Siteden verilen ayarlar</th></tr></thead>
+        <tbody id="emirayar-govde"></tbody>
+      </table>
+      <p id="emirayar-bos" class="bos-durum" hidden>Siteden yönetilen hesap yok — hepsi launcher'daki ayarlarla çalışıyor.</p>
     </div>
   </section>
 
@@ -1396,17 +1504,34 @@ if (window.L) L.RasterCoords.prototype = {
             <option value="kapalı">kapalı</option>
           </select>
         </label>
-        <label>⭐ Puan üreten
+        <!-- ⭐ [17.09.2026] ARTIK TÜR SEÇİMİ. Kullanıcı: "devlet yolu
+             hesapları devlet puanı üretebiliyor; puan üretende bir de
+             asker puanı üretenler var, 'Danış' tuşuna basarak."
+             ⚠️ Eski "açık" yazımı hâlâ çalışır ve "devlet" sayılır. -->
+        <label>⭐ Puan türü
           <select id="ay-puan">
             <option value="">— değiştirme —</option>
-            <option value="açık">açık</option>
-            <option value="kapalı">kapalı</option>
+            <option value="devlet">⭐ Devlet Puanı (divan ilanı)</option>
+            <option value="ordu">🎖️ Ordu Puanı (orduda "Danış")</option>
+            <option value="kapalı">— üretmesin —</option>
           </select>
         </label>
-        <label>👑 Divan görevi
-          <select id="ay-divan">
-            <option value="">— değiştirme —</option>
-          </select>
+        <!-- 🎖️ Aynı kasabada danışman arayan BİRDEN ÇOK ordu varsa
+             hangisi olduğunu söyler. Boşsa ve belirsizlik varsa bot
+             HİÇBİRİNE başvurmaz (yanlış orduya puan üretmek geri
+             alınamaz: görev gün batımına kadar sürer, tüm enerjiyi yer). -->
+        <label>🎖️ Hangi ordu <span class="ay-ipucu">yalnızca ordu puanı için · boş = tek ilan varsa ona</span>
+          <input type="text" id="ay-ordu" placeholder="örn. The Excelsior" autocomplete="off">
+        </label>
+        <!-- 👑 [17.09.2026] ÇOKLU MAKAM. Bir hesap aynı anda birden çok
+             makam tutabiliyor (örn. Belediye Reisi + Liman Şefi), o yüzden
+             tek seçimli açılır kutu yerine TİKLİ liste var.
+             Kural: hiçbiri tikli değilse "değiştirme"; en az biri tikliyse
+             hesabın makamları TAM OLARAK tiklenenler olur. -->
+        <label class="ay-makam-kutu">👑 Makamlar
+          <span class="ay-ipucu">birden fazla seçebilirsin · hiçbiri tikli değilse değişmez</span>
+          <div id="ay-divan-kutular" class="ay-tik-liste"></div>
+          <label class="ay-tik-tek"><input type="checkbox" id="ay-divan-sil"> ❌ tüm makamları kaldır</label>
         </label>
       </div>
 
