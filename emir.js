@@ -531,6 +531,22 @@ function emirMesajiKur() {
     return { metin: fsatir.join(EMIR_NL) };
   }
 
+  // ---------------- 📬 POSTA KONTROL (18.09.2026) ----------------
+  // Kullanicinin ortagi: *"Hesap sadece girip gelen giden mesaj var mi
+  //   baksin telegrama atsin ... hizli yanit gelecegini bildigimiz bir
+  //   hesaba gun icinde bir daha baktirabilelim."*
+  // ⚠️ Sablon `pazar_emirleri.posta_emri_coz` ile BIREBIR ayni olmali —
+  //    birini degistirirsen digerini de degistir.
+  // ⚠️ `hemen` bot tarafinda VARSAYILAN EVET; tik kaldirilirsa "hayir"
+  //    ACIKCA yazilir, yoksa bot yine hemen bakar.
+  if (emirTur === "posta") {
+    var pHesap = emirDeger("po-hesap");
+    if (!pHesap) return { hata: "Eksik: postasına bakılacak hesap" };
+    var psatir = ["POSTA", "hesap: " + pHesap];
+    if (!emirHemen("po-hemen")) psatir.push("hemen: hayır");
+    return { metin: psatir.join(EMIR_NL) };
+  }
+
   if (emirTur === "yanasma") {
     var yHesap = emirDeger("ya-hesap");
     var yArm = emirDeger("ya-armator");
