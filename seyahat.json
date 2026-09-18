@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-17 22:11",
+  "son_guncelleme": "2026-09-18 21:46",
   "adim_hakki_normal": 2,
   "adim_hakki_jetonlu": 3,
   "yolcular": [
@@ -8,21 +8,13 @@
       "tur": "seyahat",
       "nereden": "Narbonne - Gerona Yolu Üzerinde",
       "yolda": true,
-      "bot_kalan_gun": 3,
-      "nereden_id": 585,
+      "bot_kalan_gun": 2,
+      "nereden_id": 600,
       "hedef": "Béziers",
       "hedef_id": 315,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 585,
-          "isim": "Narbonne - Gerona arası"
-        },
-        {
-          "id": 584,
-          "isim": "Narbonne - Gerona arası"
-        },
         {
           "id": 600,
           "isim": "Narbonne - Béziers arası"
@@ -40,26 +32,11 @@
           "isim": "Béziers"
         }
       ],
-      "kalan_adim": 5,
-      "kalan_gun": 3,
+      "kalan_adim": 3,
+      "kalan_gun": 2,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 600,
-          "varis": "Narbonne - Béziers arası",
-          "duraklar": [
-            {
-              "id": 584,
-              "isim": "Narbonne - Gerona arası"
-            },
-            {
-              "id": 600,
-              "isim": "Narbonne - Béziers arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 316,
           "varis": "Béziers - Narbonne arası",
           "duraklar": [
@@ -74,7 +51,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 315,
           "varis": "Béziers",
           "duraklar": [
@@ -91,23 +68,15 @@
     {
       "hesap": "Favore",
       "tur": "seyahat",
-      "nereden": "Wigtown - Girvan Yolu Üzerinde",
+      "nereden": "Kirkcudbright - Wigtown Yolu Üzerinde",
       "yolda": true,
-      "bot_kalan_gun": 2,
-      "nereden_id": 835,
+      "bot_kalan_gun": 1,
+      "nereden_id": 759,
       "hedef": "Kirkcudbright",
       "hedef_id": 758,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 835,
-          "isim": "Wigtown - Girvan arası"
-        },
-        {
-          "id": 760,
-          "isim": "Wigtown"
-        },
         {
           "id": 759,
           "isim": "Kirkcudbright - Wigtown arası"
@@ -117,26 +86,11 @@
           "isim": "Kirkcudbright"
         }
       ],
-      "kalan_adim": 3,
-      "kalan_gun": 2,
+      "kalan_adim": 1,
+      "kalan_gun": 1,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 759,
-          "varis": "Kirkcudbright - Wigtown arası",
-          "duraklar": [
-            {
-              "id": 760,
-              "isim": "Wigtown"
-            },
-            {
-              "id": 759,
-              "isim": "Kirkcudbright - Wigtown arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 758,
           "varis": "Kirkcudbright",
           "duraklar": [
@@ -153,34 +107,19 @@
   ],
   "kafileler": [
     {
-      "anahtar": "835|758|2",
-      "nereden": "Wigtown - Girvan Yolu Üzerinde",
-      "nereden_id": 835,
+      "anahtar": "759|758|2",
+      "nereden": "Kirkcudbright - Wigtown Yolu Üzerinde",
+      "nereden_id": 759,
       "hedef": "Kirkcudbright",
       "hedef_id": 758,
       "yolda": true,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 3,
-      "kalan_gun": 2,
+      "kalan_adim": 1,
+      "kalan_gun": 1,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 759,
-          "varis": "Kirkcudbright - Wigtown arası",
-          "duraklar": [
-            {
-              "id": 760,
-              "isim": "Wigtown"
-            },
-            {
-              "id": 759,
-              "isim": "Kirkcudbright - Wigtown arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 758,
           "varis": "Kirkcudbright",
           "duraklar": [
@@ -192,14 +131,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 835,
-          "isim": "Wigtown - Girvan arası"
-        },
-        {
-          "id": 760,
-          "isim": "Wigtown"
-        },
         {
           "id": 759,
           "isim": "Kirkcudbright - Wigtown arası"
@@ -228,34 +159,19 @@
       "kaynaklar": []
     },
     {
-      "anahtar": "585|315|2",
+      "anahtar": "600|315|2",
       "nereden": "Narbonne - Gerona Yolu Üzerinde",
-      "nereden_id": 585,
+      "nereden_id": 600,
       "hedef": "Béziers",
       "hedef_id": 315,
       "yolda": true,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 5,
-      "kalan_gun": 3,
+      "kalan_adim": 3,
+      "kalan_gun": 2,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 600,
-          "varis": "Narbonne - Béziers arası",
-          "duraklar": [
-            {
-              "id": 584,
-              "isim": "Narbonne - Gerona arası"
-            },
-            {
-              "id": 600,
-              "isim": "Narbonne - Béziers arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 316,
           "varis": "Béziers - Narbonne arası",
           "duraklar": [
@@ -270,7 +186,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 315,
           "varis": "Béziers",
           "duraklar": [
@@ -282,14 +198,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 585,
-          "isim": "Narbonne - Gerona arası"
-        },
-        {
-          "id": 584,
-          "isim": "Narbonne - Gerona arası"
-        },
         {
           "id": 600,
           "isim": "Narbonne - Béziers arası"
