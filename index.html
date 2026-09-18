@@ -422,6 +422,7 @@ if (window.L) L.RasterCoords.prototype = {
         <tr><td>📜 <b>Ödenek</b></td><td>Sancak kasasından bir kişiye ödenek (sözleşme) çıkarır. Birden çok mal satırı ekleyebilirsin.</td><td>Bot içeriği <b>doğrulamadan</b> kimseye vermez; uyuşmazsa ödeneği iptal eder.</td></tr>
         <tr><td>✉️ <b>Mesaj</b></td><td>Oyun içi mesaj yollar. Filo sekmesinde bir geminin yanındaki ✉️ düğmesine basarsan alıcı hazır gelir.</td><td>Gönderecek karakteri <b>elle</b> yazarsın; o ad hiçbir yere kaydedilmez, yalnızca kendi tarayıcın hatırlar. Konu boş bırakılabilir.</td></tr>
         <tr><td>📣 <b>Forum</b></td><td>Oyunun forumunda <b>bir başlığa cevap</b> yazdırır. Başlığın adresini (linkini) ve yazılacak metni verirsin.</td><td>Yalnızca oyunun kendi forum adresi kabul edilir — başka bir siteye gitmez. Yeni başlık <b>açmaz</b>, sadece cevap yazar.</td></tr>
+        <tr><td>📬 <b>Posta kontrol</b></td><td>Hesap oyuna girip <b>yalnızca yeni mesaj var mı</b> diye bakar, varsa Telegram'a yollar ve çıkar.</td><td>Başka hiçbir iş yapılmaz (tarla/pazar/meslek yok). Posta zaten her girişte okunuyor — bu emir <b>gün içinde fazladan bir bakış</b> içindir. Hızlı yanıt beklediğin bir hesap için kullan.</td></tr>
         <tr><td>⚓ <b>Yanaşma</b></td><td>Liman şefi olan hesaba, <b>şu armatörün gemisinin limana yanaşmasına izin ver</b> dedirtir.</td><td>Armatörün <b>oyun içi kullanıcı adını</b> yaz (ekranda görünen büyük harfli ad değil). Emir vermediğin hiçbir gemi kabul edilmez; bot kendiliğinden yanaşma onaylamaz.</td></tr>
         <tr><td>🚫 <b>İptal</b></td><td>Bekleyen bir emri kuyruktan düşürür. <b>📊 Emir Durumu</b> sekmesindeki düğmeden üretilir.</td><td>Metin panoya kopyalanır, Telegram’a yapıştırırsın; anında değildir.</td></tr>
         <tr><td>🖥️ <b>Ayar</b><br><span class="rehber-eski">en güçlüsü</span></td><td><b>Launcher’ın yaptığı her hesap ayarını buradan verirsin</b> — bilgisayarın başında olmana gerek kalmaz. Takip modu, ders, seyahat, gemi, kaptan, ases, inziva, divan görevi, puan, işçi, armatör ve <b>görev zinciri</b>.</td><td>Aşağıdaki iki uyarıyı mutlaka oku.</td></tr>
@@ -653,6 +654,7 @@ if (window.L) L.RasterCoords.prototype = {
         <tr><td>Tek bir karakterin eşyalarını görmek</td><td><b>Envanter</b> → <b>👤 Karakter ara</b> kutusuna adını yaz</td></tr>
         <tr><td>Satılık bir gemi almak</td><td><b>Emir → ⛵ Gemi Al</b> — kaptanın adını ve <b>azami fiyatı</b> yaz</td></tr>
         <tr><td>Forumda bir başlığa cevap yazdırmak</td><td><b>Emir → 📣 Forum</b> — başlığın linkini ve metni yaz</td></tr>
+        <tr><td>Bir hesaba mesaj gelmiş mi diye şimdi baktırmak</td><td><b>Emir → 📬 Posta kontrol</b> — hesabı seç, "hemen bak" tikli kalsın</td></tr>
         <tr><td>Limanımıza bir gemiyi kabul etmek</td><td><b>Emir → ⚓ Yanaşma</b> — liman şefi hesabı + armatörün kullanıcı adı</td></tr>
         <tr><td>Bir emri <b>bugün</b> yaptırmak (yarını beklememek)</td><td>Emir formundaki <b>⚡ hemen yap</b> tikini işaretle</td></tr>
       </table>
@@ -1132,6 +1134,7 @@ if (window.L) L.RasterCoords.prototype = {
         <button class="emir-tur-btn" data-tur="al">🛒 Alım</button>
         <button class="emir-tur-btn" data-tur="odenek">📜 Ödenek</button>
         <button class="emir-tur-btn" data-tur="mesaj">✉️ Mesaj</button>
+        <button class="emir-tur-btn" data-tur="posta">📬 Posta kontrol</button>
         <button class="emir-tur-btn" data-tur="forum">📣 Forum</button>
         <button class="emir-tur-btn" data-tur="yanasma">⚓ Yanaşma</button>
         <button class="emir-tur-btn" data-tur="gemi">⛵ Gemi Al</button>
@@ -1331,6 +1334,25 @@ if (window.L) L.RasterCoords.prototype = {
          diye bir emir koyalım; ilk fırsatta yapılacak şekilde."*
          ⚠️ Kabul ve Reddet AYNI action=233 — fark a=11/a=12; kod üç kapıyla
          yalnızca KABUL'e basar (divan_liman.yanasma_izinlerini_kabul_et). -->
+    <!-- ---------------- 📬 POSTA KONTROL (18.09.2026) ----------------
+         Kullanicinin ortagi: "Hesap sadece girip gelen giden mesaj var mi
+         baksin telegrama atsin ... hizli yanit gelecegini bildigimiz bir
+         hesaba gun icinde bir daha baktirabilelim." -->
+    <div class="emir-form" id="emir-form-posta">
+      <div class="emir-satir">
+        <label>Postasına bakılacak hesap
+          <input list="emir-hesap-listesi" id="po-hesap" placeholder="örn. Vamder" autocomplete="off">
+        </label>
+      </div>
+      <div class="emir-satir">
+        <label class="emir-tik">
+          <input type="checkbox" id="po-hemen" checked>
+          ⚡ Hemen bak <span class="emir-kucuk">(hesap SIRADAKİ olarak girer; tiki kaldırırsan kendi sırasını bekler)</span>
+        </label>
+      </div>
+      <p class="emir-ipucu">Hesap oyuna girer, <b>yalnızca posta kutusuna bakar</b>, yeni mesaj varsa Telegram'a yollar ve çıkar. Tarla, pazar, meslek — <b>hiçbiri yapılmaz</b>. Zaten her girişte posta okunuyor; bu emir <b>gün içinde fazladan bir kontrol</b> içindir.</p>
+    </div>
+
     <div class="emir-form" id="emir-form-yanasma">
       <div class="emir-satir">
         <label>Liman şefi hesabı
