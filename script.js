@@ -1203,6 +1203,9 @@ document.getElementById("gelisim-kasaba-filtre").addEventListener("change", geli
 // Town_Data snapshot'larından çıkarılan rota) + inziva kaydı.
 // ---------------------------------------------------------
 let hareketKayitlari = [];
+// 🏴 Takip edilen rakipler (dusman_hesaplar.txt). Bos liste = hicbir
+// satir isaretlenmez, yani eski gorunum birebir korunur.
+let hareketDusmanlar = new Set();
 let hareketKayiplar = [];
 
 // Kasaba OLMAYAN konum etiketleri. "Ara Nokta (...)" ve yön tahminleri
@@ -1229,6 +1232,7 @@ async function hareketYukle() {
     const yanit = await fetch("hareket.json?_=" + Date.now());
     const veri = await yanit.json();
     hareketKayitlari = veri.kayitlar || [];
+    hareketDusmanlar = new Set((veri.dusmanlar || []).map((a) => String(a).toLocaleLowerCase("tr-TR")));
     hareketKayiplar = veri.kayiplar || [];
     inzivaDonusler = veri.donusler || [];
     multiCiftler = veri.multi_ciftler || [];
@@ -1309,7 +1313,7 @@ function hareketTabloCiz() {
       .join('<span class="rota-ok">→</span>');
     const satir = document.createElement("tr");
     satir.innerHTML =
-      `<td>${k.karakter}</td>` +
+      `<td>${hareketDusmanlar.has(k.karakter.toLocaleLowerCase("tr-TR")) ? "🏴 " : ""}${k.karakter}</td>` +
       `<td><span class="${konumRozetSinifi(k.su_anki_konum)}">${k.su_anki_konum}</span></td>` +
       `<td class="rota-hucre">${rota}</td>` +
       `<td>${k.hareket_sayisi}</td>`;
