@@ -957,7 +957,8 @@ var AY_ADIM_TIPLERI = [
   ["hersey_sat", "💸 Her şeyi sat"],
   ["ev_al", "🏠 Ev + tarla al"],
   ["tarla_al", "🌾 Tarla al (tip seç)"],
-  ["ev_tasi", "🚚 Evi buraya taşı"],
+  ["ev_tasi", "🚚 Evi buraya taşı (sandık BOŞSA)"],
+  ["ev_tasi_zorla", "🚚💥 Evi buraya taşı (SATMADAN · eşyalar silinir)"],
   ["atolye", "🏭 Atölye (meslek) al"],
   ["grup_kur", "👥 Grup kur (lider)"],
   ["gruba_katil", "🤝 Gruba katıl"],
@@ -976,7 +977,14 @@ var AY_ADIM_TIPLERI = [
 /* ⚓ [17.09.2026] `karaya_cik` de değer istemez: gemi güvertesindeki
    "Karaya Çıkış" düğmesine basar, hedef kutusu gereksizdir.
    ⚠️ Bu HAMLE harcar — aynı turda kaptan ayrıca hamle yapmaz. */
-var AY_DEGERSIZ = ["grup_kur", "grup_dagit", "karaya_cik"];
+/* 🚚 [19.09.2026] `ev_tasi` ve `ev_tasi_zorla` DEĞER İSTEMEZ:
+   taşınma HER ZAMAN "karakterin O AN bulunduğu kasabaya" yapılır —
+   ölçüldü, `ev_atolye_modul.ev_tasi`in `hedef_kasaba` parametresi
+   yalnızca LOG satırında kullanılıyor, hiçbir karara girmiyor.
+   Ortağın isteği: *"favore konumuna varmıştır, onu da taşındırabileceğimiz
+   bir tuş olsa — BULUNDUĞUN KASABAYA TAŞIN gibi."* */
+var AY_DEGERSIZ = ["grup_kur", "grup_dagit", "karaya_cik",
+                   "ev_tasi", "ev_tasi_zorla"];
 
 /* Takip modu seçenekleri (launcher'daki listeyle aynı). */
 var AY_TAKIP_MODLARI = ["Yok", "Grup Takip", "Ordu Takip", "Alışverişçi",
