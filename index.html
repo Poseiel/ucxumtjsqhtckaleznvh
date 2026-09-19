@@ -511,7 +511,8 @@ if (window.L) L.RasterCoords.prototype = {
         <tr><td>🛒 <b>satin_al:</b>Çuval Buğday x20</td><td>Pazardan alır. Tavan fiyat verebilirsin.</td><td>Yabancı şehirde alınan mal <b>çantada</b> kalır (eve atılamaz), karakterle birlikte döner.</td></tr>
         <tr><td>💸 <b>hersey_sat:</b>toyga</td><td>Pazardaki ilanları iptal eder, evi boşaltır ve <b>her şeyi</b> o hesaba en düşük fiyattan satar.</td><td><b>20 günlük yiyecek</b> bırakır, gerisini satar. Taşınmadan önce şart.</td></tr>
         <tr><td>🏠 <b>ev_al</b></td><td>Bulunduğu kasabada <b>ev + tarla</b> alır.</td><td>Değer istemez. Parası 130 akçenin altındaysa <b>hiçbir şey almaz</b> (yarım kurulum olmasın).</td></tr>
-        <tr><td>🚚 <b>ev_tasi:</b>Wigtown</td><td>Evini bulunduğu kasabaya taşır.</td><td>⚠️ <b>Geri alınamaz</b> ve <b>ev sandığındaki her şeyi siler</b>, tarla+atölyeyi sıfırlar. Bu yüzden bot, sandık boş değilse <b>taşımayı reddeder</b>. Doğru sıra: hersey_sat → ev_tasi → ev_al → atolye.</td></tr>
+        <tr><td>🚚 <b>ev_tasi</b></td><td>Evini karakterin <b>O AN BULUNDUĞU</b> kasabaya taşır. Kasaba adı yazmaya gerek YOK.</td><td>⚠️ <b>Geri alınamaz</b> ve <b>ev sandığındaki her şeyi siler</b>, tarla+atölyeyi sıfırlar. Bu seçenek <b>güvenli</b> olanıdır: sandık boş değilse bot <b>taşımaz</b>, ertesi tur yeniden dener. Doğru sıra: hersey_sat → ev_tasi → tarla_al → atolye.</td></tr>
+        <tr><td>🚚💥 <b>ev_tasi_zorla</b></td><td>Aynı iş, ama sandığa <b>hiç bakmaz</b> — hemen taşınır.</td><td>⚠️⚠️ Ev sandığındaki <b>her şey YOK OLUR</b>. Satış turu beklenmez. Yeni / düşük seviye multilerde eşya değersizse bunu seç.</td></tr>
         <tr><td>🏭 <b>atolye:</b>Terzi</td><td>O meslek atölyesini satın alır.</td><td>Atölye o kasabada satılmıyorsa alamaz, ertesi tur yeniden dener.</td></tr>
         <tr><td>👥 <b>grup_kur</b></td><td>Lider olur, grup kurar.</td><td>Değer istemez. Üyeler ancak grup kurulduktan sonra katılabilir — bot lideri <b>önce</b> sokar.</td></tr>
         <tr><td>🤝 <b>gruba_katil:</b>Esteros</td><td>O kişinin grubuna katılır.</td><td>Liderin adını doğru yaz; bot katıl düğmesini <b>liderin adının altından</b> bulur.</td></tr>
@@ -562,10 +563,15 @@ if (window.L) L.RasterCoords.prototype = {
         olabilir") — o hesaba elle <b>seyahat:</b> emri vermen gerekir.</p>
 
       <h5>💸 Örnek 3 — evi taşımak (sıra çok önemli)</h5>
-      <p class="rehber-akis">hersey_sat:caspe, seyahat:Wigtown, ev_tasi:Wigtown, ev_al, atolye:Terzi</p>
+      <p class="rehber-akis">hersey_sat:caspe, seyahat:Wigtown, ev_tasi, tarla_al:Sebze, atolye:Terzi</p>
       <p class="rehber-not">⚠️ <b>hersey_sat başta olmak zorunda.</b> Taşınma ev
         sandığındaki her şeyi siler; bot sandık boş değilse taşımayı reddeder
-        (bilerek — o eşyalar geri gelmez).</p>
+        (bilerek — o eşyalar geri gelmez).<br>
+        💡 <b>Eşyası değersiz yeni bir multi</b> taşıyorsan satış turunu hiç
+        beklemeyip tek adımda bitirebilirsin:
+        <span class="rehber-akis">seyahat:Wigtown, ev_tasi_zorla, tarla_al:Sebze</span><br>
+        📍 <b>ev_tasi</b> ve <b>ev_tasi_zorla</b> her zaman karakterin <b>O AN
+        BULUNDUĞU</b> kasabaya taşır — kasaba adı yazmaya gerek yoktur.</p>
 
       <h5>⛵ Örnek 4 — kıta şehrine gitmek</h5>
       <p class="rehber-akis">seyahat:Ardencaple, satin_al:Manda Eti x30, gemiye_bin:mr.butcher, bekle:12, seyahat:Massa</p>
