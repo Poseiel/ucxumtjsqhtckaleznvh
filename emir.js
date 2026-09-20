@@ -780,6 +780,53 @@ function eyaletSatisiAc(bilgi) {
 }
 window.eyaletSatisiAc = eyaletSatisiAc;
 
+// 📄 [21.09.2026] TELEGRAM TEK MESAJ SINIRI = 4.096 KARAKTER.
+//   Kullanıcı ölçüp yazdı: *"Normal Mesajlar: Tek bir mesaj en fazla 4.096
+//   karakter (boşluklar ve noktalama işaretleri dahil) olabilir."* — doğru.
+//   (Dosya AÇIKLAMASI/caption ayrıca 1.024 karakterdir, o yüzden uzun metni
+//    açıklamaya da yazamayız; dosyanın İÇİNE yazılır.)
+// ⚠️⚠️ METNİ BÖLMEK YASAK: kullanıcı, birebir *"iki kere kopyalamayı bize
+//    yaptırma şu işi, hata olur, 2. mesaj emri uygulanır 1. mesaj yerine
+//    geçer, yarım yamalak hikâye çıkar."* Bu yüzden site uzun emri ASLA
+//    parçalamaz — TEK .txt dosyası üretir, bot onu indirip okur.
+var EMIR_TELEGRAM_SINIRI = 4096;
+
+function emirDosyaAdi() {
+  // Emir türü + hesap adı + tarih → "profil_Tar_aldarion_2026-09-21.txt"
+  var kim = emirDeger("pr-hesap") || emirDeger("gv-hesap") ||
+            emirDeger("sat-hesap") || emirDeger("al-hesap") || "emir";
+  var g = new Date();
+  var iki = function (n) { return (n < 10 ? "0" : "") + n; };
+  var tarih = g.getFullYear() + "-" + iki(g.getMonth() + 1) + "-" + iki(g.getDate());
+  var sade = String(kim).replace(/[^A-Za-z0-9_.-]/g, "_");
+  return emirTur + "_" + sade + "_" + tarih + ".txt";
+}
+
+/* Emrin TAMAMINI tek bir .txt olarak indirir.
+   ⚠️ Dosyanın içi, panoya kopyalanan metnin AYNISIDIR: başlık, hesap,
+      durum, doğum günü, yaş, cinsiyet, "hemen" satırı ve `--- RP ---` /
+      `--- OOC ---` blokları hepsi TEK dosyada. Bot dosyayı okurken normal
+      bir mesaj gibi çözümler, yani hiçbir alan dışarıda kalmaz.
+   ⚠️ UTF-8 BOM ile yazılır: Not Defteri ile açılınca Türkçe harfler
+      bozulmasın (bot tarafı `utf-8-sig` ile okuyor). */
+function emirDosyaIndir(metin) {
+  try {
+    var bom = String.fromCharCode(0xFEFF);
+    var kutu = new Blob([bom + metin], { type: "text/plain;charset=utf-8" });
+    var adres = URL.createObjectURL(kutu);
+    var a = document.createElement("a");
+    a.href = adres;
+    a.download = emirDosyaAdi();
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(adres); }, 1000);
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
+
 function emirGuncelle() {
   var sonuc = emirMesajiKur();
   var onizleme = document.getElementById("emir-onizleme");
@@ -795,6 +842,41 @@ function emirGuncelle() {
     onizleme.textContent = sonuc.metin;
     uyari.hidden = true;
     btn.disabled = false;
+  }
+  emirUzunlukYaz(sonuc.hata ? "" : sonuc.metin);
+}
+
+/* Uzunluk sayacı + uzun emirde dosya düğmesini ÖNE ALMA. */
+function emirUzunlukYaz(metin) {
+  var bilgi = document.getElementById("emir-uzunluk");
+  var dosyaBtn = document.getElementById("emir-dosya");
+  var anaBtn = document.getElementById("emir-gonder");
+  if (!bilgi || !dosyaBtn || !anaBtn) return;
+  var n = (metin || "").length;
+  if (!n) {
+    bilgi.hidden = true;
+    dosyaBtn.classList.remove("emir-ana-btn");
+    anaBtn.textContent = "📋 Kopyala (Telegram'a yapıştır)";
+    return;
+  }
+  bilgi.hidden = false;
+  if (n > EMIR_TELEGRAM_SINIRI) {
+    bilgi.innerHTML = "⚠️ <b>" + n.toLocaleString("tr-TR") + " karakter</b> — " +
+      "Telegram'ın tek mesaj sınırı <b>" + EMIR_TELEGRAM_SINIRI.toLocaleString("tr-TR") +
+      "</b>. Bu metin <b>tek mesaja sığmaz</b>. Metni bölme! " +
+      "<b>📄 .txt indir</b> düğmesine bas, inen dosyayı Telegram grubuna " +
+      "<b>dosya olarak</b> at — bot dosyanın içindeki her şeyi (doğum günü, " +
+      "yaş, cinsiyet, RP ve OOC metinleri) okur.";
+    bilgi.className = "emir-uyari";
+    // Uzun metinde ASIL yol dosyadır: düğmeleri yer değiştirir.
+    dosyaBtn.classList.add("emir-ana-btn");
+    anaBtn.textContent = "📋 Kopyala (kısa emirler için)";
+  } else {
+    bilgi.textContent = n.toLocaleString("tr-TR") + " / " +
+      EMIR_TELEGRAM_SINIRI.toLocaleString("tr-TR") + " karakter — tek mesaja sığıyor.";
+    bilgi.className = "emir-kucuk";
+    dosyaBtn.classList.remove("emir-ana-btn");
+    anaBtn.textContent = "📋 Kopyala (Telegram'a yapıştır)";
   }
 }
 
@@ -993,6 +1075,27 @@ function emirOlaylariBagla() {
     }
     setTimeout(function () { durum.textContent = ""; }, 9000);
   });
+
+  // 📄 [21.09.2026] TEK .txt OLARAK İNDİR — uzun emirler için asıl yol.
+  var _dosyaBtn = document.getElementById("emir-dosya");
+  if (_dosyaBtn) {
+    _dosyaBtn.addEventListener("click", function () {
+      var durum = document.getElementById("emir-durum");
+      var sonuc = emirMesajiKur();
+      if (sonuc.hata) {
+        if (durum) durum.textContent = "⚠️ " + sonuc.hata;
+        return;
+      }
+      var ok = emirDosyaIndir(sonuc.metin);
+      if (durum) {
+        durum.textContent = ok
+          ? "📄 Dosya indirildi — Telegram grubuna DOSYA olarak at (ataç " +
+            "düğmesi). Bot içindekinin tamamını okur."
+          : "⚠️ Dosya indirilemedi — metni elle kopyalayıp .txt yap.";
+        setTimeout(function () { durum.textContent = ""; }, 12000);
+      }
+    });
+  }
 
   document.getElementById("emir-kopyala").addEventListener("click", async function () {
     var durum = document.getElementById("emir-durum");
