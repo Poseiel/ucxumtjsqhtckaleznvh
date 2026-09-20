@@ -1,63 +1,43 @@
 {
-  "son_guncelleme": "2026-09-19 22:09",
+  "son_guncelleme": "2026-09-20 15:48",
   "adim_hakki_normal": 2,
   "adim_hakki_jetonlu": 3,
   "yolcular": [
     {
       "hesap": "Asensioo",
       "tur": "seyahat",
-      "nereden": "Béziers - Narbonne Yolu Üzerinde",
-      "yolda": true,
-      "bot_kalan_gun": 1,
-      "nereden_id": 316,
+      "nereden": "Béziers",
+      "yolda": false,
+      "bot_kalan_gun": null,
+      "nereden_id": 315,
       "hedef": "Béziers",
       "hedef_id": 315,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
         {
-          "id": 316,
-          "isim": "Béziers - Narbonne arası"
-        },
-        {
           "id": 315,
           "isim": "Béziers"
         }
       ],
-      "kalan_adim": 1,
-      "kalan_gun": 1,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 315,
-          "varis": "Béziers",
-          "duraklar": [
-            {
-              "id": 315,
-              "isim": "Béziers"
-            }
-          ]
-        }
-      ],
+      "kalan_adim": 0,
+      "kalan_gun": 0,
+      "gunler": [],
       "lider": "",
       "rol": "tek"
     },
     {
       "hesap": "Favore",
       "tur": "seyahat",
-      "nereden": "Kirkcudbright - Wigtown Yolu Üzerinde",
-      "yolda": true,
-      "bot_kalan_gun": 1,
-      "nereden_id": 759,
+      "nereden": "Kirkcudbright",
+      "yolda": false,
+      "bot_kalan_gun": 2,
+      "nereden_id": 758,
       "hedef": "Penrith",
       "hedef_id": 827,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 759,
-          "isim": "Kirkcudbright - Wigtown arası"
-        },
         {
           "id": 758,
           "isim": "Kirkcudbright"
@@ -79,44 +59,33 @@
           "isim": "Penrith"
         }
       ],
-      "kalan_adim": 5,
-      "kalan_gun": 3,
+      "kalan_adim": 4,
+      "kalan_gun": 2,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 757,
-          "varis": "Kirkcudbright - Wigtown arası",
+          "varis_id": 833,
+          "varis": "Kirkcudbright - Penrith arası",
           "duraklar": [
-            {
-              "id": 758,
-              "isim": "Kirkcudbright"
-            },
             {
               "id": 757,
               "isim": "Kirkcudbright - Wigtown arası"
+            },
+            {
+              "id": 833,
+              "isim": "Kirkcudbright - Penrith arası"
             }
           ]
         },
         {
           "gun": 2,
-          "varis_id": 834,
-          "varis": "Penrith - Kendal arası",
-          "duraklar": [
-            {
-              "id": 833,
-              "isim": "Kirkcudbright - Penrith arası"
-            },
-            {
-              "id": 834,
-              "isim": "Penrith - Kendal arası"
-            }
-          ]
-        },
-        {
-          "gun": 3,
           "varis_id": 827,
           "varis": "Penrith",
           "duraklar": [
+            {
+              "id": 834,
+              "isim": "Penrith - Kendal arası"
+            },
             {
               "id": 827,
               "isim": "Penrith"
@@ -130,34 +99,18 @@
   ],
   "kafileler": [
     {
-      "anahtar": "316|315|2",
-      "nereden": "Béziers - Narbonne Yolu Üzerinde",
-      "nereden_id": 316,
+      "anahtar": "315|315|2",
+      "nereden": "Béziers",
+      "nereden_id": 315,
       "hedef": "Béziers",
       "hedef_id": 315,
-      "yolda": true,
+      "yolda": false,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 1,
-      "kalan_gun": 1,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 315,
-          "varis": "Béziers",
-          "duraklar": [
-            {
-              "id": 315,
-              "isim": "Béziers"
-            }
-          ]
-        }
-      ],
+      "kalan_adim": 0,
+      "kalan_gun": 0,
+      "gunler": [],
       "rota": [
-        {
-          "id": 316,
-          "isim": "Béziers - Narbonne arası"
-        },
         {
           "id": 315,
           "isim": "Béziers"
@@ -182,52 +135,41 @@
       "kaynaklar": []
     },
     {
-      "anahtar": "759|827|2",
-      "nereden": "Kirkcudbright - Wigtown Yolu Üzerinde",
-      "nereden_id": 759,
+      "anahtar": "758|827|2",
+      "nereden": "Kirkcudbright",
+      "nereden_id": 758,
       "hedef": "Penrith",
       "hedef_id": 827,
-      "yolda": true,
+      "yolda": false,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 5,
-      "kalan_gun": 3,
+      "kalan_adim": 4,
+      "kalan_gun": 2,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 757,
-          "varis": "Kirkcudbright - Wigtown arası",
+          "varis_id": 833,
+          "varis": "Kirkcudbright - Penrith arası",
           "duraklar": [
-            {
-              "id": 758,
-              "isim": "Kirkcudbright"
-            },
             {
               "id": 757,
               "isim": "Kirkcudbright - Wigtown arası"
+            },
+            {
+              "id": 833,
+              "isim": "Kirkcudbright - Penrith arası"
             }
           ]
         },
         {
           "gun": 2,
-          "varis_id": 834,
-          "varis": "Penrith - Kendal arası",
-          "duraklar": [
-            {
-              "id": 833,
-              "isim": "Kirkcudbright - Penrith arası"
-            },
-            {
-              "id": 834,
-              "isim": "Penrith - Kendal arası"
-            }
-          ]
-        },
-        {
-          "gun": 3,
           "varis_id": 827,
           "varis": "Penrith",
           "duraklar": [
+            {
+              "id": 834,
+              "isim": "Penrith - Kendal arası"
+            },
             {
               "id": 827,
               "isim": "Penrith"
@@ -236,10 +178,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 759,
-          "isim": "Kirkcudbright - Wigtown arası"
-        },
         {
           "id": 758,
           "isim": "Kirkcudbright"
