@@ -424,8 +424,8 @@ if (window.L) L.RasterCoords.prototype = {
         <tr><td>📣 <b>Forum</b></td><td>Oyunun forumunda <b>bir başlığa cevap</b> yazdırır. Başlığın adresini (linkini) ve yazılacak metni verirsin.</td><td>Yalnızca oyunun kendi forum adresi kabul edilir — başka bir siteye gitmez. Yeni başlık <b>açmaz</b>, sadece cevap yazar.</td></tr>
         <tr><td>📬 <b>Posta kontrol</b></td><td>Hesap oyuna girip <b>yalnızca yeni mesaj var mı</b> diye bakar, varsa Telegram'a yollar ve çıkar.</td><td>Başka hiçbir iş yapılmaz (tarla/pazar/meslek yok). Posta zaten her girişte okunuyor — bu emir <b>gün içinde fazladan bir bakış</b> içindir. Hızlı yanıt beklediğin bir hesap için kullan.</td></tr>
         <tr><td>⚓ <b>Yanaşma</b></td><td>Liman şefi olan hesaba, <b>şu armatörün gemisinin limana yanaşmasına izin ver</b> dedirtir.</td><td>Armatörün <b>oyun içi kullanıcı adını</b> yaz (ekranda görünen büyük harfli ad değil). Emir vermediğin hiçbir gemi kabul edilmez; bot kendiliğinden yanaşma onaylamaz.</td></tr>
-        <tr><td>🎭 <b>Profil yaz</b><br><span class="rehber-eski">21.09.2026</span></td><td>Hesap oyuna girer, <b>kendi profil sayfasını ayrı bir sekmede</b> açar ve yazdıklarını kaydeder: <b>profil durumu</b> ("Peki, bugün ruh halin nasıl?" — 140 karakter), <b>doğum günü</b> (gün/ay), <b>yaş</b>, <b>cinsiyet</b>, <b>RP metni</b> (oyun karakteri profili) ve <b>OOC</b> (oyun dışı bilgiler).</td><td><b>Boş bıraktığın kutuya dokunulmaz.</b> Kayıt iki adımda olur (önce durum, sonra Profil sekmesi); biri olmazsa diğeri yine denenir. Oyundan <b>çıkılmaz</b>, sekme iş bitince kapanır. Metin çok uzunsa Telegram tek mesaja sığmayabilir — ikiye bölüp iki emir gönder.</td></tr>
-        <tr><td>🤝 <b>Güven puanı</b><br>🎨 <b>Renk attır</b></td><td>Bizim bir hesabımız <b>başka bir oyuncunun</b> profilini açar; menüden <b>güven puanı (+1)</b> verir ve/veya bir üst <b>RP derecesine geçirmeyi</b> önerir. İkisini birden istersen tek ziyarette yapılır.</td><td>⚠️ <b>Güven puanı iz bırakır</b>: oyun profilde "Güven Puanı veren son kişiler"i gösteriyor ve multi analizimiz tam bu listeye bakıyor. 🎨 Renk sırası <b>Beyaz → Sarı → Turuncu → Yeşil → Mavi → Kahverengi → Siyah</b>; kendinden <b>yüksek</b> dereceliye verilemez. "Daha önce terfi öneriniz işleme alınmıştı" cevabı gelirse <b>başarı sayılmaz</b>, emir kuyrukta kalır.</td></tr>
+        <tr><td>🎭 <b>Profil yaz</b><br><span class="rehber-eski">21.09.2026</span></td><td>Hesap oyuna girer, <b>kendi profil sayfasını ayrı bir sekmede</b> açar ve yazdıklarını kaydeder: <b>profil durumu</b> ("Peki, bugün ruh halin nasıl?" — 140 karakter), <b>doğum günü</b> (gün/ay), <b>yaş</b>, <b>cinsiyet</b>, <b>RP metni</b> (oyun karakteri profili) ve <b>OOC</b> (oyun dışı bilgiler).</td><td><b>Boş bıraktığın kutuya dokunulmaz.</b> Kayıt iki adımda olur (önce durum, sonra Profil sekmesi); biri olmazsa diğeri yine denenir. Oyundan <b>çıkılmaz</b>, sekme iş bitince kapanır. ✅ İş bitince <b>Telegram'a haber gelir</b>. Metin çok uzunsa Telegram tek mesaja sığmayabilir — ikiye bölüp iki emir gönder.</td></tr>
+        <tr><td>🤝 <b>Güven puanı</b><br>🎨 <b>Renk attır</b></td><td>Bizim bir hesabımız <b>başka bir oyuncunun</b> profilini açar; menüden <b>güven puanı (+1)</b> verir ve/veya bir üst <b>RP derecesine geçirmeyi</b> önerir. İkisini birden istersen tek ziyarette yapılır.</td><td>⚠️ <b>Güven puanı iz bırakır</b>: oyun profilde "Güven Puanı veren son kişiler"i gösteriyor ve multi analizimiz tam bu listeye bakıyor. 🎨 Renk sırası <b>Beyaz → Sarı → Turuncu → Yeşil → Mavi → Kahverengi → Siyah</b>; kendinden <b>yüksek</b> dereceliye verilemez. Oyun <b>"Daha önce terfi öneriniz işleme alınmıştı"</b> derse emir <b>kuyrukta bekletilmez, iptal edilir</b> ve Telegram'a haber gelir — bir süre sonra aynı emri yeniden verirsin.</td></tr>
         <tr><td>🚫 <b>İptal</b></td><td>Bekleyen bir emri kuyruktan düşürür. <b>📊 Emir Durumu</b> sekmesindeki düğmeden üretilir.</td><td>Metin panoya kopyalanır, Telegram’a yapıştırırsın; anında değildir.</td></tr>
         <tr><td>🖥️ <b>Ayar</b><br><span class="rehber-eski">en güçlüsü</span></td><td><b>Launcher’ın yaptığı her hesap ayarını buradan verirsin</b> — bilgisayarın başında olmana gerek kalmaz. Takip modu, ders, seyahat, gemi, kaptan, ases, inziva, divan görevi, puan, işçi, armatör ve <b>görev zinciri</b>.</td><td>Aşağıdaki iki uyarıyı mutlaka oku.</td></tr>
       </table>
@@ -1446,6 +1446,7 @@ if (window.L) L.RasterCoords.prototype = {
       </div>
       <p class="emir-ipucu">📌 Profil <b>iki bölümde</b> kaydedilir: önce durum, sonra Profil
         sekmesi (doğum · yaş · cinsiyet · RP · OOC). Biri olmazsa diğeri yine denenir.
+        ✅ İş bitince <b>Telegram'a "yapıldı" mesajı</b> gelir.
         ⚠️ Metin çok uzunsa Telegram tek mesaja sığmayabilir — o zaman metni
         <b>ikiye böl</b>, iki emir olarak gönder.</p>
     </div>
@@ -1488,8 +1489,12 @@ if (window.L) L.RasterCoords.prototype = {
         Kendi hesaplarımız birbirine puan verirse aynı iz bizde de oluşur.</p>
       <p class="emir-ipucu">🎨 <b>Renk sırası:</b> Beyaz → Sarı → Turuncu → Yeşil → Mavi →
         Kahverengi → Siyah. Kendinden <b>yüksek</b> dereceli birine renk verilemez; oyun o
-        durumda düğmeyi hiç göstermez. "Daha önce terfi öneriniz işleme alınmıştı" cevabı
-        gelirse <b>başarı sayılmaz</b>, emir kuyrukta kalır.</p>
+        durumda düğmeyi hiç göstermez.</p>
+      <p class="emir-ipucu">⏳ Oyun <b>"Daha önce terfi öneriniz işleme alınmıştı"</b> derse
+        emir <b>kuyrukta bekletilmez</b> — anında <b>iptal edilir</b> ve Telegram'a
+        "emir iptal edildi" diye haber gelir (oyunun kendi cümlesiyle birlikte). Bir süre
+        sonra aynı emri yeniden verirsin. ✅ Emir <b>uygulandığında da</b> Telegram'a
+        mesaj gelir.</p>
     </div>
 
     <!-- ---------------- ➕ HESAP EKLE (13.09.2026) ----------------
