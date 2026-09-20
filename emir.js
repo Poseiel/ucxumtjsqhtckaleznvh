@@ -547,6 +547,71 @@ function emirMesajiKur() {
     return { metin: psatir.join(EMIR_NL) };
   }
 
+  // ---------------- 🎭 PROFİL YAZ (21.09.2026) ----------------
+  // Kullanıcının notu: *"peki bugün ruh halin nasıl kısmına bişeler
+  //   yazabiliriz, bu profil durumu, burası 1. doldurulacak yer"* +
+  //   *"buradan doğum tarihi dd(gün) mm(ay), yaşta normal istediğimiz yaşı
+  //   yazıyoruz"* + *"burası da OOC bölümü ... 2 yer sor"*.
+  // ⚠️⚠️ İKİ UZUN METİN VAR (RP ve OOC) → etiketli satır YETMEZ, bloklar
+  //    `--- RP ---` / `--- OOC ---` ayraçlarıyla ayrılır. Şablon
+  //    `profil_modul.emri_coz` ile BİREBİR aynı olmalı — birini
+  //    değiştirirsen diğerini de değiştir.
+  // ⚠️ Boş bırakılan kutu satır olarak YAZILMAZ; bot o alana dokunmaz.
+  if (emirTur === "profil") {
+    var prHesap = emirDeger("pr-hesap");
+    var prDurum = emirDeger("pr-durum");
+    var prRp = emirDeger("pr-rp");
+    var prOoc = emirDeger("pr-ooc");
+    var prDogum = emirDeger("pr-dogum");
+    var prYas = emirDeger("pr-yas");
+    var prCins = emirDeger("pr-cinsiyet");
+    var prEksik = [];
+    if (!prHesap) prEksik.push("profili yazılacak hesap");
+    if (!prDurum && !prRp && !prOoc && !prDogum && !prYas && !prCins)
+      prEksik.push("en az bir alan (durum / RP / OOC / doğum / yaş / cinsiyet)");
+    // ⚠️ Doğum tarihi GÜN/AY'dır (yıl yok) — bot `tarih_coz` ile aynı
+    //    sınırları uyguluyor; burada da erken uyaralım.
+    if (prDogum) {
+      var prP = prDogum.match(/\d{1,2}/g) || [];
+      var prG = parseInt(prP[0], 10), prA = parseInt(prP[1], 10);
+      if (prP.length < 2 || !(prG >= 1 && prG <= 31) || !(prA >= 1 && prA <= 12))
+        prEksik.push("doğum tarihi GG/AA olmalı (örn. 20/03)");
+    }
+    if (prEksik.length) return { hata: "Eksik: " + prEksik.join(", ") };
+    var prSatir = ["PROFİL", "hesap: " + prHesap];
+    if (prDurum) prSatir.push("durum: " + prDurum);
+    if (prDogum) prSatir.push("dogum: " + prDogum);
+    if (prYas) prSatir.push("yas: " + prYas);
+    if (prCins) prSatir.push("cinsiyet: " + prCins);
+    if (emirHemen("pr-hemen")) prSatir.push("hemen: evet");
+    // ⚠️ Bloklar EN SONA gelir: ayraçtan sonraki her satır metne aittir.
+    if (prRp) prSatir.push("--- RP ---", prRp);
+    if (prOoc) prSatir.push("--- OOC ---", prOoc);
+    return { metin: prSatir.join(EMIR_NL) };
+  }
+
+  // ---------------- 🤝 GÜVEN PUANI & 🎨 RENK (21.09.2026) ----------------
+  // ⚠️ Şablon `profil_modul.guven_emri_coz` ile BİREBİR aynı olmalı.
+  //    Başlık "GÜVEN" ise güven varsayılan AÇIK, renk ancak "renk: evet"
+  //    yazılırsa yapılır. Site her iki satırı da AÇIKÇA yazar, yani
+  //    başlığın hangisi olduğu davranışı değiştirmez.
+  if (emirTur === "guven") {
+    var gvHesap = emirDeger("gv-hesap");
+    var gvHedef = emirDeger("gv-hedef");
+    var gvGuven = emirHemen("gv-guven");
+    var gvRenk = emirHemen("gv-renk");
+    var gvEksik = [];
+    if (!gvHesap) gvEksik.push("işlemi yapacak hesap");
+    if (!gvHedef) gvEksik.push("hedef oyuncu");
+    if (!gvGuven && !gvRenk) gvEksik.push("en az biri: güven puanı ya da renk");
+    if (gvEksik.length) return { hata: "Eksik: " + gvEksik.join(", ") };
+    var gvSatir = ["GÜVEN", "hesap: " + gvHesap, "hedef: " + gvHedef,
+                   "guven: " + (gvGuven ? "evet" : "hayır"),
+                   "renk: " + (gvRenk ? "evet" : "hayır")];
+    if (emirHemen("gv-hemen")) gvSatir.push("hemen: evet");
+    return { metin: gvSatir.join(EMIR_NL) };
+  }
+
   if (emirTur === "yanasma") {
     var yHesap = emirDeger("ya-hesap");
     var yArm = emirDeger("ya-armator");
@@ -854,6 +919,16 @@ function emirOlaylariBagla() {
   ["fr-hesap", "fr-konu", "fr-mesaj", "ya-hesap", "ya-armator"].forEach(function (id) {
     var el = document.getElementById(id);
     if (el) el.addEventListener("input", emirGuncelle);
+  });
+  // 🎭 [21.09.2026] Profil + 🤝 güven/renk formu dinleyicileri
+  ["pr-hesap", "pr-durum", "pr-rp", "pr-ooc", "pr-dogum", "pr-yas",
+   "gv-hesap", "gv-hedef"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener("input", emirGuncelle);
+  });
+  ["pr-cinsiyet", "pr-hemen", "gv-guven", "gv-renk", "gv-hemen"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener("change", emirGuncelle);
   });
   document.getElementById("al-azami-oner").addEventListener("click", emirAzamiOner);
 
