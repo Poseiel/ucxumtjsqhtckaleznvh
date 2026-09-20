@@ -133,6 +133,12 @@
       if (tb && !tb.classList.contains("active")) tb.click();
       if (alt === "ayar" && deger) planSec(deger);
       if (alt === "hesapekle") { var he = q("#he-hesap"); if (he && !he.value) he.focus(); }
+      // 🎨 [21.09.2026] `#emir/guven/renk` → renk tiki hazır gelsin.
+      //    Başlangıç'taki "Bir oyuncuya renk attırmak" bağı buraya düşer.
+      if (alt === "guven" && deger === "renk") {
+        var gr = q("#gv-renk");
+        if (gr && !gr.checked) { gr.checked = true; gr.dispatchEvent(new Event("change")); }
+      }
     } else if (tab === "rehber" && alt) {
       rehberBolumAc(alt);
     } else if (tab === "envanter" && alt) {
@@ -248,6 +254,10 @@
     ["⛵", "Satılık gemi almak", "#emir/gemi", "Kaptan adı + azami fiyat ZORUNLU"],
     ["✉️", "Gemi sahibine oyun içi mesaj", "#filo", "Satırdaki ✉️ düğmesi"],
     ["📣", "Foruma cevap yazdırmak", "#emir/forum", "Başlığın linki + metin"],
+    // 🎭 [21.09.2026] Profil / güven puanı / renk emirleri.
+    ["🎭", "Bir hesabın oyun profilini yazdırmak", "#emir/profil", "Durum · RP metni · OOC · doğum · yaş"],
+    ["🤝", "Bir oyuncuya güven puanı vermek", "#emir/guven", "⚠️ iz bırakır — multi analizi tam buna bakıyor"],
+    ["🎨", "Bir oyuncuya renk attırmak", "#emir/guven/renk", "Bir üst RP derecesine geçirmeyi önerir"],
     ["⚓", "Limana bir gemiyi kabul etmek", "#emir/yanasma", "Liman şefi hesabı + armatör"],
     ["🪖", "Ordular ve gemimiz nerede?", "#harita/ordu", "Haritada katman + liste"],
     ["🧭", "Kim yolda, kaç gün kaldı?", "#harita/seyahat", "Haritada kırmızı oklar"]
@@ -611,6 +621,8 @@
         '<a class="emir-mini-btn" href="#emir/sat" data-doldur="sat-hesap">💰 Bu hesaptan sat</a>' +
         '<a class="emir-mini-btn" href="#emir/al" data-doldur="al-hesap">🛒 Bu hesaba aldır</a>' +
         '<a class="emir-mini-btn emir-tur-onemli" href="#emir/ayar" data-doldur="ay-hesap">🖥️ Ayar / görev ver</a>' +
+        // 🎭 [21.09.2026] Profil yazma emri — hesap kartından tek tık.
+        '<a class="emir-mini-btn" href="#emir/profil" data-doldur="pr-hesap">🎭 Profilini yaz</a>' +
         '<a class="emir-mini-btn" href="#envanter/kisi/' + encodeURIComponent(h.ad) + '">🎒 Tüm eşyaları</a>' +
       '</div>' +
       '<dl class="kart-bilgi">' + bilgi.map(function (s) {
