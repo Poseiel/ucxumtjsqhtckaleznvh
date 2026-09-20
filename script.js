@@ -922,6 +922,28 @@ const RENK_KODU = {
   "Kahverengi": "#8b5a2b", "Siyah": "#333333",
 };
 
+// 🎨 [21.09.2026] RP SEVİYE SIRASI — kullanıcının gönderdiği oyun metni:
+//   *"Bu renkler sırası ile: Beyaz, sarı, turuncu, yeşil, mavi, kahverengi
+//     ve siyah."* + *"sitede renge göre sıralamaya basınca buna göre
+//     sıralasın bi de gelişim sekmesinde."*
+// ⚠️⚠️ ESKİDEN ALFABETİK SIRALANIYORDU ve bu YANLIŞTI: "Kahverengi" (6.
+//    seviye) "Mavi"den (5.) önce, "Siyah" (7.) "Sarı"dan (2.) sonra
+//    geliyordu — yani sıralama oyunun seviyesiyle hiç ilgili değildi.
+// ⚠️ `stats_module.RENK_SIRA` ile BİREBİR aynı olmalı — birini
+//    değiştirirsen diğerini de değiştir.
+// ⚠️ "Kırmızı" kullanıcının verdiği YEDİ seviyenin içinde YOK (eski botun
+//    sınıf listesinden geliyor) → 0, yani hiçbir zaman yüksek sayılmaz.
+const RENK_SIRA = {
+  "Beyaz": 1, "Sarı": 2, "Turuncu": 3, "Yeşil": 4,
+  "Mavi": 5, "Kahverengi": 6, "Siyah": 7, "Kırmızı": 0,
+};
+
+function renkSirasi(ad) {
+  if (ad === null || ad === undefined) return null;
+  const s = RENK_SIRA[String(ad).trim()];
+  return s === undefined ? null : s;
+}
+
 // ⚠️⚠️ [01.09.2026] BU FONKSİYON UNUTULMUŞTU ve sayfayı KOMPLE KIRDI.
 //    Sıralama satırında `sayiya_cevir` çağrılıyordu ama tanımı yoktu →
 //    ReferenceError → Gelişim tablosu HİÇ çizilmedi ("sitedeki gelişim
@@ -1105,7 +1127,9 @@ function gelisimTabloCiz() {
         gelisimSiralama.azalan = !gelisimSiralama.azalan;
       } else {
         const sutun = GELISIM_SUTUNLAR.find((s) => s.anahtar === anahtar);
-        gelisimSiralama = { anahtar, azalan: sutun.sayisal }; // sayısal: büyükten küçüğe başla
+        // 🎨 Renk de "büyükten küçüğe" başlar (Siyah en üstte) — aranan
+        //    şey genelde EN YÜKSEK dereceli hesaplardır.
+        gelisimSiralama = { anahtar, azalan: sutun.sayisal || anahtar === "renk" };
       }
       gelisimTabloCiz();
     });
@@ -1135,6 +1159,16 @@ function gelisimTabloCiz() {
       if (an === null) return 1;
       if (bn === null) return -1;
       return (an - bn) * yon;
+    }
+    // 🎨 [21.09.2026] RENK sütunu ALFABETİK DEĞİL, oyunun RP SEVİYESİNE
+    //    göre sıralanır (Beyaz 1 … Siyah 7). Tanınmayan renk sona düşer.
+    if (sutun.anahtar === "renk") {
+      const ar = renkSirasi(av), br = renkSirasi(bv);
+      if (ar === null && br === null) return 0;
+      if (ar === null) return 1;
+      if (br === null) return -1;
+      if (ar !== br) return (ar - br) * yon;
+      return 0;
     }
     return String(av).localeCompare(String(bv), "tr") * yon;
   }).forEach((k) => {
@@ -2329,6 +2363,11 @@ function emirTurAdi(t) {
   if (t === "yanasma") return "⚓ Yanaşma";
   if (t === "mesaj") return "✉️ Mesaj";
   if (t === "gemi") return "⛵ Gemi Al";
+  // 📬 [18.09.2026] / 🎭🤝 [21.09.2026] — eklenmezse tabloda ham kod
+  //    ("posta", "profil") görünür.
+  if (t === "posta") return "📬 Posta";
+  if (t === "profil") return "🎭 Profil";
+  if (t === "guven") return "🤝 Güven / 🎨 Renk";
   return t || "—";
 }
 
