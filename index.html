@@ -424,10 +424,24 @@ if (window.L) L.RasterCoords.prototype = {
         <tr><td>📣 <b>Forum</b></td><td>Oyunun forumunda <b>bir başlığa cevap</b> yazdırır. Başlığın adresini (linkini) ve yazılacak metni verirsin.</td><td>Yalnızca oyunun kendi forum adresi kabul edilir — başka bir siteye gitmez. Yeni başlık <b>açmaz</b>, sadece cevap yazar.</td></tr>
         <tr><td>📬 <b>Posta kontrol</b></td><td>Hesap oyuna girip <b>yalnızca yeni mesaj var mı</b> diye bakar, varsa Telegram'a yollar ve çıkar.</td><td>Başka hiçbir iş yapılmaz (tarla/pazar/meslek yok). Posta zaten her girişte okunuyor — bu emir <b>gün içinde fazladan bir bakış</b> içindir. Hızlı yanıt beklediğin bir hesap için kullan.</td></tr>
         <tr><td>⚓ <b>Yanaşma</b></td><td>Liman şefi olan hesaba, <b>şu armatörün gemisinin limana yanaşmasına izin ver</b> dedirtir.</td><td>Armatörün <b>oyun içi kullanıcı adını</b> yaz (ekranda görünen büyük harfli ad değil). Emir vermediğin hiçbir gemi kabul edilmez; bot kendiliğinden yanaşma onaylamaz.</td></tr>
-        <tr><td>🎭 <b>Profil yaz</b><br><span class="rehber-eski">21.09.2026</span></td><td>Hesap oyuna girer, <b>kendi profil sayfasını ayrı bir sekmede</b> açar ve yazdıklarını kaydeder: <b>profil durumu</b> ("Peki, bugün ruh halin nasıl?" — 140 karakter), <b>doğum günü</b> (gün/ay), <b>yaş</b>, <b>cinsiyet</b>, <b>RP metni</b> (oyun karakteri profili) ve <b>OOC</b> (oyun dışı bilgiler).</td><td><b>Boş bıraktığın kutuya dokunulmaz.</b> Kayıt iki adımda olur (önce durum, sonra Profil sekmesi); biri olmazsa diğeri yine denenir. Oyundan <b>çıkılmaz</b>, sekme iş bitince kapanır. ✅ İş bitince <b>Telegram'a haber gelir</b>. Metin çok uzunsa Telegram tek mesaja sığmayabilir — ikiye bölüp iki emir gönder.</td></tr>
+        <tr><td>🎭 <b>Profil yaz</b><br><span class="rehber-eski">21.09.2026</span></td><td>Hesap oyuna girer, <b>kendi profil sayfasını ayrı bir sekmede</b> açar ve yazdıklarını kaydeder: <b>profil durumu</b> ("Peki, bugün ruh halin nasıl?" — 140 karakter), <b>doğum günü</b> (gün/ay), <b>yaş</b>, <b>cinsiyet</b>, <b>RP metni</b> (oyun karakteri profili) ve <b>OOC</b> (oyun dışı bilgiler).</td><td><b>Boş bıraktığın kutuya dokunulmaz.</b> Kayıt iki adımda olur (önce durum, sonra Profil sekmesi); biri olmazsa diğeri yine denenir. Oyundan <b>çıkılmaz</b>, sekme iş bitince kapanır. ✅ İş bitince <b>Telegram'a haber gelir</b>. 📄 Metin uzunsa (Telegram sınırı <b>4.096 karakter</b>) <b>bölme</b> — <b>📄 .txt indir</b> düğmesini kullan, dosyayı gruba <b>dosya olarak</b> at; <b>tek dosyada</b> doğum günü, yaş, cinsiyet, RP ve OOC birlikte gider, bot hepsini okur.</td></tr>
         <tr><td>🤝 <b>Güven puanı</b><br>🎨 <b>Renk attır</b></td><td>Bizim bir hesabımız <b>başka bir oyuncunun</b> profilini açar; menüden <b>güven puanı (+1)</b> verir ve/veya bir üst <b>RP derecesine geçirmeyi</b> önerir. İkisini birden istersen tek ziyarette yapılır.</td><td>⚠️ <b>Güven puanı iz bırakır</b>: oyun profilde "Güven Puanı veren son kişiler"i gösteriyor ve multi analizimiz tam bu listeye bakıyor. 🎨 Renk sırası <b>Beyaz → Sarı → Turuncu → Yeşil → Mavi → Kahverengi → Siyah</b>; kendinden <b>yüksek</b> dereceliye verilemez. Oyun <b>"Daha önce terfi öneriniz işleme alınmıştı"</b> derse emir <b>kuyrukta bekletilmez, iptal edilir</b> ve Telegram'a haber gelir — bir süre sonra aynı emri yeniden verirsin.</td></tr>
         <tr><td>🚫 <b>İptal</b></td><td>Bekleyen bir emri kuyruktan düşürür. <b>📊 Emir Durumu</b> sekmesindeki düğmeden üretilir.</td><td>Metin panoya kopyalanır, Telegram’a yapıştırırsın; anında değildir.</td></tr>
         <tr><td>🖥️ <b>Ayar</b><br><span class="rehber-eski">en güçlüsü</span></td><td><b>Launcher’ın yaptığı her hesap ayarını buradan verirsin</b> — bilgisayarın başında olmana gerek kalmaz. Takip modu, ders, seyahat, gemi, kaptan, ases, inziva, divan görevi, puan, işçi, armatör ve <b>görev zinciri</b>.</td><td>Aşağıdaki iki uyarıyı mutlaka oku.</td></tr>
+      </table>
+
+      <h3>📄 Uzun emir — <b>.txt dosyası olarak</b> gönderme</h3>
+      <p>Telegram’ın <b>tek mesaj sınırı 4.096 karakterdir</b> (dosya açıklaması ayrıca
+        1.024). Bir <b>🎭 Profil</b> emrindeki RP metni bunu rahatlıkla aşar — 3, hatta 4
+        mesaja ancak sığar.</p>
+      <p class="rehber-akis">Emir formunun altındaki sayaç → 4.096’yı aşarsa
+        <b>📄 .txt indir</b> → inen dosyayı Telegram grubuna <b>ataç düğmesiyle dosya olarak</b> at</p>
+      <table class="rehber-tablo">
+        <tr><th>Soru</th><th>Cevap</th></tr>
+        <tr><td>Dosyanın içinde ne var?</td><td><b>Emrin tamamı, tek dosyada</b>: başlık, hesap, profil durumu, <b>doğum günü</b>, yaş, cinsiyet, ⚡ hemen satırı ve hem <b>RP</b> hem <b>OOC</b> metni. Ekranda gördüğün “Gidecek mesaj” ne ise dosyanın içi odur.</td></tr>
+        <tr><td>Bot dosyayı okuyabiliyor mu?</td><td>Evet. Kanala düşen <code>.txt</code> dosyasını indirip <b>normal bir mesaj gibi</b> çözümlüyor. Yalnızca <b>küçük düz metin</b> dosyaları okunur; başka dosya türüne dokunmaz.</td></tr>
+        <tr><td>Metni ikiye bölsem olur mu?</td><td><b>Hayır.</b> İkinci parça ayrı bir emir sanılır ve birincinin <b>üstüne yazar</b> — profilde yarım bir hikâye kalır. Site bu yüzden uzun metni <b>hiç bölmüyor</b>.</td></tr>
+        <tr><td>Kısa emirlerde de dosya atayım mı?</td><td>Gerek yok. Sayaç yeşilse normal <b>📋 Kopyala</b> yeterli. Dosya yolu her emir türünde açık, istersen kullanırsın.</td></tr>
       </table>
 
       <h3>⚡ “Hemen yap” tiki — emri <b>aynı gün</b> yaptırmak</h3>
@@ -1446,9 +1460,14 @@ if (window.L) L.RasterCoords.prototype = {
       </div>
       <p class="emir-ipucu">📌 Profil <b>iki bölümde</b> kaydedilir: önce durum, sonra Profil
         sekmesi (doğum · yaş · cinsiyet · RP · OOC). Biri olmazsa diğeri yine denenir.
-        ✅ İş bitince <b>Telegram'a "yapıldı" mesajı</b> gelir.
-        ⚠️ Metin çok uzunsa Telegram tek mesaja sığmayabilir — o zaman metni
-        <b>ikiye böl</b>, iki emir olarak gönder.</p>
+        ✅ İş bitince <b>Telegram'a "yapıldı" mesajı</b> gelir.</p>
+      <p class="emir-ipucu">📄 <b>Uzun metinde mesajı BÖLME.</b> Telegram'ın tek mesaj sınırı
+        <b>4.096 karakter</b>; bir RP profili bunu rahat aşar. Aşağıdaki sayaç kırmızıya
+        dönerse <b>📄 .txt indir</b> düğmesine bas ve inen dosyayı Telegram grubuna
+        <b>dosya olarak</b> at. <b>Tek dosyanın içinde her şey vardır</b> — hesap, durum,
+        doğum günü, yaş, cinsiyet, RP ve OOC metinleri. Bot dosyayı indirip hepsini okur.
+        <br>⚠️ <b>Neden bölmüyoruz:</b> ikiye bölünen metnin 2. parçası ayrı bir emir
+        sanılır ve 1. parçanın <b>üstüne yazar</b> — profilde yarım bir hikâye kalır.</p>
     </div>
 
     <!-- ---------------- 🤝 GÜVEN PUANI & 🎨 RENK (21.09.2026) ----------------
@@ -1788,9 +1807,18 @@ if (window.L) L.RasterCoords.prototype = {
     <pre id="emir-onizleme" class="emir-onizleme">Kutuları doldur…</pre>
     <p id="emir-uyari" class="emir-uyari" hidden></p>
 
+    <!-- 📄 [21.09.2026] UZUN EMİR → TEK .txt DOSYASI.
+         Kullanıcı: *"yahu txt olarak gönderse olmuyor mu telegrama?"* +
+         *"hatta 3 mesaj 4 mesaja bile anca sığabilir, en temizi txt"* +
+         *"2 yeri de dolduracağız filan, txt'yi ona göre hazırlat, TEK txt
+           içerisinde hepsi olsun."*
+         ⚠️ Telegram tek mesaj sınırı 4.096 karakter. Sayaç bunu canlı
+            gösterir; aşılırsa dosya düğmesi ANA düğme olur. -->
+    <p id="emir-uzunluk" class="emir-kucuk" hidden></p>
     <div class="emir-dugmeler">
       <button id="emir-gonder" class="emir-ana-btn" disabled>📋 Kopyala (Telegram'a yapıştır)</button>
       <button id="emir-kopyala" class="emir-mini-btn">📋 Kopyala</button>
+      <button id="emir-dosya" class="emir-mini-btn">📄 .txt indir (Telegram'a dosya olarak at)</button>
       <span id="emir-durum" class="dilekce-durum"></span>
     </div>
     <p class="emir-kucuk emir-dipnot" id="emir-dipnot"></p>
