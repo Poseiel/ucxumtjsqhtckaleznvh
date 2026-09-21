@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-20 15:48",
+  "son_guncelleme": "2026-09-21 15:02",
   "adim_hakki_normal": 2,
   "adim_hakki_jetonlu": 3,
   "yolcular": [
@@ -29,23 +29,15 @@
     {
       "hesap": "Favore",
       "tur": "seyahat",
-      "nereden": "Kirkcudbright",
-      "yolda": false,
-      "bot_kalan_gun": 2,
-      "nereden_id": 758,
+      "nereden": "Kirkcudbright - Egremont Yolu Üzerinde",
+      "yolda": true,
+      "bot_kalan_gun": 1,
+      "nereden_id": 833,
       "hedef": "Penrith",
       "hedef_id": 827,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 758,
-          "isim": "Kirkcudbright"
-        },
-        {
-          "id": 757,
-          "isim": "Kirkcudbright - Wigtown arası"
-        },
         {
           "id": 833,
           "isim": "Kirkcudbright - Penrith arası"
@@ -59,26 +51,11 @@
           "isim": "Penrith"
         }
       ],
-      "kalan_adim": 4,
-      "kalan_gun": 2,
+      "kalan_adim": 2,
+      "kalan_gun": 1,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 833,
-          "varis": "Kirkcudbright - Penrith arası",
-          "duraklar": [
-            {
-              "id": 757,
-              "isim": "Kirkcudbright - Wigtown arası"
-            },
-            {
-              "id": 833,
-              "isim": "Kirkcudbright - Penrith arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 827,
           "varis": "Penrith",
           "duraklar": [
@@ -89,6 +66,53 @@
             {
               "id": 827,
               "isim": "Penrith"
+            }
+          ]
+        }
+      ],
+      "lider": "",
+      "rol": "tek"
+    },
+    {
+      "hesap": "Millady",
+      "tur": "seyahat",
+      "nereden": "Ardencaple",
+      "yolda": false,
+      "bot_kalan_gun": 1,
+      "nereden_id": 1052,
+      "hedef": "Stirling",
+      "hedef_id": 1050,
+      "jetonlu": false,
+      "adim_hakki": 2,
+      "rota": [
+        {
+          "id": 1052,
+          "isim": "Ardencaple"
+        },
+        {
+          "id": 2788,
+          "isim": "Stirling - Ardencaple arası"
+        },
+        {
+          "id": 1050,
+          "isim": "Stirling"
+        }
+      ],
+      "kalan_adim": 2,
+      "kalan_gun": 1,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 1050,
+          "varis": "Stirling",
+          "duraklar": [
+            {
+              "id": 2788,
+              "isim": "Stirling - Ardencaple arası"
+            },
+            {
+              "id": 1050,
+              "isim": "Stirling"
             }
           ]
         }
@@ -135,34 +159,79 @@
       "kaynaklar": []
     },
     {
-      "anahtar": "758|827|2",
-      "nereden": "Kirkcudbright",
-      "nereden_id": 758,
-      "hedef": "Penrith",
-      "hedef_id": 827,
+      "anahtar": "1052|1050|2",
+      "nereden": "Ardencaple",
+      "nereden_id": 1052,
+      "hedef": "Stirling",
+      "hedef_id": 1050,
       "yolda": false,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 4,
-      "kalan_gun": 2,
+      "kalan_adim": 2,
+      "kalan_gun": 1,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 833,
-          "varis": "Kirkcudbright - Penrith arası",
+          "varis_id": 1050,
+          "varis": "Stirling",
           "duraklar": [
             {
-              "id": 757,
-              "isim": "Kirkcudbright - Wigtown arası"
+              "id": 2788,
+              "isim": "Stirling - Ardencaple arası"
             },
             {
-              "id": 833,
-              "isim": "Kirkcudbright - Penrith arası"
+              "id": 1050,
+              "isim": "Stirling"
             }
           ]
+        }
+      ],
+      "rota": [
+        {
+          "id": 1052,
+          "isim": "Ardencaple"
         },
         {
-          "gun": 2,
+          "id": 2788,
+          "isim": "Stirling - Ardencaple arası"
+        },
+        {
+          "id": 1050,
+          "isim": "Stirling"
+        }
+      ],
+      "hesaplar": [
+        {
+          "hesap": "Millady",
+          "tur": "seyahat",
+          "lider": "",
+          "kaynak": "",
+          "tahmin": false,
+          "rol": "tek"
+        }
+      ],
+      "liderler": [],
+      "kisi": 1,
+      "yalniz": true,
+      "grup": false,
+      "lider": "",
+      "olculdu": true,
+      "kaynaklar": []
+    },
+    {
+      "anahtar": "833|827|2",
+      "nereden": "Kirkcudbright - Egremont Yolu Üzerinde",
+      "nereden_id": 833,
+      "hedef": "Penrith",
+      "hedef_id": 827,
+      "yolda": true,
+      "adim_hakki": 2,
+      "jetonlu": false,
+      "kalan_adim": 2,
+      "kalan_gun": 1,
+      "gunler": [
+        {
+          "gun": 1,
           "varis_id": 827,
           "varis": "Penrith",
           "duraklar": [
@@ -178,14 +247,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 758,
-          "isim": "Kirkcudbright"
-        },
-        {
-          "id": 757,
-          "isim": "Kirkcudbright - Wigtown arası"
-        },
         {
           "id": 833,
           "isim": "Kirkcudbright - Penrith arası"
