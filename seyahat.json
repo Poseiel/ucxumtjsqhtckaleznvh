@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-21 15:02",
+  "son_guncelleme": "2026-09-22 16:30",
   "adim_hakki_normal": 2,
   "adim_hakki_jetonlu": 3,
   "yolcular": [
@@ -29,94 +29,46 @@
     {
       "hesap": "Favore",
       "tur": "seyahat",
-      "nereden": "Kirkcudbright - Egremont Yolu Üzerinde",
-      "yolda": true,
-      "bot_kalan_gun": 1,
-      "nereden_id": 833,
+      "nereden": "Penrith",
+      "yolda": false,
+      "bot_kalan_gun": null,
+      "nereden_id": 827,
       "hedef": "Penrith",
       "hedef_id": 827,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
         {
-          "id": 833,
-          "isim": "Kirkcudbright - Penrith arası"
-        },
-        {
-          "id": 834,
-          "isim": "Penrith - Kendal arası"
-        },
-        {
           "id": 827,
           "isim": "Penrith"
         }
       ],
-      "kalan_adim": 2,
-      "kalan_gun": 1,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 827,
-          "varis": "Penrith",
-          "duraklar": [
-            {
-              "id": 834,
-              "isim": "Penrith - Kendal arası"
-            },
-            {
-              "id": 827,
-              "isim": "Penrith"
-            }
-          ]
-        }
-      ],
+      "kalan_adim": 0,
+      "kalan_gun": 0,
+      "gunler": [],
       "lider": "",
       "rol": "tek"
     },
     {
       "hesap": "Millady",
       "tur": "seyahat",
-      "nereden": "Ardencaple",
+      "nereden": "Stirling",
       "yolda": false,
-      "bot_kalan_gun": 1,
-      "nereden_id": 1052,
+      "bot_kalan_gun": null,
+      "nereden_id": 1050,
       "hedef": "Stirling",
       "hedef_id": 1050,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
         {
-          "id": 1052,
-          "isim": "Ardencaple"
-        },
-        {
-          "id": 2788,
-          "isim": "Stirling - Ardencaple arası"
-        },
-        {
           "id": 1050,
           "isim": "Stirling"
         }
       ],
-      "kalan_adim": 2,
-      "kalan_gun": 1,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 1050,
-          "varis": "Stirling",
-          "duraklar": [
-            {
-              "id": 2788,
-              "isim": "Stirling - Ardencaple arası"
-            },
-            {
-              "id": 1050,
-              "isim": "Stirling"
-            }
-          ]
-        }
-      ],
+      "kalan_adim": 0,
+      "kalan_gun": 0,
+      "gunler": [],
       "lider": "",
       "rol": "tek"
     }
@@ -159,50 +111,26 @@
       "kaynaklar": []
     },
     {
-      "anahtar": "1052|1050|2",
-      "nereden": "Ardencaple",
-      "nereden_id": 1052,
-      "hedef": "Stirling",
-      "hedef_id": 1050,
+      "anahtar": "827|827|2",
+      "nereden": "Penrith",
+      "nereden_id": 827,
+      "hedef": "Penrith",
+      "hedef_id": 827,
       "yolda": false,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 2,
-      "kalan_gun": 1,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 1050,
-          "varis": "Stirling",
-          "duraklar": [
-            {
-              "id": 2788,
-              "isim": "Stirling - Ardencaple arası"
-            },
-            {
-              "id": 1050,
-              "isim": "Stirling"
-            }
-          ]
-        }
-      ],
+      "kalan_adim": 0,
+      "kalan_gun": 0,
+      "gunler": [],
       "rota": [
         {
-          "id": 1052,
-          "isim": "Ardencaple"
-        },
-        {
-          "id": 2788,
-          "isim": "Stirling - Ardencaple arası"
-        },
-        {
-          "id": 1050,
-          "isim": "Stirling"
+          "id": 827,
+          "isim": "Penrith"
         }
       ],
       "hesaplar": [
         {
-          "hesap": "Millady",
+          "hesap": "Favore",
           "tur": "seyahat",
           "lider": "",
           "kaynak": "",
@@ -219,50 +147,26 @@
       "kaynaklar": []
     },
     {
-      "anahtar": "833|827|2",
-      "nereden": "Kirkcudbright - Egremont Yolu Üzerinde",
-      "nereden_id": 833,
-      "hedef": "Penrith",
-      "hedef_id": 827,
-      "yolda": true,
+      "anahtar": "1050|1050|2",
+      "nereden": "Stirling",
+      "nereden_id": 1050,
+      "hedef": "Stirling",
+      "hedef_id": 1050,
+      "yolda": false,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 2,
-      "kalan_gun": 1,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 827,
-          "varis": "Penrith",
-          "duraklar": [
-            {
-              "id": 834,
-              "isim": "Penrith - Kendal arası"
-            },
-            {
-              "id": 827,
-              "isim": "Penrith"
-            }
-          ]
-        }
-      ],
+      "kalan_adim": 0,
+      "kalan_gun": 0,
+      "gunler": [],
       "rota": [
         {
-          "id": 833,
-          "isim": "Kirkcudbright - Penrith arası"
-        },
-        {
-          "id": 834,
-          "isim": "Penrith - Kendal arası"
-        },
-        {
-          "id": 827,
-          "isim": "Penrith"
+          "id": 1050,
+          "isim": "Stirling"
         }
       ],
       "hesaplar": [
         {
-          "hesap": "Favore",
+          "hesap": "Millady",
           "tur": "seyahat",
           "lider": "",
           "kaynak": "",
