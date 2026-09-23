@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-22 16:30",
+  "son_guncelleme": "2026-09-23 15:39",
   "adim_hakki_normal": 2,
   "adim_hakki_jetonlu": 3,
   "yolcular": [
@@ -69,6 +69,306 @@
       "kalan_adim": 0,
       "kalan_gun": 0,
       "gunler": [],
+      "lider": "",
+      "rol": "tek"
+    },
+    {
+      "hesap": "Calwenor",
+      "tur": "seyahat",
+      "nereden": "Montargis",
+      "yolda": false,
+      "bot_kalan_gun": 12,
+      "nereden_id": 388,
+      "hedef": "Lodève",
+      "hedef_id": 313,
+      "jetonlu": false,
+      "adim_hakki": 2,
+      "rota": [
+        {
+          "id": 388,
+          "isim": "Montargis"
+        },
+        {
+          "id": 387,
+          "isim": "Orléans - Montargis arası"
+        },
+        {
+          "id": 385,
+          "isim": "Orléans"
+        },
+        {
+          "id": 386,
+          "isim": "Blois - Orléans arası"
+        },
+        {
+          "id": 378,
+          "isim": "Blois"
+        },
+        {
+          "id": 377,
+          "isim": "Tours - Blois arası"
+        },
+        {
+          "id": 147,
+          "isim": "Tours"
+        },
+        {
+          "id": 146,
+          "isim": "Loches - Tours arası"
+        },
+        {
+          "id": 143,
+          "isim": "Loches"
+        },
+        {
+          "id": 2701,
+          "isim": "Loches - La Trémouille arası"
+        },
+        {
+          "id": 186,
+          "isim": "La Trémouille"
+        },
+        {
+          "id": 201,
+          "isim": "La Trémouille - Limoges arası"
+        },
+        {
+          "id": 200,
+          "isim": "Limoges - La Trémouille arası"
+        },
+        {
+          "id": 199,
+          "isim": "Limoges"
+        },
+        {
+          "id": 198,
+          "isim": "Limoges - Tulle arası"
+        },
+        {
+          "id": 197,
+          "isim": "Tulle - Limoges arası"
+        },
+        {
+          "id": 196,
+          "isim": "Tulle"
+        },
+        {
+          "id": 195,
+          "isim": "Aurillac - Tulle arası"
+        },
+        {
+          "id": 194,
+          "isim": "Aurillac"
+        },
+        {
+          "id": 1174,
+          "isim": "Aurillac - Rodez arası"
+        },
+        {
+          "id": 1123,
+          "isim": "Rodez"
+        },
+        {
+          "id": 1124,
+          "isim": "Rodez - Millau arası"
+        },
+        {
+          "id": 1125,
+          "isim": "Millau"
+        },
+        {
+          "id": 1129,
+          "isim": "Lodève - Millau arası"
+        },
+        {
+          "id": 313,
+          "isim": "Lodève"
+        }
+      ],
+      "kalan_adim": 24,
+      "kalan_gun": 12,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 385,
+          "varis": "Orléans",
+          "duraklar": [
+            {
+              "id": 387,
+              "isim": "Orléans - Montargis arası"
+            },
+            {
+              "id": 385,
+              "isim": "Orléans"
+            }
+          ]
+        },
+        {
+          "gun": 2,
+          "varis_id": 378,
+          "varis": "Blois",
+          "duraklar": [
+            {
+              "id": 386,
+              "isim": "Blois - Orléans arası"
+            },
+            {
+              "id": 378,
+              "isim": "Blois"
+            }
+          ]
+        },
+        {
+          "gun": 3,
+          "varis_id": 147,
+          "varis": "Tours",
+          "duraklar": [
+            {
+              "id": 377,
+              "isim": "Tours - Blois arası"
+            },
+            {
+              "id": 147,
+              "isim": "Tours"
+            }
+          ]
+        },
+        {
+          "gun": 4,
+          "varis_id": 143,
+          "varis": "Loches",
+          "duraklar": [
+            {
+              "id": 146,
+              "isim": "Loches - Tours arası"
+            },
+            {
+              "id": 143,
+              "isim": "Loches"
+            }
+          ]
+        },
+        {
+          "gun": 5,
+          "varis_id": 186,
+          "varis": "La Trémouille",
+          "duraklar": [
+            {
+              "id": 2701,
+              "isim": "Loches - La Trémouille arası"
+            },
+            {
+              "id": 186,
+              "isim": "La Trémouille"
+            }
+          ]
+        },
+        {
+          "gun": 6,
+          "varis_id": 200,
+          "varis": "Limoges - La Trémouille arası",
+          "duraklar": [
+            {
+              "id": 201,
+              "isim": "La Trémouille - Limoges arası"
+            },
+            {
+              "id": 200,
+              "isim": "Limoges - La Trémouille arası"
+            }
+          ]
+        },
+        {
+          "gun": 7,
+          "varis_id": 198,
+          "varis": "Limoges - Tulle arası",
+          "duraklar": [
+            {
+              "id": 199,
+              "isim": "Limoges"
+            },
+            {
+              "id": 198,
+              "isim": "Limoges - Tulle arası"
+            }
+          ]
+        },
+        {
+          "gun": 8,
+          "varis_id": 196,
+          "varis": "Tulle",
+          "duraklar": [
+            {
+              "id": 197,
+              "isim": "Tulle - Limoges arası"
+            },
+            {
+              "id": 196,
+              "isim": "Tulle"
+            }
+          ]
+        },
+        {
+          "gun": 9,
+          "varis_id": 194,
+          "varis": "Aurillac",
+          "duraklar": [
+            {
+              "id": 195,
+              "isim": "Aurillac - Tulle arası"
+            },
+            {
+              "id": 194,
+              "isim": "Aurillac"
+            }
+          ]
+        },
+        {
+          "gun": 10,
+          "varis_id": 1123,
+          "varis": "Rodez",
+          "duraklar": [
+            {
+              "id": 1174,
+              "isim": "Aurillac - Rodez arası"
+            },
+            {
+              "id": 1123,
+              "isim": "Rodez"
+            }
+          ]
+        },
+        {
+          "gun": 11,
+          "varis_id": 1125,
+          "varis": "Millau",
+          "duraklar": [
+            {
+              "id": 1124,
+              "isim": "Rodez - Millau arası"
+            },
+            {
+              "id": 1125,
+              "isim": "Millau"
+            }
+          ]
+        },
+        {
+          "gun": 12,
+          "varis_id": 313,
+          "varis": "Lodève",
+          "duraklar": [
+            {
+              "id": 1129,
+              "isim": "Lodève - Millau arası"
+            },
+            {
+              "id": 313,
+              "isim": "Lodève"
+            }
+          ]
+        }
+      ],
       "lider": "",
       "rol": "tek"
     }
@@ -167,6 +467,319 @@
       "hesaplar": [
         {
           "hesap": "Millady",
+          "tur": "seyahat",
+          "lider": "",
+          "kaynak": "",
+          "tahmin": false,
+          "rol": "tek"
+        }
+      ],
+      "liderler": [],
+      "kisi": 1,
+      "yalniz": true,
+      "grup": false,
+      "lider": "",
+      "olculdu": true,
+      "kaynaklar": []
+    },
+    {
+      "anahtar": "388|313|2",
+      "nereden": "Montargis",
+      "nereden_id": 388,
+      "hedef": "Lodève",
+      "hedef_id": 313,
+      "yolda": false,
+      "adim_hakki": 2,
+      "jetonlu": false,
+      "kalan_adim": 24,
+      "kalan_gun": 12,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 385,
+          "varis": "Orléans",
+          "duraklar": [
+            {
+              "id": 387,
+              "isim": "Orléans - Montargis arası"
+            },
+            {
+              "id": 385,
+              "isim": "Orléans"
+            }
+          ]
+        },
+        {
+          "gun": 2,
+          "varis_id": 378,
+          "varis": "Blois",
+          "duraklar": [
+            {
+              "id": 386,
+              "isim": "Blois - Orléans arası"
+            },
+            {
+              "id": 378,
+              "isim": "Blois"
+            }
+          ]
+        },
+        {
+          "gun": 3,
+          "varis_id": 147,
+          "varis": "Tours",
+          "duraklar": [
+            {
+              "id": 377,
+              "isim": "Tours - Blois arası"
+            },
+            {
+              "id": 147,
+              "isim": "Tours"
+            }
+          ]
+        },
+        {
+          "gun": 4,
+          "varis_id": 143,
+          "varis": "Loches",
+          "duraklar": [
+            {
+              "id": 146,
+              "isim": "Loches - Tours arası"
+            },
+            {
+              "id": 143,
+              "isim": "Loches"
+            }
+          ]
+        },
+        {
+          "gun": 5,
+          "varis_id": 186,
+          "varis": "La Trémouille",
+          "duraklar": [
+            {
+              "id": 2701,
+              "isim": "Loches - La Trémouille arası"
+            },
+            {
+              "id": 186,
+              "isim": "La Trémouille"
+            }
+          ]
+        },
+        {
+          "gun": 6,
+          "varis_id": 200,
+          "varis": "Limoges - La Trémouille arası",
+          "duraklar": [
+            {
+              "id": 201,
+              "isim": "La Trémouille - Limoges arası"
+            },
+            {
+              "id": 200,
+              "isim": "Limoges - La Trémouille arası"
+            }
+          ]
+        },
+        {
+          "gun": 7,
+          "varis_id": 198,
+          "varis": "Limoges - Tulle arası",
+          "duraklar": [
+            {
+              "id": 199,
+              "isim": "Limoges"
+            },
+            {
+              "id": 198,
+              "isim": "Limoges - Tulle arası"
+            }
+          ]
+        },
+        {
+          "gun": 8,
+          "varis_id": 196,
+          "varis": "Tulle",
+          "duraklar": [
+            {
+              "id": 197,
+              "isim": "Tulle - Limoges arası"
+            },
+            {
+              "id": 196,
+              "isim": "Tulle"
+            }
+          ]
+        },
+        {
+          "gun": 9,
+          "varis_id": 194,
+          "varis": "Aurillac",
+          "duraklar": [
+            {
+              "id": 195,
+              "isim": "Aurillac - Tulle arası"
+            },
+            {
+              "id": 194,
+              "isim": "Aurillac"
+            }
+          ]
+        },
+        {
+          "gun": 10,
+          "varis_id": 1123,
+          "varis": "Rodez",
+          "duraklar": [
+            {
+              "id": 1174,
+              "isim": "Aurillac - Rodez arası"
+            },
+            {
+              "id": 1123,
+              "isim": "Rodez"
+            }
+          ]
+        },
+        {
+          "gun": 11,
+          "varis_id": 1125,
+          "varis": "Millau",
+          "duraklar": [
+            {
+              "id": 1124,
+              "isim": "Rodez - Millau arası"
+            },
+            {
+              "id": 1125,
+              "isim": "Millau"
+            }
+          ]
+        },
+        {
+          "gun": 12,
+          "varis_id": 313,
+          "varis": "Lodève",
+          "duraklar": [
+            {
+              "id": 1129,
+              "isim": "Lodève - Millau arası"
+            },
+            {
+              "id": 313,
+              "isim": "Lodève"
+            }
+          ]
+        }
+      ],
+      "rota": [
+        {
+          "id": 388,
+          "isim": "Montargis"
+        },
+        {
+          "id": 387,
+          "isim": "Orléans - Montargis arası"
+        },
+        {
+          "id": 385,
+          "isim": "Orléans"
+        },
+        {
+          "id": 386,
+          "isim": "Blois - Orléans arası"
+        },
+        {
+          "id": 378,
+          "isim": "Blois"
+        },
+        {
+          "id": 377,
+          "isim": "Tours - Blois arası"
+        },
+        {
+          "id": 147,
+          "isim": "Tours"
+        },
+        {
+          "id": 146,
+          "isim": "Loches - Tours arası"
+        },
+        {
+          "id": 143,
+          "isim": "Loches"
+        },
+        {
+          "id": 2701,
+          "isim": "Loches - La Trémouille arası"
+        },
+        {
+          "id": 186,
+          "isim": "La Trémouille"
+        },
+        {
+          "id": 201,
+          "isim": "La Trémouille - Limoges arası"
+        },
+        {
+          "id": 200,
+          "isim": "Limoges - La Trémouille arası"
+        },
+        {
+          "id": 199,
+          "isim": "Limoges"
+        },
+        {
+          "id": 198,
+          "isim": "Limoges - Tulle arası"
+        },
+        {
+          "id": 197,
+          "isim": "Tulle - Limoges arası"
+        },
+        {
+          "id": 196,
+          "isim": "Tulle"
+        },
+        {
+          "id": 195,
+          "isim": "Aurillac - Tulle arası"
+        },
+        {
+          "id": 194,
+          "isim": "Aurillac"
+        },
+        {
+          "id": 1174,
+          "isim": "Aurillac - Rodez arası"
+        },
+        {
+          "id": 1123,
+          "isim": "Rodez"
+        },
+        {
+          "id": 1124,
+          "isim": "Rodez - Millau arası"
+        },
+        {
+          "id": 1125,
+          "isim": "Millau"
+        },
+        {
+          "id": 1129,
+          "isim": "Lodève - Millau arası"
+        },
+        {
+          "id": 313,
+          "isim": "Lodève"
+        }
+      ],
+      "hesaplar": [
+        {
+          "hesap": "Calwenor",
           "tur": "seyahat",
           "lider": "",
           "kaynak": "",
