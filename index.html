@@ -47,6 +47,12 @@ if (window.L) L.RasterCoords.prototype = {
   </div>
 </div>
 
+<!-- 🚨 [23.09.2026] KOCAMAN UYARI BANDI — izlenen bir hesap/ordu kasaba
+     değiştirdiyse HER SEKMEDE en üstte görünür (takip.js doldurur).
+     Kullanıcı: *"kasaba değiştirdiyse KOCAMAN YAZIYLA ek uyarı."*
+     "✔ gördüm" ile kapanır; uyarı yoksa hiç görünmez. -->
+<div id="uyari-bandi" class="uyari-bandi" role="alert" aria-live="polite" hidden></div>
+
 <header class="site-header">
   <div class="baslik-satiri">
     <h1>🔱 Poseidon Pazar &amp; Harita</h1>
@@ -90,6 +96,8 @@ if (window.L) L.RasterCoords.prototype = {
   <button class="tab-btn" data-tab="inziva" data-grup="takip">🔒 İnziva (multi şüphesi)</button>
   <button class="tab-btn" data-tab="gruplar" data-grup="takip">👥 Gruplar (yeni/mevcut)</button>
   <button class="tab-btn" data-tab="gelisim" data-grup="takip">📊 Gelişim (hesap tablosu)</button>
+  <button class="tab-btn" data-tab="izleme" data-grup="takip">🚨 İzleme &amp; Uyarı</button>
+  <button class="tab-btn" data-tab="gecmis" data-grup="takip">📅 Geçmiş / Takvim</button>
   <button class="tab-btn" data-tab="harita" data-grup="deniz">🗺️ Harita &amp; Rota</button>
   <button class="tab-btn" data-tab="filo" data-grup="deniz">⛵ Filo (rıhtımdaki gemiler)</button>
   <button class="tab-btn" data-tab="emir" data-grup="emir">📨 Emir ver</button>
@@ -369,14 +377,14 @@ if (window.L) L.RasterCoords.prototype = {
       <h2>📖 Bu site ne işe yarar?</h2>
       <p class="bolum-aciklama">Bot her sabah <b>98 hesabı</b> tek tek gezip oyundan bilgi
         topluyor. Bu site o bilgilerin okunabilir hâli — oyuna girmeden, tek ekrandan
-        her şeyi görürsün. İki tür sekme var: <b>bilgi okuma</b> (11 sekme) ve
+        her şeyi görürsün. İki tür sekme var: <b>bilgi okuma</b> (13 sekme) ve
         <b>bota iş verme</b> (Emir). Aşağıda hangisi ne işe yarar, hepsi tek tek yazılı.</p>
 
       <h3>⏰ Önce şunu bil: site günde <b>İKİ KEZ</b> güncellenir</h3>
       <table class="rehber-tablo">
         <tr><th>Ne zaman</th><th>Ne gelir</th><th>Neden</th></tr>
         <tr><td><b>Sabah ~09:00</b><br><span class="rehber-eski">7 ajan hesabı bitince</span></td>
-            <td>Pazar · Hareket · İnziva · Kim Nerede · Filo</td>
+            <td>Pazar · Hareket · İnziva · Kim Nerede · Filo · Takvim <span class="rehber-eski">(ordu nöbeti gün içinde 2,5 saatte bir)</span></td>
             <td>Bu bilgileri yalnızca 7 “ajan” hesap topluyor ve onlar günün <b>en başında</b> giriyor — böylece kimi takip edeceğini sabah öğreniyorsun.</td></tr>
         <tr><td><b>Akşam ~21:00</b><br><span class="rehber-eski">bütün tur bitince</span></td>
             <td>Envanter · Gelişim <span class="rehber-eski">(+ diğerleri tazelenir)</span></td>
@@ -385,7 +393,7 @@ if (window.L) L.RasterCoords.prototype = {
       <p class="rehber-not">⚠️ Yani <b>sabah Envanter ve Gelişim sekmelerinde DÜNÜN verisi durur</b> —
         bozuk değildir. Her sekmenin üstünde hangi güne ait olduğu yazıyor.</p>
 
-      <h3>🔎 Bilgi okuma sekmeleri (11 tane)</h3>
+      <h3>🔎 Bilgi okuma sekmeleri (13 tane)</h3>
       <table class="rehber-tablo">
         <tr><th>Sekme</th><th>Ne gösterir</th><th>Ne işine yarar</th></tr>
         <tr><td><b>Pazar</b></td><td>7 kasabanın pazarındaki bütün ilanlar, fiyatlar, satıcılar</td><td>Bir malı nereden ucuza alacağını, kendi malının fiyatının piyasaya göre nerede durduğunu görürsün. Arama kutusu <b>kısmi</b> arar; yanındaki liste <b>tam ad</b> seçtirir.</td></tr>
@@ -394,11 +402,13 @@ if (window.L) L.RasterCoords.prototype = {
         <tr><td><b>Belediye Envanteri</b></td><td>Kasabanın ortak deposu (Belediye Reisi okur)</td><td>Kasaba kasasında ne birikmiş.</td></tr>
         <tr><td><b>Liman Envanteri</b></td><td>Limanın deposu + tersanedeki gemi yapım yuvaları</td><td>Gemi yapımı için neyin eksik olduğunu gösterir.</td></tr>
         <tr><td><b>⛵ Filo</b></td><td>Hangi limanda hangi gemi duruyor, sahibi kim<br>🟢 bizim · 🔵 dost · 🔴 yabancı</td><td>Limanımıza yabancı gemi girdiyse sabah görürsün. Gemi satırındaki ✉️ ile sahibine oyun içi mesaj yazabilirsin.</td></tr>
-        <tr><td><b>Gelişim</b></td><td>Her hesabın düne göre stat değişimi, rengi, kayıt tarihi, aktif görevi</td><td><b>Kaptan/ajan adayı seçerken buraya bak.</b> Satıra tıklayınca yetenek ağacı ve medrese dersleri açılır.</td></tr>
+        <tr><td><b>Gelişim</b></td><td>Her hesabın düne göre stat değişimi, rengi, kayıt tarihi, aktif görevi</td><td><b>Kaptan/ajan adayı seçerken buraya bak.</b> Satıra tıklayınca yetenek ağacı ve medrese dersleri açılır. Üstteki kutularla <b>nick</b> ve <b>kayıt tarihi aralığına</b> göre süzüp listeyi <b>kopyalayabilir</b> ya da <b>CSV</b> indirebilirsin.</td></tr>
         <tr><td><b>Hareket</b></td><td>Son 6 günün rotaları — kim nereden nereye gitti</td><td>Birinin düzenli mi yoksa şüpheli mi hareket ettiğini gösterir.</td></tr>
         <tr><td><b>İnziva</b></td><td>Aynı gün birlikte inzivaya girip çıkanlar</td><td>Multi şüphesinin <b>tek</b> ölçütü budur. Seyahat edenler masumdur, buraya girmez.</td></tr>
         <tr><td><b>Kim Nerede</b></td><td>Bugün 7 kasabada kim var — hareket etmeyenler dahil <b>herkes</b></td><td>Bir kişiyi arıyorsan en hızlı yer. Kartlarda <b>🤝 bizim: N</b> satırı o kasabadaki kendi hesap sayımızdır.</td></tr>
         <tr><td><b>🗺️ Harita &amp; Rota</b></td><td>Kara yolu rota hesaplayıcı + <b>🚢 Deniz Rotası</b></td><td>İki şehir seç → kaç gün sürdüğünü söyler (Paşa paketi varsa günde 3 adım, yoksa 2). Deniz kısmı gemi rotasını kare kare çizer.</td></tr>
+        <tr><td><b>🚨 İzleme &amp; Uyarı</b></td><td>Adını yazdığın hesapların ve orduların bugünkü yeri, dünkü yeri, gün içi nöbette görüldüğü yer + <b>🛡️ ordu nöbeti</b> kontrolleri</td><td>Biri <b>kasaba değiştirirse</b> sitenin en üstünde <b>kocaman kırmızı uyarı</b> çıkar. Liste bu tarayıcıda saklanır; <b>🔗 Paylaş</b> ile arkadaşına gönderebilirsin.</td></tr>
+        <tr><td><b>📅 Geçmiş / Takvim</b></td><td>Seçtiğin <b>eski bir günün</b> kasaba nüfusları, sakin listeleri, gelen/gidenler, ordular, gruplar ve o günün raporları</td><td>“O gün kim neredeydi?” sorusunun cevabı. Son 14 günün nüfus tablosunda bir güne tıkla → o gün açılır.</td></tr>
       </table>
       <p class="rehber-not">⚠️ Bir sekmede <b>“henüz veri yok”</b> yazıyorsa bozuk değildir —
         o bilgiyi toplayan hesap o gün henüz oyuna girmemiştir. Örneğin Sancak Envanteri,
@@ -423,6 +433,7 @@ if (window.L) L.RasterCoords.prototype = {
         <tr><td>✉️ <b>Mesaj</b></td><td>Oyun içi mesaj yollar. Filo sekmesinde bir geminin yanındaki ✉️ düğmesine basarsan alıcı hazır gelir.</td><td>Gönderecek karakteri <b>elle</b> yazarsın; o ad hiçbir yere kaydedilmez, yalnızca kendi tarayıcın hatırlar. Konu boş bırakılabilir.</td></tr>
         <tr><td>📣 <b>Forum</b></td><td>Oyunun forumunda <b>bir başlığa cevap</b> yazdırır. Başlığın adresini (linkini) ve yazılacak metni verirsin.</td><td>Yalnızca oyunun kendi forum adresi kabul edilir — başka bir siteye gitmez. Yeni başlık <b>açmaz</b>, sadece cevap yazar.</td></tr>
         <tr><td>📬 <b>Posta kontrol</b></td><td>Hesap oyuna girip <b>yalnızca yeni mesaj var mı</b> diye bakar, varsa Telegram'a yollar ve çıkar.</td><td>Başka hiçbir iş yapılmaz (tarla/pazar/meslek yok). Posta zaten her girişte okunuyor — bu emir <b>gün içinde fazladan bir bakış</b> içindir. Hızlı yanıt beklediğin bir hesap için kullan.</td></tr>
+        <tr><td>👑 <b>Divan onay</b><br><span class="rehber-eski">24.09.2026</span></td><td>Yazdığın hesaplar oyuna girdiğinde Sancak Kalesi'nde <b>kendi adlarının geçtiği divan listesini onaylar</b>. Birden çok hesabı tek emirde yazabilirsin.</td><td>Onayla ile İptal oyunda <b>aynı düğme türü</b>; bot yalnızca <b>Onayla</b>'ya basar. Zaten onaylıysa dokunmaz, emri kapatır. Hesap hiçbir listede yoksa emir iptal edilir.</td></tr>
         <tr><td>⚓ <b>Yanaşma</b></td><td>Liman şefi olan hesaba, <b>şu armatörün gemisinin limana yanaşmasına izin ver</b> dedirtir.</td><td>Armatörün <b>oyun içi kullanıcı adını</b> yaz (ekranda görünen büyük harfli ad değil). Emir vermediğin hiçbir gemi kabul edilmez; bot kendiliğinden yanaşma onaylamaz.</td></tr>
         <tr><td>🎭 <b>Profil yaz</b><br><span class="rehber-eski">21.09.2026</span></td><td>Hesap oyuna girer, <b>kendi profil sayfasını ayrı bir sekmede</b> açar ve yazdıklarını kaydeder: <b>profil durumu</b> ("Peki, bugün ruh halin nasıl?" — 140 karakter), <b>doğum günü</b> (gün/ay), <b>yaş</b>, <b>cinsiyet</b>, <b>RP metni</b> (oyun karakteri profili) ve <b>OOC</b> (oyun dışı bilgiler).</td><td><b>Boş bıraktığın kutuya dokunulmaz.</b> Kayıt iki adımda olur (önce durum, sonra Profil sekmesi); biri olmazsa diğeri yine denenir. Oyundan <b>çıkılmaz</b>, sekme iş bitince kapanır. ✅ İş bitince <b>Telegram'a haber gelir</b>. 📄 Metin uzunsa (Telegram sınırı <b>4.096 karakter</b>) <b>bölme</b> — <b>📄 .txt indir</b> düğmesini kullan, dosyayı gruba <b>dosya olarak</b> at; <b>tek dosyada</b> doğum günü, yaş, cinsiyet, RP ve OOC birlikte gider, bot hepsini okur.</td></tr>
         <tr><td>🤝 <b>Güven puanı</b><br>🎨 <b>Renk attır</b></td><td>Bizim bir hesabımız <b>başka bir oyuncunun</b> profilini açar; menüden <b>güven puanı (+1)</b> verir ve/veya bir üst <b>RP derecesine geçirmeyi</b> önerir. İkisini birden istersen tek ziyarette yapılır.</td><td>⚠️ <b>Güven puanı iz bırakır</b>: oyun profilde "Güven Puanı veren son kişiler"i gösteriyor ve multi analizimiz tam bu listeye bakıyor. 🎨 Renk sırası <b>Beyaz → Sarı → Turuncu → Yeşil → Mavi → Kahverengi → Siyah</b>; kendinden <b>yüksek</b> dereceliye verilemez. Oyun <b>"Daha önce terfi öneriniz işleme alınmıştı"</b> derse emir <b>kuyrukta bekletilmez, iptal edilir</b> ve Telegram'a haber gelir — bir süre sonra aynı emri yeniden verirsin.</td></tr>
@@ -712,6 +723,28 @@ if (window.L) L.RasterCoords.prototype = {
     </div>
     <p class="envanter-tarih-notu">Karşılaştırma: <span id="gelisim-tarih-notu">yükleniyor...</span></p>
     <p class="envanter-tarih-notu" id="gelisim-sev6-notu" hidden></p>
+    <!-- 🔎 [23.09.2026] BİZİM MULTİLER SÜZGECİ — kullanıcı: *"kayıt tarihi
+         aralığı + nick ile yazarak süz ve DIŞA AKTAR."* Tabloya SÜTUN
+         EKLENMEDİ (18 sütun kilidi); takip.js süzer, script.js'e tek kanca. -->
+    <div class="pazar-arac-cubugu gelisim-suzgec">
+      <input type="search" id="gelisim-arama" autocomplete="off" placeholder="🔎 Nick ara (kısmi)…">
+      <label class="gelisim-tarih-etiket">📅 Kayıt:
+        <input type="date" id="gelisim-kayit-bas" title="Kayıt tarihi — başlangıç (bu gün dahil)">
+      </label>
+      <label class="gelisim-tarih-etiket">→
+        <input type="date" id="gelisim-kayit-bit" title="Kayıt tarihi — bitiş (bu gün dahil)">
+      </label>
+      <label class="pasa-toggle">
+        <input type="checkbox" id="gelisim-kayit-bilinmeyen" checked>
+        Tarihi bilinmeyenleri de göster
+      </label>
+    </div>
+    <div class="pazar-arac-cubugu gelisim-disa">
+      <button type="button" class="emir-mini-btn" id="gelisim-disa-kopyala" title="Görünen satırların nick listesini panoya kopyalar">📋 Listeyi kopyala</button>
+      <button type="button" class="emir-mini-btn" id="gelisim-disa-csv" title="Görünen satırları Excel'de açılan CSV olarak indirir">⬇️ CSV indir</button>
+      <span id="gelisim-sonuc-sayisi" class="gelisim-sonuc-sayisi"></span>
+      <span id="gelisim-disa-durum" class="dilekce-durum"></span>
+    </div>
     <div class="pazar-arac-cubugu">
       <select id="gelisim-kasaba-filtre">
         <option value="">Tüm kasabalar</option>
@@ -913,6 +946,81 @@ if (window.L) L.RasterCoords.prototype = {
       </table>
       <p id="sakinler-sonuc-yok" class="bos-durum" hidden>Kayıt bulunamadı.</p>
     </div>
+  </section>
+
+  <!-- 🚨 [23.09.2026] İZLEME & UYARI — kullanıcı: *"adını gireceğimiz
+       hesaplar ve ordular özel olarak (konumuyla) gösterilsin; kasaba
+       değiştirdiyse KOCAMAN YAZIYLA ek uyarı."* Liste bu tarayıcıda
+       (localStorage) + ortak liste (izleme.json, 🌐) — takip.js. -->
+  <section id="tab-izleme" class="tab-panel">
+    <p class="bolum-aciklama">Takip etmek istediğin <b>kişiyi</b> ya da <b>orduyu</b> yaz → her gün
+      nerede olduğu burada kart olarak görünür. <b>Kasaba değiştirirse</b> (son 6 gün içinde ya da gün
+      içindeki ordu nöbetinde) sitenin <b>en üstünde kocaman kırmızı uyarı</b> çıkar; “✔ gördüm” deyince
+      kalkar — görmeden bir gün geçse de uyarı kaybolmaz.
+      Liste <b>bu tarayıcıda</b> saklanır; 🌐 işaretliler herkesin gördüğü <b>ortak listedir</b>.</p>
+    <div class="pazar-arac-cubugu izleme-form">
+      <input type="text" id="izleme-ad" list="izleme-oneriler" autocomplete="off" maxlength="80"
+             placeholder="👤 Hesap ya da 🪖 ordu adı (örn. izaskun · The Excelsior)">
+      <select id="izleme-tur" title="Ne izleniyor?">
+        <option value="otomatik">🔎 Otomatik</option>
+        <option value="hesap">👤 Hesap</option>
+        <option value="ordu">🪖 Ordu</option>
+      </select>
+      <button type="button" id="izleme-ekle">➕ İzle</button>
+      <button type="button" class="emir-mini-btn" id="izleme-paylas" title="Listeni bir bağlantı olarak kopyala — açan kişinin listesine eklenir">🔗 Paylaş bağlantısı kopyala</button>
+    </div>
+    <datalist id="izleme-oneriler"></datalist>
+    <p id="izleme-durum" class="izleme-durum-metni" aria-live="polite"></p>
+    <p id="izleme-depo-notu" class="bolum-aciklama izleme-depo-notu" hidden>⚠️ Tarayıcın kayıt tutmaya izin
+      vermiyor (gizli pencere / engellenmiş site verisi) — liste yalnızca bu sayfa açıkken durur.</p>
+    <div id="izleme-ozet" class="envanter-ozet"></div>
+    <div id="izleme-kartlar" class="izleme-kartlar"></div>
+    <p id="izleme-bos" class="bos-durum" hidden>Henüz kimseyi izlemiyorsun — yukarıya bir ad yaz ve
+      <b>➕ İzle</b>’ye bas. Öneri listesi bugünkü sakinleri ve orduları gösterir.</p>
+
+    <h3 class="hareket-alt-baslik">🛡️ Ordu nöbeti — gün içi kontroller</h3>
+    <p class="bolum-aciklama">Ordu olan kasabalarda bot <b>2,5 saatte bir</b> ordu ve grup tablosuna yeniden
+      bakar. Son durum: <span id="izleme-nobet-tarih">yükleniyor…</span></p>
+    <p id="izleme-nobet-ozet" class="envanter-tarih-notu"></p>
+    <div id="izleme-nobet-liste" class="nobet-liste"></div>
+  </section>
+
+  <!-- 📅 [23.09.2026] GEÇMİŞ / TAKVİM — kullanıcı: *"geçmişe dönük tüm
+       raporlar + TAKVİM: tarih seç → o günkü nüfuslar."* Veri ana
+       makinedeki Town_Data'dan gün gün üretilir (docs/gecmis/). Dosyalar
+       YALNIZCA bu sekme ilk açılınca yüklenir (takip.js). -->
+  <section id="tab-gecmis" class="tab-panel">
+    <p class="bolum-aciklama">Takvimden bir <b>gün seç</b> → o gün 7 kasabada kim vardı, kayıtlı nüfus,
+      kim geldi/gitti, ordular, gruplar, gün içi nöbet kontrolleri ve o günün raporları.
+      Aralık: <span id="gecmis-son-tarih">sekme açılınca yüklenir</span></p>
+    <div class="pazar-arac-cubugu gecmis-arac">
+      <button type="button" class="emir-mini-btn" id="gecmis-onceki">◀ önceki gün</button>
+      <input type="date" id="gecmis-tarih" aria-label="Gün seç">
+      <button type="button" class="emir-mini-btn" id="gecmis-sonraki">sonraki gün ▶</button>
+      <span id="gecmis-bilgi" class="gecmis-bilgi" aria-live="polite"></span>
+    </div>
+    <p id="gecmis-yok" class="bos-durum" hidden>Takvim verisi henüz yok (gecmis/index.json) — ana
+      makinedeki bir sonraki site yayınında oluşur.</p>
+
+    <details class="gecmis-14" open>
+      <summary>📈 Son 14 günün nüfusu <span class="rehber-eski">(bir güne tıkla → o gün açılır)</span></summary>
+      <div class="tablo-sarici">
+        <table id="gecmis-nufus-tablo" class="gecmis-nufus-tablo">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </details>
+
+    <div class="pazar-arac-cubugu">
+      <input type="search" id="gecmis-kisi-ara" autocomplete="off" placeholder="👤 Kişi ara (bu gün) — hangi kasabadaydı?">
+    </div>
+    <div id="gecmis-kisi-sonuc" class="gecmis-kisi-sonuc"></div>
+    <div id="gecmis-ozet" class="envanter-ozet"></div>
+    <div id="gecmis-kasaba-detay"></div>
+    <div id="gecmis-ordu-grup"></div>
+    <div id="gecmis-nobet" class="nobet-liste"></div>
+    <div id="gecmis-raporlar"></div>
   </section>
 
   <section id="tab-harita" class="tab-panel">
@@ -1167,6 +1275,7 @@ if (window.L) L.RasterCoords.prototype = {
         <button class="emir-tur-btn" data-tur="forum">📣 Forum</button>
         <button class="emir-tur-btn" data-tur="yanasma">⚓ Yanaşma</button>
         <button class="emir-tur-btn" data-tur="gemi">⛵ Gemi Al</button>
+        <button class="emir-tur-btn" data-tur="divan">👑 Divan onay</button>
       </div>
       <!-- 🎭 [21.09.2026] KARAKTER / RP grubu. Kullanıcının notu:
            "hangi hesapta profile bişe yazdıracaksak o hesap kendi ismini
@@ -1377,6 +1486,24 @@ if (window.L) L.RasterCoords.prototype = {
          Kullanicinin ortagi: "Hesap sadece girip gelen giden mesaj var mi
          baksin telegrama atsin ... hizli yanit gelecegini bildigimiz bir
          hesaba gun icinde bir daha baktirabilelim." -->
+    <!-- ---------------- 👑 DİVAN LİSTESİ ONAY (24.09.2026) ----------------
+         Kullanıcı: "2 ayda bir olan bir şey ve sürekli değişiyor ... divan onayı
+         gibi bir emir yapabiliriz siteye, karakterlerin adını yazabiliriz, o
+         karakterler girince divan listesini onaylar." -->
+    <div class="emir-form" id="emir-form-divan">
+      <div class="emir-satir">
+        <label>Onaylayacak hesaplar <span class="emir-kucuk">(her satıra bir ad ya da virgülle)</span>
+          <textarea id="dv-hesaplar" rows="4" placeholder="Renegrade&#10;Aiegus"></textarea>
+        </label>
+      </div>
+      <div class="emir-satir">
+        <label class="emir-tik">
+          <input type="checkbox" id="dv-hemen">
+          ⚡ Hemen yap <span class="emir-kucuk">(tiksiz: hesap kendi sırası gelince onaylar — seçim süresi günlerle ölçülür, çoğu zaman acele yok)</span>
+        </label>
+      </div>
+      <p class="emir-ipucu">Hesap Sancak Kalesi → <b>Divan Seçimi</b>'ne gider, <b>kendi adının geçtiği listeyi</b> açar ve <b>Onayla</b>'ya basar. Liste zaten onaylıysa oyun "İptal" düğmesi gösterir — bot ona <b>ASLA basmaz</b> (basmak adaylıktan çekilmek demek), "zaten onaylı" deyip emri kapatır. Hesap hiçbir listede yoksa emir iptal edilir ve Telegram'a sayfadaki listeler yazılır.</p>
+    </div>
     <div class="emir-form" id="emir-form-posta">
       <div class="emir-satir">
         <label>Postasına bakılacak hesap
@@ -1843,5 +1970,8 @@ if (window.L) L.RasterCoords.prototype = {
 <script src="emir.js"></script>
 <script src="harita.js"></script>
 <script src="panel.js"></script>
+<!-- 🚨 İzleme & uyarı · 📅 Geçmiş/Takvim · 📊 Gelişim süzgeci (23.09.2026).
+     panel.js'ten SONRA; hata verse bile diğer dosyalar çalışır. -->
+<script src="takip.js"></script>
 </body>
 </html>
