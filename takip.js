@@ -1012,7 +1012,7 @@ var TakipSaf = (function () {
     depoCalisiyor: null, bellekListe: [], bellekGorulen: {},
     gelisimSuzgec: { ad: "", bas: "", bit: "", bilinmeyen: true }, gelisimGorunen: [],
     oneriImza: "", baslangic: Date.now(), bantKaydirildi: false,
-    gecmis: { index: null, yukleniyor: false, hata: "", gunler: {}, secili: "", bekleyen: "", kasaba: "", yuklemeNo: 0 }
+    gecmis: { index: null, yukleniyor: false, hata: "", gunler: {}, secili: "", bekleyen: "", kasaba: "", kaydir: false, yuklemeNo: 0 }
   };
 
   function $(id) { return document.getElementById(id); }
@@ -1611,6 +1611,7 @@ var TakipSaf = (function () {
       ozet.innerHTML = html;
     }
     kasabaDetayCiz(gun);
+    nufusTablosuSeciliIsaretle();
     if (og) og.innerHTML = orduGrupHtml(gun);
     if (nb) {
       var k = S.kronolojik(gun.nobet);
@@ -1650,6 +1651,11 @@ var TakipSaf = (function () {
         return '<b>' + S.kacis(c[0]) + '</b> → ' + S.kacis(S.karsiKasabaMetni(c[1], "kasabalarımız dışı"));
       }).join(" · ") + '</p>' : "");
     sakinTablosuCiz();
+    // 🏘️ [24.09.2026] Tablodan seçildiyse liste açılınca oraya kaydır.
+    if (D.gecmis.kaydir) {
+      D.gecmis.kaydir = false;
+      if (detay.scrollIntoView) { try { detay.scrollIntoView({ block: "start", behavior: "smooth" }); } catch (x) { detay.scrollIntoView(); } }
+    }
   }
 
   function sakinTablosuCiz() {
@@ -1728,15 +1734,22 @@ var TakipSaf = (function () {
     thead.innerHTML = '<tr><th>Kasaba</th>' + t.gunler.map(function (g) {
       return '<th class="gecmis-gun-baslik" data-tarih="' + S.kacis(g) + '" title="' + S.kacis(g) + ' gününe git">' + S.kacis(S.kisaGun(g)) + '</th>';
     }).join("") + '</tr>';
-    function hucre(h, ekSinif) {
+    // 🏘️ [24.09.2026] Hücre artık KASABASINI da taşır (data-kasaba). Kullanıcı:
+    //    *"tablodan tıkladığım ili göstersin, aşağıdan seçtirmeyi de yapsın."*
+    //    Eskiden hücre yalnızca tarihi taşıyordu → gün değişiyor, kasaba
+    //    seçimi eski kalıyordu (hangi satıra tıklansa Ardencaple görünüyordu).
+    //    Toplam satırında data-kasaba="" → kasaba seçimi temizlenir.
+    function hucre(h, ekSinif, kas) {
       var sinif = "gecmis-hucre" + (ekSinif || "") + (h.fark > 0 ? " gecmis-artti" : h.fark < 0 ? " gecmis-azaldi" : "");
-      var baslik = h.tarih + (h.resmi !== null && h.resmi !== undefined ? " · kayıtlı " + h.resmi : "") + (h.fark ? " · önceki güne göre " + farkEtiketi(h.fark) : "");
-      return '<td class="' + sinif + '" data-tarih="' + S.kacis(h.tarih) + '" title="' + S.kacis(baslik) + '">' +
+      var baslik = (kas ? kas + " · " : "") + h.tarih + (h.resmi !== null && h.resmi !== undefined ? " · kayıtlı " + h.resmi : "") + (h.fark ? " · önceki güne göre " + farkEtiketi(h.fark) : "");
+      return '<td class="' + sinif + '" data-tarih="' + S.kacis(h.tarih) + '" data-kasaba="' + S.kacis(kas || "") + '" title="' + S.kacis(baslik) + '">' +
         (h.sayi === null ? "—" : S.kacis(h.sayi)) + (h.fark ? '<span class="gecmis-fark">' + S.kacis(farkEtiketi(h.fark)) + '</span>' : "") + '</td>';
     }
     tbody.innerHTML = t.satirlar.map(function (s) {
-      return '<tr><th scope="row">' + S.kacis(s.kasaba) + '</th>' + s.hucreler.map(function (h) { return hucre(h); }).join("") + '</tr>';
-    }).join("") + '<tr class="gecmis-toplam-satir"><th scope="row">Toplam</th>' + t.toplam.map(function (h) { return hucre(h, " gecmis-toplam"); }).join("") + '</tr>';
+      return '<tr><th scope="row" class="gecmis-satir-kasaba" data-kasaba="' + S.kacis(s.kasaba) + '" title="' +
+        S.kacis(s.kasaba) + ' — seçili günün sakin listesini aç">' + S.kacis(s.kasaba) + '</th>' +
+        s.hucreler.map(function (h) { return hucre(h, "", s.kasaba); }).join("") + '</tr>';
+    }).join("") + '<tr class="gecmis-toplam-satir"><th scope="row">Toplam</th>' + t.toplam.map(function (h) { return hucre(h, " gecmis-toplam", ""); }).join("") + '</tr>';
     nufusTablosuSeciliIsaretle();
   }
   function nufusTablosuSeciliIsaretle() {
@@ -1744,6 +1757,13 @@ var TakipSaf = (function () {
     if (!tablo) return;
     Array.prototype.forEach.call(tablo.querySelectorAll("[data-tarih]"), function (el) {
       el.classList.toggle("gecmis-secili-gun", el.getAttribute("data-tarih") === D.gecmis.secili);
+      // Seçili gün + seçili kasaba kesişimi: hangi hücrenin açık olduğu görünsün.
+      el.classList.toggle("gecmis-secili-hucre", !!D.gecmis.kasaba &&
+        el.getAttribute("data-tarih") === D.gecmis.secili &&
+        el.getAttribute("data-kasaba") === D.gecmis.kasaba);
+    });
+    Array.prototype.forEach.call(tablo.querySelectorAll(".gecmis-satir-kasaba"), function (el) {
+      el.classList.toggle("gecmis-secili-kasaba", el.getAttribute("data-kasaba") === D.gecmis.kasaba);
     });
   }
 
@@ -1778,6 +1798,7 @@ var TakipSaf = (function () {
             b.classList.toggle("secili", b.getAttribute("data-kasaba") === D.gecmis.kasaba);
           });
           kasabaDetayCiz(gun);
+          nufusTablosuSeciliIsaretle();
           var og = $("gecmis-ordu-grup");
           if (og) og.innerHTML = orduGrupHtml(gun);
           var d = $("gecmis-kasaba-detay");
@@ -1791,8 +1812,25 @@ var TakipSaf = (function () {
         if (gun2) gunCiz(gun2, D.gecmis.secili);
         return;
       }
+      // 🏘️ [24.09.2026] Tablodaki kasaba ADINA tıklanınca: seçili günde o kasaba.
+      var satirEl = e.target.closest ? e.target.closest("#gecmis-nufus-tablo .gecmis-satir-kasaba") : null;
+      if (satirEl) {
+        D.gecmis.kasaba = satirEl.getAttribute("data-kasaba") || "";
+        D.gecmis.kaydir = true;
+        var gun3 = D.gecmis.gunler[D.gecmis.secili];
+        if (gun3) gunCiz(gun3, D.gecmis.secili);
+        else gecmisGunSec(D.gecmis.secili, false);
+        return;
+      }
       var gunEl = e.target.closest ? e.target.closest("#gecmis-nufus-tablo [data-tarih]") : null;
-      if (gunEl) gecmisGunSec(gunEl.getAttribute("data-tarih"), false);
+      if (gunEl) {
+        // Hücre = gün + kasaba (Toplam satırında kasaba boş → seçim temizlenir).
+        if (gunEl.hasAttribute("data-kasaba")) {
+          D.gecmis.kasaba = gunEl.getAttribute("data-kasaba") || "";
+          D.gecmis.kaydir = !!D.gecmis.kasaba;
+        }
+        gecmisGunSec(gunEl.getAttribute("data-tarih"), false);
+      }
     }));
     panel.addEventListener("input", guvenli(function (e) {
       if (e.target && e.target.id === "gecmis-sakin-ara") sakinTablosuCiz();
