@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-24 08:56",
+  "son_guncelleme": "2026-09-24 15:42",
   "azami_gun": 14,
   "azami_deneme": 7,
   "bekleyen": [],
@@ -17,8 +17,8 @@
       "serbest": false,
       "yazan": "Feyyaz",
       "eklenme": "2026-09-19 09:57",
-      "gecen_gun": 4,
-      "kalan_gun": 10,
+      "gecen_gun": 5,
+      "kalan_gun": 9,
       "deneme": 3,
       "azami_deneme": 7,
       "sonuc": "🗑️ İPTAL — yanaşma izni ELLE onaylandı (kullanıcı, 19.09.2026)",
@@ -37,8 +37,8 @@
       "serbest": false,
       "yazan": "VCkn1907",
       "eklenme": "2026-09-16 12:57",
-      "gecen_gun": 7,
-      "kalan_gun": 7,
+      "gecen_gun": 8,
+      "kalan_gun": 6,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "🚫 İPTAL (Feyyaz (elle))",
@@ -77,8 +77,8 @@
       "serbest": false,
       "yazan": "otomatik (E20)",
       "eklenme": "2026-09-17 09:10",
-      "gecen_gun": 6,
-      "kalan_gun": 8,
+      "gecen_gun": 7,
+      "kalan_gun": 7,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "✅ ALINDI (1 adet)",
@@ -277,14 +277,42 @@
       "serbest": false,
       "yazan": "Feyyaz",
       "eklenme": "2026-09-03 12:32",
-      "gecen_gun": 20,
-      "kalan_gun": -6,
+      "gecen_gun": 21,
+      "kalan_gun": -7,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "🚫 İPTAL (elle sıfırlandı)",
       "kapanma": "2026-09-06 10:02"
     }
   ],
-  "ayarlar": [],
+  "ayarlar": [
+    {
+      "hesap": "favore",
+      "alanlar": [
+        {
+          "ad": "gorev",
+          "deger": "seyahat:Kirkcudbright, tarla_al:Sebze, takip:Hızlı Cami"
+        }
+      ]
+    },
+    {
+      "hesap": "galdorin",
+      "alanlar": [
+        {
+          "ad": "gorev",
+          "deger": "seyahat:Worcester"
+        }
+      ]
+    },
+    {
+      "hesap": "gorgoyle",
+      "alanlar": [
+        {
+          "ad": "gorev",
+          "deger": "seyahat:Stirling, ev_al:Sebze"
+        }
+      ]
+    }
+  ],
   "ayar_guncelleme": "2026-09-24"
 }
