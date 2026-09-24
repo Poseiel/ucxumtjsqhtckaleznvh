@@ -531,6 +531,23 @@ function emirMesajiKur() {
     return { metin: fsatir.join(EMIR_NL) };
   }
 
+  // ---------------- 👑 DİVAN LİSTESİ ONAY (24.09.2026) ----------------
+  // ⚠️ Şablon `divan_onay.emri_coz` ile BİREBİR aynı olmalı (başlık +
+  //    her hesap ayrı "hesap:" satırı). `hemen` bot tarafında VARSAYILAN HAYIR.
+  if (emirTur === "divan") {
+    var dvHam = emirDeger("dv-hesaplar");
+    var dvAdlar = [];
+    String(dvHam || "").split(/[\r\n,;]+/).forEach(function (x) {
+      x = x.trim();
+      if (x && dvAdlar.map(function (y) { return y.toLowerCase(); }).indexOf(x.toLowerCase()) < 0) dvAdlar.push(x);
+    });
+    if (!dvAdlar.length) return { hata: "Eksik: onaylayacak en az bir hesap" };
+    var dvSatir = ["DİVAN ONAY"];
+    dvAdlar.forEach(function (x) { dvSatir.push("hesap: " + x); });
+    if (emirHemen("dv-hemen")) dvSatir.push("hemen: evet");
+    return { metin: dvSatir.join(EMIR_NL) };
+  }
+
   // ---------------- 📬 POSTA KONTROL (18.09.2026) ----------------
   // Kullanicinin ortagi: *"Hesap sadece girip gelen giden mesaj var mi
   //   baksin telegrama atsin ... hizli yanit gelecegini bildigimiz bir
