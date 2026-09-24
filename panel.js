@@ -104,7 +104,11 @@
     // ortasında kalır ve "değişmedi" sanır.
     if (window.innerWidth < 700) {
       var main = q("main");
-      if (main) { try { main.scrollIntoView({ block: "start" }); } catch (e) {} }
+      // 🚨 [23.09.2026] Kocaman uyarı bandı (takip.js) main'in ÜSTÜNDE durur;
+      //    görünüyorsa sekme değişince o da ekranda kalsın.
+      var bant = q("#uyari-bandi");
+      var hedef = (bant && !bant.hidden) ? bant : main;
+      if (hedef) { try { hedef.scrollIntoView({ block: "start" }); } catch (e) {} }
     }
     return true;
   }
@@ -126,6 +130,13 @@
     try { deger = p.length > 2 ? decodeURIComponent(p.slice(2).join("/")) : ""; } catch (e) { deger = p.slice(2).join("/"); }
 
     if (tab === "hesap") { hesapKartiAc(alt ? decodeURIComponent(alt) : ""); return; }
+    // 🚨 [23.09.2026] Paylaşılan izleme bağlantısı: #izle/ekle/a,b · #izle/ordu/<ad>
+    //    (takip.js listeye ekler, sonra adresi #izleme yapar).
+    if (tab === "izle") {
+      sekmeAc("izleme", false);
+      if (typeof window.takipHash === "function") { try { window.takipHash(alt, deger); } catch (e) { /* takip.js kendi hatasını yazar */ } }
+      return;
+    }
     if (!sekmeAc(tab, false)) return;
 
     if (tab === "emir" && alt) {
@@ -159,6 +170,9 @@
     } else if (tab === "filo") {
       if (alt === "ara") kutuyaYaz("filo-arama", deger);
       if (alt === "taraf") kutuyaYaz("filo-taraf-filtre", deger, "change");
+    } else if (tab === "gecmis" && alt) {
+      // 📅 #gecmis/<YYYY-MM-DD> → takvimde o gün (takip.js).
+      if (typeof window.takipGecmisGun === "function") { try { window.takipGecmisGun(alt); } catch (e) {} }
     } else if (tab === "harita" && alt) {
       // harita.js (ordu katmanı) kendi dinleyicisini kurar; olay olarak duyur.
       try { document.dispatchEvent(new CustomEvent("harita-alt", { detail: { alt: alt, deger: deger } })); } catch (e) {}
@@ -185,7 +199,8 @@
       var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
       if (a && a.getAttribute("href").length > 1) {
         var hedef = a.getAttribute("href");
-        if (/^#[a-z]/.test(hedef) && (q('.tab-btn[data-tab="' + hedef.slice(1).split("/")[0] + '"]') || hedef.indexOf("#hesap/") === 0)) {
+        if (/^#[a-z]/.test(hedef) && (q('.tab-btn[data-tab="' + hedef.slice(1).split("/")[0] + '"]') ||
+            hedef.indexOf("#hesap/") === 0 || hedef.indexOf("#izle/") === 0)) {
           e.preventDefault();
           if (location.hash === hedef) hashUygula();
           else location.hash = hedef;
@@ -195,7 +210,7 @@
     window.addEventListener("hashchange", hashUygula);
     var basla = (location.hash || "").replace(/^#/, "").split("/")[0];
     if (basla && q('.tab-btn[data-tab="' + basla + '"]')) hashUygula();
-    else if (basla === "hesap") { sekmeAc("baslangic", false); hashUygula(); }
+    else if (basla === "hesap" || basla === "izle") { sekmeAc("baslangic", false); hashUygula(); }
     else sekmeAc("baslangic", false);
   }
 
@@ -247,6 +262,8 @@
     ["🚫", "Yanlış emri geri almak", "#emirdurum", "Satırdaki 🚫 İptal düğmesi"],
     ["👤", "Tek bir hesabın her şeyini görmek", "#envanter", "Adı ara ya da adına tıkla → hesap kartı"],
     ["📍", "Bir kişiyi bulmak (kim nerede?)", "#sakinler", "7 kasabanın bugünkü tam listesi"],
+    ["🚨", "Birini / bir orduyu izlemek", "#izleme", "Kasaba değiştirirse en üstte kocaman uyarı çıkar"],
+    ["📅", "Geçmiş bir günde kim neredeydi?", "#gecmis", "Takvimden gün seç: nüfus, sakinler, ordular, raporlar"],
     ["🔒", "Birinin multi olup olmadığına bakmak", "#inziva", "Tek ölçüt: aynı gün inzivaya giriş/çıkış"],
     ["⛵", "Limanımıza kim geldi?", "#filo/taraf/yabanci", "🔴 yabancı gemiler"],
     ["🗺️", "Rota ve kaç gün sürer?", "#harita", "İki şehir seç; kara + deniz hesaplanır"],
@@ -330,6 +347,9 @@
       var asker = ordu.ordular.filter(function (o) { return o.alim_modu === true; }).length;
       var alt = disarida ? disarida + " tanesi şehir kapısında" : "hepsi şehir içinde";
       if (asker) alt += " · ⚔️ " + asker + " tanesi asker alıyor";
+      // [23.09.2026] `bakilamadi: true` = o kasabaya bugün bakılamadı, dünkü kayıt.
+      var bakilamayan = ordu.ordular.filter(function (o) { return o.bakilamadi === true; }).length;
+      if (bakilamayan) alt += " · " + bakilamayan + " tanesine bugün bakılamadı";
       k.push(kart("🪖", "takip edilen ordu", ordu.ordular.length, alt,
         "#harita/ordu", (disarida || asker) ? "bas-kart-uyari" : ""));
     }
@@ -344,6 +364,20 @@
       }));
       k.push(kart("🧭", "hesap yolda", syh.yolcular.length,
         "en uzak varış " + enUzun + " gün", "#harita/seyahat"));
+    }
+
+    // 🚨 İzleme & uyarı + 🛡️ ordu nöbeti (takip.js, 23.09.2026).
+    //    takip.js yoksa ya da hata verirse kartlar hiç çıkmaz.
+    var tk = null;
+    try { tk = typeof window.takipOzet === "function" ? window.takipOzet() : null; } catch (e) { tk = null; }
+    if (tk) {
+      k.push(kart("🚨", "izlenen hesap / ordu" + (tk.uyari ? " · uyarı " + tk.uyari : ""), kacis(tk.izlenen),
+        tk.uyari ? kacis(tk.uyari + " tanesi yer değiştirdi — bak!") : (tk.izlenen ? "değişiklik yok" : "İzleme sekmesinden ad ekle"),
+        "#izleme", tk.uyari ? "bas-kart-uyari" : ""));
+      if (tk.nobet) {
+        k.push(kart("🛡️", "ordu nöbeti", kacis(tk.nobet.deger), kacis(tk.nobet.alt),
+          "#izleme", tk.nobet.fark ? "bas-kart-vurgu" : ""));
+      }
     }
 
     var msj = g("panelMesajlar", null);
@@ -376,6 +410,8 @@
     ["⚓ Liman Envanteri", "liman-rapor-tarihi", "#liman", "sabah"],
     ["🎒 Envanter", "envanter-rapor-tarihi", "#envanter", "akşam"],
     ["📊 Gelişim", "gelisim-tarih-notu", "#gelisim", "akşam"],
+    ["🛡️ Ordu nöbeti · 🚨 İzleme", "izleme-nobet-tarih", "#izleme", "gün içinde 2,5 saatte bir"],
+    ["📅 Geçmiş / Takvim", "gecmis-son-tarih", "#gecmis", "sabah"],
     ["📨 Emir Durumu", "emirdurum-tarih", "#emirdurum", "emir işlenince"]
   ];
   function tarihCoz(metin) {
@@ -541,7 +577,8 @@
       return '<a href="#harita/ordu/' + encodeURIComponent(o.ad) + '">' + kacis(o.ad) +
         ' <span class="emir-kucuk">' + kacis(o.kasaba) + " · " + kacis(o.durum) +
         (o.alim_modu === true ? " · ⚔️ asker alıyor" : "") +
-        (o.danisman === true ? " · 🎖️ danışman arıyor" : "") + '</span></a>';
+        (o.danisman === true ? " · 🎖️ danışman arıyor" : "") +
+        (o.bakilamadi === true ? " · bugün bakılamadı (son bilinen)" : "") + '</span></a>';
     }), os.length]);
 
     if (!gruplar.length) {
@@ -771,6 +808,7 @@
   var SEKME_REHBER = {
     pazar: "sekmeler", envanter: "sekmeler", sancak: "sekmeler", belediye: "sekmeler", liman: "sekmeler",
     filo: "sekmeler", gelisim: "sekmeler", hareket: "sekmeler", inziva: "sekmeler", sakinler: "sekmeler",
+    izleme: "sekmeler", gecmis: "sekmeler",
     harita: "sekmeler", emir: "emir", emirdurum: "durum"
   };
   function yardimBaglantilariKur() {
