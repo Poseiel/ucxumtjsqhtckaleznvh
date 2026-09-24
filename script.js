@@ -1135,7 +1135,13 @@ function gelisimTabloCiz() {
     });
   });
 
-  const filtreli = gelisimKarakterler.filter((k) => !kasabaFiltre || k.kasaba === kasabaFiltre);
+  // 🔎 [23.09.2026] KANCA: takip.js'teki nick + kayıt tarihi süzgeci
+  //    (window.gelisimEkSuzgec). takip.js yoksa / hata verirse süzgeç yok
+  //    sayılır ve tablo ESKİSİ GİBİ çizilir. Sütun EKLENMEDİ (E9 kilidi).
+  const _ekSuzgec = typeof window.gelisimEkSuzgec === "function" ? window.gelisimEkSuzgec : null;
+  const filtreli = gelisimKarakterler.filter((k) => (!kasabaFiltre || k.kasaba === kasabaFiltre)
+    && (!_ekSuzgec || gelisimEkSuzgecUygula(_ekSuzgec, k)));
+  const _gorunen = [];   // ekranda görünen satırlar, çizim sırasıyla (dışa aktarma için)
 
   const sutun = GELISIM_SUTUNLAR.find((s) => s.anahtar === gelisimSiralama.anahtar);
   const yon = gelisimSiralama.azalan ? -1 : 1;
@@ -1172,6 +1178,7 @@ function gelisimTabloCiz() {
     }
     return String(av).localeCompare(String(bv), "tr") * yon;
   }).forEach((k) => {
+    _gorunen.push(k);
     const dun = k.dun;
     const hucreler = GELISIM_SUTUNLAR.map((s) => {
       if (!s.sayisal) {
@@ -1227,6 +1234,15 @@ function gelisimTabloCiz() {
   });
 
   document.getElementById("gelisim-sonuc-yok").hidden = filtreli.length !== 0;
+  // takip.js: sonuç sayısı + "listeyi kopyala / CSV indir" görünen satırları kullanır.
+  if (typeof window.gelisimCizildi === "function") {
+    try { window.gelisimCizildi(_gorunen); } catch (e) { /* süzgeç sayacı isteğe bağlı */ }
+  }
+}
+
+// takip.js süzgeci hata verirse satır GÖSTERİLİR (tablo boşalmasın).
+function gelisimEkSuzgecUygula(fn, k) {
+  try { return fn(k) !== false; } catch (e) { return true; }
 }
 
 document.getElementById("gelisim-kasaba-filtre").addEventListener("change", gelisimTabloCiz);
@@ -1274,6 +1290,13 @@ async function hareketYukle() {
     sakinlerListesi = veri.sakinler || [];
     sakinlerBizim = veri.bizim_sayilar || {};
     sakinlerBizimToplam = veri.bizim_toplam || 0;
+    // 🚨 [23.09.2026] takip.js (izleme & uyarı) sakin listesinin GÜNÜNÜ ve
+    //    resmî nüfusu buradan okur. Eski hareket.json'da alan yoksa boş kalır.
+    window.hareketEk = {
+      son_gun: veri.son_gun || "",
+      sakin_tarihi: veri.sakin_tarihi || veri.son_gun || "",
+      nufus: veri.nufus || null,
+    };
     // 🆕 Yeni hesap takibi — eski hareket.json'larda bu alanlar YOKTUR,
     // o zaman listeler boş kalır ve sayfa eskisi gibi çalışır.
     yeniHesaplar = veri.yeni_hesaplar || [];
