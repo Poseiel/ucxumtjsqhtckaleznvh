@@ -1391,6 +1391,11 @@ input[type="date"], input[type="search"] {
 .gecmis-azaldi { background: var(--takip-azaldi); }
 .gecmis-fark { display: block; font-size: 0.68rem; opacity: 0.85; }
 .gecmis-secili-gun { outline: 2px solid var(--accent); outline-offset: -2px; }
+/* 🏘️ [24.09.2026] tablodan kasaba seçimi: seçili hücre + satır başı */
+.gecmis-secili-hucre { background: var(--vurgu-zemin); font-weight: 800; }
+.gecmis-satir-kasaba { cursor: pointer; }
+.gecmis-satir-kasaba:hover { color: var(--accent); }
+.gecmis-secili-kasaba { color: var(--accent); }
 .gecmis-toplam-satir th, .gecmis-toplam-satir td { font-weight: 700; }
 .gecmis-kisi-sonuc { margin: -0.4rem 0 0.8rem; }
 .gecmis-kisi-liste { margin: 0; padding-left: 1.1rem; font-size: 0.9rem; }
