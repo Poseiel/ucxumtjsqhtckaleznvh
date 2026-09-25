@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-24 22:06",
+  "son_guncelleme": "2026-09-25 16:08",
   "adim_hakki_normal": 2,
   "adim_hakki_jetonlu": 3,
   "yolcular": [
@@ -75,23 +75,15 @@
     {
       "hesap": "Calwenor",
       "tur": "seyahat",
-      "nereden": "Orléans",
+      "nereden": "Blois",
       "yolda": false,
-      "bot_kalan_gun": 11,
-      "nereden_id": 385,
+      "bot_kalan_gun": 10,
+      "nereden_id": 378,
       "hedef": "Lodève",
       "hedef_id": 313,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 385,
-          "isim": "Orléans"
-        },
-        {
-          "id": 386,
-          "isim": "Blois - Orléans arası"
-        },
         {
           "id": 378,
           "isim": "Blois"
@@ -177,26 +169,11 @@
           "isim": "Lodève"
         }
       ],
-      "kalan_adim": 22,
-      "kalan_gun": 11,
+      "kalan_adim": 20,
+      "kalan_gun": 10,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 378,
-          "varis": "Blois",
-          "duraklar": [
-            {
-              "id": 386,
-              "isim": "Blois - Orléans arası"
-            },
-            {
-              "id": 378,
-              "isim": "Blois"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 147,
           "varis": "Tours",
           "duraklar": [
@@ -211,7 +188,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 143,
           "varis": "Loches",
           "duraklar": [
@@ -226,7 +203,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 186,
           "varis": "La Trémouille",
           "duraklar": [
@@ -241,7 +218,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 200,
           "varis": "Limoges - La Trémouille arası",
           "duraklar": [
@@ -256,7 +233,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 198,
           "varis": "Limoges - Tulle arası",
           "duraklar": [
@@ -271,7 +248,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 196,
           "varis": "Tulle",
           "duraklar": [
@@ -286,7 +263,7 @@
           ]
         },
         {
-          "gun": 8,
+          "gun": 7,
           "varis_id": 194,
           "varis": "Aurillac",
           "duraklar": [
@@ -301,7 +278,7 @@
           ]
         },
         {
-          "gun": 9,
+          "gun": 8,
           "varis_id": 1123,
           "varis": "Rodez",
           "duraklar": [
@@ -316,7 +293,7 @@
           ]
         },
         {
-          "gun": 10,
+          "gun": 9,
           "varis_id": 1125,
           "varis": "Millau",
           "duraklar": [
@@ -331,7 +308,7 @@
           ]
         },
         {
-          "gun": 11,
+          "gun": 10,
           "varis_id": 313,
           "varis": "Lodève",
           "duraklar": [
@@ -460,34 +437,19 @@
       "kaynaklar": []
     },
     {
-      "anahtar": "385|313|2",
-      "nereden": "Orléans",
-      "nereden_id": 385,
+      "anahtar": "378|313|2",
+      "nereden": "Blois",
+      "nereden_id": 378,
       "hedef": "Lodève",
       "hedef_id": 313,
       "yolda": false,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 22,
-      "kalan_gun": 11,
+      "kalan_adim": 20,
+      "kalan_gun": 10,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 378,
-          "varis": "Blois",
-          "duraklar": [
-            {
-              "id": 386,
-              "isim": "Blois - Orléans arası"
-            },
-            {
-              "id": 378,
-              "isim": "Blois"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 147,
           "varis": "Tours",
           "duraklar": [
@@ -502,7 +464,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 143,
           "varis": "Loches",
           "duraklar": [
@@ -517,7 +479,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 186,
           "varis": "La Trémouille",
           "duraklar": [
@@ -532,7 +494,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 200,
           "varis": "Limoges - La Trémouille arası",
           "duraklar": [
@@ -547,7 +509,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 198,
           "varis": "Limoges - Tulle arası",
           "duraklar": [
@@ -562,7 +524,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 196,
           "varis": "Tulle",
           "duraklar": [
@@ -577,7 +539,7 @@
           ]
         },
         {
-          "gun": 8,
+          "gun": 7,
           "varis_id": 194,
           "varis": "Aurillac",
           "duraklar": [
@@ -592,7 +554,7 @@
           ]
         },
         {
-          "gun": 9,
+          "gun": 8,
           "varis_id": 1123,
           "varis": "Rodez",
           "duraklar": [
@@ -607,7 +569,7 @@
           ]
         },
         {
-          "gun": 10,
+          "gun": 9,
           "varis_id": 1125,
           "varis": "Millau",
           "duraklar": [
@@ -622,7 +584,7 @@
           ]
         },
         {
-          "gun": 11,
+          "gun": 10,
           "varis_id": 313,
           "varis": "Lodève",
           "duraklar": [
@@ -638,14 +600,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 385,
-          "isim": "Orléans"
-        },
-        {
-          "id": 386,
-          "isim": "Blois - Orléans arası"
-        },
         {
           "id": 378,
           "isim": "Blois"
@@ -750,5 +704,24 @@
       "kaynaklar": []
     }
   ],
-  "beklemede": []
+  "beklemede": [
+    {
+      "hesap": "Thebear",
+      "tur": "takip",
+      "hedef": "",
+      "nereden": "Glasgow (Şehirde)",
+      "ayar_grup_takip": true,
+      "takip_modu": "Ordu Takip",
+      "sebep": "ayarı 'Ordu Takip' ama lideri belirlenemedi (gruptan düşmüş de olabilir) — ayarda lider yazmıyor, oyun kaydında da yok, aynı noktada yolcu da yok"
+    },
+    {
+      "hesap": "drayen",
+      "tur": "takip",
+      "hedef": "",
+      "nereden": "Glasgow (Şehirde)",
+      "ayar_grup_takip": true,
+      "takip_modu": "Ordu Takip",
+      "sebep": "ayarı 'Ordu Takip' ama lideri belirlenemedi (gruptan düşmüş de olabilir) — ayarda lider yazmıyor, oyun kaydında da yok, aynı noktada yolcu da yok"
+    }
+  ]
 }
