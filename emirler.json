@@ -1,8 +1,49 @@
 {
-  "son_guncelleme": "2026-09-24 22:06",
+  "son_guncelleme": "2026-09-25 07:46",
   "azami_gun": 14,
   "azami_deneme": 7,
-  "bekleyen": [],
+  "bekleyen": [
+    {
+      "kod": "E23",
+      "tur": "divan_onay",
+      "hesap": "Renegrade",
+      "urun": "👑 divan listesi onayı",
+      "adet": null,
+      "fiyat": "",
+      "alici": "",
+      "hemen": false,
+      "eyalet": false,
+      "serbest": false,
+      "yazan": "tohum",
+      "eklenme": "2026-09-25 07:45",
+      "gecen_gun": 0,
+      "kalan_gun": 14,
+      "deneme": 0,
+      "azami_deneme": 7,
+      "sonuc": "",
+      "kapanma": ""
+    },
+    {
+      "kod": "E24",
+      "tur": "divan_onay",
+      "hesap": "Aiegus",
+      "urun": "👑 divan listesi onayı",
+      "adet": null,
+      "fiyat": "",
+      "alici": "",
+      "hemen": false,
+      "eyalet": false,
+      "serbest": false,
+      "yazan": "tohum",
+      "eklenme": "2026-09-25 07:45",
+      "gecen_gun": 0,
+      "kalan_gun": 14,
+      "deneme": 0,
+      "azami_deneme": 7,
+      "sonuc": "",
+      "kapanma": ""
+    }
+  ],
   "gecmis": [
     {
       "kod": "E22",
@@ -57,8 +98,8 @@
       "serbest": false,
       "yazan": "otomatik (her şeyi sat · Makuta)",
       "eklenme": "2026-09-16 07:07",
-      "gecen_gun": 8,
-      "kalan_gun": 6,
+      "gecen_gun": 9,
+      "kalan_gun": 5,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "🚫 İPTAL (Feyyaz (elle))",
@@ -97,8 +138,8 @@
       "serbest": false,
       "yazan": "Feyyaz",
       "eklenme": "2026-09-17 06:47",
-      "gecen_gun": 7,
-      "kalan_gun": 7,
+      "gecen_gun": 8,
+      "kalan_gun": 6,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "✅ SATILDI (1 adet · 50.00 akçe)",
@@ -157,8 +198,8 @@
       "serbest": false,
       "yazan": "otomatik (E12)",
       "eklenme": "2026-09-11 07:23",
-      "gecen_gun": 13,
-      "kalan_gun": 1,
+      "gecen_gun": 14,
+      "kalan_gun": 0,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "✅ ALINDI (30 adet)",
@@ -257,8 +298,8 @@
       "serbest": false,
       "yazan": "Feyyaz",
       "eklenme": "2026-09-06 07:10",
-      "gecen_gun": 18,
-      "kalan_gun": -4,
+      "gecen_gun": 19,
+      "kalan_gun": -5,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "🚫 İPTAL (elle sıfırlandı)",
@@ -285,34 +326,6 @@
       "kapanma": "2026-09-06 10:02"
     }
   ],
-  "ayarlar": [
-    {
-      "hesap": "favore",
-      "alanlar": [
-        {
-          "ad": "gorev",
-          "deger": "seyahat:Kirkcudbright, tarla_al:Sebze, takip:Hızlı Cami"
-        }
-      ]
-    },
-    {
-      "hesap": "galdorin",
-      "alanlar": [
-        {
-          "ad": "gorev",
-          "deger": "seyahat:Worcester"
-        }
-      ]
-    },
-    {
-      "hesap": "gorgoyle",
-      "alanlar": [
-        {
-          "ad": "gorev",
-          "deger": "seyahat:Stirling, ev_al:Sebze"
-        }
-      ]
-    }
-  ],
-  "ayar_guncelleme": "2026-09-24"
+  "ayarlar": [],
+  "ayar_guncelleme": "2026-09-25"
 }
