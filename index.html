@@ -98,6 +98,7 @@ if (window.L) L.RasterCoords.prototype = {
   <button class="tab-btn" data-tab="gelisim" data-grup="takip">📊 Gelişim (hesap tablosu)</button>
   <button class="tab-btn" data-tab="izleme" data-grup="takip">🚨 İzleme &amp; Uyarı</button>
   <button class="tab-btn" data-tab="gecmis" data-grup="takip">📅 Geçmiş / Takvim</button>
+  <button class="tab-btn" data-tab="ordu" data-grup="takip">⚔️ Ordu (üyelerimiz + hadiseler)</button>
   <button class="tab-btn" data-tab="harita" data-grup="deniz">🗺️ Harita &amp; Rota</button>
   <button class="tab-btn" data-tab="filo" data-grup="deniz">⛵ Filo (rıhtımdaki gemiler)</button>
   <button class="tab-btn" data-tab="emir" data-grup="emir">📨 Emir ver</button>
@@ -377,7 +378,7 @@ if (window.L) L.RasterCoords.prototype = {
       <h2>📖 Bu site ne işe yarar?</h2>
       <p class="bolum-aciklama">Bot her sabah <b>98 hesabı</b> tek tek gezip oyundan bilgi
         topluyor. Bu site o bilgilerin okunabilir hâli — oyuna girmeden, tek ekrandan
-        her şeyi görürsün. İki tür sekme var: <b>bilgi okuma</b> (13 sekme) ve
+        her şeyi görürsün. İki tür sekme var: <b>bilgi okuma</b> (14 sekme) ve
         <b>bota iş verme</b> (Emir). Aşağıda hangisi ne işe yarar, hepsi tek tek yazılı.</p>
 
       <h3>⏰ Önce şunu bil: site günde <b>İKİ KEZ</b> güncellenir</h3>
@@ -393,7 +394,7 @@ if (window.L) L.RasterCoords.prototype = {
       <p class="rehber-not">⚠️ Yani <b>sabah Envanter ve Gelişim sekmelerinde DÜNÜN verisi durur</b> —
         bozuk değildir. Her sekmenin üstünde hangi güne ait olduğu yazıyor.</p>
 
-      <h3>🔎 Bilgi okuma sekmeleri (13 tane)</h3>
+      <h3>🔎 Bilgi okuma sekmeleri (14 tane)</h3>
       <table class="rehber-tablo">
         <tr><th>Sekme</th><th>Ne gösterir</th><th>Ne işine yarar</th></tr>
         <tr><td><b>Pazar</b></td><td>7 kasabanın pazarındaki bütün ilanlar, fiyatlar, satıcılar</td><td>Bir malı nereden ucuza alacağını, kendi malının fiyatının piyasaya göre nerede durduğunu görürsün. Arama kutusu <b>kısmi</b> arar; yanındaki liste <b>tam ad</b> seçtirir.</td></tr>
@@ -409,6 +410,7 @@ if (window.L) L.RasterCoords.prototype = {
         <tr><td><b>🗺️ Harita &amp; Rota</b></td><td>Kara yolu rota hesaplayıcı + <b>🚢 Deniz Rotası</b></td><td>İki şehir seç → kaç gün sürdüğünü söyler (Paşa paketi varsa günde 3 adım, yoksa 2). Deniz kısmı gemi rotasını kare kare çizer.</td></tr>
         <tr><td><b>🚨 İzleme &amp; Uyarı</b></td><td>Adını yazdığın hesapların ve orduların bugünkü yeri, dünkü yeri, gün içi nöbette görüldüğü yer + <b>🛡️ ordu nöbeti</b> kontrolleri</td><td>Biri <b>kasaba değiştirirse</b> sitenin en üstünde <b>kocaman kırmızı uyarı</b> çıkar. Liste bu tarayıcıda saklanır; <b>🔗 Paylaş</b> ile arkadaşına gönderebilirsin.</td></tr>
         <tr><td><b>📅 Geçmiş / Takvim</b></td><td>Seçtiğin <b>eski bir günün</b> kasaba nüfusları, sakin listeleri, gelen/gidenler, ordular, gruplar ve o günün raporları</td><td>“O gün kim neredeydi?” sorusunun cevabı. Son 14 günün nüfus tablosunda bir güne tıkla → o gün açılır.</td></tr>
+        <tr><td><b>⚔️ Ordu</b></td><td>“Ordu Takip” modundaki <b>kendi hesaplarımız</b> (ordu, komutan, günlük ücret, bugünkü takip ve enerji) + oyunun Günlük sekmesinden okunan <b>son 30 günün ordu hadiseleri</b> (💀 ölüm · 🩸 yara · ⚔️ darbe/kavga · 👁️ gördüklerin)</td><td>Ordudaki hesap bugün <b>lideri takip edebildi mi</b>, kimle çarpıştı — oyuna girmeden görürsün. Hesaba göre süz, “yalnızca çatışmalar”ı işaretle ya da metinde ara.</td></tr>
       </table>
       <p class="rehber-not">⚠️ Bir sekmede <b>“henüz veri yok”</b> yazıyorsa bozuk değildir —
         o bilgiyi toplayan hesap o gün henüz oyuna girmemiştir. Örneğin Sancak Envanteri,
@@ -434,11 +436,12 @@ if (window.L) L.RasterCoords.prototype = {
         <tr><td>📣 <b>Forum</b></td><td>Oyunun forumunda <b>bir başlığa cevap</b> yazdırır. Başlığın adresini (linkini) ve yazılacak metni verirsin.</td><td>Yalnızca oyunun kendi forum adresi kabul edilir — başka bir siteye gitmez. Yeni başlık <b>açmaz</b>, sadece cevap yazar.</td></tr>
         <tr><td>📬 <b>Posta kontrol</b></td><td>Hesap oyuna girip <b>yalnızca yeni mesaj var mı</b> diye bakar, varsa Telegram'a yollar ve çıkar.</td><td>Başka hiçbir iş yapılmaz (tarla/pazar/meslek yok). Posta zaten her girişte okunuyor — bu emir <b>gün içinde fazladan bir bakış</b> içindir. Hızlı yanıt beklediğin bir hesap için kullan.</td></tr>
         <tr><td>👑 <b>Divan onay</b><br><span class="rehber-eski">24.09.2026</span></td><td>Yazdığın hesaplar oyuna girdiğinde Sancak Kalesi'nde <b>kendi adlarının geçtiği divan listesini onaylar</b>. Birden çok hesabı tek emirde yazabilirsin.</td><td>Onayla ile İptal oyunda <b>aynı düğme türü</b>; bot yalnızca <b>Onayla</b>'ya basar. Zaten onaylıysa dokunmaz, emri kapatır. Hesap hiçbir listede yoksa emir iptal edilir.</td></tr>
+        <tr><td>🪖 <b>Orduya katıl</b><br><span class="rehber-eski">25.09.2026</span></td><td>Yazdığın hesaplar oyuna girince bulundukları kasabada <b>adını (ya da komutanını) yazdığın ordunun</b> “Başvur” düğmesine basar. Başarılıysa hesap <b>“Ordu Takip”</b> moduna geçer: işe girmez, enerjisini tercihe göre harcar (🟣 boya · ⛏️ maden · 💤 hiç), <b>en son lideri takip eder</b>.</td><td><b>Ordu adı ZORUNLU</b> — aynı kasabada düşman ordu da asker alabiliyor, yanlış orduya girmek geri alınamaz. Ad eşleşmezse ya da belirsizse bot <b>hiçbir düğmeye basmaz</b>. Bot ordudan <b>asla ayrılmaz</b>. Olanları <b>⚔️ Ordu</b> sekmesinde görürsün.</td></tr>
         <tr><td>⚓ <b>Yanaşma</b></td><td>Liman şefi olan hesaba, <b>şu armatörün gemisinin limana yanaşmasına izin ver</b> dedirtir.</td><td>Armatörün <b>oyun içi kullanıcı adını</b> yaz (ekranda görünen büyük harfli ad değil). Emir vermediğin hiçbir gemi kabul edilmez; bot kendiliğinden yanaşma onaylamaz.</td></tr>
         <tr><td>🎭 <b>Profil yaz</b><br><span class="rehber-eski">21.09.2026</span></td><td>Hesap oyuna girer, <b>kendi profil sayfasını ayrı bir sekmede</b> açar ve yazdıklarını kaydeder: <b>profil durumu</b> ("Peki, bugün ruh halin nasıl?" — 140 karakter), <b>doğum günü</b> (gün/ay), <b>yaş</b>, <b>cinsiyet</b>, <b>RP metni</b> (oyun karakteri profili) ve <b>OOC</b> (oyun dışı bilgiler).</td><td><b>Boş bıraktığın kutuya dokunulmaz.</b> Kayıt iki adımda olur (önce durum, sonra Profil sekmesi); biri olmazsa diğeri yine denenir. Oyundan <b>çıkılmaz</b>, sekme iş bitince kapanır. ✅ İş bitince <b>Telegram'a haber gelir</b>. 📄 Metin uzunsa (Telegram sınırı <b>4.096 karakter</b>) <b>bölme</b> — <b>📄 .txt indir</b> düğmesini kullan, dosyayı gruba <b>dosya olarak</b> at; <b>tek dosyada</b> doğum günü, yaş, cinsiyet, RP ve OOC birlikte gider, bot hepsini okur.</td></tr>
         <tr><td>🤝 <b>Güven puanı</b><br>🎨 <b>Renk attır</b></td><td>Bizim bir hesabımız <b>başka bir oyuncunun</b> profilini açar; menüden <b>güven puanı (+1)</b> verir ve/veya bir üst <b>RP derecesine geçirmeyi</b> önerir. İkisini birden istersen tek ziyarette yapılır.</td><td>⚠️ <b>Güven puanı iz bırakır</b>: oyun profilde "Güven Puanı veren son kişiler"i gösteriyor ve multi analizimiz tam bu listeye bakıyor. 🎨 Renk sırası <b>Beyaz → Sarı → Turuncu → Yeşil → Mavi → Kahverengi → Siyah</b>; kendinden <b>yüksek</b> dereceliye verilemez. Oyun <b>"Daha önce terfi öneriniz işleme alınmıştı"</b> derse emir <b>kuyrukta bekletilmez, iptal edilir</b> ve Telegram'a haber gelir — bir süre sonra aynı emri yeniden verirsin.</td></tr>
         <tr><td>🚫 <b>İptal</b></td><td>Bekleyen bir emri kuyruktan düşürür. <b>📊 Emir Durumu</b> sekmesindeki düğmeden üretilir.</td><td>Metin panoya kopyalanır, Telegram’a yapıştırırsın; anında değildir.</td></tr>
-        <tr><td>🖥️ <b>Ayar</b><br><span class="rehber-eski">en güçlüsü</span></td><td><b>Launcher’ın yaptığı her hesap ayarını buradan verirsin</b> — bilgisayarın başında olmana gerek kalmaz. Takip modu, ders, seyahat, gemi, kaptan, ases, inziva, divan görevi, puan, işçi, armatör ve <b>görev zinciri</b>.</td><td>Aşağıdaki iki uyarıyı mutlaka oku.</td></tr>
+        <tr><td>🖥️ <b>Ayar</b><br><span class="rehber-eski">en güçlüsü</span></td><td><b>Launcher’ın yaptığı her hesap ayarını buradan verirsin</b> — bilgisayarın başında olmana gerek kalmaz. Takip modu, ordu enerjisi, ders, seyahat, gemi, kaptan, ases, inziva, divan görevi, puan, işçi, armatör ve <b>görev zinciri</b>.</td><td>Aşağıdaki iki uyarıyı mutlaka oku.</td></tr>
       </table>
 
       <h3>📄 Uzun emir — <b>.txt dosyası olarak</b> gönderme</h3>
@@ -1023,6 +1026,56 @@ if (window.L) L.RasterCoords.prototype = {
     <div id="gecmis-raporlar"></div>
   </section>
 
+  <!-- ⚔️ [25.09.2026] ORDU — kullanıcı: *"siteye de bu ordu sekmesini koysak
+       ayrıca. orada geçmişi de görelim. 30 güne kadar."* Veri: ordu_hadise.json
+       (ordu_uyesi.py → Town_Data → pazar_json_uret.ordu_hadise_uret). Dosya
+       YALNIZCA bu sekme ilk açılınca yüklenir (takip.js). Oyundan gelen her
+       metin kaçışla basılır. -->
+  <section id="tab-ordu" class="tab-panel">
+    <p class="bolum-aciklama"><b>“Ordu Takip”</b> modundaki <b>kendi hesaplarımız</b>: hangi orduda,
+      komutanı kim, günlük ücreti ne, bugün <b>lideri takip</b> edebildi mi, enerjisini ne yaptı.
+      Altında oyunun <b>Günlük</b> sekmesinden okunan <b>ordu hadiseleri</b> — kavga, ölüm, yara ve
+      “Gördüklerin” — <b>son 30 gün</b>, gün gün. Bot ordudan <b>asla ayrılmaz</b>; hesabı orduya sokmak için
+      <a class="bas-link" href="#emir/ordukatil">Emir → 🪖 Orduya katıl</a>.
+      Son güncelleme: <span id="ordu-hadise-tarih">sekme açılınca yüklenir</span></p>
+    <div id="ordu-ozet" class="envanter-ozet"></div>
+
+    <h3 class="hareket-alt-baslik">🪖 Ordudaki hesaplarımız</h3>
+    <div class="tablo-sarici">
+      <table id="ordu-uye-tablo" class="ordu-uye-tablo">
+        <thead>
+          <tr>
+            <th>Hesap</th>
+            <th>Ordu</th>
+            <th>Komutan</th>
+            <th>Günlük ücret</th>
+            <th>Son takip</th>
+            <th>Enerji</th>
+            <th>Son görülme</th>
+            <th>Müfreze</th>
+          </tr>
+        </thead>
+        <tbody id="ordu-uye-govde"></tbody>
+      </table>
+    </div>
+    <p id="ordu-uye-yok" class="bos-durum" hidden>Ordu Takip modunda kayıtlı hesabımız yok — bir hesabı
+      orduya sokmak için Emir → 🪖 Orduya katıl.</p>
+
+    <h3 class="hareket-alt-baslik">📜 Ordu hadiseleri (son 30 gün)</h3>
+    <div class="pazar-arac-cubugu ordu-hadise-arac">
+      <select id="ordu-hadise-hesap" aria-label="Hesaba göre süz">
+        <option value="">👤 Tüm hesaplar</option>
+      </select>
+      <label class="ordu-hadise-tik"><input type="checkbox" id="ordu-hadise-kavga"> ⚔️ yalnızca çatışmalar</label>
+      <input type="search" id="ordu-hadise-ara" autocomplete="off" maxlength="80"
+             placeholder="🔎 Metinde ara (kişi adı, “darbe”, “ordu”…)">
+      <span id="ordu-hadise-sayi" class="gecmis-bilgi" aria-live="polite"></span>
+    </div>
+    <div id="ordu-hadise-liste" class="ordu-hadise-liste"></div>
+    <p id="ordu-hadise-bos" class="bos-durum" hidden>Henüz ordu hadisesi yok — Ordu Takip modundaki hesaplar
+      oyuna girince Günlük'ten okunur.</p>
+  </section>
+
   <section id="tab-harita" class="tab-panel">
     <p class="bolum-aciklama">
       Oyunun gerçek haritası üzerinde <b>kara</b>, <b>deniz</b> ve
@@ -1276,6 +1329,7 @@ if (window.L) L.RasterCoords.prototype = {
         <button class="emir-tur-btn" data-tur="yanasma">⚓ Yanaşma</button>
         <button class="emir-tur-btn" data-tur="gemi">⛵ Gemi Al</button>
         <button class="emir-tur-btn" data-tur="divan">👑 Divan onay</button>
+        <button class="emir-tur-btn" data-tur="ordukatil">🪖 Orduya katıl</button>
       </div>
       <!-- 🎭 [21.09.2026] KARAKTER / RP grubu. Kullanıcının notu:
            "hangi hesapta profile bişe yazdıracaksak o hesap kendi ismini
@@ -1503,6 +1557,45 @@ if (window.L) L.RasterCoords.prototype = {
         </label>
       </div>
       <p class="emir-ipucu">Hesap Sancak Kalesi → <b>Divan Seçimi</b>'ne gider, <b>kendi adının geçtiği listeyi</b> açar ve <b>Onayla</b>'ya basar. Liste zaten onaylıysa oyun "İptal" düğmesi gösterir — bot ona <b>ASLA basmaz</b> (basmak adaylıktan çekilmek demek), "zaten onaylı" deyip emri kapatır. Hesap hiçbir listede yoksa emir iptal edilir ve Telegram'a sayfadaki listeler yazılır.</p>
+    </div>
+    <!-- ---------------- 🪖 ORDUYA KATIL (25.09.2026) ----------------
+         Kullanıcı (24.09): "ordudaki hesaplar işe girmeyecek unutmayalım" +
+         Harle: "50 enerji harca en son takip et. İstek bu."
+         ⚠️ Şablon ordu_uyesi.emri_coz ile BİREBİR aynı olmalı: başlık + her
+            hesap ayrı "hesap:" satırı + ZORUNLU "ordu:" (ad ya da komutan).
+         ⚠️ Enerji kutusunun "—" seçeneği satır YAZMAZ (hesabın ayarı kalır). -->
+    <div class="emir-form" id="emir-form-ordukatil">
+      <div class="emir-satir">
+        <label>Orduya girecek hesaplar <span class="emir-kucuk">(her satıra bir ad ya da virgülle)</span>
+          <textarea id="ok-hesaplar" rows="4" placeholder="Zaniolo&#10;Fredyy"></textarea>
+        </label>
+      </div>
+      <div class="emir-satir">
+        <label>Ordu adı ya da komutanı <span class="emir-kucuk">(ZORUNLU)</span>
+          <input list="ok-ordu-listesi" id="ok-ordu" placeholder="örn. The Excelsior  ya da  Emmalogan" autocomplete="off">
+          <datalist id="ok-ordu-listesi"></datalist>
+        </label>
+        <label>🪖 Enerji <span class="emir-kucuk">(ordudayken ne yapsın)</span>
+          <select id="ok-enerji">
+            <option value="">— (hesabın ayarı kalsın)</option>
+            <option value="otomatik">Otomatik (bahçıvan → boya, diğerleri → sadece takip)</option>
+            <option value="boya">🟣 Boya</option>
+            <option value="maden">⛏️ Maden (yalnızca maden, EAÜ yok)</option>
+            <option value="yok">💤 Sadece lideri takip (enerji harcama)</option>
+          </select>
+        </label>
+      </div>
+      <div class="emir-satir">
+        <label class="emir-tik">
+          <input type="checkbox" id="ok-hemen">
+          ⚡ Hemen yap <span class="emir-kucuk">(tiksiz: hesap kendi sırası gelince başvurur)</span>
+        </label>
+      </div>
+      <p class="emir-ipucu">Hesap oyuna girince hedef ordunun <b>Başvur</b> düğmesine basar; başarılıysa
+        <b>“Ordu Takip”</b> moduna geçer: <b>işe girmez</b>, enerjisini tercihe göre harcar,
+        <b>EN SON lideri takip eder</b>. Bot ordudan <b>ASLA ayrılmaz</b>. Ordu adı zorunlu: aynı
+        kasabada düşman ordu da asker alabiliyor — ad eşleşmezse ya da belirsizse bot <b>hiçbir
+        düğmeye basmaz</b> (yanlış orduya girmek geri alınamaz). Olanlar <b>⚔️ Ordu</b> sekmesinde görünür.</p>
     </div>
     <div class="emir-form" id="emir-form-posta">
       <div class="emir-satir">
@@ -1784,6 +1877,19 @@ if (window.L) L.RasterCoords.prototype = {
             <option value="Alışverişçi">🛒 Alışverişçi</option>
             <option value="Hızlı Maden">⚡ Hızlı Maden (yeni hesap)</option>
             <option value="Hızlı Cami">⚡ Hızlı Cami (yeni hesap)</option>
+          </select>
+        </label>
+        <!-- 🪖 [25.09.2026] "Ordu Takip" hesabının enerjisi nereye gider.
+             Bot: site_emirleri._IZINLI_ALANLAR["ordu enerjisi"] → ordu_enerji
+             (ordu_uyesi.enerji_tercihi_coz doğrular; "otomatik" → "").
+             ⚠️ Varsayılan "— değiştirme —": seçilmezse satır GİTMEZ. -->
+        <label>🪖 Ordu enerjisi <span class="ay-ipucu">yalnızca “Ordu Takip” modunda</span>
+          <select id="ay-ordu-enerji">
+            <option value="">— değiştirme —</option>
+            <option value="otomatik">Otomatik (bahçıvan → boya, diğerleri → sadece takip)</option>
+            <option value="boya">🟣 Boya</option>
+            <option value="maden">⛏️ Maden (yalnızca maden, EAÜ yok)</option>
+            <option value="yok">💤 Sadece lideri takip (enerji harcama)</option>
           </select>
         </label>
       </div>
