@@ -167,6 +167,7 @@
     } else if (tab === "sakinler" && alt === "ara") { kutuyaYaz("sakinler-arama", deger);
     } else if (tab === "hareket" && alt === "ara") { kutuyaYaz("hareket-arama", deger);
     } else if (tab === "inziva" && alt === "ara") { kutuyaYaz("kayip-arama", deger);
+    } else if (tab === "ordu" && alt === "ara") { kutuyaYaz("ordu-hadise-ara", deger);   // ⚔️ takip.js süzer
     } else if (tab === "filo") {
       if (alt === "ara") kutuyaYaz("filo-arama", deger);
       if (alt === "taraf") kutuyaYaz("filo-taraf-filtre", deger, "change");
@@ -264,6 +265,9 @@
     ["📍", "Bir kişiyi bulmak (kim nerede?)", "#sakinler", "7 kasabanın bugünkü tam listesi"],
     ["🚨", "Birini / bir orduyu izlemek", "#izleme", "Kasaba değiştirirse en üstte kocaman uyarı çıkar"],
     ["📅", "Geçmiş bir günde kim neredeydi?", "#gecmis", "Takvimden gün seç: nüfus, sakinler, ordular, raporlar"],
+    // ⚔️ [25.09.2026] Ordu üyelerimiz + hadiseler / orduya katılma emri.
+    ["⚔️", "Ordudaki hesaplarımız ne yaşadı?", "#ordu", "Lideri takip · enerji · kavga/ölüm kayıtları (son 30 gün)"],
+    ["🪖", "Bir hesabı orduya sokmak", "#emir/ordukatil", "Ordu adı ya da komutanı ZORUNLU"],
     ["🔒", "Birinin multi olup olmadığına bakmak", "#inziva", "Tek ölçüt: aynı gün inzivaya giriş/çıkış"],
     ["⛵", "Limanımıza kim geldi?", "#filo/taraf/yabanci", "🔴 yabancı gemiler"],
     ["🗺️", "Rota ve kaç gün sürer?", "#harita", "İki şehir seç; kara + deniz hesaplanır"],
@@ -412,6 +416,8 @@
     ["📊 Gelişim", "gelisim-tarih-notu", "#gelisim", "akşam"],
     ["🛡️ Ordu nöbeti · 🚨 İzleme", "izleme-nobet-tarih", "#izleme", "gün içinde 2,5 saatte bir"],
     ["📅 Geçmiş / Takvim", "gecmis-son-tarih", "#gecmis", "sabah"],
+    // ⚔️ [25.09.2026] Sekme açılınca yüklenir — o zamana kadar "—" görünür.
+    ["⚔️ Ordu (üyelerimiz + hadiseler)", "ordu-hadise-tarih", "#ordu", "akşam"],
     ["📨 Emir Durumu", "emirdurum-tarih", "#emirdurum", "emir işlenince"]
   ];
   function tarihCoz(metin) {
@@ -580,6 +586,29 @@
         (o.danisman === true ? " · 🎖️ danışman arıyor" : "") +
         (o.bakilamadi === true ? " · bugün bakılamadı (son bilinen)" : "") + '</span></a>';
     }), os.length]);
+
+    // ⚔️ [25.09.2026] Ordu üyelerimiz + ordu hadiseleri (ordu_hadise.json —
+    //    takip.js Ordu sekmesi İLK açılınca yükler; açılmadıysa grup çıkmaz).
+    var oh = g("orduHadiseVerisi", null);
+    if (oh) {
+      var ohs = [];
+      (oh.uyeler || []).forEach(function (u) {
+        if (u && kucult((u.hesap || "") + " " + (u.ordu || "") + " " + (u.komutan || "")).indexOf(a) >= 0) {
+          ohs.push('<a href="#ordu/ara/' + encodeURIComponent(u.hesap || "") + '">🪖 ' + kacis(u.hesap) +
+            ' <span class="emir-kucuk">' + kacis(u.ordu || (u.uye === false ? "orduda değil" : "?")) +
+            (u.komutan ? " · " + kacis(u.komutan) : "") + '</span></a>');
+        }
+      });
+      (oh.gunler || []).forEach(function (gn) {
+        ((gn && gn.hadiseler) || []).forEach(function (h) {
+          if (h && kucult((h.metin || "") + " " + (h.hesap || "")).indexOf(a) >= 0) {
+            ohs.push('<a href="#ordu/ara/' + encodeURIComponent(metin.trim()) + '">' + kacis(gn.tarih) + " " + kacis(h.saat || "") +
+              " · " + kacis(h.hesap) + ' <span class="emir-kucuk">' + kacis(h.metin) + '</span></a>');
+          }
+        });
+      });
+      if (ohs.length) gruplar.push(["⚔️ Ordu (üyelerimiz + hadiseler)", ohs.slice(0, SINIR), ohs.length]);
+    }
 
     if (!gruplar.length) {
       sonuc.innerHTML = '<p class="bos-durum">"' + kacis(metin) + '" bulunamadı. Hesap adı, eşya, kasabadaki bir kişi ya da gemi yaz.</p>';
@@ -808,7 +837,7 @@
   var SEKME_REHBER = {
     pazar: "sekmeler", envanter: "sekmeler", sancak: "sekmeler", belediye: "sekmeler", liman: "sekmeler",
     filo: "sekmeler", gelisim: "sekmeler", hareket: "sekmeler", inziva: "sekmeler", sakinler: "sekmeler",
-    izleme: "sekmeler", gecmis: "sekmeler",
+    izleme: "sekmeler", gecmis: "sekmeler", ordu: "sekmeler",
     harita: "sekmeler", emir: "emir", emirdurum: "durum"
   };
   function yardimBaglantilariKur() {
