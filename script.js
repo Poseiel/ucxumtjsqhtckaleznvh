@@ -2391,6 +2391,9 @@ function emirTurAdi(t) {
   if (t === "posta") return "📬 Posta";
   if (t === "profil") return "🎭 Profil";
   if (t === "guven") return "🤝 Güven / 🎨 Renk";
+  // 👑 [24.09.2026] / 🪖 [25.09.2026] — divan listesi onayı + orduya katılma
+  if (t === "divan_onay") return "👑 Divan onay";
+  if (t === "ordu_katil") return "🪖 Orduya katıl";
   return t || "—";
 }
 
