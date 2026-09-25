@@ -1,15 +1,92 @@
 {
-  "son_guncelleme": "2026-09-25 07:26",
+  "son_guncelleme": "2026-09-25 16:08",
   "gun_sayisi": 30,
   "ozet": {
-    "toplam": 0,
+    "toplam": 2,
     "kavga": 0,
     "olum": 0,
     "yara": 0,
-    "gorus": 0,
-    "hesap": 0,
-    "uye": 0
+    "gorus": 2,
+    "hesap": 1,
+    "uye": 2
   },
-  "uyeler": [],
-  "gunler": []
+  "uyeler": [
+    {
+      "hesap": "drayen",
+      "uye": true,
+      "ordu": "The Excelsior",
+      "komutan": "Emmalogan",
+      "ucret": "22,00",
+      "katilma_gunu": "",
+      "son_gorulme": "2026-09-25 08:38",
+      "mufreze_komutani": false,
+      "mufreze_kisi": null,
+      "takip": {
+        "gun": "2026-09-25",
+        "sonuc": "verildi",
+        "aciklama": "Bu grubun liderini takip ediyorsun. Bugün ayrılamazsın.",
+        "lider": "Emmalogan"
+      },
+      "enerji": {
+        "gun": "2026-09-25",
+        "pa": 65,
+        "max_pa": 65,
+        "sonuc": "boya: 3 üretim (en fazla 3)"
+      }
+    },
+    {
+      "hesap": "Thebear",
+      "uye": true,
+      "ordu": "The Excelsior",
+      "komutan": "Emmalogan",
+      "ucret": "22,00",
+      "katilma_gunu": "",
+      "son_gorulme": "2026-09-25 10:34",
+      "mufreze_komutani": false,
+      "mufreze_kisi": null,
+      "takip": {
+        "gun": "2026-09-25",
+        "sonuc": "verildi",
+        "aciklama": "Bu grubun liderini takip ediyorsun. Bugün ayrılamazsın.",
+        "lider": "Emmalogan"
+      },
+      "enerji": {
+        "gun": "2026-09-25",
+        "pa": 65,
+        "max_pa": 65,
+        "sonuc": "boya: 3 üretim (en fazla 3)"
+      }
+    }
+  ],
+  "gunler": [
+    {
+      "tarih": "2026-09-25",
+      "oyun_tarihi": "25-09-1474",
+      "kavga": 0,
+      "hadiseler": [
+        {
+          "id": "256983767",
+          "hesap": "Thebear",
+          "tarih": "2026-09-25",
+          "oyun_tarihi": "25-09-1474",
+          "saat": "",
+          "etiket": "gorus",
+          "tur": "gorus",
+          "metin": "Bugün, yolda karşılaştığın kişi Glasgow adlı kasabayı savunanlar:.",
+          "kisiler": []
+        },
+        {
+          "id": "256982247",
+          "hesap": "Thebear",
+          "tarih": "2026-09-25",
+          "oyun_tarihi": "25-09-1474",
+          "saat": "",
+          "etiket": "gorus",
+          "tur": "gorus",
+          "metin": "Bugün, yolda karşılaştığın kişi Glasgow adlı kasabayı savunanlar:.",
+          "kisiler": []
+        }
+      ]
+    }
+  ]
 }
