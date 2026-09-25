@@ -300,6 +300,36 @@ function emirHemen(id) {
   return !!(el && el.checked);
 }
 
+// 🪖 [25.09.2026] "Orduya katıl" öneri listesi — takip edilen ordular
+//    (ordu.json → harita.js'in `window.orduVerisi`si). Kutuya her
+//    odaklanışta tazelenir; veri yoksa liste boş kalır, elle yazılır.
+//    Komutan önerisi oyun adıdır (komutan_login), yoksa unvansız ad.
+function emirOrduOnerileriDoldur() {
+  var dl = document.getElementById("ok-ordu-listesi");
+  if (!dl) return;
+  var ordu = (typeof window !== "undefined" && window.orduVerisi) || null;
+  var liste = (ordu && Array.isArray(ordu.ordular)) ? ordu.ordular : [];
+  var gorulen = {};
+  var secenekler = [];
+  function ekle(deger, etiket) {
+    deger = String(deger || "").trim();
+    if (!deger || gorulen[deger.toLowerCase()]) return;
+    gorulen[deger.toLowerCase()] = 1;
+    secenekler.push(emirSecenek(deger, etiket));
+  }
+  liste.forEach(function (o) {
+    if (!o || !o.ad) return;
+    ekle(o.ad, "🪖 ordu · " + (o.kasaba || "?"));
+  });
+  liste.forEach(function (o) {
+    if (!o || !o.ad) return;
+    var k = String(o.komutan_login || o.komutan || "");
+    if (k.indexOf(":") >= 0) k = k.slice(k.lastIndexOf(":") + 1);
+    ekle(k, "👤 komutan · " + o.ad);
+  });
+  dl.innerHTML = secenekler.join("");
+}
+
 // 🏙️ [11.09.2026] ALIM KASABA SÜZGECİ — kullanıcı: *"emir alım hangi
 //    kasabadaysa o kasabanın pazar listesini seçtirsin."* Alacak hesabın
 //    kasabası (envanter.json) biliniyorsa yalnızca o kasabanın pazar
@@ -546,6 +576,31 @@ function emirMesajiKur() {
     dvAdlar.forEach(function (x) { dvSatir.push("hesap: " + x); });
     if (emirHemen("dv-hemen")) dvSatir.push("hemen: evet");
     return { metin: dvSatir.join(EMIR_NL) };
+  }
+
+  // ---------------- 🪖 ORDUYA KATIL (25.09.2026) ----------------
+  // ⚠️ Şablon `ordu_uyesi.emri_coz` ile BİREBİR aynı olmalı: başlık + her
+  //    hesap ayrı "hesap:" satırı + ZORUNLU "ordu:" (ordu adı ya da komutan).
+  //    "enerji:" yalnızca seçildiyse; "hemen: evet" yalnızca tikliyse (bot
+  //    tarafında `hemen` VARSAYILAN HAYIR).
+  // ⚠️ `ordu` boşsa mesaj ÜRETİLMEZ: aynı kasabada düşman ordu da asker
+  //    alabiliyor; adsız emir yanlış orduya sokabilir ve bu geri alınamaz.
+  if (emirTur === "ordukatil") {
+    var okAdlar = [];
+    String(emirDeger("ok-hesaplar") || "").split(/[\r\n,;]+/).forEach(function (x) {
+      x = x.trim();
+      if (x && okAdlar.map(function (y) { return y.toLowerCase(); }).indexOf(x.toLowerCase()) < 0) okAdlar.push(x);
+    });
+    if (!okAdlar.length) return { hata: "Eksik: orduya girecek en az bir hesap" };
+    var okOrdu = emirDeger("ok-ordu");
+    if (!okOrdu) return { hata: "Eksik: ordu adı ya da komutanı (ZORUNLU — yanlış orduya girmek geri alınamaz)" };
+    var okSatir = ["ORDUYA KATIL"];
+    okAdlar.forEach(function (x) { okSatir.push("hesap: " + x); });
+    okSatir.push("ordu: " + okOrdu);
+    var okEnerji = emirDeger("ok-enerji");
+    if (okEnerji) okSatir.push("enerji: " + okEnerji);
+    if (emirHemen("ok-hemen")) okSatir.push("hemen: evet");
+    return { metin: okSatir.join(EMIR_NL) };
   }
 
   // ---------------- 📬 POSTA KONTROL (18.09.2026) ----------------
@@ -1029,6 +1084,20 @@ function emirOlaylariBagla() {
     var el = document.getElementById(id);
     if (el) el.addEventListener("change", emirGuncelle);
   });
+  // 🪖 [25.09.2026] Orduya katıl formu + 👑 divan onay + 📬 posta formları.
+  //    ⚠️ Divan ve posta kutularına hiç dinleyici bağlanmamıştı: forma
+  //       geçince "Eksik" uyarısı çıkıyor, yazmaya başlayınca önizleme
+  //       tazelenmiyor ve Kopyala düğmesi KAPALI kalıyordu.
+  ["ok-hesaplar", "ok-ordu", "dv-hesaplar", "po-hesap"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener("input", emirGuncelle);
+  });
+  ["ok-enerji", "ok-hemen", "dv-hemen", "po-hemen"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener("change", emirGuncelle);
+  });
+  var okOrduKutu = document.getElementById("ok-ordu");
+  if (okOrduKutu) okOrduKutu.addEventListener("focus", emirOrduOnerileriDoldur);
   document.getElementById("al-azami-oner").addEventListener("click", emirAzamiOner);
 
   document.getElementById("od-kisi").addEventListener("input", emirGuncelle);
@@ -1490,6 +1559,7 @@ function ayMesajiKur() {
   ekle("ases", emirDeger("ay-ases"));
   ekle("puan", emirDeger("ay-puan"));
   ekle("ordu", emirDeger("ay-ordu"));   /* 🎖️ hangi ordu (ordu puanı) */
+  ekle("ordu enerjisi", emirDeger("ay-ordu-enerji"));   /* 🪖 Ordu Takip hesabının enerjisi */
   ekle("divan", ayMakamDegeri());   /* 👑 çoklu makam (tikli liste) */
   ekle("seyahat", emirDeger("ay-seyahat"));
   ekle("ders", emirDeger("ay-ders"));
@@ -1542,7 +1612,7 @@ function ayKur() {
     emirGuncelle();
   });
   ["ay-hesap", "ay-takip", "ay-inziva", "ay-gemi", "ay-kaptan", "ay-ases",
-   "ay-puan", "ay-ordu", "ay-seyahat", "ay-ders", "ay-armator",
+   "ay-puan", "ay-ordu", "ay-ordu-enerji", "ay-seyahat", "ay-ders", "ay-armator",
    "ay-ders-verme", "ay-isci"
   ].forEach(function (id) {
     var el = document.getElementById(id);
