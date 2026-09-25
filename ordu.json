@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-25 09:28",
+  "son_guncelleme": "2026-09-25 09:40",
   "rapor_tarihi": "2026-09-25",
   "onceki_tarih": "2026-09-24",
   "ordular": [
@@ -24,14 +24,17 @@
       "komutan": "Kazasker: Emmalogan",
       "durum": "Şehir Dışında",
       "ham_durum": "Ordu, Şehir kapılarına dayandı.",
-      "alim_modu": false,
-      "danisman": false,
+      "alim_modu": null,
+      "danisman": null,
       "danisman_puan": null,
       "danisman_maas": "",
-      "komutan_login": "emmalogan",
+      "komutan_login": "",
       "degisim": "ayni",
       "onceki_kasaba": "Glasgow",
-      "onceki_durum": "Şehir Dışında"
+      "onceki_durum": "Şehir Dışında",
+      "anlik_saat": "09:31",
+      "sabah_kasaba": "Glasgow",
+      "sabah_durum": "Şehir Dışında"
     },
     {
       "ad": "Glasgow",
@@ -71,6 +74,7 @@
   "gemiler": [],
   "not": "alim_modu/danisman 17.09.2026'dan itibaren toplanıyor; daha eski günlerde null (bilinmiyor) görünür.",
   "nobet_saatleri": {
+    "Glasgow": "09:31",
     "Stirling": "09:26"
   }
 }
