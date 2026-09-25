@@ -23,6 +23,8 @@
 //   nobet.json   → burası çeker (gün içi 2,5 saatlik ordu/grup nöbeti)
 //   izleme.json  → burası çeker (ORTAK liste, salt okunur, 🌐)
 //   gecmis/      → YALNIZCA Geçmiş sekmesi ilk açılınca (index + gün dosyası)
+//   ordu_hadise.json → YALNIZCA ⚔️ Ordu sekmesi ilk açılınca (25.09.2026:
+//                  Ordu Takip hesaplarımız + son 30 günün ordu hadiseleri)
 //
 // ⚠️ Hesap adı eşleşmesi `.toLowerCase()` iledir, tr-TR DEĞİL (Ironfoot →
 //    "ıronfoot" tuzağı; CLAUDE.md `_kucult` notu). Ordu adı / komutan
@@ -969,6 +971,187 @@ var TakipSaf = (function () {
     return izlemeListesiCoz(out).slice(0, 50);
   }
 
+  // ---------------------------------------------------------------------
+  // ⚔️ ORDU — üyelerimiz + ORDU HADİSELERİ (ordu_hadise.json, 25.09.2026)
+  // Kullanıcı: *"siteye de bu ordu sekmesini koysak ayrıca. orada geçmişi
+  // de görelim. 30 güne kadar."* Tür adları `ordu_uyesi.TUR_EMOJI` /
+  // `KAVGA_TURLERI` ile BİREBİR aynı.
+  // ---------------------------------------------------------------------
+  var ORDU_KAVGA_TURLERI = ["olum", "yara", "darbe", "kavga"];
+  var ORDU_TURLER = {
+    olum: ["💀", "ölüm"], yara: ["🩸", "yara"], darbe: ["⚔️", "darbe"], kavga: ["⚔️", "kavga"],
+    gorus: ["👁️", "gördüklerin"], diger: ["▫️", "diğer"]
+  };
+  // Bilinmeyen tür "diger" sayılır (sınıf adı / emoji için beyaz liste).
+  function orduTur(tur) { tur = metin(tur); return ORDU_TURLER.hasOwnProperty(tur) ? tur : "diger"; }
+  function orduTurEmoji(tur) { return ORDU_TURLER[orduTur(tur)][0]; }
+  function orduTurAdi(tur) { return ORDU_TURLER[orduTur(tur)][1]; }
+  function orduKavgaMi(h) { return !!h && ORDU_KAVGA_TURLERI.indexOf(metin(h.tur)) >= 0; }
+
+  // "2026-09-23" → "23.09.2026" · oyun "23-09-1474" → "23.09.1474"
+  function tamGun(iso) {
+    var r = /^(\d{4})-(\d{2})-(\d{2})$/.exec(metin(iso));
+    return r ? r[3] + "." + r[2] + "." + r[1] : metin(iso);
+  }
+  function oyunTarihYazi(t) {
+    var r = /^(\d{1,2})-(\d{1,2})-(\d{3,4})$/.exec(metin(t).trim());
+    return r ? iki(+r[1]) + "." + iki(+r[2]) + "." + r[3] : metin(t);
+  }
+
+  // gunler: [{tarih, oyun_tarihi, kavga, hadiseler:[…]}] → süzülmüş KOPYA.
+  //   s.hesap       → yalnızca o hesabın kayıtları (TAM ad, büyük/küçük harfsiz)
+  //   s.sadeceKavga → yalnızca ölüm / yara / darbe / kavga
+  //   s.ara         → metin + hesap + kişiler içinde geçen (tr-TR, ı = i)
+  // Boş kalan gün DÜŞER. Günün ⚔️ sayısı süzülmüş kayıtlardan yeniden
+  // sayılır; `toplam` süzgeçten ÖNCEKİ kayıt sayısıdır. Sıra korunur
+  // (üretici en yeni gün / en yeni saat önce yazar).
+  function orduHadiseSuz(gunler, s) {
+    s = s || {};
+    var hesap = adKucult(s.hesap);
+    var ara = metinKucult(s.ara);
+    var out = [];
+    (Array.isArray(gunler) ? gunler : []).forEach(function (g) {
+      if (!g || typeof g !== "object") return;
+      var tum = Array.isArray(g.hadiseler) ? g.hadiseler : [];
+      var kalan = tum.filter(function (h) {
+        if (!h || typeof h !== "object") return false;
+        if (hesap && adKucult(h.hesap) !== hesap) return false;
+        if (s.sadeceKavga && !orduKavgaMi(h)) return false;
+        if (ara) {
+          var kisiler = Array.isArray(h.kisiler) ? h.kisiler.map(metin).join(" ") : "";
+          if (metinKucult([metin(h.metin), metin(h.hesap), kisiler].join(" ")).indexOf(ara) < 0) return false;
+        }
+        return true;
+      });
+      if (!kalan.length) return;
+      out.push({ tarih: metin(g.tarih), oyun_tarihi: metin(g.oyun_tarihi), toplam: orduGecerliSay(tum),
+                 kavga: kalan.filter(orduKavgaMi).length, hadiseler: kalan });
+    });
+    return out;
+  }
+  function orduSuzgecAcikMi(s) {
+    s = s || {};
+    return !!(metin(s.hesap).trim() || s.sadeceKavga || metin(s.ara).trim());
+  }
+  // Yalnızca geçerli (nesne) kayıtlar sayılır — bozuk satır "N hadisenin M'si" yanılgısı üretmesin.
+  function orduGecerliSay(liste) {
+    return (Array.isArray(liste) ? liste : []).filter(function (h) { return h && typeof h === "object"; }).length;
+  }
+  function orduHadiseSayisi(gunler) {
+    return (Array.isArray(gunler) ? gunler : []).reduce(function (t, g) {
+      return t + (g && typeof g === "object" ? orduGecerliSay(g.hadiseler) : 0);
+    }, 0);
+  }
+
+  // Hesap süzgecinin seçenekleri: üyeler + hadisesi olan hesaplar, tekrarsız, alfabetik.
+  function orduHesaplari(veri) {
+    var gorulen = {}, out = [];
+    function ekle(ad) {
+      ad = metin(ad).trim();
+      var k = adKucult(ad);
+      if (!ad || gorulen[k]) return;
+      gorulen[k] = 1;
+      out.push(ad);
+    }
+    ((veri && Array.isArray(veri.uyeler)) ? veri.uyeler : []).forEach(function (u) { if (u) ekle(u.hesap); });
+    ((veri && Array.isArray(veri.gunler)) ? veri.gunler : []).forEach(function (g) {
+      ((g && Array.isArray(g.hadiseler)) ? g.hadiseler : []).forEach(function (h) { if (h) ekle(h.hesap); });
+    });
+    return out.sort(function (a, b) { return a.localeCompare(b, "tr"); });
+  }
+
+  // Tablo sırası: orduda olanlar önce, sonra bilinmeyen, sonra orduda olmayan; içinde alfabetik.
+  function orduUyeSirala(uyeler) {
+    function derece(u) { return u.uye === true ? 0 : (u.uye === false ? 2 : 1); }
+    return (Array.isArray(uyeler) ? uyeler : []).filter(function (u) { return u && typeof u === "object"; })
+      .slice().sort(function (a, b) {
+        return (derece(a) - derece(b)) || metin(a.hesap).localeCompare(metin(b.hesap), "tr");
+      });
+  }
+
+  // Son takip sonucu (`ordu_uyesi.run_ordu_uyesi` → son_takip.sonuc) → rozet.
+  var ORDU_TAKIP_ETIKET = {
+    "verildi": ["✅", "takip verildi", "iyi"],
+    "zaten": ["✅", "zaten planlı", "iyi"],
+    "pasif": ["⏸️", "düğme pasif", "orta"],
+    "reddedildi": ["⛔", "reddedildi", "kotu"],
+    "belirsiz": ["❔", "belirsiz", "orta"],
+    "hata": ["⚠️", "hata", "kotu"],
+    "yok": ["⚠️", "takip düğmesi yok", "kotu"],
+    "orduda değil": ["🚫", "orduda değil", "kotu"],
+    "okunamadı": ["❔", "okunamadı", "orta"]
+  };
+  function orduTakipEtiketi(sonuc) {
+    sonuc = metin(sonuc).trim();
+    var e = ORDU_TAKIP_ETIKET.hasOwnProperty(sonuc) ? ORDU_TAKIP_ETIKET[sonuc] : null;
+    if (!e) return { simge: "❔", metin: sonuc || "bilgi yok", sinif: "orta" };
+    return { simge: e[0], metin: e[1], sinif: e[2] };
+  }
+  // Enerji hücresi: "50/50 · boya: en fazla 3 üretim"
+  function orduEnerjiMetni(en) {
+    if (!en || typeof en !== "object") return "—";
+    var bos = function (x) { return x === null || x === undefined || x === ""; };
+    var pa = bos(en.pa) ? "" : metin(en.pa) + "/" + (bos(en.max_pa) ? "?" : metin(en.max_pa));
+    var parca = [pa, metin(en.sonuc).trim()].filter(function (x) { return x; });
+    return parca.length ? parca.join(" · ") : "—";
+  }
+
+  // ---- HTML kurucuları (SAF — Node testinde kaçış denetlenir) ----------
+  // ⚠️ Oyundan gelen HER metin (hadise, hesap, ordu, komutan, açıklama)
+  //    kacis()'ten geçer; tür adı beyaz listeden (orduTur) gelir.
+  function orduHadiseSatirHtml(h) {
+    h = h || {};
+    var tur = orduTur(h.tur);
+    return '<li class="ordu-hadise ordu-hadise-' + tur + (orduKavgaMi(h) ? " ordu-hadise-kavga" : "") + '">' +
+      '<span class="ordu-hadise-emoji" title="' + kacis(orduTurAdi(tur)) + '">' + orduTurEmoji(tur) + '</span>' +
+      '<span class="ordu-hadise-saat">' + kacis(h.saat || "--:--") + '</span>' +
+      '<a class="ordu-hadise-hesap bas-link" href="#hesap/' + encodeURIComponent(metin(h.hesap)) + '">' + kacis(h.hesap || "?") + '</a>' +
+      '<span class="ordu-hadise-metin">' + kacis(h.metin) + '</span></li>';
+  }
+  // Gün grubu: başlık GG.AA.YYYY + oyun tarihi + ⚔️ sayısı; acik → <details open>.
+  function orduGunHtml(g, acik) {
+    g = g || {};
+    var hadiseler = Array.isArray(g.hadiseler) ? g.hadiseler : [];
+    var kavga = typeof g.kavga === "number" ? g.kavga : hadiseler.filter(orduKavgaMi).length;
+    return '<details class="ordu-gun"' + (acik ? " open" : "") + '>' +
+      '<summary class="ordu-gun-baslik"><b>' + kacis(tamGun(g.tarih)) + '</b>' +
+      (g.oyun_tarihi ? ' <span class="emir-kucuk">oyun ' + kacis(oyunTarihYazi(g.oyun_tarihi)) + '</span>' : "") +
+      ' <span class="ordu-gun-sayi">' + hadiseler.length + ' hadise' +
+      (kavga ? ' · <span class="ordu-gun-kavga">⚔️ ' + kacis(kavga) + '</span>' : "") + '</span></summary>' +
+      '<ul class="ordu-hadise-satirlar">' + hadiseler.map(orduHadiseSatirHtml).join("") + '</ul></details>';
+  }
+  // Üye tablosu satırı: hesap · ordu · komutan · ücret · son takip · enerji · son görülme · müfreze
+  function orduUyeSatirHtml(u) {
+    u = u || {};
+    var tk = u.takip || {}, en = u.enerji || {};
+    // "orduda değil" rozeti hesap hücresinde; takip hücresi son KAYITLI sonucu gösterir.
+    var et = tk.sonuc ? orduTakipEtiketi(tk.sonuc) : null;
+    var hesapHtml = '<a class="bas-link" href="#hesap/' + encodeURIComponent(metin(u.hesap)) + '"><b>' + kacis(u.hesap || "?") + '</b></a>' +
+      ' <button type="button" class="emir-mini-btn ordu-hesap-suz" data-hesap="' + kacis(u.hesap) +
+      '" title="Bu hesabın hadiselerini göster">📜</button>' +
+      (u.uye === false ? ' <span class="ordu-rozet ordu-rozet-kotu">🚫 orduda değil</span>' : "") +
+      (u.uye !== true && u.uye !== false ? ' <span class="ordu-rozet ordu-rozet-orta">❔ bilinmiyor</span>' : "");
+    var takipHtml = (et ? '<span class="ordu-rozet ordu-rozet-' + et.sinif + '">' + et.simge + " " + kacis(et.metin) + '</span>' : "—") +
+      (tk.gun ? ' <span class="emir-kucuk">' + kacis(tamGun(tk.gun)) + '</span>' : "") +
+      (tk.lider ? '<div class="emir-kucuk">lider: ' + kacis(tk.lider) + '</div>' : "") +
+      (tk.aciklama ? '<div class="emir-kucuk">' + kacis(tk.aciklama) + '</div>' : "");
+    var enerjiHtml = kacis(orduEnerjiMetni(en)) +
+      (en.gun ? ' <span class="emir-kucuk">(' + kacis(tamGun(en.gun)) + ')</span>' : "");
+    var mufreze = u.mufreze_komutani
+      ? "🎖️ komutan" + (u.mufreze_kisi !== null && u.mufreze_kisi !== undefined ? " (" + kacis(u.mufreze_kisi) + " kişi)" : "")
+      : "—";
+    return '<tr' + (u.uye === false ? ' class="ordu-uye-degil"' : "") + '>' +
+      '<td>' + hesapHtml + '</td>' +
+      '<td>' + (u.ordu ? kacis(u.ordu) : "—") +
+      (u.katilma_gunu ? '<div class="emir-kucuk">katıldı ' + kacis(tamGun(u.katilma_gunu)) + '</div>' : "") + '</td>' +
+      '<td>' + (u.komutan ? kacis(u.komutan) : "—") + '</td>' +
+      '<td>' + (u.ucret ? kacis(u.ucret) + " akçe" : "—") + '</td>' +
+      '<td>' + takipHtml + '</td>' +
+      '<td>' + enerjiHtml + '</td>' +
+      '<td>' + (u.son_gorulme ? kacis(u.son_gorulme) : "—") + '</td>' +
+      '<td>' + mufreze + '</td></tr>';
+  }
+
   return {
     kacis: kacis, adKucult: adKucult, metinKucult: metinKucult, kasabaDisiMi: kasabaDisiMi,
     turkceTarihCoz: turkceTarihCoz, kayitIso: kayitIso, kisaGun: kisaGun,
@@ -984,6 +1167,12 @@ var TakipSaf = (function () {
     gundeKisiAra: gundeKisiAra, karsiKasabaMetni: karsiKasabaMetni, gecmisNotlari: gecmisNotlari,
     paylasHash: paylasHash, hashIzleCoz: hashIzleCoz,
     tarananKume: tarananKume, pencereIlk: pencereIlk,
+    orduTur: orduTur, orduTurEmoji: orduTurEmoji, orduTurAdi: orduTurAdi, orduKavgaMi: orduKavgaMi,
+    tamGun: tamGun, oyunTarihYazi: oyunTarihYazi,
+    orduHadiseSuz: orduHadiseSuz, orduSuzgecAcikMi: orduSuzgecAcikMi, orduHadiseSayisi: orduHadiseSayisi,
+    orduHesaplari: orduHesaplari, orduUyeSirala: orduUyeSirala,
+    orduTakipEtiketi: orduTakipEtiketi, orduEnerjiMetni: orduEnerjiMetni,
+    orduHadiseSatirHtml: orduHadiseSatirHtml, orduGunHtml: orduGunHtml, orduUyeSatirHtml: orduUyeSatirHtml,
     UYARI_DURUMLARI: UYARI_DURUMLARI
   };
 })();
@@ -999,7 +1188,7 @@ var TakipSaf = (function () {
   var S = TakipSaf;
   var ANAHTAR_LISTE = "poseidon_izleme_v1";
   var ANAHTAR_GORULEN = "poseidon_izleme_gorulen_v1";
-  var KENDI_OLAYLAR = { nobet: 1, izleme: 1, takip: 1, gecmis: 1 };
+  var KENDI_OLAYLAR = { nobet: 1, izleme: 1, takip: 1, gecmis: 1, ordu_hadise: 1 };
   // Bantta en fazla kaç satır (telefonda 2 — yoksa bant bütün ekranı kaplar).
   function bantAzami() { return window.innerWidth < 700 ? 2 : 4; }
   var TARIH_RE = /^\d{4}-\d{2}-\d{2}$/;
@@ -1012,7 +1201,8 @@ var TakipSaf = (function () {
     depoCalisiyor: null, bellekListe: [], bellekGorulen: {},
     gelisimSuzgec: { ad: "", bas: "", bit: "", bilinmeyen: true }, gelisimGorunen: [],
     oneriImza: "", baslangic: Date.now(), bantKaydirildi: false,
-    gecmis: { index: null, yukleniyor: false, hata: "", gunler: {}, secili: "", bekleyen: "", kasaba: "", kaydir: false, yuklemeNo: 0 }
+    gecmis: { index: null, yukleniyor: false, hata: "", gunler: {}, secili: "", bekleyen: "", kasaba: "", kaydir: false, yuklemeNo: 0 },
+    orduHadise: { veri: null, yukleniyor: false, hata: "" }   // ⚔️ ordu_hadise.json (sekme açılınca)
   };
 
   function $(id) { return document.getElementById(id); }
@@ -1856,6 +2046,150 @@ var TakipSaf = (function () {
   });
 
   // =====================================================================
+  // ⚔️ ORDU — üyelerimiz + hadiseler (ordu_hadise.json, 25.09.2026)
+  // Dosya YALNIZCA sekme ilk açılınca yüklenir (Geçmiş ile aynı desen).
+  // Oyundan gelen her metin (hadise, ordu/komutan adı) S.kacis'ten geçer.
+  // =====================================================================
+  function orduSekmesiAcikMi() {
+    var p = $("tab-ordu");
+    return !!(p && p.classList.contains("active"));
+  }
+
+  function orduHadiseYukle() {
+    var O = D.orduHadise;
+    if (O.veri || O.yukleniyor) return;
+    O.yukleniyor = true;
+    durumYaz($("ordu-hadise-sayi"), "Ordu verisi yükleniyor…");
+    fetch("ordu_hadise.json?_=" + Date.now())
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(guvenli(function (v) {
+        O.yukleniyor = false;
+        O.veri = (v && typeof v === "object") ? v : { uyeler: [], gunler: [] };
+        O.hata = "";
+        window.orduHadiseVerisi = O.veri;          // panel.js genel araması
+        var t = $("ordu-hadise-tarih");
+        if (t) t.textContent = O.veri.son_guncelleme || "tarih yok";
+        orduHesapSecenekleri();
+        orduCiz();
+        olayAt("ordu_hadise");
+      }))
+      .catch(function (e) {
+        // 404 = dosya henüz üretilmedi (bot hiçbir ordu hesabına girmedi).
+        // Veri tutulmaz → sekme bir daha açılınca yeniden denenir.
+        O.yukleniyor = false;
+        O.hata = String(e && e.message || e);
+        var t = $("ordu-hadise-tarih");
+        if (t) t.textContent = "veri yok (ordu_hadise.json henüz oluşmadı)";
+        guvenli(orduCiz)();
+      })
+      .then(function () { O.yukleniyor = false; });
+  }
+
+  function orduSuzgecOku() {
+    var sel = $("ordu-hadise-hesap"), chk = $("ordu-hadise-kavga"), ara = $("ordu-hadise-ara");
+    return { hesap: sel ? sel.value : "", sadeceKavga: !!(chk && chk.checked), ara: ara ? ara.value : "" };
+  }
+
+  function orduHesapSecenekleri() {
+    var sel = $("ordu-hadise-hesap");
+    if (!sel) return;
+    var onceki = sel.value;
+    var adlar = S.orduHesaplari(D.orduHadise.veri);
+    sel.innerHTML = '<option value="">👤 Tüm hesaplar (' + adlar.length + ')</option>' + adlar.map(function (a) {
+      return '<option value="' + S.kacis(a) + '">' + S.kacis(a) + '</option>';
+    }).join("");
+    if (onceki && adlar.some(function (a) { return a === onceki; })) sel.value = onceki;
+  }
+
+  function orduCiz() {
+    orduOzetCiz();
+    orduUyeCiz();
+    orduHadiseCiz();
+  }
+
+  function orduOzetCiz() {
+    var el = $("ordu-ozet");
+    if (!el) return;
+    var v = D.orduHadise.veri;
+    if (!v) { el.innerHTML = ""; return; }
+    var oz = v.ozet || {};
+    var sayi = function (n) { return typeof n === "number" ? n : 0; };
+    var kartlar = [
+      ["🪖 ordudaki hesabımız", sayi(oz.uye), (Array.isArray(v.uyeler) ? v.uyeler.length : 0) + " kayıtlı hesap"],
+      ["📜 hadise", sayi(oz.toplam), "son " + (v.gun_sayisi || 30) + " gün · " + sayi(oz.hesap) + " hesaptan"],
+      ["⚔️ çatışma", sayi(oz.kavga), "💀 " + sayi(oz.olum) + " ölüm · 🩸 " + sayi(oz.yara) + " yara"],
+      ["👁️ gördüklerin", sayi(oz.gorus), "“Gördüklerin” kayıtları"]
+    ];
+    el.innerHTML = kartlar.map(function (k, i) {
+      return '<div class="ozet-kart' + (i === 2 && sayi(oz.kavga) ? " ordu-ozet-kavga" : "") + '"><span class="ozet-etiket">' + S.kacis(k[0]) +
+        '</span><span class="ozet-deger">' + S.kacis(k[1]) + '</span><span class="ozet-alt">' + S.kacis(k[2]) + '</span></div>';
+    }).join("");
+  }
+
+  function orduUyeCiz() {
+    var govde = $("ordu-uye-govde"), yok = $("ordu-uye-yok");
+    var v = D.orduHadise.veri;
+    var uyeler = S.orduUyeSirala(v && v.uyeler);
+    if (govde) govde.innerHTML = uyeler.map(S.orduUyeSatirHtml).join("");
+    if (yok) yok.hidden = uyeler.length > 0 || D.orduHadise.yukleniyor;
+  }
+
+  function orduHadiseCiz() {
+    var liste = $("ordu-hadise-liste"), bos = $("ordu-hadise-bos"), sayi = $("ordu-hadise-sayi");
+    var O = D.orduHadise;
+    var tum = (O.veri && Array.isArray(O.veri.gunler)) ? O.veri.gunler : [];
+    var s = orduSuzgecOku();
+    var gunler = S.orduHadiseSuz(tum, s);
+    var toplam = S.orduHadiseSayisi(tum), gorunen = S.orduHadiseSayisi(gunler);
+    if (bos) bos.hidden = O.yukleniyor || !(O.veri || O.hata) || toplam > 0;
+    if (sayi) {
+      durumYaz(sayi, !toplam ? "" : (gorunen === toplam
+        ? toplam + " hadise · " + gunler.length + " gün"
+        : toplam + " hadisenin " + gorunen + " tanesi gösteriliyor · " + gunler.length + " gün"));
+    }
+    if (!liste) return;
+    if (toplam && !gorunen) {
+      liste.innerHTML = '<p class="bos-durum">Süzgece uyan hadise yok — hesap / arama kutusunu temizle.</p>';
+      return;
+    }
+    var acik = S.orduSuzgecAcikMi(s);
+    // İlk 5 gün açık gelir; süzgeç açıksa hepsi (aranan kayıt katlı günde kalmasın).
+    liste.innerHTML = gunler.map(function (g, i) { return S.orduGunHtml(g, acik || i < 5); }).join("");
+  }
+
+  function orduKur() {
+    var panel = $("tab-ordu");
+    if (!panel) return;
+    var ciz = guvenli(orduHadiseCiz);
+    var sel = $("ordu-hadise-hesap"), chk = $("ordu-hadise-kavga"), ara = $("ordu-hadise-ara");
+    if (sel) sel.addEventListener("change", ciz);
+    if (chk) chk.addEventListener("change", ciz);
+    if (ara) ara.addEventListener("input", ciz);
+    // Üye tablosundaki 📜 → o hesabın hadiseleri.
+    panel.addEventListener("click", guvenli(function (e) {
+      var b = e.target.closest ? e.target.closest(".ordu-hesap-suz") : null;
+      if (!b) return;
+      var ad = b.getAttribute("data-hesap") || "";
+      var s2 = $("ordu-hadise-hesap");
+      if (s2) s2.value = ad;
+      orduHadiseCiz();
+      var l = $("ordu-hadise-liste");
+      if (l && l.scrollIntoView) { try { l.scrollIntoView({ block: "start", behavior: "smooth" }); } catch (x) { l.scrollIntoView(); } }
+    }));
+    // Sekme İLK açıldığında yükle (düğme · adres · grup düğmesi — hangi yoldan
+    // açılırsa açılsın panelin "active" sınıfı değişir).
+    var bak = guvenli(function () { if (orduSekmesiAcikMi()) orduHadiseYukle(); });
+    if (window.MutationObserver) {
+      try { new MutationObserver(bak).observe(panel, { attributes: true, attributeFilter: ["class"] }); } catch (e) { /* yedek aşağıda */ }
+    }
+    document.addEventListener("click", function (e) {
+      var tb = e.target.closest ? e.target.closest('.tab-btn[data-tab="ordu"]') : null;
+      if (tb) setTimeout(bak, 0);
+    });
+    bak();
+  }
+
+  // =====================================================================
   // 📊 GELİŞİM SÜZGECİ (script.js gelisimTabloCiz → window.gelisimEkSuzgec)
   // =====================================================================
   function suzgecOku() {
@@ -1927,6 +2261,7 @@ var TakipSaf = (function () {
   function kur() {
     guvenli(izlemeFormuKur)();
     guvenli(gecmisKur)();
+    guvenli(orduKur)();
     guvenli(gelisimSuzgecKur)();
     // Paylaşılan bağlantıyla gelindiyse (panel.js'ten önce de çalışabiliriz).
     var h = location.hash || "";
