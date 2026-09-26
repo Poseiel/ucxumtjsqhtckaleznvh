@@ -1093,6 +1093,11 @@ a.rk-tamekran {
   --uyari: #e08a2e;
 }
 html, body { max-width: 100%; overflow-x: hidden; }   /* telefonda yana taşma yok */
+/* 📌 [26.09.2026] `hidden` body'yi kaymayan bir kaydırma kabına çeviriyordu →
+   İÇİNDEKİ HER `position: sticky` (telefonda sekme çubuğu, Kopyala çubuğu)
+   etkisizdi. `clip` yana taşmayı aynı şekilde keser ama kap oluşturmaz.
+   Desteklemeyen eski tarayıcı üstteki `hidden` satırında kalır. */
+@supports (overflow-x: clip) { html, body { overflow-x: clip; } }
 
 /* Başlık + arama */
 .site-header { padding: 1rem 1rem 0.5rem; }
@@ -1571,3 +1576,143 @@ button.gecmis-kasaba-kart.secili { border-color: var(--accent); background: var(
   line-height: 1.55;
 }
 .ay-otomatik-liste li { margin: 4px 0; }
+
+/* =====================================================================
+   🤖 EMİR ASİSTANI + EMİR SEKMESİ CİLASI (26.09.2026 — Öz Claude)
+   Fable'ın tasarımı korunur: aynı değişkenler (--accent, --bg-panel …),
+   aynı köşe/yumuşaklık dili. Yalnızca EKLENİR, mevcut kural ezilmez
+   (onay kutusu düzeltmesi hariç — o bir hataydı).
+   ===================================================================== */
+.asistan-kutu {
+  background: var(--bg-panel);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 12px;
+  padding: 0.85rem 1rem 0.9rem;
+  margin: 0 0 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+.asistan-baslik { display: block; font-weight: 700; margin-bottom: 0.45rem; color: var(--text); }
+.asistan-giris {
+  width: 100%;
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.7rem 0.9rem;
+  font-size: 1.02rem;
+}
+.asistan-giris:focus { outline: 2px solid var(--accent); outline-offset: -1px; }
+.asistan-ornekler { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.5rem; }
+.asistan-ornek, .asistan-cip {
+  background: var(--bg-panel-2);
+  color: var(--text-dim);
+  border: 1px dashed var(--border);
+  border-radius: 999px;
+  padding: 0.22rem 0.7rem;
+  font-size: 0.82rem;
+  cursor: pointer;
+}
+.asistan-ornek:hover, .asistan-cip:hover { color: var(--text); border-color: var(--accent); }
+.asistan-cevap {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.6rem;
+  margin-top: 0.75rem;
+}
+.asistan-cevap[hidden] { display: none; }
+.asistan-kart {
+  background: var(--bg-panel-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 0.7rem 0.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.asistan-ilk { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent) inset; }
+.asistan-kart-bas { display: flex; align-items: center; gap: 0.45rem; }
+.asistan-ikon { font-size: 1.25rem; line-height: 1; }
+.asistan-ne { margin: 0; font-size: 0.9rem; color: var(--text-dim); }
+.asistan-alt { display: flex; flex-wrap: wrap; gap: 0.35rem; align-items: center; }
+.asistan-rozet, .emir-konu-rozet {
+  display: inline-block;
+  background: rgba(47, 165, 216, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(47, 165, 216, 0.35);
+  border-radius: 999px;
+  padding: 0.12rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.asistan-anladim { font-size: 0.8rem; color: var(--text); }
+.asistan-dugmeler { margin-top: auto; }
+.asistan-ac {
+  background: var(--accent);
+  color: #fff;
+  border: 0;
+  border-radius: 8px;
+  padding: 0.45rem 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.asistan-hepsi { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-top: 0.4rem; }
+.asistan-konu-tablo { width: 100%; font-size: 0.85rem; border-collapse: collapse; }
+.asistan-konu-tablo td { padding: 0.25rem 0.4rem; border-bottom: 1px solid var(--border); }
+.asistan-bas { margin-top: 0.3rem; }
+/* "❓ Bu sekme ne işe yarar" (sağa yüzen) asistan kutusunun köşesine binmesin */
+.tab-panel > .asistan-kutu { clear: both; }
+.emir-konu-rozet { margin: 0 0 0.5rem; }
+.emir-konu-rozet:empty, .emir-konu-rozet[hidden] { display: none; }
+
+/* ✅ Onay kutuları: `.emir-satir label` (sütun düzeni) `.emir-tik`i eziyordu →
+   kutu tek başına ortada, yazı altında görünüyordu ("Eyalet adına sat",
+   "Hemen yap"). Artık kutu solda, yazı yanında. */
+.emir-satir label.emir-tik {
+  flex-direction: row;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.5rem;
+  color: var(--text);
+  cursor: pointer;
+}
+.emir-satir label.emir-tik input[type="checkbox"] {
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0.15rem 0 0;
+  flex: 0 0 auto;
+  accent-color: var(--accent);
+}
+.emir-satir label.emir-tik .emir-kucuk { flex: 1 1 100%; margin-left: 1.65rem; }
+
+/* Klavyeyle gezinen için görünür odak (erişilebilirlik) */
+.grup-btn:focus-visible, .tab-btn:focus-visible, .emir-tur-btn:focus-visible,
+.emir-ana-btn:focus-visible, .emir-mini-btn:focus-visible, .asistan-ac:focus-visible,
+.bas-kart:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+/* Yapışkan sekme çubuğunun altında kalmasın (asistan formu kaydırınca) */
+.emir-form { scroll-margin-top: 4.5rem; }
+
+@media (prefers-color-scheme: light) {
+  .asistan-kutu { box-shadow: 0 1px 4px rgba(20, 40, 60, 0.08); }
+  .asistan-rozet, .emir-konu-rozet { background: rgba(20, 121, 168, 0.08); border-color: rgba(20, 121, 168, 0.3); }
+}
+
+@media (max-width: 700px) {
+  .asistan-kutu { padding: 0.7rem 0.75rem; border-radius: 10px; }
+  .asistan-cevap { grid-template-columns: 1fr; }
+  .asistan-giris { font-size: 1rem; }
+  /* 📋 Kopyala çubuğu telefonda alt gezinmenin hemen ÜSTÜNE yapışır:
+     uzun formu doldururken düğme için sayfa sonuna inmek gerekmez. */
+  .emir-dugmeler {
+    position: sticky;
+    bottom: calc(3.7rem + env(safe-area-inset-bottom));
+    z-index: 40;
+    background: var(--bg);
+    padding: 0.55rem 0 0.45rem;
+    margin-left: -0.6rem; margin-right: -0.6rem; padding-left: 0.6rem; padding-right: 0.6rem;
+    border-top: 1px solid var(--border);
+  }
+  .emir-ana-btn { flex: 1 1 auto; padding: 0.6rem 1rem; font-size: 1rem; }
+  .emir-dugmeler .emir-mini-btn { font-size: 0.78rem; padding: 0.45rem 0.6rem; }
+}
