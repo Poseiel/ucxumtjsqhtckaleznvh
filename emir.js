@@ -30,6 +30,8 @@ var EYALET_ALICI_ASGARI_AKCE = 10000;
 var emirEnvanter = [];   // [{karakter, kasaba, akce, esyalar:[{isim,adet}]}]
 var emirPazar = [];      // [{isim, adet, fiyat, kasaba}]
 var emirSancaklar = [];  // [{sancak, kasaba, esyalar:[...]}]
+var emirGelisim = [];    // [{karakter, kasaba, gorevler:[...]}] — nazır listesi için
+var emirNazirlar = [];   // [{ad, yer, sancakNo}] — ödeneği VEREBİLECEK hesaplar
 var emirTur = "sat";
 
 function emirKacis(metin) {
@@ -70,11 +72,13 @@ async function emirYukle() {
     var sonuclar = await Promise.all([
       fetch("envanter.json?_=" + Date.now()).then(function (r) { return r.json(); }).catch(function () { return null; }),
       fetch("pazar.json?_=" + Date.now()).then(function (r) { return r.json(); }).catch(function () { return null; }),
-      fetch("sancak.json?_=" + Date.now()).then(function (r) { return r.json(); }).catch(function () { return null; })
+      fetch("sancak.json?_=" + Date.now()).then(function (r) { return r.json(); }).catch(function () { return null; }),
+      fetch("gelisim.json?_=" + Date.now()).then(function (r) { return r.json(); }).catch(function () { return null; })
     ]);
     emirEnvanter = (sonuclar[0] && sonuclar[0].karakterler) || [];
     emirPazar = (sonuclar[1] && sonuclar[1].urunler) || [];
     emirSancaklar = (sonuclar[2] && sonuclar[2].sancaklar) || [];
+    emirGelisim = (sonuclar[3] && sonuclar[3].karakterler) || [];
   } catch (hata) {
     console.error("Emir verisi yüklenemedi", hata);
   }
@@ -82,6 +86,7 @@ async function emirYukle() {
   dersListesiniDoldur();
   emirPazarListesiDoldur();
   emirSancakDoldur();
+  emirNazirlariDoldur();
   emirOdenekSatirEkle();
   emirDipnotYaz();
   emirGuncelle();
@@ -416,6 +421,78 @@ function emirSancakDoldur() {
   }).join("");
 }
 
+// 👑 [26.09.2026] ÖDENEĞİ VEREN NAZIR — açılır liste "Renegrade (Glasgow sancağı)".
+// Kullanıcı: *"ayarlarda atıyorum 3 tane ticaret nazırı var nicki seçtir açılır
+// pencere ile ve yanında hangi sancaktaysa onu yazdır parantez içinde ...
+// ya da şehri yazdır, seçecek adam unutabilir hangi sancaktaydı."*
+// Kaynak: gelisim.json görevleri ("👑 Ticaret Nazırı" — ayarlar + site emirleri)
+// + sancak.json (nazırın taradığı sancak). Sancağı bilinmiyorsa bulunduğu şehir.
+// ⚠️ Birden çok nazır varsa seçim ZORUNLU (yoksa ilk giren nazır verirdi).
+function emirSancakKisaAd(ad) {
+  return String(ad || "")
+    .replace(/^(County|Duchy|Earldom|Kingdom|Barony|Lordship|Principality|Viscounty|March|Margraviate) of /i, "")
+    .trim();
+}
+
+function emirNazirListesi(gelisim, sancaklar) {
+  var liste = [];
+  var gorulen = {};
+  function sancakNo(ad) {
+    var a = emirKucult(ad);
+    for (var i = 0; i < (sancaklar || []).length; i++) {
+      if (emirKucult(sancaklar[i].nazir || "") === a) return i;
+    }
+    return -1;
+  }
+  function ekle(ad, sehir) {
+    var a = emirKucult(ad).trim();
+    if (!a || gorulen[a]) return;
+    gorulen[a] = true;
+    var no = sancakNo(ad);
+    var yer = no >= 0
+      ? emirSancakKisaAd(sancaklar[no].sancak) + " sancağı"
+      : (sehir || "");
+    liste.push({ ad: ad, yer: yer, sancakNo: no });
+  }
+  (gelisim || []).forEach(function (k) {
+    var nazir = (k.gorevler || []).some(function (g) {
+      return emirKucult(g).indexOf("ticaret naz") >= 0;
+    });
+    if (nazir) ekle(k.karakter, k.kasaba);
+  });
+  // Rol verisi eksikse bile sancağı TARAMIŞ nazır listede olsun.
+  (sancaklar || []).forEach(function (s) { if (s.nazir) ekle(s.nazir, s.kasaba); });
+  liste.sort(function (a, b) { return a.ad.localeCompare(b.ad, "tr"); });
+  return liste;
+}
+
+function emirNazirlariDoldur() {
+  emirNazirlar = emirNazirListesi(emirGelisim, emirSancaklar);
+  var sec = document.getElementById("od-veren");
+  if (!sec) return;
+  var ops = [];
+  if (!emirNazirlar.length) {
+    ops.push(emirSecenek("", "— nazır bilgisi yok (oyuna ilk giren nazır verir) —"));
+  } else if (emirNazirlar.length > 1) {
+    ops.push(emirSecenek("", "— nazır seç (" + emirNazirlar.length + " nazır var) —"));
+  }
+  emirNazirlar.forEach(function (n) {
+    ops.push(emirSecenek(n.ad, n.ad + (n.yer ? " (" + n.yer + ")" : "")));
+  });
+  sec.innerHTML = ops.join("");
+}
+
+// Nazır seçilince sancağı biliniyorsa "Hangi sancaktan?" da ona geçer
+// (eşya listesi o nazırın deposundan gelsin).
+function emirNazirSancaginaGec() {
+  var ad = emirKucult(emirDeger("od-veren"));
+  var n = emirNazirlar.filter(function (x) { return emirKucult(x.ad) === ad; })[0];
+  var sec = document.getElementById("od-sancak");
+  if (!n || n.sancakNo < 0 || !sec || sec.value === String(n.sancakNo)) return false;
+  sec.value = String(n.sancakNo);
+  return true;
+}
+
 function emirSancakEsyalari() {
   var sec = document.getElementById("od-sancak");
   var i = parseInt((sec && sec.value) || "0", 10);
@@ -679,6 +756,16 @@ function emirMesajiKur() {
     if (prEksik.length) return { hata: "Eksik: " + prEksik.join(", ") };
     var prSatir = ["PROFİL", "hesap: " + prHesap];
     if (prDurum) prSatir.push("durum: " + prDurum);
+    // 🎂 [26.09.2026] Yalnızca yaş girildiyse OTOMATİK gün/ay atanır.
+    //    Kullanıcı: *"siteden ay ve gün girilmezse sadece yaş girilirse
+    //    otomatik bi ay gün atasın"*. Oyun yaşla birlikte doğum tarihini de
+    //    ister, boşsa herkesi 01/01 yapar. 28'e kadar: her ayda geçerli.
+    //    (Bot da Telegram'dan elle yazılan emirde aynısını yapar.)
+    if (!prDogum && prYas) {
+      var prIki = function (n) { return (n < 10 ? "0" : "") + n; };
+      prDogum = prIki(1 + Math.floor(Math.random() * 28)) + "/" +
+                prIki(1 + Math.floor(Math.random() * 12));
+    }
     if (prDogum) prSatir.push("dogum: " + prDogum);
     if (prYas) prSatir.push("yas: " + prYas);
     if (prCins) prSatir.push("cinsiyet: " + prCins);
@@ -780,7 +867,14 @@ function emirMesajiKur() {
   var mallar = emirOdenekSatirlari();
   if (!kisi) return { hata: "Eksik: ödenek atılacak kişi" };
   if (!mallar.length) return { hata: "Eksik: en az bir mal satırı (mal + fiyat + adet)" };
+  // 👑 [26.09.2026] Birden çok Ticaret Nazırı varken veren seçilmezse ödeneği
+  //    oyuna İLK giren nazır verirdi (yanlış sancağın deposundan) → zorunlu.
+  var veren = emirDeger("od-veren");
+  if (!veren && emirNazirlar.length > 1) {
+    return { hata: "Eksik: ödeneği verecek nazırı seç (" + emirNazirlar.length + " Ticaret Nazırı var)" };
+  }
   var osatirlar = ["Ödenek atılacak kişi: " + kisi];
+  if (veren) osatirlar.push("Ödeneği veren: " + veren);
   var toplam = 0;
   mallar.forEach(function (m) {
     osatirlar.push("Verilecek mal: " + m.mal);
@@ -788,6 +882,8 @@ function emirMesajiKur() {
     osatirlar.push("Adet: " + m.adet);
     toplam += m.fiyat * m.adet;
   });
+  // ⚡ [26.09.2026] divan_ticaret.odenek_emri_coz "hemen" satırını okur.
+  if (emirHemen("od-hemen")) osatirlar.push("hemen: evet");
   var obilgi = document.getElementById("od-bilgi");
   if (obilgi) {
     obilgi.textContent = mallar.length + " kalem · sözleşme tutarı " +
@@ -982,15 +1078,47 @@ function emirUzunlukYaz(metin) {
 // ---------------------------------------------------------
 // GÖNDERİM
 // ---------------------------------------------------------
+// 🗂️ [26.09.2026] EMİR TÜRÜ → TELEGRAM KONUSU. Kullanıcı: *"sitedeki emirler
+//    kısmına yeni konuları koydun değil mi? emirleri atarken düzgün yerlere
+//    atsınlar"*. Konu, botun o emrin ONAYINI/SONUCUNU yazdığı konuyla AYNI
+//    (pazar_emirleri.emir_konusu · site_emirleri → ayar · divan_ticaret →
+//    odenek · serbest mesaj → mesajlar) — emir ve cevabı aynı yerde kalsın.
+//    ⚠️ Bot HER konuyu okur (chat.id'ye bakar); yanlış konuya yapıştırılan
+//    emir de işlenir — bu yalnızca düzen içindir.
+var EMIR_KONULARI = {
+  sat: "🛒 Pazar", al: "🛒 Pazar",
+  gemi: "⚓ Deniz", yanasma: "⚓ Deniz",
+  ordukatil: "⚔️ Ordular",
+  ayar: "⚙️ Ayar Emirleri", hesapekle: "⚙️ Ayar Emirleri",
+  odenek: "💰 Ödenekler",
+  mesaj: "✉️ Mesajlar"
+  // geri kalan her şey (profil, güven, oy, forum, divan onay, posta) → 📜 Emirler
+};
+
+function emirKonusu(tur) {
+  return EMIR_KONULARI[tur] || "📜 Emirler";
+}
+
 function emirDipnotYaz() {
+  // 📌 [26.09.2026] Formun üstündeki konu rozeti + tek "Kopyala" düğmesi.
+  var rozet = document.getElementById("emir-konu-rozet");
+  if (rozet) {
+    rozet.textContent = EMIR_NTFY_AKTIF ? "" :
+      "📌 Telegram'da yapıştırılacak konu: " + emirKonusu(emirTur);
+    rozet.hidden = EMIR_NTFY_AKTIF;
+  }
+  // Doğrudan gönderim kapalıyken ana düğme zaten "Kopyala" — ikinci
+  // "📋 Kopyala" aynı işi yapıyordu (telefonda iki kopyala düğmesi).
+  var ikinci = document.getElementById("emir-kopyala");
+  if (ikinci) ikinci.hidden = !EMIR_NTFY_AKTIF;
   var el = document.getElementById("emir-dipnot");
   if (!el) return;
   el.textContent = EMIR_NTFY_AKTIF
     ? "Gönder'e basınca emir doğrudan bota gider; bot sıradaki turda uygular ve Telegram'a bilgi mesajı yazar."
-    : "Gönder'e basınca metin PANOYA kopyalanır — Telegram'da ilgili başlığa " +
-      "(🛒 Pazar / 👑 Divan / ⚓ Deniz) yapıştırıp gönder. " +
-      "Mesajın SENİN hesabından çıkması şart: Telegram, botun kendi " +
-      "yazdığı mesajı bota geri vermiyor (gruba geçmek bunu değiştirmedi).";
+    : "Gönder'e basınca metin PANOYA kopyalanır — Telegram'da " +
+      emirKonusu(emirTur) + " konusuna yapıştırıp gönder (botun onayı da " +
+      "oraya gelir). Mesajın SENİN hesabından çıkması şart: Telegram, botun " +
+      "kendi yazdığı mesajı bota geri vermiyor (gruba geçmek bunu değiştirmedi).";
 }
 
 async function emirPanoyaYaz(metin) {
@@ -1023,6 +1151,7 @@ function emirOlaylariBagla() {
       emirTur = btn.dataset.tur;
       var form = document.getElementById("emir-form-" + emirTur);
       if (form) form.classList.add("active");
+      emirDipnotYaz();                 // 🗂️ doğru Telegram konusu görünsün
       emirGuncelle();
     });
   });
@@ -1137,8 +1266,15 @@ function emirOlaylariBagla() {
   document.getElementById("al-azami-oner").addEventListener("click", emirAzamiOner);
 
   document.getElementById("od-kisi").addEventListener("input", emirGuncelle);
+  var odHemen = document.getElementById("od-hemen");
+  if (odHemen) odHemen.addEventListener("change", emirGuncelle);
   document.getElementById("od-sancak").addEventListener("change", function () {
     emirOdenekListeleriTazele();
+    emirGuncelle();
+  });
+  var odVeren = document.getElementById("od-veren");
+  if (odVeren) odVeren.addEventListener("change", function () {
+    if (emirNazirSancaginaGec()) emirOdenekListeleriTazele();
     emirGuncelle();
   });
   document.getElementById("od-satir-ekle").addEventListener("click", function () {
@@ -1190,8 +1326,8 @@ function emirOlaylariBagla() {
       //    (`divan_modul.cevaplari_topla` → chat.id), konu başlığına
       //    BAKMIYOR. Yani HANGİ başlığa yapıştırılırsa yapıştırılsın emir
       //    işlenir; başlık sadece bizim düzenimiz için.
-      durum.textContent = "📋 Kopyalandı — Telegram grubunda HERHANGİ bir " +
-                          "başlığa yapıştır (düzen için 🛒 Pazar / 👑 Divan).";
+      durum.textContent = "📋 Kopyalandı — Telegram'da " + emirKonusu(emirTur) +
+                          " konusuna yapıştır (bot her konuyu okur; onayı da oraya yazar).";
     } else {
       durum.textContent = "⚠️ Kopyalanamadı — aşağıdaki metni elle seçip kopyala.";
     }
@@ -1690,8 +1826,8 @@ async function emirMetniniYolla(metin, durumEl) {
     }
   }
   if (durumEl) {
-    durumEl.textContent = "📋 Kopyalandı — Telegram grubuna yapıştır " +
-                          "(hangi başlık olduğu farketmez).";
+    durumEl.textContent = "📋 Kopyalandı — Telegram'da 📜 Emirler konusuna " +
+                          "yapıştır (bot her konuyu okur).";
   }
   try { emirTelegramdaAc(metin); } catch (e) { /* bonus, şart değil */ }
   return true;
@@ -1712,3 +1848,423 @@ async function emirIptalEt(kodlar, ozet) {
   await emirMetniniYolla(emirIptalMetni(kodlar), durum);
   if (durum) setTimeout(function () { durum.textContent = ""; }, 9000);
 }
+
+
+/* =========================================================
+   🤖 EMİR ASİSTANI (26.09.2026 — Öz Claude)
+   ---------------------------------------------------------
+   Kullanıcı: *"bu emirleri uygulamak için siteye basit bir yapay zeka
+   kurabilir miyim … arkadaşlar bana sormadan oraya sorsa sadece emir nasıl
+   uygulanır çözüp cevap atsa"* → karar: *"şimdilik emir asistanı olsun"*.
+
+   KURAL TABANLI: ücretsiz, sınırsız, hesap/anahtar yok, internet gerekmez.
+   ⚠️ Emir metni UYDURMAZ: yalnızca doğru FORMU açar ve cümleden anladığı
+      kutuları (hesap · eşya · adet · akçe · ordu) doldurur; mesajı yine
+      formun kendisi kurar (`emirMesajiKur`) — botun kuralı TEK yerde kalır.
+   ⚠️ Şifre istemez, şifre yazmaz (HESAP EKLE formunda şifreyi kullanıcı girer).
+   ========================================================= */
+(function () {
+  "use strict";
+
+  var HARF = { "ç": "c", "ğ": "g", "ı": "i", "ö": "o", "ş": "s", "ü": "u", "â": "a", "î": "i", "û": "u" };
+  function sade(s) {
+    return String(s || "").toLocaleLowerCase("tr-TR")
+      .replace(/[çğıöşüâîû]/g, function (c) { return HARF[c] || c; })
+      .replace(/[’`´]/g, "'")
+      .replace(/[^a-z0-9' ]+/g, " ")
+      .replace(/\s+/g, " ").trim();
+  }
+  function kacis(m) {
+    return String(m == null ? "" : m).split("&").join("&amp;").split("<").join("&lt;")
+      .split(">").join("&gt;").split('"').join("&quot;");
+  }
+  // "toyga'ya" → "toyga" · "aiegus'u" → "aiegus"
+  function kelimeler(s) {
+    return sade(s).split(" ").map(function (k) { return k.split("'")[0]; }).filter(Boolean);
+  }
+
+  // -------------------------------------------------------
+  // NİYETLER — anahtar kelimeler SADELEŞTİRİLMİŞ yazılır (ç→c, ı→i …).
+  //   Boşluklu anahtar = ifade (+3) · tek kelime = tam eşleşme (+2),
+  //   4+ harfliyse kelime başı eşleşmesi (+1.5; "orduya" → "ordu").
+  // -------------------------------------------------------
+  var NIYETLER = [
+    { id: "sat", tur: "sat", ikon: "💰", baslik: "Satış emri",
+      ne: "Hesabın çantasındaki malı pazara koyar. Hesabı seçince eşya listesi kendiliğinden gelir; fiyatı \"en düşük\" bırakırsan pazardaki en ucuza iner.",
+      anahtar: ["sat", "satis", "satsin", "satilsin", "satsın", "sattir", "pazara koy", "elden cikar", "eyalet adina sat"] },
+    { id: "al", tur: "al", ikon: "🛒", baslik: "Alım emri",
+      ne: "Pazardan mal aldırır. Azami fiyatı yazarsan bot daha pahalıya ALMAZ. Önce 🛒 Pazar sekmesinde fiyata bakmak iyi olur.",
+      anahtar: ["al", "alsin", "aldir", "alim", "satin al", "satin alsin", "topla", "ucuza al"] },
+    { id: "gemi", tur: "gemi", ikon: "⛵", baslik: "Gemi alma emri",
+      ne: "Satılık gemiyi aldırır. Kaptan adı ve azami fiyat ZORUNLU; hesap, geminin satıldığı limanın kasabasında olmalı.",
+      anahtar: ["gemi al", "gemi satin", "gemi alsin", "satilik gemi"] },
+    { id: "yanasma", tur: "yanasma", ikon: "⚓", baslik: "Yanaşma izni",
+      ne: "Liman şefi hesabımız, yazdığın armatörün gemisini limana kabul eder.",
+      anahtar: ["yanasma", "yanas", "limana kabul", "liman izni", "rihtim izni", "gemi kabul", "liman sefi"] },
+    { id: "odenek", tur: "odenek", ikon: "📜", baslik: "Ödenek",
+      ne: "Divan ödeneğini (mal listesi) kişiye dağıttırır. Kişi ve sancak seçilir, mallar satır satır eklenir.",
+      anahtar: ["odenek", "odenekler", "odenek at", "odenek ver"] },
+    { id: "mesaj", tur: "mesaj", ikon: "✉️", baslik: "Oyun içi mesaj",
+      ne: "Hesabımızdan birine oyun içi mesaj (posta) gönderir: kimden · kime · konu · metin.",
+      anahtar: ["mesaj", "mektup", "mesaj at", "mesaj gonder", "posta gonder", "posta at", "yaz ona"] },
+    { id: "posta", tur: "posta", ikon: "📬", baslik: "Posta kontrol",
+      ne: "Hesap oyuna girip gelen postalarına bakar; yenileri Telegram'a düşer.",
+      anahtar: ["posta kontrol", "postalar", "postalari", "postasina bak", "gelen kutusu", "mesajlari kontrol", "mesaj kontrol", "mesajlarina bak"] },
+    { id: "forum", tur: "forum", ikon: "📣", baslik: "Foruma cevap",
+      ne: "Oyunun forumunda bir başlığa cevap yazdırır. Başlığın linki ve metin gerekir.",
+      anahtar: ["forum", "foruma", "foruma yaz", "basliga cevap"] },
+    { id: "divan", tur: "divan", ikon: "👑", baslik: "Divan listesi onayı",
+      ne: "Hesaplar Sancak Kalesi → Divan Seçimi'nde kendi adlarının geçtiği listeyi ONAYLAR. \"İptal\"e asla basılmaz.",
+      anahtar: ["divan onay", "divan listesi", "listeyi onayla", "liste onay", "divan liste"] },
+    { id: "oy", tur: "oy", ikon: "🗳️", baslik: "Oy verme",
+      ne: "Belediye ya da divan seçiminde hesaplarımıza oy verdirir; oylar en fazla 3 güne yayılır, oy veren hesap listeden düşer.",
+      anahtar: ["oy", "oy ver", "oy verdir", "secim", "aday", "belediye secimi", "divan secimi", "reis secimi"] },
+    { id: "ordukatil", tur: "ordukatil", ikon: "🪖", baslik: "Orduya katılma",
+      ne: "Hesabı orduya sokar; sonra her gün önce lideri takip eder, enerjisini (65) boya/madende harcar. Ordu adı ya da komutanı ZORUNLU.",
+      anahtar: ["ordu", "orduya", "ordusuna", "orduya katil", "orduya sok", "askere", "asker yap", "ordu katil"] },
+    { id: "profil", tur: "profil", ikon: "🎭", baslik: "Profil yazma",
+      ne: "Hesabın oyun profiline RP/OOC metni, durum, doğum tarihi ve yaş yazar. Yalnız yaş yazarsan site gün/ay atar.",
+      anahtar: ["profil", "rp", "ooc", "rp yaz", "dogum", "dogum tarihi", "yas", "karakter yasi"] },
+    { id: "guven", tur: "guven", ikon: "🤝", baslik: "Güven puanı / renk",
+      ne: "Bir oyuncuya güven puanı verdirir ya da renk attırır. ⚠️ İz bırakır — multi analizi tam buna bakar.",
+      anahtar: ["guven", "guven puani", "guven ver", "renk", "renk at", "renk ver"] },
+    { id: "hesapekle", tur: "hesapekle", ikon: "➕", baslik: "Yeni hesap ekle",
+      ne: "Bota yeni bir hesap (multi) ekler: ad + şifre + takip modu. Şifreyi forma SEN yazarsın.",
+      anahtar: ["hesap ekle", "yeni hesap", "multi ekle", "hesabi ekle", "yeni multi"] },
+    { id: "tasi", tur: "ayar", plan: "tasi", ikon: "🚚", baslik: "Hesabı başka şehre taşı (hazır plan)",
+      ne: "Görev zinciri: her şeyi sat → yola çık → evi taşı → ev+tarla → atölye. Hedef şehri planın içinde seçersin.",
+      anahtar: ["tasi", "tasin", "tasinsin", "tasima", "baska sehre", "sehir degistir", "kasaba degistir", "yerlesim", "goc"] },
+    { id: "gitaldon", tur: "ayar", plan: "gitaldon", ikon: "🧭", baslik: "Git, al, dön (hazır plan)",
+      ne: "Hesap başka şehre gidip mal alır ve geri döner (görev zinciri).",
+      anahtar: ["git al don", "gidip al", "getir", "baska sehirden al", "mal getir"] },
+    { id: "kita", tur: "ayar", plan: "kita", ikon: "⛵", baslik: "Kıta şehrine git (hazır plan)",
+      ne: "Limana yürür → gemiye biner → bekler → karada yürür (görev zinciri).",
+      anahtar: ["kita", "kitaya", "gemiye bin", "denizden git"] },
+    { id: "evkur", tur: "ayar", plan: "evkur", ikon: "🏠", baslik: "Ev + tarla + atölye kur (hazır plan)",
+      ne: "Evsiz hesap bulunduğu şehirde ev, tarla ve atölye kurar.",
+      anahtar: ["ev al", "ev kur", "evkur", "tarla al", "atolye al", "atolye kur", "evsiz"] },
+    { id: "ayar", tur: "ayar", ikon: "🖥️", baslik: "Hesap ayarı / görev zinciri",
+      ne: "Launcher'daki her ayar: takip modu, inziva, ders, gemi, kaptan, ases, puan, seyahat, görev zinciri. Yalnızca DOKUNDUĞUN ayar gönderilir, gerisi değişmez.",
+      anahtar: ["ayar", "inziva", "inzivaya", "ders", "ders ver", "hoca", "ases", "kaptan", "takip modu", "hizli maden", "hizli cami", "cami", "maden", "seyahat", "gorev", "gorev zinciri", "zincir", "puan", "isci tut", "grup lideri", "mod degistir"] },
+    { id: "durum", sekme: "#emirdurum", ikon: "📊", baslik: "Verdiğim emir ne oldu? / geri al",
+      ne: "Emir Durumu sekmesi: bekleyenler üstte, kapananlar altta. Yanlış emri satırdaki 🚫 İptal ile geri alırsın.",
+      anahtar: ["emir ne oldu", "emrim", "emirlerim", "emir durumu", "iptal", "geri al", "yanlis emir", "bekleyen emir"] },
+    { id: "konu", bilgi: "konu", ikon: "📌", baslik: "Emri Telegram'da hangi konuya yapıştırayım?",
+      ne: "",
+      anahtar: ["hangi konu", "nereye yapistir", "hangi baslik", "telegram konu", "nereye yaz", "konuya"] },
+    { id: "zaman", bilgi: "zaman", ikon: "⏱️", baslik: "Emir ne zaman uygulanır?",
+      ne: "Bot her tur hesapları sırayla gezer. ⚡ \"Hemen yap\" tikliyse o hesaba SIRADAKİ hesap olarak girer; tiksizse hesabın kendi sırasında, sırası geçtiyse ertesi turda. AYAR emirlerinde \"hemen\" yoktur. Sonuç Telegram'da emrin konusuna ve 📊 Emir Durumu'na düşer.",
+      anahtar: ["ne zaman", "ne zaman uygulan", "hemen", "kac dakika", "ne kadar surer", "bekliyor"] },
+    { id: "fiyat", sekme: "#pazar", ikon: "🏷️", baslik: "Pazarda fiyat bakmak",
+      ne: "🛒 Pazar sekmesi: 7 kasabanın ilanları, en ucuz fiyat.",
+      anahtar: ["fiyat", "en ucuz", "kac akce", "pazar fiyat"] },
+    { id: "nerede", sekme: "#sakinler", ikon: "📍", baslik: "Kim nerede?",
+      ne: "📍 Kim Nerede sekmesi: 7 kasabanın bugünkü tam listesi.",
+      anahtar: ["nerede", "kim nerede", "hangi kasabada", "bul"] }
+  ];
+
+  // Telegram konuları — emir.js'in EMIR_KONULARI ile AYNI kaynak.
+  function konuOf(tur) {
+    try { return (typeof emirKonusu === "function") ? emirKonusu(tur) : "📜 Emirler"; }
+    catch (e) { return "📜 Emirler"; }
+  }
+
+  // -------------------------------------------------------
+  // VARLIKLAR — hesap · eşya · adet · akçe · ordu
+  // -------------------------------------------------------
+  function hesapAdlari() {
+    try { return (emirEnvanter || []).map(function (k) { return k.karakter; }).filter(Boolean); }
+    catch (e) { return []; }
+  }
+  function esyaAdlari() {
+    var set = {};
+    try { (pazarVerisi || []).forEach(function (u) { if (u && u.isim) set[u.isim] = 1; }); } catch (e) {}
+    try {
+      (emirEnvanter || []).forEach(function (k) {
+        (k.esyalar || []).forEach(function (x) { if (x && x.isim) set[x.isim] = 1; });
+      });
+    } catch (e) {}
+    return Object.keys(set);
+  }
+
+  function varliklariBul(metin) {
+    var sonuc = { hesaplar: [], esya: "", adet: "", akce: "", ordu: "" };
+    var kel = kelimeler(metin);
+    var sd = " " + kel.join(" ") + " ";
+    // Hesaplar: tam kelime ya da "toygaya" gibi ekli hâl (en fazla 4 harf ek).
+    hesapAdlari().forEach(function (ad) {
+      var a = sade(ad);
+      if (!a || a.length < 3) return;
+      var bulundu = kel.some(function (k) {
+        return k === a || (k.indexOf(a) === 0 && k.length - a.length <= 4);
+      });
+      if (bulundu && sonuc.hesaplar.indexOf(ad) < 0) sonuc.hesaplar.push(ad);
+    });
+    // Eşya: en UZUN eşleşen ad ("Çuval Mısır", "Mısır"dan önce).
+    var enIyi = "";
+    esyaAdlari().forEach(function (ad) {
+      var a = sade(ad);
+      if (a.length < 3) return;
+      if (sd.indexOf(" " + a + " ") >= 0 || sd.indexOf(" " + a) >= 0 && a.length >= 5) {
+        if (a.length > sade(enIyi).length) enIyi = ad;
+      }
+    });
+    sonuc.esya = enIyi;
+    // Akçe: "20 akçe" · "azami 18,5 akce". ⚠️ Alım formundaki kutu TOPLAM
+    //    akçedir; "20 akçe" çoğu zaman BİRİM fiyattır. Belirsizse kutu
+    //    DOLDURULMAZ (50 deri için 20 akçe bütçe = hiçbir şey alınmaz).
+    var ham = String(metin || "");
+    var mAkce = ham.match(/(\d+(?:[.,]\d+)?)\s*(ak[çc]e)/i);
+    if (mAkce) sonuc.akce = mAkce[1].replace(",", ".");
+    sonuc.akceTuru = "";
+    if (mAkce) {
+      if (/toplam|b[üu]t[çc]e|en fazla toplam/i.test(ham)) sonuc.akceTuru = "toplam";
+      else if (/tanesi|tane ba[şs][ıi]|birim|adedi|ak[çc]eden|ak[çc]elik/i.test(ham)) sonuc.akceTuru = "birim";
+    }
+    // Adet: akçe OLMAYAN ilk sayı
+    var sayilar = ham.match(/\d+(?:[.,]\d+)?(\s*ak[çc]e)?/gi) || [];
+    for (var i = 0; i < sayilar.length; i++) {
+      if (!/ak[çc]e/i.test(sayilar[i])) { sonuc.adet = sayilar[i].replace(/[^\d]/g, ""); break; }
+    }
+    // Ordu: "X ordusuna" · "X ordusu"
+    var mOrdu = ham.match(/([A-Za-zÇĞİÖŞÜçğıöşü0-9_.\-]+)\s+ordu(su|suna|sunun|sunda)\b/i);
+    if (mOrdu && !/^(bir|bu|o|şu|su)$/i.test(mOrdu[1])) sonuc.ordu = mOrdu[1];
+    return sonuc;
+  }
+
+  // -------------------------------------------------------
+  // PUANLAMA
+  // -------------------------------------------------------
+  // İfade eşleşmesi Türkçe eklere dayanıklı: "mesajlari kontrol" ifadesi
+  // "mesajlarini kontrol et"i de tutar (her kelime ardışık kelimenin BAŞI).
+  // 3 harften kısa kelime (al, oy) yalnızca TAM eşleşir.
+  function ifadeVar(kel, ifade) {
+    var p = ifade.split(" ");
+    for (var i = 0; i + p.length <= kel.length; i++) {
+      var tamam = true;
+      for (var j = 0; j < p.length; j++) {
+        var k = kel[i + j], w = p[j];
+        if (!(k === w || (w.length >= 3 && k.indexOf(w) === 0))) { tamam = false; break; }
+      }
+      if (tamam) return true;
+    }
+    return false;
+  }
+
+  function puanla(metin) {
+    var kel = kelimeler(metin);
+    if (!kel.length) return [];
+    var sonuc = [];
+    NIYETLER.forEach(function (n) {
+      var p = 0;
+      n.anahtar.forEach(function (a) {
+        a = sade(a);
+        if (a.indexOf(" ") >= 0) {
+          if (ifadeVar(kel, a)) p += 3;
+        } else if (kel.indexOf(a) >= 0) {
+          p += 2;
+        } else if (a.length >= 4 && kel.some(function (k) { return k.indexOf(a) === 0; })) {
+          p += 1.5;
+        }
+      });
+      if (p > 0) sonuc.push({ n: n, p: p });
+    });
+    sonuc.sort(function (x, y) { return y.p - x.p; });
+    return sonuc;
+  }
+
+  // -------------------------------------------------------
+  // FORMU AÇ + DOLDUR
+  // -------------------------------------------------------
+  function yaz(id, deger) {
+    var el = document.getElementById(id);
+    if (!el || deger === "" || deger == null) return false;
+    el.value = deger;
+    try {
+      el.dispatchEvent(new Event("input", { bubbles: true }));
+      el.dispatchEvent(new Event("change", { bubbles: true }));
+    } catch (e) {}
+    return true;
+  }
+  var HESAP_KUTUSU = {
+    sat: "sat-hesap", al: "al-hesap", gemi: "gm-hesap", posta: "po-hesap", forum: "fr-hesap",
+    yanasma: "ya-hesap", profil: "pr-hesap", guven: "gv-hesap", ayar: "ay-hesap", mesaj: "ms-kimden"
+  };
+  var COKLU_HESAP_KUTUSU = { divan: "dv-hesaplar", ordukatil: "ok-hesaplar", oy: "oy-hesaplar" };
+
+  function ac(n, v) {
+    if (n.sekme) { location.hash = n.sekme; return; }
+    if (!n.tur) return;
+    var hedef = "#emir/" + n.tur + (n.plan ? "/" + n.plan : "");
+    if (location.hash !== hedef) {
+      location.hash = hedef;
+    } else {
+      var tb = document.querySelector('.emir-tur-btn[data-tur="' + n.tur + '"]');
+      if (tb) tb.click();
+    }
+    v = v || {};
+    setTimeout(function () {
+      var h = v.hesaplar || [];
+      if (COKLU_HESAP_KUTUSU[n.tur] && h.length) yaz(COKLU_HESAP_KUTUSU[n.tur], h.join("\n"));
+      else if (HESAP_KUTUSU[n.tur] && h.length) yaz(HESAP_KUTUSU[n.tur], h[0]);
+      if (n.tur === "mesaj" && h.length > 1) yaz("ms-kime", h[1]);
+      if (n.tur === "ordukatil" && v.ordu) yaz("ok-ordu", v.ordu);
+      // Eşya listesi hesaba göre dolduğu için eşya/adet biraz SONRA yazılır.
+      setTimeout(function () {
+        if (n.tur === "sat") { yaz("sat-mal", v.esya); yaz("sat-adet", v.adet); }
+        if (n.tur === "al") {
+          yaz("al-mal", v.esya); yaz("al-adet", v.adet);
+          if (v.akceTuru === "toplam") yaz("al-azami", v.akce);
+          else if (v.akceTuru === "birim" && v.adet) {
+            yaz("al-azami", String(Math.round(parseFloat(v.akce) * parseInt(v.adet, 10) * 100) / 100));
+          }
+        }
+        if (n.tur === "gemi") yaz("gm-azami", v.akce);
+        var form = document.getElementById("emir-form-" + n.tur);
+        if (form) { try { form.scrollIntoView({ behavior: "smooth", block: "start" }); } catch (e) {} }
+      }, 350);
+    }, 120);
+  }
+
+  // -------------------------------------------------------
+  // ÇİZİM
+  // -------------------------------------------------------
+  function konuTablosu() {
+    var satirlar = [
+      ["💰 Satış · 🛒 Alım", "🛒 Pazar"], ["⛵ Gemi Al · ⚓ Yanaşma", "⚓ Deniz"],
+      ["🪖 Orduya katıl", "⚔️ Ordular"], ["🖥️ Ayar & görev zinciri · ➕ Hesap ekle", "⚙️ Ayar Emirleri"],
+      ["📜 Ödenek", "💰 Ödenekler"], ["✉️ Mesaj", "✉️ Mesajlar"],
+      ["🎭 Profil · 🤝 Güven · 🗳️ Oy · 📣 Forum · 👑 Divan onay · 📬 Posta", "📜 Emirler"]
+    ];
+    return '<table class="asistan-konu-tablo"><tbody>' + satirlar.map(function (s) {
+      return "<tr><td>" + s[0] + "</td><td><b>" + s[1] + "</b></td></tr>";
+    }).join("") + "</tbody></table>" +
+      '<p class="emir-kucuk">Bot her konuyu okur — yanlış konuya yapıştırsan da emir işlenir; ' +
+      'konu yalnızca düzen için. Botun onayı da aynı konuya gelir.</p>';
+  }
+
+  function anladiklari(n, v) {
+    var parca = [];
+    var h = v.hesaplar || [];
+    if (h.length && (HESAP_KUTUSU[n.tur] || COKLU_HESAP_KUTUSU[n.tur])) {
+      parca.push("👤 " + h.map(kacis).join(", "));
+    }
+    if (v.esya && (n.tur === "sat" || n.tur === "al")) parca.push("📦 " + kacis(v.esya));
+    if (v.adet && (n.tur === "sat" || n.tur === "al")) parca.push("🔢 " + kacis(v.adet) + " adet");
+    if (v.akce && n.tur === "gemi") parca.push("💰 azami " + kacis(v.akce) + " akçe");
+    if (v.akce && n.tur === "al") {
+      if (v.akceTuru === "toplam") parca.push("💰 toplam en fazla " + kacis(v.akce) + " akçe");
+      else if (v.akceTuru === "birim" && v.adet) parca.push("💰 tanesi " + kacis(v.akce) + " → toplam " +
+        kacis(Math.round(parseFloat(v.akce) * parseInt(v.adet, 10) * 100) / 100) + " akçe");
+      else parca.push("💰 " + kacis(v.akce) + " akçe — <b>tanesi mi toplam mı?</b> Azami TOPLAM kutusuna sen yaz " +
+        "(ya da 🔢 pazara göre hesapla)");
+    }
+    if (v.ordu && n.tur === "ordukatil") parca.push("🪖 " + kacis(v.ordu));
+    return parca;
+  }
+
+  function kartHtml(n, v, i) {
+    var parca = anladiklari(n, v);
+    var govde = n.bilgi === "konu" ? konuTablosu() : '<p class="asistan-ne">' + kacis(n.ne) + "</p>";
+    var alt = "";
+    if (n.tur) {
+      alt += '<span class="asistan-rozet" title="Telegram\'da yapıştırılacak konu">📌 ' +
+             kacis(konuOf(n.tur)) + "</span>";
+    }
+    if (parca.length) {
+      alt += '<span class="asistan-anladim">Anladığım: ' + parca.join(" · ") + "</span>";
+    }
+    var dugme = "";
+    if (n.tur) {
+      dugme = '<button type="button" class="asistan-ac" data-i="' + i + '">' +
+              (parca.length ? "✍️ Formu doldurarak aç" : "➡️ Formu aç") + "</button>";
+    } else if (n.sekme) {
+      dugme = '<button type="button" class="asistan-ac" data-i="' + i + '">➡️ Aç</button>';
+    }
+    return '<div class="asistan-kart' + (i === 0 ? " asistan-ilk" : "") + '">' +
+      '<div class="asistan-kart-bas"><span class="asistan-ikon">' + n.ikon + "</span><b>" +
+      kacis(n.baslik) + "</b></div>" + govde +
+      (alt ? '<div class="asistan-alt">' + alt + "</div>" : "") +
+      (dugme ? '<div class="asistan-dugmeler">' + dugme + "</div>" : "") + "</div>";
+  }
+
+  var ORNEKLER = [
+    "toyga 50 deri alsın",
+    "aiegus'u orduya sok",
+    "hesabı başka şehre taşı",
+    "inzivaya koy",
+    "divan listesini onayla",
+    "emri hangi konuya yapıştırayım?"
+  ];
+
+  function kur(girisId, cikisId, ornekId) {
+    var giris = document.getElementById(girisId);
+    var cikis = document.getElementById(cikisId);
+    if (!giris || !cikis) return;
+    var sonSonuc = [];
+    var sonVarlik = {};
+    var zaman = null;
+
+    function ciz() {
+      var metin = giris.value;
+      if (!sade(metin)) { cikis.hidden = true; cikis.innerHTML = ""; sonSonuc = []; return; }
+      var bulunan = puanla(metin).slice(0, 3);
+      sonVarlik = varliklariBul(metin);
+      sonSonuc = bulunan.map(function (x) { return x.n; });
+      cikis.hidden = false;
+      if (!bulunan.length) {
+        cikis.innerHTML = '<div class="asistan-kart"><p class="asistan-ne">🤔 Bunu anlayamadım. ' +
+          'Başka kelimelerle dene (örn. <i>"toyga 50 deri alsın"</i>) ya da aşağıdan emir türünü seç. ' +
+          'Hâlâ bulamazsan <a href="#rehber" class="bas-link">📖 Rehber</a>.</p>' +
+          '<div class="asistan-hepsi">' + NIYETLER.filter(function (n) { return n.tur && !n.plan; })
+            .map(function (n) {
+              return '<button type="button" class="asistan-cip" data-id="' + n.id + '">' + n.ikon + " " +
+                     kacis(n.baslik) + "</button>";
+            }).join("") + "</div></div>";
+        return;
+      }
+      cikis.innerHTML = sonSonuc.map(function (n, i) { return kartHtml(n, sonVarlik, i); }).join("");
+    }
+
+    giris.addEventListener("input", function () { clearTimeout(zaman); zaman = setTimeout(ciz, 140); });
+    giris.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        ciz();
+        if (sonSonuc[0] && (sonSonuc[0].tur || sonSonuc[0].sekme)) ac(sonSonuc[0], sonVarlik);
+      }
+    });
+    cikis.addEventListener("click", function (e) {
+      var b = e.target.closest ? e.target.closest(".asistan-ac") : null;
+      if (b) { var n = sonSonuc[+b.getAttribute("data-i")]; if (n) ac(n, sonVarlik); return; }
+      var c = e.target.closest ? e.target.closest(".asistan-cip") : null;
+      if (c) {
+        var id = c.getAttribute("data-id");
+        NIYETLER.forEach(function (n) { if (n.id === id) ac(n, sonVarlik); });
+      }
+    });
+    var ornek = ornekId && document.getElementById(ornekId);
+    if (ornek) {
+      ornek.innerHTML = ORNEKLER.map(function (o) {
+        return '<button type="button" class="asistan-ornek">' + kacis(o) + "</button>";
+      }).join("");
+      ornek.addEventListener("click", function (e) {
+        var b = e.target.closest ? e.target.closest(".asistan-ornek") : null;
+        if (!b) return;
+        giris.value = b.textContent;
+        ciz();
+        try { giris.focus(); } catch (er) {}
+      });
+    }
+  }
+
+  // Testler/konsol için dışarı açılan saf yardımcılar.
+  window.emirAsistani = { puanla: puanla, varliklariBul: varliklariBul, sade: sade, NIYETLER: NIYETLER };
+
+  function baslat() {
+    kur("asistan-soru", "asistan-cevap", "asistan-ornekler");
+    kur("asistan-soru-bas", "asistan-cevap-bas", "asistan-ornekler-bas");
+  }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", baslat);
+  else baslat();
+})();
