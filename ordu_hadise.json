@@ -1,12 +1,12 @@
 {
-  "son_guncelleme": "2026-09-25 16:08",
+  "son_guncelleme": "2026-09-26 13:55",
   "gun_sayisi": 30,
   "ozet": {
-    "toplam": 2,
-    "kavga": 0,
+    "toplam": 4,
+    "kavga": 1,
     "olum": 0,
     "yara": 0,
-    "gorus": 2,
+    "gorus": 3,
     "hesap": 1,
     "uye": 2
   },
@@ -41,24 +41,58 @@
       "komutan": "Emmalogan",
       "ucret": "22,00",
       "katilma_gunu": "",
-      "son_gorulme": "2026-09-25 10:34",
+      "son_gorulme": "2026-09-26 10:54",
       "mufreze_komutani": false,
       "mufreze_kisi": null,
       "takip": {
-        "gun": "2026-09-25",
+        "gun": "2026-09-26",
         "sonuc": "verildi",
         "aciklama": "Bu grubun liderini takip ediyorsun. Bugün ayrılamazsın.",
         "lider": "Emmalogan"
       },
       "enerji": {
-        "gun": "2026-09-25",
+        "gun": "2026-09-26",
         "pa": 65,
         "max_pa": 65,
-        "sonuc": "boya: 3 üretim (en fazla 3)"
+        "sonuc": "boya: 4 üretim (en fazla 4) + maden: 60 dk"
       }
     }
   ],
   "gunler": [
+    {
+      "tarih": "2026-09-26",
+      "oyun_tarihi": "26-09-1474",
+      "kavga": 1,
+      "hadiseler": [
+        {
+          "id": "257136878",
+          "hesap": "Thebear",
+          "tarih": "2026-09-26",
+          "oyun_tarihi": "26-09-1474",
+          "saat": "04:31",
+          "etiket": "ordu",
+          "tur": "kavga",
+          "metin": "Kavgaya tutuştuğun Alanclarks99.",
+          "kisiler": [
+            "Alanclarks99"
+          ]
+        },
+        {
+          "id": "257135282",
+          "hesap": "Thebear",
+          "tarih": "2026-09-26",
+          "oyun_tarihi": "26-09-1474",
+          "saat": "",
+          "etiket": "gorus",
+          "tur": "gorus",
+          "metin": "Bugün, yolda karşılaştığın kişi Glasgow adlı kasabayı savunanlar: ve Alanclarks99, Pontiac_bandit.",
+          "kisiler": [
+            "Alanclarks99",
+            "Pontiac_bandit"
+          ]
+        }
+      ]
+    },
     {
       "tarih": "2026-09-25",
       "oyun_tarihi": "25-09-1474",
