@@ -266,7 +266,7 @@
     ["🚨", "Birini / bir orduyu izlemek", "#izleme", "Kasaba değiştirirse en üstte kocaman uyarı çıkar"],
     ["📅", "Geçmiş bir günde kim neredeydi?", "#gecmis", "Takvimden gün seç: nüfus, sakinler, ordular, raporlar"],
     // ⚔️ [25.09.2026] Ordu üyelerimiz + hadiseler / orduya katılma emri.
-    ["⚔️", "Ordudaki hesaplarımız ne yaşadı?", "#ordu", "Lideri takip · enerji · kavga/ölüm kayıtları (son 30 gün)"],
+    ["⚔️", "Ordudaki hesaplarımız ne yaşadı?", "#ordu", "Önce lideri takip · 65 enerji (boya + maden) · kavga/ölüm kayıtları (son 30 gün)"],
     ["🪖", "Bir hesabı orduya sokmak", "#emir/ordukatil", "Ordu adı ya da komutanı ZORUNLU"],
     // 🗳️ [26.09.2026] Belediye / divan seçiminde oy.
     ["🗳️", "Seçimde hesaplarımıza oy verdirmek", "#emir/oy", "Aday + kasaba (divan: liste + sancak) · en fazla 3 güne yayılır"],
@@ -282,6 +282,10 @@
     ["🤝", "Bir oyuncuya güven puanı vermek", "#emir/guven", "⚠️ iz bırakır — multi analizi tam buna bakıyor"],
     ["🎨", "Bir oyuncuya renk attırmak", "#emir/guven/renk", "Bir üst RP derecesine geçirmeyi önerir"],
     ["⚓", "Limana bir gemiyi kabul etmek", "#emir/yanasma", "Liman şefi hesabı + armatör"],
+    // 🗂️ [26.09.2026] Listede olmayan üç emir türü eklendi (Öz Claude).
+    ["📜", "Divan ödeneğini dağıtmak", "#emir/odenek", "Kişi + sancak + mal satırları"],
+    ["📬", "Bir hesabın postalarına baktırmak", "#emir/posta", "Yeni postalar Telegram'a düşer"],
+    ["👑", "Divan listesini onaylatmak", "#emir/divan", "Kendi adının geçtiği liste · İptal'e asla basılmaz"],
     ["🪖", "Ordular ve gemimiz nerede?", "#harita/ordu", "Haritada katman + liste"],
     ["🧭", "Kim yolda, kaç gün kaldı?", "#harita/seyahat", "Haritada kırmızı oklar"]
   ];
