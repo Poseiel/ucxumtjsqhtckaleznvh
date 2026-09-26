@@ -980,7 +980,9 @@ var TakipSaf = (function () {
   var ORDU_KAVGA_TURLERI = ["olum", "yara", "darbe", "kavga"];
   var ORDU_TURLER = {
     olum: ["💀", "ölüm"], yara: ["🩸", "yara"], darbe: ["⚔️", "darbe"], kavga: ["⚔️", "kavga"],
-    gorus: ["👁️", "gördüklerin"], diger: ["▫️", "diğer"]
+    gorus: ["👁️", "gördüklerin"], diger: ["▫️", "diğer"],
+    // 🎒 [27.09.2026] ordu lojistiği (ordu_uyesi.LOJISTIK_TURLERI)
+    yuk: ["🎒", "aşırı yük"], uyelik: ["🪖", "ordu üyeliği"], satis_iptal: ["↩️", "gece satış iptali"]
   };
   // Bilinmeyen tür "diger" sayılır (sınıf adı / emoji için beyaz liste).
   function orduTur(tur) { tur = metin(tur); return ORDU_TURLER.hasOwnProperty(tur) ? tur : "diger"; }
