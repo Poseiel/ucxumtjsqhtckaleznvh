@@ -578,6 +578,33 @@ function emirMesajiKur() {
     return { metin: dvSatir.join(EMIR_NL) };
   }
 
+  // ---------------- 🗳️ OY VER (26.09.2026) ----------------
+  // ⚠️ Şablon `oy_modul.emri_coz` ile BİREBİR aynı olmalı: başlık +
+  //    "seçim:" + (belediye → "kasaba:" · divan → "sancak:") + "aday:"/"liste:"
+  //    + "gün:" + isteğe bağlı her hesap ayrı "hesap:" satırı.
+  if (emirTur === "oy") {
+    var oySecim = emirDeger("oy-secim") === "divan" ? "divan" : "belediye";
+    var oyYer = emirDeger("oy-yer");
+    var oyAday = emirDeger("oy-aday");
+    var oyEksik = [];
+    if (!oyYer) oyEksik.push(oySecim === "divan" ? "sancak" : "kasaba");
+    if (!oyAday) oyEksik.push(oySecim === "divan" ? "liste adı" : "aday");
+    if (oyEksik.length) return { hata: "Eksik: " + oyEksik.join(", ") };
+    var oyGun = parseInt(emirDeger("oy-gun"), 10);
+    if (!(oyGun >= 1 && oyGun <= 3)) oyGun = 3;
+    var oySatir = ["OY VER", "seçim: " + oySecim,
+                   (oySecim === "divan" ? "sancak: " : "kasaba: ") + oyYer,
+                   (oySecim === "divan" ? "liste: " : "aday: ") + oyAday,
+                   "gün: " + oyGun];
+    var oyAdlar = [];
+    String(emirDeger("oy-hesaplar") || "").split(/[\r\n,;]+/).forEach(function (x) {
+      x = x.trim();
+      if (x && oyAdlar.map(function (y) { return y.toLowerCase(); }).indexOf(x.toLowerCase()) < 0) oyAdlar.push(x);
+    });
+    oyAdlar.forEach(function (x) { oySatir.push("hesap: " + x); });
+    return { metin: oySatir.join(EMIR_NL) };
+  }
+
   // ---------------- 🪖 ORDUYA KATIL (25.09.2026) ----------------
   // ⚠️ Şablon `ordu_uyesi.emri_coz` ile BİREBİR aynı olmalı: başlık + her
   //    hesap ayrı "hesap:" satırı + ZORUNLU "ordu:" (ordu adı ya da komutan).
@@ -1093,6 +1120,15 @@ function emirOlaylariBagla() {
     if (el) el.addEventListener("input", emirGuncelle);
   });
   ["ok-enerji", "ok-hemen", "dv-hemen", "po-hemen"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener("change", emirGuncelle);
+  });
+  // 🗳️ [26.09.2026] Oy ver formu
+  ["oy-yer", "oy-aday", "oy-hesaplar"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener("input", emirGuncelle);
+  });
+  ["oy-secim", "oy-gun"].forEach(function (id) {
     var el = document.getElementById(id);
     if (el) el.addEventListener("change", emirGuncelle);
   });
