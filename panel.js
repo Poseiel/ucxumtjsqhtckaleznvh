@@ -268,6 +268,8 @@
     // ⚔️ [25.09.2026] Ordu üyelerimiz + hadiseler / orduya katılma emri.
     ["⚔️", "Ordudaki hesaplarımız ne yaşadı?", "#ordu", "Lideri takip · enerji · kavga/ölüm kayıtları (son 30 gün)"],
     ["🪖", "Bir hesabı orduya sokmak", "#emir/ordukatil", "Ordu adı ya da komutanı ZORUNLU"],
+    // 🗳️ [26.09.2026] Belediye / divan seçiminde oy.
+    ["🗳️", "Seçimde hesaplarımıza oy verdirmek", "#emir/oy", "Aday + kasaba (divan: liste + sancak) · en fazla 3 güne yayılır"],
     ["🔒", "Birinin multi olup olmadığına bakmak", "#inziva", "Tek ölçüt: aynı gün inzivaya giriş/çıkış"],
     ["⛵", "Limanımıza kim geldi?", "#filo/taraf/yabanci", "🔴 yabancı gemiler"],
     ["🗺️", "Rota ve kaç gün sürer?", "#harita", "İki şehir seç; kara + deniz hesaplanır"],
@@ -341,6 +343,15 @@
     var sev6 = gel.filter(function (x) { return x.yol && x.yol !== "-" && x.yol !== ""; }).length;
     k.push(kart("📊", "hesap tabloda", gel.length || "—",
       gel.length ? ("🎓 yol seçmiş " + sev6) : "akşam gelir", "#gelisim"));
+    // ⚔️ [25.09.2026] Kılıç + kalkan kuşanmış hesap sayısı (profil okuması).
+    var kus = gel.filter(function (x) { return x.kusanma; });
+    if (kus.length) {
+      var ikisi = kus.filter(function (x) { return x.kusanma.kilic && x.kusanma.kalkan; }).length;
+      var pacavrali = kus.filter(function (x) { return x.kusanma.default_kiyafet; }).length;
+      k.push(kart("⚔️", "kılıç + kalkanlı hesap", ikisi,
+        kus.length + " hesap okundu · " + (kus.length - ikisi) + " eksik · 👕 " + pacavrali +
+        " hesapta default kıyafet (paçavra)", "#gelisim"));
+    }
 
     var ordu = g("orduVerisi", null);
     if (ordu && ordu.ordular) {
@@ -673,6 +684,11 @@
       ["📈 Seviye", gl.seviye], ["⚒️ Meslek", gl.meslek], ["🛤️ Yol", gl.yol || "seçmemiş"],
       ["💪 Kuvvet · 🧠 Zeka · 💬 Karizma · 🤝 Güven", [gl.kuvvet, gl.zeka, gl.karizma, gl.guven].map(function (x) { return x === undefined ? "-" : x; }).join(" · ")],
       ["🎨 Renk", gl.renk], ["💎 Mücevher", gl.mucevher], ["🏡 Tarla", gl.mulk], ["👪 Aile", gl.aile],
+      // ⚔️ [25.09.2026] Kılıç / kalkan / temel kıyafet (profil sayfasından).
+      ["⚔️ Üstündekiler", gl.kusanma && typeof window.kusanmaMetni === "function"
+        ? window.kusanmaMetni(gl.kusanma) + " (" + (gl.kusanma.gun || "?") + ")" : undefined],
+      ["👕 Kıyafetleri", gl.kusanma && typeof window.kiyafetListesi === "function"
+        ? (window.kiyafetListesi(gl.kusanma) || undefined) : undefined],
       ["📅 Kayıt", gl.kayit_tarihi]
     ].filter(function (s) { return s[1] !== undefined && s[1] !== null && s[1] !== ""; });
 
