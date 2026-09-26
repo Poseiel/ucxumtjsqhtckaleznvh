@@ -125,7 +125,15 @@ if (window.L) L.RasterCoords.prototype = {
     <div id="bas-kartlar" class="bas-kartlar"><p class="bos-durum">Veriler yükleniyor…</p></div>
 
     <h3 class="hareket-alt-baslik">🧭 Ne yapmak istiyorsun?</h3>
-    <p class="bolum-aciklama">Tıkla, doğru sekme ve form açılır — hiçbir şey ezberlemen gerekmez.</p>
+    <!-- 🤖 [26.09.2026] Aynı Emir Asistanı, Başlangıç'ta da. -->
+    <div class="asistan-kutu asistan-bas">
+      <label class="asistan-baslik" for="asistan-soru-bas">🤖 Kendi cümlenle sor — asistan doğru emri açsın</label>
+      <input type="search" id="asistan-soru-bas" class="asistan-giris" autocomplete="off"
+             placeholder="örn. toyga 50 deri alsın · hesabı başka şehre taşı · emri hangi konuya yapıştırayım?">
+      <div id="asistan-ornekler-bas" class="asistan-ornekler"></div>
+      <div id="asistan-cevap-bas" class="asistan-cevap" aria-live="polite" hidden></div>
+    </div>
+    <p class="bolum-aciklama">…ya da listeden tıkla, doğru sekme ve form açılır — hiçbir şey ezberlemen gerekmez.</p>
     <div id="bas-eylemler" class="bas-eylemler"></div>
 
     <div id="bas-mesajlar"></div>
@@ -424,8 +432,25 @@ if (window.L) L.RasterCoords.prototype = {
       <p class="rehber-akis">Sen kutuları doldurursun → site hazır metni üretir →
         <b>Telegram’a gönderirsin</b> → bot okur → sıradaki turda oyunda yapar</p>
       <p class="rehber-not">⚠️ Mesajın <b>senin hesabından</b> çıkması şart. Bot kendi
-        yazdığı mesajı okuyamıyor (ölçüldü), o yüzden “Gönder”e basınca Telegram
-        hazır metinle açılır, sen sadece gönder tuşuna basarsın.</p>
+        yazdığı mesajı okuyamıyor (ölçüldü), o yüzden <b>“📋 Kopyala”</b>ya basınca hazır
+        metin panoya kopyalanır; Telegram grubunda <b>emrin konusuna</b> yapıştırıp gönderirsin.
+        Hangi konu olduğunu formun üstündeki <b>📌 rozet</b> söyler. Ne yazacağını bilmiyorsan
+        sekmenin en üstündeki <b>🤖 Emir Asistanı</b>na kendi cümlenle sor.</p>
+      <table class="rehber-tablo">
+        <thead><tr><th>Emir</th><th>Telegram konusu <span class="rehber-eski">(botun onayı da buraya gelir)</span></th></tr></thead>
+        <tbody>
+        <tr><td>💰 Satış · 🛒 Alım</td><td><b>🛒 Pazar</b></td></tr>
+        <tr><td>⛵ Gemi Al · ⚓ Yanaşma</td><td><b>⚓ Deniz</b></td></tr>
+        <tr><td>🪖 Orduya katıl</td><td><b>⚔️ Ordular</b></td></tr>
+        <tr><td>🖥️ Ayar &amp; görev zinciri · ➕ Hesap ekle</td><td><b>⚙️ Ayar Emirleri</b></td></tr>
+        <tr><td>📜 Ödenek</td><td><b>💰 Ödenekler</b></td></tr>
+        <tr><td>✉️ Mesaj</td><td><b>✉️ Mesajlar</b></td></tr>
+        <tr><td>🎭 Profil · 🤝 Güven · 🗳️ Oy · 📣 Forum · 👑 Divan onay · 📬 Posta · 🚫 İptal</td><td><b>📜 Emirler</b></td></tr>
+        </tbody>
+      </table>
+      <p class="rehber-not">Bot <b>her konuyu okur</b> — yanlış konuya yapıştırsan da emir işlenir;
+        konu yalnızca düzen için. Önemli uyarılar (captcha, açıkta kalan mal, liman şefliği)
+        <b>🚨 ACİL</b> konusuna düşer.</p>
       <table class="rehber-tablo">
         <tr><th>Emir türü</th><th>Ne yapar</th><th>Dikkat</th></tr>
         <tr><td>💰 <b>Satış</b></td><td>Seçtiğin hesabın malını pazara çıkarır. Fiyatı “en düşük / en yüksek / elle” seçersin. İstersen belli bir kişiye <b>rezerve</b> edersin — o zaman yalnızca o kişi alabilir.</td><td>Emirle verilen fiyata bot <b>indirim uygulamaz</b>; ne yazdıysan o.</td></tr>
@@ -437,7 +462,7 @@ if (window.L) L.RasterCoords.prototype = {
         <tr><td>📬 <b>Posta kontrol</b></td><td>Hesap oyuna girip <b>yalnızca yeni mesaj var mı</b> diye bakar, varsa Telegram'a yollar ve çıkar.</td><td>Başka hiçbir iş yapılmaz (tarla/pazar/meslek yok). Posta zaten her girişte okunuyor — bu emir <b>gün içinde fazladan bir bakış</b> içindir. Hızlı yanıt beklediğin bir hesap için kullan.</td></tr>
         <tr><td>👑 <b>Divan onay</b><br><span class="rehber-eski">24.09.2026</span></td><td>Yazdığın hesaplar oyuna girdiğinde Sancak Kalesi'nde <b>kendi adlarının geçtiği divan listesini onaylar</b>. Birden çok hesabı tek emirde yazabilirsin.</td><td>Onayla ile İptal oyunda <b>aynı düğme türü</b>; bot yalnızca <b>Onayla</b>'ya basar. Zaten onaylıysa dokunmaz, emri kapatır. Hesap hiçbir listede yoksa emir iptal edilir.</td></tr>
         <tr><td>🗳️ <b>Oy ver</b><br><span class="rehber-eski">26.09.2026</span></td><td>Belediye reisi ya da divan listesi seçiminde <b>kime oy verileceğini</b> yazarsın. O kasabadaki (belediye) ya da sancaktaki (divan) hesaplarımız oyuna girdikçe oy verir.</td><td>Oylar <b>en fazla 3 güne</b> yayılır (hepsi aynı gün oy vermesin). Oy veren hesap listeden düşer. Divanda yalnızca yazdığın listenin altındaki "Oy ver"e basılır. Aday ya da liste sayfada yoksa emir iptal edilir.</td></tr>
-        <tr><td>🪖 <b>Orduya katıl</b><br><span class="rehber-eski">25.09.2026</span></td><td>Yazdığın hesaplar oyuna girince bulundukları kasabada <b>adını (ya da komutanını) yazdığın ordunun</b> “Başvur” düğmesine basar. Başarılıysa hesap <b>“Ordu Takip”</b> moduna geçer: işe girmez, enerjisini tercihe göre harcar (🟣 boya · ⛏️ maden · 💤 hiç), <b>en son lideri takip eder</b>.</td><td><b>Ordu adı ZORUNLU</b> — aynı kasabada düşman ordu da asker alabiliyor, yanlış orduya girmek geri alınamaz. Ad eşleşmezse ya da belirsizse bot <b>hiçbir düğmeye basmaz</b>. Bot ordudan <b>asla ayrılmaz</b>. Olanları <b>⚔️ Ordu</b> sekmesinde görürsün.</td></tr>
+        <tr><td>🪖 <b>Orduya katıl</b><br><span class="rehber-eski">25.09.2026</span></td><td>Yazdığın hesaplar oyuna girince bulundukları kasabada <b>adını (ya da komutanını) yazdığın ordunun</b> “Başvur” düğmesine basar. Başarılıysa hesap <b>“Ordu Takip”</b> moduna geçer: işe girmez; her gün <b>önce lideri takip eder</b>, sonra enerjisinin tamamını (65) tercihe göre harcar (🟣 boya + kalanı ⛏️ maden · ⛏️ maden · 💤 hiç), 04:00 gün sınırını aşmadan.</td><td><b>Ordu adı ZORUNLU</b> — aynı kasabada düşman ordu da asker alabiliyor, yanlış orduya girmek geri alınamaz. Ad eşleşmezse ya da belirsizse bot <b>hiçbir düğmeye basmaz</b>. Bot ordudan <b>asla ayrılmaz</b>. Olanları <b>⚔️ Ordu</b> sekmesinde görürsün.</td></tr>
         <tr><td>⚓ <b>Yanaşma</b></td><td>Liman şefi olan hesaba, <b>şu armatörün gemisinin limana yanaşmasına izin ver</b> dedirtir.</td><td>Armatörün <b>oyun içi kullanıcı adını</b> yaz (ekranda görünen büyük harfli ad değil). Emir vermediğin hiçbir gemi kabul edilmez; bot kendiliğinden yanaşma onaylamaz.</td></tr>
         <tr><td>🎭 <b>Profil yaz</b><br><span class="rehber-eski">21.09.2026</span></td><td>Hesap oyuna girer, <b>kendi profil sayfasını ayrı bir sekmede</b> açar ve yazdıklarını kaydeder: <b>profil durumu</b> ("Peki, bugün ruh halin nasıl?" — 140 karakter), <b>doğum günü</b> (gün/ay), <b>yaş</b>, <b>cinsiyet</b>, <b>RP metni</b> (oyun karakteri profili) ve <b>OOC</b> (oyun dışı bilgiler).</td><td><b>Boş bıraktığın kutuya dokunulmaz.</b> Kayıt iki adımda olur (önce durum, sonra Profil sekmesi); biri olmazsa diğeri yine denenir. Oyundan <b>çıkılmaz</b>, sekme iş bitince kapanır. ✅ İş bitince <b>Telegram'a haber gelir</b>. 📄 Metin uzunsa (Telegram sınırı <b>4.096 karakter</b>) <b>bölme</b> — <b>📄 .txt indir</b> düğmesini kullan, dosyayı gruba <b>dosya olarak</b> at; <b>tek dosyada</b> doğum günü, yaş, cinsiyet, RP ve OOC birlikte gider, bot hepsini okur.</td></tr>
         <tr><td>🤝 <b>Güven puanı</b><br>🎨 <b>Renk attır</b></td><td>Bizim bir hesabımız <b>başka bir oyuncunun</b> profilini açar; menüden <b>güven puanı (+1)</b> verir ve/veya bir üst <b>RP derecesine geçirmeyi</b> önerir. İkisini birden istersen tek ziyarette yapılır.</td><td>⚠️ <b>Güven puanı iz bırakır</b>: oyun profilde "Güven Puanı veren son kişiler"i gösteriyor ve multi analizimiz tam bu listeye bakıyor. 🎨 Renk sırası <b>Beyaz → Sarı → Turuncu → Yeşil → Mavi → Kahverengi → Siyah</b>; kendinden <b>yüksek</b> dereceliye verilemez. Oyun <b>"Daha önce terfi öneriniz işleme alınmıştı"</b> derse emir <b>kuyrukta bekletilmez, iptal edilir</b> ve Telegram'a haber gelir — bir süre sonra aynı emri yeniden verirsin.</td></tr>
@@ -638,6 +663,8 @@ if (window.L) L.RasterCoords.prototype = {
         (<b>günde en çok 5.000 akçe</b> ve <b>45 dakika</b>), cebinde 10.000 akçe
         olunca pazardaki <b>37 hedef üründen</b> tavanı aşmayan ne varsa toplar ve
         evine koyar. Sonra tarla/maden rutinine devam eder.</p>
+      <p class="rehber-not">⛔ <b>Midas 25.09'dan beri KAPALI</b> (kullanıcı kararı) — para
+        biriktirme adımı çalışmıyor; hesap yalnızca cebindeki parayla alır.</p>
       <p class="rehber-not">⚠️ Bu moddaki hesap <b>topladığı malı satmaz</b> —
         biriktirmek için var. Aynı hesapta seyahat modunu açma, ikisi çakışır.</p>
 
@@ -649,12 +676,16 @@ if (window.L) L.RasterCoords.prototype = {
         toplama da dirilme günü dışında yapılmaz. Kendi Chrome profili ve taze IP kuralı
         aynen geçerlidir.</p>
       <p class="rehber-not">⚠️ Bu hesaplar yemek yemediği için birkaç günde bir ölür;
-        bot ertesi girişte diriltir. Maden kapalıysa camiye, cami doluysa madene düşer.
+        bot ertesi girişte diriltir; dirilince ana sayfayı yenileyip <b>Erdem &amp; Günah</b>
+        seçimini yapar (yapılmazsa pencere bütün tıklamaları kilitliyordu). Maden kapalıysa
+        önce <b>EAÜ</b>, o da yoksa camiye; cami doluysa madene (o da kapalıysa EAÜ) düşer.
+        Maden "kalabalık" derse daha kısa süre dener.
         Hesap büyüyünce takip modunu <b>Yok</b> yap, normal tura döner.</p>
 
       <h3>💬 Telegram’dan cevap yazma <span class="rehber-eski">(bunu zaten biliyorsunuz)</span></h3>
       <p>Divan/belediye hesaplarımıza oyunda mesaj gelince bot bunu Telegram’a düşürür
-        (orijinali + Türkçesi). O mesaja Telegram’da <b>“Yanıtla”</b> ile cevap yazarsan,
+        — divan/belediye makamına gelenler <b>‼️ Divan Mesajları</b>, diğerleri
+        <b>📩 Vatandaş Mesajları</b> konusuna (orijinal dilinde; çeviri 26.09'da kapatıldı). O mesaja Telegram’da <b>“Yanıtla”</b> ile cevap yazarsan,
         bot o cevabı kuyruğa alır ve <b>ilgili karakter oyuna girdiğinde</b> gönderir.</p>
       <p class="rehber-not">Kim yazarsa yazsın kabul edilir; kuyruğa kimin yazdığı not düşülür.
         Konu başlığına otomatik <b>“re:”</b> eklenir. Bu düzen değişmedi.</p>
@@ -1308,6 +1339,16 @@ if (window.L) L.RasterCoords.prototype = {
   </section>
 
   <section id="tab-emir" class="tab-panel">
+    <!-- 🤖 [26.09.2026] EMİR ASİSTANI (emir.js sonu). Kural tabanlı: ücretsiz,
+         sınırsız, anahtar yok. Cümleyi anlar → doğru formu (doldurarak) açar. -->
+    <div class="asistan-kutu">
+      <label class="asistan-baslik" for="asistan-soru">🤖 Emir Asistanı — bota ne yaptırmak istiyorsun?</label>
+      <input type="search" id="asistan-soru" class="asistan-giris" autocomplete="off"
+             placeholder="Kendi cümlenle yaz… (örn. toyga 50 deri alsın · aiegus'u orduya sok)">
+      <div id="asistan-ornekler" class="asistan-ornekler"></div>
+      <div id="asistan-cevap" class="asistan-cevap" aria-live="polite" hidden></div>
+    </div>
+
     <p class="bolum-aciklama">
       Kutuları doldur, aşağıdaki mesaj kendiliğinden oluşsun, <strong>Gönder</strong>'e bas.
       Eşya adlarını elle yazmana gerek yok — yazmaya başlayınca o karakterde/pazarda
@@ -1473,8 +1514,22 @@ if (window.L) L.RasterCoords.prototype = {
           <select id="od-sancak"></select>
         </label>
       </div>
+      <!-- 👑 [26.09.2026] Ödeneği VEREN nazır. Birden çok Ticaret Nazırı varsa
+           SEÇİLMESİ ŞART. Liste: gelisim.json görevleri + sancak.json.
+           ⚠️ Bot tarafı: divan_ticaret._ETIKETLER["veren"] ("Ödeneği veren:"). -->
+      <div class="emir-satir">
+        <label>Ödeneği veren nazır <span class="emir-kucuk">(ayarlarda birden çok Ticaret Nazırı varsa seçmek zorunlu)</span>
+          <select id="od-veren"></select>
+        </label>
+      </div>
       <div id="od-mallar"></div>
       <button type="button" id="od-satir-ekle" class="emir-mini-btn">➕ mal satırı ekle</button>
+      <div class="emir-satir">
+        <label class="emir-tik">
+          <input type="checkbox" id="od-hemen">
+          ⚡ Hemen yap <span class="emir-kucuk">(Seçilen nazır sıradaki hesap olarak girer — bugün zaten girildiyse bile. Ödeneği alan bizim hesapsa o da HEMEN ardından girip ödeneği tamamlar; sırası henüz gelmemişse kendi sırasında atlanır, yani tek giriş.)</span>
+        </label>
+      </div>
       <p class="emir-ipucu" id="od-bilgi"></p>
     </div>
     <!-- ✉️ MESAJ — Filo sekmesindeki "Mesaj at" düğmesi buraya getirir.
@@ -1616,7 +1671,7 @@ if (window.L) L.RasterCoords.prototype = {
         <label>🪖 Enerji <span class="emir-kucuk">(ordudayken ne yapsın)</span>
           <select id="ok-enerji">
             <option value="">— (hesabın ayarı kalsın)</option>
-            <option value="otomatik">Otomatik (bahçıvan → boya, diğerleri → sadece takip)</option>
+            <option value="otomatik">Otomatik (bahçıvan → boya + kalanı maden, diğerleri → maden)</option>
             <option value="boya">🟣 Boya</option>
             <option value="maden">⛏️ Maden (yalnızca maden, EAÜ yok)</option>
             <option value="yok">💤 Sadece lideri takip (enerji harcama)</option>
@@ -1630,8 +1685,11 @@ if (window.L) L.RasterCoords.prototype = {
         </label>
       </div>
       <p class="emir-ipucu">Hesap oyuna girince hedef ordunun <b>Başvur</b> düğmesine basar; başarılıysa
-        <b>“Ordu Takip”</b> moduna geçer: <b>işe girmez</b>, enerjisini tercihe göre harcar,
-        <b>EN SON lideri takip eder</b>. Bot ordudan <b>ASLA ayrılmaz</b>. Ordu adı zorunlu: aynı
+        <b>“Ordu Takip”</b> moduna geçer: <b>işe girmez</b>; her gün <b>ÖNCE lideri takip eder</b>, sonra
+        enerjisinin <b>tamamını</b> (Çalışkan İşçi ile 65) tercihe göre harcar — boya sığdığı kadar,
+        kalanı madende, <b>04:00 gün sınırını aşmadan</b>. Evindeyken çantada yalnız yemek/erzak ve
+        hareketsizlik eşyaları kalır; mor boya ve fırıncı malı satılır, gerisi eve gider.
+        Bot ordudan <b>ASLA ayrılmaz</b>. Ordu adı zorunlu: aynı
         kasabada düşman ordu da asker alabiliyor — ad eşleşmezse ya da belirsizse bot <b>hiçbir
         düğmeye basmaz</b> (yanlış orduya girmek geri alınamaz). Olanlar <b>⚔️ Ordu</b> sekmesinde görünür.</p>
     </div>
@@ -1924,7 +1982,7 @@ if (window.L) L.RasterCoords.prototype = {
         <label>🪖 Ordu enerjisi <span class="ay-ipucu">yalnızca “Ordu Takip” modunda</span>
           <select id="ay-ordu-enerji">
             <option value="">— değiştirme —</option>
-            <option value="otomatik">Otomatik (bahçıvan → boya, diğerleri → sadece takip)</option>
+            <option value="otomatik">Otomatik (bahçıvan → boya + kalanı maden, diğerleri → maden)</option>
             <option value="boya">🟣 Boya</option>
             <option value="maden">⛏️ Maden (yalnızca maden, EAÜ yok)</option>
             <option value="yok">💤 Sadece lideri takip (enerji harcama)</option>
@@ -2075,6 +2133,7 @@ if (window.L) L.RasterCoords.prototype = {
 
     <!-- ---------------- ÖNİZLEME + GÖNDER ---------------- -->
     <h3 class="emir-baslik">Gidecek mesaj</h3>
+    <p id="emir-konu-rozet" class="emir-konu-rozet"></p>
     <pre id="emir-onizleme" class="emir-onizleme">Kutuları doldur…</pre>
     <p id="emir-uyari" class="emir-uyari" hidden></p>
 
