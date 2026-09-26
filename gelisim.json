@@ -1,29 +1,39 @@
 {
-  "son_guncelleme": "2026-09-26 13:55",
+  "son_guncelleme": "2026-09-26 19:37",
   "bugun_tarihi": "2026-09-26",
   "dun_tarihi": "2026-09-25",
-  "sev6_sayisi": 7,
+  "sev6_sayisi": 16,
   "sev6_dagilim": {
-    "Tıbbiye": 4,
-    "Devlet": 2,
-    "Ordu": 1
+    "Tıbbiye": 6,
+    "Devlet": 5,
+    "Ordu": 4,
+    "Din": 1
   },
   "sev6_hesaplar": [
+    "aiegus",
+    "beannighe",
     "bilrider",
     "coptik",
+    "davoss",
+    "dwadu",
     "fredyy",
     "joyking",
     "mr.butcher",
     "penciher",
-    "renegrade"
+    "razielon",
+    "redbrand",
+    "renegrade",
+    "takaraka",
+    "vamder",
+    "zaniolo"
   ],
   "kusanma_ozet": {
-    "okunan": 32,
-    "kilicli": 11,
-    "kalkanli": 8,
-    "ikisi_de": 7,
-    "kiyafet_eksik": 21,
-    "default_kiyafet": 19
+    "okunan": 95,
+    "kilicli": 23,
+    "kalkanli": 20,
+    "ikisi_de": 17,
+    "kiyafet_eksik": 71,
+    "default_kiyafet": 59
   },
   "karakterler": [
     {
@@ -76,7 +86,7 @@
       "zeka": 179,
       "karizma": 255,
       "guven": 205,
-      "akce": 27921.0,
+      "akce": 27141.0,
       "renk": "Yeşil",
       "mucevher": "380",
       "mulk": "ekin",
@@ -412,10 +422,10 @@
       "zeka": 255,
       "karizma": 255,
       "guven": 193,
-      "akce": 32414.0,
+      "akce": 32247.0,
       "renk": "Mavi",
       "mucevher": "20",
-      "mulk": "koc,manda",
+      "mulk": "manda,koc",
       "kayit_tarihi": "07 Mayıs 2023",
       "kayit_iso": "2023-05-07",
       "kayit_kaynak": "oyun",
@@ -1107,8 +1117,8 @@
       "meslek": "-",
       "yol": "-",
       "seviye": 77,
-      "kuvvet": 57,
-      "zeka": 57,
+      "kuvvet": 60,
+      "zeka": 60,
       "karizma": 185,
       "guven": 53,
       "akce": 23838.0,
@@ -4390,6 +4400,7354 @@
         "guven": 0,
         "akce": 15.0
       }
+    },
+    {
+      "karakter": "scamender",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 75,
+      "kuvvet": 39,
+      "zeka": 36,
+      "karizma": 37,
+      "guven": 28,
+      "akce": 61.0,
+      "renk": "Beyaz",
+      "mucevher": "265",
+      "mulk": "-",
+      "kayit_tarihi": "28 Şubat 2023",
+      "kayit_iso": "2023-02-28",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 88,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 35,
+      "yetenek_el": 0,
+      "yetenek_puan": 2,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 75,
+        "kuvvet": 39,
+        "zeka": 36,
+        "karizma": 35,
+        "guven": 28,
+        "akce": 61.0
+      }
+    },
+    {
+      "karakter": "gorgoyle",
+      "kasaba": "Glasgow",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 29,
+      "kuvvet": 0,
+      "zeka": 0,
+      "karizma": 0,
+      "guven": 8,
+      "akce": 290.0,
+      "renk": "Beyaz",
+      "mucevher": "30",
+      "mulk": "-",
+      "kayit_tarihi": "≈08 Eylül 2026",
+      "kayit_iso": "2026-09-08",
+      "kayit_kaynak": "tahmini",
+      "aile": "",
+      "yetenek_is": "",
+      "yetenek_siyaset": "",
+      "yetenek_ziraat": "",
+      "yetenek_el": "",
+      "yetenek_puan": "",
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "⚡ Hızlı Cami",
+        "🧭 Görev zinciri"
+      ],
+      "gorev_ozet": "⚡ Hızlı Cami · 🧭 Görev zinciri",
+      "kusanma": null,
+      "dun": {
+        "seviye": 27,
+        "kuvvet": 0,
+        "zeka": 0,
+        "karizma": 0,
+        "guven": 5,
+        "akce": 275.0
+      }
+    },
+    {
+      "karakter": "jarg",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 98,
+      "kuvvet": 95,
+      "zeka": 69,
+      "karizma": 255,
+      "guven": 89,
+      "akce": 321.0,
+      "renk": "Beyaz",
+      "mucevher": "270",
+      "mulk": "ekin",
+      "kayit_tarihi": "26 Ocak 2026",
+      "kayit_iso": "2026-01-26",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 84,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 90,
+      "yetenek_el": 0,
+      "yetenek_puan": 1,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 97,
+        "kuvvet": 95,
+        "zeka": 69,
+        "karizma": 255,
+        "guven": 88,
+        "akce": 313.0
+      }
+    },
+    {
+      "karakter": "beannighe",
+      "kasaba": "Stirling",
+      "meslek": "Fırıncı",
+      "yol": "Din",
+      "seviye": 233,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 255,
+      "guven": 190,
+      "akce": 27491.0,
+      "renk": "Turuncu",
+      "mucevher": "350",
+      "mulk": "manda,ekin",
+      "kayit_tarihi": "16 Mayıs 2023",
+      "kayit_iso": "2023-05-16",
+      "kayit_kaynak": "oyun",
+      "aile": "Selçuklu Ailesi",
+      "yetenek_is": 100,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 100,
+      "yetenek_puan": 81,
+      "medrese": {
+        "Dil": {
+          "tamam": 0,
+          "toplam": 4,
+          "yuzde": 15
+        },
+        "Din": {
+          "tamam": 0,
+          "toplam": 4,
+          "yuzde": 35
+        }
+      },
+      "medrese_eksik": {
+        "Dil1 - Latince": 30,
+        "Dil2 - Antik Yunanca": 19,
+        "Dil3 - Osmanlıca": 10,
+        "Dil4 - Arapça": 0,
+        "Din1 - İbn-i Rüşt'ün Ahlak Kuralları": 50,
+        "Din11 - Kutsal Sayı 7": 20,
+        "Din8 - Özdenetim": 20,
+        "Din2 - Mantık": 50
+      },
+      "medrese_dersler": {
+        "Dil1 - Latince": 30,
+        "Dil2 - Antik Yunanca": 19,
+        "Dil3 - Osmanlıca": 10,
+        "Dil4 - Arapça": 0,
+        "Din1 - İbn-i Rüşt'ün Ahlak Kuralları": 50,
+        "Din11 - Kutsal Sayı 7": 20,
+        "Din8 - Özdenetim": 20,
+        "Din2 - Mantık": 50
+      },
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": true,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [
+          "Kılıç"
+        ],
+        "kalkanlar": [],
+        "eksik_kiyafet": [],
+        "kiyafetler": [
+          {
+            "ad": "Şapka",
+            "bolum": "Şapka",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Pantolon",
+            "bolum": "Pantolon",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Çorabı",
+            "bolum": "Çorap",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Ayakkabı",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Çizme",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "chaussuresVoleur",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "perroquet",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "bbManchotc",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "PanoplieBambara",
+            "bolum": "Takım",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "CollierSoleil",
+            "bolum": "Mücevher",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "echarpeLune",
+            "bolum": "Yaka",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "chapeauBecChansonnier",
+            "bolum": "Şapka",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "CeintureAstrologien",
+            "bolum": "Kuşak",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "besaceNeiges",
+            "bolum": "Kuşak",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "guetreNoel",
+            "bolum": "Çorap",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "puli",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "medaillonOgma",
+            "bolum": "Mücevher",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "familierNueeAbeilles",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 233,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 255,
+        "guven": 190,
+        "akce": 27580.0
+      }
+    },
+    {
+      "karakter": "esteros",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 172,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 255,
+      "guven": 255,
+      "akce": 480.0,
+      "renk": "Turuncu",
+      "mucevher": "75",
+      "mulk": "-",
+      "kayit_tarihi": "27 Aralık 2020",
+      "kayit_iso": "2020-12-27",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 100,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 71,
+      "yetenek_el": 0,
+      "yetenek_puan": 38,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": true,
+        "kor_kilic": false,
+        "kalkan": true,
+        "silahlar": [
+          "Kılıç"
+        ],
+        "kalkanlar": [
+          "Kalkan"
+        ],
+        "eksik_kiyafet": [],
+        "kiyafetler": [
+          {
+            "ad": "Şapka",
+            "bolum": "Şapka",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Pantolon",
+            "bolum": "Pantolon",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Çorabı",
+            "bolum": "Çorap",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Çizme",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "concours10",
+            "bolum": "Takım",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "lanterneLucioles",
+            "bolum": "Sağ el",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "mouflesRKNoel2022",
+            "bolum": "Eldiven",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "capeScandinave",
+            "bolum": "Pelerin",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "botteScandinave",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 171,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 255,
+        "guven": 255,
+        "akce": 463.0
+      }
+    },
+    {
+      "karakter": "vermithor",
+      "kasaba": "Whithorn",
+      "meslek": "Kasap",
+      "yol": "-",
+      "seviye": 100,
+      "kuvvet": 255,
+      "zeka": 116,
+      "karizma": 57,
+      "guven": 81,
+      "akce": 75968.0,
+      "renk": "Beyaz",
+      "mucevher": "370",
+      "mulk": "manda,ekin",
+      "kayit_tarihi": "30 Aralık 2025",
+      "kayit_iso": "2025-12-30",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 62,
+      "yetenek_siyaset": 66,
+      "yetenek_ziraat": 73,
+      "yetenek_el": 100,
+      "yetenek_puan": 0,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": true,
+        "kor_kilic": false,
+        "kalkan": true,
+        "silahlar": [
+          "Kılıç"
+        ],
+        "kalkanlar": [
+          "Kalkan"
+        ],
+        "eksik_kiyafet": [],
+        "kiyafetler": [
+          {
+            "ad": "Erkek Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Pantolon",
+            "bolum": "Pantolon",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Çorabı",
+            "bolum": "Çorap",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Çizme",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Pelerin",
+            "bolum": "Pelerin",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "İp Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Bere",
+            "bolum": "Şapka",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "yeşil"
+          },
+          {
+            "ad": "concours11",
+            "bolum": "Takım",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "canard",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "manchettesDeLHerboriste",
+            "bolum": "Eldiven",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "ceintureMenestrel",
+            "bolum": "Kuşak",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "DistilleurFiole",
+            "bolum": "Sağ el",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "CeintureInvestigateur",
+            "bolum": "Kuşak",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "standBoucher",
+            "bolum": "Mücevher",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 100,
+        "kuvvet": 255,
+        "zeka": 116,
+        "karizma": 55,
+        "guven": 80,
+        "akce": 75902.0
+      }
+    },
+    {
+      "karakter": "nindalf",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 167,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 107,
+      "guven": 255,
+      "akce": 93.0,
+      "renk": "Beyaz",
+      "mucevher": "110",
+      "mulk": "-",
+      "kayit_tarihi": "31 Ocak 2021",
+      "kayit_iso": "2021-01-31",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 100,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 0,
+      "yetenek_puan": 11,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": true,
+        "silahlar": [
+          "crosse"
+        ],
+        "kalkanlar": [
+          "Kalkan"
+        ],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Şapka",
+            "bolum": "Şapka",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "concours7",
+            "bolum": "Takım",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "mouflesRKNoel2022",
+            "bolum": "Eldiven",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "chapeauScandinave",
+            "bolum": "Şapka",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "capeScandinave",
+            "bolum": "Pelerin",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "ceintureScandinave",
+            "bolum": "Kuşak",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "botteScandinave",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 166,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 104,
+        "guven": 255,
+        "akce": 97.0
+      }
+    },
+    {
+      "karakter": "hasdur",
+      "kasaba": "Ardencaple",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 10,
+      "kuvvet": 0,
+      "zeka": 0,
+      "karizma": 0,
+      "guven": 0,
+      "akce": 15.0,
+      "renk": "Beyaz",
+      "mucevher": "0",
+      "mulk": "-",
+      "kayit_tarihi": "≈24 Eylül 2026",
+      "kayit_iso": "2026-09-24",
+      "kayit_kaynak": "tahmini",
+      "aile": "",
+      "yetenek_is": "",
+      "yetenek_siyaset": "",
+      "yetenek_ziraat": "",
+      "yetenek_el": "",
+      "yetenek_puan": "",
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "⚡ Hızlı Cami"
+      ],
+      "gorev_ozet": "⚡ Hızlı Cami",
+      "kusanma": null,
+      "dun": {
+        "seviye": 10,
+        "kuvvet": 0,
+        "zeka": 0,
+        "karizma": 0,
+        "guven": 0,
+        "akce": 15.0
+      }
+    },
+    {
+      "karakter": "zedrin",
+      "kasaba": "Vic",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 10,
+      "kuvvet": 0,
+      "zeka": 0,
+      "karizma": 0,
+      "guven": 0,
+      "akce": 15.0,
+      "renk": "Beyaz",
+      "mucevher": "0",
+      "mulk": "-",
+      "kayit_tarihi": "≈24 Eylül 2026",
+      "kayit_iso": "2026-09-24",
+      "kayit_kaynak": "tahmini",
+      "aile": "",
+      "yetenek_is": "",
+      "yetenek_siyaset": "",
+      "yetenek_ziraat": "",
+      "yetenek_el": "",
+      "yetenek_puan": "",
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "⚡ Hızlı Maden"
+      ],
+      "gorev_ozet": "⚡ Hızlı Maden",
+      "kusanma": null,
+      "dun": {
+        "seviye": 10,
+        "kuvvet": 0,
+        "zeka": 0,
+        "karizma": 0,
+        "guven": 0,
+        "akce": 15.0
+      }
+    },
+    {
+      "karakter": "bradley_richards",
+      "kasaba": "Kirkcudbright",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 78,
+      "kuvvet": 182,
+      "zeka": 38,
+      "karizma": 75,
+      "guven": 6,
+      "akce": 96.0,
+      "renk": "Beyaz",
+      "mucevher": "210",
+      "mulk": "ekin",
+      "kayit_tarihi": "29 Mart 2026",
+      "kayit_iso": "2026-03-29",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 66,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 64,
+      "yetenek_el": 0,
+      "yetenek_puan": 1,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 78,
+        "kuvvet": 179,
+        "zeka": 35,
+        "karizma": 75,
+        "guven": 6,
+        "akce": 73.0
+      }
+    },
+    {
+      "karakter": "razielon",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "Tıbbiye",
+      "seviye": 170,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 214,
+      "guven": 255,
+      "akce": 49.0,
+      "renk": "Mavi",
+      "mucevher": "80",
+      "mulk": "-",
+      "kayit_tarihi": "18 Aralık 2020",
+      "kayit_iso": "2020-12-18",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 100,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 0,
+      "yetenek_puan": 10,
+      "medrese": {
+        "Dil": {
+          "tamam": 0,
+          "toplam": 4,
+          "yuzde": 6
+        },
+        "Devlet": {
+          "tamam": 0,
+          "toplam": 1,
+          "yuzde": 7
+        },
+        "İlim": {
+          "tamam": 0,
+          "toplam": 5,
+          "yuzde": 23
+        }
+      },
+      "medrese_eksik": {
+        "Dil1 - Latince": 10,
+        "Dil2 - Antik Yunanca": 4,
+        "Dil3 - Osmanlıca": 10,
+        "Dil4 - Arapça": 0,
+        "Devlet3 - Hukuk İlkeleri": 7,
+        "İlim1 - Biyolojinin Temelleri": 97,
+        "İlim2 - Anatominin Temelleri": 20,
+        "İlim3 - Tıbbın Temelleri": 0,
+        "İlim4 - Temel Kimya": 0,
+        "İlim6 - Yıldızbilimi": 0
+      },
+      "medrese_dersler": {
+        "Dil1 - Latince": 10,
+        "Dil2 - Antik Yunanca": 4,
+        "Dil3 - Osmanlıca": 10,
+        "Dil4 - Arapça": 0,
+        "Devlet3 - Hukuk İlkeleri": 7,
+        "İlim1 - Biyolojinin Temelleri": 97,
+        "İlim2 - Anatominin Temelleri": 20,
+        "İlim3 - Tıbbın Temelleri": 0,
+        "İlim4 - Temel Kimya": 0,
+        "İlim6 - Yıldızbilimi": 0
+      },
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [
+          "crosse"
+        ],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Şapka/Bere"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Erkek Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Pantolon",
+            "bolum": "Pantolon",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "mavi"
+          },
+          {
+            "ad": "Erkek Çorabı",
+            "bolum": "Çorap",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Çizme",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "mavi"
+          },
+          {
+            "ad": "Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "beyaz"
+          },
+          {
+            "ad": "concours11",
+            "bolum": "Takım",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "mouflesRKNoel2022",
+            "bolum": "Eldiven",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "chapeauScandinave",
+            "bolum": "Şapka",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "capeScandinave",
+            "bolum": "Pelerin",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 169,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 214,
+        "guven": 255,
+        "akce": 62.0
+      }
+    },
+    {
+      "karakter": "neromancer",
+      "kasaba": "Ardencaple",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 72,
+      "kuvvet": 84,
+      "zeka": 76,
+      "karizma": 119,
+      "guven": 37,
+      "akce": 470.0,
+      "renk": "Beyaz",
+      "mucevher": "200",
+      "mulk": "ekin",
+      "kayit_tarihi": "27 Şubat 2026",
+      "kayit_iso": "2026-02-27",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 64,
+      "yetenek_siyaset": 66,
+      "yetenek_ziraat": 64,
+      "yetenek_el": 0,
+      "yetenek_puan": 1,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "🛡️ Ases"
+      ],
+      "gorev_ozet": "🛡️ Ases",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 71,
+        "kuvvet": 84,
+        "zeka": 76,
+        "karizma": 117,
+        "guven": 37,
+        "akce": 453.0
+      }
+    },
+    {
+      "karakter": "oostervolde",
+      "kasaba": "Lewes",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 33,
+      "kuvvet": 0,
+      "zeka": 0,
+      "karizma": 0,
+      "guven": 9,
+      "akce": 333.0,
+      "renk": "Beyaz",
+      "mucevher": "40",
+      "mulk": "-",
+      "kayit_tarihi": "≈05 Eylül 2026",
+      "kayit_iso": "2026-09-05",
+      "kayit_kaynak": "tahmini",
+      "aile": "",
+      "yetenek_is": 26,
+      "yetenek_siyaset": 0,
+      "yetenek_ziraat": "",
+      "yetenek_el": "",
+      "yetenek_puan": 0,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "⚡ Hızlı Cami"
+      ],
+      "gorev_ozet": "⚡ Hızlı Cami",
+      "kusanma": null,
+      "dun": {
+        "seviye": 31,
+        "kuvvet": 0,
+        "zeka": 0,
+        "karizma": 0,
+        "guven": 6,
+        "akce": 318.0
+      }
+    },
+    {
+      "karakter": "ironfoot",
+      "kasaba": "Ardencaple",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 103,
+      "kuvvet": 121,
+      "zeka": 123,
+      "karizma": 166,
+      "guven": 76,
+      "akce": 2349.0,
+      "renk": "Beyaz",
+      "mucevher": "270",
+      "mulk": "ekin",
+      "kayit_tarihi": "08 Ocak 2026",
+      "kayit_iso": "2026-01-08",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 88,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 0,
+      "yetenek_puan": 0,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 103,
+        "kuvvet": 121,
+        "zeka": 123,
+        "karizma": 164,
+        "guven": 76,
+        "akce": 2346.0
+      }
+    },
+    {
+      "karakter": "zaniolo",
+      "kasaba": "Glasgow",
+      "meslek": "Bahçıvan",
+      "yol": "Devlet",
+      "seviye": 190,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 255,
+      "guven": 116,
+      "akce": 15314.0,
+      "renk": "Beyaz",
+      "mucevher": "370",
+      "mulk": "ekin",
+      "kayit_tarihi": "06 Aralık 2024",
+      "kayit_iso": "2024-12-06",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 100,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 100,
+      "yetenek_puan": 62,
+      "medrese": {
+        "Dil": {
+          "tamam": 0,
+          "toplam": 4,
+          "yuzde": 8
+        },
+        "Devlet": {
+          "tamam": 2,
+          "toplam": 6,
+          "yuzde": 35
+        }
+      },
+      "medrese_eksik": {
+        "Dil1 - Latince": 10,
+        "Dil2 - Antik Yunanca": 0,
+        "Dil3 - Osmanlıca": 20,
+        "Dil4 - Arapça": 0,
+        "Devlet3 - Hukuk İlkeleri": 3,
+        "Devlet4 - İletişim Teknikleri": 7,
+        "Devlet5 - Vergi Toplama Yöntemleri": 0,
+        "Devlet6 - Ticaret": 0
+      },
+      "medrese_dersler": {
+        "Dil1 - Latince": 10,
+        "Dil2 - Antik Yunanca": 0,
+        "Dil3 - Osmanlıca": 20,
+        "Dil4 - Arapça": 0,
+        "Devlet1 - Tarihe Giriş": 100,
+        "Devlet2 - Devlet Kurumlarının İncelenmesi": 100,
+        "Devlet3 - Hukuk İlkeleri": 3,
+        "Devlet4 - İletişim Teknikleri": 7,
+        "Devlet5 - Vergi Toplama Yöntemleri": 0,
+        "Devlet6 - Ticaret": 0
+      },
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": true,
+        "kor_kilic": false,
+        "kalkan": true,
+        "silahlar": [
+          "Kılıç"
+        ],
+        "kalkanlar": [
+          "Kalkan"
+        ],
+        "eksik_kiyafet": [],
+        "kiyafetler": [
+          {
+            "ad": "Şapka",
+            "bolum": "Şapka",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "mavi"
+          },
+          {
+            "ad": "Erkek Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "mavi"
+          },
+          {
+            "ad": "Pantolon",
+            "bolum": "Pantolon",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "mavi"
+          },
+          {
+            "ad": "Erkek Çorabı",
+            "bolum": "Çorap",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "beyaz"
+          },
+          {
+            "ad": "Çizme",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "mavi"
+          },
+          {
+            "ad": "Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "beyaz"
+          },
+          {
+            "ad": "lapin02",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 190,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 255,
+        "guven": 116,
+        "akce": 15343.0
+      }
+    },
+    {
+      "karakter": "churchilltwo",
+      "kasaba": "Hastings",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 44,
+      "kuvvet": 12,
+      "zeka": 12,
+      "karizma": 11,
+      "guven": 33,
+      "akce": 6770.0,
+      "renk": "Beyaz",
+      "mucevher": "110",
+      "mulk": "ekin",
+      "kayit_tarihi": "≈06 Eylül 2026",
+      "kayit_iso": "2026-09-06",
+      "kayit_kaynak": "tahmini",
+      "aile": "",
+      "yetenek_is": 15,
+      "yetenek_siyaset": 66,
+      "yetenek_ziraat": 42,
+      "yetenek_el": 0,
+      "yetenek_puan": 0,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": true,
+        "kor_kilic": false,
+        "kalkan": true,
+        "silahlar": [
+          "Kılıç"
+        ],
+        "kalkanlar": [
+          "Kalkan"
+        ],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Pelerin",
+            "bolum": "Pelerin",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "concours4",
+            "bolum": "Takım",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "hibou",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 43,
+        "kuvvet": 12,
+        "zeka": 10,
+        "karizma": 11,
+        "guven": 32,
+        "akce": 6800.0
+      }
+    },
+    {
+      "karakter": "flantastic",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 31,
+      "kuvvet": 0,
+      "zeka": 0,
+      "karizma": 0,
+      "guven": 1,
+      "akce": 385.0,
+      "renk": "Beyaz",
+      "mucevher": "40",
+      "mulk": "-",
+      "kayit_tarihi": "≈06 Eylül 2026",
+      "kayit_iso": "2026-09-06",
+      "kayit_kaynak": "tahmini",
+      "aile": "",
+      "yetenek_is": 22,
+      "yetenek_siyaset": 0,
+      "yetenek_ziraat": "",
+      "yetenek_el": "",
+      "yetenek_puan": 0,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "⚡ Hızlı Maden"
+      ],
+      "gorev_ozet": "⚡ Hızlı Maden",
+      "kusanma": null,
+      "dun": {
+        "seviye": 29,
+        "kuvvet": 0,
+        "zeka": 0,
+        "karizma": 0,
+        "guven": 1,
+        "akce": 341.0
+      }
+    },
+    {
+      "karakter": "betmen",
+      "kasaba": "Ardencaple",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 101,
+      "kuvvet": 110,
+      "zeka": 84,
+      "karizma": 163,
+      "guven": 53,
+      "akce": 562.0,
+      "renk": "Beyaz",
+      "mucevher": "230",
+      "mulk": "ekin",
+      "kayit_tarihi": "11 Kasım 2025",
+      "kayit_iso": "2025-11-11",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 88,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 90,
+      "yetenek_el": 0,
+      "yetenek_puan": 2,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Pantolon/Şalvar"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Şapka",
+            "bolum": "Şapka",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Çorabı",
+            "bolum": "Çorap",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Ayakkabı",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Pantolon Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 101,
+        "kuvvet": 110,
+        "zeka": 84,
+        "karizma": 161,
+        "guven": 52,
+        "akce": 557.0
+      }
+    },
+    {
+      "karakter": "calwenor",
+      "kasaba": "Tours",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 28,
+      "kuvvet": 1,
+      "zeka": 3,
+      "karizma": 0,
+      "guven": 5,
+      "akce": 202.0,
+      "renk": "Beyaz",
+      "mucevher": "30",
+      "mulk": "-",
+      "kayit_tarihi": "≈11 Eylül 2026",
+      "kayit_iso": "2026-09-11",
+      "kayit_kaynak": "tahmini",
+      "aile": "",
+      "yetenek_is": 57,
+      "yetenek_siyaset": 0,
+      "yetenek_ziraat": "",
+      "yetenek_el": "",
+      "yetenek_puan": 0,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "⚡ Hızlı Maden",
+        "🌍 Seyahat: Lodève"
+      ],
+      "gorev_ozet": "⚡ Hızlı Maden · 🌍 Seyahat: Lodève",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 27,
+        "kuvvet": 1,
+        "zeka": 0,
+        "karizma": 0,
+        "guven": 4,
+        "akce": 217.0
+      }
+    },
+    {
+      "karakter": "merrisant",
+      "kasaba": "Lewes",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 16,
+      "kuvvet": 0,
+      "zeka": 0,
+      "karizma": 0,
+      "guven": 0,
+      "akce": 84.0,
+      "renk": "Beyaz",
+      "mucevher": "10",
+      "mulk": "-",
+      "kayit_tarihi": "≈22 Eylül 2026",
+      "kayit_iso": "2026-09-22",
+      "kayit_kaynak": "tahmini",
+      "aile": "",
+      "yetenek_is": "",
+      "yetenek_siyaset": "",
+      "yetenek_ziraat": "",
+      "yetenek_el": "",
+      "yetenek_puan": "",
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "⚡ Hızlı Maden"
+      ],
+      "gorev_ozet": "⚡ Hızlı Maden",
+      "kusanma": null,
+      "dun": {
+        "seviye": 16,
+        "kuvvet": 0,
+        "zeka": 0,
+        "karizma": 0,
+        "guven": 0,
+        "akce": 77.0
+      }
+    },
+    {
+      "karakter": "nightshader",
+      "kasaba": "Whithorn",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 107,
+      "kuvvet": 255,
+      "zeka": 111,
+      "karizma": 53,
+      "guven": 41,
+      "akce": 102.0,
+      "renk": "Beyaz",
+      "mucevher": "280",
+      "mulk": "ekin",
+      "kayit_tarihi": "27 Aralık 2025",
+      "kayit_iso": "2025-12-27",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 100,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 0,
+      "yetenek_puan": 5,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [],
+        "kiyafetler": [
+          {
+            "ad": "Şapka",
+            "bolum": "Şapka",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Pantolon",
+            "bolum": "Pantolon",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Çorabı",
+            "bolum": "Çorap",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Çizme",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "concours2",
+            "bolum": "Takım",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "manchettesDeLHerboriste",
+            "bolum": "Eldiven",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 106,
+        "kuvvet": 255,
+        "zeka": 111,
+        "karizma": 51,
+        "guven": 41,
+        "akce": 118.0
+      }
+    },
+    {
+      "karakter": "jeday",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 99,
+      "kuvvet": 84,
+      "zeka": 58,
+      "karizma": 73,
+      "guven": 18,
+      "akce": 257.0,
+      "renk": "Beyaz",
+      "mucevher": "230",
+      "mulk": "ekin",
+      "kayit_tarihi": "12 Kasım 2025",
+      "kayit_iso": "2025-11-12",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 88,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 90,
+      "yetenek_el": 0,
+      "yetenek_puan": 1,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 99,
+        "kuvvet": 84,
+        "zeka": 58,
+        "karizma": 70,
+        "guven": 18,
+        "akce": 248.0
+      }
+    },
+    {
+      "karakter": "semiramir",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 69,
+      "kuvvet": 90,
+      "zeka": 46,
+      "karizma": 47,
+      "guven": 6,
+      "akce": 63.0,
+      "renk": "Beyaz",
+      "mucevher": "290",
+      "mulk": "-",
+      "kayit_tarihi": "11 Mart 2023",
+      "kayit_iso": "2023-03-11",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 100,
+      "yetenek_siyaset": 0,
+      "yetenek_ziraat": "",
+      "yetenek_el": "",
+      "yetenek_puan": 20,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Etek",
+          "Kemer/Kuşak",
+          "Şapka/Hotoz",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Etek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 69,
+        "kuvvet": 90,
+        "zeka": 46,
+        "karizma": 44,
+        "guven": 6,
+        "akce": 66.0
+      }
+    },
+    {
+      "karakter": "gaell",
+      "kasaba": "Ardencaple",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 70,
+      "kuvvet": 74,
+      "zeka": 60,
+      "karizma": 90,
+      "guven": 25,
+      "akce": 349.0,
+      "renk": "Beyaz",
+      "mucevher": "200",
+      "mulk": "ekin",
+      "kayit_tarihi": "02 Mart 2026",
+      "kayit_iso": "2026-03-02",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 68,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 45,
+      "yetenek_el": 0,
+      "yetenek_puan": 1,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "🛡️ Ases"
+      ],
+      "gorev_ozet": "🛡️ Ases",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 70,
+        "kuvvet": 68,
+        "zeka": 60,
+        "karizma": 90,
+        "guven": 25,
+        "akce": 329.0
+      }
+    },
+    {
+      "karakter": "adrah",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 82,
+      "kuvvet": 61,
+      "zeka": 60,
+      "karizma": 146,
+      "guven": 53,
+      "akce": 1542.0,
+      "renk": "Beyaz",
+      "mucevher": "250",
+      "mulk": "ekin",
+      "kayit_tarihi": "02 Nisan 2026",
+      "kayit_iso": "2026-04-02",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 73,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 64,
+      "yetenek_el": 0,
+      "yetenek_puan": 1,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 81,
+        "kuvvet": 61,
+        "zeka": 59,
+        "karizma": 145,
+        "guven": 53,
+        "akce": 1556.0
+      }
+    },
+    {
+      "karakter": "whisperbane",
+      "kasaba": "Girvan",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 104,
+      "kuvvet": 215,
+      "zeka": 64,
+      "karizma": 74,
+      "guven": 17,
+      "akce": 67.0,
+      "renk": "Beyaz",
+      "mucevher": "270",
+      "mulk": "ekin",
+      "kayit_tarihi": "02 Ocak 2026",
+      "kayit_iso": "2026-01-02",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 88,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 0,
+      "yetenek_puan": 1,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Etek",
+          "Kemer/Kuşak",
+          "Şapka/Hotoz",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "bureBlanche",
+            "bolum": "Manto",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Etek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "bagueMelodieuse",
+            "bolum": "Sağ el",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "puli",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 103,
+        "kuvvet": 213,
+        "zeka": 64,
+        "karizma": 74,
+        "guven": 17,
+        "akce": 69.0
+      }
+    },
+    {
+      "karakter": "argaios",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 106,
+      "kuvvet": 131,
+      "zeka": 80,
+      "karizma": 125,
+      "guven": 81,
+      "akce": 1211.0,
+      "renk": "Beyaz",
+      "mucevher": "280",
+      "mulk": "ekin",
+      "kayit_tarihi": "03 Ocak 2026",
+      "kayit_iso": "2026-01-03",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 88,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 0,
+      "yetenek_puan": 4,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Pantolon/Şalvar",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Çizme",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "BottesNoel",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "paonne",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "puli",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 106,
+        "kuvvet": 131,
+        "zeka": 80,
+        "karizma": 122,
+        "guven": 80,
+        "akce": 1206.0
+      }
+    },
+    {
+      "karakter": "takaraka",
+      "kasaba": "Kirkcudbright",
+      "meslek": "Demirci",
+      "yol": "Devlet",
+      "seviye": 182,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 255,
+      "guven": 112,
+      "akce": 31723.0,
+      "renk": "Beyaz",
+      "mucevher": "360",
+      "mulk": "ekin",
+      "kayit_tarihi": "07 Aralık 2024",
+      "kayit_iso": "2024-12-07",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 100,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 100,
+      "yetenek_puan": 29,
+      "medrese": {
+        "Dil": {
+          "tamam": 0,
+          "toplam": 4,
+          "yuzde": 8
+        },
+        "Devlet": {
+          "tamam": 2,
+          "toplam": 6,
+          "yuzde": 38
+        }
+      },
+      "medrese_eksik": {
+        "Dil1 - Latince": 10,
+        "Dil2 - Antik Yunanca": 0,
+        "Dil3 - Osmanlıca": 20,
+        "Dil4 - Arapça": 0,
+        "Devlet3 - Hukuk İlkeleri": 23,
+        "Devlet4 - İletişim Teknikleri": 0,
+        "Devlet5 - Vergi Toplama Yöntemleri": 6,
+        "Devlet6 - Ticaret": 0
+      },
+      "medrese_dersler": {
+        "Dil1 - Latince": 10,
+        "Dil2 - Antik Yunanca": 0,
+        "Dil3 - Osmanlıca": 20,
+        "Dil4 - Arapça": 0,
+        "Devlet1 - Tarihe Giriş": 100,
+        "Devlet2 - Devlet Kurumlarının İncelenmesi": 100,
+        "Devlet3 - Hukuk İlkeleri": 23,
+        "Devlet4 - İletişim Teknikleri": 0,
+        "Devlet5 - Vergi Toplama Yöntemleri": 6,
+        "Devlet6 - Ticaret": 0
+      },
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": true,
+        "kor_kilic": false,
+        "kalkan": true,
+        "silahlar": [
+          "Kılıç"
+        ],
+        "kalkanlar": [
+          "Kalkan"
+        ],
+        "eksik_kiyafet": [
+          "Kemer/Kuşak",
+          "Şapka/Bere"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Erkek Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Pantolon",
+            "bolum": "Pantolon",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Çorabı",
+            "bolum": "Çorap",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Çizme",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "İp Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Başörtüsü",
+            "bolum": "Şapka",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "ratPaques",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 182,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 255,
+        "guven": 112,
+        "akce": 32084.0
+      }
+    },
+    {
+      "karakter": "wolftrap",
+      "kasaba": "Lewes",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 38,
+      "kuvvet": 0,
+      "zeka": 2,
+      "karizma": 0,
+      "guven": 9,
+      "akce": 270.0,
+      "renk": "Beyaz",
+      "mucevher": "50",
+      "mulk": "-",
+      "kayit_tarihi": "22.08.2026",
+      "kayit_iso": "2026-08-22",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 60,
+      "yetenek_siyaset": 0,
+      "yetenek_ziraat": "",
+      "yetenek_el": "",
+      "yetenek_puan": 0,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "⚡ Hızlı Cami",
+        "🧭 Görev zinciri"
+      ],
+      "gorev_ozet": "⚡ Hızlı Cami · 🧭 Görev zinciri",
+      "kusanma": null,
+      "dun": {
+        "seviye": 37,
+        "kuvvet": 0,
+        "zeka": 2,
+        "karizma": 0,
+        "guven": 5,
+        "akce": 250.0
+      }
+    },
+    {
+      "karakter": "corryvreckan",
+      "kasaba": "Girvan",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 107,
+      "kuvvet": 214,
+      "zeka": 61,
+      "karizma": 43,
+      "guven": 31,
+      "akce": 12759.0,
+      "renk": "Beyaz",
+      "mucevher": "280",
+      "mulk": "ekin",
+      "kayit_tarihi": "04 Ocak 2026",
+      "kayit_iso": "2026-01-04",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 100,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 0,
+      "yetenek_puan": 5,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "puli",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 107,
+        "kuvvet": 214,
+        "zeka": 61,
+        "karizma": 40,
+        "guven": 31,
+        "akce": 12750.0
+      }
+    },
+    {
+      "karakter": "cptcorsair",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 91,
+      "kuvvet": 251,
+      "zeka": 45,
+      "karizma": 89,
+      "guven": 40,
+      "akce": 76.0,
+      "renk": "Beyaz",
+      "mucevher": "260",
+      "mulk": "-",
+      "kayit_tarihi": "28 Şubat 2023",
+      "kayit_iso": "2023-02-28",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 73,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 90,
+      "yetenek_el": 0,
+      "yetenek_puan": 1,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [],
+        "kiyafetler": [
+          {
+            "ad": "Şapka",
+            "bolum": "Şapka",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "kahverengi"
+          },
+          {
+            "ad": "Pantolon",
+            "bolum": "Pantolon",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "sarı"
+          },
+          {
+            "ad": "Erkek Çorabı",
+            "bolum": "Çorap",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "beyaz"
+          },
+          {
+            "ad": "Ayakkabı",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "kırmızı"
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 91,
+        "kuvvet": 255,
+        "zeka": 43,
+        "karizma": 79,
+        "guven": 40,
+        "akce": 75.0
+      }
+    },
+    {
+      "karakter": "ilsevar",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 10,
+      "kuvvet": 0,
+      "zeka": 0,
+      "karizma": 0,
+      "guven": 0,
+      "akce": 15.0,
+      "renk": "Beyaz",
+      "mucevher": "0",
+      "mulk": "-",
+      "kayit_tarihi": "≈26 Eylül 2026",
+      "kayit_iso": "2026-09-26",
+      "kayit_kaynak": "tahmini",
+      "aile": "",
+      "yetenek_is": "",
+      "yetenek_siyaset": "",
+      "yetenek_ziraat": "",
+      "yetenek_el": "",
+      "yetenek_puan": "",
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "⚡ Hızlı Cami"
+      ],
+      "gorev_ozet": "⚡ Hızlı Cami",
+      "kusanma": null,
+      "dun": null
+    },
+    {
+      "karakter": "mihribann",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 106,
+      "kuvvet": 255,
+      "zeka": 148,
+      "karizma": 40,
+      "guven": 116,
+      "akce": 61.0,
+      "renk": "Sarı",
+      "mucevher": "240",
+      "mulk": "-",
+      "kayit_tarihi": "04 Ocak 2023",
+      "kayit_iso": "2023-01-04",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 88,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 0,
+      "yetenek_puan": 4,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Etek",
+          "Kemer/Kuşak",
+          "Şapka/Hotoz",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "poussinBlanc",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Etek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "chapeauScandinave",
+            "bolum": "Şapka",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "capeScandinave",
+            "bolum": "Pelerin",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 105,
+        "kuvvet": 255,
+        "zeka": 148,
+        "karizma": 37,
+        "guven": 116,
+        "akce": 65.0
+      }
+    },
+    {
+      "karakter": "telconta_r",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 77,
+      "kuvvet": 54,
+      "zeka": 48,
+      "karizma": 191,
+      "guven": 45,
+      "akce": 331.0,
+      "renk": "Beyaz",
+      "mucevher": "250",
+      "mulk": "ekin",
+      "kayit_tarihi": "16 Nisan 2026",
+      "kayit_iso": "2026-04-16",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 75,
+      "yetenek_siyaset": 66,
+      "yetenek_ziraat": 64,
+      "yetenek_el": 0,
+      "yetenek_puan": 0,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 76,
+        "kuvvet": 54,
+        "zeka": 48,
+        "karizma": 189,
+        "guven": 45,
+        "akce": 327.0
+      }
+    },
+    {
+      "karakter": "bafetimbi",
+      "kasaba": "Stirling",
+      "meslek": "Kasap",
+      "yol": "-",
+      "seviye": 189,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 255,
+      "guven": 99,
+      "akce": 6101.0,
+      "renk": "Sarı",
+      "mucevher": "370",
+      "mulk": "manda,ekin",
+      "kayit_tarihi": "28 Ağustos 2023",
+      "kayit_iso": "2023-08-28",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 100,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 100,
+      "yetenek_puan": 65,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": true,
+        "kor_kilic": false,
+        "kalkan": true,
+        "silahlar": [
+          "Kılıç"
+        ],
+        "kalkanlar": [
+          "Kalkan"
+        ],
+        "eksik_kiyafet": [],
+        "kiyafetler": [
+          {
+            "ad": "Şapka",
+            "bolum": "Şapka",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Pantolon",
+            "bolum": "Pantolon",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Çorabı",
+            "bolum": "Çorap",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Çizme",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "kırmızı"
+          },
+          {
+            "ad": "Bere",
+            "bolum": "Şapka",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "kırmızı"
+          },
+          {
+            "ad": "masqueBandit",
+            "bolum": "Şapka",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "astrolabe",
+            "bolum": "Sağ el",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "vache",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "CeintureAstrologien",
+            "bolum": "Kuşak",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "DistilleurTorque",
+            "bolum": "Mücevher",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "CeintureInvestigateur",
+            "bolum": "Kuşak",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "ensembleBallet",
+            "bolum": "Takım",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "capeVesteBallet",
+            "bolum": "Pelerin",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "standMeunier",
+            "bolum": "Mücevher",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "panoplieCorbeauBottes",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 189,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 255,
+        "guven": 99,
+        "akce": 6097.0
+      }
+    },
+    {
+      "karakter": "serachin",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 80,
+      "kuvvet": 62,
+      "zeka": 50,
+      "karizma": 201,
+      "guven": 45,
+      "akce": 357.0,
+      "renk": "Beyaz",
+      "mucevher": "250",
+      "mulk": "ekin",
+      "kayit_tarihi": "04 Nisan 2026",
+      "kayit_iso": "2026-04-04",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 73,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 64,
+      "yetenek_el": 0,
+      "yetenek_puan": 0,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 80,
+        "kuvvet": 62,
+        "zeka": 70,
+        "karizma": 199,
+        "guven": 43,
+        "akce": 352.0
+      }
+    },
+    {
+      "karakter": "tommytara",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 97,
+      "kuvvet": 115,
+      "zeka": 58,
+      "karizma": 157,
+      "guven": 55,
+      "akce": 351.0,
+      "renk": "Beyaz",
+      "mucevher": "230",
+      "mulk": "ekin",
+      "kayit_tarihi": "11 Aralık 2025",
+      "kayit_iso": "2025-12-11",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 82,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 90,
+      "yetenek_el": 0,
+      "yetenek_puan": 1,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 97,
+        "kuvvet": 115,
+        "zeka": 58,
+        "karizma": 154,
+        "guven": 55,
+        "akce": 347.0
+      }
+    },
+    {
+      "karakter": "kargath",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 104,
+      "kuvvet": 119,
+      "zeka": 68,
+      "karizma": 253,
+      "guven": 86,
+      "akce": 305.0,
+      "renk": "Beyaz",
+      "mucevher": "270",
+      "mulk": "ekin",
+      "kayit_tarihi": "07 Ocak 2026",
+      "kayit_iso": "2026-01-07",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 88,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 0,
+      "yetenek_puan": 2,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 104,
+        "kuvvet": 119,
+        "zeka": 68,
+        "karizma": 251,
+        "guven": 85,
+        "akce": 300.0
+      }
+    },
+    {
+      "karakter": "erethea",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 76,
+      "kuvvet": 49,
+      "zeka": 40,
+      "karizma": 55,
+      "guven": 27,
+      "akce": 51.0,
+      "renk": "Beyaz",
+      "mucevher": "250",
+      "mulk": "-",
+      "kayit_tarihi": "22 Şubat 2023",
+      "kayit_iso": "2023-02-22",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 88,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 42,
+      "yetenek_el": 0,
+      "yetenek_puan": 0,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [],
+        "kiyafetler": [
+          {
+            "ad": "Kadın Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "mavi"
+          },
+          {
+            "ad": "Kadın Çorabı",
+            "bolum": "Çorap",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "mavi"
+          },
+          {
+            "ad": "Ayakkabı",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "beyaz"
+          },
+          {
+            "ad": "Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "beyaz"
+          },
+          {
+            "ad": "Etek",
+            "bolum": "Etek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "kahverengi"
+          },
+          {
+            "ad": "Hotoz",
+            "bolum": "Şapka",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "kahverengi"
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 76,
+        "kuvvet": 49,
+        "zeka": 38,
+        "karizma": 55,
+        "guven": 27,
+        "akce": 53.0
+      }
+    },
+    {
+      "karakter": "tonali",
+      "kasaba": "Ardencaple",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 72,
+      "kuvvet": 83,
+      "zeka": 68,
+      "karizma": 103,
+      "guven": 33,
+      "akce": 1706.0,
+      "renk": "Beyaz",
+      "mucevher": "200",
+      "mulk": "ekin",
+      "kayit_tarihi": "26 Şubat 2026",
+      "kayit_iso": "2026-02-26",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 68,
+      "yetenek_siyaset": 66,
+      "yetenek_ziraat": 64,
+      "yetenek_el": 0,
+      "yetenek_puan": 1,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "🛡️ Ases"
+      ],
+      "gorev_ozet": "🛡️ Ases",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 72,
+        "kuvvet": 83,
+        "zeka": 68,
+        "karizma": 101,
+        "guven": 33,
+        "akce": 1686.0
+      }
+    },
+    {
+      "karakter": "grimwarden",
+      "kasaba": "Girvan",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 104,
+      "kuvvet": 255,
+      "zeka": 98,
+      "karizma": 81,
+      "guven": 57,
+      "akce": 150.0,
+      "renk": "Beyaz",
+      "mucevher": "270",
+      "mulk": "ekin",
+      "kayit_tarihi": "31 Aralık 2025",
+      "kayit_iso": "2025-12-31",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 88,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 0,
+      "yetenek_puan": 2,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "biquetteNoel",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "puli",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 104,
+        "kuvvet": 255,
+        "zeka": 96,
+        "karizma": 81,
+        "guven": 57,
+        "akce": 151.0
+      }
+    },
+    {
+      "karakter": "peeves",
+      "kasaba": "Wigtown",
+      "meslek": "Kasap",
+      "yol": "-",
+      "seviye": 109,
+      "kuvvet": 154,
+      "zeka": 224,
+      "karizma": 76,
+      "guven": 95,
+      "akce": 5833.0,
+      "renk": "Beyaz",
+      "mucevher": "280",
+      "mulk": "manda,ekin",
+      "kayit_tarihi": "26 Aralık 2025",
+      "kayit_iso": "2025-12-26",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 66,
+      "yetenek_siyaset": 66,
+      "yetenek_ziraat": 66,
+      "yetenek_el": 100,
+      "yetenek_puan": 1,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "chaussuresGouterRoyal",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 108,
+        "kuvvet": 154,
+        "zeka": 222,
+        "karizma": 76,
+        "guven": 95,
+        "akce": 5919.0
+      }
+    },
+    {
+      "karakter": "tortugal",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 97,
+      "kuvvet": 88,
+      "zeka": 54,
+      "karizma": 56,
+      "guven": 21,
+      "akce": 241.0,
+      "renk": "Beyaz",
+      "mucevher": "230",
+      "mulk": "ekin",
+      "kayit_tarihi": "11 Aralık 2025",
+      "kayit_iso": "2025-12-11",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 84,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 90,
+      "yetenek_el": 0,
+      "yetenek_puan": 1,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 97,
+        "kuvvet": 88,
+        "zeka": 54,
+        "karizma": 53,
+        "guven": 20,
+        "akce": 228.0
+      }
+    },
+    {
+      "karakter": "darkbringer",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 81,
+      "kuvvet": 226,
+      "zeka": 64,
+      "karizma": 75,
+      "guven": 29,
+      "akce": 58.0,
+      "renk": "Beyaz",
+      "mucevher": "200",
+      "mulk": "-",
+      "kayit_tarihi": "13 Şubat 2023",
+      "kayit_iso": "2023-02-13",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 82,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 59,
+      "yetenek_el": 0,
+      "yetenek_puan": 0,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 80,
+        "kuvvet": 223,
+        "zeka": 61,
+        "karizma": 75,
+        "guven": 29,
+        "akce": 43.0
+      }
+    },
+    {
+      "karakter": "leonprof",
+      "kasaba": "Stirling",
+      "meslek": "Terzi",
+      "yol": "-",
+      "seviye": 99,
+      "kuvvet": 255,
+      "zeka": 241,
+      "karizma": 62,
+      "guven": 25,
+      "akce": 37657.0,
+      "renk": "Beyaz",
+      "mucevher": "230",
+      "mulk": "manda,koc",
+      "kayit_tarihi": "09 Aralık 2025",
+      "kayit_iso": "2025-12-09",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 55,
+      "yetenek_siyaset": 46,
+      "yetenek_ziraat": 71,
+      "yetenek_el": 100,
+      "yetenek_puan": 1,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Erkek Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Çizme",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "botteMetal",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "garde_haut",
+            "bolum": "Manto",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "garde_cape",
+            "bolum": "Pelerin",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "poney1",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "turbanMarinOriental",
+            "bolum": "Şapka",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "basAncienTemps",
+            "bolum": "Etek",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 99,
+        "kuvvet": 255,
+        "zeka": 238,
+        "karizma": 62,
+        "guven": 25,
+        "akce": 37619.0
+      }
+    },
+    {
+      "karakter": "jaskerin",
+      "kasaba": "Lewes",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 26,
+      "kuvvet": 0,
+      "zeka": 0,
+      "karizma": 0,
+      "guven": 7,
+      "akce": 223.0,
+      "renk": "Beyaz",
+      "mucevher": "30",
+      "mulk": "-",
+      "kayit_tarihi": "≈13 Eylül 2026",
+      "kayit_iso": "2026-09-13",
+      "kayit_kaynak": "tahmini",
+      "aile": "",
+      "yetenek_is": "",
+      "yetenek_siyaset": "",
+      "yetenek_ziraat": "",
+      "yetenek_el": "",
+      "yetenek_puan": "",
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "⚡ Hızlı Cami"
+      ],
+      "gorev_ozet": "⚡ Hızlı Cami",
+      "kusanma": null,
+      "dun": {
+        "seviye": 26,
+        "kuvvet": 0,
+        "zeka": 0,
+        "karizma": 0,
+        "guven": 7,
+        "akce": 223.0
+      }
+    },
+    {
+      "karakter": "gundrel",
+      "kasaba": "Vic",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 16,
+      "kuvvet": 0,
+      "zeka": 0,
+      "karizma": 0,
+      "guven": 0,
+      "akce": 84.0,
+      "renk": "Beyaz",
+      "mucevher": "10",
+      "mulk": "-",
+      "kayit_tarihi": "≈21 Eylül 2026",
+      "kayit_iso": "2026-09-21",
+      "kayit_kaynak": "tahmini",
+      "aile": "",
+      "yetenek_is": "",
+      "yetenek_siyaset": "",
+      "yetenek_ziraat": "",
+      "yetenek_el": "",
+      "yetenek_puan": "",
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "⚡ Hızlı Maden"
+      ],
+      "gorev_ozet": "⚡ Hızlı Maden",
+      "kusanma": null,
+      "dun": {
+        "seviye": 16,
+        "kuvvet": 0,
+        "zeka": 0,
+        "karizma": 0,
+        "guven": 0,
+        "akce": 84.0
+      }
+    },
+    {
+      "karakter": "wolfgangg",
+      "kasaba": "Whithorn",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 90,
+      "kuvvet": 201,
+      "zeka": 73,
+      "karizma": 89,
+      "guven": 16,
+      "akce": 123.0,
+      "renk": "Beyaz",
+      "mucevher": "220",
+      "mulk": "ekin",
+      "kayit_tarihi": "17 Aralık 2025",
+      "kayit_iso": "2025-12-17",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 71,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 90,
+      "yetenek_el": 0,
+      "yetenek_puan": 0,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 89,
+        "kuvvet": 201,
+        "zeka": 72,
+        "karizma": 88,
+        "guven": 16,
+        "akce": 107.0
+      }
+    },
+    {
+      "karakter": "millady",
+      "kasaba": "Stirling",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 34,
+      "kuvvet": 5,
+      "zeka": 3,
+      "karizma": 3,
+      "guven": 1,
+      "akce": 238.0,
+      "renk": "Beyaz",
+      "mucevher": "50",
+      "mulk": "-",
+      "kayit_tarihi": "30.08.2026",
+      "kayit_iso": "2026-08-30",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 71,
+      "yetenek_siyaset": 0,
+      "yetenek_ziraat": "",
+      "yetenek_el": "",
+      "yetenek_puan": 0,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "⚡ Hızlı Maden",
+        "🧭 Görev zinciri"
+      ],
+      "gorev_ozet": "⚡ Hızlı Maden · 🧭 Görev zinciri",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Etek",
+          "Kemer/Kuşak",
+          "Şapka/Hotoz",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Etek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 34,
+        "kuvvet": 2,
+        "zeka": 3,
+        "karizma": 3,
+        "guven": 1,
+        "akce": 257.0
+      }
+    },
+    {
+      "karakter": "aiegus",
+      "kasaba": "Glasgow",
+      "meslek": "Demirci",
+      "yol": "Ordu",
+      "seviye": 263,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 255,
+      "guven": 239,
+      "akce": 16093.0,
+      "renk": "Mavi",
+      "mucevher": "280",
+      "mulk": "manda,ekin",
+      "kayit_tarihi": "07 Ağustos 2023",
+      "kayit_iso": "2023-08-07",
+      "kayit_kaynak": "oyun",
+      "aile": "Selçuklu Ailesi",
+      "yetenek_is": 100,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 100,
+      "yetenek_puan": 120,
+      "medrese": {
+        "Dil": {
+          "tamam": 0,
+          "toplam": 4,
+          "yuzde": 8
+        },
+        "Ordu": {
+          "tamam": 0,
+          "toplam": 1,
+          "yuzde": 20
+        }
+      },
+      "medrese_eksik": {
+        "Dil1 - Latince": 10,
+        "Dil2 - Antik Yunanca": 0,
+        "Dil3 - Osmanlıca": 20,
+        "Dil4 - Arapça": 0,
+        "Ordu1 - Askeriyenin Temelleri": 20
+      },
+      "medrese_dersler": {
+        "Dil1 - Latince": 10,
+        "Dil2 - Antik Yunanca": 0,
+        "Dil3 - Osmanlıca": 20,
+        "Dil4 - Arapça": 0,
+        "Ordu1 - Askeriyenin Temelleri": 20
+      },
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [
+          "Balta"
+        ],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Şapka",
+            "bolum": "Şapka",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Çorabı",
+            "bolum": "Çorap",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Çizme",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "JDO2019_Panoplie",
+            "bolum": "Takım",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "besaceNeiges",
+            "bolum": "Kuşak",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "guetreNoel",
+            "bolum": "Çorap",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "basNobleChasseur",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "standMaraicher",
+            "bolum": "Mücevher",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "puli",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 262,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 255,
+        "guven": 239,
+        "akce": 15866.0
+      }
+    },
+    {
+      "karakter": "rendavar",
+      "kasaba": "Kirkcudbright",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 16,
+      "kuvvet": 0,
+      "zeka": 0,
+      "karizma": 0,
+      "guven": 0,
+      "akce": 92.0,
+      "renk": "Beyaz",
+      "mucevher": "10",
+      "mulk": "-",
+      "kayit_tarihi": "≈21 Eylül 2026",
+      "kayit_iso": "2026-09-21",
+      "kayit_kaynak": "tahmini",
+      "aile": "",
+      "yetenek_is": "",
+      "yetenek_siyaset": "",
+      "yetenek_ziraat": "",
+      "yetenek_el": "",
+      "yetenek_puan": "",
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "⚡ Hızlı Maden"
+      ],
+      "gorev_ozet": "⚡ Hızlı Maden",
+      "kusanma": null,
+      "dun": {
+        "seviye": 16,
+        "kuvvet": 0,
+        "zeka": 0,
+        "karizma": 0,
+        "guven": 0,
+        "akce": 92.0
+      }
+    },
+    {
+      "karakter": "davoss",
+      "kasaba": "Glasgow",
+      "meslek": "Bahçıvan",
+      "yol": "Ordu",
+      "seviye": 187,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 255,
+      "guven": 109,
+      "akce": 14047.0,
+      "renk": "Beyaz",
+      "mucevher": "370",
+      "mulk": "ekin",
+      "kayit_tarihi": "05 Aralık 2024",
+      "kayit_iso": "2024-12-05",
+      "kayit_kaynak": "oyun",
+      "aile": "Selçuklu Ailesi",
+      "yetenek_is": 100,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 100,
+      "yetenek_puan": 59,
+      "medrese": {
+        "Dil": {
+          "tamam": 0,
+          "toplam": 4,
+          "yuzde": 8
+        },
+        "Ordu": {
+          "tamam": 0,
+          "toplam": 1,
+          "yuzde": 22
+        },
+        "Devlet": {
+          "tamam": 0,
+          "toplam": 1,
+          "yuzde": 5
+        },
+        "Denizcilik": {
+          "tamam": 0,
+          "toplam": 1,
+          "yuzde": 6
+        }
+      },
+      "medrese_eksik": {
+        "Dil1 - Latince": 10,
+        "Dil2 - Antik Yunanca": 0,
+        "Dil3 - Osmanlıca": 20,
+        "Dil4 - Arapça": 0,
+        "Ordu1 - Askeriyenin Temelleri": 22,
+        "Devlet1 - Tarihe Giriş": 5,
+        "Denizcilik2 - Astronomi": 6
+      },
+      "medrese_dersler": {
+        "Dil1 - Latince": 10,
+        "Dil2 - Antik Yunanca": 0,
+        "Dil3 - Osmanlıca": 20,
+        "Dil4 - Arapça": 0,
+        "Ordu1 - Askeriyenin Temelleri": 22,
+        "Devlet1 - Tarihe Giriş": 5,
+        "Denizcilik2 - Astronomi": 6
+      },
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": true,
+        "kor_kilic": false,
+        "kalkan": true,
+        "silahlar": [
+          "Kılıç"
+        ],
+        "kalkanlar": [
+          "Kalkan"
+        ],
+        "eksik_kiyafet": [],
+        "kiyafetler": [
+          {
+            "ad": "Şapka",
+            "bolum": "Şapka",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Pantolon",
+            "bolum": "Pantolon",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Çorabı",
+            "bolum": "Çorap",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Ayakkabı",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "concours9",
+            "bolum": "Takım",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "capeNoel2020",
+            "bolum": "Pelerin",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "chienLoup1",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "standMeunier",
+            "bolum": "Mücevher",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 187,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 255,
+        "guven": 109,
+        "akce": 14091.0
+      }
+    },
+    {
+      "karakter": "fiyong",
+      "kasaba": "Puigcerdà",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 16,
+      "kuvvet": 0,
+      "zeka": 0,
+      "karizma": 0,
+      "guven": 0,
+      "akce": 84.0,
+      "renk": "Beyaz",
+      "mucevher": "10",
+      "mulk": "-",
+      "kayit_tarihi": "≈22 Eylül 2026",
+      "kayit_iso": "2026-09-22",
+      "kayit_kaynak": "tahmini",
+      "aile": "",
+      "yetenek_is": "",
+      "yetenek_siyaset": "",
+      "yetenek_ziraat": "",
+      "yetenek_el": "",
+      "yetenek_puan": "",
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "⚡ Hızlı Maden"
+      ],
+      "gorev_ozet": "⚡ Hızlı Maden",
+      "kusanma": null,
+      "dun": {
+        "seviye": 16,
+        "kuvvet": 0,
+        "zeka": 0,
+        "karizma": 0,
+        "guven": 0,
+        "akce": 77.0
+      }
+    },
+    {
+      "karakter": "cullengen",
+      "kasaba": "Glasgow",
+      "meslek": "Heykeltraş",
+      "yol": "-",
+      "seviye": 97,
+      "kuvvet": 255,
+      "zeka": 200,
+      "karizma": 95,
+      "guven": 10,
+      "akce": 38219.0,
+      "renk": "Beyaz",
+      "mucevher": "230",
+      "mulk": "ekin",
+      "kayit_tarihi": "17 Aralık 2025",
+      "kayit_iso": "2025-12-17",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 64,
+      "yetenek_siyaset": 66,
+      "yetenek_ziraat": 64,
+      "yetenek_el": 100,
+      "yetenek_puan": 0,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Pantolon/Şalvar",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Ayakkabı",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "nezCrochu",
+            "bolum": "Yüz aksesuarı",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "ceintureScandinave",
+            "bolum": "Kuşak",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "ceintureAncienTemps",
+            "bolum": "Kuşak",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "ensembleBallet",
+            "bolum": "Takım",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "capeVesteBallet",
+            "bolum": "Pelerin",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "toqueMaisonAlchimie2025",
+            "bolum": "Şapka",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "gantsParfumesQuatreMaisons",
+            "bolum": "Eldiven",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 96,
+        "kuvvet": 255,
+        "zeka": 197,
+        "karizma": 95,
+        "guven": 10,
+        "akce": 38299.0
+      }
+    },
+    {
+      "karakter": "falvoreth",
+      "kasaba": "Rohan",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 29,
+      "kuvvet": 0,
+      "zeka": 0,
+      "karizma": 0,
+      "guven": 12,
+      "akce": 253.0,
+      "renk": "Beyaz",
+      "mucevher": "30",
+      "mulk": "-",
+      "kayit_tarihi": "≈11 Eylül 2026",
+      "kayit_iso": "2026-09-11",
+      "kayit_kaynak": "tahmini",
+      "aile": "",
+      "yetenek_is": "",
+      "yetenek_siyaset": "",
+      "yetenek_ziraat": "",
+      "yetenek_el": "",
+      "yetenek_puan": "",
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "⚡ Hızlı Cami"
+      ],
+      "gorev_ozet": "⚡ Hızlı Cami",
+      "kusanma": null,
+      "dun": {
+        "seviye": 26,
+        "kuvvet": 0,
+        "zeka": 0,
+        "karizma": 0,
+        "guven": 9,
+        "akce": 238.0
+      }
+    },
+    {
+      "karakter": "nihilant",
+      "kasaba": "Ardencaple",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 105,
+      "kuvvet": 152,
+      "zeka": 124,
+      "karizma": 149,
+      "guven": 54,
+      "akce": 220.0,
+      "renk": "Beyaz",
+      "mucevher": "280",
+      "mulk": "ekin",
+      "kayit_tarihi": "29 Aralık 2025",
+      "kayit_iso": "2025-12-29",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 88,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 0,
+      "yetenek_puan": 3,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "concours4",
+            "bolum": "Takım",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "puli",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 105,
+        "kuvvet": 146,
+        "zeka": 124,
+        "karizma": 149,
+        "guven": 54,
+        "akce": 217.0
+      }
+    },
+    {
+      "karakter": "tavris",
+      "kasaba": "Lewes",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 16,
+      "kuvvet": 0,
+      "zeka": 0,
+      "karizma": 0,
+      "guven": 0,
+      "akce": 84.0,
+      "renk": "Beyaz",
+      "mucevher": "10",
+      "mulk": "-",
+      "kayit_tarihi": "≈21 Eylül 2026",
+      "kayit_iso": "2026-09-21",
+      "kayit_kaynak": "tahmini",
+      "aile": "",
+      "yetenek_is": "",
+      "yetenek_siyaset": "",
+      "yetenek_ziraat": "",
+      "yetenek_el": "",
+      "yetenek_puan": "",
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "⚡ Hızlı Maden"
+      ],
+      "gorev_ozet": "⚡ Hızlı Maden",
+      "kusanma": null,
+      "dun": {
+        "seviye": 16,
+        "kuvvet": 0,
+        "zeka": 0,
+        "karizma": 0,
+        "guven": 0,
+        "akce": 84.0
+      }
+    },
+    {
+      "karakter": "binim",
+      "kasaba": "Ardencaple",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 25,
+      "kuvvet": 0,
+      "zeka": 0,
+      "karizma": 0,
+      "guven": 0,
+      "akce": 282.0,
+      "renk": "Beyaz",
+      "mucevher": "30",
+      "mulk": "-",
+      "kayit_tarihi": "≈13 Eylül 2026",
+      "kayit_iso": "2026-09-13",
+      "kayit_kaynak": "tahmini",
+      "aile": "",
+      "yetenek_is": "",
+      "yetenek_siyaset": "",
+      "yetenek_ziraat": "",
+      "yetenek_el": "",
+      "yetenek_puan": "",
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "⚡ Hızlı Maden"
+      ],
+      "gorev_ozet": "⚡ Hızlı Maden",
+      "kusanma": null,
+      "dun": {
+        "seviye": 25,
+        "kuvvet": 0,
+        "zeka": 0,
+        "karizma": 0,
+        "guven": 0,
+        "akce": 282.0
+      }
+    },
+    {
+      "karakter": "vamder",
+      "kasaba": "Glasgow",
+      "meslek": "Kasap",
+      "yol": "Tıbbiye",
+      "seviye": 235,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 255,
+      "guven": 255,
+      "akce": 47543.0,
+      "renk": "Sarı",
+      "mucevher": "320",
+      "mulk": "manda,ekin",
+      "kayit_tarihi": "11 Ağustos 2023",
+      "kayit_iso": "2023-08-11",
+      "kayit_kaynak": "oyun",
+      "aile": "Selçuklu Ailesi",
+      "yetenek_is": 100,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 100,
+      "yetenek_puan": 54,
+      "medrese": {
+        "Dil": {
+          "tamam": 0,
+          "toplam": 4,
+          "yuzde": 6
+        },
+        "İlim": {
+          "tamam": 0,
+          "toplam": 5,
+          "yuzde": 8
+        }
+      },
+      "medrese_eksik": {
+        "Dil1 - Latince": 10,
+        "Dil2 - Antik Yunanca": 4,
+        "Dil3 - Osmanlıca": 10,
+        "Dil4 - Arapça": 0,
+        "İlim1 - Biyolojinin Temelleri": 20,
+        "İlim2 - Anatominin Temelleri": 20,
+        "İlim3 - Tıbbın Temelleri": 0,
+        "İlim4 - Temel Kimya": 0,
+        "İlim6 - Yıldızbilimi": 0
+      },
+      "medrese_dersler": {
+        "Dil1 - Latince": 10,
+        "Dil2 - Antik Yunanca": 4,
+        "Dil3 - Osmanlıca": 10,
+        "Dil4 - Arapça": 0,
+        "İlim1 - Biyolojinin Temelleri": 20,
+        "İlim2 - Anatominin Temelleri": 20,
+        "İlim3 - Tıbbın Temelleri": 0,
+        "İlim4 - Temel Kimya": 0,
+        "İlim6 - Yıldızbilimi": 0
+      },
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Kemer/Kuşak",
+          "Şapka/Bere"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Erkek Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "mavi"
+          },
+          {
+            "ad": "Pantolon",
+            "bolum": "Pantolon",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "gri"
+          },
+          {
+            "ad": "Erkek Çorabı",
+            "bolum": "Çorap",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Çizme",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "mavi"
+          },
+          {
+            "ad": "concours12",
+            "bolum": "Takım",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "chapeauAventurier",
+            "bolum": "Şapka",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "coffreTresors",
+            "bolum": "Mücevher",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "artisanChausses",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "besaceNeiges",
+            "bolum": "Kuşak",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "panoplieCorbeauAccessoire",
+            "bolum": "Kuşak",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 235,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 255,
+        "guven": 255,
+        "akce": 47456.0
+      }
+    },
+    {
+      "karakter": "akbaba",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 86,
+      "kuvvet": 220,
+      "zeka": 60,
+      "karizma": 105,
+      "guven": 35,
+      "akce": 82.0,
+      "renk": "Beyaz",
+      "mucevher": "310",
+      "mulk": "-",
+      "kayit_tarihi": "13 Mart 2023",
+      "kayit_iso": "2023-03-13",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 62,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 90,
+      "yetenek_el": 0,
+      "yetenek_puan": 1,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Kemer/Kuşak"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Şapka",
+            "bolum": "Şapka",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "sarı"
+          },
+          {
+            "ad": "Erkek Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "sarı"
+          },
+          {
+            "ad": "Pantolon",
+            "bolum": "Pantolon",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Çorabı",
+            "bolum": "Çorap",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Ayakkabı",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "sarı"
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 85,
+        "kuvvet": 217,
+        "zeka": 60,
+        "karizma": 105,
+        "guven": 35,
+        "akce": 92.0
+      }
+    },
+    {
+      "karakter": "ziyech",
+      "kasaba": "Stirling",
+      "meslek": "Marangoz",
+      "yol": "-",
+      "seviye": 200,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 255,
+      "guven": 56,
+      "akce": 44743.0,
+      "renk": "Beyaz",
+      "mucevher": "380",
+      "mulk": "manda,ekin",
+      "kayit_tarihi": "06 Eylül 2023",
+      "kayit_iso": "2023-09-06",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 100,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 100,
+      "yetenek_puan": 42,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": true,
+        "kor_kilic": false,
+        "kalkan": true,
+        "silahlar": [
+          "Kılıç"
+        ],
+        "kalkanlar": [
+          "Kalkan"
+        ],
+        "eksik_kiyafet": [],
+        "kiyafetler": [
+          {
+            "ad": "Şapka",
+            "bolum": "Şapka",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "beyaz"
+          },
+          {
+            "ad": "Pantolon",
+            "bolum": "Pantolon",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "beyaz"
+          },
+          {
+            "ad": "Erkek Çorabı",
+            "bolum": "Çorap",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Çizme",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "beyaz"
+          },
+          {
+            "ad": "Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Başörtüsü",
+            "bolum": "Şapka",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "beyaz"
+          },
+          {
+            "ad": "concours11",
+            "bolum": "Takım",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "gantsParfumesQuatreMaisons",
+            "bolum": "Eldiven",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 200,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 255,
+        "guven": 56,
+        "akce": 44681.0
+      }
+    },
+    {
+      "karakter": "helioson",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 66,
+      "kuvvet": 34,
+      "zeka": 33,
+      "karizma": 34,
+      "guven": 24,
+      "akce": 190.0,
+      "renk": "Beyaz",
+      "mucevher": "290",
+      "mulk": "-",
+      "kayit_tarihi": "18 Mart 2023",
+      "kayit_iso": "2023-03-18",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 100,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 0,
+      "yetenek_el": "",
+      "yetenek_puan": 1,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 66,
+        "kuvvet": 34,
+        "zeka": 33,
+        "karizma": 32,
+        "guven": 23,
+        "akce": 203.0
+      }
+    },
+    {
+      "karakter": "helsinkii",
+      "kasaba": "Stirling",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 93,
+      "kuvvet": 255,
+      "zeka": 168,
+      "karizma": 60,
+      "guven": 36,
+      "akce": 97.0,
+      "renk": "Beyaz",
+      "mucevher": "220",
+      "mulk": "ekin",
+      "kayit_tarihi": "11 Aralık 2025",
+      "kayit_iso": "2025-12-11",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 71,
+      "yetenek_siyaset": 66,
+      "yetenek_ziraat": 64,
+      "yetenek_el": 100,
+      "yetenek_puan": 0,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "🛡️ Ases"
+      ],
+      "gorev_ozet": "🛡️ Ases",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 93,
+        "kuvvet": 255,
+        "zeka": 165,
+        "karizma": 60,
+        "guven": 36,
+        "akce": 112.0
+      }
+    },
+    {
+      "karakter": "freshh",
+      "kasaba": "Ardencaple",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 73,
+      "kuvvet": 85,
+      "zeka": 76,
+      "karizma": 91,
+      "guven": 40,
+      "akce": 381.0,
+      "renk": "Beyaz",
+      "mucevher": "200",
+      "mulk": "ekin",
+      "kayit_tarihi": "23 Şubat 2026",
+      "kayit_iso": "2026-02-23",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 100,
+      "yetenek_siyaset": 46,
+      "yetenek_ziraat": 38,
+      "yetenek_el": 0,
+      "yetenek_puan": 1,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "🛡️ Ases"
+      ],
+      "gorev_ozet": "🛡️ Ases",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 73,
+        "kuvvet": 85,
+        "zeka": 76,
+        "karizma": 89,
+        "guven": 40,
+        "akce": 371.0
+      }
+    },
+    {
+      "karakter": "redbrand",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "Ordu",
+      "seviye": 163,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 255,
+      "guven": 255,
+      "akce": 201.0,
+      "renk": "Beyaz",
+      "mucevher": "150",
+      "mulk": "-",
+      "kayit_tarihi": "31 Ocak 2021",
+      "kayit_iso": "2021-01-31",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 100,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 45,
+      "yetenek_el": 0,
+      "yetenek_puan": 13,
+      "medrese": {
+        "Dil": {
+          "tamam": 0,
+          "toplam": 4,
+          "yuzde": 8
+        },
+        "Ordu": {
+          "tamam": 0,
+          "toplam": 2,
+          "yuzde": 50
+        }
+      },
+      "medrese_eksik": {
+        "Dil1 - Latince": 10,
+        "Dil2 - Antik Yunanca": 0,
+        "Dil3 - Osmanlıca": 20,
+        "Dil4 - Arapça": 0,
+        "Ordu1 - Askeriyenin Temelleri": 95,
+        "Ordu2 - Temel Taktik": 6
+      },
+      "medrese_dersler": {
+        "Dil1 - Latince": 10,
+        "Dil2 - Antik Yunanca": 0,
+        "Dil3 - Osmanlıca": 20,
+        "Dil4 - Arapça": 0,
+        "Ordu1 - Askeriyenin Temelleri": 95,
+        "Ordu2 - Temel Taktik": 6
+      },
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": true,
+        "silahlar": [
+          "roimage"
+        ],
+        "kalkanlar": [
+          "Kalkan"
+        ],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Şapka/Bere"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Erkek Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "kırmızı"
+          },
+          {
+            "ad": "Pantolon",
+            "bolum": "Pantolon",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Çorabı",
+            "bolum": "Çorap",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "beyaz"
+          },
+          {
+            "ad": "Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "bonnet",
+            "bolum": "Şapka",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "concours2",
+            "bolum": "Takım",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "lanterneLucioles",
+            "bolum": "Sağ el",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "paonne",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "plumeauPaon",
+            "bolum": "Sol el",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "lievreArctique",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "mouflesRKNoel2022",
+            "bolum": "Eldiven",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 163,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 255,
+        "guven": 255,
+        "akce": 183.0
+      }
+    },
+    {
+      "karakter": "dervorin",
+      "kasaba": "Stirling",
+      "meslek": "Değirmenci",
+      "yol": "-",
+      "seviye": 98,
+      "kuvvet": 255,
+      "zeka": 163,
+      "karizma": 61,
+      "guven": 32,
+      "akce": 270.0,
+      "renk": "Beyaz",
+      "mucevher": "270",
+      "mulk": "manda,ekin",
+      "kayit_tarihi": "19 Ocak 2026",
+      "kayit_iso": "2026-01-19",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 75,
+      "yetenek_siyaset": 66,
+      "yetenek_ziraat": 90,
+      "yetenek_el": 100,
+      "yetenek_puan": 0,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [],
+        "kiyafetler": [
+          {
+            "ad": "Şapka",
+            "bolum": "Şapka",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Pantolon",
+            "bolum": "Pantolon",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Çorabı",
+            "bolum": "Çorap",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Ayakkabı",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "panoplieCorbeauBottes",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 97,
+        "kuvvet": 255,
+        "zeka": 160,
+        "karizma": 61,
+        "guven": 32,
+        "akce": 127.0
+      }
+    },
+    {
+      "karakter": "colonell",
+      "kasaba": "Glasgow",
+      "meslek": "Heykeltraş",
+      "yol": "-",
+      "seviye": 97,
+      "kuvvet": 255,
+      "zeka": 178,
+      "karizma": 67,
+      "guven": 15,
+      "akce": 38062.0,
+      "renk": "Beyaz",
+      "mucevher": "230",
+      "mulk": "ekin",
+      "kayit_tarihi": "05 Ocak 2026",
+      "kayit_iso": "2026-01-05",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 62,
+      "yetenek_siyaset": 66,
+      "yetenek_ziraat": 64,
+      "yetenek_el": 100,
+      "yetenek_puan": 1,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Ayakkabı",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 96,
+        "kuvvet": 255,
+        "zeka": 175,
+        "karizma": 67,
+        "guven": 15,
+        "akce": 38139.0
+      }
+    },
+    {
+      "karakter": "tantalos",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 103,
+      "kuvvet": 121,
+      "zeka": 209,
+      "karizma": 150,
+      "guven": 74,
+      "akce": 603.0,
+      "renk": "Beyaz",
+      "mucevher": "270",
+      "mulk": "manda,ekin",
+      "kayit_tarihi": "11 Ocak 2026",
+      "kayit_iso": "2026-01-11",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 88,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 0,
+      "yetenek_puan": 1,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Pantolon",
+            "bolum": "Pantolon",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 103,
+        "kuvvet": 121,
+        "zeka": 207,
+        "karizma": 150,
+        "guven": 74,
+        "akce": 689.0
+      }
+    },
+    {
+      "karakter": "bainhalt",
+      "kasaba": "Ardencaple",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 70,
+      "kuvvet": 87,
+      "zeka": 63,
+      "karizma": 39,
+      "guven": 10,
+      "akce": 94.0,
+      "renk": "Beyaz",
+      "mucevher": "240",
+      "mulk": "ekin",
+      "kayit_tarihi": "22 Nisan 2026",
+      "kayit_iso": "2026-04-22",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 62,
+      "yetenek_siyaset": 66,
+      "yetenek_ziraat": 64,
+      "yetenek_el": 0,
+      "yetenek_puan": 1,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "🛡️ Ases"
+      ],
+      "gorev_ozet": "🛡️ Ases",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 70,
+        "kuvvet": 87,
+        "zeka": 63,
+        "karizma": 37,
+        "guven": 10,
+        "akce": 90.0
+      }
+    },
+    {
+      "karakter": "caldrith",
+      "kasaba": "Lewes",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 16,
+      "kuvvet": 0,
+      "zeka": 0,
+      "karizma": 0,
+      "guven": 0,
+      "akce": 63.0,
+      "renk": "Beyaz",
+      "mucevher": "0",
+      "mulk": "-",
+      "kayit_tarihi": "≈23 Eylül 2026",
+      "kayit_iso": "2026-09-23",
+      "kayit_kaynak": "tahmini",
+      "aile": "",
+      "yetenek_is": "",
+      "yetenek_siyaset": "",
+      "yetenek_ziraat": "",
+      "yetenek_el": "",
+      "yetenek_puan": "",
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "⚡ Hızlı Maden"
+      ],
+      "gorev_ozet": "⚡ Hızlı Maden",
+      "kusanma": null,
+      "dun": {
+        "seviye": 11,
+        "kuvvet": 0,
+        "zeka": 0,
+        "karizma": 0,
+        "guven": 0,
+        "akce": 23.0
+      }
+    },
+    {
+      "karakter": "anaster",
+      "kasaba": "Ardencaple",
+      "meslek": "Marangoz",
+      "yol": "-",
+      "seviye": 108,
+      "kuvvet": 166,
+      "zeka": 195,
+      "karizma": 57,
+      "guven": 41,
+      "akce": 306.0,
+      "renk": "Beyaz",
+      "mucevher": "280",
+      "mulk": "manda,ekin",
+      "kayit_tarihi": "27 Aralık 2025",
+      "kayit_iso": "2025-12-27",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 66,
+      "yetenek_siyaset": 66,
+      "yetenek_ziraat": 88,
+      "yetenek_el": 100,
+      "yetenek_puan": 0,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [
+          "Balta"
+        ],
+        "kalkanlar": [
+          "BouclierViking"
+        ],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "concours10",
+            "bolum": "Takım",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "CapucheBambara",
+            "bolum": "Şapka",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "paonne",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "ecureuil",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "puli",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 108,
+        "kuvvet": 166,
+        "zeka": 195,
+        "karizma": 55,
+        "guven": 41,
+        "akce": 303.0
+      }
+    },
+    {
+      "karakter": "penaldo",
+      "kasaba": "Kirkcudbright",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 28,
+      "kuvvet": 0,
+      "zeka": 0,
+      "karizma": 0,
+      "guven": 6,
+      "akce": 260.0,
+      "renk": "Beyaz",
+      "mucevher": "30",
+      "mulk": "-",
+      "kayit_tarihi": "≈08 Eylül 2026",
+      "kayit_iso": "2026-09-08",
+      "kayit_kaynak": "tahmini",
+      "aile": "",
+      "yetenek_is": "",
+      "yetenek_siyaset": "",
+      "yetenek_ziraat": "",
+      "yetenek_el": "",
+      "yetenek_puan": "",
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "⚡ Hızlı Cami"
+      ],
+      "gorev_ozet": "⚡ Hızlı Cami",
+      "kusanma": null,
+      "dun": {
+        "seviye": 28,
+        "kuvvet": 0,
+        "zeka": 0,
+        "karizma": 0,
+        "guven": 6,
+        "akce": 260.0
+      }
+    },
+    {
+      "karakter": "atreides",
+      "kasaba": "Ardencaple",
+      "meslek": "Değirmenci",
+      "yol": "-",
+      "seviye": 108,
+      "kuvvet": 148,
+      "zeka": 94,
+      "karizma": 45,
+      "guven": 53,
+      "akce": 241.0,
+      "renk": "Beyaz",
+      "mucevher": "280",
+      "mulk": "ekin",
+      "kayit_tarihi": "28 Aralık 2025",
+      "kayit_iso": "2025-12-28",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 88,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 90,
+      "yetenek_el": 100,
+      "yetenek_puan": 0,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [],
+        "kiyafetler": [
+          {
+            "ad": "Şapka",
+            "bolum": "Şapka",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Pantolon",
+            "bolum": "Pantolon",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Çorabı",
+            "bolum": "Çorap",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Ayakkabı",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "mouton",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "ceintureMarinOriental",
+            "bolum": "Kuşak",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "puli",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 108,
+        "kuvvet": 125,
+        "zeka": 91,
+        "karizma": 45,
+        "guven": 53,
+        "akce": 238.0
+      }
+    },
+    {
+      "karakter": "sorchadusk",
+      "kasaba": "Wigtown",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 105,
+      "kuvvet": 129,
+      "zeka": 60,
+      "karizma": 62,
+      "guven": 38,
+      "akce": 309.0,
+      "renk": "Beyaz",
+      "mucevher": "280",
+      "mulk": "ekin",
+      "kayit_tarihi": "05 Ocak 2026",
+      "kayit_iso": "2026-01-05",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 88,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 0,
+      "yetenek_puan": 3,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 105,
+        "kuvvet": 119,
+        "zeka": 60,
+        "karizma": 59,
+        "guven": 37,
+        "akce": 304.0
+      }
+    },
+    {
+      "karakter": "patek",
+      "kasaba": "Glasgow",
+      "meslek": "Terzi",
+      "yol": "-",
+      "seviye": 82,
+      "kuvvet": 255,
+      "zeka": 125,
+      "karizma": 61,
+      "guven": 42,
+      "akce": 30285.0,
+      "renk": "Beyaz",
+      "mucevher": "210",
+      "mulk": "ekin,koc",
+      "kayit_tarihi": "31 Mart 2026",
+      "kayit_iso": "2026-03-31",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 33,
+      "yetenek_siyaset": 66,
+      "yetenek_ziraat": 71,
+      "yetenek_el": 70,
+      "yetenek_puan": 1,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 82,
+        "kuvvet": 255,
+        "zeka": 112,
+        "karizma": 61,
+        "guven": 42,
+        "akce": 30315.0
+      }
+    },
+    {
+      "karakter": "dwadu",
+      "kasaba": "Ardencaple",
+      "meslek": "Demirci",
+      "yol": "Devlet",
+      "seviye": 191,
+      "kuvvet": 255,
+      "zeka": 255,
+      "karizma": 255,
+      "guven": 122,
+      "akce": 1971.0,
+      "renk": "Turuncu",
+      "mucevher": "320",
+      "mulk": "manda,ekin",
+      "kayit_tarihi": "20 Kasım 2023",
+      "kayit_iso": "2023-11-20",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 100,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 100,
+      "yetenek_puan": 48,
+      "medrese": {
+        "Dil": {
+          "tamam": 0,
+          "toplam": 4,
+          "yuzde": 8
+        },
+        "Devlet": {
+          "tamam": 0,
+          "toplam": 6,
+          "yuzde": 7
+        }
+      },
+      "medrese_eksik": {
+        "Dil1 - Latince": 10,
+        "Dil2 - Antik Yunanca": 0,
+        "Dil3 - Osmanlıca": 20,
+        "Dil4 - Arapça": 0,
+        "Devlet1 - Tarihe Giriş": 20,
+        "Devlet2 - Devlet Kurumlarının İncelenmesi": 20,
+        "Devlet3 - Hukuk İlkeleri": 0,
+        "Devlet4 - İletişim Teknikleri": 0,
+        "Devlet5 - Vergi Toplama Yöntemleri": 0,
+        "Devlet6 - Ticaret": 0
+      },
+      "medrese_dersler": {
+        "Dil1 - Latince": 10,
+        "Dil2 - Antik Yunanca": 0,
+        "Dil3 - Osmanlıca": 20,
+        "Dil4 - Arapça": 0,
+        "Devlet1 - Tarihe Giriş": 20,
+        "Devlet2 - Devlet Kurumlarının İncelenmesi": 20,
+        "Devlet3 - Hukuk İlkeleri": 0,
+        "Devlet4 - İletişim Teknikleri": 0,
+        "Devlet5 - Vergi Toplama Yöntemleri": 0,
+        "Devlet6 - Ticaret": 0
+      },
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": true,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [
+          "Kılıç"
+        ],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Pantolon",
+            "bolum": "Pantolon",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Çizme",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "gri"
+          },
+          {
+            "ad": "aristote",
+            "bolum": "Mücevher",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "danois01",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "nezCrochu",
+            "bolum": "Yüz aksesuarı",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "garde_cape",
+            "bolum": "Pelerin",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "chemiseMarinOriental",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "ceintureMarinOriental",
+            "bolum": "Kuşak",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "casqueSarrasin",
+            "bolum": "Miğfer",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "gantMineur",
+            "bolum": "Eldiven",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 190,
+        "kuvvet": 255,
+        "zeka": 255,
+        "karizma": 255,
+        "guven": 122,
+        "akce": 2066.0
+      }
+    },
+    {
+      "karakter": "drayen",
+      "kasaba": "Glasgow",
+      "meslek": "Bahçıvan",
+      "yol": "-",
+      "seviye": 105,
+      "kuvvet": 255,
+      "zeka": 223,
+      "karizma": 62,
+      "guven": 15,
+      "akce": 11415.0,
+      "renk": "Beyaz",
+      "mucevher": "280",
+      "mulk": "manda,koc",
+      "kayit_tarihi": "10 Ocak 2026",
+      "kayit_iso": "2026-01-10",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 62,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 83,
+      "yetenek_el": 100,
+      "yetenek_puan": 1,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "👥 Ordu Takip"
+      ],
+      "gorev_ozet": "👥 Ordu Takip",
+      "kusanma": {
+        "kilic": true,
+        "kor_kilic": false,
+        "kalkan": true,
+        "silahlar": [
+          "Kılıç"
+        ],
+        "kalkanlar": [
+          "Kalkan"
+        ],
+        "eksik_kiyafet": [
+          "Şapka/Bere"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Erkek Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Pantolon",
+            "bolum": "Pantolon",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Çorabı",
+            "bolum": "Çorap",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Ayakkabı",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "CapucheBambara",
+            "bolum": "Şapka",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "garde_heaume",
+            "bolum": "Miğfer",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "garde_haut",
+            "bolum": "Manto",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "garde_bas",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "garde_cape",
+            "bolum": "Pelerin",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "collierOriental",
+            "bolum": "Mücevher",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "cygneauGris",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 105,
+        "kuvvet": 255,
+        "zeka": 220,
+        "karizma": 62,
+        "guven": 14,
+        "akce": 11734.0
+      }
+    },
+    {
+      "karakter": "sumpon",
+      "kasaba": "Girvan",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 20,
+      "kuvvet": 0,
+      "zeka": 0,
+      "karizma": 0,
+      "guven": 0,
+      "akce": 116.0,
+      "renk": "Beyaz",
+      "mucevher": "20",
+      "mulk": "-",
+      "kayit_tarihi": "≈18 Eylül 2026",
+      "kayit_iso": "2026-09-18",
+      "kayit_kaynak": "tahmini",
+      "aile": "",
+      "yetenek_is": "",
+      "yetenek_siyaset": "",
+      "yetenek_ziraat": "",
+      "yetenek_el": "",
+      "yetenek_puan": "",
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "⚡ Hızlı Maden"
+      ],
+      "gorev_ozet": "⚡ Hızlı Maden",
+      "kusanma": null,
+      "dun": {
+        "seviye": 20,
+        "kuvvet": 0,
+        "zeka": 0,
+        "karizma": 0,
+        "guven": 0,
+        "akce": 116.0
+      }
+    },
+    {
+      "karakter": "causal",
+      "kasaba": "Kirkcudbright",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 10,
+      "kuvvet": 0,
+      "zeka": 0,
+      "karizma": 0,
+      "guven": 0,
+      "akce": 15.0,
+      "renk": "Beyaz",
+      "mucevher": "0",
+      "mulk": "-",
+      "kayit_tarihi": "≈26 Eylül 2026",
+      "kayit_iso": "2026-09-26",
+      "kayit_kaynak": "tahmini",
+      "aile": "",
+      "yetenek_is": "",
+      "yetenek_siyaset": "",
+      "yetenek_ziraat": "",
+      "yetenek_el": "",
+      "yetenek_puan": "",
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [
+        "⚡ Hızlı Cami"
+      ],
+      "gorev_ozet": "⚡ Hızlı Cami",
+      "kusanma": null,
+      "dun": null
+    },
+    {
+      "karakter": "marchosias",
+      "kasaba": "Massa",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 100,
+      "kuvvet": 255,
+      "zeka": 55,
+      "karizma": 88,
+      "guven": 105,
+      "akce": 95.0,
+      "renk": "Beyaz",
+      "mucevher": "320",
+      "mulk": "-",
+      "kayit_tarihi": "09 Mart 2023",
+      "kayit_iso": "2023-03-09",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 86,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 0,
+      "yetenek_puan": 1,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Şapka/Bere"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Erkek Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "bej"
+          },
+          {
+            "ad": "Pantolon",
+            "bolum": "Pantolon",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "gri"
+          },
+          {
+            "ad": "Erkek Çorabı",
+            "bolum": "Çorap",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "sarı"
+          },
+          {
+            "ad": "Ayakkabı",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "kırmızı"
+          },
+          {
+            "ad": "Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "turkuaz"
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 100,
+        "kuvvet": 255,
+        "zeka": 53,
+        "karizma": 88,
+        "guven": 105,
+        "akce": 96.0
+      }
+    },
+    {
+      "karakter": "ningauble",
+      "kasaba": "Girvan",
+      "meslek": "-",
+      "yol": "-",
+      "seviye": 79,
+      "kuvvet": 201,
+      "zeka": 57,
+      "karizma": 56,
+      "guven": 9,
+      "akce": 95.0,
+      "renk": "Beyaz",
+      "mucevher": "250",
+      "mulk": "ekin",
+      "kayit_tarihi": "02 Nisan 2026",
+      "kayit_iso": "2026-04-02",
+      "kayit_kaynak": "oyun",
+      "aile": "",
+      "yetenek_is": 71,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 64,
+      "yetenek_el": 0,
+      "yetenek_puan": 0,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": false,
+        "kor_kilic": false,
+        "kalkan": false,
+        "silahlar": [],
+        "kalkanlar": [],
+        "eksik_kiyafet": [
+          "Ayakkabı/Çizme",
+          "Pantolon/Şalvar",
+          "Kemer/Kuşak",
+          "Şapka/Bere",
+          "Gömlek",
+          "Çorap"
+        ],
+        "kiyafetler": [
+          {
+            "ad": "Gömlek Paçavraları",
+            "bolum": "Gömlek",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Pantolon Paçavraları",
+            "bolum": "Pantolon",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          },
+          {
+            "ad": "Ayakkabı Paçavraları",
+            "bolum": "Ayakkabı",
+            "terzi": false,
+            "pacavra": true,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [
+          "Gömlek Paçavraları",
+          "Pantolon Paçavraları",
+          "Ayakkabı Paçavraları"
+        ],
+        "default_kiyafet": true,
+        "gun": "2026-09-26"
+      },
+      "dun": {
+        "seviye": 79,
+        "kuvvet": 201,
+        "zeka": 55,
+        "karizma": 56,
+        "guven": 9,
+        "akce": 106.0
+      }
+    },
+    {
+      "karakter": "bremer",
+      "kasaba": "Girvan",
+      "meslek": "Marangoz",
+      "yol": "-",
+      "seviye": 183,
+      "kuvvet": 252,
+      "zeka": 254,
+      "karizma": 86,
+      "guven": 140,
+      "akce": 782.0,
+      "renk": "Beyaz",
+      "mucevher": "360",
+      "mulk": "manda,ekin",
+      "kayit_tarihi": "22 Haziran 2024",
+      "kayit_iso": "2024-06-22",
+      "kayit_kaynak": "oyun",
+      "aile": "Selçuklu Ailesi",
+      "yetenek_is": 100,
+      "yetenek_siyaset": 100,
+      "yetenek_ziraat": 100,
+      "yetenek_el": 100,
+      "yetenek_puan": 36,
+      "medrese": {},
+      "medrese_eksik": {},
+      "medrese_dersler": {},
+      "gorevler": [],
+      "gorev_ozet": "",
+      "kusanma": {
+        "kilic": true,
+        "kor_kilic": false,
+        "kalkan": true,
+        "silahlar": [
+          "Kılıç"
+        ],
+        "kalkanlar": [
+          "Kalkan"
+        ],
+        "eksik_kiyafet": [],
+        "kiyafetler": [
+          {
+            "ad": "Şapka",
+            "bolum": "Şapka",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Gömleği",
+            "bolum": "Gömlek",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Pantolon",
+            "bolum": "Pantolon",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Erkek Çorabı",
+            "bolum": "Çorap",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Çizme",
+            "bolum": "Ayakkabı",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "Kuşak",
+            "bolum": "Kuşak",
+            "terzi": true,
+            "pacavra": false,
+            "renk": "siyah"
+          },
+          {
+            "ad": "nezCrochu",
+            "bolum": "Yüz aksesuarı",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "vache",
+            "bolum": "Evcil hayvan",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          },
+          {
+            "ad": "gantsParfumesQuatreMaisons",
+            "bolum": "Eldiven",
+            "terzi": false,
+            "pacavra": false,
+            "renk": ""
+          }
+        ],
+        "pacavralar": [],
+        "default_kiyafet": false,
+        "gun": "2026-09-26"
+      },
+      "dun": null
     }
   ]
 }
