@@ -1025,8 +1025,45 @@ async function gelisimYukle() {
 // ⚠️ Tamamlanmış dersler TEK TEK yazılmaz (45 satır olurdu) — yalnızca
 //    "x/y tamam" özeti + hâlâ eksik olanlar listelenir; asıl merak edilen
 //    "hangisini çalıştırayım" sorusunun cevabı odur.
+// ⚔️ [25.09.2026] KUŞANMA — kılıç / kalkan / temel kıyafet (bot, profil
+//    sayfasından okur). Sütun EKLENMEDİ (18 sütun kilidi) → detayda + kartta.
+function kusanmaMetni(ku) {
+  if (!ku) return "";
+  const kilic = ku.kilic ? "⚔️ Kılıç ✅" : (ku.kor_kilic ? "⚔️ Kör kılıç 🟡" : "⚔️ Kılıç ❌");
+  const kalkan = ku.kalkan ? "🛡️ Kalkan ✅" : "🛡️ Kalkan ❌";
+  const kiy = ku.kiyafetler || [];
+  // "default kıyafet" = oyunun verdiği paçavralar (kullanıcı tanımı, 25.09)
+  const tur = !kiy.length ? "👕 kıyafet yok"
+    : (ku.default_kiyafet ? "👕 DEFAULT kıyafet var (" + (ku.pacavralar || []).join(", ") + ")"
+       : "👕 " + kiy.length + " parça, default yok");
+  const eksik = (ku.eksik_kiyafet || []);
+  return kilic + " · " + kalkan + " · " + tur +
+    (eksik.length ? " · eksik: " + eksik.join(", ") : "");
+}
+window.kusanmaMetni = kusanmaMetni;
+
+// 👕 Kıyafet parçaları tek satır: "Gömlek: Erkek Gömleği (siyah) · Pantolon: Pantolon Paçavraları 🧷"
+function kiyafetListesi(ku) {
+  return (ku && ku.kiyafetler || []).map((k) =>
+    k.bolum + ": " + k.ad + (k.renk ? " (" + k.renk + ")" : "") + (k.pacavra ? " 🧷" : "")).join(" · ");
+}
+window.kiyafetListesi = kiyafetListesi;
+
 function detayIcerigi(k) {
   const bolumler = [];
+
+  if (k.kusanma) {
+    const ku = k.kusanma;
+    const diger = (ku.silahlar || []).filter((a) => a !== "Kılıç" && a !== "Kör Kılıç")
+      .concat((ku.kalkanlar || []).filter((a) => a !== "Kalkan"));
+    bolumler.push(
+      `<div class="detay-blok"><h4>⚔️ Üstündekiler</h4>` +
+      `<p>${kusanmaMetni(ku)}</p>` +
+      ((ku.kiyafetler || []).length ? `<p class="detay-not">👕 ${kiyafetListesi(ku)}</p>` +
+        `<p class="detay-not">🧷 = oyunun verdiği default kıyafet (paçavra)</p>` : "") +
+      (diger.length ? `<p class="detay-not">Diğer silah/kalkan (süs olabilir): ${diger.join(", ")}</p>` : "") +
+      `<p class="detay-not">Profil sayfasından okundu: ${ku.gun || "?"}</p></div>`);
+  }
 
   const agac = [["İş", k.yetenek_is], ["Siyaset", k.yetenek_siyaset],
                 ["Ziraat", k.yetenek_ziraat], ["El becerisi", k.yetenek_el]]
@@ -2394,6 +2431,7 @@ function emirTurAdi(t) {
   // 👑 [24.09.2026] / 🪖 [25.09.2026] — divan listesi onayı + orduya katılma
   if (t === "divan_onay") return "👑 Divan onay";
   if (t === "ordu_katil") return "🪖 Orduya katıl";
+  if (t === "oy_ver") return "🗳️ Oy ver";
   return t || "—";
 }
 
