@@ -436,6 +436,7 @@ if (window.L) L.RasterCoords.prototype = {
         <tr><td>📣 <b>Forum</b></td><td>Oyunun forumunda <b>bir başlığa cevap</b> yazdırır. Başlığın adresini (linkini) ve yazılacak metni verirsin.</td><td>Yalnızca oyunun kendi forum adresi kabul edilir — başka bir siteye gitmez. Yeni başlık <b>açmaz</b>, sadece cevap yazar.</td></tr>
         <tr><td>📬 <b>Posta kontrol</b></td><td>Hesap oyuna girip <b>yalnızca yeni mesaj var mı</b> diye bakar, varsa Telegram'a yollar ve çıkar.</td><td>Başka hiçbir iş yapılmaz (tarla/pazar/meslek yok). Posta zaten her girişte okunuyor — bu emir <b>gün içinde fazladan bir bakış</b> içindir. Hızlı yanıt beklediğin bir hesap için kullan.</td></tr>
         <tr><td>👑 <b>Divan onay</b><br><span class="rehber-eski">24.09.2026</span></td><td>Yazdığın hesaplar oyuna girdiğinde Sancak Kalesi'nde <b>kendi adlarının geçtiği divan listesini onaylar</b>. Birden çok hesabı tek emirde yazabilirsin.</td><td>Onayla ile İptal oyunda <b>aynı düğme türü</b>; bot yalnızca <b>Onayla</b>'ya basar. Zaten onaylıysa dokunmaz, emri kapatır. Hesap hiçbir listede yoksa emir iptal edilir.</td></tr>
+        <tr><td>🗳️ <b>Oy ver</b><br><span class="rehber-eski">26.09.2026</span></td><td>Belediye reisi ya da divan listesi seçiminde <b>kime oy verileceğini</b> yazarsın. O kasabadaki (belediye) ya da sancaktaki (divan) hesaplarımız oyuna girdikçe oy verir.</td><td>Oylar <b>en fazla 3 güne</b> yayılır (hepsi aynı gün oy vermesin). Oy veren hesap listeden düşer. Divanda yalnızca yazdığın listenin altındaki "Oy ver"e basılır. Aday ya da liste sayfada yoksa emir iptal edilir.</td></tr>
         <tr><td>🪖 <b>Orduya katıl</b><br><span class="rehber-eski">25.09.2026</span></td><td>Yazdığın hesaplar oyuna girince bulundukları kasabada <b>adını (ya da komutanını) yazdığın ordunun</b> “Başvur” düğmesine basar. Başarılıysa hesap <b>“Ordu Takip”</b> moduna geçer: işe girmez, enerjisini tercihe göre harcar (🟣 boya · ⛏️ maden · 💤 hiç), <b>en son lideri takip eder</b>.</td><td><b>Ordu adı ZORUNLU</b> — aynı kasabada düşman ordu da asker alabiliyor, yanlış orduya girmek geri alınamaz. Ad eşleşmezse ya da belirsizse bot <b>hiçbir düğmeye basmaz</b>. Bot ordudan <b>asla ayrılmaz</b>. Olanları <b>⚔️ Ordu</b> sekmesinde görürsün.</td></tr>
         <tr><td>⚓ <b>Yanaşma</b></td><td>Liman şefi olan hesaba, <b>şu armatörün gemisinin limana yanaşmasına izin ver</b> dedirtir.</td><td>Armatörün <b>oyun içi kullanıcı adını</b> yaz (ekranda görünen büyük harfli ad değil). Emir vermediğin hiçbir gemi kabul edilmez; bot kendiliğinden yanaşma onaylamaz.</td></tr>
         <tr><td>🎭 <b>Profil yaz</b><br><span class="rehber-eski">21.09.2026</span></td><td>Hesap oyuna girer, <b>kendi profil sayfasını ayrı bir sekmede</b> açar ve yazdıklarını kaydeder: <b>profil durumu</b> ("Peki, bugün ruh halin nasıl?" — 140 karakter), <b>doğum günü</b> (gün/ay), <b>yaş</b>, <b>cinsiyet</b>, <b>RP metni</b> (oyun karakteri profili) ve <b>OOC</b> (oyun dışı bilgiler).</td><td><b>Boş bıraktığın kutuya dokunulmaz.</b> Kayıt iki adımda olur (önce durum, sonra Profil sekmesi); biri olmazsa diğeri yine denenir. Oyundan <b>çıkılmaz</b>, sekme iş bitince kapanır. ✅ İş bitince <b>Telegram'a haber gelir</b>. 📄 Metin uzunsa (Telegram sınırı <b>4.096 karakter</b>) <b>bölme</b> — <b>📄 .txt indir</b> düğmesini kullan, dosyayı gruba <b>dosya olarak</b> at; <b>tek dosyada</b> doğum günü, yaş, cinsiyet, RP ve OOC birlikte gider, bot hepsini okur.</td></tr>
@@ -1329,6 +1330,7 @@ if (window.L) L.RasterCoords.prototype = {
         <button class="emir-tur-btn" data-tur="yanasma">⚓ Yanaşma</button>
         <button class="emir-tur-btn" data-tur="gemi">⛵ Gemi Al</button>
         <button class="emir-tur-btn" data-tur="divan">👑 Divan onay</button>
+        <button class="emir-tur-btn" data-tur="oy">🗳️ Oy ver</button>
         <button class="emir-tur-btn" data-tur="ordukatil">🪖 Orduya katıl</button>
       </div>
       <!-- 🎭 [21.09.2026] KARAKTER / RP grubu. Kullanıcının notu:
@@ -1557,6 +1559,42 @@ if (window.L) L.RasterCoords.prototype = {
         </label>
       </div>
       <p class="emir-ipucu">Hesap Sancak Kalesi → <b>Divan Seçimi</b>'ne gider, <b>kendi adının geçtiği listeyi</b> açar ve <b>Onayla</b>'ya basar. Liste zaten onaylıysa oyun "İptal" düğmesi gösterir — bot ona <b>ASLA basmaz</b> (basmak adaylıktan çekilmek demek), "zaten onaylı" deyip emri kapatır. Hesap hiçbir listede yoksa emir iptal edilir ve Telegram'a sayfadaki listeler yazılır.</p>
+    </div>
+    <!-- ---------------- 🗳️ OY VER (26.09.2026) ----------------
+         Kullanıcı: "biz burayı sitedeki emirden filan elle girelim kime oy
+         vereceksek" + "o kasabadaki hesapları 3 güne yayarsın bi kere oy
+         veren tekrar veremiyor onu düşersin listeden".
+         ⚠️ Şablon oy_modul.emri_coz ile BİREBİR aynı olmalı. -->
+    <div class="emir-form" id="emir-form-oy">
+      <div class="emir-satir">
+        <label>Seçim
+          <select id="oy-secim">
+            <option value="belediye">🏛️ Belediye reisi (kasaba)</option>
+            <option value="divan">👑 Divan listesi (sancak)</option>
+          </select>
+        </label>
+        <label>Kasaba / sancak <span class="emir-kucuk">(belediye: Stirling · divan: Glasgow)</span>
+          <input type="text" id="oy-yer" placeholder="Stirling">
+        </label>
+      </div>
+      <div class="emir-satir">
+        <label>Aday / liste <span class="emir-kucuk">(oyundaki adıyla — belediye: aday · divan: liste adı ya da kısa adı)</span>
+          <input type="text" id="oy-aday" placeholder="madcypriot">
+        </label>
+        <label>Kaç güne yayılsın
+          <select id="oy-gun">
+            <option value="3">3 gün (en fazla)</option>
+            <option value="2">2 gün</option>
+            <option value="1">1 gün (hepsi bugün)</option>
+          </select>
+        </label>
+      </div>
+      <div class="emir-satir">
+        <label>Yalnızca bu hesaplar <span class="emir-kucuk">(isteğe bağlı — boşsa o kasabadaki/sancaktaki TÜM hesaplarımız)</span>
+          <textarea id="oy-hesaplar" rows="3" placeholder="boş bırakılabilir"></textarea>
+        </label>
+      </div>
+      <p class="emir-ipucu">Emir <b>tek</b>dir; o kasabada (belediye) ya da sancakta (divan) bulunan hesaplarımız oyuna girdikçe sırayla oy verir. Oylar <b>en fazla 3 güne</b> yayılır; seçimin bitmesine daha az gün kaldıysa o kadar güne. <b>Oy veren hesap listeden düşer</b>. Divanda yalnızca yazdığın listenin <b>altındaki</b> "Oy ver"e basılır, başka listeye asla. "Peki"ye basılmaz. Seçim bitince emir kapanır ve Telegram'a kaç hesabın oy verdiği yazılır.</p>
     </div>
     <!-- ---------------- 🪖 ORDUYA KATIL (25.09.2026) ----------------
          Kullanıcı (24.09): "ordudaki hesaplar işe girmeyecek unutmayalım" +
