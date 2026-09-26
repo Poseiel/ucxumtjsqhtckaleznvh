@@ -1,80 +1,12 @@
 {
-  "son_guncelleme": "2026-09-25 16:08",
+  "son_guncelleme": "2026-09-26 13:55",
   "adim_hakki_normal": 2,
   "adim_hakki_jetonlu": 3,
   "yolcular": [
     {
-      "hesap": "Asensioo",
-      "tur": "seyahat",
-      "nereden": "Béziers",
-      "yolda": false,
-      "bot_kalan_gun": null,
-      "nereden_id": 315,
-      "hedef": "Béziers",
-      "hedef_id": 315,
-      "jetonlu": false,
-      "adim_hakki": 2,
-      "rota": [
-        {
-          "id": 315,
-          "isim": "Béziers"
-        }
-      ],
-      "kalan_adim": 0,
-      "kalan_gun": 0,
-      "gunler": [],
-      "lider": "",
-      "rol": "tek"
-    },
-    {
-      "hesap": "Favore",
-      "tur": "seyahat",
-      "nereden": "Penrith",
-      "yolda": false,
-      "bot_kalan_gun": null,
-      "nereden_id": 827,
-      "hedef": "Penrith",
-      "hedef_id": 827,
-      "jetonlu": false,
-      "adim_hakki": 2,
-      "rota": [
-        {
-          "id": 827,
-          "isim": "Penrith"
-        }
-      ],
-      "kalan_adim": 0,
-      "kalan_gun": 0,
-      "gunler": [],
-      "lider": "",
-      "rol": "tek"
-    },
-    {
-      "hesap": "Millady",
-      "tur": "seyahat",
-      "nereden": "Stirling",
-      "yolda": false,
-      "bot_kalan_gun": null,
-      "nereden_id": 1050,
-      "hedef": "Stirling",
-      "hedef_id": 1050,
-      "jetonlu": false,
-      "adim_hakki": 2,
-      "rota": [
-        {
-          "id": 1050,
-          "isim": "Stirling"
-        }
-      ],
-      "kalan_adim": 0,
-      "kalan_gun": 0,
-      "gunler": [],
-      "lider": "",
-      "rol": "tek"
-    },
-    {
       "hesap": "Calwenor",
       "tur": "seyahat",
+      "kaynak": "ayar",
       "nereden": "Blois",
       "yolda": false,
       "bot_kalan_gun": 10,
@@ -328,114 +260,6 @@
     }
   ],
   "kafileler": [
-    {
-      "anahtar": "315|315|2",
-      "nereden": "Béziers",
-      "nereden_id": 315,
-      "hedef": "Béziers",
-      "hedef_id": 315,
-      "yolda": false,
-      "adim_hakki": 2,
-      "jetonlu": false,
-      "kalan_adim": 0,
-      "kalan_gun": 0,
-      "gunler": [],
-      "rota": [
-        {
-          "id": 315,
-          "isim": "Béziers"
-        }
-      ],
-      "hesaplar": [
-        {
-          "hesap": "Asensioo",
-          "tur": "seyahat",
-          "lider": "",
-          "kaynak": "",
-          "tahmin": false,
-          "rol": "tek"
-        }
-      ],
-      "liderler": [],
-      "kisi": 1,
-      "yalniz": true,
-      "grup": false,
-      "lider": "",
-      "olculdu": true,
-      "kaynaklar": []
-    },
-    {
-      "anahtar": "827|827|2",
-      "nereden": "Penrith",
-      "nereden_id": 827,
-      "hedef": "Penrith",
-      "hedef_id": 827,
-      "yolda": false,
-      "adim_hakki": 2,
-      "jetonlu": false,
-      "kalan_adim": 0,
-      "kalan_gun": 0,
-      "gunler": [],
-      "rota": [
-        {
-          "id": 827,
-          "isim": "Penrith"
-        }
-      ],
-      "hesaplar": [
-        {
-          "hesap": "Favore",
-          "tur": "seyahat",
-          "lider": "",
-          "kaynak": "",
-          "tahmin": false,
-          "rol": "tek"
-        }
-      ],
-      "liderler": [],
-      "kisi": 1,
-      "yalniz": true,
-      "grup": false,
-      "lider": "",
-      "olculdu": true,
-      "kaynaklar": []
-    },
-    {
-      "anahtar": "1050|1050|2",
-      "nereden": "Stirling",
-      "nereden_id": 1050,
-      "hedef": "Stirling",
-      "hedef_id": 1050,
-      "yolda": false,
-      "adim_hakki": 2,
-      "jetonlu": false,
-      "kalan_adim": 0,
-      "kalan_gun": 0,
-      "gunler": [],
-      "rota": [
-        {
-          "id": 1050,
-          "isim": "Stirling"
-        }
-      ],
-      "hesaplar": [
-        {
-          "hesap": "Millady",
-          "tur": "seyahat",
-          "lider": "",
-          "kaynak": "",
-          "tahmin": false,
-          "rol": "tek"
-        }
-      ],
-      "liderler": [],
-      "kisi": 1,
-      "yalniz": true,
-      "grup": false,
-      "lider": "",
-      "olculdu": true,
-      "kaynaklar": []
-    },
     {
       "anahtar": "378|313|2",
       "nereden": "Blois",
@@ -705,6 +529,22 @@
     }
   ],
   "beklemede": [
+    {
+      "hesap": "Favore",
+      "tur": "seyahat",
+      "hedef": "Penrith",
+      "nereden": "",
+      "sebep": "konum okunamadı (yolcu raporunda da yok)",
+      "kaynak": "ayar"
+    },
+    {
+      "hesap": "Millady",
+      "tur": "seyahat",
+      "hedef": "Stirling",
+      "nereden": "",
+      "sebep": "konum okunamadı (yolcu raporunda da yok)",
+      "kaynak": "ayar"
+    },
     {
       "hesap": "Thebear",
       "tur": "takip",
