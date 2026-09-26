@@ -1,29 +1,117 @@
 {
-  "son_guncelleme": "2026-09-26 13:55",
+  "son_guncelleme": "2026-09-26 19:37",
   "adim_hakki_normal": 2,
   "adim_hakki_jetonlu": 3,
   "yolcular": [
     {
+      "hesap": "Wolftrap",
+      "tur": "seyahat",
+      "kaynak": "gorev",
+      "nereden": "Lewes",
+      "yolda": false,
+      "bot_kalan_gun": null,
+      "nereden_id": 47,
+      "hedef": "Arundel",
+      "hedef_id": 67,
+      "jetonlu": false,
+      "adim_hakki": 2,
+      "rota": [
+        {
+          "id": 47,
+          "isim": "Lewes"
+        },
+        {
+          "id": 66,
+          "isim": "Lewes - Arundel arası"
+        },
+        {
+          "id": 67,
+          "isim": "Arundel"
+        }
+      ],
+      "kalan_adim": 2,
+      "kalan_gun": 1,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 67,
+          "varis": "Arundel",
+          "duraklar": [
+            {
+              "id": 66,
+              "isim": "Lewes - Arundel arası"
+            },
+            {
+              "id": 67,
+              "isim": "Arundel"
+            }
+          ]
+        }
+      ],
+      "lider": "",
+      "rol": "tek"
+    },
+    {
+      "hesap": "Gorgoyle",
+      "tur": "seyahat",
+      "kaynak": "gorev",
+      "nereden": "Glasgow",
+      "yolda": false,
+      "bot_kalan_gun": null,
+      "nereden_id": 1045,
+      "hedef": "Stirling",
+      "hedef_id": 1050,
+      "jetonlu": false,
+      "adim_hakki": 2,
+      "rota": [
+        {
+          "id": 1045,
+          "isim": "Glasgow"
+        },
+        {
+          "id": 1049,
+          "isim": "Glasgow - Stirling arası"
+        },
+        {
+          "id": 1050,
+          "isim": "Stirling"
+        }
+      ],
+      "kalan_adim": 2,
+      "kalan_gun": 1,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 1050,
+          "varis": "Stirling",
+          "duraklar": [
+            {
+              "id": 1049,
+              "isim": "Glasgow - Stirling arası"
+            },
+            {
+              "id": 1050,
+              "isim": "Stirling"
+            }
+          ]
+        }
+      ],
+      "lider": "",
+      "rol": "lider"
+    },
+    {
       "hesap": "Calwenor",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Blois",
+      "nereden": "Tours",
       "yolda": false,
-      "bot_kalan_gun": 10,
-      "nereden_id": 378,
+      "bot_kalan_gun": 9,
+      "nereden_id": 147,
       "hedef": "Lodève",
       "hedef_id": 313,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 378,
-          "isim": "Blois"
-        },
-        {
-          "id": 377,
-          "isim": "Tours - Blois arası"
-        },
         {
           "id": 147,
           "isim": "Tours"
@@ -101,26 +189,11 @@
           "isim": "Lodève"
         }
       ],
-      "kalan_adim": 20,
-      "kalan_gun": 10,
+      "kalan_adim": 18,
+      "kalan_gun": 9,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 147,
-          "varis": "Tours",
-          "duraklar": [
-            {
-              "id": 377,
-              "isim": "Tours - Blois arası"
-            },
-            {
-              "id": 147,
-              "isim": "Tours"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 143,
           "varis": "Loches",
           "duraklar": [
@@ -135,7 +208,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 186,
           "varis": "La Trémouille",
           "duraklar": [
@@ -150,7 +223,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 200,
           "varis": "Limoges - La Trémouille arası",
           "duraklar": [
@@ -165,7 +238,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 198,
           "varis": "Limoges - Tulle arası",
           "duraklar": [
@@ -180,7 +253,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 196,
           "varis": "Tulle",
           "duraklar": [
@@ -195,7 +268,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 194,
           "varis": "Aurillac",
           "duraklar": [
@@ -210,7 +283,7 @@
           ]
         },
         {
-          "gun": 8,
+          "gun": 7,
           "varis_id": 1123,
           "varis": "Rodez",
           "duraklar": [
@@ -225,7 +298,7 @@
           ]
         },
         {
-          "gun": 9,
+          "gun": 8,
           "varis_id": 1125,
           "varis": "Millau",
           "duraklar": [
@@ -240,7 +313,7 @@
           ]
         },
         {
-          "gun": 10,
+          "gun": 9,
           "varis_id": 313,
           "varis": "Lodève",
           "duraklar": [
@@ -257,38 +330,555 @@
       ],
       "lider": "",
       "rol": "tek"
-    }
-  ],
-  "kafileler": [
+    },
     {
-      "anahtar": "378|313|2",
-      "nereden": "Blois",
-      "nereden_id": 378,
-      "hedef": "Lodève",
-      "hedef_id": 313,
+      "hesap": "Galdorin",
+      "tur": "seyahat",
+      "kaynak": "gorev",
+      "nereden": "Lewes",
       "yolda": false,
-      "adim_hakki": 2,
+      "bot_kalan_gun": null,
+      "nereden_id": 47,
+      "hedef": "Worcester",
+      "hedef_id": 487,
       "jetonlu": false,
-      "kalan_adim": 20,
-      "kalan_gun": 10,
+      "adim_hakki": 2,
+      "rota": [
+        {
+          "id": 47,
+          "isim": "Lewes"
+        },
+        {
+          "id": 215,
+          "isim": "Lewes - Hastings arası"
+        },
+        {
+          "id": 216,
+          "isim": "Lewes - Hastings arası"
+        },
+        {
+          "id": 2801,
+          "isim": "Lewes - Hastings arası"
+        },
+        {
+          "id": 481,
+          "isim": "Evesham - Lewes arası"
+        },
+        {
+          "id": 480,
+          "isim": "Evesham - Lichfield arası"
+        },
+        {
+          "id": 479,
+          "isim": "Evesham - Lichfield arası"
+        },
+        {
+          "id": 478,
+          "isim": "Evesham - Lichfield arası"
+        },
+        {
+          "id": 477,
+          "isim": "Evesham"
+        },
+        {
+          "id": 488,
+          "isim": "Evesham - Worcester arası"
+        },
+        {
+          "id": 487,
+          "isim": "Worcester"
+        }
+      ],
+      "kalan_adim": 10,
+      "kalan_gun": 5,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 147,
-          "varis": "Tours",
+          "varis_id": 216,
+          "varis": "Lewes - Hastings arası",
           "duraklar": [
             {
-              "id": 377,
-              "isim": "Tours - Blois arası"
+              "id": 215,
+              "isim": "Lewes - Hastings arası"
             },
             {
-              "id": 147,
-              "isim": "Tours"
+              "id": 216,
+              "isim": "Lewes - Hastings arası"
             }
           ]
         },
         {
           "gun": 2,
+          "varis_id": 481,
+          "varis": "Evesham - Lewes arası",
+          "duraklar": [
+            {
+              "id": 2801,
+              "isim": "Lewes - Hastings arası"
+            },
+            {
+              "id": 481,
+              "isim": "Evesham - Lewes arası"
+            }
+          ]
+        },
+        {
+          "gun": 3,
+          "varis_id": 479,
+          "varis": "Evesham - Lichfield arası",
+          "duraklar": [
+            {
+              "id": 480,
+              "isim": "Evesham - Lichfield arası"
+            },
+            {
+              "id": 479,
+              "isim": "Evesham - Lichfield arası"
+            }
+          ]
+        },
+        {
+          "gun": 4,
+          "varis_id": 477,
+          "varis": "Evesham",
+          "duraklar": [
+            {
+              "id": 478,
+              "isim": "Evesham - Lichfield arası"
+            },
+            {
+              "id": 477,
+              "isim": "Evesham"
+            }
+          ]
+        },
+        {
+          "gun": 5,
+          "varis_id": 487,
+          "varis": "Worcester",
+          "duraklar": [
+            {
+              "id": 488,
+              "isim": "Evesham - Worcester arası"
+            },
+            {
+              "id": 487,
+              "isim": "Worcester"
+            }
+          ]
+        }
+      ],
+      "lider": "",
+      "rol": "tek"
+    },
+    {
+      "hesap": "Thebear",
+      "tur": "takip",
+      "kaynak": "gorev",
+      "nereden": "Glasgow",
+      "yolda": false,
+      "bot_kalan_gun": null,
+      "nereden_id": 1045,
+      "hedef": "Stirling",
+      "hedef_id": 1050,
+      "jetonlu": false,
+      "adim_hakki": 2,
+      "rota": [
+        {
+          "id": 1045,
+          "isim": "Glasgow"
+        },
+        {
+          "id": 1049,
+          "isim": "Glasgow - Stirling arası"
+        },
+        {
+          "id": 1050,
+          "isim": "Stirling"
+        }
+      ],
+      "kalan_adim": 2,
+      "kalan_gun": 1,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 1050,
+          "varis": "Stirling",
+          "duraklar": [
+            {
+              "id": 1049,
+              "isim": "Glasgow - Stirling arası"
+            },
+            {
+              "id": 1050,
+              "isim": "Stirling"
+            }
+          ]
+        }
+      ],
+      "lider": "Gorgoyle",
+      "lider_kaynak": "ayni_nokta",
+      "lider_tahmini": true,
+      "rol": "takipci"
+    },
+    {
+      "hesap": "drayen",
+      "tur": "takip",
+      "kaynak": "gorev",
+      "nereden": "Glasgow",
+      "yolda": false,
+      "bot_kalan_gun": null,
+      "nereden_id": 1045,
+      "hedef": "Stirling",
+      "hedef_id": 1050,
+      "jetonlu": false,
+      "adim_hakki": 2,
+      "rota": [
+        {
+          "id": 1045,
+          "isim": "Glasgow"
+        },
+        {
+          "id": 1049,
+          "isim": "Glasgow - Stirling arası"
+        },
+        {
+          "id": 1050,
+          "isim": "Stirling"
+        }
+      ],
+      "kalan_adim": 2,
+      "kalan_gun": 1,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 1050,
+          "varis": "Stirling",
+          "duraklar": [
+            {
+              "id": 1049,
+              "isim": "Glasgow - Stirling arası"
+            },
+            {
+              "id": 1050,
+              "isim": "Stirling"
+            }
+          ]
+        }
+      ],
+      "lider": "Gorgoyle",
+      "lider_kaynak": "ayni_nokta",
+      "lider_tahmini": true,
+      "rol": "takipci"
+    }
+  ],
+  "kafileler": [
+    {
+      "anahtar": "1045|1050|2",
+      "nereden": "Glasgow",
+      "nereden_id": 1045,
+      "hedef": "Stirling",
+      "hedef_id": 1050,
+      "yolda": false,
+      "adim_hakki": 2,
+      "jetonlu": false,
+      "kalan_adim": 2,
+      "kalan_gun": 1,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 1050,
+          "varis": "Stirling",
+          "duraklar": [
+            {
+              "id": 1049,
+              "isim": "Glasgow - Stirling arası"
+            },
+            {
+              "id": 1050,
+              "isim": "Stirling"
+            }
+          ]
+        }
+      ],
+      "rota": [
+        {
+          "id": 1045,
+          "isim": "Glasgow"
+        },
+        {
+          "id": 1049,
+          "isim": "Glasgow - Stirling arası"
+        },
+        {
+          "id": 1050,
+          "isim": "Stirling"
+        }
+      ],
+      "hesaplar": [
+        {
+          "hesap": "Gorgoyle",
+          "tur": "seyahat",
+          "lider": "",
+          "kaynak": "",
+          "tahmin": false,
+          "rol": "lider"
+        },
+        {
+          "hesap": "Thebear",
+          "tur": "takip",
+          "lider": "Gorgoyle",
+          "kaynak": "ayni_nokta",
+          "tahmin": true,
+          "rol": "takipci"
+        },
+        {
+          "hesap": "drayen",
+          "tur": "takip",
+          "lider": "Gorgoyle",
+          "kaynak": "ayni_nokta",
+          "tahmin": true,
+          "rol": "takipci"
+        }
+      ],
+      "liderler": [
+        "Gorgoyle"
+      ],
+      "kisi": 3,
+      "yalniz": false,
+      "grup": true,
+      "lider": "Gorgoyle",
+      "olculdu": false,
+      "kaynaklar": [
+        "ayni_nokta"
+      ]
+    },
+    {
+      "anahtar": "47|67|2",
+      "nereden": "Lewes",
+      "nereden_id": 47,
+      "hedef": "Arundel",
+      "hedef_id": 67,
+      "yolda": false,
+      "adim_hakki": 2,
+      "jetonlu": false,
+      "kalan_adim": 2,
+      "kalan_gun": 1,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 67,
+          "varis": "Arundel",
+          "duraklar": [
+            {
+              "id": 66,
+              "isim": "Lewes - Arundel arası"
+            },
+            {
+              "id": 67,
+              "isim": "Arundel"
+            }
+          ]
+        }
+      ],
+      "rota": [
+        {
+          "id": 47,
+          "isim": "Lewes"
+        },
+        {
+          "id": 66,
+          "isim": "Lewes - Arundel arası"
+        },
+        {
+          "id": 67,
+          "isim": "Arundel"
+        }
+      ],
+      "hesaplar": [
+        {
+          "hesap": "Wolftrap",
+          "tur": "seyahat",
+          "lider": "",
+          "kaynak": "",
+          "tahmin": false,
+          "rol": "tek"
+        }
+      ],
+      "liderler": [],
+      "kisi": 1,
+      "yalniz": true,
+      "grup": false,
+      "lider": "",
+      "olculdu": true,
+      "kaynaklar": []
+    },
+    {
+      "anahtar": "47|487|2",
+      "nereden": "Lewes",
+      "nereden_id": 47,
+      "hedef": "Worcester",
+      "hedef_id": 487,
+      "yolda": false,
+      "adim_hakki": 2,
+      "jetonlu": false,
+      "kalan_adim": 10,
+      "kalan_gun": 5,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 216,
+          "varis": "Lewes - Hastings arası",
+          "duraklar": [
+            {
+              "id": 215,
+              "isim": "Lewes - Hastings arası"
+            },
+            {
+              "id": 216,
+              "isim": "Lewes - Hastings arası"
+            }
+          ]
+        },
+        {
+          "gun": 2,
+          "varis_id": 481,
+          "varis": "Evesham - Lewes arası",
+          "duraklar": [
+            {
+              "id": 2801,
+              "isim": "Lewes - Hastings arası"
+            },
+            {
+              "id": 481,
+              "isim": "Evesham - Lewes arası"
+            }
+          ]
+        },
+        {
+          "gun": 3,
+          "varis_id": 479,
+          "varis": "Evesham - Lichfield arası",
+          "duraklar": [
+            {
+              "id": 480,
+              "isim": "Evesham - Lichfield arası"
+            },
+            {
+              "id": 479,
+              "isim": "Evesham - Lichfield arası"
+            }
+          ]
+        },
+        {
+          "gun": 4,
+          "varis_id": 477,
+          "varis": "Evesham",
+          "duraklar": [
+            {
+              "id": 478,
+              "isim": "Evesham - Lichfield arası"
+            },
+            {
+              "id": 477,
+              "isim": "Evesham"
+            }
+          ]
+        },
+        {
+          "gun": 5,
+          "varis_id": 487,
+          "varis": "Worcester",
+          "duraklar": [
+            {
+              "id": 488,
+              "isim": "Evesham - Worcester arası"
+            },
+            {
+              "id": 487,
+              "isim": "Worcester"
+            }
+          ]
+        }
+      ],
+      "rota": [
+        {
+          "id": 47,
+          "isim": "Lewes"
+        },
+        {
+          "id": 215,
+          "isim": "Lewes - Hastings arası"
+        },
+        {
+          "id": 216,
+          "isim": "Lewes - Hastings arası"
+        },
+        {
+          "id": 2801,
+          "isim": "Lewes - Hastings arası"
+        },
+        {
+          "id": 481,
+          "isim": "Evesham - Lewes arası"
+        },
+        {
+          "id": 480,
+          "isim": "Evesham - Lichfield arası"
+        },
+        {
+          "id": 479,
+          "isim": "Evesham - Lichfield arası"
+        },
+        {
+          "id": 478,
+          "isim": "Evesham - Lichfield arası"
+        },
+        {
+          "id": 477,
+          "isim": "Evesham"
+        },
+        {
+          "id": 488,
+          "isim": "Evesham - Worcester arası"
+        },
+        {
+          "id": 487,
+          "isim": "Worcester"
+        }
+      ],
+      "hesaplar": [
+        {
+          "hesap": "Galdorin",
+          "tur": "seyahat",
+          "lider": "",
+          "kaynak": "",
+          "tahmin": false,
+          "rol": "tek"
+        }
+      ],
+      "liderler": [],
+      "kisi": 1,
+      "yalniz": true,
+      "grup": false,
+      "lider": "",
+      "olculdu": true,
+      "kaynaklar": []
+    },
+    {
+      "anahtar": "147|313|2",
+      "nereden": "Tours",
+      "nereden_id": 147,
+      "hedef": "Lodève",
+      "hedef_id": 313,
+      "yolda": false,
+      "adim_hakki": 2,
+      "jetonlu": false,
+      "kalan_adim": 18,
+      "kalan_gun": 9,
+      "gunler": [
+        {
+          "gun": 1,
           "varis_id": 143,
           "varis": "Loches",
           "duraklar": [
@@ -303,7 +893,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 186,
           "varis": "La Trémouille",
           "duraklar": [
@@ -318,7 +908,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 200,
           "varis": "Limoges - La Trémouille arası",
           "duraklar": [
@@ -333,7 +923,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 198,
           "varis": "Limoges - Tulle arası",
           "duraklar": [
@@ -348,7 +938,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 196,
           "varis": "Tulle",
           "duraklar": [
@@ -363,7 +953,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 194,
           "varis": "Aurillac",
           "duraklar": [
@@ -378,7 +968,7 @@
           ]
         },
         {
-          "gun": 8,
+          "gun": 7,
           "varis_id": 1123,
           "varis": "Rodez",
           "duraklar": [
@@ -393,7 +983,7 @@
           ]
         },
         {
-          "gun": 9,
+          "gun": 8,
           "varis_id": 1125,
           "varis": "Millau",
           "duraklar": [
@@ -408,7 +998,7 @@
           ]
         },
         {
-          "gun": 10,
+          "gun": 9,
           "varis_id": 313,
           "varis": "Lodève",
           "duraklar": [
@@ -424,14 +1014,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 378,
-          "isim": "Blois"
-        },
-        {
-          "id": 377,
-          "isim": "Tours - Blois arası"
-        },
         {
           "id": 147,
           "isim": "Tours"
@@ -532,36 +1114,10 @@
     {
       "hesap": "Favore",
       "tur": "seyahat",
-      "hedef": "Penrith",
+      "hedef": "Kirkcudbright",
       "nereden": "",
       "sebep": "konum okunamadı (yolcu raporunda da yok)",
-      "kaynak": "ayar"
-    },
-    {
-      "hesap": "Millady",
-      "tur": "seyahat",
-      "hedef": "Stirling",
-      "nereden": "",
-      "sebep": "konum okunamadı (yolcu raporunda da yok)",
-      "kaynak": "ayar"
-    },
-    {
-      "hesap": "Thebear",
-      "tur": "takip",
-      "hedef": "",
-      "nereden": "Glasgow (Şehirde)",
-      "ayar_grup_takip": true,
-      "takip_modu": "Ordu Takip",
-      "sebep": "ayarı 'Ordu Takip' ama lideri belirlenemedi (gruptan düşmüş de olabilir) — ayarda lider yazmıyor, oyun kaydında da yok, aynı noktada yolcu da yok"
-    },
-    {
-      "hesap": "drayen",
-      "tur": "takip",
-      "hedef": "",
-      "nereden": "Glasgow (Şehirde)",
-      "ayar_grup_takip": true,
-      "takip_modu": "Ordu Takip",
-      "sebep": "ayarı 'Ordu Takip' ama lideri belirlenemedi (gruptan düşmüş de olabilir) — ayarda lider yazmıyor, oyun kaydında da yok, aynı noktada yolcu da yok"
+      "kaynak": "gorev"
     }
   ]
 }
