@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-26 18:07",
+  "son_guncelleme": "2026-09-26 18:40",
   "tarih": "2026-09-26",
   "aralik_dk": 150,
   "kontroller": [
@@ -432,6 +432,45 @@
       ],
       "gruplar": [],
       "farklar": []
+    },
+    {
+      "kasaba": "Wigtown",
+      "saat": "18:38",
+      "saat_tam": "2026-09-26T18:38:32",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Wigtown",
+          "kasaba": "Wigtown",
+          "komutan": "Kazasker: Catani",
+          "durum": "Şehir İçinde",
+          "ham_durum": "Ordu şehirde"
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "6004075",
+          "tur": "Silahlı Grup",
+          "lider": "al_lan",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6282595",
+          "tur": "Silahlı Grup",
+          "lider": "cameliae",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6286581",
+          "tur": "Silahlı Grup",
+          "lider": "causantin_men3es",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        }
+      ],
+      "farklar": []
     }
   ],
   "son_durum": {
@@ -461,8 +500,8 @@
       ]
     },
     "Wigtown": {
-      "saat": "15:58",
-      "saat_tam": "2026-09-26T15:58:04",
+      "saat": "18:38",
+      "saat_tam": "2026-09-26T18:38:32",
       "ordu_okundu": true,
       "ordular": [
         {
