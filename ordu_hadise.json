@@ -1,37 +1,60 @@
 {
-  "son_guncelleme": "2026-09-27 01:58",
+  "son_guncelleme": "2026-09-27 09:51",
   "gun_sayisi": 30,
   "ozet": {
-    "toplam": 4,
+    "toplam": 10,
     "kavga": 1,
     "olum": 0,
     "yara": 0,
     "gorus": 3,
-    "hesap": 1,
-    "uye": 1
+    "hesap": 2,
+    "uye": 2
   },
   "uyeler": [
     {
       "hesap": "drayen",
-      "uye": false,
+      "uye": true,
       "ordu": "The Excelsior",
       "komutan": "Emmalogan",
       "ucret": "22,00",
       "katilma_gunu": "",
-      "son_gorulme": "2026-09-26 19:18",
+      "son_gorulme": "2026-09-27 06:49",
       "mufreze_komutani": false,
       "mufreze_kisi": null,
       "takip": {
-        "gun": "2026-09-25",
+        "gun": "2026-09-27",
         "sonuc": "verildi",
         "aciklama": "Bu grubun liderini takip ediyorsun. Bugün ayrılamazsın.",
         "lider": "Emmalogan"
       },
       "enerji": {
-        "gun": "2026-09-26",
-        "pa": 115,
-        "max_pa": 115,
-        "sonuc": "boya: 3 üretim (en fazla 3) + maden: 120 dk"
+        "gun": "2026-09-27",
+        "pa": 65,
+        "max_pa": 65,
+        "sonuc": "boya: 4 üretim (en fazla 4) + maden: 60 dk"
+      }
+    },
+    {
+      "hesap": "murderer",
+      "uye": false,
+      "ordu": "",
+      "komutan": "",
+      "ucret": "",
+      "katilma_gunu": "",
+      "son_gorulme": "2026-09-27 06:55",
+      "mufreze_komutani": false,
+      "mufreze_kisi": null,
+      "takip": {
+        "gun": "",
+        "sonuc": "",
+        "aciklama": "",
+        "lider": ""
+      },
+      "enerji": {
+        "gun": "2026-09-27",
+        "pa": 100,
+        "max_pa": 100,
+        "sonuc": "maden: 720 dk + 360 dk + 60 dk"
       }
     },
     {
@@ -60,6 +83,24 @@
   ],
   "gunler": [
     {
+      "tarih": "2026-09-27",
+      "oyun_tarihi": "27-09-1474",
+      "kavga": 0,
+      "hadiseler": [
+        {
+          "id": "257260143",
+          "hesap": "drayen",
+          "tarih": "2026-09-27",
+          "oyun_tarihi": "27-09-1474",
+          "saat": "00:11",
+          "etiket": "diger",
+          "tur": "uyelik",
+          "metin": "Ordu tarafından işe alındın.",
+          "kisiler": []
+        }
+      ]
+    },
+    {
       "tarih": "2026-09-26",
       "oyun_tarihi": "26-09-1474",
       "kavga": 1,
@@ -76,6 +117,28 @@
           "kisiler": [
             "Alanclarks99"
           ]
+        },
+        {
+          "id": "257121899",
+          "hesap": "drayen",
+          "tarih": "2026-09-26",
+          "oyun_tarihi": "26-09-1474",
+          "saat": "04:09",
+          "etiket": "diger",
+          "tur": "yuk",
+          "metin": "Yolculuk, kalkış sırasında aşırı yük nedeniyle iptal edildi. Seyahat ederken bazı öğeler otomatik olarak envanterinize eklenebilir.",
+          "kisiler": []
+        },
+        {
+          "id": "257120952",
+          "hesap": "drayen",
+          "tarih": "2026-09-26",
+          "oyun_tarihi": "26-09-1474",
+          "saat": "04:01",
+          "etiket": "diger",
+          "tur": "satis_iptal",
+          "metin": "Gece seyahatinizden önce, devam eden satışlarınız iptal edildi ve ürünleriniz otomatik olarak geri alındı.",
+          "kisiler": []
         },
         {
           "id": "257135282",
@@ -99,6 +162,28 @@
       "kavga": 0,
       "hadiseler": [
         {
+          "id": "256970222",
+          "hesap": "drayen",
+          "tarih": "2026-09-25",
+          "oyun_tarihi": "25-09-1474",
+          "saat": "04:09",
+          "etiket": "diger",
+          "tur": "yuk",
+          "metin": "Yolculuk, kalkış sırasında aşırı yük nedeniyle iptal edildi. Seyahat ederken bazı öğeler otomatik olarak envanterinize eklenebilir.",
+          "kisiler": []
+        },
+        {
+          "id": "256969331",
+          "hesap": "drayen",
+          "tarih": "2026-09-25",
+          "oyun_tarihi": "25-09-1474",
+          "saat": "04:01",
+          "etiket": "diger",
+          "tur": "satis_iptal",
+          "metin": "Gece seyahatinizden önce, devam eden satışlarınız iptal edildi ve ürünleriniz otomatik olarak geri alındı.",
+          "kisiler": []
+        },
+        {
           "id": "256983767",
           "hesap": "Thebear",
           "tarih": "2026-09-25",
@@ -118,6 +203,24 @@
           "etiket": "gorus",
           "tur": "gorus",
           "metin": "Bugün, yolda karşılaştığın kişi Glasgow adlı kasabayı savunanlar:.",
+          "kisiler": []
+        }
+      ]
+    },
+    {
+      "tarih": "2026-09-24",
+      "oyun_tarihi": "24-09-1474",
+      "kavga": 0,
+      "hadiseler": [
+        {
+          "id": "256928647",
+          "hesap": "drayen",
+          "tarih": "2026-09-24",
+          "oyun_tarihi": "24-09-1474",
+          "saat": "20:04",
+          "etiket": "diger",
+          "tur": "uyelik",
+          "metin": "Ordu tarafından işe alındın.",
           "kisiler": []
         }
       ]
