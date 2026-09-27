@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-27 10:40",
+  "son_guncelleme": "2026-09-27 12:01",
   "rapor_tarihi": "2026-09-27",
   "onceki_tarih": "2026-09-26",
   "ordular": [
@@ -9,14 +9,17 @@
       "komutan": "Kazasker: Berengario",
       "durum": "Şehir İçinde",
       "ham_durum": "Ordu şehirde",
-      "alim_modu": false,
-      "danisman": false,
+      "alim_modu": null,
+      "danisman": null,
       "danisman_puan": null,
       "danisman_maas": "",
-      "komutan_login": "berengario",
+      "komutan_login": "",
       "degisim": "ayni",
       "onceki_kasaba": "Girvan",
-      "onceki_durum": "Şehir İçinde"
+      "onceki_durum": "Şehir İçinde",
+      "anlik_saat": "11:58",
+      "sabah_kasaba": "Girvan",
+      "sabah_durum": "Şehir İçinde"
     },
     {
       "ad": "The Excelsior",
@@ -71,6 +74,7 @@
   "gemiler": [],
   "not": "alim_modu/danisman 17.09.2026'dan itibaren toplanıyor; daha eski günlerde null (bilinmiyor) görünür.",
   "nobet_saatleri": {
+    "Girvan": "11:58",
     "Glasgow": "10:01"
   }
 }
