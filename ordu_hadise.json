@@ -1,14 +1,14 @@
 {
-  "son_guncelleme": "2026-09-27 09:51",
+  "son_guncelleme": "2026-09-27 17:49",
   "gun_sayisi": 30,
   "ozet": {
-    "toplam": 10,
+    "toplam": 15,
     "kavga": 1,
     "olum": 0,
     "yara": 0,
     "gorus": 3,
-    "hesap": 2,
-    "uye": 2
+    "hesap": 3,
+    "uye": 3
   },
   "uyeler": [
     {
@@ -64,17 +64,40 @@
       "komutan": "Emmalogan",
       "ucret": "22,00",
       "katilma_gunu": "",
-      "son_gorulme": "2026-09-26 10:54",
+      "son_gorulme": "2026-09-27 10:03",
       "mufreze_komutani": false,
       "mufreze_kisi": null,
       "takip": {
-        "gun": "2026-09-26",
+        "gun": "2026-09-27",
         "sonuc": "verildi",
         "aciklama": "Bu grubun liderini takip ediyorsun. Bugün ayrılamazsın.",
         "lider": "Emmalogan"
       },
       "enerji": {
-        "gun": "2026-09-26",
+        "gun": "2026-09-27",
+        "pa": 65,
+        "max_pa": 65,
+        "sonuc": "boya: 4 üretim (en fazla 4) + maden: 60 dk"
+      }
+    },
+    {
+      "hesap": "Zaniolo",
+      "uye": true,
+      "ordu": "The Excelsior",
+      "komutan": "Emmalogan",
+      "ucret": "22,00",
+      "katilma_gunu": "",
+      "son_gorulme": "2026-09-27 10:11",
+      "mufreze_komutani": false,
+      "mufreze_kisi": null,
+      "takip": {
+        "gun": "2026-09-27",
+        "sonuc": "belirsiz",
+        "aciklama": "Programla'ya basıldı, bildirim görülmedi",
+        "lider": "Emmalogan"
+      },
+      "enerji": {
+        "gun": "2026-09-27",
         "pa": 65,
         "max_pa": 65,
         "sonuc": "boya: 4 üretim (en fazla 4) + maden: 60 dk"
@@ -87,6 +110,17 @@
       "oyun_tarihi": "27-09-1474",
       "kavga": 0,
       "hadiseler": [
+        {
+          "id": "257275609",
+          "hesap": "Zaniolo",
+          "tarih": "2026-09-27",
+          "oyun_tarihi": "27-09-1474",
+          "saat": "04:01",
+          "etiket": "diger",
+          "tur": "satis_iptal",
+          "metin": "Gece seyahatinizden önce, devam eden satışlarınız iptal edildi ve ürünleriniz otomatik olarak geri alındı.",
+          "kisiler": []
+        },
         {
           "id": "257260143",
           "hesap": "drayen",
@@ -105,6 +139,17 @@
       "oyun_tarihi": "26-09-1474",
       "kavga": 1,
       "hadiseler": [
+        {
+          "id": "257253793",
+          "hesap": "Zaniolo",
+          "tarih": "2026-09-26",
+          "oyun_tarihi": "26-09-1474",
+          "saat": "22:51",
+          "etiket": "diger",
+          "tur": "uyelik",
+          "metin": "Ordu tarafından işe alındın.",
+          "kisiler": []
+        },
         {
           "id": "257136878",
           "hesap": "Thebear",
@@ -127,6 +172,17 @@
           "etiket": "diger",
           "tur": "yuk",
           "metin": "Yolculuk, kalkış sırasında aşırı yük nedeniyle iptal edildi. Seyahat ederken bazı öğeler otomatik olarak envanterinize eklenebilir.",
+          "kisiler": []
+        },
+        {
+          "id": "257120986",
+          "hesap": "Thebear",
+          "tarih": "2026-09-26",
+          "oyun_tarihi": "26-09-1474",
+          "saat": "04:01",
+          "etiket": "diger",
+          "tur": "satis_iptal",
+          "metin": "Gece seyahatinizden önce, devam eden satışlarınız iptal edildi ve ürünleriniz otomatik olarak geri alındı.",
           "kisiler": []
         },
         {
@@ -173,6 +229,17 @@
           "kisiler": []
         },
         {
+          "id": "256969340",
+          "hesap": "Thebear",
+          "tarih": "2026-09-25",
+          "oyun_tarihi": "25-09-1474",
+          "saat": "04:01",
+          "etiket": "diger",
+          "tur": "satis_iptal",
+          "metin": "Gece seyahatinizden önce, devam eden satışlarınız iptal edildi ve ürünleriniz otomatik olarak geri alındı.",
+          "kisiler": []
+        },
+        {
           "id": "256969331",
           "hesap": "drayen",
           "tarih": "2026-09-25",
@@ -212,6 +279,17 @@
       "oyun_tarihi": "24-09-1474",
       "kavga": 0,
       "hadiseler": [
+        {
+          "id": "256933059",
+          "hesap": "Thebear",
+          "tarih": "2026-09-24",
+          "oyun_tarihi": "24-09-1474",
+          "saat": "20:43",
+          "etiket": "diger",
+          "tur": "uyelik",
+          "metin": "Ordu tarafından işe alındın.",
+          "kisiler": []
+        },
         {
           "id": "256928647",
           "hesap": "drayen",
