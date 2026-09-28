@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-27 17:49",
+  "son_guncelleme": "2026-09-28 15:55",
   "adim_hakki_normal": 2,
   "adim_hakki_jetonlu": 3,
   "yolcular": [
@@ -7,23 +7,15 @@
       "hesap": "Calwenor",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Loches",
+      "nereden": "La Trémouille",
       "yolda": false,
-      "bot_kalan_gun": 8,
-      "nereden_id": 143,
+      "bot_kalan_gun": 7,
+      "nereden_id": 186,
       "hedef": "Lodève",
       "hedef_id": 313,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 143,
-          "isim": "Loches"
-        },
-        {
-          "id": 2701,
-          "isim": "Loches - La Trémouille arası"
-        },
         {
           "id": 186,
           "isim": "La Trémouille"
@@ -85,26 +77,11 @@
           "isim": "Lodève"
         }
       ],
-      "kalan_adim": 16,
-      "kalan_gun": 8,
+      "kalan_adim": 14,
+      "kalan_gun": 7,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 186,
-          "varis": "La Trémouille",
-          "duraklar": [
-            {
-              "id": 2701,
-              "isim": "Loches - La Trémouille arası"
-            },
-            {
-              "id": 186,
-              "isim": "La Trémouille"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 200,
           "varis": "Limoges - La Trémouille arası",
           "duraklar": [
@@ -119,7 +96,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 198,
           "varis": "Limoges - Tulle arası",
           "duraklar": [
@@ -134,7 +111,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 196,
           "varis": "Tulle",
           "duraklar": [
@@ -149,7 +126,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 194,
           "varis": "Aurillac",
           "duraklar": [
@@ -164,7 +141,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 1123,
           "varis": "Rodez",
           "duraklar": [
@@ -179,7 +156,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 1125,
           "varis": "Millau",
           "duraklar": [
@@ -194,7 +171,7 @@
           ]
         },
         {
-          "gun": 8,
+          "gun": 7,
           "varis_id": 313,
           "varis": "Lodève",
           "duraklar": [
@@ -215,34 +192,19 @@
   ],
   "kafileler": [
     {
-      "anahtar": "143|313|2",
-      "nereden": "Loches",
-      "nereden_id": 143,
+      "anahtar": "186|313|2",
+      "nereden": "La Trémouille",
+      "nereden_id": 186,
       "hedef": "Lodève",
       "hedef_id": 313,
       "yolda": false,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 16,
-      "kalan_gun": 8,
+      "kalan_adim": 14,
+      "kalan_gun": 7,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 186,
-          "varis": "La Trémouille",
-          "duraklar": [
-            {
-              "id": 2701,
-              "isim": "Loches - La Trémouille arası"
-            },
-            {
-              "id": 186,
-              "isim": "La Trémouille"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 200,
           "varis": "Limoges - La Trémouille arası",
           "duraklar": [
@@ -257,7 +219,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 198,
           "varis": "Limoges - Tulle arası",
           "duraklar": [
@@ -272,7 +234,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 196,
           "varis": "Tulle",
           "duraklar": [
@@ -287,7 +249,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 194,
           "varis": "Aurillac",
           "duraklar": [
@@ -302,7 +264,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 1123,
           "varis": "Rodez",
           "duraklar": [
@@ -317,7 +279,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 1125,
           "varis": "Millau",
           "duraklar": [
@@ -332,7 +294,7 @@
           ]
         },
         {
-          "gun": 8,
+          "gun": 7,
           "varis_id": 313,
           "varis": "Lodève",
           "duraklar": [
@@ -348,14 +310,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 143,
-          "isim": "Loches"
-        },
-        {
-          "id": 2701,
-          "isim": "Loches - La Trémouille arası"
-        },
         {
           "id": 186,
           "isim": "La Trémouille"
@@ -466,7 +420,7 @@
       "hesap": "drayen",
       "tur": "takip",
       "hedef": "",
-      "nereden": "Glasgow",
+      "nereden": "Glasgow (Şehirde)",
       "ayar_grup_takip": true,
       "takip_modu": "Ordu Takip",
       "sebep": "ayarı 'Ordu Takip' ama lideri belirlenemedi (gruptan düşmüş de olabilir) — ayarda lider yazmıyor, oyun kaydında da yok, aynı noktada yolcu da yok"
