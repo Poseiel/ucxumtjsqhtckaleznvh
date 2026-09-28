@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-28 09:51",
+  "son_guncelleme": "2026-09-28 10:02",
   "rapor_tarihi": "2026-09-28",
   "onceki_tarih": "2026-09-27",
   "ordular": [
@@ -63,14 +63,17 @@
       "komutan": "Kazasker: Catani",
       "durum": "Şehir İçinde",
       "ham_durum": "Ordu şehirde",
-      "alim_modu": false,
-      "danisman": false,
+      "alim_modu": null,
+      "danisman": null,
       "danisman_puan": null,
       "danisman_maas": "",
-      "komutan_login": "catani",
+      "komutan_login": "",
       "degisim": "ayni",
       "onceki_kasaba": "Wigtown",
-      "onceki_durum": "Şehir İçinde"
+      "onceki_durum": "Şehir İçinde",
+      "anlik_saat": "09:58",
+      "sabah_kasaba": "Wigtown",
+      "sabah_durum": "Şehir İçinde"
     }
   ],
   "ayrilanlar": [],
@@ -79,6 +82,7 @@
   "nobet_saatleri": {
     "Girvan": "09:26",
     "Glasgow": "08:25",
-    "Stirling": "09:45"
+    "Stirling": "09:45",
+    "Wigtown": "09:58"
   }
 }
