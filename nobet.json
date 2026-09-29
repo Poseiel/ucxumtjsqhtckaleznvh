@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-29 11:32",
+  "son_guncelleme": "2026-09-29 11:54",
   "tarih": "2026-09-29",
   "aralik_dk": 150,
   "kontroller": [
@@ -104,12 +104,11 @@
         }
       ],
       "farklar": []
-    }
-  ],
-  "son_durum": {
-    "Glasgow": {
-      "saat": "10:22",
-      "saat_tam": "2026-09-29T10:22:09",
+    },
+    {
+      "kasaba": "Glasgow",
+      "saat": "11:50",
+      "saat_tam": "2026-09-29T11:50:19",
       "ordu_okundu": true,
       "ordular": [
         {
@@ -125,7 +124,51 @@
           "id": "6310666",
           "tur": "Silahlı Grup",
           "lider": "partal",
-          "uyeler": [],
+          "uyeler": [
+            "pontiac_bandit"
+          ],
+          "katilim": "Yetki Dahilinde"
+        }
+      ],
+      "farklar": [
+        {
+          "tip": "grup_uye",
+          "grup_id": "6310666",
+          "lider": "partal",
+          "uyeler": [
+            "pontiac_bandit"
+          ],
+          "eklenen": [
+            "pontiac_bandit"
+          ],
+          "cikan": [],
+          "metin": "👥 GRUP ÜYELERİ DEĞİŞTİ: Silahlı Grup (lider: partal) — katılan: pontiac_bandit"
+        }
+      ]
+    }
+  ],
+  "son_durum": {
+    "Glasgow": {
+      "saat": "11:50",
+      "saat_tam": "2026-09-29T11:50:19",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "The Excelsior",
+          "kasaba": "Glasgow",
+          "komutan": "Kazasker: Emmalogan",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "6310666",
+          "tur": "Silahlı Grup",
+          "lider": "partal",
+          "uyeler": [
+            "pontiac_bandit"
+          ],
           "katilim": "Yetki Dahilinde"
         }
       ]
