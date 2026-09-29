@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-28 15:55",
+  "son_guncelleme": "2026-09-29 17:22",
   "adim_hakki_normal": 2,
   "adim_hakki_jetonlu": 3,
   "yolcular": [
@@ -7,23 +7,15 @@
       "hesap": "Calwenor",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "La Trémouille",
-      "yolda": false,
-      "bot_kalan_gun": 7,
-      "nereden_id": 186,
+      "nereden": "Limoges - La Trémouille Yolu Üzerinde",
+      "yolda": true,
+      "bot_kalan_gun": 6,
+      "nereden_id": 200,
       "hedef": "Lodève",
       "hedef_id": 313,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 186,
-          "isim": "La Trémouille"
-        },
-        {
-          "id": 201,
-          "isim": "La Trémouille - Limoges arası"
-        },
         {
           "id": 200,
           "isim": "Limoges - La Trémouille arası"
@@ -77,26 +69,11 @@
           "isim": "Lodève"
         }
       ],
-      "kalan_adim": 14,
-      "kalan_gun": 7,
+      "kalan_adim": 12,
+      "kalan_gun": 6,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 200,
-          "varis": "Limoges - La Trémouille arası",
-          "duraklar": [
-            {
-              "id": 201,
-              "isim": "La Trémouille - Limoges arası"
-            },
-            {
-              "id": 200,
-              "isim": "Limoges - La Trémouille arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 198,
           "varis": "Limoges - Tulle arası",
           "duraklar": [
@@ -111,7 +88,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 196,
           "varis": "Tulle",
           "duraklar": [
@@ -126,7 +103,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 194,
           "varis": "Aurillac",
           "duraklar": [
@@ -141,7 +118,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 1123,
           "varis": "Rodez",
           "duraklar": [
@@ -156,7 +133,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 1125,
           "varis": "Millau",
           "duraklar": [
@@ -171,7 +148,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 313,
           "varis": "Lodève",
           "duraklar": [
@@ -192,34 +169,19 @@
   ],
   "kafileler": [
     {
-      "anahtar": "186|313|2",
-      "nereden": "La Trémouille",
-      "nereden_id": 186,
+      "anahtar": "200|313|2",
+      "nereden": "Limoges - La Trémouille Yolu Üzerinde",
+      "nereden_id": 200,
       "hedef": "Lodève",
       "hedef_id": 313,
-      "yolda": false,
+      "yolda": true,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 14,
-      "kalan_gun": 7,
+      "kalan_adim": 12,
+      "kalan_gun": 6,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 200,
-          "varis": "Limoges - La Trémouille arası",
-          "duraklar": [
-            {
-              "id": 201,
-              "isim": "La Trémouille - Limoges arası"
-            },
-            {
-              "id": 200,
-              "isim": "Limoges - La Trémouille arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 198,
           "varis": "Limoges - Tulle arası",
           "duraklar": [
@@ -234,7 +196,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 196,
           "varis": "Tulle",
           "duraklar": [
@@ -249,7 +211,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 194,
           "varis": "Aurillac",
           "duraklar": [
@@ -264,7 +226,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 1123,
           "varis": "Rodez",
           "duraklar": [
@@ -279,7 +241,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 1125,
           "varis": "Millau",
           "duraklar": [
@@ -294,7 +256,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 313,
           "varis": "Lodève",
           "duraklar": [
@@ -310,14 +272,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 186,
-          "isim": "La Trémouille"
-        },
-        {
-          "id": 201,
-          "isim": "La Trémouille - Limoges arası"
-        },
         {
           "id": 200,
           "isim": "Limoges - La Trémouille arası"
