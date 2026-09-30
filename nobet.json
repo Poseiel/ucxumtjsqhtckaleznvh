@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-30 09:29",
+  "son_guncelleme": "2026-09-30 09:42",
   "tarih": "2026-09-30",
   "aralik_dk": 150,
   "kontroller": [
@@ -166,6 +166,35 @@
         }
       ],
       "farklar": []
+    },
+    {
+      "kasaba": "Glasgow",
+      "saat": "09:38",
+      "saat_tam": "2026-09-30T09:38:04",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "The Excelsior",
+          "kasaba": "Glasgow",
+          "komutan": "Kazasker: Emmalogan",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": [],
+      "farklar": [
+        {
+          "tip": "grup_gitti",
+          "grup_id": "6310941",
+          "lider": "leopold2",
+          "uyeler": [
+            "borukagan",
+            "vyhaan",
+            "alvarooo"
+          ],
+          "metin": "❌ GRUP GİTTİ/DAĞILDI: Silahlı Grup (lider: leopold2) — 4 kişi: leopold2, borukagan, vyhaan, alvarooo"
+        }
+      ]
     }
   ],
   "son_durum": {
@@ -326,6 +355,21 @@
           "katilim": "Yetki Dahilinde"
         }
       ]
+    },
+    "Glasgow": {
+      "saat": "09:38",
+      "saat_tam": "2026-09-30T09:38:04",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "The Excelsior",
+          "kasaba": "Glasgow",
+          "komutan": "Kazasker: Emmalogan",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": []
     }
   },
   "ordulu_kasabalar": [
