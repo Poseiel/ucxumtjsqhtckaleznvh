@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-09-30 12:13",
+  "son_guncelleme": "2026-09-30 12:31",
   "tarih": "2026-09-30",
   "aralik_dk": 150,
   "kontroller": [
@@ -359,6 +359,59 @@
       ],
       "gruplar": [],
       "farklar": []
+    },
+    {
+      "kasaba": "Wigtown",
+      "saat": "12:29",
+      "saat_tam": "2026-09-30T12:29:44",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Wigtown",
+          "kasaba": "Wigtown",
+          "komutan": "Kazasker: Catani",
+          "durum": "Şehir İçinde",
+          "ham_durum": "Ordu şehirde"
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "6004075",
+          "tur": "Silahlı Grup",
+          "lider": "al_lan",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6286581",
+          "tur": "Silahlı Grup",
+          "lider": "causantin_men3es",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6286577",
+          "tur": "Silahlı Grup",
+          "lider": "lorelei",
+          "uyeler": [
+            "john1988vic"
+          ],
+          "katilim": "Yetki Dahilinde"
+        },
+        {
+          "id": "6310697",
+          "tur": "Silahlı Grup",
+          "lider": "morvyn_james",
+          "uyeler": [
+            "arden_campbell",
+            "narses",
+            "baako",
+            "william_sinclair"
+          ],
+          "katilim": "Serbest Katılım"
+        }
+      ],
+      "farklar": []
     }
   ],
   "son_durum": {
@@ -378,8 +431,8 @@
       "gruplar": []
     },
     "Wigtown": {
-      "saat": "10:58",
-      "saat_tam": "2026-09-30T10:58:42",
+      "saat": "12:29",
+      "saat_tam": "2026-09-30T12:29:44",
       "ordu_okundu": true,
       "ordular": [
         {
