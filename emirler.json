@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-01 14:56",
+  "son_guncelleme": "2026-10-01 18:40",
   "azami_gun": 14,
   "azami_deneme": 7,
   "bekleyen": [
@@ -118,8 +118,8 @@
       "serbest": false,
       "yazan": "Çağrı",
       "eklenme": "2026-09-26 18:00",
-      "gecen_gun": 4,
-      "kalan_gun": 10,
+      "gecen_gun": 5,
+      "kalan_gun": 9,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "✅ PROFİL YAZILDI",
@@ -526,6 +526,34 @@
       "kapanma": "2026-09-06 10:02"
     }
   ],
-  "ayarlar": [],
-  "ayar_guncelleme": "2026-09-28"
+  "ayarlar": [
+    {
+      "hesap": "aiegus",
+      "alanlar": [
+        {
+          "ad": "divan_gorevi",
+          "deger": "Ticaret Nazırı"
+        }
+      ]
+    },
+    {
+      "hesap": "caspe",
+      "alanlar": [
+        {
+          "ad": "inziva",
+          "deger": "kapalı"
+        }
+      ]
+    },
+    {
+      "hesap": "renegrade",
+      "alanlar": [
+        {
+          "ad": "divan_gorevi",
+          "deger": "Sancak Beyi"
+        }
+      ]
+    }
+  ],
+  "ayar_guncelleme": "2026-10-01"
 }
