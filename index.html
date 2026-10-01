@@ -1626,15 +1626,16 @@ if (window.L) L.RasterCoords.prototype = {
           <select id="oy-secim">
             <option value="belediye">🏛️ Belediye reisi (kasaba)</option>
             <option value="divan">👑 Divan listesi (sancak)</option>
+            <option value="sancakbeyi">🏰 Sancak Beyi'ni tanı</option>
           </select>
         </label>
-        <label>Kasaba / sancak <span class="emir-kucuk">(belediye: Stirling · divan: Glasgow)</span>
+        <label>Kasaba / sancak <span class="emir-kucuk">(belediye: Stirling · divan: Glasgow · Sancak Beyi: boş bırakılabilir)</span>
           <input type="text" id="oy-yer" placeholder="Stirling">
         </label>
       </div>
       <div class="emir-satir">
-        <label>Aday / liste <span class="emir-kucuk">(oyundaki adıyla — belediye: aday · divan: liste adı ya da kısa adı)</span>
-          <input type="text" id="oy-aday" placeholder="madcypriot">
+        <label>Aday / liste <span class="emir-kucuk">(oyundaki adıyla — belediye: aday · divan: liste adı ya da kısa adı · Sancak Beyi: tanınacak kişi)</span>
+          <input type="text" id="oy-aday" list="emir-hesap-listesi" placeholder="madcypriot" autocomplete="off">
         </label>
         <label>Kaç güne yayılsın
           <select id="oy-gun">
@@ -1650,6 +1651,7 @@ if (window.L) L.RasterCoords.prototype = {
         </label>
       </div>
       <p class="emir-ipucu">Emir <b>tek</b>dir; o kasabada (belediye) ya da sancakta (divan) bulunan hesaplarımız oyuna girdikçe sırayla oy verir. Oylar <b>en fazla 3 güne</b> yayılır; seçimin bitmesine daha az gün kaldıysa o kadar güne. <b>Oy veren hesap listeden düşer</b>. Divanda yalnızca yazdığın listenin <b>altındaki</b> "Oy ver"e basılır, başka listeye asla. "Peki"ye basılmaz. Seçim bitince emir kapanır ve Telegram'a kaç hesabın oy verdiği yazılır.</p>
+      <p class="emir-ipucu">🏰 <b>Sancak Beyi'ni tanı</b>: hesap Sancak Kalesi → Divan Seçimi → <b>"Sancak Beyi'ni tanı"</b>ya gider, yazdığın kişinin yanındaki seçeneği işaretler ve <b>Seç</b>'e basar. Sayfada <b>"Bu kişiyi tanımaktasınız: &lt;ad&gt;"</b> görülünce o hesap tamam sayılır. <b>Hesap kutusu boşsa toplu</b>: sancaktaki bütün hesaplarımız tanır; doluysa yalnızca yazdıkların. Telegram'a <b>günde bir toplu mesaj</b> gider (o gün kaç hesap tanıdı); yazdığın hesapların hepsi tanıyınca emir silinir.</p>
     </div>
     <!-- ---------------- 🪖 ORDUYA KATIL (25.09.2026) ----------------
          Kullanıcı (24.09): "ordudaki hesaplar işe girmeyecek unutmayalım" +
