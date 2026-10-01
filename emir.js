@@ -659,20 +659,27 @@ function emirMesajiKur() {
   // ⚠️ Şablon `oy_modul.emri_coz` ile BİREBİR aynı olmalı: başlık +
   //    "seçim:" + (belediye → "kasaba:" · divan → "sancak:") + "aday:"/"liste:"
   //    + "gün:" + isteğe bağlı her hesap ayrı "hesap:" satırı.
+  //    🏰 [01.10.2026] "Sancak Beyi'ni tanı": "seçim: sancak beyi" +
+  //    İSTEĞE BAĞLI "sancak:" + "aday:" (tanınacak kişi). Hesap kutusu
+  //    boşsa toplu (sancaktaki tüm hesaplarımız), doluysa yalnızca onlar.
   if (emirTur === "oy") {
-    var oySecim = emirDeger("oy-secim") === "divan" ? "divan" : "belediye";
+    var oySecimHam = emirDeger("oy-secim");
+    var oySecim = oySecimHam === "divan" ? "divan"
+                : (oySecimHam === "sancakbeyi" ? "sancakbeyi" : "belediye");
+    var oyBey = oySecim === "sancakbeyi";
     var oyYer = emirDeger("oy-yer");
     var oyAday = emirDeger("oy-aday");
     var oyEksik = [];
-    if (!oyYer) oyEksik.push(oySecim === "divan" ? "sancak" : "kasaba");
-    if (!oyAday) oyEksik.push(oySecim === "divan" ? "liste adı" : "aday");
+    if (!oyYer && !oyBey) oyEksik.push(oySecim === "divan" ? "sancak" : "kasaba");
+    if (!oyAday) oyEksik.push(oySecim === "divan" ? "liste adı"
+                              : (oyBey ? "tanınacak kişi" : "aday"));
     if (oyEksik.length) return { hata: "Eksik: " + oyEksik.join(", ") };
     var oyGun = parseInt(emirDeger("oy-gun"), 10);
     if (!(oyGun >= 1 && oyGun <= 3)) oyGun = 3;
-    var oySatir = ["OY VER", "seçim: " + oySecim,
-                   (oySecim === "divan" ? "sancak: " : "kasaba: ") + oyYer,
-                   (oySecim === "divan" ? "liste: " : "aday: ") + oyAday,
-                   "gün: " + oyGun];
+    var oySatir = ["OY VER", "seçim: " + (oyBey ? "sancak beyi" : oySecim)];
+    if (oyYer) oySatir.push((oySecim === "belediye" ? "kasaba: " : "sancak: ") + oyYer);
+    oySatir.push((oySecim === "divan" ? "liste: " : "aday: ") + oyAday);
+    oySatir.push("gün: " + oyGun);
     var oyAdlar = [];
     String(emirDeger("oy-hesaplar") || "").split(/[\r\n,;]+/).forEach(function (x) {
       x = x.trim();
@@ -1917,8 +1924,9 @@ async function emirIptalEt(kodlar, ozet) {
       ne: "Hesaplar Sancak Kalesi → Divan Seçimi'nde kendi adlarının geçtiği listeyi ONAYLAR. \"İptal\"e asla basılmaz.",
       anahtar: ["divan onay", "divan listesi", "listeyi onayla", "liste onay", "divan liste"] },
     { id: "oy", tur: "oy", ikon: "🗳️", baslik: "Oy verme",
-      ne: "Belediye ya da divan seçiminde hesaplarımıza oy verdirir; oylar en fazla 3 güne yayılır, oy veren hesap listeden düşer.",
-      anahtar: ["oy", "oy ver", "oy verdir", "secim", "aday", "belediye secimi", "divan secimi", "reis secimi"] },
+      ne: "Belediye ya da divan seçiminde hesaplarımıza oy verdirir ya da Sancak Beyi'ni TANITIR; oylar en fazla 3 güne yayılır, oy veren hesap listeden düşer.",
+      anahtar: ["oy", "oy ver", "oy verdir", "secim", "aday", "belediye secimi", "divan secimi", "reis secimi",
+                "sancak beyi", "sancak beyini tani", "beyi tani", "bey tani"] },
     { id: "ordukatil", tur: "ordukatil", ikon: "🪖", baslik: "Orduya katılma",
       ne: "Hesabı orduya sokar; sonra her gün önce lideri takip eder, enerjisini (65) boya/madende harcar. Ordu adı ya da komutanı ZORUNLU.",
       anahtar: ["ordu", "orduya", "ordusuna", "orduya katil", "orduya sok", "askere", "asker yap", "ordu katil"] },
