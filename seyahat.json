@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-01 18:40",
+  "son_guncelleme": "2026-10-02 15:43",
   "adim_hakki_normal": 2,
   "adim_hakki_jetonlu": 3,
   "yolcular": [
@@ -7,23 +7,15 @@
       "hesap": "Calwenor",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Tulle",
+      "nereden": "Aurillac",
       "yolda": false,
-      "bot_kalan_gun": 4,
-      "nereden_id": 196,
+      "bot_kalan_gun": 3,
+      "nereden_id": 194,
       "hedef": "Lodève",
       "hedef_id": 313,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 196,
-          "isim": "Tulle"
-        },
-        {
-          "id": 195,
-          "isim": "Aurillac - Tulle arası"
-        },
         {
           "id": 194,
           "isim": "Aurillac"
@@ -53,26 +45,11 @@
           "isim": "Lodève"
         }
       ],
-      "kalan_adim": 8,
-      "kalan_gun": 4,
+      "kalan_adim": 6,
+      "kalan_gun": 3,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 194,
-          "varis": "Aurillac",
-          "duraklar": [
-            {
-              "id": 195,
-              "isim": "Aurillac - Tulle arası"
-            },
-            {
-              "id": 194,
-              "isim": "Aurillac"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 1123,
           "varis": "Rodez",
           "duraklar": [
@@ -87,7 +64,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 1125,
           "varis": "Millau",
           "duraklar": [
@@ -102,7 +79,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 313,
           "varis": "Lodève",
           "duraklar": [
@@ -123,34 +100,19 @@
   ],
   "kafileler": [
     {
-      "anahtar": "196|313|2",
-      "nereden": "Tulle",
-      "nereden_id": 196,
+      "anahtar": "194|313|2",
+      "nereden": "Aurillac",
+      "nereden_id": 194,
       "hedef": "Lodève",
       "hedef_id": 313,
       "yolda": false,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 8,
-      "kalan_gun": 4,
+      "kalan_adim": 6,
+      "kalan_gun": 3,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 194,
-          "varis": "Aurillac",
-          "duraklar": [
-            {
-              "id": 195,
-              "isim": "Aurillac - Tulle arası"
-            },
-            {
-              "id": 194,
-              "isim": "Aurillac"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 1123,
           "varis": "Rodez",
           "duraklar": [
@@ -165,7 +127,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 1125,
           "varis": "Millau",
           "duraklar": [
@@ -180,7 +142,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 313,
           "varis": "Lodève",
           "duraklar": [
@@ -196,14 +158,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 196,
-          "isim": "Tulle"
-        },
-        {
-          "id": 195,
-          "isim": "Aurillac - Tulle arası"
-        },
         {
           "id": 194,
           "isim": "Aurillac"
