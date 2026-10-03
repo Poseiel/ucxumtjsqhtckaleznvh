@@ -1,29 +1,69 @@
 {
-  "son_guncelleme": "2026-10-02 15:43",
+  "son_guncelleme": "2026-10-03 15:57",
   "adim_hakki_normal": 2,
   "adim_hakki_jetonlu": 3,
   "yolcular": [
     {
+      "hesap": "Penaldo",
+      "tur": "seyahat",
+      "kaynak": "gorev",
+      "nereden": "Kirkcudbright",
+      "yolda": false,
+      "bot_kalan_gun": null,
+      "nereden_id": 758,
+      "hedef": "Wigtown",
+      "hedef_id": 760,
+      "jetonlu": false,
+      "adim_hakki": 2,
+      "rota": [
+        {
+          "id": 758,
+          "isim": "Kirkcudbright"
+        },
+        {
+          "id": 759,
+          "isim": "Kirkcudbright - Wigtown arası"
+        },
+        {
+          "id": 760,
+          "isim": "Wigtown"
+        }
+      ],
+      "kalan_adim": 2,
+      "kalan_gun": 1,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 760,
+          "varis": "Wigtown",
+          "duraklar": [
+            {
+              "id": 759,
+              "isim": "Kirkcudbright - Wigtown arası"
+            },
+            {
+              "id": 760,
+              "isim": "Wigtown"
+            }
+          ]
+        }
+      ],
+      "lider": "",
+      "rol": "tek"
+    },
+    {
       "hesap": "Calwenor",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Aurillac",
+      "nereden": "Rodez",
       "yolda": false,
-      "bot_kalan_gun": 3,
-      "nereden_id": 194,
+      "bot_kalan_gun": 2,
+      "nereden_id": 1123,
       "hedef": "Lodève",
       "hedef_id": 313,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 194,
-          "isim": "Aurillac"
-        },
-        {
-          "id": 1174,
-          "isim": "Aurillac - Rodez arası"
-        },
         {
           "id": 1123,
           "isim": "Rodez"
@@ -45,26 +85,11 @@
           "isim": "Lodève"
         }
       ],
-      "kalan_adim": 6,
-      "kalan_gun": 3,
+      "kalan_adim": 4,
+      "kalan_gun": 2,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 1123,
-          "varis": "Rodez",
-          "duraklar": [
-            {
-              "id": 1174,
-              "isim": "Aurillac - Rodez arası"
-            },
-            {
-              "id": 1123,
-              "isim": "Rodez"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 1125,
           "varis": "Millau",
           "duraklar": [
@@ -79,7 +104,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 313,
           "varis": "Lodève",
           "duraklar": [
@@ -96,38 +121,191 @@
       ],
       "lider": "",
       "rol": "tek"
+    },
+    {
+      "hesap": "Honkaa",
+      "tur": "seyahat",
+      "kaynak": "gorev",
+      "nereden": "Lewes",
+      "yolda": false,
+      "bot_kalan_gun": null,
+      "nereden_id": 47,
+      "hedef": "Hastings",
+      "hedef_id": 218,
+      "jetonlu": false,
+      "adim_hakki": 2,
+      "rota": [
+        {
+          "id": 47,
+          "isim": "Lewes"
+        },
+        {
+          "id": 48,
+          "isim": "Lewes - Hastings arası"
+        },
+        {
+          "id": 218,
+          "isim": "Hastings"
+        }
+      ],
+      "kalan_adim": 2,
+      "kalan_gun": 1,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 218,
+          "varis": "Hastings",
+          "duraklar": [
+            {
+              "id": 48,
+              "isim": "Lewes - Hastings arası"
+            },
+            {
+              "id": 218,
+              "isim": "Hastings"
+            }
+          ]
+        }
+      ],
+      "lider": "",
+      "rol": "tek"
     }
   ],
   "kafileler": [
     {
-      "anahtar": "194|313|2",
-      "nereden": "Aurillac",
-      "nereden_id": 194,
+      "anahtar": "758|760|2",
+      "nereden": "Kirkcudbright",
+      "nereden_id": 758,
+      "hedef": "Wigtown",
+      "hedef_id": 760,
+      "yolda": false,
+      "adim_hakki": 2,
+      "jetonlu": false,
+      "kalan_adim": 2,
+      "kalan_gun": 1,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 760,
+          "varis": "Wigtown",
+          "duraklar": [
+            {
+              "id": 759,
+              "isim": "Kirkcudbright - Wigtown arası"
+            },
+            {
+              "id": 760,
+              "isim": "Wigtown"
+            }
+          ]
+        }
+      ],
+      "rota": [
+        {
+          "id": 758,
+          "isim": "Kirkcudbright"
+        },
+        {
+          "id": 759,
+          "isim": "Kirkcudbright - Wigtown arası"
+        },
+        {
+          "id": 760,
+          "isim": "Wigtown"
+        }
+      ],
+      "hesaplar": [
+        {
+          "hesap": "Penaldo",
+          "tur": "seyahat",
+          "lider": "",
+          "kaynak": "",
+          "tahmin": false,
+          "rol": "tek"
+        }
+      ],
+      "liderler": [],
+      "kisi": 1,
+      "yalniz": true,
+      "grup": false,
+      "lider": "",
+      "olculdu": true,
+      "kaynaklar": []
+    },
+    {
+      "anahtar": "47|218|2",
+      "nereden": "Lewes",
+      "nereden_id": 47,
+      "hedef": "Hastings",
+      "hedef_id": 218,
+      "yolda": false,
+      "adim_hakki": 2,
+      "jetonlu": false,
+      "kalan_adim": 2,
+      "kalan_gun": 1,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 218,
+          "varis": "Hastings",
+          "duraklar": [
+            {
+              "id": 48,
+              "isim": "Lewes - Hastings arası"
+            },
+            {
+              "id": 218,
+              "isim": "Hastings"
+            }
+          ]
+        }
+      ],
+      "rota": [
+        {
+          "id": 47,
+          "isim": "Lewes"
+        },
+        {
+          "id": 48,
+          "isim": "Lewes - Hastings arası"
+        },
+        {
+          "id": 218,
+          "isim": "Hastings"
+        }
+      ],
+      "hesaplar": [
+        {
+          "hesap": "Honkaa",
+          "tur": "seyahat",
+          "lider": "",
+          "kaynak": "",
+          "tahmin": false,
+          "rol": "tek"
+        }
+      ],
+      "liderler": [],
+      "kisi": 1,
+      "yalniz": true,
+      "grup": false,
+      "lider": "",
+      "olculdu": true,
+      "kaynaklar": []
+    },
+    {
+      "anahtar": "1123|313|2",
+      "nereden": "Rodez",
+      "nereden_id": 1123,
       "hedef": "Lodève",
       "hedef_id": 313,
       "yolda": false,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 6,
-      "kalan_gun": 3,
+      "kalan_adim": 4,
+      "kalan_gun": 2,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 1123,
-          "varis": "Rodez",
-          "duraklar": [
-            {
-              "id": 1174,
-              "isim": "Aurillac - Rodez arası"
-            },
-            {
-              "id": 1123,
-              "isim": "Rodez"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 1125,
           "varis": "Millau",
           "duraklar": [
@@ -142,7 +320,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 313,
           "varis": "Lodève",
           "duraklar": [
@@ -158,14 +336,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 194,
-          "isim": "Aurillac"
-        },
-        {
-          "id": 1174,
-          "isim": "Aurillac - Rodez arası"
-        },
         {
           "id": 1123,
           "isim": "Rodez"
