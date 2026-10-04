@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-04 10:08",
+  "son_guncelleme": "2026-10-04 10:35",
   "rapor_tarihi": "2026-10-04",
   "onceki_tarih": "2026-10-03",
   "ordular": [
@@ -45,14 +45,17 @@
       "komutan": "Kazasker: Mavisari",
       "durum": "Şehir Dışında",
       "ham_durum": "Ordu, Şehir kapılarına dayandı.",
-      "alim_modu": false,
-      "danisman": false,
+      "alim_modu": null,
+      "danisman": null,
       "danisman_puan": null,
       "danisman_maas": "",
-      "komutan_login": "mavisari",
+      "komutan_login": "",
       "degisim": "ayni",
       "onceki_kasaba": "Stirling",
-      "onceki_durum": "Şehir Dışında"
+      "onceki_durum": "Şehir Dışında",
+      "anlik_saat": "10:33",
+      "sabah_kasaba": "Stirling",
+      "sabah_durum": "Şehir Dışında"
     },
     {
       "ad": "Wigtown",
@@ -79,6 +82,7 @@
   "nobet_saatleri": {
     "Girvan": "10:06",
     "Glasgow": "08:55",
+    "Stirling": "10:33",
     "Wigtown": "09:55"
   }
 }
