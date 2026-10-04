@@ -1,56 +1,8 @@
 {
-  "son_guncelleme": "2026-10-04 02:05",
+  "son_guncelleme": "2026-10-04 09:17",
   "adim_hakki_normal": 2,
   "adim_hakki_jetonlu": 3,
   "yolcular": [
-    {
-      "hesap": "Penaldo",
-      "tur": "seyahat",
-      "kaynak": "gorev",
-      "nereden": "Kirkcudbright",
-      "yolda": false,
-      "bot_kalan_gun": null,
-      "nereden_id": 758,
-      "hedef": "Wigtown",
-      "hedef_id": 760,
-      "jetonlu": false,
-      "adim_hakki": 2,
-      "rota": [
-        {
-          "id": 758,
-          "isim": "Kirkcudbright"
-        },
-        {
-          "id": 759,
-          "isim": "Kirkcudbright - Wigtown arası"
-        },
-        {
-          "id": 760,
-          "isim": "Wigtown"
-        }
-      ],
-      "kalan_adim": 2,
-      "kalan_gun": 1,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 760,
-          "varis": "Wigtown",
-          "duraklar": [
-            {
-              "id": 759,
-              "isim": "Kirkcudbright - Wigtown arası"
-            },
-            {
-              "id": 760,
-              "isim": "Wigtown"
-            }
-          ]
-        }
-      ],
-      "lider": "",
-      "rol": "tek"
-    },
     {
       "hesap": "Calwenor",
       "tur": "seyahat",
@@ -121,177 +73,9 @@
       ],
       "lider": "",
       "rol": "tek"
-    },
-    {
-      "hesap": "Honkaa",
-      "tur": "seyahat",
-      "kaynak": "gorev",
-      "nereden": "Lewes",
-      "yolda": false,
-      "bot_kalan_gun": null,
-      "nereden_id": 47,
-      "hedef": "Hastings",
-      "hedef_id": 218,
-      "jetonlu": false,
-      "adim_hakki": 2,
-      "rota": [
-        {
-          "id": 47,
-          "isim": "Lewes"
-        },
-        {
-          "id": 48,
-          "isim": "Lewes - Hastings arası"
-        },
-        {
-          "id": 218,
-          "isim": "Hastings"
-        }
-      ],
-      "kalan_adim": 2,
-      "kalan_gun": 1,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 218,
-          "varis": "Hastings",
-          "duraklar": [
-            {
-              "id": 48,
-              "isim": "Lewes - Hastings arası"
-            },
-            {
-              "id": 218,
-              "isim": "Hastings"
-            }
-          ]
-        }
-      ],
-      "lider": "",
-      "rol": "tek"
     }
   ],
   "kafileler": [
-    {
-      "anahtar": "758|760|2",
-      "nereden": "Kirkcudbright",
-      "nereden_id": 758,
-      "hedef": "Wigtown",
-      "hedef_id": 760,
-      "yolda": false,
-      "adim_hakki": 2,
-      "jetonlu": false,
-      "kalan_adim": 2,
-      "kalan_gun": 1,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 760,
-          "varis": "Wigtown",
-          "duraklar": [
-            {
-              "id": 759,
-              "isim": "Kirkcudbright - Wigtown arası"
-            },
-            {
-              "id": 760,
-              "isim": "Wigtown"
-            }
-          ]
-        }
-      ],
-      "rota": [
-        {
-          "id": 758,
-          "isim": "Kirkcudbright"
-        },
-        {
-          "id": 759,
-          "isim": "Kirkcudbright - Wigtown arası"
-        },
-        {
-          "id": 760,
-          "isim": "Wigtown"
-        }
-      ],
-      "hesaplar": [
-        {
-          "hesap": "Penaldo",
-          "tur": "seyahat",
-          "lider": "",
-          "kaynak": "",
-          "tahmin": false,
-          "rol": "tek"
-        }
-      ],
-      "liderler": [],
-      "kisi": 1,
-      "yalniz": true,
-      "grup": false,
-      "lider": "",
-      "olculdu": true,
-      "kaynaklar": []
-    },
-    {
-      "anahtar": "47|218|2",
-      "nereden": "Lewes",
-      "nereden_id": 47,
-      "hedef": "Hastings",
-      "hedef_id": 218,
-      "yolda": false,
-      "adim_hakki": 2,
-      "jetonlu": false,
-      "kalan_adim": 2,
-      "kalan_gun": 1,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 218,
-          "varis": "Hastings",
-          "duraklar": [
-            {
-              "id": 48,
-              "isim": "Lewes - Hastings arası"
-            },
-            {
-              "id": 218,
-              "isim": "Hastings"
-            }
-          ]
-        }
-      ],
-      "rota": [
-        {
-          "id": 47,
-          "isim": "Lewes"
-        },
-        {
-          "id": 48,
-          "isim": "Lewes - Hastings arası"
-        },
-        {
-          "id": 218,
-          "isim": "Hastings"
-        }
-      ],
-      "hesaplar": [
-        {
-          "hesap": "Honkaa",
-          "tur": "seyahat",
-          "lider": "",
-          "kaynak": "",
-          "tahmin": false,
-          "rol": "tek"
-        }
-      ],
-      "liderler": [],
-      "kisi": 1,
-      "yalniz": true,
-      "grup": false,
-      "lider": "",
-      "olculdu": true,
-      "kaynaklar": []
-    },
     {
       "anahtar": "1123|313|2",
       "nereden": "Rodez",
@@ -386,9 +170,25 @@
       "kaynak": "gorev"
     },
     {
+      "hesap": "Penaldo",
+      "tur": "seyahat",
+      "hedef": "Wigtown",
+      "nereden": "",
+      "sebep": "konum okunamadı (yolcu raporunda da yok)",
+      "kaynak": "gorev"
+    },
+    {
       "hesap": "Galdorin",
       "tur": "seyahat",
       "hedef": "Worcester",
+      "nereden": "",
+      "sebep": "konum okunamadı (yolcu raporunda da yok)",
+      "kaynak": "gorev"
+    },
+    {
+      "hesap": "Honkaa",
+      "tur": "seyahat",
+      "hedef": "Hastings",
       "nereden": "",
       "sebep": "konum okunamadı (yolcu raporunda da yok)",
       "kaynak": "gorev"
