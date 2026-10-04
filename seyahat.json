@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-04 09:17",
+  "son_guncelleme": "2026-10-04 15:21",
   "adim_hakki_normal": 2,
   "adim_hakki_jetonlu": 3,
   "yolcular": [
@@ -7,23 +7,15 @@
       "hesap": "Calwenor",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Rodez",
+      "nereden": "Millau",
       "yolda": false,
-      "bot_kalan_gun": 2,
-      "nereden_id": 1123,
+      "bot_kalan_gun": 1,
+      "nereden_id": 1125,
       "hedef": "Lodève",
       "hedef_id": 313,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 1123,
-          "isim": "Rodez"
-        },
-        {
-          "id": 1124,
-          "isim": "Rodez - Millau arası"
-        },
         {
           "id": 1125,
           "isim": "Millau"
@@ -37,26 +29,11 @@
           "isim": "Lodève"
         }
       ],
-      "kalan_adim": 4,
-      "kalan_gun": 2,
+      "kalan_adim": 2,
+      "kalan_gun": 1,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 1125,
-          "varis": "Millau",
-          "duraklar": [
-            {
-              "id": 1124,
-              "isim": "Rodez - Millau arası"
-            },
-            {
-              "id": 1125,
-              "isim": "Millau"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 313,
           "varis": "Lodève",
           "duraklar": [
@@ -77,34 +54,19 @@
   ],
   "kafileler": [
     {
-      "anahtar": "1123|313|2",
-      "nereden": "Rodez",
-      "nereden_id": 1123,
+      "anahtar": "1125|313|2",
+      "nereden": "Millau",
+      "nereden_id": 1125,
       "hedef": "Lodève",
       "hedef_id": 313,
       "yolda": false,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 4,
-      "kalan_gun": 2,
+      "kalan_adim": 2,
+      "kalan_gun": 1,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 1125,
-          "varis": "Millau",
-          "duraklar": [
-            {
-              "id": 1124,
-              "isim": "Rodez - Millau arası"
-            },
-            {
-              "id": 1125,
-              "isim": "Millau"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 313,
           "varis": "Lodève",
           "duraklar": [
@@ -120,14 +82,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 1123,
-          "isim": "Rodez"
-        },
-        {
-          "id": 1124,
-          "isim": "Rodez - Millau arası"
-        },
         {
           "id": 1125,
           "isim": "Millau"
@@ -165,14 +119,6 @@
       "hesap": "Favore",
       "tur": "seyahat",
       "hedef": "Kirkcudbright",
-      "nereden": "",
-      "sebep": "konum okunamadı (yolcu raporunda da yok)",
-      "kaynak": "gorev"
-    },
-    {
-      "hesap": "Penaldo",
-      "tur": "seyahat",
-      "hedef": "Wigtown",
       "nereden": "",
       "sebep": "konum okunamadı (yolcu raporunda da yok)",
       "kaynak": "gorev"
