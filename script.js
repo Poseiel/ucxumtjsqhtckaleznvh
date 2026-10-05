@@ -2432,6 +2432,8 @@ function emirTurAdi(t) {
   if (t === "divan_onay") return "👑 Divan onay";
   if (t === "ordu_katil") return "🪖 Orduya katıl";
   if (t === "oy_ver") return "🗳️ Oy ver";
+  // 👪 [05.10.2026] aile başvurusu kabul (aile_modul.AILE_KABUL_TURU)
+  if (t === "aile_kabul") return "👪 Aile kabul";
   return t || "—";
 }
 
