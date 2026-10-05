@@ -445,7 +445,7 @@ if (window.L) L.RasterCoords.prototype = {
         <tr><td>🖥️ Ayar &amp; görev zinciri · ➕ Hesap ekle</td><td><b>⚙️ Ayar Emirleri</b></td></tr>
         <tr><td>📜 Ödenek</td><td><b>💰 Ödenekler</b></td></tr>
         <tr><td>✉️ Mesaj</td><td><b>✉️ Mesajlar</b></td></tr>
-        <tr><td>🎭 Profil · 🤝 Güven · 🗳️ Oy · 📣 Forum · 👑 Divan onay · 📬 Posta · 🚫 İptal</td><td><b>📜 Emirler</b></td></tr>
+        <tr><td>🎭 Profil · 🤝 Güven · 🗳️ Oy · 📣 Forum · 👑 Divan onay · 👪 Aile kabul · 📬 Posta · 🚫 İptal</td><td><b>📜 Emirler</b></td></tr>
         </tbody>
       </table>
       <p class="rehber-not">Bot <b>her konuyu okur</b> — yanlış konuya yapıştırsan da emir işlenir;
@@ -461,6 +461,7 @@ if (window.L) L.RasterCoords.prototype = {
         <tr><td>📣 <b>Forum</b></td><td>Oyunun forumunda <b>bir başlığa cevap</b> yazdırır. Başlığın adresini (linkini) ve yazılacak metni verirsin.</td><td>Yalnızca oyunun kendi forum adresi kabul edilir — başka bir siteye gitmez. Yeni başlık <b>açmaz</b>, sadece cevap yazar.</td></tr>
         <tr><td>📬 <b>Posta kontrol</b></td><td>Hesap oyuna girip <b>yalnızca yeni mesaj var mı</b> diye bakar, varsa Telegram'a yollar ve çıkar.</td><td>Başka hiçbir iş yapılmaz (tarla/pazar/meslek yok). Posta zaten her girişte okunuyor — bu emir <b>gün içinde fazladan bir bakış</b> içindir. Hızlı yanıt beklediğin bir hesap için kullan.</td></tr>
         <tr><td>👑 <b>Divan onay</b><br><span class="rehber-eski">24.09.2026</span></td><td>Yazdığın hesaplar oyuna girdiğinde Sancak Kalesi'nde <b>kendi adlarının geçtiği divan listesini onaylar</b>. Birden çok hesabı tek emirde yazabilirsin.</td><td>Onayla ile İptal oyunda <b>aynı düğme türü</b>; bot yalnızca <b>Onayla</b>'ya basar. Zaten onaylıysa dokunmaz, emri kapatır. Hesap hiçbir listede yoksa emir iptal edilir.</td></tr>
+        <tr><td>👪 <b>Aile kabul</b><br><span class="rehber-eski">05.10.2026</span></td><td><b>Aile reisi</b> olan hesap oyuna girince aile sayfasında <b>Ofisim → başvurular</b> listesini açar ve yazdığın kişilerin başvurusunu <b>kabul eder</b>. Birden çok kişiyi tek emirde yazabilirsin (Anaster, Dwadu …).</td><td>Bot yalnızca <b>Kabul</b>'e basar; <b>Reddet</b>, <b>Aileden Ayrıl</b> ve <b>Peki</b>'ye asla dokunmaz. Başvurusu görünmeyen kişi emirde kalır, sonraki girişte yeniden bakılır. Hesap aile reisi değilse emir iptal edilir. Üye arttıkça giriş ücreti artar; adayın ödemediği kısmı reis öder.</td></tr>
         <tr><td>🗳️ <b>Oy ver</b><br><span class="rehber-eski">26.09.2026</span></td><td>Belediye reisi ya da divan listesi seçiminde <b>kime oy verileceğini</b> yazarsın. O kasabadaki (belediye) ya da sancaktaki (divan) hesaplarımız oyuna girdikçe oy verir.</td><td>Oylar <b>en fazla 3 güne</b> yayılır (hepsi aynı gün oy vermesin). Oy veren hesap listeden düşer. Divanda yalnızca yazdığın listenin altındaki "Oy ver"e basılır. Aday ya da liste sayfada yoksa emir iptal edilir.</td></tr>
         <tr><td>🪖 <b>Orduya katıl</b><br><span class="rehber-eski">25.09.2026</span></td><td>Yazdığın hesaplar oyuna girince bulundukları kasabada <b>adını (ya da komutanını) yazdığın ordunun</b> “Başvur” düğmesine basar. Başarılıysa hesap <b>“Ordu Takip”</b> moduna geçer: işe girmez; her gün <b>önce lideri takip eder</b>, sonra enerjisinin tamamını (65) tercihe göre harcar (🟣 boya + kalanı ⛏️ maden · ⛏️ maden · 💤 hiç), 04:00 gün sınırını aşmadan.</td><td><b>Ordu adı ZORUNLU</b> — aynı kasabada düşman ordu da asker alabiliyor, yanlış orduya girmek geri alınamaz. Ad eşleşmezse ya da belirsizse bot <b>hiçbir düğmeye basmaz</b>. Bot ordudan <b>asla ayrılmaz</b>. Olanları <b>⚔️ Ordu</b> sekmesinde görürsün.</td></tr>
         <tr><td>⚓ <b>Yanaşma</b></td><td>Liman şefi olan hesaba, <b>şu armatörün gemisinin limana yanaşmasına izin ver</b> dedirtir.</td><td>Armatörün <b>oyun içi kullanıcı adını</b> yaz (ekranda görünen büyük harfli ad değil). Emir vermediğin hiçbir gemi kabul edilmez; bot kendiliğinden yanaşma onaylamaz.</td></tr>
@@ -1373,6 +1374,7 @@ if (window.L) L.RasterCoords.prototype = {
         <button class="emir-tur-btn" data-tur="divan">👑 Divan onay</button>
         <button class="emir-tur-btn" data-tur="oy">🗳️ Oy ver</button>
         <button class="emir-tur-btn" data-tur="ordukatil">🪖 Orduya katıl</button>
+        <button class="emir-tur-btn" data-tur="aile">👪 Aile kabul</button>
       </div>
       <!-- 🎭 [21.09.2026] KARAKTER / RP grubu. Kullanıcının notu:
            "hangi hesapta profile bişe yazdıracaksak o hesap kendi ismini
@@ -1620,6 +1622,29 @@ if (window.L) L.RasterCoords.prototype = {
          vereceksek" + "o kasabadaki hesapları 3 güne yayarsın bi kere oy
          veren tekrar veremiyor onu düşersin listeden".
          ⚠️ Şablon oy_modul.emri_coz ile BİREBİR aynı olmalı. -->
+    <!-- ---------------- 👪 AİLE KABUL (05.10.2026) ----------------
+         Kullanıcı: "hangi hesap aile şefi diye sorarsın … 1'den fazla kişi kabul
+         edecekseniz isimleri tek seferde yaptır … Anaster, Dwadu, XXX, YYY".
+         Şablon aile_modul.emri_coz ile BİREBİR aynı olmalı. -->
+    <div class="emir-form" id="emir-form-aile">
+      <div class="emir-satir">
+        <label>Aile reisi hesap <span class="emir-kucuk">(başvuruları kabul edecek olan)</span>
+          <input list="emir-hesap-listesi" id="ak-hesap" placeholder="örn. Toyga" autocomplete="off">
+        </label>
+      </div>
+      <div class="emir-satir">
+        <label>Kabul edilecek kişiler <span class="emir-kucuk">(virgülle ya da her satıra bir ad — oyundaki adlarıyla)</span>
+          <textarea id="ak-adlar" rows="3" placeholder="Anaster, Dwadu"></textarea>
+        </label>
+      </div>
+      <div class="emir-satir">
+        <label class="emir-tik">
+          <input type="checkbox" id="ak-hemen">
+          ⚡ Hemen yap <span class="emir-kucuk">(tiksiz: reis kendi sırası gelince kabul eder)</span>
+        </label>
+      </div>
+      <p class="emir-ipucu">Reis aile sayfasında <b>Ofisim</b> sekmesine (isimle bulunur) → <b>"Aileye katılmak isteyenlerin başvurularını görün"</b> → listedeki kişinin <b>Kabul</b> düğmesine basar; sıradaki kişi için listeyi yeniden açar. <b>Reddet</b>'e, <b>Aileden Ayrıl</b>'a ve <b>Peki</b>'ye ASLA basılmaz. Başvurusu görünmeyen kişi emirde kalır (henüz başvurmamış olabilir). Hesap aile reisi değilse emir iptal edilir ve Telegram'a görülen sekmeler yazılır.</p>
+    </div>
     <div class="emir-form" id="emir-form-oy">
       <div class="emir-satir">
         <label>Seçim
