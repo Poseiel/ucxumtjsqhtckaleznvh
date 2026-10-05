@@ -1391,6 +1391,15 @@ if (window.L) L.RasterCoords.prototype = {
         <button class="emir-tur-btn emir-tur-onemli" data-tur="ayar">🖥️ Ayar &amp; görev zinciri <span class="emir-kucuk">taşı · mod · rol</span></button>
         <button class="emir-tur-btn" data-tur="hesapekle">➕ Hesap ekle</button>
       </div>
+      <!-- ⚙️ [05.10.2026] SİSTEM AYARLARI — launcher'ın Sistem · Maden · Gemi ·
+           Medrese sekmelerinin site hâli + dost/düşman/izleme listeleri.
+           Kullanıcı: *"hepsini emirlerden görmemizi sağla ve güncellememizi
+           siteden yapmayı kolaylaştır ve ekle olmayanları diğer görevlerinden
+           ayrı olarak yap bunu"*. Bot: site_emirleri.sistem_emri_kaydet. -->
+      <div class="emir-tur-grup emir-tur-grup-hesap">
+        <span class="emir-tur-etiket">Bot ayarları <span class="emir-kucuk">(launcher'ın sistem sekmeleri · hesaba bağlı değil)</span></span>
+        <button class="emir-tur-btn" data-tur="sistem">⚙️ Sistem ayarları <span class="emir-kucuk">maden · cami · kapanış · kaptan · listeler</span></button>
+      </div>
     </div>
 
     <!-- ---------------- SATIŞ ---------------- -->
@@ -1909,6 +1918,8 @@ if (window.L) L.RasterCoords.prototype = {
             <input list="emir-hesap-listesi" id="ay-hesap" placeholder="yazmaya başla… (örn. Vamder)" autocomplete="off">
           </label>
         </div>
+        <!-- 👁️ [05.10.2026] Seçilen hesabın ŞU ANKİ ayarları (sistem.json). -->
+        <p class="emir-ipucu" id="ay-mevcut" hidden></p>
       </fieldset>
 
       <!-- 🧭 GÖREV ZİNCİRİ — launcher'daki "🧭 Görevler" sekmesinin karşılığı.
@@ -2148,6 +2159,44 @@ if (window.L) L.RasterCoords.prototype = {
             <option value="kapalı">kapalı</option>
           </select>
         </label>
+        <!-- 📦 [05.10.2026] Günlük Midas kutusu (üç eşyalı "Midas Sandığı").
+             Bot: site_emirleri._IZINLI_ALANLAR["midas"] → midas_kutu (0-500). -->
+        <label>📦 Midas kutusu <span class="ay-ipucu">günde kaç kutu açsın · evinde "Midas Sandığı" olmalı</span>
+          <select id="ay-midas">
+            <option value="">— değiştirme —</option>
+            <option value="kapalı">kapalı (açmasın)</option>
+            <option value="10">10 kutu</option>
+            <option value="20">20 kutu</option>
+            <option value="30">30 kutu</option>
+            <option value="50">50 kutu</option>
+            <option value="100">100 kutu</option>
+          </select>
+        </label>
+      </div>
+      <!-- 🖥️ [05.10.2026] Formda kutusu OLMAYAN üç hesap alanı (kural: her
+           hesap ayarı siteden de verilebilmeli; ölçüldü). Ev/atölye/her şeyi
+           sat ise görev zinciri adımı olarak yukarıda. -->
+      <div class="emir-satir">
+        <label>🚀 Hızlı seyahat <span class="ay-ipucu">jetonla günde 3 adım (launcher "Hızlı(3)")</span>
+          <select id="ay-jeton">
+            <option value="">— değiştirme —</option>
+            <option value="açık">açık</option>
+            <option value="kapalı">kapalı</option>
+          </select>
+        </label>
+        <label>👥 Grup lideri <span class="ay-ipucu">lider KENDİ adını, üye liderin adını yazar · "iptal" = gruptan çıkar</span>
+          <input list="emir-hesap-listesi" id="ay-grup" placeholder="boş = değiştirme" autocomplete="off">
+        </label>
+        <label>🛤️ Yol seçimi <span class="ay-ipucu">şartlar tutunca seviye atlarken seçilecek yol</span>
+          <select id="ay-yol">
+            <option value="">— değiştirme —</option>
+            <option value="Devlet">Devlet</option>
+            <option value="Ordu">Ordu</option>
+            <option value="Din">Din</option>
+            <option value="Tıbbiye">Tıbbiye</option>
+            <option value="iptal">— seçmesin (iptal) —</option>
+          </select>
+        </label>
       </div>
 
       </fieldset>
@@ -2156,6 +2205,161 @@ if (window.L) L.RasterCoords.prototype = {
         Bot bunu <b>sıradaki turda</b> uygular; bilgisayardaki launcher aynı
         şekilde çalışmaya devam eder. Bir ayarı geri almak için aynı kutuyu
         “kapalı” yapıp tekrar gönder.</p>
+    </div>
+
+    <!-- ---------------- ⚙️ SİSTEM AYARLARI (05.10.2026) ---------------- -->
+    <!-- Kullanıcı: *"maden seçenekleri filan sitede var mı tüm değişkenler
+         siteden eklenebiliyor mu kontrol et tüm değişkenleri siteden
+         yönetebilelim"* + *"launcherdaki sekmelerdeki ayarları ... hepsini
+         emirlerden görmemizi sağla"*. Şablon site_emirleri.sistem_emri_coz
+         ile BİREBİR (emir.js → sistemMesajiKur). ⚠️ Modem seçimi/şifresi ve
+         Telegram/GitHub anahtarları bu yoldan DEĞİŞTİRİLEMEZ (bilerek). -->
+    <div class="emir-form" id="emir-form-sistem">
+      <p class="emir-ipucu">Launcher'ın <b>Sistem · Maden · Gemi · Medrese</b> sekmelerindeki ayarlar ve
+        dost / düşman / izleme listeleri. <b>Hesaba bağlı değildir</b> (tek hesabın ayarı için
+        🖥️ Ayar). Yalnızca <b>dokunduğun</b> kutu gönderilir. Bot emri <b>hemen</b> ayar dosyasına
+        yazar; bot açıksa <b>sıradaki hesaptan</b>, kapalıysa bir sonraki açılışta geçerli olur.</p>
+      <details class="ay-otomatik-not" open>
+        <summary>📋 Şu anki ayarlar <span class="emir-kucuk" id="si-guncelleme"></span></summary>
+        <div id="si-mevcut">Yükleniyor…</div>
+      </details>
+      <details class="ay-otomatik-not">
+        <summary>🧑‍🤝‍🧑 Hesapların rolleri / özel ayarları (kim kaptan, kim orduda, kim Midas açıyor…)</summary>
+        <div id="si-roller">Yükleniyor…</div>
+      </details>
+
+      <fieldset class="ay-bolum">
+        <legend>⛏️ Maden &amp; 🕌 cami</legend>
+        <div class="emir-satir">
+          <label>⛏️ Maden kasabaları <span class="ay-ipucu">bu kasabalarda cami atlanır, madene gidilir</span>
+            <select id="si-maden-kasaba-islem" class="si-islem"></select>
+            <input id="si-maden-kasaba" list="ay-sehir-listesi" placeholder="örn. Glasgow, Stirling" autocomplete="off">
+          </label>
+          <label>⛏️ Öncelikli maden
+            <select id="si-maden-oncelik">
+              <option value="">— değiştirme —</option>
+              <option value="demir">⛓️ Demir</option>
+              <option value="taş">🪨 Taş</option>
+              <option value="altın">🪙 Altın</option>
+              <option value="kil">🧱 Kil</option>
+              <option value="yok">Yok (sayfadaki ilk açık maden)</option>
+            </select>
+          </label>
+        </div>
+        <div class="emir-satir">
+          <label>🕌 Ayrıcalıklı cami hesapları <span class="ay-ipucu">boş kalınca (tarla/atölye işi yokken) maden kasabasında da CAMİYE gider — itibar kasar</span>
+            <select id="si-cami-islem" class="si-islem"></select>
+            <input id="si-cami" list="emir-hesap-listesi" placeholder="örn. Murderer" autocomplete="off">
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="ay-bolum">
+        <legend>🌙 Botun işleyişi</legend>
+        <div class="emir-satir">
+          <label>🌙 Tur bitince bilgisayar
+            <select id="si-kapanis">
+              <option value="">— değiştirme —</option>
+              <option value="açık bırak">açık bırak</option>
+              <option value="uyku">😴 uyku moduna al</option>
+              <option value="kapat">⏻ bilgisayarı kapat</option>
+            </select>
+          </label>
+          <label>🧹 Yaşlı garson <span class="ay-ipucu">hesaplar arası temizlik molası</span>
+            <select id="si-garson">
+              <option value="">— değiştirme —</option>
+              <option value="1 sn">1 sn (hızlı PC)</option>
+              <option value="20 sn">20 sn (orta PC)</option>
+              <option value="40 sn">40 sn (yavaş PC)</option>
+              <option value="60 sn">60 sn (çok yavaş PC)</option>
+            </select>
+          </label>
+          <label>📝 Rapor ismi <span class="ay-ipucu">Telegram mesajlarının başındaki ad</span>
+            <input id="si-rapor" placeholder="boş = değiştirme" autocomplete="off">
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="ay-bolum">
+        <legend>⚓ Gemi &amp; kaptan</legend>
+        <div class="emir-satir">
+          <label>🚢 Gemi armatörü <span class="ay-ipucu">tayfanın bineceği geminin sahibi</span>
+            <input id="si-armator" list="emir-hesap-listesi" placeholder="boş = değiştirme · &quot;iptal&quot; = boşalt" autocomplete="off">
+          </label>
+          <label>⚓ Kaptan hedef limanı
+            <input id="si-kaptan-hedef" list="ay-sehir-listesi" placeholder="boş = değiştirme" autocomplete="off">
+          </label>
+          <label>⚓ Kaptanlık devir hedefi <span class="ay-ipucu">yalnızca bizim/dost hesap</span>
+            <input id="si-kaptan-devir" list="emir-hesap-listesi" placeholder="boş = değiştirme" autocomplete="off">
+          </label>
+        </div>
+        <div class="emir-satir">
+          <label>⚓ Kaptan hareketi
+            <select id="si-kaptan-hareket">
+              <option value="">— değiştirme —</option>
+              <option value="açık">açık (hamle yapar)</option>
+              <option value="kapalı">kapalı (yalnızca rapor)</option>
+            </select>
+          </label>
+          <label>⚓ Yelken
+            <select id="si-yelken">
+              <option value="">— değiştirme —</option>
+              <option value="otomatik">otomatik</option>
+              <option value="kare">kare</option>
+              <option value="latin">latin</option>
+            </select>
+          </label>
+          <label>⚓ Kıyı mesafesi <span class="ay-ipucu">kare</span>
+            <select id="si-kiyi">
+              <option value="">— değiştirme —</option>
+              <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+              <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+              <option value="6">6</option><option value="8">8</option><option value="10">10</option>
+            </select>
+          </label>
+        </div>
+        <div class="emir-satir">
+          <label>⚓ Kaptan rota durakları <span class="ay-ipucu">sırayla uğranacak limanlar</span>
+            <select id="si-rota-islem" class="si-islem"></select>
+            <input id="si-rota" list="ay-sehir-listesi" placeholder="örn. Dublin, Calais" autocomplete="off">
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="ay-bolum">
+        <legend>🎓 Medrese</legend>
+        <div class="emir-satir">
+          <label>🕌 Molla hesabı
+            <input id="si-molla" list="emir-hesap-listesi" placeholder="boş = değiştirme · &quot;iptal&quot; = boşalt" autocomplete="off">
+          </label>
+          <label>🎓 Ders verebilir <span class="ay-ipucu">mollanın onaylayabileceği EK isimler</span>
+            <select id="si-ders-islem" class="si-islem"></select>
+            <input id="si-ders" placeholder="örn. Pontiac, Harle" autocomplete="off">
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="ay-bolum">
+        <legend>📋 Listeler (dost · düşman · izleme)</legend>
+        <div class="emir-satir">
+          <label>🤝 Dost (aile) <span class="ay-ipucu">filo takibinde "dost" sayılır</span>
+            <select id="si-dost-islem" class="si-islem"></select>
+            <input id="si-dost" placeholder="oyundaki adıyla" autocomplete="off">
+          </label>
+          <label>🏴 Düşman <span class="ay-ipucu">hareket edince Telegram'a haber · bot onlara bir şey YAPMAZ</span>
+            <select id="si-dusman-islem" class="si-islem"></select>
+            <input id="si-dusman" placeholder="örn. Perk0, Silrona" autocomplete="off">
+          </label>
+          <label>🚨 İzleme <span class="ay-ipucu">sitedeki ortak izleme listesi · "ordu: Ad" de yazılabilir</span>
+            <select id="si-izleme-islem" class="si-islem"></select>
+            <input id="si-izleme" placeholder="örn. seldomseen" autocomplete="off">
+          </label>
+        </div>
+      </fieldset>
+      <p class="emir-ipucu">🔒 <b>Modem seçimi / modem şifresi</b>, Telegram ve GitHub anahtarları buradan
+        <b>değiştirilemez</b> (yanlış modem seçimi IP değişimini bozar) — onlar yalnızca launcher'dan.
+        Kayıt: bot değiştirmeden önce <code>ayarlar.json</code>'un yedeğini alır, sonucu Telegram'a
+        "⚙️ SİSTEM AYARI UYGULANDI" diye yazar.</p>
     </div>
 
     <!-- ---------------- ÖNİZLEME + GÖNDER ---------------- -->
