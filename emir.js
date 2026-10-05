@@ -655,6 +655,26 @@ function emirMesajiKur() {
     return { metin: dvSatir.join(EMIR_NL) };
   }
 
+  // ---------------- 👪 AİLE KABUL (05.10.2026) ----------------
+  // ⚠️ Şablon `aile_modul.emri_coz` ile BİREBİR aynı olmalı: başlık +
+  //    "hesap:" (aile reisi) + "kabul:" (virgüllü adlar) + isteğe bağlı "hemen: evet".
+  if (emirTur === "aile") {
+    var akReis = emirDeger("ak-hesap");
+    var akAdlar = [];
+    String(emirDeger("ak-adlar") || "").split(/[\r\n,;]+/).forEach(function (x) {
+      x = x.trim();
+      if (x && x.toLowerCase() !== String(akReis || "").toLowerCase() &&
+          akAdlar.map(function (y) { return y.toLowerCase(); }).indexOf(x.toLowerCase()) < 0) akAdlar.push(x);
+    });
+    var akEksik = [];
+    if (!akReis) akEksik.push("aile reisi hesap");
+    if (!akAdlar.length) akEksik.push("kabul edilecek en az bir kişi");
+    if (akEksik.length) return { hata: "Eksik: " + akEksik.join(", ") };
+    var akSatir = ["AİLE KABUL", "hesap: " + akReis, "kabul: " + akAdlar.join(", ")];
+    if (emirHemen("ak-hemen")) akSatir.push("hemen: evet");
+    return { metin: akSatir.join(EMIR_NL) };
+  }
+
   // ---------------- 🗳️ OY VER (26.09.2026) ----------------
   // ⚠️ Şablon `oy_modul.emri_coz` ile BİREBİR aynı olmalı: başlık +
   //    "seçim:" + (belediye → "kasaba:" · divan → "sancak:") + "aday:"/"liste:"
@@ -1099,7 +1119,7 @@ var EMIR_KONULARI = {
   ayar: "⚙️ Ayar Emirleri", hesapekle: "⚙️ Ayar Emirleri",
   odenek: "💰 Ödenekler",
   mesaj: "✉️ Mesajlar"
-  // geri kalan her şey (profil, güven, oy, forum, divan onay, posta) → 📜 Emirler
+  // geri kalan her şey (profil, güven, oy, forum, divan onay, aile kabul, posta) → 📜 Emirler
 };
 
 function emirKonusu(tur) {
@@ -1256,6 +1276,15 @@ function emirOlaylariBagla() {
     if (el) el.addEventListener("input", emirGuncelle);
   });
   ["ok-enerji", "ok-hemen", "dv-hemen", "po-hemen"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener("change", emirGuncelle);
+  });
+  // 👪 [05.10.2026] Aile kabul formu (yazdıkça önizleme + Kopyala açılsın).
+  ["ak-hesap", "ak-adlar"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener("input", emirGuncelle);
+  });
+  ["ak-hemen"].forEach(function (id) {
     var el = document.getElementById(id);
     if (el) el.addEventListener("change", emirGuncelle);
   });
@@ -1923,6 +1952,9 @@ async function emirIptalEt(kodlar, ozet) {
     { id: "divan", tur: "divan", ikon: "👑", baslik: "Divan listesi onayı",
       ne: "Hesaplar Sancak Kalesi → Divan Seçimi'nde kendi adlarının geçtiği listeyi ONAYLAR. \"İptal\"e asla basılmaz.",
       anahtar: ["divan onay", "divan listesi", "listeyi onayla", "liste onay", "divan liste"] },
+    { id: "aile", tur: "aile", ikon: "👪", baslik: "Aile başvurusu kabul",
+      ne: "Aile reisi olan hesap, yazdığın kişilerin aileye katılma başvurularını KABUL eder (birden çok kişi tek emirde). Reddet'e / Aileden Ayrıl'a asla basılmaz.",
+      anahtar: ["aile", "aileye", "aile kabul", "aileye kabul", "aile basvuru", "aile basvurusu", "basvuru kabul", "aileye al", "aile reisi"] },
     { id: "oy", tur: "oy", ikon: "🗳️", baslik: "Oy verme",
       ne: "Belediye ya da divan seçiminde hesaplarımıza oy verdirir ya da Sancak Beyi'ni TANITIR; oylar en fazla 3 güne yayılır, oy veren hesap listeden düşer.",
       anahtar: ["oy", "oy ver", "oy verdir", "secim", "aday", "belediye secimi", "divan secimi", "reis secimi",
@@ -2096,7 +2128,8 @@ async function emirIptalEt(kodlar, ozet) {
   }
   var HESAP_KUTUSU = {
     sat: "sat-hesap", al: "al-hesap", gemi: "gm-hesap", posta: "po-hesap", forum: "fr-hesap",
-    yanasma: "ya-hesap", profil: "pr-hesap", guven: "gv-hesap", ayar: "ay-hesap", mesaj: "ms-kimden"
+    yanasma: "ya-hesap", profil: "pr-hesap", guven: "gv-hesap", ayar: "ay-hesap", mesaj: "ms-kimden",
+    aile: "ak-hesap"
   };
   var COKLU_HESAP_KUTUSU = { divan: "dv-hesaplar", ordukatil: "ok-hesaplar", oy: "oy-hesaplar" };
 
@@ -2142,7 +2175,7 @@ async function emirIptalEt(kodlar, ozet) {
       ["💰 Satış · 🛒 Alım", "🛒 Pazar"], ["⛵ Gemi Al · ⚓ Yanaşma", "⚓ Deniz"],
       ["🪖 Orduya katıl", "⚔️ Ordular"], ["🖥️ Ayar & görev zinciri · ➕ Hesap ekle", "⚙️ Ayar Emirleri"],
       ["📜 Ödenek", "💰 Ödenekler"], ["✉️ Mesaj", "✉️ Mesajlar"],
-      ["🎭 Profil · 🤝 Güven · 🗳️ Oy · 📣 Forum · 👑 Divan onay · 📬 Posta", "📜 Emirler"]
+      ["🎭 Profil · 🤝 Güven · 🗳️ Oy · 📣 Forum · 👑 Divan onay · 👪 Aile kabul · 📬 Posta", "📜 Emirler"]
     ];
     return '<table class="asistan-konu-tablo"><tbody>' + satirlar.map(function (s) {
       return "<tr><td>" + s[0] + "</td><td><b>" + s[1] + "</b></td></tr>";
