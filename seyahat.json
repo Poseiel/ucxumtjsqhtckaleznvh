@@ -1,32 +1,32 @@
 {
-  "son_guncelleme": "2026-10-05 07:58",
+  "son_guncelleme": "2026-10-05 16:28",
   "adim_hakki_normal": 2,
   "adim_hakki_jetonlu": 3,
   "yolcular": [
     {
-      "hesap": "Calwenor",
+      "hesap": "mr.butcher",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Millau",
+      "nereden": "Ardencaple",
       "yolda": false,
       "bot_kalan_gun": 1,
-      "nereden_id": 1125,
-      "hedef": "Lodève",
-      "hedef_id": 313,
+      "nereden_id": 1052,
+      "hedef": "Glasgow",
+      "hedef_id": 1045,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
         {
-          "id": 1125,
-          "isim": "Millau"
+          "id": 1052,
+          "isim": "Ardencaple"
         },
         {
-          "id": 1129,
-          "isim": "Lodève - Millau arası"
+          "id": 1051,
+          "isim": "Glasgow - Ardencaple arası"
         },
         {
-          "id": 313,
-          "isim": "Lodève"
+          "id": 1045,
+          "isim": "Glasgow"
         }
       ],
       "kalan_adim": 2,
@@ -34,16 +34,16 @@
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 313,
-          "varis": "Lodève",
+          "varis_id": 1045,
+          "varis": "Glasgow",
           "duraklar": [
             {
-              "id": 1129,
-              "isim": "Lodève - Millau arası"
+              "id": 1051,
+              "isim": "Glasgow - Ardencaple arası"
             },
             {
-              "id": 313,
-              "isim": "Lodève"
+              "id": 1045,
+              "isim": "Glasgow"
             }
           ]
         }
@@ -54,11 +54,11 @@
   ],
   "kafileler": [
     {
-      "anahtar": "1125|313|2",
-      "nereden": "Millau",
-      "nereden_id": 1125,
-      "hedef": "Lodève",
-      "hedef_id": 313,
+      "anahtar": "1052|1045|2",
+      "nereden": "Ardencaple",
+      "nereden_id": 1052,
+      "hedef": "Glasgow",
+      "hedef_id": 1045,
       "yolda": false,
       "adim_hakki": 2,
       "jetonlu": false,
@@ -67,37 +67,37 @@
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 313,
-          "varis": "Lodève",
+          "varis_id": 1045,
+          "varis": "Glasgow",
           "duraklar": [
             {
-              "id": 1129,
-              "isim": "Lodève - Millau arası"
+              "id": 1051,
+              "isim": "Glasgow - Ardencaple arası"
             },
             {
-              "id": 313,
-              "isim": "Lodève"
+              "id": 1045,
+              "isim": "Glasgow"
             }
           ]
         }
       ],
       "rota": [
         {
-          "id": 1125,
-          "isim": "Millau"
+          "id": 1052,
+          "isim": "Ardencaple"
         },
         {
-          "id": 1129,
-          "isim": "Lodève - Millau arası"
+          "id": 1051,
+          "isim": "Glasgow - Ardencaple arası"
         },
         {
-          "id": 313,
-          "isim": "Lodève"
+          "id": 1045,
+          "isim": "Glasgow"
         }
       ],
       "hesaplar": [
         {
-          "hesap": "Calwenor",
+          "hesap": "mr.butcher",
           "tur": "seyahat",
           "lider": "",
           "kaynak": "",
@@ -124,25 +124,9 @@
       "kaynak": "gorev"
     },
     {
-      "hesap": "mr.butcher",
-      "tur": "seyahat",
-      "hedef": "Glasgow",
-      "nereden": "",
-      "sebep": "konum okunamadı (yolcu raporunda da yok)",
-      "kaynak": "ayar"
-    },
-    {
       "hesap": "Galdorin",
       "tur": "seyahat",
       "hedef": "Worcester",
-      "nereden": "",
-      "sebep": "konum okunamadı (yolcu raporunda da yok)",
-      "kaynak": "gorev"
-    },
-    {
-      "hesap": "Honkaa",
-      "tur": "seyahat",
-      "hedef": "Hastings",
       "nereden": "",
       "sebep": "konum okunamadı (yolcu raporunda da yok)",
       "kaynak": "gorev"
