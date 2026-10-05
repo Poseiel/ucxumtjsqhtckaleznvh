@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-05 07:58",
+  "son_guncelleme": "2026-10-05 09:14",
   "rapor_tarihi": "2026-10-05",
   "onceki_tarih": "2026-10-04",
   "ordular": [
@@ -16,8 +16,22 @@
       "komutan_login": "berengario",
       "degisim": "ayni",
       "onceki_kasaba": "Girvan",
-      "onceki_durum": "Şehir İçinde",
-      "bakilamadi": true
+      "onceki_durum": "Şehir İçinde"
+    },
+    {
+      "ad": "The Excelsior",
+      "kasaba": "Glasgow",
+      "komutan": "Kazasker: Emmalogan",
+      "durum": "Şehir Dışında",
+      "ham_durum": "Ordu, Şehir kapılarına dayandı.",
+      "alim_modu": false,
+      "danisman": false,
+      "danisman_puan": null,
+      "danisman_maas": "",
+      "komutan_login": "emmalogan",
+      "degisim": "ayni",
+      "onceki_kasaba": "Glasgow",
+      "onceki_durum": "Şehir Dışında"
     },
     {
       "ad": "Glasgow",
@@ -32,8 +46,7 @@
       "komutan_login": "mavisari",
       "degisim": "ayni",
       "onceki_kasaba": "Stirling",
-      "onceki_durum": "Şehir Dışında",
-      "bakilamadi": true
+      "onceki_durum": "Şehir Dışında"
     },
     {
       "ad": "Wigtown",
@@ -48,18 +61,10 @@
       "komutan_login": "catani",
       "degisim": "ayni",
       "onceki_kasaba": "Wigtown",
-      "onceki_durum": "Şehir İçinde",
-      "bakilamadi": true
+      "onceki_durum": "Şehir İçinde"
     }
   ],
-  "ayrilanlar": [
-    {
-      "ad": "The Excelsior",
-      "kasaba": "Glasgow",
-      "komutan": "Kazasker: Emmalogan",
-      "durum": "Şehir Dışında"
-    }
-  ],
+  "ayrilanlar": [],
   "gemiler": [],
   "not": "alim_modu/danisman 17.09.2026'dan itibaren toplanıyor; daha eski günlerde null (bilinmiyor) görünür."
 }
