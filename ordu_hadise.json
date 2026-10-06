@@ -1,12 +1,12 @@
 {
-  "son_guncelleme": "2026-10-06 01:01",
+  "son_guncelleme": "2026-10-06 15:29",
   "gun_sayisi": 30,
   "ozet": {
-    "toplam": 48,
+    "toplam": 51,
     "kavga": 7,
     "olum": 3,
     "yara": 0,
-    "gorus": 30,
+    "gorus": 33,
     "hesap": 3,
     "uye": 3
   },
@@ -18,20 +18,20 @@
       "komutan": "Emmalogan",
       "ucret": "22,00",
       "katilma_gunu": "",
-      "son_gorulme": "2026-10-05 08:42",
+      "son_gorulme": "2026-10-06 07:15",
       "mufreze_komutani": false,
       "mufreze_kisi": null,
       "takip": {
-        "gun": "2026-10-05",
-        "sonuc": "zaten",
-        "aciklama": "bu gece için takip ZATEN planlı (Görevlerim)",
+        "gun": "2026-10-06",
+        "sonuc": "verildi",
+        "aciklama": "Bu grubun liderini takip ediyorsun. Bugün ayrılamazsın.",
         "lider": "Emmalogan"
       },
       "enerji": {
-        "gun": "2026-10-05",
-        "pa": 0,
+        "gun": "2026-10-06",
+        "pa": 65,
         "max_pa": 65,
-        "sonuc": "harcanmadı: boya için enerji yetersiz (0 < 15) → enerji yetersiz (0 < 5)"
+        "sonuc": "boya: 4 üretim (en fazla 4) + maden: 60 dk"
       }
     },
     {
@@ -64,20 +64,20 @@
       "komutan": "Emmalogan",
       "ucret": "22,00",
       "katilma_gunu": "",
-      "son_gorulme": "2026-10-05 08:34",
+      "son_gorulme": "2026-10-06 07:25",
       "mufreze_komutani": false,
       "mufreze_kisi": null,
       "takip": {
-        "gun": "2026-10-05",
-        "sonuc": "zaten",
-        "aciklama": "bu gece için takip ZATEN planlı (Görevlerim)",
+        "gun": "2026-10-06",
+        "sonuc": "verildi",
+        "aciklama": "Bu grubun liderini takip ediyorsun. Bugün ayrılamazsın.",
         "lider": "Emmalogan"
       },
       "enerji": {
-        "gun": "2026-10-05",
-        "pa": 0,
+        "gun": "2026-10-06",
+        "pa": 65,
         "max_pa": 65,
-        "sonuc": "harcanmadı: boya için enerji yetersiz (0 < 15) → enerji yetersiz (0 < 5)"
+        "sonuc": "boya: 4 üretim (en fazla 4) + maden: 60 dk"
       }
     },
     {
@@ -87,17 +87,17 @@
       "komutan": "Emmalogan",
       "ucret": "22,00",
       "katilma_gunu": "",
-      "son_gorulme": "2026-10-05 08:38",
+      "son_gorulme": "2026-10-06 07:05",
       "mufreze_komutani": false,
       "mufreze_kisi": null,
       "takip": {
-        "gun": "2026-10-05",
-        "sonuc": "zaten",
-        "aciklama": "bu gece için takip ZATEN planlı (Görevlerim)",
+        "gun": "2026-10-06",
+        "sonuc": "verildi",
+        "aciklama": "Bu grubun liderini takip ediyorsun. Bugün ayrılamazsın.",
         "lider": "Emmalogan"
       },
       "enerji": {
-        "gun": "2026-10-05",
+        "gun": "2026-10-06",
         "pa": 65,
         "max_pa": 65,
         "sonuc": "boya: 4 üretim (en fazla 4) + maden: 60 dk"
@@ -105,6 +105,52 @@
     }
   ],
   "gunler": [
+    {
+      "tarih": "2026-10-06",
+      "oyun_tarihi": "06-10-1474",
+      "kavga": 0,
+      "hadiseler": [
+        {
+          "id": "258686488",
+          "hesap": "Zaniolo",
+          "tarih": "2026-10-06",
+          "oyun_tarihi": "06-10-1474",
+          "saat": "",
+          "etiket": "gorus",
+          "tur": "gorus",
+          "metin": "Bugün, yolda karşılaştığın kişi Glasgow adlı kasabayı savunanlar:, Supermartin.",
+          "kisiler": [
+            "Supermartin"
+          ]
+        },
+        {
+          "id": "258686487",
+          "hesap": "Thebear",
+          "tarih": "2026-10-06",
+          "oyun_tarihi": "06-10-1474",
+          "saat": "",
+          "etiket": "gorus",
+          "tur": "gorus",
+          "metin": "Bugün, yolda karşılaştığın kişi Glasgow adlı kasabayı savunanlar:, Supermartin.",
+          "kisiler": [
+            "Supermartin"
+          ]
+        },
+        {
+          "id": "258686485",
+          "hesap": "drayen",
+          "tarih": "2026-10-06",
+          "oyun_tarihi": "06-10-1474",
+          "saat": "",
+          "etiket": "gorus",
+          "tur": "gorus",
+          "metin": "Bugün, yolda karşılaştığın kişi Glasgow adlı kasabayı savunanlar:, Supermartin.",
+          "kisiler": [
+            "Supermartin"
+          ]
+        }
+      ]
+    },
     {
       "tarih": "2026-10-05",
       "oyun_tarihi": "05-10-1474",
