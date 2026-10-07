@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-06 15:29",
+  "son_guncelleme": "2026-10-07 06:56",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -201,7 +201,10 @@
     },
     {
       "ad": "Fredyy",
-      "ayar": {}
+      "ayar": {
+        "takip": "Ordu Takip",
+        "isci_tut": true
+      }
     },
     {
       "ad": "Thebear",
@@ -216,7 +219,10 @@
     },
     {
       "ad": "Darwinn",
-      "ayar": {}
+      "ayar": {
+        "takip": "Ordu Takip",
+        "isci_tut": true
+      }
     },
     {
       "ad": "Nojiko",
@@ -547,7 +553,10 @@
       "ad": "Avelith",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "Calwenor",
@@ -615,7 +624,11 @@
       "ad": "Azirveth",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Brannoch",
@@ -645,19 +658,32 @@
       "ad": "Gundrel",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Dekhatis",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "gorev",
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Fiyong",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Merrisant",
@@ -669,13 +695,21 @@
       "ad": "Grangerr",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Marvethis",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Thehumanist",
@@ -693,13 +727,21 @@
       "ad": "Kealor",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Zedrin",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Causal",
@@ -830,9 +872,21 @@
       "ayar": {
         "midas_kutu": 30
       }
+    },
+    {
+      "ad": "Totumto",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Tim_brown",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
     }
   ],
-  "toplam_hesap": 149,
+  "toplam_hesap": 151,
   "sistem_gecmis": [
     {
       "zaman": "2026-10-05 19:31",
