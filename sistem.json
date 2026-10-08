@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-07 15:46",
+  "son_guncelleme": "2026-10-08 07:22",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -501,14 +501,9 @@
     {
       "ad": "mr.butcher",
       "ayar": {
-        "seyahat_hedefi": "Glasgow",
         "gorev": "karaya_cik:",
         "isci_tut": true
-      },
-      "bekleyen": [
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+      }
     },
     {
       "ad": "Millady",
@@ -556,11 +551,9 @@
     {
       "ad": "Avelith",
       "ayar": {
-        "takip": "Hızlı Cami"
-      },
-      "bekleyen": [
-        "gorev"
-      ]
+        "takip": "Hızlı Cami",
+        "gorev": "ev_al:Sebze"
+      }
     },
     {
       "ad": "Calwenor",
@@ -616,16 +609,13 @@
       "ad": "Beinns",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "takip"
+      ]
     },
     {
       "ad": "Caldrith",
-      "ayar": {
-        "takip": "Hızlı Maden"
-      }
-    },
-    {
-      "ad": "Azirveth",
       "ayar": {
         "takip": "Hızlı Maden"
       },
@@ -633,6 +623,13 @@
         "seyahat_aktif",
         "seyahat_hedefi"
       ]
+    },
+    {
+      "ad": "Azirveth",
+      "ayar": {
+        "takip": "Hızlı Maden",
+        "seyahat_hedefi": "Santarém"
+      }
     },
     {
       "ad": "Brannoch",
@@ -661,33 +658,23 @@
     {
       "ad": "Gundrel",
       "ayar": {
-        "takip": "Hızlı Maden"
-      },
-      "bekleyen": [
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+        "takip": "Hızlı Maden",
+        "seyahat_hedefi": "Montemor"
+      }
     },
     {
       "ad": "Dekhatis",
       "ayar": {
-        "takip": "Hızlı Cami"
-      },
-      "bekleyen": [
-        "gorev",
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+        "takip": "Hızlı Cami",
+        "gorev": "seyahat:Stirling, ev_al:Mısır"
+      }
     },
     {
       "ad": "Fiyong",
       "ayar": {
-        "takip": "Hızlı Maden"
-      },
-      "bekleyen": [
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+        "takip": "Hızlı Maden",
+        "seyahat_hedefi": "Lisboa"
+      }
     },
     {
       "ad": "Merrisant",
@@ -698,22 +685,16 @@
     {
       "ad": "Grangerr",
       "ayar": {
-        "takip": "Hızlı Maden"
-      },
-      "bekleyen": [
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+        "takip": "Hızlı Maden",
+        "seyahat_hedefi": "derby"
+      }
     },
     {
       "ad": "Marvethis",
       "ayar": {
-        "takip": "Hızlı Cami"
-      },
-      "bekleyen": [
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+        "takip": "Hızlı Cami",
+        "seyahat_hedefi": "Setúbal"
+      }
     },
     {
       "ad": "Thehumanist",
@@ -730,22 +711,16 @@
     {
       "ad": "Kealor",
       "ayar": {
-        "takip": "Hızlı Cami"
-      },
-      "bekleyen": [
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+        "takip": "Hızlı Cami",
+        "seyahat_hedefi": "Hastings"
+      }
     },
     {
       "ad": "Zedrin",
       "ayar": {
-        "takip": "Hızlı Maden"
-      },
-      "bekleyen": [
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+        "takip": "Hızlı Maden",
+        "seyahat_hedefi": "Alcácer do Sal"
+      }
     },
     {
       "ad": "Causal",
@@ -757,7 +732,11 @@
       "ad": "Ertwar",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Bremer",
@@ -888,9 +867,33 @@
       "ayar": {
         "takip": "Hızlı Maden"
       }
+    },
+    {
+      "ad": "Captain_scotland",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Hermanos_Hermanic.823",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Hermanos_",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Dursun",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
     }
   ],
-  "toplam_hesap": 151,
+  "toplam_hesap": 155,
   "sistem_gecmis": [
     {
       "zaman": "2026-10-05 19:31",
