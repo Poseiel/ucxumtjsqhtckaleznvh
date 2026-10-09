@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-09 14:59",
+  "son_guncelleme": "2026-10-09 15:14",
   "tarih": "2026-10-09",
   "aralik_dk": 150,
   "kontroller": [
@@ -619,6 +619,31 @@
         }
       ],
       "farklar": []
+    },
+    {
+      "kasaba": "Stirling",
+      "saat": "15:10",
+      "saat_tam": "2026-10-09T15:10:02",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Glasgow",
+          "kasaba": "Stirling",
+          "komutan": "Kazasker: Mavisari",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": [],
+      "farklar": [
+        {
+          "tip": "grup_gitti",
+          "grup_id": "6316992",
+          "lider": "sansastarkk",
+          "uyeler": [],
+          "metin": "❌ GRUP GİTTİ/DAĞILDI: Silahlı Grup (lider: sansastarkk) — 1 kişi: sansastarkk"
+        }
+      ]
     }
   ],
   "son_durum": {
@@ -648,8 +673,8 @@
       ]
     },
     "Stirling": {
-      "saat": "12:56",
-      "saat_tam": "2026-10-09T12:56:05",
+      "saat": "15:10",
+      "saat_tam": "2026-10-09T15:10:02",
       "ordu_okundu": true,
       "ordular": [
         {
@@ -660,15 +685,7 @@
           "ham_durum": "Ordu, Şehir kapılarına dayandı."
         }
       ],
-      "gruplar": [
-        {
-          "id": "6316992",
-          "tur": "Silahlı Grup",
-          "lider": "sansastarkk",
-          "uyeler": [],
-          "katilim": "Serbest Katılım"
-        }
-      ]
+      "gruplar": []
     },
     "Wigtown": {
       "saat": "13:21",
