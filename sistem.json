@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-09 01:38",
+  "son_guncelleme": "2026-10-09 06:51",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -510,8 +510,7 @@
     {
       "ad": "Wolftrap",
       "ayar": {
-        "takip": "Hızlı Maden",
-        "gorev": "seyahat:Arundel, ev_tasi_zorla:"
+        "takip": "Hızlı Maden"
       }
     },
     {
@@ -529,15 +528,13 @@
     {
       "ad": "mr.butcher",
       "ayar": {
-        "gorev": "karaya_cik:",
         "isci_tut": true
       }
     },
     {
       "ad": "Millady",
       "ayar": {
-        "takip": "Hızlı Maden",
-        "gorev": "ev_tasi_zorla:"
+        "takip": "Hızlı Maden"
       }
     },
     {
@@ -565,22 +562,19 @@
     {
       "ad": "Penaldo",
       "ayar": {
-        "takip": "Hızlı Cami",
-        "gorev": "seyahat:Wigtown, ev_al:Sebze"
+        "takip": "Hızlı Cami"
       }
     },
     {
       "ad": "Gorgoyle",
       "ayar": {
-        "takip": "Hızlı Cami",
-        "gorev": "seyahat:Stirling, ev_al:Sebze"
+        "takip": "Hızlı Cami"
       }
     },
     {
       "ad": "Avelith",
       "ayar": {
-        "takip": "Hızlı Cami",
-        "gorev": "ev_al:Sebze"
+        "takip": "Hızlı Cami"
       }
     },
     {
@@ -636,21 +630,15 @@
     {
       "ad": "Beinns",
       "ayar": {
-        "takip": "Hızlı Maden"
-      },
-      "bekleyen": [
-        "takip"
-      ]
+        "takip": "Hızlı Cami"
+      }
     },
     {
       "ad": "Caldrith",
       "ayar": {
-        "takip": "Hızlı Maden"
-      },
-      "bekleyen": [
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+        "takip": "Hızlı Maden",
+        "seyahat_hedefi": "Bristol"
+      }
     },
     {
       "ad": "Azirveth",
@@ -693,8 +681,7 @@
     {
       "ad": "Dekhatis",
       "ayar": {
-        "takip": "Hızlı Cami",
-        "gorev": "seyahat:Stirling, ev_al:Mısır"
+        "takip": "Hızlı Cami"
       }
     },
     {
@@ -759,12 +746,9 @@
     {
       "ad": "Ertwar",
       "ayar": {
-        "takip": "Hızlı Maden"
-      },
-      "bekleyen": [
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+        "takip": "Hızlı Maden",
+        "seyahat_hedefi": "Narbonne"
+      }
     },
     {
       "ad": "Bremer",
