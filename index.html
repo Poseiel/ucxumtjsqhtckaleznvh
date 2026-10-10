@@ -564,6 +564,7 @@ if (window.L) L.RasterCoords.prototype = {
       <table class="rehber-tablo">
         <tr><th>Adım</th><th>Ne yapar</th><th>Dikkat</th></tr>
         <tr><td>🚶 <b>seyahat:</b>Wigtown</td><td>O kasabaya <b>yola çıkarır</b> ve varana kadar her turda devam eder.</td><td>Kıta şehirlerine (Massa, Calais…) <b>kara yolu YOK</b> — oraya ancak gemiyle gidilir.</td></tr>
+        <tr><td>📍 <b>seyahat:</b>#759</td><td>İki kasaba arasındaki <b>isimsiz ara noktaya</b> götürür (örnek: Kirkcudbright - Wigtown arası = <b>#759</b>). <b>Kirkcudbright - Wigtown arası</b> ya da kare koordinatı <b>94 117</b> da yazılabilir.</td><td>Arada <b>birden çok</b> nokta varsa (Glasgow - Girvan: #2789, #837) bot hangisi diye sorar, kendisi seçmez. Numarayı Harita sekmesinde noktaya tıklayarak görürsün. Vardıktan sonra orada kalır (pazar boş → yemek çantadan).</td></tr>
         <tr><td>📍 <b>varinca:</b>Wigtown</td><td>"Oraya vardım mı?" diye <b>sadece bakar</b>. Kendisi yola çıkmaz.</td><td>Hesabı <b>başkası taşıyorsa</b> (grup takibi, gemi) bunu kullan. <b>seyahat:</b> yazarsan bot her turda üstüne yeni emir yazıp rotayı bozar.</td></tr>
         <tr><td>🛒 <b>satin_al:</b>Çuval Buğday x20</td><td>Pazardan alır. Tavan fiyat verebilirsin.</td><td>Yabancı şehirde alınan mal <b>çantada</b> kalır (eve atılamaz), karakterle birlikte döner.</td></tr>
         <tr><td>💸 <b>hersey_sat:</b>toyga</td><td>Pazardaki ilanları iptal eder, evi boşaltır ve <b>her şeyi</b> o hesaba en düşük fiyattan satar.</td><td><b>20 günlük yiyecek</b> bırakır, gerisini satar. Taşınmadan önce şart.</td></tr>
@@ -2097,7 +2098,7 @@ if (window.L) L.RasterCoords.prototype = {
         <legend>4 · Seyahat · ders · gemi · iş</legend>
       <div class="emir-satir">
         <label>🌍 Seyahat hedefi
-          <input list="ay-sehir-listesi" id="ay-seyahat" placeholder="boş = değiştirme · &quot;iptal&quot; = seyahati kapat" autocomplete="off">
+          <input list="ay-sehir-listesi" id="ay-seyahat" placeholder="boş = değiştirme · &quot;iptal&quot; = kapat · 📍 ara nokta: #759 ya da 94 117" autocomplete="off" title="Kasaba adı ya da 📍 ARA NOKTA: listedeki 'X - Y arası #759' · '#759' · 'Kirkcudbright - Wigtown arası' · kare koordinatı '94 117' (Harita sekmesinde isimsiz noktaya tıkla → 🚶 Seyahat hedefi yap)">
           <datalist id="ay-sehir-listesi"></datalist>
           <!-- 🖥️ [06.09.2026] Görev zincirindeki `takip:` adımı için.
                Launcher'daki "Takip Modu" listesiyle aynı. -->
