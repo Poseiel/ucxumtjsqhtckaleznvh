@@ -1469,7 +1469,36 @@ function ayTirnak(m) {
   return String.fromCharCode(34) + m + String.fromCharCode(34);
 }
 
-/* Kasaba listesi: harita_render.json (sitede zaten var). */
+/* 📍 [10.10.2026] ARA NOKTA ETİKETİ — isimsiz yol noktası da seyahat hedefi
+   olabilir ("Kirkcudbright - Wigtown arası #759"). Botun yöntemi: en yakın iki
+   ADLI nokta, komşular küçükten büyüğe (ara_nokta.etiket ile aynı).
+   ⚠️ NUMARA (#759) esastır; bot etiketi kendisi yeniden yazar. */
+function ayAraNoktaEtiketi(no, komsu, adlar) {
+  if (adlar[no]) return adlar[no];
+  var bulunan = [], gorulen = {}, sira = [no], i = 0;
+  gorulen[no] = 1;
+  while (i < sira.length && bulunan.length < 2 && i < 400) {
+    var d = sira[i++];
+    var k = (komsu[d] || []).slice().sort(function (a, b) { return a - b; });
+    for (var j = 0; j < k.length; j++) {
+      var n = k[j];
+      if (gorulen[n]) continue;
+      gorulen[n] = 1;
+      var ad = adlar[n];
+      if (ad && bulunan.indexOf(ad) < 0) {
+        bulunan.push(ad);
+        if (bulunan.length >= 2) break;
+      }
+      sira.push(n);
+    }
+  }
+  if (bulunan.length >= 2) return bulunan[0] + " - " + bulunan[1] + " arası";
+  if (bulunan.length) return bulunan[0] + " yakını";
+  return "#" + no;
+}
+
+/* Kasaba listesi: harita_render.json (sitede zaten var).
+   📍 [10.10.2026] Kasabalardan SONRA isimsiz ara noktalar da listelenir. */
 function ayKasabalariDoldur() {
   var dl = document.getElementById("ay-sehir-listesi");
   if (!dl) return;
@@ -1484,7 +1513,23 @@ function ayKasabalariDoldur() {
         if (ad) adlar.push(ad);
       });
       adlar.sort(function (a, b) { return a.localeCompare(b, "tr"); });
-      dl.innerHTML = adlar.map(function (a) {
+      var araNoktalar = [];
+      if (Array.isArray(h && h.dugumler) && Array.isArray(h.kenarlar)) {
+        var isim = {}, komsu = {}, isimsiz = [];
+        h.dugumler.forEach(function (n) {
+          if (!n) return;
+          if (n.isim) isim[n.id] = n.isim; else isimsiz.push(n.id);
+        });
+        h.kenarlar.forEach(function (e) {
+          (komsu[e[0]] = komsu[e[0]] || []).push(e[1]);
+          (komsu[e[1]] = komsu[e[1]] || []).push(e[0]);
+        });
+        araNoktalar = isimsiz.map(function (no) {
+          var et = ayAraNoktaEtiketi(no, komsu, isim);
+          return et.charAt(0) === "#" ? et : et + " #" + no;
+        }).sort(function (a, b) { return a.localeCompare(b, "tr"); });
+      }
+      dl.innerHTML = adlar.concat(araNoktalar).map(function (a) {
         return "<option value=" + ayTirnak(emirKacis(a)) + "></option>";
       }).join("");
     })
@@ -2241,8 +2286,8 @@ async function emirIptalEt(kodlar, ozet) {
       ne: "Evsiz hesap bulunduğu şehirde ev, tarla ve atölye kurar.",
       anahtar: ["ev al", "ev kur", "evkur", "tarla al", "atolye al", "atolye kur", "evsiz"] },
     { id: "ayar", tur: "ayar", ikon: "🖥️", baslik: "Hesap ayarı / görev zinciri",
-      ne: "Launcher'daki her ayar: takip modu, inziva, ders, gemi, kaptan, ases, puan, seyahat, görev zinciri, 🌲 orman işi (odun kes). Yalnızca DOKUNDUĞUN ayar gönderilir, gerisi değişmez.",
-      anahtar: ["ayar", "inziva", "inzivaya", "ders", "ders ver", "hoca", "ases", "kaptan", "takip modu", "hizli maden", "hizli cami", "cami", "maden", "seyahat", "gorev", "gorev zinciri", "zincir", "puan", "isci tut", "grup lideri", "mod degistir", "odun kes", "odun kessin", "oduncu", "orman", "orman isi"] },
+      ne: "Launcher'daki her ayar: takip modu, inziva, ders, gemi, kaptan, ases, puan, seyahat (📍 ara nokta da: #759 / 'Kirkcudbright - Wigtown arası' / kare '94 117'), görev zinciri, 🌲 orman işi (odun kes). Yalnızca DOKUNDUĞUN ayar gönderilir, gerisi değişmez.",
+      anahtar: ["ayar", "inziva", "inzivaya", "ders", "ders ver", "hoca", "ases", "kaptan", "takip modu", "hizli maden", "hizli cami", "cami", "maden", "seyahat", "gorev", "gorev zinciri", "zincir", "puan", "isci tut", "grup lideri", "mod degistir", "odun kes", "odun kessin", "oduncu", "orman", "orman isi", "ara nokta", "ara noktaya", "noktaya gonder"] },
     { id: "durum", sekme: "#emirdurum", ikon: "📊", baslik: "Verdiğim emir ne oldu? / geri al",
       ne: "Emir Durumu sekmesi: bekleyenler üstte, kapananlar altta. Yanlış emri satırdaki 🚫 İptal ile geri alırsın.",
       anahtar: ["emir ne oldu", "emrim", "emirlerim", "emir durumu", "iptal", "geri al", "yanlis emir", "bekleyen emir"] },
