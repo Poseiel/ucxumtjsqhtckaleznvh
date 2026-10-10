@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-10 11:05",
+  "son_guncelleme": "2026-10-10 18:45",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -606,7 +606,11 @@
       "ad": "Jaskerin",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Fioreth",
@@ -783,7 +787,11 @@
       "ad": "Estonian",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Ronaldoking",
@@ -916,9 +924,21 @@
       "ayar": {
         "takip": "Hızlı Maden"
       }
+    },
+    {
+      "ad": "Ferrera",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Watkins",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
     }
   ],
-  "toplam_hesap": 156,
+  "toplam_hesap": 158,
   "sistem_gecmis": [
     {
       "zaman": "2026-10-05 19:31",
