@@ -402,7 +402,7 @@ if (window.L) L.RasterCoords.prototype = {
       <p class="rehber-not">⚠️ Yani <b>sabah Envanter ve Gelişim sekmelerinde DÜNÜN verisi durur</b> —
         bozuk değildir. Her sekmenin üstünde hangi güne ait olduğu yazıyor.</p>
 
-      <h3>🆕 Son eklenenler <span class="rehber-eski">(10.10.2026)</span></h3>
+      <h3>🆕 Son eklenenler <span class="rehber-eski">(10-11.10.2026)</span></h3>
       <table class="rehber-tablo">
         <tr><th>Yenilik</th><th>Nasıl kullanılır</th><th>Bilmen gereken</th></tr>
         <tr><td>📍 <b>Ara noktaya gönderme</b><br><span class="rehber-eski">iki kasaba arasındaki isimsiz nokta</span></td>
@@ -416,16 +416,31 @@ if (window.L) L.RasterCoords.prototype = {
               <span class="rehber-akis">seyahat:#759</span></td>
             <td>Hesap varınca <b>orada kalır</b>; seyahat modu kendiliğinden kapanır, Telegram'a haber gelir.
               Ara noktada <b>pazar yoktur</b> → yemeğini çantadan yer. Meyhane olabilir ama menüsü boş olabilir
-              (Galdorin 10.10'da aç kaldı) → <b>yola çıkmadan çantasında yemek olsun</b>.
+              (Galdorin 10.10'da aç kaldı) → <b>yola çıkmadan çantasında yemek olsun</b>: görev zincirinde
+              seyahatten önce <span class="rehber-akis">🍞 erzak</span> adımını ekle (hızlı cami/maden hesaplarına gerekmez,
+              onlar yemek yemez).
               Arada <b>birden çok nokta</b> varsa (Glasgow - Girvan arası gibi) bot hangisi diye sorar, kendisi
               seçmez → <b>numarayla</b> yaz. <b>Yalnız sayı</b> ("759") değil, başına <b>#</b> koy.
-              Bir 🖥️ Ayar emri tek hesaba gider. ⚠️ Aynı gün aynı noktaya çok hesap gönderme, 2-3 güne yay.</td></tr>
+              Ara noktada aç kalan hesaba gün sonunda <b>yeniden girilmez</b> (yeri gün içinde değişmez, boşuna giriş olur).
+              ⚠️ Aynı gün aynı noktaya çok hesap gönderme, 2-3 güne yay.</td></tr>
+        <tr><td>👥 <b>Bir ayarı birden çok hesaba</b><br><span class="rehber-eski">11.10.2026</span></td>
+            <td><b>Emir → 🖥️ Ayar → Hesap</b> kutusuna adları <b>virgülle</b> yaz:
+              <span class="rehber-akis">Vamder, Toyga, Feyyaz</span> → seçtiğin ayar (takip, görev zinciri, orman işi…)
+              üçüne birden gider. Telegram'da: <span class="rehber-akis">hesap: Vamder, Toyga</span>
+              (ya da alt alta birden çok <span class="rehber-akis">hesap:</span> satırı).</td>
+            <td>Aynı hesaba <b>ayrı ayrı</b> gönderdiğin emirler de <b>birikir</b>: her emir yalnız kendi yazdığı
+              kutuyu değiştirir, öncekiler kalır (aynı kutuya iki kez yazarsan son yazılan geçer).
+              Listemizde olmayan bir ad yazarsan (yazım hatası) onay mesajında uyarılırsın.</td></tr>
         <tr><td>🌲 <b>Odun kesme</b></td>
-            <td><b>Emir → 🖥️ Ayar → 🌲 Orman işi: odun</b> (launcher'da en sondaki sütun; Telegram'da
-              <span class="rehber-akis">orman işi: odun</span>). Kapatmak için <b>yok</b>.</td>
-            <td>Yalnızca <b>odun kasabasında</b> çalışır (Stirling · Ardencaple · Girvan · Wigtown). Tarla işi
-              önce gelir; boş kalınca maden/camiden önce odun keser (20 saat). Yalnızca güvenli (yeşil, araçsız)
-              hücre seçilir. İşçi tutmayı <b>açmaz</b>. Meyve ve balık kasabaları henüz yok.</td></tr>
+            <td><b>Bütün bir kasaba için:</b> <b>Emir → ⚙️ Sistem ayarları → 🌲 Odun kasabaları</b>
+              (şu an <b>Ardencaple</b> açık) → o kasabadaki <b>her hesap</b> boş kalınca odun keser.<br>
+              <b>Tek hesap için:</b> <b>Emir → 🖥️ Ayar → 🌲 Orman işi: odun</b> (launcher'da en sondaki sütun;
+              Telegram'da <span class="rehber-akis">orman işi: odun</span>).</td>
+            <td>Yalnızca <b>odun kasabasında</b> çalışır (Stirling · Ardencaple · Girvan · Wigtown). Sıra:
+              <b>tarla → ases → odun → maden/cami</b>. Ases tikli hesap önce ases dener; kasabada ases yeri
+              <b>doluysa</b> odun keser. Bir odun işi 20 saat sürer; yalnızca güvenli (yeşil, araçsız) hücre
+              seçilir. İşçi tutmayı <b>açmaz</b>. 🪵 <b>Oduncu kestiği odunu satmaz, evde biriktirir</b>
+              (satış emri verirsen yine satar). Meyve ve balık kasabaları henüz yok.</td></tr>
         <tr><td>💪 <b>Kuvvet öncelikli hesaplar</b></td>
             <td><b>Emir → ⚙️ Sistem ayarları → 💪 Beslenme</b> kutusuna hesapları yaz (ekle / çıkar).
               Telegram'da: <span class="rehber-akis">⚙️ SİSTEM AYARI</span> başlığı altına
@@ -604,11 +619,12 @@ if (window.L) L.RasterCoords.prototype = {
         bot bunu "varmadı" değil <b>"bilinmiyor"</b> sayar ve üstüne yeni emir
         yazmaz — yani rota bozulmaz.</p>
 
-      <h5>Kullanabileceğin 13 adım</h5>
+      <h5>Kullanabileceğin adımlar</h5>
       <table class="rehber-tablo">
         <tr><th>Adım</th><th>Ne yapar</th><th>Dikkat</th></tr>
         <tr><td>🚶 <b>seyahat:</b>Wigtown</td><td>O kasabaya <b>yola çıkarır</b> ve varana kadar her turda devam eder.</td><td>Kıta şehirlerine (Massa, Calais…) <b>kara yolu YOK</b> — oraya ancak gemiyle gidilir.</td></tr>
         <tr><td>📍 <b>seyahat:</b>#759</td><td>İki kasaba arasındaki <b>isimsiz ara noktaya</b> götürür (örnek: Kirkcudbright - Wigtown arası = <b>#759</b>). <b>Kirkcudbright - Wigtown arası</b> ya da kare koordinatı <b>94 117</b> da yazılabilir.</td><td>Arada <b>birden çok</b> nokta varsa (Glasgow - Girvan: #2789, #837) bot hangisi diye sorar, kendisi seçmez. Numarayı Harita sekmesinde noktaya tıklayarak görürsün. Vardıktan sonra orada kalır (pazar boş → yemek çantadan).</td></tr>
+        <tr><td>🍞 <b>erzak</b><br><span class="rehber-eski">10.10.2026</span></td><td>Yola çıkmadan <b>20 günlük yemek</b> alır (seyahat modundakiyle aynı). Seyahatten <b>önce</b> koy: <span class="rehber-akis">erzak, seyahat:#759</span></td><td><b>İsteğe bağlı</b> — sen karar verirsin. Uzun yolda ya da ara noktada kalacak <b>normal</b> hesaba koy; hızlı cami/maden hesabı yemek yemediği için gerekmez. Kasabada değilse (ara nokta, gemi) pazar olmadığı için adım geçilir.</td></tr>
         <tr><td>📍 <b>varinca:</b>Wigtown</td><td>"Oraya vardım mı?" diye <b>sadece bakar</b>. Kendisi yola çıkmaz.</td><td>Hesabı <b>başkası taşıyorsa</b> (grup takibi, gemi) bunu kullan. <b>seyahat:</b> yazarsan bot her turda üstüne yeni emir yazıp rotayı bozar.</td></tr>
         <tr><td>🛒 <b>satin_al:</b>Çuval Buğday x20</td><td>Pazardan alır. Tavan fiyat verebilirsin.</td><td>Yabancı şehirde alınan mal <b>çantada</b> kalır (eve atılamaz), karakterle birlikte döner.</td></tr>
         <tr><td>💸 <b>hersey_sat:</b>toyga</td><td>Pazardaki ilanları iptal eder, evi boşaltır ve <b>her şeyi</b> o hesaba en düşük fiyattan satar.</td><td><b>20 günlük yiyecek</b> bırakır, gerisini satar. Taşınmadan önce şart.</td></tr>
@@ -760,7 +776,8 @@ if (window.L) L.RasterCoords.prototype = {
         <tr><td>Elimdeki malı satmak</td><td><b>Envanter</b> → kimde olduğunu bul → <b>Emir → 💰 Satış</b></td></tr>
         <tr><td>Bir hesabı başka şehre taşımak</td><td><b>Emir → 🖥️ Ayar</b> → görev zinciri → <span class="rehber-eski">seyahat:ŞehirAdı</span></td></tr>
         <tr><td>Bir hesabı iki kasaba arasındaki bir noktaya göndermek</td><td><b>🗺️ Harita</b> → isimsiz noktaya tıkla → <b>🚶 Seyahat hedefi yap</b> → <b>Emir → 🖥️ Ayar</b> (hesabı seç, gönder)</td></tr>
-        <tr><td>Bir hesaba odun kestirmek</td><td><b>Emir → 🖥️ Ayar</b> → <b>🌲 Orman işi: odun</b> (yalnızca odun kasabasında)</td></tr>
+        <tr><td>Bir hesaba odun kestirmek</td><td><b>Emir → 🖥️ Ayar</b> → <b>🌲 Orman işi: odun</b> (yalnızca odun kasabasında) — bütün kasaba için <b>⚙️ Sistem ayarları → 🌲 Odun kasabaları</b></td></tr>
+        <tr><td>Uzun yola çıkacak hesaba yemek aldırmak</td><td>Görev zincirinde seyahatten önce <b>🍞 erzak</b> adımı</td></tr>
         <tr><td>Birkaç hesaba Kuvvet kastırmak, kendilerine ayrılan yemeği aldırmak</td><td><b>Emir → ⚙️ Sistem ayarları</b> → <b>💪 Kuvvet öncelikli hesaplar</b> → ekle</td></tr>
         <tr><td>Kaptan adayı seçmek</td><td><b>Gelişim</b> → renk, kayıt tarihi ve statlara bak</td></tr>
         <tr><td>Birinin multi olup olmadığına bakmak</td><td><b>İnziva</b> (aynı gün girip çıkanlar) — Hareket değil</td></tr>
@@ -1960,12 +1977,17 @@ if (window.L) L.RasterCoords.prototype = {
       <p class="emir-ipucu">Bilgisayardaki launcher'ın yaptığı <b>her hesap ayarı</b> buradan verilir.
         Yalnızca <b>dokunduğun</b> kutu gönderilir; gerisi olduğu gibi kalır.</p>
       <fieldset class="ay-bolum">
-        <legend>1 · Hangi hesap?</legend>
+        <legend>1 · Hangi hesap? (birden çok olabilir)</legend>
         <div class="emir-satir">
           <label>Hesap
-            <input list="emir-hesap-listesi" id="ay-hesap" placeholder="yazmaya başla… (örn. Vamder)" autocomplete="off">
+            <input list="emir-hesap-listesi" id="ay-hesap" placeholder="yazmaya başla… (örn. Vamder · birden çok: Vamder, Toyga)" autocomplete="off">
           </label>
         </div>
+        <!-- 👥 [11.10.2026] Aynı ayarı birden çok hesaba tek emirle ver: adları
+             VİRGÜLLE ayır. Bot hepsine aynı ayarı yazar (site_emirleri.emri_coz). -->
+        <p class="emir-ipucu">👥 Aynı ayarı <b>birden çok hesaba</b> vermek için adları <b>virgülle</b> ayır
+          (örn. <code>Vamder, Toyga, Feyyaz</code>). Aynı hesaba ayrı ayrı gönderdiğin emirler de birikir:
+          her emir yalnız kendi yazdığı kutuyu değiştirir.</p>
         <!-- 👁️ [05.10.2026] Seçilen hesabın ŞU ANKİ ayarları (sistem.json). -->
         <p class="emir-ipucu" id="ay-mevcut" hidden></p>
       </fieldset>
@@ -2311,6 +2333,12 @@ if (window.L) L.RasterCoords.prototype = {
           <label>🕌 Ayrıcalıklı cami hesapları <span class="ay-ipucu">boş kalınca (tarla/atölye işi yokken) maden kasabasında da CAMİYE gider — itibar kasar</span>
             <select id="si-cami-islem" class="si-islem"></select>
             <input id="si-cami" list="emir-hesap-listesi" placeholder="örn. Murderer" autocomplete="off">
+          </label>
+        </div>
+        <div class="emir-satir">
+          <label>🌲 Odun kasabaları <span class="ay-ipucu">bu kasabadaki hesaplar boş kalınca (tarla işi yokken) maden/camiden ÖNCE odun keser, kestiği odunu SATMAZ, evde tutar · ases tikliyse önce ases, ases yeri doluysa odun · yalnızca gerçek odun kasabasında çalışır (Stirling · Ardencaple · Girvan · Wigtown)</span>
+            <select id="si-odun-islem" class="si-islem"></select>
+            <input id="si-odun" list="ay-sehir-listesi" placeholder="örn. Ardencaple" autocomplete="off">
           </label>
         </div>
       </fieldset>
