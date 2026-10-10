@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-10 18:24",
+  "son_guncelleme": "2026-10-10 18:32",
   "tarih": "2026-10-10",
   "aralik_dk": 150,
   "kontroller": [
@@ -575,6 +575,40 @@
         }
       ],
       "farklar": []
+    },
+    {
+      "kasaba": "Glasgow",
+      "saat": "18:29",
+      "saat_tam": "2026-10-10T18:29:19",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Glasgow",
+          "kasaba": "Glasgow",
+          "komutan": "Kazasker: Mavisari",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        },
+        {
+          "ad": "The Excelsior",
+          "kasaba": "Glasgow",
+          "komutan": "Kazasker: Emmalogan",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "6048704",
+          "tur": "Silahlı Grup",
+          "lider": "izaskun",
+          "uyeler": [
+            "margarita"
+          ],
+          "katilim": "Serbest Katılım"
+        }
+      ],
+      "farklar": []
     }
   ],
   "son_durum": {
@@ -722,8 +756,8 @@
       ]
     },
     "Glasgow": {
-      "saat": "14:43",
-      "saat_tam": "2026-10-10T14:43:01",
+      "saat": "18:29",
+      "saat_tam": "2026-10-10T18:29:19",
       "ordu_okundu": true,
       "ordular": [
         {
