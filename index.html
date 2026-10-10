@@ -384,7 +384,7 @@ if (window.L) L.RasterCoords.prototype = {
   <section id="tab-rehber" class="tab-panel">
     <div class="rehber">
       <h2>📖 Bu site ne işe yarar?</h2>
-      <p class="bolum-aciklama">Bot her sabah <b>98 hesabı</b> tek tek gezip oyundan bilgi
+      <p class="bolum-aciklama">Bot her gün <b>150'den fazla hesabı</b> tek tek gezip oyundan bilgi
         topluyor. Bu site o bilgilerin okunabilir hâli — oyuna girmeden, tek ekrandan
         her şeyi görürsün. İki tür sekme var: <b>bilgi okuma</b> (14 sekme) ve
         <b>bota iş verme</b> (Emir). Aşağıda hangisi ne işe yarar, hepsi tek tek yazılı.</p>
@@ -397,10 +397,54 @@ if (window.L) L.RasterCoords.prototype = {
             <td>Bu bilgileri yalnızca 7 “ajan” hesap topluyor ve onlar günün <b>en başında</b> giriyor — böylece kimi takip edeceğini sabah öğreniyorsun.</td></tr>
         <tr><td><b>Akşam ~21:00</b><br><span class="rehber-eski">bütün tur bitince</span></td>
             <td>Envanter · Gelişim <span class="rehber-eski">(+ diğerleri tazelenir)</span></td>
-            <td>Bunlar 98 hesabın hepsi girmeden tamamlanmıyor.</td></tr>
+            <td>Bunlar bütün hesaplar girmeden tamamlanmıyor.</td></tr>
       </table>
       <p class="rehber-not">⚠️ Yani <b>sabah Envanter ve Gelişim sekmelerinde DÜNÜN verisi durur</b> —
         bozuk değildir. Her sekmenin üstünde hangi güne ait olduğu yazıyor.</p>
+
+      <h3>🆕 Son eklenenler <span class="rehber-eski">(10.10.2026)</span></h3>
+      <table class="rehber-tablo">
+        <tr><th>Yenilik</th><th>Nasıl kullanılır</th><th>Bilmen gereken</th></tr>
+        <tr><td>📍 <b>Ara noktaya gönderme</b><br><span class="rehber-eski">iki kasaba arasındaki isimsiz nokta</span></td>
+            <td><b>En kolayı:</b> <b>🗺️ Harita</b> sekmesinde iki kasaba arasındaki isimsiz noktaya tıkla →
+              açılan kutuda noktanın <b>numarası</b> (ör. <b>#759</b>) ve adı (<b>Kirkcudbright - Wigtown arası</b>) yazar →
+              <b>🚶 Seyahat hedefi yap</b>'a bas → <b>Emir → 🖥️ Ayar</b>'daki seyahat kutusu kendiliğinden dolar
+              (metin panoya da kopyalanır) → hesabı seç, Telegram'a gönder.<br>
+              Elle yazmak istersen seyahat kutusuna şu üçünden biri:
+              <span class="rehber-akis">#759</span> · <span class="rehber-akis">Kirkcudbright - Wigtown arası</span> ·
+              <span class="rehber-akis">94 117</span> (haritadaki kare). Görev zincirinde de aynı:
+              <span class="rehber-akis">seyahat:#759</span></td>
+            <td>Hesap varınca <b>orada kalır</b>; seyahat modu kendiliğinden kapanır, Telegram'a haber gelir.
+              Ara noktada <b>pazar yoktur</b> → yemeğini çantadan yer. Meyhane olabilir ama menüsü boş olabilir
+              (Galdorin 10.10'da aç kaldı) → <b>yola çıkmadan çantasında yemek olsun</b>.
+              Arada <b>birden çok nokta</b> varsa (Glasgow - Girvan arası gibi) bot hangisi diye sorar, kendisi
+              seçmez → <b>numarayla</b> yaz. <b>Yalnız sayı</b> ("759") değil, başına <b>#</b> koy.
+              Bir 🖥️ Ayar emri tek hesaba gider. ⚠️ Aynı gün aynı noktaya çok hesap gönderme, 2-3 güne yay.</td></tr>
+        <tr><td>🌲 <b>Odun kesme</b></td>
+            <td><b>Emir → 🖥️ Ayar → 🌲 Orman işi: odun</b> (launcher'da en sondaki sütun; Telegram'da
+              <span class="rehber-akis">orman işi: odun</span>). Kapatmak için <b>yok</b>.</td>
+            <td>Yalnızca <b>odun kasabasında</b> çalışır (Stirling · Ardencaple · Girvan · Wigtown). Tarla işi
+              önce gelir; boş kalınca maden/camiden önce odun keser (20 saat). Yalnızca güvenli (yeşil, araçsız)
+              hücre seçilir. İşçi tutmayı <b>açmaz</b>. Meyve ve balık kasabaları henüz yok.</td></tr>
+        <tr><td>💪 <b>Kuvvet öncelikli hesaplar</b></td>
+            <td><b>Emir → ⚙️ Sistem ayarları → 💪 Beslenme</b> kutusuna hesapları yaz (ekle / çıkar).
+              Telegram'da: <span class="rehber-akis">⚙️ SİSTEM AYARI</span> başlığı altına
+              <span class="rehber-akis">kuvvet öncelikli ekle: helioson, scamender</span></td>
+            <td>Listedeki hesaplar ① yemekte <b>Kuvvet'i önce</b> kasar (Kuvvet 255 olunca ya da para 50 akçenin
+              altındayken eski kural geçerli) ② bizim ya da dost hesabın onlara <b>rezerve ettiği yemeği</b>
+              pazardakinden önce alır ③ kendilerine rezerve edilen malı (yemek, kılıç…) <b>1000 değil 50 akçe</b>
+              kalana kadar alır. <b>Listede olmayan hesaplarda hiçbir şey değişmez.</b></td></tr>
+        <tr><td>🧺 <b>Bize rezerve ilan ne zaman alınır?</b></td>
+            <td>Bir hesabımıza pazarda <b>rezerve ettiğin</b> mal, o hesap pazara girince kendiliğinden alınır.</td>
+            <td>İki şart var: satıcı <b>bizim hesabımız ya da dost listesinde</b> olmalı (yabancının rezervesi
+              alınmaz — bize pahalı mal ayırıp paramızı çekemesin) ve hesapta <b>1000 akçe</b> kalmalı
+              (💪 listedekilerde 50). Kendi karakterinden rezerve ediyorsan onu <b>⚙️ Sistem → 🤝 Dost</b>
+              listesine ekle. Alınmazsa sebebi log'a yazılır.</td></tr>
+        <tr><td>📦 <b>Ev ↔ çanta aktarma</b></td>
+            <td>Senin bir şey yapmana gerek yok.</td>
+            <td>Oyun bir seferde hepsini vermiyor (Mor Boya'da 100). Bot artık <b>kalanı da</b> aktarıyor —
+              "mor boya sat" emri evdekinin hepsini satar.</td></tr>
+      </table>
 
       <h3>🔎 Bilgi okuma sekmeleri (14 tane)</h3>
       <table class="rehber-tablo">
@@ -415,7 +459,7 @@ if (window.L) L.RasterCoords.prototype = {
         <tr><td><b>Hareket</b></td><td>Son 6 günün rotaları — kim nereden nereye gitti</td><td>Birinin düzenli mi yoksa şüpheli mi hareket ettiğini gösterir.</td></tr>
         <tr><td><b>İnziva</b></td><td>Aynı gün birlikte inzivaya girip çıkanlar</td><td>Multi şüphesinin <b>tek</b> ölçütü budur. Seyahat edenler masumdur, buraya girmez.</td></tr>
         <tr><td><b>Kim Nerede</b></td><td>Bugün 7 kasabada kim var — hareket etmeyenler dahil <b>herkes</b></td><td>Bir kişiyi arıyorsan en hızlı yer. Kartlarda <b>🤝 bizim: N</b> satırı o kasabadaki kendi hesap sayımızdır.</td></tr>
-        <tr><td><b>🗺️ Harita &amp; Rota</b></td><td>Kara yolu rota hesaplayıcı + <b>🚢 Deniz Rotası</b></td><td>İki şehir seç → kaç gün sürdüğünü söyler (Paşa paketi varsa günde 3 adım, yoksa 2). Deniz kısmı gemi rotasını kare kare çizer.</td></tr>
+        <tr><td><b>🗺️ Harita &amp; Rota</b></td><td>Kara yolu rota hesaplayıcı + <b>🚢 Deniz Rotası</b></td><td>İki şehir seç → kaç gün sürdüğünü söyler (Paşa paketi varsa günde 3 adım, yoksa 2). Deniz kısmı gemi rotasını kare kare çizer. 📍 İki kasaba arasındaki <b>isimsiz noktaya tıklarsan</b> numarası ve karesi çıkar; <b>🚶 Seyahat hedefi yap</b> onu 🖥️ Ayar'a yazar.</td></tr>
         <tr><td><b>🚨 İzleme &amp; Uyarı</b></td><td>Adını yazdığın hesapların ve orduların bugünkü yeri, dünkü yeri, gün içi nöbette görüldüğü yer + <b>🛡️ ordu nöbeti</b> kontrolleri</td><td>Biri <b>kasaba değiştirirse</b> sitenin en üstünde <b>kocaman kırmızı uyarı</b> çıkar. Liste bu tarayıcıda saklanır; <b>🔗 Paylaş</b> ile arkadaşına gönderebilirsin.</td></tr>
         <tr><td><b>📅 Geçmiş / Takvim</b></td><td>Seçtiğin <b>eski bir günün</b> kasaba nüfusları, sakin listeleri, gelen/gidenler, ordular, gruplar ve o günün raporları</td><td>“O gün kim neredeydi?” sorusunun cevabı. Son 14 günün nüfus tablosunda bir güne tıkla → o gün açılır.</td></tr>
         <tr><td><b>⚔️ Ordu</b></td><td>“Ordu Takip” modundaki <b>kendi hesaplarımız</b> (ordu, komutan, günlük ücret, bugünkü takip ve enerji) + oyunun Günlük sekmesinden okunan <b>son 30 günün ordu hadiseleri</b> (💀 ölüm · 🩸 yara · ⚔️ darbe/kavga · 👁️ gördüklerin)</td><td>Ordudaki hesap bugün <b>lideri takip edebildi mi</b>, kimle çarpıştı — oyuna girmeden görürsün. Hesaba göre süz, “yalnızca çatışmalar”ı işaretle ya da metinde ara.</td></tr>
@@ -442,7 +486,7 @@ if (window.L) L.RasterCoords.prototype = {
         <tr><td>💰 Satış · 🛒 Alım</td><td><b>🛒 Pazar</b></td></tr>
         <tr><td>⛵ Gemi Al · ⚓ Yanaşma</td><td><b>⚓ Deniz</b></td></tr>
         <tr><td>🪖 Orduya katıl</td><td><b>⚔️ Ordular</b></td></tr>
-        <tr><td>🖥️ Ayar &amp; görev zinciri · ➕ Hesap ekle</td><td><b>⚙️ Ayar Emirleri</b></td></tr>
+        <tr><td>🖥️ Ayar &amp; görev zinciri · ⚙️ Sistem ayarları · ➕ Hesap ekle</td><td><b>⚙️ Ayar Emirleri</b></td></tr>
         <tr><td>📜 Ödenek</td><td><b>💰 Ödenekler</b></td></tr>
         <tr><td>✉️ Mesaj</td><td><b>✉️ Mesajlar</b></td></tr>
         <tr><td>🎭 Profil · 🤝 Güven · 🗳️ Oy · 📣 Forum · 👑 Divan onay · 👪 Aile kabul · 📬 Posta · 🚫 İptal</td><td><b>📜 Emirler</b></td></tr>
@@ -468,7 +512,7 @@ if (window.L) L.RasterCoords.prototype = {
         <tr><td>🎭 <b>Profil yaz</b><br><span class="rehber-eski">21.09.2026</span></td><td>Hesap oyuna girer, <b>kendi profil sayfasını ayrı bir sekmede</b> açar ve yazdıklarını kaydeder: <b>profil durumu</b> ("Peki, bugün ruh halin nasıl?" — 140 karakter), <b>doğum günü</b> (gün/ay), <b>yaş</b>, <b>cinsiyet</b>, <b>RP metni</b> (oyun karakteri profili) ve <b>OOC</b> (oyun dışı bilgiler).</td><td><b>Boş bıraktığın kutuya dokunulmaz.</b> Kayıt iki adımda olur (önce durum, sonra Profil sekmesi); biri olmazsa diğeri yine denenir. Oyundan <b>çıkılmaz</b>, sekme iş bitince kapanır. ✅ İş bitince <b>Telegram'a haber gelir</b>. 📄 Metin uzunsa (Telegram sınırı <b>4.096 karakter</b>) <b>bölme</b> — <b>📄 .txt indir</b> düğmesini kullan, dosyayı gruba <b>dosya olarak</b> at; <b>tek dosyada</b> doğum günü, yaş, cinsiyet, RP ve OOC birlikte gider, bot hepsini okur.</td></tr>
         <tr><td>🤝 <b>Güven puanı</b><br>🎨 <b>Renk attır</b></td><td>Bizim bir hesabımız <b>başka bir oyuncunun</b> profilini açar; menüden <b>güven puanı (+1)</b> verir ve/veya bir üst <b>RP derecesine geçirmeyi</b> önerir. İkisini birden istersen tek ziyarette yapılır.</td><td>⚠️ <b>Güven puanı iz bırakır</b>: oyun profilde "Güven Puanı veren son kişiler"i gösteriyor ve multi analizimiz tam bu listeye bakıyor. 🎨 Renk sırası <b>Beyaz → Sarı → Turuncu → Yeşil → Mavi → Kahverengi → Siyah</b>; kendinden <b>yüksek</b> dereceliye verilemez. Oyun <b>"Daha önce terfi öneriniz işleme alınmıştı"</b> derse emir <b>kuyrukta bekletilmez, iptal edilir</b> ve Telegram'a haber gelir — bir süre sonra aynı emri yeniden verirsin.</td></tr>
         <tr><td>🚫 <b>İptal</b></td><td>Bekleyen bir emri kuyruktan düşürür. <b>📊 Emir Durumu</b> sekmesindeki düğmeden üretilir.</td><td>Metin panoya kopyalanır, Telegram’a yapıştırırsın; anında değildir.</td></tr>
-        <tr><td>🖥️ <b>Ayar</b><br><span class="rehber-eski">en güçlüsü</span></td><td><b>Launcher’ın yaptığı her hesap ayarını buradan verirsin</b> — bilgisayarın başında olmana gerek kalmaz. Takip modu, ordu enerjisi, ders, seyahat, gemi, kaptan, ases, inziva, divan görevi, puan, işçi, armatör ve <b>görev zinciri</b>.</td><td>Aşağıdaki iki uyarıyı mutlaka oku.</td></tr>
+        <tr><td>🖥️ <b>Ayar</b><br><span class="rehber-eski">en güçlüsü</span></td><td><b>Launcher’ın yaptığı her hesap ayarını buradan verirsin</b> — bilgisayarın başında olmana gerek kalmaz. Takip modu, ordu enerjisi, ders, seyahat (📍 <b>ara nokta</b> dahil), gemi, kaptan, ases, inziva, divan görevi, puan, işçi, armatör, 🌲 <b>orman işi</b> ve <b>görev zinciri</b>. Hesaba bağlı olmayan listeler (maden, cami, 💪 kuvvet öncelikli, dost/düşman) <b>⚙️ Sistem ayarları</b> formunda.</td><td>Aşağıdaki iki uyarıyı mutlaka oku.</td></tr>
       </table>
 
       <h3>📄 Uzun emir — <b>.txt dosyası olarak</b> gönderme</h3>
@@ -715,6 +759,9 @@ if (window.L) L.RasterCoords.prototype = {
         <tr><td>Bir malı ucuza almak</td><td><b>Pazar</b> → ürünü seç → fiyatları karşılaştır → <b>Emir → 🛒 Alım</b></td></tr>
         <tr><td>Elimdeki malı satmak</td><td><b>Envanter</b> → kimde olduğunu bul → <b>Emir → 💰 Satış</b></td></tr>
         <tr><td>Bir hesabı başka şehre taşımak</td><td><b>Emir → 🖥️ Ayar</b> → görev zinciri → <span class="rehber-eski">seyahat:ŞehirAdı</span></td></tr>
+        <tr><td>Bir hesabı iki kasaba arasındaki bir noktaya göndermek</td><td><b>🗺️ Harita</b> → isimsiz noktaya tıkla → <b>🚶 Seyahat hedefi yap</b> → <b>Emir → 🖥️ Ayar</b> (hesabı seç, gönder)</td></tr>
+        <tr><td>Bir hesaba odun kestirmek</td><td><b>Emir → 🖥️ Ayar</b> → <b>🌲 Orman işi: odun</b> (yalnızca odun kasabasında)</td></tr>
+        <tr><td>Birkaç hesaba Kuvvet kastırmak, kendilerine ayrılan yemeği aldırmak</td><td><b>Emir → ⚙️ Sistem ayarları</b> → <b>💪 Kuvvet öncelikli hesaplar</b> → ekle</td></tr>
         <tr><td>Kaptan adayı seçmek</td><td><b>Gelişim</b> → renk, kayıt tarihi ve statlara bak</td></tr>
         <tr><td>Birinin multi olup olmadığına bakmak</td><td><b>İnziva</b> (aynı gün girip çıkanlar) — Hareket değil</td></tr>
         <tr><td>Limanımıza kim geldi görmek</td><td><b>⛵ Filo</b> → 🔴 yabancı işaretlileri</td></tr>
@@ -2264,6 +2311,16 @@ if (window.L) L.RasterCoords.prototype = {
           <label>🕌 Ayrıcalıklı cami hesapları <span class="ay-ipucu">boş kalınca (tarla/atölye işi yokken) maden kasabasında da CAMİYE gider — itibar kasar</span>
             <select id="si-cami-islem" class="si-islem"></select>
             <input id="si-cami" list="emir-hesap-listesi" placeholder="örn. Murderer" autocomplete="off">
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="ay-bolum">
+        <legend>💪 Beslenme</legend>
+        <div class="emir-satir">
+          <label>💪 Kuvvet öncelikli hesaplar <span class="ay-ipucu">yemekte Kuvvet önce · bizim/dost satıcının bu hesaba REZERVE ettiği yemek pazardakinden önce alınır · rezerve mal (yemek, kılıç…) 1000 değil 50 akçe kalana kadar alınır — listede olmayan hesaplarda hiçbir şey değişmez (örn. Massa multileri)</span>
+            <select id="si-kuvvet-islem" class="si-islem"></select>
+            <input id="si-kuvvet" list="emir-hesap-listesi" placeholder="örn. helioson, scamender" autocomplete="off">
           </label>
         </div>
       </fieldset>
