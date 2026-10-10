@@ -558,6 +558,60 @@ function rkIzgaraTazele() {
   goster(RK.izgaraKucuk, ac && z >= 5);
 }
 
+/* ---------------- 📍 ARA NOKTA (10.10.2026) ----------------
+   İsimsiz yol noktasının okunur adı: en yakın iki ADLI nokta, komşular
+   küçükten büyüğe — botun `ara_nokta.etiket`i ile aynı yöntem. Numara (#759)
+   esastır; bot etiketi kendisi yeniden yazar. */
+function rkAraNoktaEtiketi(no) {
+  const D = RK.veri.dugumler, K = RK.veri.komsu || {};
+  const adi = (n) => ((D[String(n)] || [])[2] || "");
+  if (adi(no)) return adi(no);
+  const bulunan = [], gorulen = new Set([Number(no)]), sira = [Number(no)];
+  let i = 0;
+  while (i < sira.length && bulunan.length < 2 && i < 400) {
+    const d = sira[i++];
+    const kom = (K[String(d)] || []).map(Number).sort((a, b) => a - b);
+    for (const n of kom) {
+      if (gorulen.has(n)) continue;
+      gorulen.add(n);
+      const a = adi(n);
+      if (a && !bulunan.includes(a)) {
+        bulunan.push(a);
+        if (bulunan.length >= 2) break;
+      }
+      sira.push(n);
+    }
+  }
+  if (bulunan.length >= 2) return bulunan[0] + " - " + bulunan[1] + " arası";
+  if (bulunan.length) return bulunan[0] + " yakını";
+  return "#" + no;
+}
+
+function rkAraNoktaGoster(no) {
+  const [x, y] = RK.veri.dugumler[no];
+  const etiket = rkAraNoktaEtiketi(no);
+  const hedef = etiket.charAt(0) === "#" ? etiket : etiket + " #" + no;
+  const kap = document.createElement("div");
+  kap.innerHTML = "<b>📍 Ara nokta #" + rkKacis(no) + "</b><br>" + rkKacis(etiket) +
+    "<br>kare " + x + ", " + y + "<br><small>Emir: <code>seyahat: " + rkKacis(hedef) +
+    "</code></small><br>";
+  const btn = document.createElement("button");
+  btn.type = "button";
+  btn.textContent = "🚶 Seyahat hedefi yap";
+  btn.addEventListener("click", () => {
+    const k = document.getElementById("ay-seyahat");
+    if (k) {
+      k.value = hedef;
+      k.dispatchEvent(new Event("input", { bubbles: true }));
+      k.dispatchEvent(new Event("change", { bubbles: true }));
+    }
+    try { if (navigator.clipboard) navigator.clipboard.writeText("seyahat: " + hedef); } catch (e) { /* pano yoksa sorun değil */ }
+    btn.textContent = "✅ Emir → 🖥️ Ayar'daki seyahat kutusuna yazıldı (panoya da kopyalandı)";
+  });
+  kap.appendChild(btn);
+  L.popup().setLatLng(RK.rc.unproject(rkPiksel(x, y))).setContent(kap).openOn(RK.map);
+}
+
 /* ---------------- kurulum ---------------- */
 function rkDugumSec(id) {
   const [x, y, ad] = RK.veri.dugumler[id];
@@ -620,6 +674,13 @@ async function rkKur() {
     const p = RK.rc.project(e.latlng);
     const kx = Math.floor(p.x / RK_KARE) + RK_DX;
     const ky = Math.floor(p.y / RK_KARE) + RK_DY;
+    // 📍 [10.10.2026] Tam tıklanan karede İSİMSİZ yol noktası varsa → numarası +
+    //    "seyahat hedefi yap" (ortak: "Kircud-wigtown arası x y diye konumlar olsa
+    //    oraya gönderme emri versek"). Şehir karesine tıklamak eskisi gibi rota seçer.
+    for (const id in RK.veri.dugumler) {
+      const [x, y, ad] = RK.veri.dugumler[id];
+      if (!ad && x === kx && y === ky) { rkAraNoktaGoster(id); return; }
+    }
     let en = null, enUz = 3;
     for (const id in RK.veri.dugumler) {
       const [x, y, ad] = RK.veri.dugumler[id];
