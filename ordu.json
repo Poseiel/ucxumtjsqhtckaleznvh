@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-10 13:18",
+  "son_guncelleme": "2026-10-10 13:25",
   "rapor_tarihi": "2026-10-10",
   "onceki_tarih": "2026-10-09",
   "ordular": [
@@ -27,14 +27,17 @@
       "komutan": "Kazasker: Mavisari",
       "durum": "Şehir Dışında",
       "ham_durum": "Ordu, Şehir kapılarına dayandı.",
-      "alim_modu": false,
-      "danisman": false,
+      "alim_modu": null,
+      "danisman": null,
       "danisman_puan": null,
       "danisman_maas": "",
-      "komutan_login": "mavisari",
+      "komutan_login": "",
       "degisim": "tasindi",
       "onceki_kasaba": "Stirling",
-      "onceki_durum": "Şehir Dışında"
+      "onceki_durum": "Şehir Dışında",
+      "anlik_saat": "13:22",
+      "sabah_kasaba": "Glasgow",
+      "sabah_durum": "Şehir Dışında"
     },
     {
       "ad": "The Excelsior",
@@ -42,14 +45,17 @@
       "komutan": "Kazasker: Emmalogan",
       "durum": "Şehir Dışında",
       "ham_durum": "Ordu, Şehir kapılarına dayandı.",
-      "alim_modu": false,
-      "danisman": false,
+      "alim_modu": null,
+      "danisman": null,
       "danisman_puan": null,
       "danisman_maas": "",
-      "komutan_login": "emmalogan",
+      "komutan_login": "",
       "degisim": "ayni",
       "onceki_kasaba": "Glasgow",
-      "onceki_durum": "Şehir Dışında"
+      "onceki_durum": "Şehir Dışında",
+      "anlik_saat": "13:22",
+      "sabah_kasaba": "Glasgow",
+      "sabah_durum": "Şehir Dışında"
     },
     {
       "ad": "Wigtown",
@@ -75,6 +81,7 @@
   "not": "alim_modu/danisman 17.09.2026'dan itibaren toplanıyor; daha eski günlerde null (bilinmiyor) görünür.",
   "nobet_saatleri": {
     "Girvan": "13:15",
+    "Glasgow": "13:22",
     "Wigtown": "13:08"
   }
 }
