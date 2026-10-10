@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-10 22:04",
+  "son_guncelleme": "2026-10-11 01:43",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -30,6 +30,9 @@
       "marchosias",
       "darkbringer",
       "dronron"
+    ],
+    "odun_kasabalari": [
+      "Ardencaple"
     ],
     "kapanis_islemi": 1,
     "yasli_garson": 0,
@@ -964,6 +967,18 @@
   ],
   "toplam_hesap": 158,
   "sistem_gecmis": [
+    {
+      "zaman": "2026-10-10 22:50",
+      "yazan": "VS Code Claude (kullanıcı: ardendeki hesaplar odun kessin)",
+      "degisiklikler": [
+        {
+          "alan": "odun_kasabalari",
+          "etiket": "🌲 Odun kasabaları",
+          "eski": "—",
+          "yeni": "Ardencaple"
+        }
+      ]
+    },
     {
       "zaman": "2026-10-10 21:46",
       "yazan": "VS Code Claude (kullanıcı isteği, Massa multileri)",
