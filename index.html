@@ -2160,6 +2160,18 @@ if (window.L) L.RasterCoords.prototype = {
             <option value="kapalı">kapalı</option>
           </select>
         </label>
+        <!-- 🌲 [10.10.2026] Orman işi — launcher "🌲 Orman İşi" sütunuyla BİREBİR
+             (launcher.ORMAN_SECENEKLERI). Bot: site_emirleri "orman işi" → orman_isi.
+             Meyve / balık sayfaları henüz görülmedi → seçilemez (yakında). -->
+        <label>🌲 Orman işi <span class="ay-ipucu">odun kasabasında maden/camiden ÖNCE odun keser · işçi tutmayı açmaz</span>
+          <select id="ay-orman">
+            <option value="">— değiştirme —</option>
+            <option value="yok">— Yok —</option>
+            <option value="odun">🌲 Odun kes (boşta kalınca)</option>
+            <option value="meyve" disabled>🍎 Meyve topla (yakında)</option>
+            <option value="balik" disabled>🐟 Balık tut (yakında)</option>
+          </select>
+        </label>
         <!-- 📦 [05.10.2026] Günlük Midas kutusu (üç eşyalı "Midas Sandığı").
              Bot: site_emirleri._IZINLI_ALANLAR["midas"] → midas_kutu (0-500). -->
         <label>📦 Midas kutusu <span class="ay-ipucu">günde kaç kutu açsın · evinde "Midas Sandığı" olmalı</span>
