@@ -1424,6 +1424,7 @@ function emirOlaylariBagla() {
 var AY_ADIM_TIPLERI = [
   ["seyahat", "🚶 Kasabaya git"],
   ["varinca", "📍 Oraya VARILMASINI bekle"],
+  ["erzak", "🍞 Yola çıkmadan erzak al (20 gün)"],
   ["gemiye_bin", "⛵ Gemiye bin"],
   ["karaya_cik", "🏝️ Karaya çık (gemiden in)"],
   ["satin_al", "🛒 Pazardan al"],
@@ -1456,8 +1457,10 @@ var AY_ADIM_TIPLERI = [
    yalnızca LOG satırında kullanılıyor, hiçbir karara girmiyor.
    Ortağın isteği: *"favore konumuna varmıştır, onu da taşındırabileceğimiz
    bir tuş olsa — BULUNDUĞUN KASABAYA TAŞIN gibi."* */
+/* 🍞 [10.10.2026 gece] `erzak` değer istemez — yola çıkmadan 20 günlük erzak
+   (İSTEĞE BAĞLI; kullanıcı: *"soru olarak sorsun ve bize bıraksın"*). */
 var AY_DEGERSIZ = ["grup_kur", "grup_dagit", "karaya_cik",
-                   "ev_tasi", "ev_tasi_zorla"];
+                   "ev_tasi", "ev_tasi_zorla", "erzak"];
 
 /* Takip modu seçenekleri (launcher'daki listeyle aynı). */
 var AY_TAKIP_MODLARI = ["Yok", "Grup Takip", "Ordu Takip", "Alışverişçi",
@@ -1797,12 +1800,23 @@ function ayPlanUygula(kod) {
   if (ilkBos) ilkBos.focus();
 }
 
+/* 👥 [11.10.2026] "A, B ; C" → ["A", "B", "C"] (boşluk/tekrar ayıklanır).
+   Bot aynı kuralla böler (site_emirleri.emri_coz). */
+function ayHesapAdlari() {
+  var adlar = [];
+  String(emirDeger("ay-hesap") || "").split(/[,;]+/).forEach(function (x) {
+    x = x.trim();
+    if (x && adlar.map(function (y) { return y.toLowerCase(); }).indexOf(x.toLowerCase()) < 0) adlar.push(x);
+  });
+  return adlar;
+}
+
 /* Emir metnini kurar — `emirMesajiKur` buradan çağırır. */
 function ayMesajiKur() {
-  var hesap = emirDeger("ay-hesap");
-  if (!hesap) return { hata: "Eksik: hangi hesap" };
+  var adlar = ayHesapAdlari();
+  if (!adlar.length) return { hata: "Eksik: hangi hesap" };
 
-  var satirlar = ["AYAR", "hesap: " + hesap];
+  var satirlar = ["AYAR", "hesap: " + adlar.join(", ")];
   function ekle(etiket, deger) {
     if (deger) satirlar.push(etiket + ": " + deger);
   }
@@ -1923,6 +1937,7 @@ var SISTEM_LISTELER = [
   ["si-maden-kasaba", "maden kasabaları"],
   ["si-cami", "cami ayrıcalıklı"],
   ["si-kuvvet", "kuvvet öncelikli"],
+  ["si-odun", "odun kasabaları"],
   ["si-rota", "kaptan rota"],
   ["si-ders", "ders verebilir"],
   ["si-dost", "dost"],
@@ -1932,7 +1947,7 @@ var SISTEM_LISTELER = [
 var SISTEM_ETIKET = {
   maden_kasabalari: "⛏️ Maden kasabaları", maden_oncelik: "⛏️ Öncelikli maden",
   cami_ayricalikli: "🕌 Ayrıcalıklı cami hesapları", kuvvet_oncelikli: "💪 Kuvvet öncelikli hesaplar",
-  kapanis_islemi: "🌙 Tur bitince",
+  odun_kasabalari: "🌲 Odun kasabaları", kapanis_islemi: "🌙 Tur bitince",
   yasli_garson: "🧹 Yaşlı garson", telegram_isim: "📝 Rapor ismi",
   gemi_armatoru: "🚢 Gemi armatörü", molla_hesabi: "🕌 Molla hesabı",
   ders_verebilir: "🎓 Ders verebilir", kaptan_hedef_liman: "⚓ Kaptan hedef limanı",
@@ -1967,7 +1982,8 @@ function sistemMevcutYaz() {
   }
   if (gun) gun.textContent = "(" + (sistemVerisi.son_guncelleme || "?") + ")";
   var s = sistemVerisi.sistem || {};
-  var sira = ["maden_kasabalari", "maden_oncelik", "cami_ayricalikli", "kuvvet_oncelikli", "kapanis_islemi",
+  var sira = ["maden_kasabalari", "maden_oncelik", "cami_ayricalikli", "kuvvet_oncelikli",
+              "odun_kasabalari", "kapanis_islemi",
               "yasli_garson", "telegram_isim", "gemi_armatoru", "kaptan_hedef_liman",
               "kaptan_devir_hedefi", "kaptan_hareket_aktif", "kaptan_yelken",
               "kaptan_kiyi_mesafesi", "kaptan_rota", "gemiler", "molla_hesabi",
@@ -2053,7 +2069,21 @@ function sistemRollerYaz() {
 function ayMevcutYaz() {
   var el = document.getElementById("ay-mevcut");
   if (!el) return;
-  var ad = String(emirDeger("ay-hesap") || "").trim().toLowerCase();
+  // 👥 [11.10.2026] Birden çok hesap yazıldıysa: kaç hesap + listede olmayan ad.
+  var _adlar = ayHesapAdlari();
+  if (_adlar.length > 1) {
+    var _bilinen = ((sistemVerisi && sistemVerisi.hesaplar) || []).map(function (x) {
+      return String(x.ad || "").toLowerCase();
+    });
+    var _yok = _bilinen.length ? _adlar.filter(function (x) {
+      return _bilinen.indexOf(x.toLowerCase()) < 0;
+    }) : [];
+    el.textContent = "👥 " + _adlar.length + " hesaba aynı ayar gidecek: " + _adlar.join(", ") +
+      (_yok.length ? " · ⚠️ listede bulunamadı: " + _yok.join(", ") + " (yazım hatası olabilir)" : "");
+    el.hidden = false;
+    return;
+  }
+  var ad = String(_adlar[0] || "").toLowerCase();
   var h = null;
   ((sistemVerisi && sistemVerisi.hesaplar) || []).forEach(function (x) {
     if (String(x.ad || "").toLowerCase() === ad) h = x;
@@ -2279,6 +2309,7 @@ async function emirIptalEt(kodlar, ozet) {
       anahtar: ["sistem ayar", "sistem ayari", "genel ayar", "bot ayari", "maden kasaba", "maden kasabalari",
                 "maden onceligi", "oncelikli maden", "ayricalikli cami", "cami listesi", "camiye gitsin",
                 "kuvvet oncelikli", "kuvvet kassin", "kuvvet kas", "kuvvet puani",
+                "odun kasabasi", "odun kasabalari",
                 "kapanis", "uyku modu", "bilgisayari kapat", "yasli garson", "dusman ekle", "dusmana ekle",
                 "dost ekle", "izleme listesi", "kaptan hedef", "kaptan rota", "molla", "hangi ayar", "ayarlari gor"] },
     { id: "tasi", tur: "ayar", plan: "tasi", ikon: "🚚", baslik: "Hesabı başka şehre taşı (hazır plan)",
