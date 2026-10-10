@@ -1776,6 +1776,8 @@ function ayMesajiKur() {
   // 🎓👷 [03.09.2026] Hocalık + işçi tutma (bkz. site_emirleri._IZINLI_ALANLAR)
   ekle("ders verme", emirDeger("ay-ders-verme"));
   ekle("işçi", emirDeger("ay-isci"));
+  // 🌲 [10.10.2026] Orman işi (site_emirleri "orman işi" → orman_isi: odun / yok)
+  ekle("orman işi", emirDeger("ay-orman"));
   // 📦 [05.10.2026] Günlük Midas kutusu (site_emirleri "midas" → midas_kutu)
   ekle("midas", emirDeger("ay-midas"));
   // 🖥️ [05.10.2026] Formda kutusu olmayan üç alan (site_emirleri etiketleri)
@@ -1828,7 +1830,7 @@ function ayKur() {
   });
   ["ay-hesap", "ay-takip", "ay-inziva", "ay-gemi", "ay-kaptan", "ay-ases",
    "ay-puan", "ay-ordu", "ay-ordu-enerji", "ay-seyahat", "ay-ders", "ay-armator",
-   "ay-ders-verme", "ay-isci", "ay-midas", "ay-jeton", "ay-grup", "ay-yol"
+   "ay-ders-verme", "ay-isci", "ay-orman", "ay-midas", "ay-jeton", "ay-grup", "ay-yol"
   ].forEach(function (id) {
     var el = document.getElementById(id);
     if (el) {
@@ -1966,6 +1968,7 @@ function sistemRolleri() {
     if (a.ders_alani) ekle("🎓 Ders dinliyor (" + a.ders_alani + ")", ad);
     if (a.ders_verme) ekle("🎓 Hoca: " + a.ders_verme, ad);
     if (a.isci_tut) ekle("👷 İşçi tut", ad);
+    if (a.orman_isi) ekle("🌲 Orman işi: " + a.orman_isi, ad);
     if (a.midas_kutu) ekle("📦 Midas kutusu (günde " + a.midas_kutu + ")", ad);
     if (a.gorev) ekle("🧭 Görev zinciri", ad + " (" + a.gorev + ")");
     if (a.seyahat_hedefi) ekle("🌍 Seyahat", ad + " → " + a.seyahat_hedefi);
@@ -2238,8 +2241,8 @@ async function emirIptalEt(kodlar, ozet) {
       ne: "Evsiz hesap bulunduğu şehirde ev, tarla ve atölye kurar.",
       anahtar: ["ev al", "ev kur", "evkur", "tarla al", "atolye al", "atolye kur", "evsiz"] },
     { id: "ayar", tur: "ayar", ikon: "🖥️", baslik: "Hesap ayarı / görev zinciri",
-      ne: "Launcher'daki her ayar: takip modu, inziva, ders, gemi, kaptan, ases, puan, seyahat, görev zinciri. Yalnızca DOKUNDUĞUN ayar gönderilir, gerisi değişmez.",
-      anahtar: ["ayar", "inziva", "inzivaya", "ders", "ders ver", "hoca", "ases", "kaptan", "takip modu", "hizli maden", "hizli cami", "cami", "maden", "seyahat", "gorev", "gorev zinciri", "zincir", "puan", "isci tut", "grup lideri", "mod degistir"] },
+      ne: "Launcher'daki her ayar: takip modu, inziva, ders, gemi, kaptan, ases, puan, seyahat, görev zinciri, 🌲 orman işi (odun kes). Yalnızca DOKUNDUĞUN ayar gönderilir, gerisi değişmez.",
+      anahtar: ["ayar", "inziva", "inzivaya", "ders", "ders ver", "hoca", "ases", "kaptan", "takip modu", "hizli maden", "hizli cami", "cami", "maden", "seyahat", "gorev", "gorev zinciri", "zincir", "puan", "isci tut", "grup lideri", "mod degistir", "odun kes", "odun kessin", "oduncu", "orman", "orman isi"] },
     { id: "durum", sekme: "#emirdurum", ikon: "📊", baslik: "Verdiğim emir ne oldu? / geri al",
       ne: "Emir Durumu sekmesi: bekleyenler üstte, kapananlar altta. Yanlış emri satırdaki 🚫 İptal ile geri alırsın.",
       anahtar: ["emir ne oldu", "emrim", "emirlerim", "emir durumu", "iptal", "geri al", "yanlis emir", "bekleyen emir"] },
