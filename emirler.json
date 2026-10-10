@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-10 15:55",
+  "son_guncelleme": "2026-10-10 18:45",
   "azami_gun": 14,
   "azami_deneme": 7,
   "bekleyen": [],
@@ -577,8 +577,8 @@
       "serbest": false,
       "yazan": "Çağrı",
       "eklenme": "2026-09-26 18:00",
-      "gecen_gun": 13,
-      "kalan_gun": 1,
+      "gecen_gun": 14,
+      "kalan_gun": 0,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "✅ PROFİL YAZILDI",
@@ -1000,11 +1000,37 @@
       ]
     },
     {
+      "hesap": "estonian",
+      "alanlar": [
+        {
+          "ad": "seyahat_aktif",
+          "deger": "açık"
+        },
+        {
+          "ad": "seyahat_hedefi",
+          "deger": "Lodève"
+        }
+      ]
+    },
+    {
       "hesap": "ilsevar",
       "alanlar": [
         {
           "ad": "gorev",
           "deger": "ev_al:Mısır"
+        }
+      ]
+    },
+    {
+      "hesap": "jaskerin",
+      "alanlar": [
+        {
+          "ad": "seyahat_aktif",
+          "deger": "açık"
+        },
+        {
+          "ad": "seyahat_hedefi",
+          "deger": "Egremont"
         }
       ]
     }
