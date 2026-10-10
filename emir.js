@@ -1922,6 +1922,7 @@ var SISTEM_TEKIL = [
 var SISTEM_LISTELER = [
   ["si-maden-kasaba", "maden kasabaları"],
   ["si-cami", "cami ayrıcalıklı"],
+  ["si-kuvvet", "kuvvet öncelikli"],
   ["si-rota", "kaptan rota"],
   ["si-ders", "ders verebilir"],
   ["si-dost", "dost"],
@@ -1930,7 +1931,8 @@ var SISTEM_LISTELER = [
 ];
 var SISTEM_ETIKET = {
   maden_kasabalari: "⛏️ Maden kasabaları", maden_oncelik: "⛏️ Öncelikli maden",
-  cami_ayricalikli: "🕌 Ayrıcalıklı cami hesapları", kapanis_islemi: "🌙 Tur bitince",
+  cami_ayricalikli: "🕌 Ayrıcalıklı cami hesapları", kuvvet_oncelikli: "💪 Kuvvet öncelikli hesaplar",
+  kapanis_islemi: "🌙 Tur bitince",
   yasli_garson: "🧹 Yaşlı garson", telegram_isim: "📝 Rapor ismi",
   gemi_armatoru: "🚢 Gemi armatörü", molla_hesabi: "🕌 Molla hesabı",
   ders_verebilir: "🎓 Ders verebilir", kaptan_hedef_liman: "⚓ Kaptan hedef limanı",
@@ -1965,7 +1967,7 @@ function sistemMevcutYaz() {
   }
   if (gun) gun.textContent = "(" + (sistemVerisi.son_guncelleme || "?") + ")";
   var s = sistemVerisi.sistem || {};
-  var sira = ["maden_kasabalari", "maden_oncelik", "cami_ayricalikli", "kapanis_islemi",
+  var sira = ["maden_kasabalari", "maden_oncelik", "cami_ayricalikli", "kuvvet_oncelikli", "kapanis_islemi",
               "yasli_garson", "telegram_isim", "gemi_armatoru", "kaptan_hedef_liman",
               "kaptan_devir_hedefi", "kaptan_hareket_aktif", "kaptan_yelken",
               "kaptan_kiyi_mesafesi", "kaptan_rota", "gemiler", "molla_hesabi",
@@ -2001,6 +2003,8 @@ function sistemRolleri() {
   function ekle(rol, ad) { (roller[rol] = roller[rol] || []).push(ad); }
   var cami = ((sistemVerisi && sistemVerisi.sistem && sistemVerisi.sistem.cami_ayricalikli) || [])
     .map(function (x) { return String(x).toLowerCase(); });
+  var kuvvet = ((sistemVerisi && sistemVerisi.sistem && sistemVerisi.sistem.kuvvet_oncelikli) || [])
+    .map(function (x) { return String(x).toLowerCase(); });
   ((sistemVerisi && sistemVerisi.hesaplar) || []).forEach(function (h) {
     var a = h.ayar || {}, ad = h.ad;
     if (a.takip) ekle("🧭 Mod: " + a.takip, ad);
@@ -2023,6 +2027,7 @@ function sistemRolleri() {
     if (a.hersey_sat) ekle("💸 Her şeyi sat", ad + " → " + a.hersey_sat);
     if (a.sadece_bekle) ekle("⏸️ Girip bekle (liste dışı)", ad);
     if (cami.indexOf(String(ad).toLowerCase()) >= 0) ekle("🕌 Ayrıcalıklı cami", ad);
+    if (kuvvet.indexOf(String(ad).toLowerCase()) >= 0) ekle("💪 Kuvvet öncelikli", ad);
     if (h.bekleyen && h.bekleyen.length) ekle("⏳ Siteden bekleyen ayar", ad + " (" + h.bekleyen.join(", ") + ")");
   });
   return roller;
@@ -2061,6 +2066,8 @@ function ayMevcutYaz() {
   });
   var cami = ((sistemVerisi.sistem || {}).cami_ayricalikli || []).map(function (x) { return String(x).toLowerCase(); });
   if (cami.indexOf(ad) >= 0) parca.push("🕌 ayrıcalıklı cami (⚙️ Sistem ayarları)");
+  var kuvvetL = ((sistemVerisi.sistem || {}).kuvvet_oncelikli || []).map(function (x) { return String(x).toLowerCase(); });
+  if (kuvvetL.indexOf(ad) >= 0) parca.push("💪 kuvvet öncelikli (⚙️ Sistem ayarları)");
   el.textContent = "👁️ Şu an: " + (parca.length ? parca.join(" · ") : "özel ayar yok (normal tur)") +
     (h.bekleyen && h.bekleyen.length ? " · ⏳ bekleyen site emri: " + h.bekleyen.join(", ") : "");
   el.hidden = false;
@@ -2268,9 +2275,10 @@ async function emirIptalEt(kodlar, ozet) {
       ne: "Bota yeni bir hesap (multi) ekler: ad + şifre + takip modu. Şifreyi forma SEN yazarsın.",
       anahtar: ["hesap ekle", "yeni hesap", "multi ekle", "hesabi ekle", "yeni multi"] },
     { id: "sistem", tur: "sistem", ikon: "⚙️", baslik: "Sistem ayarları (maden · cami · kapanış · kaptan · listeler)",
-      ne: "Hesaba bağlı OLMAYAN bot ayarları: maden kasabaları, öncelikli maden, ayrıcalıklı cami hesapları, tur bitince uyku/kapat, yaşlı garson, gemi armatörü, kaptan rotası, molla, dost/düşman/izleme listeleri. Şu anki değerleri de gösterir.",
+      ne: "Hesaba bağlı OLMAYAN bot ayarları: maden kasabaları, öncelikli maden, ayrıcalıklı cami hesapları, 💪 kuvvet öncelikli hesaplar (kuvvet kassın + rezerve yemeği önce alsın), tur bitince uyku/kapat, yaşlı garson, gemi armatörü, kaptan rotası, molla, dost/düşman/izleme listeleri. Şu anki değerleri de gösterir.",
       anahtar: ["sistem ayar", "sistem ayari", "genel ayar", "bot ayari", "maden kasaba", "maden kasabalari",
                 "maden onceligi", "oncelikli maden", "ayricalikli cami", "cami listesi", "camiye gitsin",
+                "kuvvet oncelikli", "kuvvet kassin", "kuvvet kas", "kuvvet puani",
                 "kapanis", "uyku modu", "bilgisayari kapat", "yasli garson", "dusman ekle", "dusmana ekle",
                 "dost ekle", "izleme listesi", "kaptan hedef", "kaptan rota", "molla", "hangi ayar", "ayarlari gor"] },
     { id: "tasi", tur: "ayar", plan: "tasi", ikon: "🚚", baslik: "Hesabı başka şehre taşı (hazır plan)",
