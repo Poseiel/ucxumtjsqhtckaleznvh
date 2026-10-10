@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-09 15:35",
+  "son_guncelleme": "2026-10-10 11:05",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -758,13 +758,20 @@
       "ad": "Awerta",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "ilsevar",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "Hestiana",
@@ -897,9 +904,21 @@
       "ayar": {
         "takip": "Hızlı Cami"
       }
+    },
+    {
+      "ad": "Baronn",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Koonrad",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
     }
   ],
-  "toplam_hesap": 154,
+  "toplam_hesap": 156,
   "sistem_gecmis": [
     {
       "zaman": "2026-10-05 19:31",
