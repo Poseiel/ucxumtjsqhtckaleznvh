@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-11 09:02",
+  "son_guncelleme": "2026-10-11 16:22",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -812,7 +812,11 @@
       "ayar": {
         "takip": "Hızlı Cami",
         "gorev": "ev_al:Mısır"
-      }
+      },
+      "bekleyen": [
+        "_gorev_bitti",
+        "gorev"
+      ]
     },
     {
       "ad": "Hestiana",
