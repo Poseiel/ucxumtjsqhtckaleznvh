@@ -1,9 +1,49 @@
 {
-  "son_guncelleme": "2026-10-12 09:58",
+  "son_guncelleme": "2026-10-12 10:17",
   "azami_gun": 14,
   "azami_deneme": 7,
   "bekleyen": [],
   "gecmis": [
+    {
+      "kod": "E59",
+      "tur": "al",
+      "hesap": "RENEGRADE",
+      "urun": "Mor Boya",
+      "adet": 3700,
+      "fiyat": "azami 111000.00 akçe",
+      "alici": "",
+      "hemen": true,
+      "eyalet": false,
+      "serbest": false,
+      "yazan": "Çağrı",
+      "eklenme": "2026-10-12 10:12",
+      "gecen_gun": 0,
+      "kalan_gun": 14,
+      "deneme": 0,
+      "azami_deneme": 7,
+      "sonuc": "✅ ALINDI (3700 adet)",
+      "kapanma": "2026-10-12 10:15"
+    },
+    {
+      "kod": "E58",
+      "tur": "al",
+      "hesap": "RENEGRADE",
+      "urun": "Mor Boya",
+      "adet": 3700,
+      "fiyat": "azami 111000.00 akçe",
+      "alici": "",
+      "hemen": false,
+      "eyalet": false,
+      "serbest": false,
+      "yazan": "Çağrı",
+      "eklenme": "2026-10-12 10:12",
+      "gecen_gun": 0,
+      "kalan_gun": 14,
+      "deneme": 0,
+      "azami_deneme": 7,
+      "sonuc": "✅ ALINDI (3700 adet)",
+      "kapanma": "2026-10-12 10:15"
+    },
     {
       "kod": "E57",
       "tur": "al",
@@ -1009,6 +1049,15 @@
         {
           "ad": "seyahat_hedefi",
           "deger": "Stirling"
+        }
+      ]
+    },
+    {
+      "hesap": "millady",
+      "alanlar": [
+        {
+          "ad": "takip",
+          "deger": "Hızlı Cami"
         }
       ]
     },
