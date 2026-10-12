@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-12 09:46",
+  "son_guncelleme": "2026-10-12 09:58",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -642,7 +642,11 @@
       "ayar": {
         "takip": "Hızlı Maden",
         "seyahat_hedefi": "Girvan - Glasgow arası #837"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Sumpon",
@@ -800,7 +804,11 @@
       "ad": "ilsevar",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Hestiana",
