@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-13 11:10",
+  "son_guncelleme": "2026-10-13 11:25",
   "tarih": "2026-10-13",
   "aralik_dk": 150,
   "kontroller": [
@@ -209,6 +209,112 @@
       ],
       "gruplar": [],
       "farklar": []
+    },
+    {
+      "kasaba": "Girvan",
+      "saat": "11:23",
+      "saat_tam": "2026-10-13T11:23:58",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Highlands Blacksquirrells",
+          "kasaba": "Girvan",
+          "komutan": "Kazasker: Berengario",
+          "durum": "Şehir İçinde",
+          "ham_durum": "Ordu şehirde"
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "3966968",
+          "tur": "Silahlı Grup",
+          "lider": "allan.saltwater",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6287617",
+          "tur": "Silahlı Grup",
+          "lider": "flaminia",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6274973",
+          "tur": "Silahlı Grup",
+          "lider": "gallorini",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6258867",
+          "tur": "Silahlı Grup",
+          "lider": "gianfredo",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6319050",
+          "tur": "Silahlı Grup",
+          "lider": "gumus",
+          "uyeler": [
+            "jimgim"
+          ],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6097113",
+          "tur": "Silahlı Grup",
+          "lider": "mandarina",
+          "uyeler": [
+            "innara"
+          ],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6310697",
+          "tur": "Silahlı Grup",
+          "lider": "morvyn_james",
+          "uyeler": [
+            "arden_campbell",
+            "narses",
+            "baako",
+            "william_sinclair"
+          ],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6305741",
+          "tur": "Silahlı Grup",
+          "lider": "rhosyn",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6220626",
+          "tur": "Silahlı Grup",
+          "lider": "valeriha",
+          "uyeler": [
+            "davlin"
+          ],
+          "katilim": "Yetki Dahilinde"
+        }
+      ],
+      "farklar": [
+        {
+          "tip": "grup_uye",
+          "grup_id": "6319050",
+          "lider": "gumus",
+          "uyeler": [
+            "jimgim"
+          ],
+          "eklenen": [
+            "jimgim"
+          ],
+          "cikan": [],
+          "metin": "👥 GRUP ÜYELERİ DEĞİŞTİ: Silahlı Grup (lider: gumus) — katılan: jimgim"
+        }
+      ]
     }
   ],
   "son_durum": {
@@ -327,6 +433,96 @@
             "elaine.m"
           ],
           "katilim": "Serbest Katılım"
+        }
+      ]
+    },
+    "Girvan": {
+      "saat": "11:23",
+      "saat_tam": "2026-10-13T11:23:58",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Highlands Blacksquirrells",
+          "kasaba": "Girvan",
+          "komutan": "Kazasker: Berengario",
+          "durum": "Şehir İçinde",
+          "ham_durum": "Ordu şehirde"
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "3966968",
+          "tur": "Silahlı Grup",
+          "lider": "allan.saltwater",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6287617",
+          "tur": "Silahlı Grup",
+          "lider": "flaminia",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6274973",
+          "tur": "Silahlı Grup",
+          "lider": "gallorini",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6258867",
+          "tur": "Silahlı Grup",
+          "lider": "gianfredo",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6319050",
+          "tur": "Silahlı Grup",
+          "lider": "gumus",
+          "uyeler": [
+            "jimgim"
+          ],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6097113",
+          "tur": "Silahlı Grup",
+          "lider": "mandarina",
+          "uyeler": [
+            "innara"
+          ],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6310697",
+          "tur": "Silahlı Grup",
+          "lider": "morvyn_james",
+          "uyeler": [
+            "arden_campbell",
+            "narses",
+            "baako",
+            "william_sinclair"
+          ],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6305741",
+          "tur": "Silahlı Grup",
+          "lider": "rhosyn",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6220626",
+          "tur": "Silahlı Grup",
+          "lider": "valeriha",
+          "uyeler": [
+            "davlin"
+          ],
+          "katilim": "Yetki Dahilinde"
         }
       ]
     }
