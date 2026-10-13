@@ -1,9 +1,43 @@
 {
-  "son_guncelleme": "2026-10-13 07:50",
+  "son_guncelleme": "2026-10-13 09:31",
   "tarih": "2026-10-13",
   "aralik_dk": 150,
-  "kontroller": [],
-  "son_durum": {},
+  "kontroller": [
+    {
+      "kasaba": "Glasgow",
+      "saat": "09:28",
+      "saat_tam": "2026-10-13T09:28:46",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "The Excelsior",
+          "kasaba": "Glasgow",
+          "komutan": "Kazasker: Emmalogan",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": [],
+      "farklar": []
+    }
+  ],
+  "son_durum": {
+    "Glasgow": {
+      "saat": "09:28",
+      "saat_tam": "2026-10-13T09:28:46",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "The Excelsior",
+          "kasaba": "Glasgow",
+          "komutan": "Kazasker: Emmalogan",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": []
+    }
+  },
   "ordulu_kasabalar": [
     "Ardencaple",
     "Girvan",
