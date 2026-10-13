@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-13 07:04",
+  "son_guncelleme": "2026-10-13 16:29",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -615,7 +615,11 @@
       "ayar": {
         "takip": "Hızlı Maden",
         "gorev": "seyahat:Worcester"
-      }
+      },
+      "bekleyen": [
+        "_gorev_bitti",
+        "gorev"
+      ]
     },
     {
       "ad": "Falvoreth",
@@ -666,7 +670,11 @@
       "ayar": {
         "takip": "Hızlı Maden",
         "seyahat_hedefi": "Bristol"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Azirveth",
@@ -730,7 +738,11 @@
       "ayar": {
         "takip": "Hızlı Maden",
         "seyahat_hedefi": "derby"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Marvethis",
