@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-14 09:10",
+  "son_guncelleme": "2026-10-14 09:14",
   "tarih": "2026-10-14",
   "aralik_dk": 150,
   "kontroller": [
@@ -123,6 +123,23 @@
         }
       ],
       "farklar": []
+    },
+    {
+      "kasaba": "Glasgow",
+      "saat": "09:11",
+      "saat_tam": "2026-10-14T09:11:46",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "The Excelsior",
+          "kasaba": "Glasgow",
+          "komutan": "Kazasker: Emmalogan",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": [],
+      "farklar": []
     }
   ],
   "son_durum": {
@@ -242,6 +259,21 @@
           "katilim": "Yetki Dahilinde"
         }
       ]
+    },
+    "Glasgow": {
+      "saat": "09:11",
+      "saat_tam": "2026-10-14T09:11:46",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "The Excelsior",
+          "kasaba": "Glasgow",
+          "komutan": "Kazasker: Emmalogan",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": []
     }
   },
   "ordulu_kasabalar": [
