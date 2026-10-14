@@ -1,9 +1,91 @@
 {
-  "son_guncelleme": "2026-10-14 07:37",
+  "son_guncelleme": "2026-10-14 08:36",
   "tarih": "2026-10-14",
   "aralik_dk": 150,
-  "kontroller": [],
-  "son_durum": {},
+  "kontroller": [
+    {
+      "kasaba": "Ardencaple",
+      "saat": "08:34",
+      "saat_tam": "2026-10-14T08:34:19",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Glasgow",
+          "kasaba": "Ardencaple",
+          "komutan": "Kazasker: Mavisari",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "lider:elshar490",
+          "tur": "Silahlı Grup",
+          "lider": "elshar490",
+          "uyeler": [],
+          "katilim": "Kapatıldı"
+        },
+        {
+          "id": "6048704",
+          "tur": "Silahlı Grup",
+          "lider": "izaskun",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "4535144",
+          "tur": "Silahlı Grup",
+          "lider": "ken55",
+          "uyeler": [
+            "elaine.m"
+          ],
+          "katilim": "Serbest Katılım"
+        }
+      ],
+      "farklar": []
+    }
+  ],
+  "son_durum": {
+    "Ardencaple": {
+      "saat": "08:34",
+      "saat_tam": "2026-10-14T08:34:19",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Glasgow",
+          "kasaba": "Ardencaple",
+          "komutan": "Kazasker: Mavisari",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "lider:elshar490",
+          "tur": "Silahlı Grup",
+          "lider": "elshar490",
+          "uyeler": [],
+          "katilim": "Kapatıldı"
+        },
+        {
+          "id": "6048704",
+          "tur": "Silahlı Grup",
+          "lider": "izaskun",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "4535144",
+          "tur": "Silahlı Grup",
+          "lider": "ken55",
+          "uyeler": [
+            "elaine.m"
+          ],
+          "katilim": "Serbest Katılım"
+        }
+      ]
+    }
+  },
   "ordulu_kasabalar": [
     "Ardencaple",
     "Girvan",
