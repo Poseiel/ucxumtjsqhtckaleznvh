@@ -1,7 +1,7 @@
 {
-  "son_guncelleme": "2026-10-14 19:51",
-  "rapor_tarihi": "2026-10-14",
-  "onceki_tarih": "2026-10-13",
+  "son_guncelleme": "2026-10-15 07:33",
+  "rapor_tarihi": "2026-10-15",
+  "onceki_tarih": "2026-10-14",
   "ordular": [
     {
       "ad": "Glasgow",
@@ -9,17 +9,20 @@
       "komutan": "Kazasker: Mavisari",
       "durum": "Şehir Dışında",
       "ham_durum": "Ordu, Şehir kapılarına dayandı.",
-      "alim_modu": null,
-      "danisman": null,
+      "alim_modu": false,
+      "danisman": false,
       "danisman_puan": null,
       "danisman_maas": "",
-      "komutan_login": "",
+      "komutan_login": "mavisari",
       "degisim": "ayni",
       "onceki_kasaba": "Ardencaple",
       "onceki_durum": "Şehir Dışında",
-      "anlik_saat": "19:14",
-      "sabah_kasaba": "Ardencaple",
-      "sabah_durum": "Şehir Dışında"
+      "son_gecis": {
+        "tarih": "2026-10-11",
+        "tur": "tasindi",
+        "onceki_kasaba": "Glasgow",
+        "onceki_durum": "Şehir Dışında"
+      }
     },
     {
       "ad": "Highlands Blacksquirrells",
@@ -27,17 +30,14 @@
       "komutan": "Kazasker: Berengario",
       "durum": "Şehir İçinde",
       "ham_durum": "Ordu şehirde",
-      "alim_modu": null,
-      "danisman": null,
+      "alim_modu": false,
+      "danisman": false,
       "danisman_puan": null,
       "danisman_maas": "",
-      "komutan_login": "",
+      "komutan_login": "berengario",
       "degisim": "ayni",
       "onceki_kasaba": "Girvan",
-      "onceki_durum": "Şehir İçinde",
-      "anlik_saat": "19:32",
-      "sabah_kasaba": "Girvan",
-      "sabah_durum": "Şehir İçinde"
+      "onceki_durum": "Şehir İçinde"
     },
     {
       "ad": "The Excelsior",
@@ -45,17 +45,14 @@
       "komutan": "Kazasker: Emmalogan",
       "durum": "Şehir Dışında",
       "ham_durum": "Ordu, Şehir kapılarına dayandı.",
-      "alim_modu": null,
-      "danisman": null,
+      "alim_modu": false,
+      "danisman": false,
       "danisman_puan": null,
       "danisman_maas": "",
-      "komutan_login": "",
+      "komutan_login": "emmalogan",
       "degisim": "ayni",
       "onceki_kasaba": "Glasgow",
-      "onceki_durum": "Şehir Dışında",
-      "anlik_saat": "19:04",
-      "sabah_kasaba": "Glasgow",
-      "sabah_durum": "Şehir Dışında"
+      "onceki_durum": "Şehir Dışında"
     },
     {
       "ad": "Wigtown",
@@ -63,26 +60,17 @@
       "komutan": "Kazasker: Catani",
       "durum": "Şehir İçinde",
       "ham_durum": "Ordu şehirde",
-      "alim_modu": null,
-      "danisman": null,
+      "alim_modu": false,
+      "danisman": false,
       "danisman_puan": null,
       "danisman_maas": "",
-      "komutan_login": "",
+      "komutan_login": "catani",
       "degisim": "ayni",
       "onceki_kasaba": "Wigtown",
-      "onceki_durum": "Şehir İçinde",
-      "anlik_saat": "18:50",
-      "sabah_kasaba": "Wigtown",
-      "sabah_durum": "Şehir İçinde"
+      "onceki_durum": "Şehir İçinde"
     }
   ],
   "ayrilanlar": [],
   "gemiler": [],
-  "not": "alim_modu/danisman 17.09.2026'dan itibaren toplanıyor; daha eski günlerde null (bilinmiyor) görünür.",
-  "nobet_saatleri": {
-    "Ardencaple": "19:14",
-    "Girvan": "19:32",
-    "Glasgow": "19:04",
-    "Wigtown": "18:50"
-  }
+  "not": "alim_modu/danisman 17.09.2026'dan itibaren toplanıyor; daha eski günlerde null (bilinmiyor) görünür."
 }
