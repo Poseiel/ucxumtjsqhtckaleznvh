@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-15 12:01",
+  "son_guncelleme": "2026-10-15 12:34",
   "tarih": "2026-10-15",
   "aralik_dk": 150,
   "kontroller": [
@@ -469,6 +469,40 @@
         }
       ],
       "farklar": []
+    },
+    {
+      "kasaba": "Ardencaple",
+      "saat": "12:31",
+      "saat_tam": "2026-10-15T12:31:48",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Glasgow",
+          "kasaba": "Ardencaple",
+          "komutan": "Kazasker: Mavisari",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "lider:elshar490",
+          "tur": "Silahlı Grup",
+          "lider": "elshar490",
+          "uyeler": [],
+          "katilim": "Kapatıldı"
+        },
+        {
+          "id": "4535144",
+          "tur": "Silahlı Grup",
+          "lider": "ken55",
+          "uyeler": [
+            "elaine.m"
+          ],
+          "katilim": "Serbest Katılım"
+        }
+      ],
+      "farklar": []
     }
   ],
   "son_durum": {
@@ -654,8 +688,8 @@
       ]
     },
     "Ardencaple": {
-      "saat": "11:03",
-      "saat_tam": "2026-10-15T11:03:54",
+      "saat": "12:31",
+      "saat_tam": "2026-10-15T12:31:48",
       "ordu_okundu": true,
       "ordular": [
         {
