@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-15 08:57",
+  "son_guncelleme": "2026-10-15 09:13",
   "rapor_tarihi": "2026-10-15",
   "onceki_tarih": "2026-10-14",
   "ordular": [
@@ -9,20 +9,17 @@
       "komutan": "Kazasker: Mavisari",
       "durum": "Şehir Dışında",
       "ham_durum": "Ordu, Şehir kapılarına dayandı.",
-      "alim_modu": false,
-      "danisman": false,
+      "alim_modu": null,
+      "danisman": null,
       "danisman_puan": null,
       "danisman_maas": "",
-      "komutan_login": "mavisari",
+      "komutan_login": "",
       "degisim": "ayni",
       "onceki_kasaba": "Ardencaple",
       "onceki_durum": "Şehir Dışında",
-      "son_gecis": {
-        "tarih": "2026-10-11",
-        "tur": "tasindi",
-        "onceki_kasaba": "Glasgow",
-        "onceki_durum": "Şehir Dışında"
-      }
+      "anlik_saat": "09:12",
+      "sabah_kasaba": "Ardencaple",
+      "sabah_durum": "Şehir Dışında"
     },
     {
       "ad": "Highlands Blacksquirrells",
@@ -83,6 +80,7 @@
   "gemiler": [],
   "not": "alim_modu/danisman 17.09.2026'dan itibaren toplanıyor; daha eski günlerde null (bilinmiyor) görünür.",
   "nobet_saatleri": {
+    "Ardencaple": "09:12",
     "Girvan": "08:42",
     "Glasgow": "08:29",
     "Wigtown": "08:55"
