@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-17 15:47",
+  "son_guncelleme": "2026-10-17 16:37",
   "tarih": "2026-10-17",
   "aralik_dk": 150,
   "kontroller": [
@@ -549,6 +549,92 @@
       ],
       "gruplar": [],
       "farklar": []
+    },
+    {
+      "kasaba": "Girvan",
+      "saat": "16:34",
+      "saat_tam": "2026-10-17T16:34:57",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Highlands Blacksquirrells",
+          "kasaba": "Girvan",
+          "komutan": "Kazasker: Berengario",
+          "durum": "Şehir İçinde",
+          "ham_durum": "Ordu şehirde"
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "3966968",
+          "tur": "Silahlı Grup",
+          "lider": "allan.saltwater",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6287617",
+          "tur": "Silahlı Grup",
+          "lider": "flaminia",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6274973",
+          "tur": "Silahlı Grup",
+          "lider": "gallorini",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6258867",
+          "tur": "Silahlı Grup",
+          "lider": "gianfredo",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6322119",
+          "tur": "Silahlı Grup",
+          "lider": "lannnister",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6097113",
+          "tur": "Silahlı Grup",
+          "lider": "mandarina",
+          "uyeler": [
+            "innara"
+          ],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6305741",
+          "tur": "Silahlı Grup",
+          "lider": "rhosyn",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6220626",
+          "tur": "Silahlı Grup",
+          "lider": "valeriha",
+          "uyeler": [
+            "davlin"
+          ],
+          "katilim": "Yetki Dahilinde"
+        }
+      ],
+      "farklar": [
+        {
+          "tip": "grup_geldi",
+          "grup_id": "6322119",
+          "lider": "lannnister",
+          "uyeler": [],
+          "metin": "🆕 YENİ GRUP: Silahlı Grup (lider: lannnister) — 1 kişi: lannnister"
+        }
+      ]
     }
   ],
   "son_durum": {
@@ -650,8 +736,8 @@
       ]
     },
     "Girvan": {
-      "saat": "14:52",
-      "saat_tam": "2026-10-17T14:52:09",
+      "saat": "16:34",
+      "saat_tam": "2026-10-17T16:34:57",
       "ordu_okundu": true,
       "ordular": [
         {
@@ -688,6 +774,13 @@
           "id": "6258867",
           "tur": "Silahlı Grup",
           "lider": "gianfredo",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6322119",
+          "tur": "Silahlı Grup",
+          "lider": "lannnister",
           "uyeler": [],
           "katilim": "Serbest Katılım"
         },
