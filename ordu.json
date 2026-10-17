@@ -1,8 +1,23 @@
 {
-  "son_guncelleme": "2026-10-17 09:21",
+  "son_guncelleme": "2026-10-17 10:14",
   "rapor_tarihi": "2026-10-17",
   "onceki_tarih": "2026-10-16",
   "ordular": [
+    {
+      "ad": "Highlands Blacksquirrells",
+      "kasaba": "Girvan",
+      "komutan": "Kazasker: Berengario",
+      "durum": "Şehir İçinde",
+      "ham_durum": "Ordu şehirde",
+      "alim_modu": false,
+      "danisman": false,
+      "danisman_puan": null,
+      "danisman_maas": "",
+      "komutan_login": "berengario",
+      "degisim": "ayni",
+      "onceki_kasaba": "Girvan",
+      "onceki_durum": "Şehir İçinde"
+    },
     {
       "ad": "The Excelsior",
       "kasaba": "Glasgow",
@@ -20,28 +35,45 @@
       "anlik_saat": "09:15",
       "sabah_kasaba": "Glasgow",
       "sabah_durum": "Şehir Dışında"
-    }
-  ],
-  "ayrilanlar": [
-    {
-      "ad": "Highlands Blacksquirrells",
-      "kasaba": "Girvan",
-      "komutan": "Kazasker: Berengario",
-      "durum": "Şehir İçinde"
     },
     {
       "ad": "Glasgow",
       "kasaba": "Stirling",
       "komutan": "Kazasker: Mavisari",
-      "durum": "Şehir Dışında"
+      "durum": "Şehir Dışında",
+      "ham_durum": "Ordu, Şehir kapılarına dayandı.",
+      "alim_modu": false,
+      "danisman": false,
+      "danisman_puan": null,
+      "danisman_maas": "",
+      "komutan_login": "mavisari",
+      "degisim": "ayni",
+      "onceki_kasaba": "Stirling",
+      "onceki_durum": "Şehir Dışında",
+      "son_gecis": {
+        "tarih": "2026-10-16",
+        "tur": "tasindi",
+        "onceki_kasaba": "Ardencaple",
+        "onceki_durum": "Şehir Dışında"
+      }
     },
     {
       "ad": "Wigtown",
       "kasaba": "Wigtown",
       "komutan": "Kazasker: Catani",
-      "durum": "Şehir İçinde"
+      "durum": "Şehir İçinde",
+      "ham_durum": "Ordu şehirde",
+      "alim_modu": false,
+      "danisman": false,
+      "danisman_puan": null,
+      "danisman_maas": "",
+      "komutan_login": "catani",
+      "degisim": "ayni",
+      "onceki_kasaba": "Wigtown",
+      "onceki_durum": "Şehir İçinde"
     }
   ],
+  "ayrilanlar": [],
   "gemiler": [],
   "not": "alim_modu/danisman 17.09.2026'dan itibaren toplanıyor; daha eski günlerde null (bilinmiyor) görünür.",
   "nobet_saatleri": {
