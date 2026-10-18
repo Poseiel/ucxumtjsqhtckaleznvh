@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-18 06:51",
+  "son_guncelleme": "2026-10-18 13:16",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -616,6 +616,7 @@
         "takip": "Hızlı Maden"
       },
       "bekleyen": [
+        "_gorev_bitti",
         "gorev",
         "takip"
       ]
@@ -630,7 +631,11 @@
       "ad": "Binim",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Jaskerin",
@@ -762,7 +767,11 @@
       "ad": "Hasdur",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Kealor",
@@ -790,6 +799,7 @@
         "takip": "Hızlı Maden"
       },
       "bekleyen": [
+        "_gorev_bitti",
         "gorev"
       ]
     },
@@ -826,7 +836,11 @@
       "ayar": {
         "takip": "Hızlı Cami",
         "seyahat_hedefi": "Lodève"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Ronaldoking",
@@ -909,7 +923,10 @@
       "ad": "Erwerb",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "Silverfork",
@@ -986,7 +1003,11 @@
       "ad": "Koonrad",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Ferrera",
