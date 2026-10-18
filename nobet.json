@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-18 09:22",
+  "son_guncelleme": "2026-10-18 09:39",
   "tarih": "2026-10-18",
   "aralik_dk": 150,
   "kontroller": [
@@ -73,6 +73,45 @@
         }
       ],
       "farklar": []
+    },
+    {
+      "kasaba": "Wigtown",
+      "saat": "09:37",
+      "saat_tam": "2026-10-18T09:37:40",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Wigtown",
+          "kasaba": "Wigtown",
+          "komutan": "Kazasker: Catani",
+          "durum": "Şehir İçinde",
+          "ham_durum": "Ordu şehirde"
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "6004075",
+          "tur": "Silahlı Grup",
+          "lider": "al_lan",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6282595",
+          "tur": "Silahlı Grup",
+          "lider": "cameliae",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6286581",
+          "tur": "Silahlı Grup",
+          "lider": "causantin_men3es",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        }
+      ],
+      "farklar": []
     }
   ],
   "son_durum": {
@@ -142,6 +181,43 @@
             "davlin"
           ],
           "katilim": "Yetki Dahilinde"
+        }
+      ]
+    },
+    "Wigtown": {
+      "saat": "09:37",
+      "saat_tam": "2026-10-18T09:37:40",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Wigtown",
+          "kasaba": "Wigtown",
+          "komutan": "Kazasker: Catani",
+          "durum": "Şehir İçinde",
+          "ham_durum": "Ordu şehirde"
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "6004075",
+          "tur": "Silahlı Grup",
+          "lider": "al_lan",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6282595",
+          "tur": "Silahlı Grup",
+          "lider": "cameliae",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6286581",
+          "tur": "Silahlı Grup",
+          "lider": "causantin_men3es",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
         }
       ]
     }
