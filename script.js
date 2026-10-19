@@ -1303,7 +1303,11 @@ const KASABA_DISI_ETIKETLER = [
 ];
 
 function kasabaDisiMi(konum) {
-  return KASABA_DISI_ETIKETLER.includes(konum) || (konum || "").startsWith("Ara Nokta");
+  // 📍👁️ [19.10.2026] Gözcü ölçümü ("📍 #759 …", "📍 Glasgow", "👁️ yolda")
+  //    da kasaba DIŞIDIR (takip.js'teki kasabaDisiMi ile AYNI kural).
+  const k = konum || "";
+  return KASABA_DISI_ETIKETLER.includes(k) || k.startsWith("Ara Nokta") ||
+    k.startsWith("📍") || k.startsWith("👁️");
 }
 
 function konumRozetSinifi(konum) {
@@ -1324,7 +1328,10 @@ async function hareketYukle() {
     inzivaDonusler = veri.donusler || [];
     multiCiftler = veri.multi_ciftler || [];
     multiKumeler = veri.multi_kumeler || [];
-    sakinlerListesi = veri.sakinler || [];
+    // 📍👁️ [19.10.2026] Gözcünün yolda gördükleri + gözcülerin kendisi
+    //    (`gozcu_sakinler`, kasabalarda OLMAYANLAR) Kim Nerede'ye eklenir —
+    //    ölçüm, tahmin değil. Eski hareket.json'da alan yoksa liste aynı kalır.
+    sakinlerListesi = (veri.sakinler || []).concat(veri.gozcu_sakinler || []);
     sakinlerBizim = veri.bizim_sayilar || {};
     sakinlerBizimToplam = veri.bizim_toplam || 0;
     // 🚨 [23.09.2026] takip.js (izleme & uyarı) sakin listesinin GÜNÜNÜ ve
@@ -1405,11 +1412,17 @@ function hareketTabloCiz() {
           (gun ? `<span class="rota-tarih">${gun}</span>` : "") + `</span>`;
       })
       .join('<span class="rota-ok">→</span>');
+    // 📍👁️ [19.10.2026] "Şehir Dışı" yerine gözcü ölçümü yazılan günler: kim gördü.
+    const gozcuNotu = (k.gozcu_gorulme || []).length
+      ? `<div class="emir-kucuk">👁️ ${(k.gozcu_gorulme || []).map((x) =>
+          "gözcü " + kacis(x.gozcu || "?") + " gördü (" + kacis(String(x.tarih || "").slice(8, 10) + "." +
+          String(x.tarih || "").slice(5, 7)) + ")").join(" · ")}</div>`
+      : "";
     const satir = document.createElement("tr");
     satir.innerHTML =
       `<td>${hareketDusmanlar.has(k.karakter.toLocaleLowerCase("tr-TR")) ? "🏴 " : ""}${k.karakter}</td>` +
       `<td><span class="${konumRozetSinifi(k.su_anki_konum)}">${k.su_anki_konum}</span></td>` +
-      `<td class="rota-hucre">${rota}</td>` +
+      `<td class="rota-hucre">${rota}${gozcuNotu}</td>` +
       `<td>${k.hareket_sayisi}</td>`;
     govde.appendChild(satir);
   });
@@ -1630,8 +1643,11 @@ function sakinlerTabloCiz() {
     const satir = document.createElement("tr");
     const yeniMi = yeniHesapAdlari.has(s.karakter);
     if (yeniMi) satir.className = "sancak-onemli";
-    satir.innerHTML = `<td>${yeniMi ? "🆕 " : ""}${s.karakter}</td>` +
-      `<td><span class="konum-rozet">${s.kasaba}</span></td>` +
+    // 📍👁️ Gözcü satırı: yer rozeti "dışarıda" rengiyle + "gözcü X gördü" notu.
+    const gozcuNot = s.kaynak === "gozcu" && s.not
+      ? ` <span class="emir-kucuk">· ${kacis(s.not)}</span>` : "";
+    satir.innerHTML = `<td>${yeniMi ? "🆕 " : ""}${kacis(s.karakter)}</td>` +
+      `<td><span class="${s.kaynak === "gozcu" ? "konum-rozet konum-disari" : "konum-rozet"}">${kacis(s.kasaba)}</span>${gozcuNot}</td>` +
       `<td>${s.pr >= 0 ? s.pr : "-"}</td>`;
     govde.appendChild(satir);
   });
