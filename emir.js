@@ -410,6 +410,22 @@ function emirAzamiOner() {
   emirGuncelle();
 }
 
+/* 💡 [19.10.2026 — FABLE_GOREV_2026-10-15 İŞ 7a] Birim tavan = azami ÷ adet
+   (pazar_emirleri.birim_tavan ile AYNI hesap). */
+var AL_AZAMI_IPUCU = "";
+function emirAzamiIpucu() {
+  var el = document.getElementById("al-azami-ipucu");
+  if (!el) return;
+  if (!AL_AZAMI_IPUCU) AL_AZAMI_IPUCU = el.innerHTML;
+  var adet = emirSayi("al-adet");
+  var azami = emirSayi("al-azami");
+  if (!adet || !azami) { el.innerHTML = AL_AZAMI_IPUCU; return; }
+  el.textContent = "💡 Toplam " + emirSayiYaz(azami) + " akçe ÷ " + Math.round(adet) +
+    " adet → tanesi en fazla " + emirSayiYaz(Math.round(azami / adet * 100) / 100) +
+    " akçe. (Tanesinin fiyatını yazdıysan toplamı " + emirSayiYaz(Math.round(adet * azami * 100) / 100) +
+    " olmalıydı.)";
+}
+
 // ---------------------------------------------------------
 // ÖDENEK: sancak deposundaki eşyalar, çok satırlı
 // ---------------------------------------------------------
@@ -1247,6 +1263,10 @@ function emirOlaylariBagla() {
   ["al-hesap", "al-adet", "al-azami"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", emirGuncelle);
   });
+  // 💡 [19.10.2026 — İŞ 7a] adet + azami yazılınca "tanesi en fazla X akçe" (bot: azami ÷ adet).
+  ["al-adet", "al-azami"].forEach(function (id) {
+    document.getElementById(id).addEventListener("input", emirAzamiIpucu);
+  });
   // 🏙️ Alacak hesap değişince pazar listesi o kasabaya süzülür.
   document.getElementById("al-hesap").addEventListener("input", emirPazarListesiDoldur);
   // ⚡ hemen tikleri + 📣 forum + ⚓ yanaşma alanları
@@ -1428,6 +1448,8 @@ var AY_ADIM_TIPLERI = [
   ["gemiye_bin", "⛵ Gemiye bin"],
   ["karaya_cik", "🏝️ Karaya çık (gemiden in)"],
   ["satin_al", "🛒 Pazardan al"],
+  ["odun_yukle", "🌲 Odunu evden çantaya yükle (ağırlığa göre)"],
+  ["odun_sat", "🌲💸 Odunu alıcıya sat (rezerveli, alıcı alana kadar bekle)"],
   ["hersey_sat", "💸 Her şeyi sat"],
   ["ev_al", "🏠 Ev + tarla al"],
   ["tarla_al", "🌾 Tarla al (tip seç)"],
@@ -1459,8 +1481,10 @@ var AY_ADIM_TIPLERI = [
    bir tuş olsa — BULUNDUĞUN KASABAYA TAŞIN gibi."* */
 /* 🍞 [10.10.2026 gece] `erzak` değer istemez — yola çıkmadan 20 günlük erzak
    (İSTEĞE BAĞLI; kullanıcı: *"soru olarak sorsun ve bize bıraksın"*). */
+/* 🌲🚚 [19.10.2026] `odun_yukle` de değer istemez: kaç odun olduğu ADET kutusuna yazılır
+   (boş = çantaya sığdığı kadar) — `gorev_zinciri.DEGERSIZ_ADIMLAR` ile aynı. */
 var AY_DEGERSIZ = ["grup_kur", "grup_dagit", "karaya_cik",
-                   "ev_tasi", "ev_tasi_zorla", "erzak"];
+                   "ev_tasi", "ev_tasi_zorla", "erzak", "odun_yukle"];
 
 /* Takip modu seçenekleri (launcher'daki listeyle aynı). */
 var AY_TAKIP_MODLARI = ["Yok", "Grup Takip", "Ordu Takip", "Alışverişçi",
@@ -1612,7 +1636,10 @@ function ayGorevSatiriEkle() {
     // ⚠️ Adım türüne göre yardım listesi ve adet kutusu değişir —
     //    kullanıcı hiçbir şey ezberlemesin.
     var t = tip.value;
-    adet.disabled = (t !== "satin_al");
+    // 🌲🚚 [19.10.2026] odun adımlarında adet İSTEĞE BAĞLI (boş = sığdığı kadar / hepsi).
+    adet.disabled = (t !== "satin_al" && t !== "odun_yukle" && t !== "odun_sat");
+    adet.placeholder = (t === "odun_yukle" ? "boş = sığdığı kadar"
+                        : (t === "odun_sat" ? "boş = çantadakinin hepsi" : "1"));
     // ⚠️ Değer istemeyen adımda hedef kutusu KAPATILIR (kullanıcı boşuna
     //    bir şey yazmasın); `ayGorevMetni` onu yine de gönderir.
     hedef.disabled = (AY_DEGERSIZ.indexOf(t) >= 0);
@@ -1636,9 +1663,12 @@ function ayGorevSatiriEkle() {
     } else if (t === "atolye") {
       hedef.removeAttribute("list");
       hedef.placeholder = "meslek (örn. Terzi)";
-    } else if (t === "hersey_sat" || t === "gruba_katil") {
+    } else if (t === "hersey_sat" || t === "gruba_katil" || t === "odun_sat") {
       hedef.setAttribute("list", "emir-hesap-listesi");
-      hedef.placeholder = (t === "hersey_sat" ? "alıcı hesap" : "grup lideri");
+      // 🌲🚚 [19.10.2026] odun_sat'ta alıcı boş bırakılabilir → ⚙️ Sistem "odun alıcıları"
+      hedef.placeholder = (t === "gruba_katil" ? "grup lideri"
+                           : (t === "odun_sat" ? "alıcı hesap (boş = ⚙️ Sistem'deki şehir alıcısı)"
+                                               : "alıcı hesap"));
     } else if (t === "seyahat" || t === "varinca" || t === "ev_tasi") {
       hedef.setAttribute("list", "ay-sehir-listesi");
       hedef.placeholder = "örn. Ardencaple";
@@ -1675,6 +1705,20 @@ function ayGorevMetni() {
   for (var i = 0; i < satirlar.length; i++) {
     var tip = satirlar[i].querySelector(".ay-gorev-tip").value;
     var hedef = (satirlar[i].querySelector(".ay-gorev-hedef").value || "").trim();
+    // 🌲🚚 [19.10.2026] odun_yukle[:adet] — adet ADET kutusundan (boş = sığdığı kadar).
+    if (tip === "odun_yukle") {
+      var ay = parseInt(satirlar[i].querySelector(".ay-gorev-adet").value, 10);
+      parcalar.push(ay > 0 ? "odun_yukle:" + ay : "odun_yukle");
+      continue;
+    }
+    // 🌲🚚 [19.10.2026] odun_sat ALICISIZ da yazılır: alıcı ⚙️ Sistem → "odun alıcıları"ndan
+    //    (Pontiac: "TELEGRAMDAN" belirlenip değiştirilsin) → "odun_sat" / "odun_sat:x200".
+    //    ⚠️ AY_DEGERSIZ'e EKLENMEDİ: hedef kutusu açık kalsın, alıcı yine yazılabilsin.
+    if (tip === "odun_sat" && !hedef) {
+      var os0 = parseInt(satirlar[i].querySelector(".ay-gorev-adet").value, 10);
+      parcalar.push(os0 > 0 ? "odun_sat:x" + os0 : "odun_sat");
+      continue;
+    }
     // ⚠️ Değer istemeyen adım (ev_al/grup_kur/grup_dagit) boş olsa da
     //    gönderilir; diğerlerinde boş adım gönderilmez.
     if (!hedef) {
@@ -1684,6 +1728,11 @@ function ayGorevMetni() {
     if (tip === "satin_al") {
       var a = parseInt(satirlar[i].querySelector(".ay-gorev-adet").value, 10);
       hedef += " x" + (a > 0 ? a : 1);
+    }
+    // 🌲🚚 odun_sat:<alıcı>[ x<adet>] — adet yoksa çantadakinin hepsi.
+    if (tip === "odun_sat") {
+      var os = parseInt(satirlar[i].querySelector(".ay-gorev-adet").value, 10);
+      if (os > 0) hedef += " x" + os;
     }
     parcalar.push(tip + ":" + hedef);
   }
@@ -1739,6 +1788,15 @@ var AY_PLANLAR = [
    "Sadece alıcı hesabı ve hedef şehri doldur.",
    [["hersey_sat", "", 0], ["seyahat", "", 0], ["ev_tasi", "", 0],
     ["tarla_al", "Sebze", 0], ["tarla_al", "Sebze", 0]]],
+  ["odun", "🌲 Odunu başka şehre taşı (erzak → yükle → git → alıcıya sat → dön)",
+   "Evdeki Tomruk Odun'u çanta ağırlığına sığdığı kadar (ya da Adet kutusundaki kadar) çantaya yükler, " +
+   "hedef şehre gider, odunu ALICIYA rezerveli en düşük fiyattan satar ve alıcıya ALIM emri açar; " +
+   "alıcı alınca evine döner. Yolda odun satılmaz, eve geri gönderilmez. Dönüş şehrini (evinin kasabası) " +
+   "doldur; alıcıyı yaz ya da BOŞ bırak (boşsa ⚙️ Sistem → 🌲🚚 Odun alıcıları'ndaki o şehrin alıcısı — " +
+   "Telegram'dan değiştirilebilir). Taşıyıcı alıcıdan önce girer, ilan bekliyorsa sonra. " +
+   "Toplu: Hesap kutusuna kasaba: Ardencaple yaz; 3+ hesapsa yay: 3 ekle (OPSEC).",
+   [["erzak", "", 0], ["odun_yukle", "", 0], ["seyahat", "Glasgow", 0], ["odun_sat", "", 0],
+    ["seyahat", "", 0]]],
   ["gitaldon", "🛒 Git, al, dön (başka şehirden mal getir)",
    "Hedef şehre gider, vardığı gün alışverişi yapar ve AYNI gün dönüş emrini verir. Boşa gün geçmez.",
    [["seyahat", "", 0], ["satin_al", "", 10], ["seyahat", "", 0]]],
@@ -1811,12 +1869,238 @@ function ayHesapAdlari() {
   return adlar;
 }
 
+/* =========================================================
+   👥 TOPLU EMİR — HEDEF SEÇİCİ (19.10.2026 · FABLE_GOREV_2026-10-18 İŞ 16)
+   `hedef_secici.py`nin JS EŞİ (site 👁️ önizlemesi). Kural BİREBİR aynı:
+     hesap: kasaba: Ardencaple, Stirling; mod: Hızlı Cami; hariç: Thebear
+   • farklı süzgeçler VE · bir süzgecin değerleri VEYA · açık adlar EKLENİR ·
+     hariç en son çıkarılır · kasaba = son okunan yer (gelisim.json) ·
+     mod = takip (sistem.json) · liste = sistem ayarı hesap_listeleri (+ hazır).
+   ⚠️ Asıl çözüm botta, emir GELDİĞİ AN yapılır; burası yalnızca önizleme.
+   ⚠️ test_toplu_emir aynı örnekleri Node'da bu fonksiyonlara ve Python'a
+      verip sonuçları karşılaştırır — birini değiştirirsen ötekini de değiştir.
+   ========================================================= */
+var HEDEF_BOLGELER = {
+  kuzey: ["Glasgow", "Stirling", "Ardencaple"],
+  guney: ["Whithorn", "Wigtown", "Kirkcudbright", "Girvan"]
+};
+var HEDEF_SECICI_ADLARI = {
+  "kasaba": "kasaba", "kasabalar": "kasaba", "sehir": "kasaba",
+  "mod": "mod", "takip": "mod", "takip modu": "mod",
+  "meslek": "meslek", "meslekler": "meslek",
+  "bolge": "bolge",
+  "liste": "liste", "listeler": "liste", "hesap listesi": "liste",
+  "haric": "haric", "haric tut": "haric"
+};
+var HEDEF_MODLAR = ["Yok", "Grup Takip", "Ordu Takip", "Alışverişçi", "Hızlı Maden", "Hızlı Cami"];
+var HEDEF_HAZIR_LISTELER = [["gözcüler", "ara_nokta_gozcu"], ["kuvvet öncelikli", "kuvvet_oncelikli"],
+                            ["cami ayrıcalıklı", "cami_ayricalikli"]];
+
+function hedefSade(m) {
+  var s = String(m == null ? "" : m).replace(/İ/g, "i").replace(/I/g, "ı").toLowerCase();
+  [["ı", "i"], ["ş", "s"], ["ç", "c"], ["ğ", "g"], ["ü", "u"], ["ö", "o"]].forEach(function (p) {
+    s = s.split(p[0]).join(p[1]);
+  });
+  return s.split(/\s+/).filter(Boolean).join(" ");
+}
+function hedefAnahtar(ad) { return String(ad == null ? "" : ad).replace(/İ/g, "i").trim().toLowerCase(); }
+function hedefKas(x) { return hedefSade(x).split(" ").join(""); }
+function hedefMod(m) { var s = hedefSade(m); return ["", "yok", "normal", "bos", "-"].indexOf(s) >= 0 ? "yok" : s; }
+function hedefMeslek(m) {
+  var s = hedefSade(m).split("i").join("").split(" ").join("");
+  return ["", "-", "yok", "ssz"].indexOf(s) >= 0 ? "" : s;
+}
+function hedefBolge(b) {
+  var s = hedefSade(b);
+  return ({ "kuzey": "kuzey", "guney": "guney", "glasgow sancagi": "kuzey",
+            "galloway": "guney", "galloway sancagi": "guney" })[s] || s;
+}
+
+function hedefDegerCoz(deger) {
+  var sonuc = { adlar: [], kasaba: [], bolge: [], mod: [], meslek: [], liste: [], haric: [], bilinmeyen: [] };
+  var secici = false;
+  String(deger == null ? "" : deger).split(";").forEach(function (parca) {
+    var hedef = "adlar";
+    parca.split(",").forEach(function (tok) {
+      tok = tok.trim();
+      if (!tok) return;
+      var i = tok.indexOf(":");
+      if (i >= 0) {
+        var et = tok.slice(0, i), val = tok.slice(i + 1);
+        var k = HEDEF_SECICI_ADLARI[hedefSade(et)];
+        if (!k) { sonuc.bilinmeyen.push(et.trim()); hedef = null; return; }
+        hedef = k; secici = true;
+        tok = val.trim();
+        if (!tok) return;
+      }
+      if (hedef === null) return;
+      if (sonuc[hedef].map(hedefSade).indexOf(hedefSade(tok)) < 0) sonuc[hedef].push(tok);
+    });
+  });
+  sonuc.secici = secici;
+  return sonuc;
+}
+
+function hedefListeBul(ad, listeler) {
+  var h = hedefSade(ad), bulunan = null;
+  Object.keys(listeler || {}).forEach(function (k) {
+    if (bulunan === null && hedefSade(k) === h && Array.isArray(listeler[k])) {
+      bulunan = listeler[k].map(function (x) { return String(x).trim(); }).filter(Boolean);
+    }
+  });
+  return bulunan;
+}
+
+function hedefSecimCoz(secim, hesaplar, kasabaH, meslekH, listeler) {
+  kasabaH = kasabaH || {}; meslekH = meslekH || {};
+  var tum = [], takip = {}, anahtarlar = {};
+  (hesaplar || []).forEach(function (h) {
+    var ad = String((h && h.k_adi) || "").trim(), a = hedefAnahtar(ad);
+    if (!a || a in takip) return;
+    tum.push(ad); takip[a] = String(h.takip || "Yok"); anahtarlar[a] = ad;
+  });
+  var uyarilar = [], filtreler = [];
+  function kume(f) { var s = {}; Object.keys(anahtarlar).forEach(function (a) { if (f(a)) s[a] = 1; }); return s; }
+  if (secim.kasaba.length) {
+    var ist = secim.kasaba.map(hedefKas);
+    var bil = Object.keys(kasabaH).map(function (a) { return kasabaH[a] ? hedefKas(kasabaH[a]) : ""; });
+    secim.kasaba.forEach(function (k) { if (bil.indexOf(hedefKas(k)) < 0) uyarilar.push("'" + k + "' kasabasında son okunan hesabımız yok"); });
+    filtreler.push(["kasaba: " + secim.kasaba.join(", "), kume(function (a) { return ist.indexOf(hedefKas(kasabaH[a] || "")) >= 0; })]);
+  }
+  if (secim.bolge.length) {
+    var kas = [];
+    secim.bolge.forEach(function (b) {
+      var bb = HEDEF_BOLGELER[hedefBolge(b)];
+      if (!bb) { uyarilar.push("'" + b + "' diye bir bölge yok (kuzey / güney)"); return; }
+      bb.forEach(function (x) { kas.push(hedefKas(x)); });
+    });
+    filtreler.push(["bölge: " + secim.bolge.join(", "), kume(function (a) { return kas.indexOf(hedefKas(kasabaH[a] || "")) >= 0; })]);
+  }
+  if (secim.mod.length) {
+    var im = secim.mod.map(hedefMod), bm = HEDEF_MODLAR.map(hedefMod);
+    secim.mod.forEach(function (m) { if (bm.indexOf(hedefMod(m)) < 0) uyarilar.push("'" + m + "' diye bir mod yok (" + HEDEF_MODLAR.join(" · ") + ")"); });
+    filtreler.push(["mod: " + secim.mod.join(", "), kume(function (a) { return im.indexOf(hedefMod(takip[a] || "Yok")) >= 0; })]);
+  }
+  if (secim.meslek.length) {
+    var ims = secim.meslek.map(hedefMeslek);
+    filtreler.push(["meslek: " + secim.meslek.join(", "), kume(function (a) { return ims.indexOf(hedefMeslek(meslekH[a] || "")) >= 0; })]);
+  }
+  if (secim.liste.length) {
+    var uye = {};
+    secim.liste.forEach(function (l) {
+      var lst = hedefListeBul(l, listeler);
+      if (lst === null) { uyarilar.push("'" + l + "' adlı hesap listesi yok (⚙️ Sistem → hesap listeleri)"); return; }
+      lst.forEach(function (x) { uye[hedefAnahtar(x)] = 1; });
+    });
+    filtreler.push(["liste: " + secim.liste.join(", "), uye]);
+  }
+  secim.bilinmeyen.forEach(function (b) { uyarilar.push("'" + b + ":' seçicisi tanınmadı (kasaba · bölge · mod · meslek · liste · hariç)"); });
+  var secilen = [], gorulen = {}, bulunamayan = [];
+  var anahtarVar = Object.keys(anahtarlar).length > 0;
+  secim.adlar.forEach(function (ad) {
+    var a = hedefAnahtar(ad);
+    if (!a || gorulen[a]) return;
+    gorulen[a] = 1;
+    secilen.push(anahtarlar[a] || ad);
+    if (anahtarVar && !(a in anahtarlar)) bulunamayan.push(ad);
+  });
+  if (filtreler.length) {
+    tum.forEach(function (ad) {
+      var a = hedefAnahtar(ad);
+      if (gorulen[a]) return;
+      if (filtreler.every(function (f) { return f[1][a]; })) { gorulen[a] = 1; secilen.push(ad); }
+    });
+  }
+  var haric = {};
+  secim.haric.forEach(function (x) {
+    haric[hedefAnahtar(x)] = 1;
+    if (anahtarVar && !(hedefAnahtar(x) in anahtarlar)) uyarilar.push("hariç tutulan '" + x + "' listemizde yok");
+  });
+  secilen = secilen.filter(function (ad) { return !haric[hedefAnahtar(ad)]; });
+  var suzgec = filtreler.map(function (f) { return f[0]; }).join(" VE ");
+  var ozet = secim.adlar.length ? "adlar: " + secim.adlar.join(", ") + (suzgec ? " + (" + suzgec + ")" : "") : suzgec;
+  if (secim.haric.length) ozet += " − hariç: " + secim.haric.join(", ");
+  return { hesaplar: secilen, bulunamayan: bulunamayan, uyarilar: uyarilar, ozet: ozet.trim() };
+}
+
+/* Sitedeki veriden önizleme bağlamı (sistem.json + gelisim.json). */
+function hedefBaglam() {
+  var s = (sistemVerisi && sistemVerisi.sistem) || {};
+  var hesaplar = ((sistemVerisi && sistemVerisi.hesaplar) || []).map(function (h) {
+    return { k_adi: h.ad, takip: (h.ayar && h.ayar.takip) || "Yok" };
+  });
+  var kasaba = {}, meslek = {};
+  (emirGelisim || []).forEach(function (k) {
+    var a = hedefAnahtar(k.karakter);
+    if (!a) return;
+    kasaba[a] = k.kasaba || ""; meslek[a] = k.meslek || "";
+  });
+  var listeler = {};
+  HEDEF_HAZIR_LISTELER.forEach(function (x) { if ((s[x[1]] || []).length) listeler[x[0]] = s[x[1]].slice(); });
+  var hl = s.hesap_listeleri || {};
+  Object.keys(hl).forEach(function (ad) {
+    if (!Array.isArray(hl[ad])) return;
+    Object.keys(listeler).forEach(function (k) { if (hedefSade(k) === hedefSade(ad)) delete listeler[k]; });
+    listeler[ad] = hl[ad].slice();
+  });
+  return { hesaplar: hesaplar, kasaba: kasaba, meslek: meslek, listeler: listeler };
+}
+
+/* Hesap kutusunda seçici var mı? (`kasaba:` · `mod:` · … ya da bilinmeyen `x:`) */
+function hedefSeciciVarMi(deger) {
+  var s = hedefDegerCoz(deger);
+  return s.secici || s.bilinmeyen.length > 0 || s.haric.length > 0;
+}
+
+/* 👁️ Önizleme metni: "👥 seçici: … → N hesap: A, B …" */
+function hedefOnizleme(deger) {
+  var b = hedefBaglam();
+  var r = hedefSecimCoz(hedefDegerCoz(deger), b.hesaplar, b.kasaba, b.meslek, b.listeler);
+  var adlar = r.hesaplar;
+  var metin = "👥 Seçici: " + (r.ozet || "?") + " → " + adlar.length + " hesap" +
+    (adlar.length ? ": " + adlar.slice(0, 60).join(", ") + (adlar.length > 60 ? " … +" + (adlar.length - 60) : "") : "");
+  if (r.bulunamayan.length) metin += " · ⚠️ listede bulunamadı: " + r.bulunamayan.join(", ");
+  r.uyarilar.forEach(function (u) { metin += " · ⚠️ " + u; });
+  if (!adlar.length) metin += " · ⛔ hiçbir hesap bulunamadı → bot emri UYGULAMAZ";
+  metin += " · ℹ️ Kesin liste emir bota ulaştığı an çözülür (Telegram onayında yazılır).";
+  return metin;
+}
+
+/* 🎛️ [19.10.2026 — İŞ 15] İş sırası belirteçleri — `hesap_plani.IS_TOKENLERI`
+   ile BİREBİR (anahtarlar sadeleştirilmiş: ı/i · ş/s … farkı yok). test_hesap_plani
+   iki tabloyu karşılaştırır; birini değiştirirsen ötekini de değiştir. */
+var PLAN_IS_TOKENLERI = {
+  "atolye": "atolye", "meslek": "atolye", "uretim": "atolye",
+  "odun": "odun", "orman": "odun", "odun kes": "odun",
+  "demir": "demir", "demir madeni": "demir",
+  "maden": "maden", "madenler": "maden",
+  "cami": "cami", "kilise": "cami",
+  "eau": "eau", "amele": "eau", "amele pazari": "eau",
+  "ders": "ders", "ders dinle": "ders",
+  "yok": "yok", "hicbiri": "yok", "is yok": "yok"
+};
+function planIsBilinmeyen(metin) {
+  var s = String(metin || "").trim();
+  if (/^(iptal|normal|-|sil)$/i.test(s)) return [];
+  var bilinmeyen = [];
+  s.split(/[,;>→]+/).forEach(function (p) {
+    var k = hedefSade(p);
+    if (k && !PLAN_IS_TOKENLERI[k]) bilinmeyen.push(p.trim());
+  });
+  return bilinmeyen;
+}
+
 /* Emir metnini kurar — `emirMesajiKur` buradan çağırır. */
 function ayMesajiKur() {
   var adlar = ayHesapAdlari();
   if (!adlar.length) return { hata: "Eksik: hangi hesap" };
+  // 👥 [19.10.2026 — İŞ 16] Seçici (kasaba: · mod: · liste: …) yazıldıysa metin
+  //    OLDUĞU GİBİ gider (`;` seçici ayracıdır, virgüle çevrilmez); bot çözer.
+  var _hamHesap = String(emirDeger("ay-hesap") || "").trim();
+  var _secici = hedefSeciciVarMi(_hamHesap);
 
   var satirlar = ["AYAR", "hesap: " + adlar.join(", ")];
+  if (_secici) satirlar[1] = "hesap: " + _hamHesap;
   function ekle(etiket, deger) {
     if (deger) satirlar.push(etiket + ": " + deger);
   }
@@ -1843,6 +2127,32 @@ function ayMesajiKur() {
   ekle("hızlı", emirDeger("ay-jeton"));          /* seyahat_jetonlu */
   ekle("grup lideri", emirDeger("ay-grup"));     /* grup_lideri */
   ekle("yol", emirDeger("ay-yol"));              /* yol_secimi */
+  // 🎛️ [19.10.2026 — İŞ 15] HESAP PLANI (site_emirleri._IZINLI_ALANLAR → plan_*;
+  //    değerler hesap_plani.deger_coz ile doğrulanır). Boş = değiştirme.
+  var _planIs = String(emirDeger("ay-plan-is") || "").trim();
+  if (_planIs) {
+    var _bilinmeyen = planIsBilinmeyen(_planIs);
+    if (_bilinmeyen.length) return { hata: "İş sırasında tanınmayan: " + _bilinmeyen.join(", ") +
+      " (atölye · odun · demir · maden · cami · eaü · ders · yok)" };
+  }
+  var _planCami = String(emirDeger("ay-plan-cami") || "").trim();
+  if (_planCami && !/^(\d{1,6}|iptal)$/i.test(_planCami)) return { hata: "Cami parası sayı olmalı (örn. 50) ya da “iptal”" };
+  ekle("yemek", emirDeger("ay-plan-yemek"));
+  ekle("meyhane", emirDeger("ay-plan-meyhane"));
+  ekle("yol yemeği", emirDeger("ay-plan-yol"));
+  ekle("tarla", emirDeger("ay-plan-tarla"));
+  ekle("iş sırası", _planIs);
+  ekle("kalan enerji", emirDeger("ay-plan-kalan"));
+  ekle("cami parası", _planCami);
+  ekle("satış", emirDeger("ay-plan-satis"));
+  var _pIptal = document.getElementById("ay-plan-iptal");
+  if (_pIptal && _pIptal.checked) satirlar.push("plan: iptal");
+  // 🧹 [19.10.2026 — İŞ 11 d] SIFIRLA (site_emirleri._SIFIRLA_ETIKETLERI → SIFIRLA_ALANLARI)
+  var _sifirla = document.getElementById("ay-sifirla");
+  if (_sifirla && _sifirla.checked) satirlar.push("sıfırla: evet");
+  // 🩺 [19.10.2026 — İŞ 5] TEŞHİS (site_emirleri "teşhis" → teshis, bir kerelik)
+  var _teshis = document.getElementById("ay-teshis");
+  ekle("teşhis", _teshis && _teshis.checked ? "evet" : "");
 
   if (document.getElementById("ay-gorev-satirlar").dataset.iptal === "1") {
     satirlar.push("görev: iptal");
@@ -1858,6 +2168,9 @@ function ayMesajiKur() {
   if (satirlar.length < 3) {
     return { hata: "Hiçbir ayara dokunmadın — değiştirmek istediğin kutuyu seç." };
   }
+  // 📅 [19.10.2026 — İŞ 16] Toplu seyahat / zincir güne yayma (OPSEC)
+  var _yay = emirDeger("ay-yay");
+  if (_yay) satirlar.push("yay: " + _yay);
   return { metin: satirlar.join(EMIR_NL) };
 }
 
@@ -1889,7 +2202,9 @@ function ayKur() {
   });
   ["ay-hesap", "ay-takip", "ay-inziva", "ay-gemi", "ay-kaptan", "ay-ases",
    "ay-puan", "ay-ordu", "ay-ordu-enerji", "ay-seyahat", "ay-ders", "ay-armator",
-   "ay-ders-verme", "ay-isci", "ay-orman", "ay-midas", "ay-jeton", "ay-grup", "ay-yol"
+   "ay-ders-verme", "ay-isci", "ay-orman", "ay-midas", "ay-jeton", "ay-grup", "ay-yol",
+   "ay-yay", "ay-plan-yemek", "ay-plan-meyhane", "ay-plan-yol", "ay-plan-tarla", "ay-plan-is",
+   "ay-plan-kalan", "ay-plan-cami", "ay-plan-satis", "ay-plan-iptal", "ay-sifirla", "ay-teshis"
   ].forEach(function (id) {
     var el = document.getElementById(id);
     if (el) {
@@ -1930,7 +2245,11 @@ var SISTEM_TEKIL = [
   ["si-kaptan-hareket", "kaptan hareket"],
   ["si-yelken", "kaptan yelken"],
   ["si-kiyi", "kaptan kıyı mesafesi"],
-  ["si-molla", "molla hesabı"]
+  ["si-molla", "molla hesabı"],
+  ["si-kasa-esik", "kasa eşiği"],
+  ["si-kasa-tutar", "kasa tutarı"],
+  ["si-kasa-azami", "kasa günlük üst sınır"],
+  ["si-kasa-birim", "kasa birim fiyatı"]
 ];
 // [kutu kimliği (işlem kutusu = kimlik + "-islem"), botun anladığı etiket]
 var SISTEM_LISTELER = [
@@ -1938,6 +2257,10 @@ var SISTEM_LISTELER = [
   ["si-cami", "cami ayrıcalıklı"],
   ["si-kuvvet", "kuvvet öncelikli"],
   ["si-odun", "odun kasabaları"],
+  ["si-gozcu", "ara nokta gözcüleri"],
+  ["si-kasa", "kasa hesapları"],
+  ["si-kasa-mal", "kasa malları"],
+  ["si-odun-alici", "odun alıcıları"],
   ["si-rota", "kaptan rota"],
   ["si-ders", "ders verebilir"],
   ["si-dost", "dost"],
@@ -1947,7 +2270,13 @@ var SISTEM_LISTELER = [
 var SISTEM_ETIKET = {
   maden_kasabalari: "⛏️ Maden kasabaları", maden_oncelik: "⛏️ Öncelikli maden",
   cami_ayricalikli: "🕌 Ayrıcalıklı cami hesapları", kuvvet_oncelikli: "💪 Kuvvet öncelikli hesaplar",
-  odun_kasabalari: "🌲 Odun kasabaları", kapanis_islemi: "🌙 Tur bitince",
+  odun_kasabalari: "🌲 Odun kasabaları", ara_nokta_gozcu: "📍👁️ Ara nokta gözcüleri",
+  kasa_hesaplari: "🏦 Kasa hesapları (kasaba=kasa)", kasa_mal: "🏦 Kasaya satılacak mal",
+  kasa_esik: "🏦 Kasa eşiği (akçe altı)", kasa_tutar: "🏦 Kasa aktarım tutarı",
+  kasa_gunluk_azami: "🏦 Kasa günlük üst sınır", kasa_birim: "🏦 Kasa birim fiyatı",
+  odun_alicilari: "🌲🚚 Odun alıcıları (kasaba=alıcı)",
+  hesap_listeleri: "📋 Hesap listeleri (toplu emir)",
+  kapanis_islemi: "🌙 Tur bitince",
   yasli_garson: "🧹 Yaşlı garson", telegram_isim: "📝 Rapor ismi",
   gemi_armatoru: "🚢 Gemi armatörü", molla_hesabi: "🕌 Molla hesabı",
   ders_verebilir: "🎓 Ders verebilir", kaptan_hedef_liman: "⚓ Kaptan hedef limanı",
@@ -1964,9 +2293,19 @@ function sistemDegerYazisi(alan, d) {
   if (alan === "yasli_garson") return ([1, 20, 40, 60][d] || 1) + " sn";
   if (alan === "maden_oncelik") return ({ demir: "Demir", tas: "Taş", altin: "Altın", kil: "Kil" })[d] || "yok (ilk açık maden)";
   if (alan === "kaptan_yelken") return d || "otomatik";
+  if (["kasa_esik", "kasa_tutar", "kasa_gunluk_azami", "kasa_birim"].indexOf(alan) >= 0) {
+    return (d === null || d === undefined || d === "") ? "varsayılan" : String(d).replace(".", ",") + " akçe";
+  }
   if (alan === "gemiler") {
     var ks = Object.keys(d || {});
     return ks.length ? ks.join(", ") : "—";
+  }
+  if (alan === "hesap_listeleri") {
+    var ls = Object.keys(d || {});
+    return ls.length ? ls.map(function (k) {
+      var u = Array.isArray(d[k]) ? d[k] : [];
+      return k + " (" + u.length + "): " + (u.join(", ") || "—");
+    }).join(" · ") : "—";
   }
   if (d === null || d === undefined || d === "") return "—";
   return String(d);
@@ -1983,7 +2322,8 @@ function sistemMevcutYaz() {
   if (gun) gun.textContent = "(" + (sistemVerisi.son_guncelleme || "?") + ")";
   var s = sistemVerisi.sistem || {};
   var sira = ["maden_kasabalari", "maden_oncelik", "cami_ayricalikli", "kuvvet_oncelikli",
-              "odun_kasabalari", "kapanis_islemi",
+              "odun_kasabalari", "odun_alicilari", "ara_nokta_gozcu", "kasa_hesaplari", "kasa_mal", "kasa_esik",
+              "kasa_tutar", "kasa_gunluk_azami", "kasa_birim", "hesap_listeleri", "kapanis_islemi",
               "yasli_garson", "telegram_isim", "gemi_armatoru", "kaptan_hedef_liman",
               "kaptan_devir_hedefi", "kaptan_hareket_aktif", "kaptan_yelken",
               "kaptan_kiyi_mesafesi", "kaptan_rota", "gemiler", "molla_hesabi",
@@ -2021,6 +2361,8 @@ function sistemRolleri() {
     .map(function (x) { return String(x).toLowerCase(); });
   var kuvvet = ((sistemVerisi && sistemVerisi.sistem && sistemVerisi.sistem.kuvvet_oncelikli) || [])
     .map(function (x) { return String(x).toLowerCase(); });
+  var gozcu = ((sistemVerisi && sistemVerisi.sistem && sistemVerisi.sistem.ara_nokta_gozcu) || [])
+    .map(function (x) { return String(x).toLowerCase(); });
   ((sistemVerisi && sistemVerisi.hesaplar) || []).forEach(function (h) {
     var a = h.ayar || {}, ad = h.ad;
     if (a.takip) ekle("🧭 Mod: " + a.takip, ad);
@@ -2044,10 +2386,33 @@ function sistemRolleri() {
     if (a.sadece_bekle) ekle("⏸️ Girip bekle (liste dışı)", ad);
     if (cami.indexOf(String(ad).toLowerCase()) >= 0) ekle("🕌 Ayrıcalıklı cami", ad);
     if (kuvvet.indexOf(String(ad).toLowerCase()) >= 0) ekle("💪 Kuvvet öncelikli", ad);
+    if (gozcu.indexOf(String(ad).toLowerCase()) >= 0) ekle("📍👁️ Ara nokta gözcüsü", ad);
+    // 🎛️ [19.10.2026 — İŞ 15] hesap planı (boş = bugünkü düzen)
+    var _plan = planOzetiJs(a);
+    if (_plan) ekle("🎛️ Planlı hesap", ad + " (" + _plan + ")");
+    if (String(a.plan_yemek || "") === "yok") ekle("🍽️⛔ Plan gereği yemek YEMEYEN", ad);
     if (h.bekleyen && h.bekleyen.length) ekle("⏳ Siteden bekleyen ayar", ad + " (" + h.bekleyen.join(", ") + ")");
   });
   return roller;
 }
+
+/* 🎛️ [19.10.2026 — İŞ 15] hesap ayarındaki plan_* alanlarının okunur özeti
+   (kayıt değerleri zaten Türkçe: "basic" · "cami, demir, eaü" · 50 …). */
+var PLAN_ALAN_ADLARI = [["plan_yemek", "yemek"], ["plan_meyhane", "meyhane"],
+  ["plan_yol_yemegi", "yol yemeği"], ["plan_tarla", "tarla"], ["plan_is_sirasi", "iş"],
+  ["plan_kalan_enerji", "kalan enerji"], ["plan_cami_para", "cami parası"], ["plan_satis", "satış"]];
+function planOzetiJs(ayar) {
+  var a = ayar || {};
+  return PLAN_ALAN_ADLARI.filter(function (x) {
+    return a[x[0]] !== undefined && a[x[0]] !== null && a[x[0]] !== "";
+  }).map(function (x) {
+    var d = a[x[0]];
+    if (x[0] === "plan_is_sirasi") d = String(d).split(/\s*,\s*/).join(">");
+    if (x[0] === "plan_cami_para") d = d + " akçe";
+    return x[1] + "=" + d;
+  }).join(" · ");
+}
+window.planOzetiJs = planOzetiJs;
 
 function sistemRollerYaz() {
   var kutu = document.getElementById("si-roller");
@@ -2069,6 +2434,13 @@ function sistemRollerYaz() {
 function ayMevcutYaz() {
   var el = document.getElementById("ay-mevcut");
   if (!el) return;
+  // 👥 [19.10.2026 — İŞ 16] Seçici yazıldıysa: hangi hesaplara gideceği (önizleme).
+  var _ham = String(emirDeger("ay-hesap") || "").trim();
+  if (_ham && hedefSeciciVarMi(_ham)) {
+    el.textContent = hedefOnizleme(_ham);
+    el.hidden = false;
+    return;
+  }
   // 👥 [11.10.2026] Birden çok hesap yazıldıysa: kaç hesap + listede olmayan ad.
   var _adlar = ayHesapAdlari();
   if (_adlar.length > 1) {
@@ -2124,6 +2496,22 @@ function sistemMesajiKur() {
     else if (islem === "çıkar") satirlar.push(x[1] + " çıkar: " + adlar.join(", "));
     else satirlar.push(x[1] + ": " + adlar.join(", "));
   });
+  // 📋 [19.10.2026 — İŞ 16] adlı hesap listesi → "hesap listesi <ad>[ ekle| çıkar]: …"
+  var lIslem = emirDeger("si-liste-islem");
+  if (lIslem) {
+    var lAd = String(emirDeger("si-liste-ad") || "").trim();
+    var lAdlar = [];
+    String(emirDeger("si-liste") || "").split(/[\r\n,;]+/).forEach(function (y) {
+      y = y.trim();
+      if (y && lAdlar.map(function (z) { return z.toLowerCase(); }).indexOf(y.toLowerCase()) < 0) lAdlar.push(y);
+    });
+    if (!lAd || lAd.indexOf(":") >= 0) hata = hata || "“hesap listesi” için liste adı yaz (iki nokta olmadan)";
+    else if (lIslem === "boşalt") satirlar.push("hesap listesi " + lAd + ": iptal");
+    else if (!lAdlar.length) hata = hata || ("“" + lAd + "” listesi için ad yaz (virgülle ayır)");
+    else if (lIslem === "ekle") satirlar.push("hesap listesi " + lAd + " ekle: " + lAdlar.join(", "));
+    else if (lIslem === "çıkar") satirlar.push("hesap listesi " + lAd + " çıkar: " + lAdlar.join(", "));
+    else satirlar.push("hesap listesi " + lAd + ": " + lAdlar.join(", "));
+  }
   if (hata) return { hata: "Eksik: " + hata };
   if (satirlar.length < 2) return { hata: "Hiçbir ayara dokunmadın — değiştirmek istediğin kutuyu seç." };
   return { metin: satirlar.join(EMIR_NL) };
@@ -2158,6 +2546,17 @@ function sistemKur() {
   });
   SISTEM_TEKIL.forEach(function (x) {
     var el = document.getElementById(x[0]);
+    if (el) { el.addEventListener("input", emirGuncelle); el.addEventListener("change", emirGuncelle); }
+  });
+  // 📋 [19.10.2026] adlı hesap listesi kutuları ("boşalt" = listeyi SİL)
+  var lsec = document.getElementById("si-liste-islem");
+  if (lsec && !lsec.options.length) {
+    lsec.innerHTML = ISLEMLER.map(function (o) {
+      return '<option value="' + o[0] + '">' + (o[0] === "boşalt" ? "🗑️ listeyi sil" : o[1]) + "</option>";
+    }).join("");
+  }
+  ["si-liste-ad", "si-liste-islem", "si-liste"].forEach(function (id) {
+    var el = document.getElementById(id);
     if (el) { el.addEventListener("input", emirGuncelle); el.addEventListener("change", emirGuncelle); }
   });
   sistemYukle();
@@ -2262,7 +2661,7 @@ async function emirIptalEt(kodlar, ozet) {
       ne: "Hesabın çantasındaki malı pazara koyar. Hesabı seçince eşya listesi kendiliğinden gelir; fiyatı \"en düşük\" bırakırsan pazardaki en ucuza iner.",
       anahtar: ["sat", "satis", "satsin", "satilsin", "satsın", "sattir", "pazara koy", "elden cikar", "eyalet adina sat"] },
     { id: "al", tur: "al", ikon: "🛒", baslik: "Alım emri",
-      ne: "Pazardan mal aldırır. Azami fiyatı yazarsan bot daha pahalıya ALMAZ. Önce 🛒 Pazar sekmesinde fiyata bakmak iyi olur.",
+      ne: "Pazardan mal aldırır. “Azami” = TOPLAM akçe, tanesinin fiyatı DEĞİL (3500 boyayı tanesi en fazla 31'den: 3500 × 31 = 108500 yaz); bot tanesini azami ÷ adet'ten pahalıya ALMAZ. “tanesi 31 akçe” dersen toplamı ben hesaplarım. Önce 🛒 Pazar sekmesinde fiyata bakmak iyi olur.",
       anahtar: ["al", "alsin", "aldir", "alim", "satin al", "satin alsin", "topla", "ucuza al"] },
     { id: "gemi", tur: "gemi", ikon: "⛵", baslik: "Gemi alma emri",
       ne: "Satılık gemiyi aldırır. Kaptan adı ve azami fiyat ZORUNLU; hesap, geminin satıldığı limanın kasabasında olmalı.",
@@ -2305,16 +2704,22 @@ async function emirIptalEt(kodlar, ozet) {
       ne: "Bota yeni bir hesap (multi) ekler: ad + şifre + takip modu. Şifreyi forma SEN yazarsın.",
       anahtar: ["hesap ekle", "yeni hesap", "multi ekle", "hesabi ekle", "yeni multi"] },
     { id: "sistem", tur: "sistem", ikon: "⚙️", baslik: "Sistem ayarları (maden · cami · kapanış · kaptan · listeler)",
-      ne: "Hesaba bağlı OLMAYAN bot ayarları: maden kasabaları, öncelikli maden, ayrıcalıklı cami hesapları, 💪 kuvvet öncelikli hesaplar (kuvvet kassın + rezerve yemeği önce alsın), tur bitince uyku/kapat, yaşlı garson, gemi armatörü, kaptan rotası, molla, dost/düşman/izleme listeleri. Şu anki değerleri de gösterir.",
+      ne: "Hesaba bağlı OLMAYAN bot ayarları: maden kasabaları, öncelikli maden, ayrıcalıklı cami hesapları, 💪 kuvvet öncelikli hesaplar (kuvvet kassın + rezerve yemeği önce alsın), 📍👁️ ara nokta gözcüleri (Günlük + Gruplar ve Ordular okur, Kim Nerede'ye yazar), 🏦 kasa hesabı (akçesi azalan hesap kasadan akçe çeker — boşken KAPALI), tur bitince uyku/kapat, yaşlı garson, gemi armatörü, kaptan rotası, molla, dost/düşman/izleme listeleri. Şu anki değerleri de gösterir.",
       anahtar: ["sistem ayar", "sistem ayari", "genel ayar", "bot ayari", "maden kasaba", "maden kasabalari",
                 "maden onceligi", "oncelikli maden", "ayricalikli cami", "cami listesi", "camiye gitsin",
                 "kuvvet oncelikli", "kuvvet kassin", "kuvvet kas", "kuvvet puani",
                 "odun kasabasi", "odun kasabalari",
+                "gozcu", "gozculer", "ara nokta gozcusu", "ara nokta gozculeri", "gordukleri",
+                "kasa hesab", "kasadan", "otonom akce",
                 "kapanis", "uyku modu", "bilgisayari kapat", "yasli garson", "dusman ekle", "dusmana ekle",
                 "dost ekle", "izleme listesi", "kaptan hedef", "kaptan rota", "molla", "hangi ayar", "ayarlari gor"] },
     { id: "tasi", tur: "ayar", plan: "tasi", ikon: "🚚", baslik: "Hesabı başka şehre taşı (hazır plan)",
       ne: "Görev zinciri: her şeyi sat → yola çık → evi taşı → ev+tarla → atölye. Hedef şehri planın içinde seçersin.",
       anahtar: ["tasi", "tasin", "tasinsin", "tasima", "baska sehre", "sehir degistir", "kasaba degistir", "yerlesim", "goc"] },
+    { id: "odun", tur: "ayar", plan: "odun", ikon: "🌲", baslik: "Odunu başka şehre taşı (hazır plan)",
+      ne: "Oduncu hesap evdeki odunu çantaya yükler (ağırlığa göre), hedef şehre gider, alıcıya rezerveli satar + alıcıya alım emri; alıcı alınca döner (görev zinciri).",
+      anahtar: ["odun tasi", "odun tasima", "odunu tasi", "odun goturu", "odun gotursun", "odunu glasgow",
+                "odun sat", "tomruk"] },
     { id: "gitaldon", tur: "ayar", plan: "gitaldon", ikon: "🧭", baslik: "Git, al, dön (hazır plan)",
       ne: "Hesap başka şehre gidip mal alır ve geri döner (görev zinciri).",
       anahtar: ["git al don", "gidip al", "getir", "baska sehirden al", "mal getir"] },
@@ -2324,6 +2729,24 @@ async function emirIptalEt(kodlar, ozet) {
     { id: "evkur", tur: "ayar", plan: "evkur", ikon: "🏠", baslik: "Ev + tarla + atölye kur (hazır plan)",
       ne: "Evsiz hesap bulunduğu şehirde ev, tarla ve atölye kurar.",
       anahtar: ["ev al", "ev kur", "evkur", "tarla al", "atolye al", "atolye kur", "evsiz"] },
+    // 🎛️👥 [19.10.2026 — FABLE_GOREV_2026-10-18 İŞ 15 + İŞ 16]
+    { id: "hesapplani", tur: "ayar", ikon: "🎛️", baslik: "Hesap planı (yemek · iş sırası · cami parası · satış …)",
+      ne: "Hesap hesap öncelik: tarla 1 → ases 2 → iş sırası (atölye · odun · demir · maden · cami · eaü · ders · yok — ilk verilebilen kazanır). Yemek (kuvvet/zeka/karizma/basic/yok), meyhane, yol yemeği, tarla (kendisi/işçi/besle), kalan enerji, cami parası, satış kapalı. Boş bırakılan = bugünkü düzen. 🖥️ Ayar formunun altındaki “🎛️ Hesap planı” bölümü.",
+      anahtar: ["hesap plani", "plan ver", "planini", "oncelikleri", "is sirasi", "is onceligi", "basic yesin", "yemek yemesin",
+                "cami parasi", "kalan enerji", "satis kapali", "satmasin", "yol yemegi", "erzak almasin",
+                "tarla isci", "sadece besle", "kuvvet yesin", "zeka yesin", "karizma yesin"] },
+    { id: "toplu", tur: "ayar", ikon: "👥", baslik: "Toplu emir (bir kasabadaki / moddaki hesapların hepsine)",
+      ne: "Hesap kutusuna ad yerine seçici yaz: kasaba: Ardencaple · bölge: kuzey · mod: Hızlı Cami · meslek: Bahçıvan · liste: gözcüler · hariç: Thebear (noktalı virgülle birleştir). Satış/alım, posta, orduya katıl, oy ve divan onayı emirlerinde de çalışır; bot onayda tam listeyi + sayıyı yazar. Toplu seyahatte “📅 Güne yay”ı seç.",
+      anahtar: ["toplu", "toplu emir", "hepsine", "butun hesaplar", "tum hesaplar", "kasabadaki hesaplar",
+                "kuzeydeki", "guneydeki", "secici", "hesap listesi", "haric tut", "gune yay"] },
+    { id: "sifirla", tur: "ayar", ikon: "🧹", baslik: "Sıfırla (görev zinciri + seyahat + bekleyen işler)",
+      ne: "Hesabın görev zincirini (ilerlemesi dahil), seyahatini ve bekleyen tek seferlik işlerini (ev kurulumu · ev taşıma · her şeyi sat · atölye) siler; yeni emir gelmezse hesap OLDUĞU YERDE kendi moduyla devam eder. Takip modu ve hesap planı KORUNUR (takibi kapatmak için aynı emre “takip: Yok”). 🖥️ Ayar formunda “🧹 Sıfırla” kutusu.",
+      anahtar: ["sifirla", "sıfırla", "sifirlansin", "emirden vazgec", "vazgec", "emri sil", "gorevi sifirla",
+                "zinciri sifirla", "temiz sayfa", "bastan basla", "takili kaldi", "asili kaldi"] },
+    { id: "teshis", tur: "ayar", ikon: "🩺", baslik: "Teşhis (hızlı moddaki hesap: evi · tarlası · kıyafeti)",
+      ne: "Hızlı moddaki hesap ERTESİ girişinde iş yapmadan evi var mı / hangi kasabada (🏠 İkametgah), tarlası/çiftliği, kılıç-kalkan-kıyafeti ve envanterini okuyup rapora yazar; bitince emir kendiliğinden kapanır. Hızlı modda olmayan hesap bunları her gün zaten okuyor. 🖥️ Ayar formunda “🩺 Teşhis” kutusu; toplu da verilebilir.",
+      anahtar: ["teshis", "teşhis", "teshis et", "evi var mi", "evi nerede", "ikametgah", "arsasi var mi",
+                "tarlasi var mi", "hizli mod teshis", "ne giyiyor", "giysileri", "kiyafetleri ne"] },
     { id: "ayar", tur: "ayar", ikon: "🖥️", baslik: "Hesap ayarı / görev zinciri",
       ne: "Launcher'daki her ayar: takip modu, inziva, ders, gemi, kaptan, ases, puan, seyahat (📍 ara nokta da: #759 / 'Kirkcudbright - Wigtown arası' / kare '94 117'), görev zinciri, 🌲 orman işi (odun kes). Yalnızca DOKUNDUĞUN ayar gönderilir, gerisi değişmez.",
       anahtar: ["ayar", "inziva", "inzivaya", "ders", "ders ver", "hoca", "ases", "kaptan", "takip modu", "hizli maden", "hizli cami", "cami", "maden", "seyahat", "gorev", "gorev zinciri", "zincir", "puan", "isci tut", "grup lideri", "mod degistir", "odun kes", "odun kessin", "oduncu", "orman", "orman isi", "ara nokta", "ara noktaya", "noktaya gonder"] },
