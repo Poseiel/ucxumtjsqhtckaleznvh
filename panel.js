@@ -385,6 +385,21 @@
         "en uzak varış " + enUzun + " gün", "#harita/seyahat"));
     }
 
+    // 📍👁️ [19.10.2026] Ara nokta gözcüleri (gozcu.json — harita.js yükler).
+    //    Yalnızca OKUNAN gösterilir: gözcü sayısı + yolda görülen kişi +
+    //    o girişte okunan grup/ordu. Kayıt yoksa kart hiç çıkmaz.
+    var gzv = g("gozcuVerisi", null);
+    if (gzv && gzv.gozculer && gzv.gozculer.length) {
+      var gzGrup = 0, gzOrdu = 0;
+      gzv.gozculer.forEach(function (x) {
+        if (x.gruplar_okundu) { gzGrup += (x.gruplar || []).length; gzOrdu += (x.ordular || []).length; }
+      });
+      var gzKisi = (gzv.gorulenler || []).length;
+      k.push(kart("👁️", "ara nokta gözcüsü", gzv.gozculer.length,
+        kacis(gzKisi + " kişi yolda görüldü · " + gzGrup + " grup · " + gzOrdu + " ordu"),
+        "#harita/ordu", gzOrdu ? "bas-kart-uyari" : ""));
+    }
+
     // 🚨 İzleme & uyarı + 🛡️ ordu nöbeti (takip.js, 23.09.2026).
     //    takip.js yoksa ya da hata verirse kartlar hiç çıkmaz.
     var tk = null;
@@ -668,6 +683,19 @@
 
   function rozet(m) { return '<span class="gorev-rozet">' + kacis(m) + "</span>"; }
 
+  // 🎛️ [19.10.2026 — İŞ 15] Hesabın planı: "yemek=basic · iş=cami>eaü" ya da
+  //    "yok — bugünkü düzen". Kaynak sistem.json (emir.js `sistemVerisi`).
+  function hesapPlanMetni(ad) {
+    var sv = window.sistemVerisi;
+    if (!sv || !sv.hesaplar) return undefined;
+    var k = String(ad || "").toLowerCase(), bulunan = null;
+    sv.hesaplar.forEach(function (x) { if (String(x.ad || "").toLowerCase() === k) bulunan = x; });
+    if (!bulunan) return undefined;
+    var oz = typeof window.planOzetiJs === "function" ? window.planOzetiJs(bulunan.ayar) : "";
+    if (!oz) return "yok — bugünkü düzen";
+    return oz + ((bulunan.ayar || {}).plan_yemek === "yok" ? " · 🍽️⛔ HİÇ YEMEZ (plan gereği)" : "");
+  }
+
   function hesapKartiAc(ad) {
     hesapKartiKur();
     var h = hesapBul(ad);
@@ -687,13 +715,17 @@
       ["💰 Akçe", akce !== undefined && akce !== null ? Number(akce).toLocaleString("tr-TR", { minimumFractionDigits: 2, maximumFractionDigits: 2 }) : "-"],
       ["📈 Seviye", gl.seviye], ["⚒️ Meslek", gl.meslek], ["🛤️ Yol", gl.yol || "seçmemiş"],
       ["💪 Kuvvet · 🧠 Zeka · 💬 Karizma · 🤝 Güven", [gl.kuvvet, gl.zeka, gl.karizma, gl.guven].map(function (x) { return x === undefined ? "-" : x; }).join(" · ")],
-      ["🎨 Renk", gl.renk], ["💎 Mücevher", gl.mucevher], ["🏡 Tarla", gl.mulk], ["👪 Aile", gl.aile],
+      ["🎨 Renk", gl.renk], ["💎 Mücevher", gl.mucevher], ["🏡 Tarla", gl.mulk],
+      // 🏠 [19.10.2026 — İŞ 5] evin kasabası · "ev yok" · "bilinmiyor" (gelisim.json)
+      ["🏠 İkametgah", gl.ikametgah || "bilinmiyor"], ["👪 Aile", gl.aile],
       // ⚔️ [25.09.2026] Kılıç / kalkan / temel kıyafet (profil sayfasından).
       ["⚔️ Üstündekiler", gl.kusanma && typeof window.kusanmaMetni === "function"
         ? window.kusanmaMetni(gl.kusanma) + " (" + (gl.kusanma.gun || "?") + ")" : undefined],
       ["👕 Kıyafetleri", gl.kusanma && typeof window.kiyafetListesi === "function"
         ? (window.kiyafetListesi(gl.kusanma) || undefined) : undefined],
-      ["📅 Kayıt", gl.kayit_tarihi]
+      ["📅 Kayıt", gl.kayit_tarihi],
+      // 🎛️ [19.10.2026 — İŞ 15] hesap planı (sistem.json → hesap ayarı; boş = bugünkü düzen)
+      ["🎛️ Plan", hesapPlanMetni(h.ad)]
     ].filter(function (s) { return s[1] !== undefined && s[1] !== null && s[1] !== ""; });
 
     var esyalar = (en.esyalar || []).slice().sort(function (a, b) { return (b.adet || 0) - (a.adet || 0); });
@@ -725,6 +757,11 @@
               (e.kalan_gun !== null && e.kalan_gun !== undefined ? ' <span class="emir-kucuk">' + e.kalan_gun + " gün kaldı</span>" : "") + "</li>";
           }).join("") + "</ul>"
         : '<p class="emir-kucuk">Yok. <a class="bas-link" href="#emirdurum">Geçmişi Emir Durumu\'nda gör.</a></p>') +
+      // 📒 [19.10.2026 — İŞ 2] Hesap günlüğü: son 7 oyun günü (günlük rapordan).
+      //    "Düzenle" = 🖥️ Ayar formu bu hesapla açılır (Telegram akışı aynen).
+      '<h4>📒 Günlüğü <span class="emir-kucuk">(son 7 oyun günü · günlük rapordan)</span> ' +
+        '<a class="emir-mini-btn" href="#emir/ayar" data-doldur="ay-hesap">✏️ Düzenle (🖥️ Ayar formu)</a></h4>' +
+      '<div id="hesap-karti-gunluk"><p class="emir-kucuk">Yükleniyor…</p></div>' +
       '<h4>🎒 Eşyaları <span class="emir-kucuk">(' + esyalar.length + " çeşit · çanta + ev toplamı" + (en.esyalar ? "" : " · envanter raporunda yok") + ")</span></h4>" +
       (esyalar.length
         ? '<div class="kart-esyalar">' + esyalar.slice(0, 24).map(function (e) {
@@ -742,8 +779,38 @@
     });
     perde.hidden = false;
     hashYazma("hesap", h.ad);
+    hesapGunluguDoldur(h.ad);
   }
   window.hesapKartiAc = hesapKartiAc;
+
+  // 📒 [19.10.2026 — FABLE_GOREV_2026-10-15 İŞ 2] hesap_gunluk.json kart İLK
+  //    açılınca bir kez yüklenir; çizim takip.js'in saf fonksiyonuyla (TakipSaf).
+  var _gunlukVeri = null, _gunlukIstek = null;
+  function hesapGunluguDoldur(ad) {
+    var yaz = function () {
+      var kap = q("#hesap-karti-gunluk");
+      if (!kap) return;
+      var S = window.TakipSaf;
+      if (!_gunlukVeri) {
+        kap.innerHTML = '<p class="emir-kucuk">Günlük henüz üretilmedi (hesap_gunluk.json tur sonunda yazılır).</p>';
+        return;
+      }
+      if (!S || typeof S.hesapGunlukHtml !== "function") {
+        kap.innerHTML = '<p class="emir-kucuk">Günlük gösterilemedi (takip.js yüklenmedi).</p>';
+        return;
+      }
+      kap.innerHTML = '<p class="emir-kucuk">Son güncelleme: ' + kacis(_gunlukVeri.son_guncelleme || "?") + "</p>" +
+        S.hesapGunlukHtml(S.gunlukKaydi(_gunlukVeri, ad));
+    };
+    if (_gunlukVeri) { yaz(); return; }
+    if (!_gunlukIstek) {
+      _gunlukIstek = fetch("hesap_gunluk.json?_=" + Date.now())
+        .then(function (r) { return r.ok ? r.json() : null; })
+        .then(function (v) { _gunlukVeri = v; })
+        .catch(function () { _gunlukVeri = null; });
+    }
+    _gunlukIstek.then(yaz, yaz);
+  }
 
   // Envanter tablosundaki hesap adları tıklanabilir (karakter görünümünde
   // 1. sütun, eşya görünümünde 3. sütun — adı bilinen hesaplar sette).
