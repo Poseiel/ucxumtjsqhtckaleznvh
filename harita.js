@@ -1095,11 +1095,13 @@ function rkOrduKatmaniCiz() {
   RK.orduIsaretler = {}; RK.gemiIsaretler = {};
   const tik = document.getElementById("rk-ordu");
   const acik = tik ? tik.checked : true;
-  if (!RK.ordu) return;
+  // [19.10.2026] ordu.json yoksa da gözcü işaretleri çizilsin (eskiden burada çıkılıyordu).
+  const ov = RK.ordu || {};
+  if (!RK.ordu && !((RK.gozcu && RK.gozcu.gozculer) || []).length) return;
 
   // 🪖 Ordular — aynı kasabada birden çok ordu alt alta dizilir.
   const sayac = {};
-  (RK.ordu.ordular || []).forEach((o) => {
+  (ov.ordular || []).forEach((o) => {
     const id = rkDugumAdiyla(o.kasaba);
     if (!id) return;                         // haritada olmayan kasaba (yabancı krallık)
     const [x, y] = RK.veri.dugumler[id];
@@ -1118,7 +1120,7 @@ function rkOrduKatmaniCiz() {
   });
 
   // ⛵ Gemimiz — karenin ortası; hedef liman biliniyorsa kesikli çizgi.
-  (RK.ordu.gemiler || []).forEach((g) => {
+  (ov.gemiler || []).forEach((g) => {
     const merkez = RK.rc.unproject(rkPiksel(g.x, g.y));
     const ikon = L.divIcon({ className: "rk-gemi-ikon", html: "⛵ " + rkKacis(g.gemi), iconAnchor: [0, 0] });
     const m = L.marker(merkez, { icon: ikon, title: g.gemi }).bindPopup(rkGemiPopup(g));
@@ -1132,8 +1134,107 @@ function rkOrduKatmaniCiz() {
     }
   });
 
+  // 📍👁️ [19.10.2026] Ara nokta gözcülerimiz — ölçülen düğümde (gozcu.json).
+  //    Yeri ölçülemeyen gözcü haritaya KONMAZ (listede "yer okunamadı" yazar).
+  ((RK.gozcu && RK.gozcu.gozculer) || []).forEach((g) => {
+    const no = g.yer_no;
+    if (no === null || no === undefined || !RK.veri.dugumler[no]) return;
+    const [x, y] = RK.veri.dugumler[no];
+    const merkez = RK.rc.unproject([(x - RK_DX) * RK_KARE + 4, (y - RK_DY) * RK_KARE - 22]);
+    const ikon = L.divIcon({ className: "rk-gozcu-ikon", html: "👁️ " + rkKacis(g.hesap), iconAnchor: [0, 0] });
+    const m = L.marker(merkez, { icon: ikon, title: g.hesap }).bindPopup(rkGozcuPopup(g));
+    m.addTo(RK.orduKatman);
+    RK.gemiIsaretler["gozcu:" + g.hesap] = m;
+  });
+
   if (acik) RK.orduKatman.addTo(RK.map);
   if (RK.orduBekleyen) { const ad = RK.orduBekleyen; RK.orduBekleyen = ""; rkOrduGoster(ad); }
+}
+
+/* ==========================================================================
+   📍👁️ ARA NOKTA GÖZCÜLERİ (19.10.2026) — docs/gozcu.json
+   (pazar_json_uret.gozcu_uret ← Town_Data/Gozcu_{gün}.json ← gozcu_modul)
+   Gözcü hesap ara noktada durur; her girişte oyunun "Gruplar ve Ordular"
+   sekmesini + Günlük'ün "Gördüklerin" kayıtlarını okur. Burada YALNIZCA
+   okunan gösterilir — tahmin yok. Oyundan gelen her metin kaçışla basılır.
+   ========================================================================== */
+RK.gozcu = null;
+
+async function rkGozcuYukle() {
+  try {
+    const c = await fetch("gozcu.json", { cache: "no-store" });
+    if (!c.ok) throw new Error("gozcu.json yok");
+    RK.gozcu = await c.json();
+  } catch (e) {
+    RK.gozcu = null;
+  }
+  window.gozcuVerisi = RK.gozcu;             // panel.js kartı + arama
+  if (typeof veriHazir === "function") veriHazir("gozcu");
+  rkGozcuListesiYaz();
+  if (RK.map) rkOrduKatmaniCiz();
+}
+
+function rkGozcuGorulenler(hesap) {
+  const v = RK.gozcu || {};
+  return (v.gorulenler || []).filter((r) => String(r.gozcu || "").toLowerCase() === String(hesap || "").toLowerCase());
+}
+
+function rkGozcuPopup(g) {
+  const gr = g.gruplar || [], od = g.ordular || [], gor = rkGozcuGorulenler(g.hesap);
+  const grup = gr.length ? gr.map((x) => "• " + rkKacis(x.tur || "Grup") + " — " + rkKacis(x.lider || "?") +
+    ((x.uyeler || []).length ? " + " + (x.uyeler || []).map((u) => rkKacis(u.ad || u.login)).join(", ") : "")).join("<br>")
+    : (g.gruplar_okundu ? "grup yok" : "okunamadı");
+  const ordu = od.length ? od.map((o) => "• " + rkKacis(o.ad) + " — " + rkKacis(o.komutan || "?") +
+    (o.durum ? " · " + rkKacis(o.durum) : "")).join("<br>") : (g.gruplar_okundu ? "ordu yok" : "okunamadı");
+  return '<div class="rk-popup"><b>👁️ ' + rkKacis(g.hesap) + "</b> · " + rkKacis(g.etiket || g.kanonik || "yer okunamadı") + "<br>" +
+    '<span class="emir-kucuk">Son giriş: ' + rkKacis(g.saat || "?") +
+    (g.olu_giris === true ? " · 👻 ölüydü (diriltildi)" : g.olu_giris === false ? " · diri" : "") + "</span><br>" +
+    "<b>👥 Gruplar</b><br>" + grup + "<br><b>🪖 Ordular</b><br>" + ordu +
+    (gor.length ? "<br><b>🚶 Yolda gördükleri</b><br>" + gor.map((r) => rkKacis(r.ad || r.login)).join(", ") : "") + "</div>";
+}
+
+function rkGozcuListesiYaz() {
+  const kap = document.getElementById("rk-gozcu-liste");
+  if (!kap) return;
+  const v = RK.gozcu;
+  const gz = (v && v.gozculer) || [];
+  if (!gz.length) {
+    kap.innerHTML = '<p class="bos-durum">Gözcü kaydı yok — ⚙️ Sistem ayarları → 📍👁️ Ara nokta ' +
+      "gözcüleri listesine hesap yazılınca, o hesabın ilk girişinden sonra burada görünür.</p>";
+    return;
+  }
+  const goster = (ad) => '<button type="button" class="emir-mini-btn rk-ordu-git" data-ad="gozcu:' + rkKacis(ad) + '"' +
+    (window.L ? "" : " disabled title=\"Harita yüklenemedi\"") + ">🗺️ Haritada</button>";
+  let html = '<div class="tablo-sarici"><table class="rk-ordu-tablo"><thead><tr>' +
+    "<th>Gözcü</th><th>Yer</th><th>Son giriş</th><th>👥 Grup</th><th>🪖 Ordu</th><th>🚶 Gördükleri (bugün)</th><th></th></tr></thead><tbody>" +
+    gz.map((g) => {
+      const gor = rkGozcuGorulenler(g.hesap);
+      return "<tr><td><b>" + rkKacis(g.hesap) + "</b></td><td>" + rkKacis(g.etiket || "yer okunamadı") + "</td>" +
+        "<td>" + rkKacis(g.saat || "?") + (g.olu_giris === true ? " 👻" : "") + "</td>" +
+        "<td>" + (g.gruplar_okundu ? (g.gruplar || []).length : "—") + "</td>" +
+        "<td>" + (g.gruplar_okundu ? (g.ordular || []).length : "—") + "</td>" +
+        "<td>" + (gor.length ? gor.map((r) => rkKacis(r.ad || r.login)).join(", ") : "—") + "</td>" +
+        "<td>" + (g.yer_no !== null && g.yer_no !== undefined ? goster(g.hesap) : "") + "</td></tr>";
+    }).join("") + "</tbody></table></div>" +
+    '<p class="emir-kucuk">Kayıt günü: ' + rkKacis((v && v.gun) || "?") + " · 👻 = girişte ölüydü (diriltildi).</p>";
+  // 📏 Pontiac: "ölüyken Günlük'e 'Gördüklerin' düşüyor mu?" → son 14 günün ölçümü.
+  const olc = (v && v.olcum) || [];
+  if (olc.length) {
+    html += "<details><summary>📏 Son " + olc.length + " ölçüm (ölü/diri · o günkü “Gördüklerin” sayısı)</summary>" +
+      '<div class="tablo-sarici"><table class="rk-ordu-tablo"><thead><tr><th>Gün</th><th>Gözcü</th><th>Girişte</th>' +
+      "<th>Gördüklerin</th><th>Yer</th></tr></thead><tbody>" +
+      olc.slice().reverse().map((o) => "<tr><td>" + rkKacis(o.gun || "?") + "</td><td>" + rkKacis(o.hesap || "?") +
+        "</td><td>" + (o.olu_giris === true ? "👻 ölüydü" : o.olu_giris === false ? "diri" : "?") + "</td><td>" +
+        rkKacis(o.gorus_bugun === null || o.gorus_bugun === undefined ? "?" : o.gorus_bugun) + "</td><td>" +
+        rkKacis(o.yer || "") + "</td></tr>").join("") + "</tbody></table></div></details>";
+  }
+  kap.innerHTML = html;
+  kap.querySelectorAll(".rk-ordu-git").forEach((b) => {
+    b.addEventListener("click", () => {
+      if (typeof rkKur === "function") rkKur();
+      setTimeout(() => rkOrduGoster(b.dataset.ad), 150);
+    });
+  });
 }
 
 /* Listeden / adresten: o orduya (ya da gemiye) yaklaş, baloncuğunu aç. */
@@ -1214,6 +1315,7 @@ function rkOrduListesiYaz() {
 
 document.addEventListener("DOMContentLoaded", () => {
   rkOrduYukle();
+  rkGozcuYukle();            // 📍👁️ ara nokta gözcüleri (19.10.2026)
   rkSeyahatYukle();          // 🧭 seyahat rotaları (kırmızı oklar)
   // panel.js: #harita/seyahat adresiyle gelince
   document.addEventListener("harita-alt", (e) => {
