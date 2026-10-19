@@ -402,9 +402,134 @@ if (window.L) L.RasterCoords.prototype = {
       <p class="rehber-not">⚠️ Yani <b>sabah Envanter ve Gelişim sekmelerinde DÜNÜN verisi durur</b> —
         bozuk değildir. Her sekmenin üstünde hangi güne ait olduğu yazıyor.</p>
 
-      <h3>🆕 Son eklenenler <span class="rehber-eski">(10-11.10.2026)</span></h3>
+      <h3>🆕 19.10.2026 — kısaca ne değişti? <span class="rehber-eski">(ayrıntılar hemen aşağıdaki tabloda)</span></h3>
+      <p class="rehber-not">⚠️ Bunlar botun <b>19.10 akşamı derlenen</b> sürümüyle çalışır. Derlemeden önce
+        gönderilen yeni tür emirleri eski bot anlamaz — derleme bitene kadar bekle.</p>
+      <table class="rehber-tablo">
+        <tr><th>Ne değişti</th><th>Senin yapman gereken</th></tr>
+        <tr><td>🎛️ <b>Her hesaba kendi planını verebilirsin:</b> ne yesin, tarlada kendisi mi çalışsın yoksa
+              işçi mi tutsun, boş kalınca hangi işe gitsin (sırayla). <b>Tarla 1, ases 2</b> her zaman sabit.</td>
+            <td><b>Emir → 🖥️ Ayar → 🎛️ Hesap planı.</b> Örnek: <span class="rehber-akis">iş sırası: cami, maden</span> ·
+              <span class="rehber-akis">yemek: basic</span> · <span class="rehber-akis">cami parası: 50</span>.
+              Boş bıraktığın konu bugünkü gibi kalır; plan vermediğin hesapta <b>hiçbir şey değişmez</b>.</td></tr>
+        <tr><td>👥 <b>Bir emri birçok hesaba birden verebilirsin</b> — adları tek tek yazmadan.</td>
+            <td>Hesap kutusuna ad yerine: <span class="rehber-akis">kasaba: Ardencaple</span> ·
+              <span class="rehber-akis">mod: Hızlı Maden</span> · <span class="rehber-akis">bölge: güney</span> ·
+              <span class="rehber-akis">hariç: Toyga</span> (birleştirmek için <b>;</b>). Onay mesajında hangi
+              hesaplara gittiği tek tek yazar.</td></tr>
+        <tr><td>🧹 <b>Sıfırla:</b> bir hesaba verdiğin görevden vazgeçtiysen görevi, seyahati ve bekleyen işleri
+              temizler; hesap olduğu yerde kendi moduyla devam eder.</td>
+            <td><b>Emir → 🖥️ Ayar → 🧹 Sıfırla</b> (Telegram'da <span class="rehber-akis">sıfırla: evet</span>).</td></tr>
+        <tr><td>🍺 <b>Özellik yemeği bulamayan hesap, basic yemeden önce meyhaneye bakar.</b> Meyhanede Kuvvet /
+              Zeka / Karizma veren menü varsa onu yer.</td>
+            <td>Hiçbir şey — herkeste açık. Bir hesapta istemezsen: <span class="rehber-akis">meyhane: hayır</span>.</td></tr>
+        <tr><td>📍👁️ <b>Ara noktadaki gözcüler</b> gördüklerini Telegram'ın ordu konusuna atar; gördükleri kişi
+              <b>Kim Nerede</b>'de tahminle değil, görüldüğü yerle yazar.</td>
+            <td>Bir kez: <b>⚙️ Sistem ayarları → 📍👁️ Ara nokta gözcüleri</b> →
+              <span class="rehber-akis">Flantastic, Rendavar, Fioreth, Zehneya</span>.</td></tr>
+        <tr><td>🧭 <b>Takılan görevler kendini kapatır:</b> evi başka kasabada olan hesaba verilen "ev al" artık
+              sonsuza kadar beklemez (Favore), uyarıyla kapanır ve hesap normal turuna döner.</td>
+            <td>Hiçbir şey. Evini taşımak istiyorsan görevde <span class="rehber-akis">ev_tasi</span> kullan.</td></tr>
+        <tr><td>🌲🚚 <b>Odunu başka şehre taşıma</b> (görev zinciriyle) · 🏦 <b>kasa hesabı</b> (hazır ama kapalı)</td>
+            <td>Odun: <b>🖥️ Ayar → 📋 Hazır plan → 🌲 Odunu başka şehre taşı</b>. Kasa: ⚙️ Sistem'e kasa
+              hesaplarının adlarını yazana kadar hiçbir şey olmaz.</td></tr>
+        <tr><td>🩺 <b>Teşhis</b> · 🏠 <b>İkametgah</b> · 📒 <b>Hesap günlüğü:</b> bir hesabın evi nerede, son 7
+              günde ne yedi, ne iş yaptı.</td>
+            <td>Hesabın adına tıkla → hesap kartı. Hızlı moddaki bir hesabı bir kez taratmak için
+              <span class="rehber-akis">teşhis: evet</span>.</td></tr>
+        <tr><td>🚧 <b>Oyun kapanınca bot bekler:</b> 3 hesap üst üste giremezse hesapları boşuna yakmaz.</td>
+            <td>Hiçbir şey — Telegram'a tek uyarı gelir.</td></tr>
+      </table>
+
+      <h3>🆕 Son eklenenler <span class="rehber-eski">(10-19.10.2026)</span></h3>
       <table class="rehber-tablo">
         <tr><th>Yenilik</th><th>Nasıl kullanılır</th><th>Bilmen gereken</th></tr>
+        <tr><td>🌲🚚 <b>Odun taşıma</b><br><span class="rehber-eski">19.10.2026</span></td>
+            <td><b>Emir → 🖥️ Ayar → 📋 Hazır plan → 🌲 Odunu başka şehre taşı</b>: alıcıyı ve dönüş şehrini yaz
+              (zincir: <span class="rehber-akis">erzak, odun_yukle, seyahat:Glasgow, odun_sat:Renegrade x200,
+              seyahat:Ardencaple</span>). Toplu: Hesap kutusuna <span class="rehber-akis">kasaba: Ardencaple</span>,
+              3+ hesapsa <span class="rehber-akis">yay: 3</span>.</td>
+            <td>Evdeki odun çanta <b>ağırlık sınırına</b> sığdığı kadar (ya da yazdığın adet) yüklenir; yolda satılmaz,
+              eve geri gönderilmez. Varınca alıcıya <b>rezerveli</b>, en düşük fiyattan satılır ve alıcıya <b>alım
+              emri</b> açılır; alıcı alana kadar hesap orada bekler, sonra döner. Evde odun yoksa adım bekler (hesap
+              normal turunu yapar). Her adım günlük rapora ve Telegram'a yazılır.
+              <b>Alıcıyı boş bırakırsan</b> ⚙️ Sistem → 🌲🚚 Odun alıcıları'ndaki o şehrin alıcısı kullanılır
+              (Telegram: <span class="rehber-akis">odun alıcıları: Glasgow=Renegrade</span>, değiştirmek:
+              <span class="rehber-akis">odun alıcıları ekle: Glasgow=Richard12</span>). Taşıyıcı alıcıdan ÖNCE girer
+              (alıcı aynı gün alsın); ilan bekliyorsa SONRA girer (adım aynı gün kapanır, dönüşe çıkar).</td></tr>
+        <tr><td>🏦 <b>Kasa hesabı</b> (hazır, KAPALI)<br><span class="rehber-eski">19.10.2026</span></td>
+            <td><b>Emir → ⚙️ Sistem ayarları → 🏦 Kasa hesabı</b>: kasabaların kasa hesaplarını yaz
+              (Telegram'da <span class="rehber-akis">kasa hesapları: Glasgow=KasaA, Stirling=KasaB</span>);
+              eşik, tutar, günlük üst sınır, birim fiyat ve mal aynı yerde. Liste <b>boşken hiçbir şey olmaz</b>.
+              Kasayı değiştirmek: <span class="rehber-akis">kasa hesapları ekle: Glasgow=YeniKasa</span> (eskisinin
+              yerine geçer) · kaldırmak: <span class="rehber-akis">kasa hesapları çıkar: Glasgow</span>.</td>
+            <td>Açılınca: akçesi eşiğin altındaki hesap, evindeyken kasabasının kasasına malını (varsayılan Mor Boya)
+              <b>rezerveli</b> satar, kasaya <b>alım emri</b> açılır; ikisi de 📊 Emir Durumu'nda, satan önce girer.
+              Tutar ±%20 · aynı hesap 2-4 günde bir · kasa başına günlük üst sınır (OPSEC). Her aktarım günlük rapora
+              ve Telegram'ın pazar konusuna yazılır. Ordu/Grup Takip · seyahat · alışverişçi · hızlı mod yapmaz.</td></tr>
+        <tr><td>🩺 <b>Teşhis</b> + 🏠 <b>İkametgah</b><br><span class="rehber-eski">19.10.2026</span></td>
+            <td><b>Emir → 🖥️ Ayar → 🩺 Teşhis</b> kutusunu işaretle (Telegram'da
+              <span class="rehber-akis">teşhis: evet</span>; toplu da olur, ör. <span class="rehber-akis">hesap: mod: Hızlı Maden, Hızlı Cami</span>).
+              Hızlı moddaki hesap ertesi girişinde önce <b>iş vermeden</b> evine, tarlasına/çiftliğine,
+              kılıç-kalkan-kıyafetine ve envanterine bakar, <b>ardından aynı girişte hızlı turunu yapar</b>.</td>
+            <td>Sonuç günlük rapora tek satır (“🩺 TEŞHİS TAMAM …”) ve hesap kartına düşer:
+              <b>🏠 İkametgah</b> = evin kasabası · “ev yok” · “bilinmiyor” (hiç bakılmadıysa). Teşhis giriş
+              süresini uzatır ama o gün de maden/cami <b>verilir</b> (19.10 kararı); emir kendiliğinden kapanır.
+              Hızlı modda olmayan hesap bunları her gün zaten okuyor — emir orada hemen kapanır.</td></tr>
+        <tr><td>📒 <b>Hesap günlüğü</b><br><span class="rehber-eski">19.10.2026</span></td>
+            <td>Herhangi bir hesabın adına tıkla → hesap kartının altında <b>📒 Günlüğü</b> (son 7 oyun günü,
+              gün gün, her giriş ayrı). <b>✏️ Düzenle</b> düğmesi 🖥️ Ayar formunu o hesapla açar.</td>
+            <td>Günlük rapordan çıkarılır: ne yedi (çanta / pazar + kaç akçe / meyhane) · hangi iş (tarla · ases ·
+              odun · maden · cami · EAÜ · atölye) · iş ilanı · alım / satış / rezerve · seyahat ve zincir adımı ·
+              ❌/🟥 uyarılar · 🎛️ plan ↔ gerçekleşen. Oyun yemeğin yalnız <b>türünü</b> yazıyor; adı ancak o
+              turda pazardan alındıysa görünür. Tur bitince (akşam) güncellenir.</td></tr>
+        <tr><td>🚧 <b>Oyun kapanınca bekleme</b><br><span class="rehber-eski">19.10.2026</span></td>
+            <td>Ayar yok — kendiliğinden.</td>
+            <td>Art arda <b>3 hesap</b> oyuna hiç giremezse (13.10'daki bakım gibi) bot Telegram'a <b>tek</b>
+              uyarı atar, sıradaki hesaba geçmeden <b>5 dakikada bir</b> oyunun ana sayfasına <b>hesapsız</b>
+              bakar (en fazla 30 dk). Açılınca kaldığı hesaptan devam eder; açılmazsa eski düzen
+              (giremeyenler gün sonunda yeniden denenir). Bekleme sırasında <b>F9</b> beklemeyi atlatır.</td></tr>
+        <tr><td>📍👁️ <b>Ara nokta gözcüsü</b><br><span class="rehber-eski">19.10.2026</span></td>
+            <td><b>Emir → ⚙️ Sistem ayarları → 📍👁️ Ara nokta gözcüleri</b> kutusuna hesap adlarını yaz
+              (Telegram'da <span class="rehber-akis">ara nokta gözcüleri: Flantastic, Rendavar</span>).
+              Listedeki hesap ara noktada dururken her girişte <b>Gruplar ve Ordular</b> sekmesini ve
+              <b>Günlük</b>'ün “Gördüklerin” + “Ordu” kayıtlarını okur.</td>
+            <td>Gördükleri Telegram'ın <b>ordu konusuna</b> gider (gruplar/ordular her girişte tam liste);
+              yolda karşılaştığı kişi <b>📍 Kim Nerede</b>'de ölçülen yerle görünür; o gün o kişinin profili
+              inziva için açılmaz. Gözcüler <b>ajanlardan önce</b> girer. Haritada <b>👁️</b> işareti, Ordu
+              sekmesinde <b>📍 yalnızca gözcü</b> süzgeci var. Hiçbir düğmeye basmaz (“Yolcuları soy” açılmaz).
+              Liste boşsa hiçbir şey değişmez.</td></tr>
+        <tr><td>👥 <b>Toplu emir</b><br><span class="rehber-eski">19.10.2026</span></td>
+            <td><b>Emir → 🖥️ Ayar → Hesap</b> kutusuna ad yerine <b>seçici</b> yaz:
+              <span class="rehber-akis">kasaba: Glasgow</span> · <span class="rehber-akis">bölge: güney</span> ·
+              <span class="rehber-akis">mod: Hızlı Cami</span> · <span class="rehber-akis">meslek: Fırıncı</span> ·
+              <span class="rehber-akis">liste: Arden</span> (⚙️ Sistem → 📋 Hesap listeleri) ·
+              <span class="rehber-akis">hariç: Toyga</span> — birleştirmek için <b>;</b> koy.
+              Satış/alım, posta kontrol, orduya katıl, oy ver, divan onayında da aynı.</td>
+            <td>Emir geldiği an <b>tam ada</b> çevrilir; onay mesajında hesap sayısı + tam liste yazar.
+              Kasaba = son iki günün Gelişim kaydı. Seyahat / zincir 3+ hesaba giderse OPSEC uyarısı gelir →
+              <span class="rehber-akis">yay: 3</span> ile 3 güne böl. Profil yazma ve aile kabul TEK hesaplıdır.</td></tr>
+        <tr><td>🎛️ <b>Hesap planı</b><br><span class="rehber-eski">19.10.2026</span></td>
+            <td><b>Emir → 🖥️ Ayar → 🎛️ Hesap planı</b>: yemek (kuvvet/zeka/karizma/basic/yok) · meyhane ·
+              yol yemeği · tarla (kendisi/işçi/besle) · <b>iş sırası</b> (atölye · odun · demir · maden · cami ·
+              eaü · ders · yok) · kalan enerji · cami parası · satış kapalı.</td>
+            <td>Tarla 1 · ases 2 <b>sabit</b>; sonra iş sırasında <b>ilk verilebilen</b> kazanır. Boş bırakılan her konu
+              = <b>bugünkü düzen</b>. Ordu/Grup Takip, gemi, kaptan, inziva planı okumaz. Her hesapta log'da
+              <span class="rehber-akis">🎛️ Plan: …</span> satırı. <span class="rehber-akis">plan: iptal</span> hepsini boşaltır.</td></tr>
+        <tr><td>🍺 <b>Özellik yemeği için önce meyhane</b><br><span class="rehber-eski">19.10.2026</span></td>
+            <td>Kendiliğinden (herkeste açık): pazarda ve çantada <b>özellik</b> yemeği yoksa hesap, çantadaki basic'ten
+              ÖNCE kasabanın meyhanesine bakar; yalnızca özellik menüsü söyler.</td>
+            <td>Menü fiyatı ≤ malzemelerin pazar fiyatı × 1,5 · sonrasında cepte 50 akçe kalır. Meyhanede özellik
+              menüsü yoksa ilk bakan hesap <b>not alır</b>, 120 dk o kasabadaki diğerleri bakmaz. Gizli “şablon” menüye
+              ve “stokta yok” menüye artık basılmaz. Hesap başına kapatmak:
+              <span class="rehber-akis">meyhane: hayır</span> (aç kalmama meyhanesi yine açık).</td></tr>
+        <tr><td>🧹 <b>Sıfırla</b><br><span class="rehber-eski">19.10.2026</span></td>
+            <td><b>Emir → 🖥️ Ayar → 🧹 Sıfırla</b> kutusu (Telegram'da <span class="rehber-akis">sıfırla: evet</span>):
+              görev zinciri (ilerlemesi dahil) + seyahat + bekleyen tek seferlik işler (ev kurulumu · ev taşıma ·
+              her şeyi sat · atölye) silinir.</td>
+            <td>Yeni emir gelmezse hesap <b>olduğu yerde kendi moduyla</b> devam eder. Takip modu ve hesap planı
+              <b>korunur</b> (takibi kapatmak için aynı emre <span class="rehber-akis">takip: Yok</span>). Aynı emirde yeni
+              görev yazarsan temiz sayfadan başlar. Yolda olan hesabın oyundaki yürüyüşü durdurulamaz; vardığı yerde kalır.</td></tr>
         <tr><td>📍 <b>Ara noktaya gönderme</b><br><span class="rehber-eski">iki kasaba arasındaki isimsiz nokta</span></td>
             <td><b>En kolayı:</b> <b>🗺️ Harita</b> sekmesinde iki kasaba arasındaki isimsiz noktaya tıkla →
               açılan kutuda noktanın <b>numarası</b> (ör. <b>#759</b>) ve adı (<b>Kirkcudbright - Wigtown arası</b>) yazar →
@@ -791,6 +916,7 @@ if (window.L) L.RasterCoords.prototype = {
         <tr><td>Bir hesaba odun kestirmek</td><td><b>Emir → 🖥️ Ayar</b> → <b>🌲 Orman işi: odun</b> (yalnızca odun kasabasında) — bütün kasaba için <b>⚙️ Sistem ayarları → 🌲 Odun kasabaları</b></td></tr>
         <tr><td>Uzun yola çıkacak hesaba yemek aldırmak</td><td>Görev zincirinde seyahatten önce <b>🍞 erzak</b> adımı</td></tr>
         <tr><td>Birkaç hesaba Kuvvet kastırmak, kendilerine ayrılan yemeği aldırmak</td><td><b>Emir → ⚙️ Sistem ayarları</b> → <b>💪 Kuvvet öncelikli hesaplar</b> → ekle</td></tr>
+        <tr><td>Boş kalan hesaplar camiye mi madene mi gitsin (itibar)</td><td><b>Emir → ⚙️ Sistem ayarları → ⛏️ Maden kasabaları</b>: listedeki kasabada cami atlanır, madene gidilir; listede <b>OLMAYAN</b> kasabadaki hesap (itibar &lt; 255, para ≥ 200) boş kalınca <b>CAMİYE</b> gider. Tek bir hesabı maden kasabasında da camiye göndermek: <b>🕌 Ayrıcalıklı cami hesapları</b>. Hesap hesap sıra / cami parası: <b>🖥️ Ayar → 🎛️ Hesap planı</b> (<span class="rehber-eski">iş sırası: cami, maden</span> · <span class="rehber-eski">cami parası: 50</span>)</td></tr>
         <tr><td>Kaptan adayı seçmek</td><td><b>Gelişim</b> → renk, kayıt tarihi ve statlara bak</td></tr>
         <tr><td>Birinin multi olup olmadığına bakmak</td><td><b>İnziva</b> (aynı gün girip çıkanlar) — Hareket değil</td></tr>
         <tr><td>Limanımıza kim geldi görmek</td><td><b>⛵ Filo</b> → 🔴 yabancı işaretlileri</td></tr>
@@ -1037,6 +1163,10 @@ if (window.L) L.RasterCoords.prototype = {
     </div>
 
     <h3 class="hareket-alt-baslik">📋 Bugünkü tam liste</h3>
+    <p class="bolum-aciklama">📍👁️ <b>Ara nokta gözcülerimiz</b> (⚙️ Sistem ayarları) yolda gördükleri
+      kişiyi de buraya yazar: <b>Kasaba</b> sütununda <span class="konum-disari">📍 #759 Kirkcudbright - Wigtown arası</span>
+      gibi <b>ölçülen</b> yer ve hangi gözcünün gördüğü görünür. Gözcünün görmediği kişi için “ara noktada
+      olabilir” diye tahmin yürütülmez.</p>
     <div class="pazar-arac-cubugu">
       <input type="text" id="sakinler-arama" placeholder="Karakter ara...">
       <select id="sakinler-kasaba-filtre">
@@ -1178,6 +1308,7 @@ if (window.L) L.RasterCoords.prototype = {
         <option value="">👤 Tüm hesaplar</option>
       </select>
       <label class="ordu-hadise-tik"><input type="checkbox" id="ordu-hadise-kavga"> ⚔️ yalnızca çatışmalar</label>
+      <label class="ordu-hadise-tik" title="Ara nokta gözcülerinin Günlük kayıtları (⚙️ Sistem → 📍👁️ Ara nokta gözcüleri)"><input type="checkbox" id="ordu-hadise-gozcu"> 📍 yalnızca gözcü</label>
       <input type="search" id="ordu-hadise-ara" autocomplete="off" maxlength="80"
              placeholder="🔎 Metinde ara (kişi adı, “darbe”, “ordu”…)">
       <span id="ordu-hadise-sayi" class="gecmis-bilgi" aria-live="polite"></span>
@@ -1222,7 +1353,7 @@ if (window.L) L.RasterCoords.prototype = {
            Veri: ordu.json (pazar_json_uret.ordu_uret). -->
       <label class="pasa-toggle">
         <input type="checkbox" id="rk-ordu" checked>
-        🪖 Ordular &amp; ⛵ gemimiz
+        🪖 Ordular &amp; ⛵ gemimiz &amp; 👁️ gözcüler
       </label>
       <!-- 🧭 [17.09.2026] Seyahat rotaları katmanı (harita.js →
            rkSeyahatKatmaniCiz). Veri: seyahat.json -->
@@ -1241,7 +1372,8 @@ if (window.L) L.RasterCoords.prototype = {
       Haritadaki <b>🪖</b> işaretleri orduları gösterir: 🟢 yeşil çerçeve =
       şehrin içinde, 🟠 turuncu çerçeve (karenin dışında) = şehir kapısına
       dayanmış. <b>⛵</b> gemimizin son bilinen karesidir; mor kesikli çizgi
-      hedef limana gider.
+      hedef limana gider. <b>👁️</b> ara nokta gözcümüzdür (ölçülen düğümünde);
+      tıklayınca o noktada gördüğü gruplar, ordular ve yolda karşılaştığı kişiler açılır.
     </p>
 
     <!-- 🪖 ORDULAR + ⛵ GEMİMİZ — liste (Leaflet yüklenemese de görünür).
@@ -1259,6 +1391,20 @@ if (window.L) L.RasterCoords.prototype = {
         Daha eski günlerde bu alan "bilinmiyor" görünür.
         Satırdaki <b>🗺️ Haritada</b> düğmesi o noktaya yaklaştırır.</p>
       <div id="rk-ordu-liste"><p class="bos-durum">Ordu verisi yükleniyor…</p></div>
+    </div>
+
+    <!-- 📍👁️ [19.10.2026] ARA NOKTA GÖZCÜLERİ (harita.js → rkGozcuListesiYaz).
+         Veri: gozcu.json (pazar_json_uret.gozcu_uret ← Town_Data/Gozcu_{gün}.json).
+         Pontiac: "Hem hadiseleri hem de kasaba dışı grupları atsalar iyi olur". -->
+    <div id="rk-gozcu-bolum">
+      <h3 class="hareket-alt-baslik">📍👁️ Ara nokta gözcülerimiz</h3>
+      <p class="bolum-aciklama"><b>⚙️ Sistem ayarları → 📍👁️ Ara nokta gözcüleri</b> listesindeki hesaplar
+        (hızlı modda, ara noktada dururken) her girişte oyunun <b>Gruplar ve Ordular</b> sekmesini ve
+        <b>Günlük</b>'ün “Gördüklerin” + “Ordu” kayıtlarını okur. Gördükleri Telegram'ın ordu konusuna
+        gider; <b>yolda karşılaştıkları kişi 📍 Kim Nerede'de ölçülen yerle görünür</b> (tahmin değil).
+        Ajanlardan önce girerler. Yer, oyunun haritasındaki “Buradasınız” düğümünden okunur;
+        okunamazsa “yer okunamadı” yazar. Ordu sekmesinde <b>📍 yalnızca gözcü</b> süzgeci var.</p>
+      <div id="rk-gozcu-liste"><p class="bos-durum">Gözcü verisi yükleniyor…</p></div>
     </div>
 
     <!-- 🧭 [17.09.2026] SEYAHAT ROTALARI. Kullanıcı: "haritada hareket
@@ -1558,6 +1704,10 @@ if (window.L) L.RasterCoords.prototype = {
         </label>
         <button type="button" id="al-azami-oner" class="emir-mini-btn">🔢 pazara göre hesapla</button>
       </div>
+      <!-- 💡 [19.10.2026 — FABLE_GOREV_2026-10-15 İŞ 7a] 12.10'da "birim mi toplam mı" karıştı. -->
+      <p class="emir-ipucu" id="al-azami-ipucu">💡 <b>Azami = TOPLAM akçe</b>, tanesinin fiyatı DEĞİL.
+        Örnek: 3500 boyayı tanesi en fazla 31 akçeden almak için <b>108500</b> yaz (3500 × 31 = 108.500).
+        Bot tanesini <b>azami ÷ adet</b>'ten pahalıya almaz.</p>
       <div id="al-kasaba-ipucu" class="alt-not"></div>
       <div class="emir-satir">
         <label class="emir-tik">
@@ -2001,6 +2151,31 @@ if (window.L) L.RasterCoords.prototype = {
         <p class="emir-ipucu">👥 Aynı ayarı <b>birden çok hesaba</b> vermek için adları <b>virgülle</b> ayır
           (örn. <code>Vamder, Toyga, Feyyaz</code>). Aynı hesaba ayrı ayrı gönderdiğin emirler de birikir:
           her emir yalnız kendi yazdığı kutuyu değiştirir.</p>
+        <!-- 👥 [19.10.2026 — İŞ 16] TOPLU EMİR: hesap kutusuna SEÇİCİ yazılabilir
+             (hedef_secici.py · JS eşi emir.js hedefDegerCoz/hedefSecimCoz). -->
+        <p class="emir-ipucu">🎯 <b>Toplu seçim:</b> ad yerine seçici de yazabilirsin, bot emri aldığı an
+          hesap listesine çevirir ve Telegram onayında <b>tam listeyi + sayıyı</b> yazar:
+          <code>kasaba: Ardencaple</code> · <code>bölge: kuzey</code> (Glasgow · Stirling · Ardencaple) ·
+          <code>mod: Hızlı Cami</code> · <code>meslek: Bahçıvan</code> · <code>liste: gözcüler</code>
+          (⚙️ Sistem → hesap listeleri) · <code>hariç: Thebear</code>. Birden çok seçiciyi <b>noktalı virgülle</b>
+          birleştir (hepsine uyanlar seçilir): <code>kasaba: Ardencaple, Stirling; mod: Hızlı Maden; hariç: Thebear</code>.
+          Kasaba = hesabın <b>son okunan</b> yeri.</p>
+        <div class="emir-satir">
+          <label>📅 Güne yay (toplu seyahat / zincir)
+            <select id="ay-yay">
+              <option value="">— yayma (hepsi aynı gün) —</option>
+              <option value="2">2 güne yay</option>
+              <option value="3">3 güne yay (önerilen)</option>
+              <option value="4">4 güne yay</option>
+              <option value="5">5 güne yay</option>
+              <option value="7">7 güne yay</option>
+            </select>
+          </label>
+        </div>
+        <p class="emir-ipucu">🛡️ 3 ya da daha çok hesap <b>aynı gün</b> yola çıkarsa (seyahat / zincirde seyahat)
+          bot onayda uyarır: aynı gün birlikte hareket eden grup, kendi multi analizimizin yabancılarda yakaladığı
+          desendir. "Güne yay" seçilirse hesaplar sırayla günlere bölünür; bugünün payı hemen, kalanı kendi
+          gününde uygulanır (📊 Emir Durumu'nda "📅 … uygulanacak" yazar).</p>
         <!-- 👁️ [05.10.2026] Seçilen hesabın ŞU ANKİ ayarları (sistem.json). -->
         <p class="emir-ipucu" id="ay-mevcut" hidden></p>
       </fieldset>
@@ -2028,6 +2203,19 @@ if (window.L) L.RasterCoords.prototype = {
           (hesabın mevcut görevi olduğu gibi kalır). “Görevi iptal et” dersen
           varsa mevcut görevi silinir. Adımların ne yaptığı:
           <a href="#rehber/gorev" class="bas-link">📖 Rehber → Görev zinciri</a>.</p>
+        <!-- 🧹 [19.10.2026 — FABLE_GOREV_2026-10-18 İŞ 11 d] SIFIRLA -->
+        <label class="ay-ipucu"><input type="checkbox" id="ay-sifirla"> 🧹 Sıfırla — görev zinciri
+          (ilerlemesi dahil) + seyahat + bekleyen tek seferlik işler (ev kurulumu · ev taşıma ·
+          her şeyi sat · atölye) silinir; hesap olduğu yerde kendi moduyla devam eder.
+          Takip modu ve hesap planı <b>korunur</b>. Aynı emirde yeni görev yazarsan temiz
+          sayfadan başlar.</label>
+        <!-- 🩺 [19.10.2026 — FABLE_GOREV_2026-10-15 İŞ 5] TEŞHİS (bir kerelik) -->
+        <label class="ay-ipucu"><input type="checkbox" id="ay-teshis"> 🩺 Teşhis — hızlı moddaki hesap
+          <b>ertesi girişinde önce (iş vermeden)</b> evi var mı / hangi kasabada · tarlası/çiftliği · kılıç,
+          kalkan, kıyafet · envanteri okur ve rapora yazar, <b>ardından aynı girişte hızlı turunu da yapar</b>
+          (maden/cami); bitince emir kendiliğinden kapanır
+          (sonuç hesap kartında: 🏠 İkametgah). Hızlı modda olmayan hesap bunları her gün zaten
+          okuyor — emir o hesapta hemen kapanır. Toplu da verilebilir (👥 Toplu emir).</label>
 
         <!-- 💸➡️🌍 [14.09.2026] "Her şeyi sat" zincirinin ARKA PLANDA
              kendiliğinden yaptıkları. Kullanıcı: *"sitedeki emir verme
@@ -2297,6 +2485,80 @@ if (window.L) L.RasterCoords.prototype = {
 
       </fieldset>
 
+      <!-- 🎛️ [19.10.2026 — FABLE_GOREV_2026-10-18 İŞ 15] HESAP PLANI: "öncelikleri biz
+           belirleyelim". Bot: site_emirleri._IZINLI_ALANLAR (yemek · meyhane · yol yemeği ·
+           tarla · iş sırası · kalan enerji · cami parası · satış) → plan_* alanları;
+           değerler hesap_plani.deger_coz ile BİREBİR. Boş = bugünkü düzen. -->
+      <fieldset class="ay-bolum">
+        <legend>🎛️ Hesap planı <span class="ay-ipucu">boş bırakılan her konu = bugünkü düzen</span></legend>
+        <p class="emir-ipucu">Sıra sabittir: <b>tarla 1 → ases 2 → iş sırası</b> (atölye iş sırasında yazıldığı yerde).
+          Yazmadığın her konu bugünkü gibi kalır. Ordu / Grup Takip, gemi, kaptan ve inziva hesaplarında plan
+          <b>okunmaz</b>; hızlı turda da okunmaz (zincir yüzünden normal tura düşen hesapta okunur).</p>
+        <div class="emir-satir">
+          <label>🍽️ Yemek
+            <select id="ay-plan-yemek">
+              <option value="">— değiştirme —</option>
+              <option value="normal">normal (bugünkü: özellik kas)</option>
+              <option value="kuvvet">💪 kuvvet önce</option>
+              <option value="zeka">🧠 zeka önce</option>
+              <option value="karizma">💬 karizma önce</option>
+              <option value="basic">🥖 basic (ucuz dolgu, para biriktir)</option>
+              <option value="yok">⛔ yok (HİÇ yemez — bilinçli istisna)</option>
+            </select>
+          </label>
+          <label>🍺 Meyhane
+            <select id="ay-plan-meyhane">
+              <option value="">— değiştirme —</option>
+              <option value="evet">evet (bugünkü varsayılan)</option>
+              <option value="hayır">hayır (özellik meyhanesi yok)</option>
+              <option value="son çare">son çare (yalnız pazarda yemek yoksa)</option>
+            </select>
+          </label>
+          <label>🎒 Yol yemeği
+            <select id="ay-plan-yol">
+              <option value="">— değiştirme —</option>
+              <option value="normal">normal (günlük + 40 AP erzak)</option>
+              <option value="günlük">günlük (erzak alınmaz)</option>
+              <option value="yok">yok (yoldayken aç seyahat)</option>
+            </select>
+          </label>
+          <label>🌾 Tarla
+            <select id="ay-plan-tarla">
+              <option value="">— değiştirme —</option>
+              <option value="iptal">bugünkü (👷 işçi tut tikine göre)</option>
+              <option value="kendisi">kendisi çalışsın</option>
+              <option value="işçi">işçi (iş ilanı asar)</option>
+              <option value="besle">yalnız hayvan besle</option>
+            </select>
+          </label>
+        </div>
+        <div class="emir-satir">
+          <label>⛏️ İş sırası <span class="ay-ipucu">virgülle: atölye · odun · demir · maden · cami · eaü · ders · yok — ilk verilebilen kazanır · "iptal" = bugünkü sıra</span>
+            <input id="ay-plan-is" placeholder="örn. cami, demir, eaü" autocomplete="off">
+          </label>
+          <label>🔥 Kalan enerji
+            <select id="ay-plan-kalan">
+              <option value="">— değiştirme —</option>
+              <option value="iptal">bugünkü (maden → EAÜ)</option>
+              <option value="maden">yalnız maden</option>
+              <option value="eaü">yalnız EAÜ</option>
+              <option value="yok">yakma (enerji kalsın)</option>
+            </select>
+          </label>
+          <label>🕌 Cami parası <span class="ay-ipucu">camiye gitmek için en az akçe · "iptal" = 200</span>
+            <input id="ay-plan-cami" inputmode="numeric" placeholder="örn. 50" autocomplete="off">
+          </label>
+          <label>💰 Satış
+            <select id="ay-plan-satis">
+              <option value="">— değiştirme —</option>
+              <option value="normal">normal (bugünkü)</option>
+              <option value="kapalı">kapalı (kendiliğinden satmaz · emir yine geçer)</option>
+            </select>
+          </label>
+        </div>
+        <label class="ay-ipucu"><input type="checkbox" id="ay-plan-iptal"> 🗑️ Planı sıfırla (sekiz konu da bugünkü düzene döner)</label>
+      </fieldset>
+
       <p class="emir-ipucu">⚠️ Yalnızca <b>dokunduğun</b> ayarlar gönderilir.
         Bot bunu <b>sıradaki turda</b> uygular; bilgisayardaki launcher aynı
         şekilde çalışmaya devam eder. Bir ayarı geri almak için aynı kutuyu
@@ -2327,7 +2589,8 @@ if (window.L) L.RasterCoords.prototype = {
       <fieldset class="ay-bolum">
         <legend>⛏️ Maden &amp; 🕌 cami</legend>
         <div class="emir-satir">
-          <label>⛏️ Maden kasabaları <span class="ay-ipucu">bu kasabalarda cami atlanır, madene gidilir</span>
+          <label>⛏️ Maden kasabaları <span class="ay-ipucu">bu kasabalarda cami atlanır, madene gidilir ·
+            listede OLMAYAN kasabadaki hesap (itibar &lt; 255, para ≥ 200) boş kalınca CAMİYE gider</span>
             <select id="si-maden-kasaba-islem" class="si-islem"></select>
             <input id="si-maden-kasaba" list="ay-sehir-listesi" placeholder="örn. Glasgow, Stirling" autocomplete="off">
           </label>
@@ -2352,6 +2615,71 @@ if (window.L) L.RasterCoords.prototype = {
           <label>🌲 Odun kasabaları <span class="ay-ipucu">bu kasabadaki hesaplar boş kalınca (tarla işi yokken) maden/camiden ÖNCE odun keser, kestiği odunu SATMAZ, evde tutar · ases tikliyse önce ases, ases yeri doluysa odun · yalnızca gerçek odun kasabasında çalışır (Stirling · Ardencaple · Girvan · Wigtown)</span>
             <select id="si-odun-islem" class="si-islem"></select>
             <input id="si-odun" list="ay-sehir-listesi" placeholder="örn. Ardencaple" autocomplete="off">
+          </label>
+        </div>
+        <!-- 🌲🚚 [19.10.2026 — Pontiac: alıcı "TELEGRAMDAN" belirlenip değiştirilsin] -->
+        <div class="emir-satir">
+          <label>🌲🚚 Odun alıcıları <span class="ay-ipucu">kasaba=alıcı, virgülle · odun taşıma zincirinde <b>odun_sat</b> adımına alıcı yazılmazsa taşıyıcının vardığı kasabanın alıcısı kullanılır · taşıyıcı alıcıdan ÖNCE girer (ilanı koyunca alıcı aynı gün alsın), ilan bekliyorsa SONRA girer (adım aynı gün kapanır, dönüşe çıkar) · “ekle: Glasgow=X” Glasgow'un alıcısını DEĞİŞTİRİR · “çıkar: Glasgow” kaldırır · boş = alıcı her emirde yazılır (eski düzen)</span>
+            <select id="si-odun-alici-islem" class="si-islem"></select>
+            <input id="si-odun-alici" placeholder="örn. Glasgow=Renegrade" autocomplete="off">
+          </label>
+        </div>
+      </fieldset>
+
+      <fieldset class="ay-bolum">
+        <legend>📍👁️ Ara nokta gözcüleri</legend>
+        <div class="emir-satir">
+          <label>📍👁️ Ara nokta gözcüleri <span class="ay-ipucu">listedeki hesap (hızlı modda, yerinde dururken) her girişte oyunun <b>Günlük</b>'ündeki “Gördüklerin” + “Ordu” kayıtlarını ve <b>Gruplar ve Ordular</b> sekmesini okur → Telegram ordu konusuna yazar, yolda gördüğü kişi <b>📍 Kim Nerede</b>'ye ölçülen yerle işlenir · ajanlardan ÖNCE girer · hiçbir düğmeye basmaz (“Grubum / Yolcuları soy” açılmaz) — listede olmayan hesapta hiçbir şey değişmez</span>
+            <select id="si-gozcu-islem" class="si-islem"></select>
+            <input id="si-gozcu" list="emir-hesap-listesi" placeholder="örn. Flantastic, Rendavar, Fioreth, Zehneya" autocomplete="off">
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- 🏦 [19.10.2026 — İŞ 3] Kasa hesabı: "kasa hesapları" BOŞ = KAPALI (varsayılan). -->
+      <fieldset class="ay-bolum">
+        <legend>🏦 Kasa hesabı (otonom akçe) — boşken KAPALI</legend>
+        <p class="emir-ipucu">Akçesi eşiğin altına düşen hesap, <b>evindeyken</b> bulunduğu kasabanın kasa hesabına
+          ev sandığındaki malı (sıradaki ilk stokta olan) <b>rezerveli</b>, birim fiyattan satar; kasaya aynı mal için
+          <b>alım emri</b> açılır → akçe kasadan hesaba geçer. İki emir de 📊 Emir Durumu'nda görünür, EMİR İPTAL ile
+          kapatılır; satan önce girer. Tutar ±%20 oynar, aynı hesap 2-4 günde bir, kasa başına günlük üst sınır var
+          (OPSEC). Ordu/Grup Takip · seyahat · alışverişçi · hızlı mod · kasa hesabının kendisi aktarım YAPMAZ.
+          Birim fiyat oyunun o mal için verdiği aralıkta olmalı (dışındaysa oyun en yakın fiyatı seçer).</p>
+        <div class="emir-satir">
+          <label>🏦 Kasa hesapları <span class="ay-ipucu">kasaba=kasa hesabı, virgülle · liste BOŞ = özellik KAPALI · “ekle: Glasgow=YeniKasa” Glasgow'un kasasını DEĞİŞTİRİR (eskisi silinir) · “çıkar: Glasgow” Glasgow'un kasasını kaldırır · Telegram'da da aynı: SİSTEM AYARI / kasa hesapları ekle: Glasgow=YeniKasa</span>
+            <select id="si-kasa-islem" class="si-islem"></select>
+            <input id="si-kasa" placeholder="örn. Glasgow=KasaA, Stirling=KasaB" autocomplete="off">
+          </label>
+        </div>
+        <div class="emir-satir">
+          <label>🏦 Kasaya satılacak mal <span class="ay-ipucu">sırayla denenir · “mal=birim fiyat” (birimsiz = aşağıdaki birim fiyat) · boş = Mor Boya</span>
+            <select id="si-kasa-mal-islem" class="si-islem"></select>
+            <input id="si-kasa-mal" placeholder="örn. Mor Boya=30, Çuval Mısır=12" autocomplete="off">
+          </label>
+        </div>
+        <div class="emir-satir">
+          <label>🏦 Eşik (akçe altı) <input id="si-kasa-esik" placeholder="boş = değiştirme · varsayılan 300" autocomplete="off"></label>
+          <label>🏦 Aktarım tutarı <input id="si-kasa-tutar" placeholder="varsayılan 1000 (±%20)" autocomplete="off"></label>
+          <label>🏦 Kasa başına günlük üst sınır <input id="si-kasa-azami" placeholder="varsayılan 5000" autocomplete="off"></label>
+          <label>🏦 Birim fiyat <input id="si-kasa-birim" placeholder="varsayılan 30 · ondalık virgül (30,5)" autocomplete="off"></label>
+        </div>
+      </fieldset>
+
+      <!-- 📋 [19.10.2026 — İŞ 16] Adlı hesap listeleri: toplu emirde `hesap: liste: <ad>`. -->
+      <fieldset class="ay-bolum">
+        <legend>📋 Hesap listeleri (toplu emir)</legend>
+        <p class="emir-ipucu">Bir gruba ad ver, sonra herhangi bir emirde <code>hesap: liste: &lt;ad&gt;</code> yaz
+          (örn. <code>hesap: liste: Arden ekibi</code>). Hazır listeler: <code>gözcüler</code> ·
+          <code>kuvvet öncelikli</code> · <code>cami ayrıcalıklı</code> (aynı adla liste açarsan seninki geçerli olur).</p>
+        <div class="emir-satir">
+          <label>Liste adı
+            <input id="si-liste-ad" placeholder="örn. Arden ekibi" autocomplete="off">
+          </label>
+          <label>İşlem
+            <select id="si-liste-islem" class="si-islem"></select>
+          </label>
+          <label>Hesaplar
+            <input id="si-liste" list="emir-hesap-listesi" placeholder="örn. Betmen, Tonali, Gaell" autocomplete="off">
           </label>
         </div>
       </fieldset>
