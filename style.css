@@ -1216,6 +1216,10 @@ html, body { max-width: 100%; overflow-x: hidden; }   /* telefonda yana taşma y
 .kart-bilgi dd { margin: 0; }
 .kart-liste { margin: 0; padding-left: 1.1rem; font-size: 0.9rem; }
 .kart-esyalar { display: flex; flex-wrap: wrap; gap: 0.3rem; }
+/* 📒 [19.10.2026] hesap kartı — günlük (son 7 oyun günü) */
+.gunluk-gun { margin: 0.25rem 0; }
+.gunluk-gun > summary { cursor: pointer; font-weight: 600; }
+.gunluk-tur { margin: 0.3rem 0 0.5rem 0.6rem; padding-left: 0.5rem; border-left: 2px solid rgba(127,127,127,0.35); }
 .kart-esya {
   text-decoration: none; color: var(--text); background: var(--bg-panel-2); border: 1px solid var(--border);
   border-radius: 8px; padding: 0.15rem 0.5rem; font-size: 0.85rem;
@@ -1727,3 +1731,12 @@ select.si-islem { margin-bottom: 0.3rem; }
 @media (max-width: 600px) {
   .si-tablo td:first-child { white-space: normal; width: 40%; }
 }
+
+/* 📍👁️ Ara nokta gözcüsü (harita.js, 19.10.2026) */
+.rk-gozcu-ikon {
+  width: auto !important; height: auto !important; white-space: nowrap;
+  font-size: 12px; font-weight: 700; line-height: 1.2; padding: 2px 7px; border-radius: 8px;
+  background: rgba(10, 40, 70, 0.9); color: #fff; border: 2px solid #3498db;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
+.ordu-hadise-gozcu { font-size: 0.8rem; color: #2e86c1; white-space: nowrap; }
