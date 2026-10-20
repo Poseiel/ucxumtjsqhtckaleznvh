@@ -612,6 +612,7 @@
     if (os.length) gruplar.push(["🪖 Ordular", os.slice(0, SINIR).map(function (o) {
       return '<a href="#harita/ordu/' + encodeURIComponent(o.ad) + '">' + kacis(o.ad) +
         ' <span class="emir-kucuk">' + kacis(o.kasaba) + " · " + kacis(o.durum) +
+        (o.birlesme === true ? " · 🤝 alım modu açık" : "") +
         (o.alim_modu === true ? " · ⚔️ asker alıyor" : "") +
         (o.danisman === true ? " · 🎖️ danışman arıyor" : "") +
         (o.bakilamadi === true ? " · bugün bakılamadı (son bilinen)" : "") + '</span></a>';
