@@ -691,6 +691,90 @@ function emirMesajiKur() {
     return { metin: akSatir.join(EMIR_NL) };
   }
 
+  // ---------------- 👪 AİLEYE BAŞVUR (19.10.2026 — İŞ 22) ----------------
+  // ⚠️ Şablon `aile_modul.basvur_emri_coz` ile BİREBİR aynı olmalı: başlık +
+  //    her hesap ayrı "hesap:" + "aile:" (TAM ad, ZORUNLU) + "akçe:" (tam sayı,
+  //    0 = kutu boş) + isteğe bağlı "hemen: evet".
+  if (emirTur === "ailebasvur") {
+    var abAdlar = [];
+    String(emirDeger("ab-hesaplar") || "").split(/[\r\n,;]+/).forEach(function (x) {
+      x = x.trim();
+      if (x && abAdlar.map(function (y) { return y.toLowerCase(); }).indexOf(x.toLowerCase()) < 0) abAdlar.push(x);
+    });
+    if (!abAdlar.length) return { hata: "Eksik: başvuracak en az bir hesap" };
+    var abAile = String(emirDeger("ab-aile") || "").replace(/\s+/g, " ").trim();
+    if (!abAile) return { hata: "Eksik: aile adı (oyundaki TAM adı)" };
+    // ⚠️ [19.10.2026 inceleme] Akçe botla AYNI kuralla okunur (`aile_modul.akce_coz0`):
+    //    nokta BİNLİK ayracıdır ("1.000" → 1000). Eskiden Number("1.000") = 1 → sessizce
+    //    "akçe: 1" üretiliyordu. Ondalık ("4,5" / "4.5") → hata.
+    var abAkceHam = String(emirDeger("ab-akce") || "").replace(/akçe|akce/gi, "").replace(/\s+/g, "");
+    var abAkce = abAkceHam === "" ? 0
+      : (/^\d{1,3}(\.\d{3})+$/.test(abAkceHam) ? Number(abAkceHam.split(".").join(""))
+         : (/^\d+$/.test(abAkceHam) ? Number(abAkceHam) : NaN));
+    if (!(abAkce >= 0) || Math.floor(abAkce) !== abAkce) return { hata: "Akçe tam sayı olmalı (0 = kutu boş)" };
+    var abSatir = ["AİLEYE BAŞVUR"];
+    abAdlar.forEach(function (x) { abSatir.push("hesap: " + x); });
+    abSatir.push("aile: " + abAile);
+    abSatir.push("akçe: " + abAkce);
+    if (emirHemen("ab-hemen")) abSatir.push("hemen: evet");
+    return { metin: abSatir.join(EMIR_NL) };
+  }
+
+  // ---------------- 🩺 MUAYENEHANE / ECZANE (19.10.2026 — İŞ 18) ----------------
+  // ⚠️ Şablon `muayene_modul.emri_coz` ile BİREBİR: başlık (MUAYENEHANE AL · İKSİR YAP ·
+  //    MUAYENE GÜNÜ) + her hesap ayrı "hesap:" + türe göre "ot:/adet:/ad:" ya da
+  //    "basit:/kapsamlı:/azami:" + isteğe bağlı "hemen: evet". Fiyat kuralı botla AYNI
+  //    (kuruş virgülle, 10'un katı; basit 0-10 · kapsamlı 5-25 · azami 0-12).
+  if (emirTur === "muayene") {
+    var muFiyat = function (deger, enAz, enCok) {
+      var m = /^(\d{1,2})(?:,(\d{1,2}))?$/.exec(
+        String(deger == null ? "" : deger).replace(/akçe|akce/gi, "").replace(/\s+/g, ""));
+      if (!m) return null;
+      var a = Number(m[1]), kes = m[2] || "0";
+      var k = kes.length === 1 ? Number(kes) * 10 : Number(kes);
+      if (a < enAz || a > enCok || k % 10 || k > 90) return null;
+      return k ? a + "," + k : String(a);
+    };
+    var muAdlar = [];
+    String(emirDeger("mu-hesaplar") || "").split(/[\r\n,;]+/).forEach(function (x) {
+      x = x.trim();
+      if (x && muAdlar.map(function (y) { return y.toLowerCase(); }).indexOf(x.toLowerCase()) < 0) muAdlar.push(x);
+    });
+    if (!muAdlar.length) return { hata: "Eksik: en az bir hesap" };
+    // ⚠️ [19.10.2026 inceleme] Tür VARSAYILANSIZ: eskiden boşsa "al" sayılıyordu → asistan
+    //    "iksir yapsın" cümlesinde formu açınca geri alınamaz MUAYENEHANE AL hazır çıkıyordu.
+    var muTur = emirDeger("mu-tur");
+    if (["al", "iksir", "muayene"].indexOf(muTur) < 0) {
+      return { hata: "Eksik: ne yapılsın? (muayenehane al / iksir yap / muayene günü)" };
+    }
+    var muSatir = [muTur === "iksir" ? "İKSİR YAP" : (muTur === "muayene" ? "MUAYENE GÜNÜ" : "MUAYENEHANE AL")];
+    muAdlar.forEach(function (x) { muSatir.push("hesap: " + x); });
+    if (muTur === "iksir") {
+      var muOt = String(emirDeger("mu-ot") || "").replace(/\s+/g, " ").trim();
+      if (!muOt) return { hata: "Eksik: ot adı (oyundaki TAM adı, örn. Lavanta filizi)" };
+      var muAdetHam = String(emirDeger("mu-adet") || "").trim();
+      var muAdet = muAdetHam === "" ? 1 : Number(muAdetHam);
+      if (!(muAdet >= 1 && muAdet <= 999) || Math.floor(muAdet) !== muAdet) return { hata: "Adet 1-999 arası tam sayı olmalı" };
+      muSatir.push("ot: " + muOt);
+      muSatir.push("adet: " + muAdet);
+      var muAd = String(emirDeger("mu-ad") || "").replace(/\s+/g, " ").trim().slice(0, 40);
+      if (muAd) muSatir.push("ad: " + muAd);
+    } else if (muTur === "muayene") {
+      var muB = muFiyat(emirDeger("mu-basit"), 0, 10);
+      var muK = muFiyat(emirDeger("mu-kapsamli"), 5, 25);
+      var muAzHam = String(emirDeger("mu-azami") || "").trim();
+      var muAz = muAzHam === "" ? NaN : Number(muAzHam);
+      if (muB === null) return { hata: "Basit muayene fiyatı 0-10 akçe olmalı (kuruş virgülle, 10'un katı: 2,50)" };
+      if (muK === null) return { hata: "Kapsamlı muayene fiyatı 5-25 akçe olmalı (kuruş virgülle: 10,50)" };
+      if (!(muAz >= 0 && muAz <= 12) || Math.floor(muAz) !== muAz) return { hata: "Azami kapsamlı muayene 0-12 arası olmalı" };
+      muSatir.push("basit: " + muB);
+      muSatir.push("kapsamlı: " + muK);
+      muSatir.push("azami: " + muAz);
+    }
+    if (emirHemen("mu-hemen")) muSatir.push("hemen: evet");
+    return { metin: muSatir.join(EMIR_NL) };
+  }
+
   // ---------------- 🗳️ OY VER (26.09.2026) ----------------
   // ⚠️ Şablon `oy_modul.emri_coz` ile BİREBİR aynı olmalı: başlık +
   //    "seçim:" + (belediye → "kasaba:" · divan → "sancak:") + "aday:"/"liste:"
@@ -1136,7 +1220,8 @@ var EMIR_KONULARI = {
   ayar: "⚙️ Ayar Emirleri", hesapekle: "⚙️ Ayar Emirleri", sistem: "⚙️ Ayar Emirleri",
   odenek: "💰 Ödenekler",
   mesaj: "✉️ Mesajlar"
-  // geri kalan her şey (profil, güven, oy, forum, divan onay, aile kabul, posta) → 📜 Emirler
+  // geri kalan her şey (profil, güven, oy, forum, divan onay, aile kabul, aileye başvur,
+  // muayenehane/eczane, posta) → 📜 Emirler
 };
 
 function emirKonusu(tur) {
@@ -1306,6 +1391,24 @@ function emirOlaylariBagla() {
     if (el) el.addEventListener("input", emirGuncelle);
   });
   ["ak-hemen"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener("change", emirGuncelle);
+  });
+  // 👪 [19.10.2026 — İŞ 22] Aileye başvur formu.
+  ["ab-hesaplar", "ab-aile", "ab-akce"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener("input", emirGuncelle);
+  });
+  ["ab-hemen"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener("change", emirGuncelle);
+  });
+  // 🩺 [19.10.2026 — İŞ 18] Muayenehane / eczane formu.
+  ["mu-hesaplar", "mu-ot", "mu-adet", "mu-ad", "mu-basit", "mu-kapsamli", "mu-azami"].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (el) el.addEventListener("input", emirGuncelle);
+  });
+  ["mu-tur", "mu-hemen"].forEach(function (id) {
     var el = document.getElementById(id);
     if (el) el.addEventListener("change", emirGuncelle);
   });
@@ -1488,7 +1591,7 @@ var AY_DEGERSIZ = ["grup_kur", "grup_dagit", "karaya_cik",
 
 /* Takip modu seçenekleri (launcher'daki listeyle aynı). */
 var AY_TAKIP_MODLARI = ["Yok", "Grup Takip", "Ordu Takip", "Alışverişçi",
-                        "Hızlı Maden", "Hızlı Cami"];
+                        "Hızlı Maden", "Hızlı Cami", "Hızlı Ot"];
 
 var ayGorevSayac = 0;
 
@@ -1892,7 +1995,8 @@ var HEDEF_SECICI_ADLARI = {
   "liste": "liste", "listeler": "liste", "hesap listesi": "liste",
   "haric": "haric", "haric tut": "haric"
 };
-var HEDEF_MODLAR = ["Yok", "Grup Takip", "Ordu Takip", "Alışverişçi", "Hızlı Maden", "Hızlı Cami"];
+var HEDEF_MODLAR = ["Yok", "Grup Takip", "Ordu Takip", "Alışverişçi", "Hızlı Maden", "Hızlı Cami",
+                    "Hızlı Ot"];
 var HEDEF_HAZIR_LISTELER = [["gözcüler", "ara_nokta_gozcu"], ["kuvvet öncelikli", "kuvvet_oncelikli"],
                             ["cami ayrıcalıklı", "cami_ayricalikli"]];
 
@@ -2072,6 +2176,7 @@ function hedefOnizleme(deger) {
 var PLAN_IS_TOKENLERI = {
   "atolye": "atolye", "meslek": "atolye", "uretim": "atolye",
   "odun": "odun", "orman": "odun", "odun kes": "odun",
+  "ot": "ot", "sifali ot": "ot", "ot topla": "ot", "sifali ot topla": "ot",
   "demir": "demir", "demir madeni": "demir",
   "maden": "maden", "madenler": "maden",
   "cami": "cami", "kilise": "cami",
@@ -2133,7 +2238,7 @@ function ayMesajiKur() {
   if (_planIs) {
     var _bilinmeyen = planIsBilinmeyen(_planIs);
     if (_bilinmeyen.length) return { hata: "İş sırasında tanınmayan: " + _bilinmeyen.join(", ") +
-      " (atölye · odun · demir · maden · cami · eaü · ders · yok)" };
+      " (atölye · odun · ot · demir · maden · cami · eaü · ders · yok)" };
   }
   var _planCami = String(emirDeger("ay-plan-cami") || "").trim();
   if (_planCami && !/^(\d{1,6}|iptal)$/i.test(_planCami)) return { hata: "Cami parası sayı olmalı (örn. 50) ya da “iptal”" };
@@ -2261,6 +2366,7 @@ var SISTEM_LISTELER = [
   ["si-kasa", "kasa hesapları"],
   ["si-kasa-mal", "kasa malları"],
   ["si-odun-alici", "odun alıcıları"],
+  ["si-alim-gozcu", "alım gözcüleri"],
   ["si-rota", "kaptan rota"],
   ["si-ders", "ders verebilir"],
   ["si-dost", "dost"],
@@ -2275,6 +2381,7 @@ var SISTEM_ETIKET = {
   kasa_esik: "🏦 Kasa eşiği (akçe altı)", kasa_tutar: "🏦 Kasa aktarım tutarı",
   kasa_gunluk_azami: "🏦 Kasa günlük üst sınır", kasa_birim: "🏦 Kasa birim fiyatı",
   odun_alicilari: "🌲🚚 Odun alıcıları (kasaba=alıcı)",
+  alim_gozculeri: "🪖 Alım modu gözcüleri (kasaba=hesap)",
   hesap_listeleri: "📋 Hesap listeleri (toplu emir)",
   kapanis_islemi: "🌙 Tur bitince",
   yasli_garson: "🧹 Yaşlı garson", telegram_isim: "📝 Rapor ismi",
@@ -2322,7 +2429,7 @@ function sistemMevcutYaz() {
   if (gun) gun.textContent = "(" + (sistemVerisi.son_guncelleme || "?") + ")";
   var s = sistemVerisi.sistem || {};
   var sira = ["maden_kasabalari", "maden_oncelik", "cami_ayricalikli", "kuvvet_oncelikli",
-              "odun_kasabalari", "odun_alicilari", "ara_nokta_gozcu", "kasa_hesaplari", "kasa_mal", "kasa_esik",
+              "odun_kasabalari", "odun_alicilari", "alim_gozculeri", "ara_nokta_gozcu", "kasa_hesaplari", "kasa_mal", "kasa_esik",
               "kasa_tutar", "kasa_gunluk_azami", "kasa_birim", "hesap_listeleri", "kapanis_islemi",
               "yasli_garson", "telegram_isim", "gemi_armatoru", "kaptan_hedef_liman",
               "kaptan_devir_hedefi", "kaptan_hareket_aktif", "kaptan_yelken",
@@ -2686,7 +2793,15 @@ async function emirIptalEt(kodlar, ozet) {
       anahtar: ["divan onay", "divan listesi", "listeyi onayla", "liste onay", "divan liste"] },
     { id: "aile", tur: "aile", ikon: "👪", baslik: "Aile başvurusu kabul",
       ne: "Aile reisi olan hesap, yazdığın kişilerin aileye katılma başvurularını KABUL eder (birden çok kişi tek emirde). Reddet'e / Aileden Ayrıl'a asla basılmaz.",
-      anahtar: ["aile", "aileye", "aile kabul", "aileye kabul", "aile basvuru", "aile basvurusu", "basvuru kabul", "aileye al", "aile reisi"] },
+      anahtar: ["aile", "aileye", "aile kabul", "aileye kabul", "aile basvuru", "aile basvurusu", "basvuru kabul",
+                "basvuruyu kabul", "basvurusunu kabul", "aileye al", "aile reisi"] },
+    { id: "ailebasvur", tur: "ailebasvur", ikon: "👪", baslik: "Aileye başvurma",
+      ne: "Hesap aileyi TAM adıyla arar ve başvurur (akçe 0 = kutu boş). \"Aile Kur\"a asla basılmaz; hesap zaten bir ailedeyse emir iptal edilir.",
+      anahtar: ["aileye basvur", "ailesine basvur", "aile basvur", "aileye basvuru", "ailesine basvuru",
+                "aileye gir", "ailesine gir", "aileye katil", "ailesine katil"] },
+    { id: "muayene", tur: "muayene", ikon: "🩺", baslik: "Muayenehane / eczane",
+      ne: "YALNIZCA emirle: muayenehane al (250 akçe), eczanede basit iksir yap (ot + adet) ya da muayene gününe hazırlan (fiyatlar + azami). Kendiliğinden hiçbir şey yapılmaz.",
+      anahtar: ["muayenehane", "muayene", "iksir", "eczane", "eczanem", "tabip", "hekim", "kendini hazirla", "iksir yap", "muayenehane al"] },
     { id: "oy", tur: "oy", ikon: "🗳️", baslik: "Oy verme",
       ne: "Belediye ya da divan seçiminde hesaplarımıza oy verdirir ya da Sancak Beyi'ni TANITIR; oylar en fazla 3 güne yayılır, oy veren hesap listeden düşer.",
       anahtar: ["oy", "oy ver", "oy verdir", "secim", "aday", "belediye secimi", "divan secimi", "reis secimi",
@@ -2704,12 +2819,13 @@ async function emirIptalEt(kodlar, ozet) {
       ne: "Bota yeni bir hesap (multi) ekler: ad + şifre + takip modu. Şifreyi forma SEN yazarsın.",
       anahtar: ["hesap ekle", "yeni hesap", "multi ekle", "hesabi ekle", "yeni multi"] },
     { id: "sistem", tur: "sistem", ikon: "⚙️", baslik: "Sistem ayarları (maden · cami · kapanış · kaptan · listeler)",
-      ne: "Hesaba bağlı OLMAYAN bot ayarları: maden kasabaları, öncelikli maden, ayrıcalıklı cami hesapları, 💪 kuvvet öncelikli hesaplar (kuvvet kassın + rezerve yemeği önce alsın), 📍👁️ ara nokta gözcüleri (Günlük + Gruplar ve Ordular okur, Kim Nerede'ye yazar), 🏦 kasa hesabı (akçesi azalan hesap kasadan akçe çeker — boşken KAPALI), tur bitince uyku/kapat, yaşlı garson, gemi armatörü, kaptan rotası, molla, dost/düşman/izleme listeleri. Şu anki değerleri de gösterir.",
+      ne: "Hesaba bağlı OLMAYAN bot ayarları: maden kasabaları, öncelikli maden, ayrıcalıklı cami hesapları, 💪 kuvvet öncelikli hesaplar (kuvvet kassın + rezerve yemeği önce alsın), 📍👁️ ara nokta gözcüleri (Günlük + Gruplar ve Ordular okur, Kim Nerede'ye yazar), 🪖 alım modu gözcüleri (kasaba başına kalıcı silahlı grup — Yetki Dahilinde · 2 kişilik · dağıtılmaz), 🏦 kasa hesabı (akçesi azalan hesap kasadan akçe çeker — boşken KAPALI), tur bitince uyku/kapat, yaşlı garson, gemi armatörü, kaptan rotası, molla, dost/düşman/izleme listeleri. Şu anki değerleri de gösterir.",
       anahtar: ["sistem ayar", "sistem ayari", "genel ayar", "bot ayari", "maden kasaba", "maden kasabalari",
                 "maden onceligi", "oncelikli maden", "ayricalikli cami", "cami listesi", "camiye gitsin",
                 "kuvvet oncelikli", "kuvvet kassin", "kuvvet kas", "kuvvet puani",
                 "odun kasabasi", "odun kasabalari",
                 "gozcu", "gozculer", "ara nokta gozcusu", "ara nokta gozculeri", "gordukleri",
+                "alim modu", "alim gozcu", "silahli grup", "kalici grup",
                 "kasa hesab", "kasadan", "otonom akce",
                 "kapanis", "uyku modu", "bilgisayari kapat", "yasli garson", "dusman ekle", "dusmana ekle",
                 "dost ekle", "izleme listesi", "kaptan hedef", "kaptan rota", "molla", "hangi ayar", "ayarlari gor"] },
@@ -2731,10 +2847,11 @@ async function emirIptalEt(kodlar, ozet) {
       anahtar: ["ev al", "ev kur", "evkur", "tarla al", "atolye al", "atolye kur", "evsiz"] },
     // 🎛️👥 [19.10.2026 — FABLE_GOREV_2026-10-18 İŞ 15 + İŞ 16]
     { id: "hesapplani", tur: "ayar", ikon: "🎛️", baslik: "Hesap planı (yemek · iş sırası · cami parası · satış …)",
-      ne: "Hesap hesap öncelik: tarla 1 → ases 2 → iş sırası (atölye · odun · demir · maden · cami · eaü · ders · yok — ilk verilebilen kazanır). Yemek (kuvvet/zeka/karizma/basic/yok), meyhane, yol yemeği, tarla (kendisi/işçi/besle), kalan enerji, cami parası, satış kapalı. Boş bırakılan = bugünkü düzen. 🖥️ Ayar formunun altındaki “🎛️ Hesap planı” bölümü.",
+      ne: "Hesap hesap öncelik: tarla 1 → ases 2 → iş sırası (atölye · odun · ot · demir · maden · cami · eaü · ders · yok — ilk verilebilen kazanır; 🌿 ot = şifalı ot toplama, süre maden gibi, ot satılmaz evde birikir). Yemek (kuvvet/zeka/karizma/basic/yok), meyhane, yol yemeği, tarla (kendisi/işçi/besle), kalan enerji, cami parası, satış kapalı. Boş bırakılan = bugünkü düzen. 🖥️ Ayar formunun altındaki “🎛️ Hesap planı” bölümü.",
       anahtar: ["hesap plani", "plan ver", "planini", "oncelikleri", "is sirasi", "is onceligi", "basic yesin", "yemek yemesin",
                 "cami parasi", "kalan enerji", "satis kapali", "satmasin", "yol yemegi", "erzak almasin",
-                "tarla isci", "sadece besle", "kuvvet yesin", "zeka yesin", "karizma yesin"] },
+                "tarla isci", "sadece besle", "kuvvet yesin", "zeka yesin", "karizma yesin",
+                "ot topla", "sifali ot", "ot toplasin", "bitki topla"] },
     { id: "toplu", tur: "ayar", ikon: "👥", baslik: "Toplu emir (bir kasabadaki / moddaki hesapların hepsine)",
       ne: "Hesap kutusuna ad yerine seçici yaz: kasaba: Ardencaple · bölge: kuzey · mod: Hızlı Cami · meslek: Bahçıvan · liste: gözcüler · hariç: Thebear (noktalı virgülle birleştir). Satış/alım, posta, orduya katıl, oy ve divan onayı emirlerinde de çalışır; bot onayda tam listeyi + sayıyı yazar. Toplu seyahatte “📅 Güne yay”ı seç.",
       anahtar: ["toplu", "toplu emir", "hepsine", "butun hesaplar", "tum hesaplar", "kasabadaki hesaplar",
@@ -2895,7 +3012,8 @@ async function emirIptalEt(kodlar, ozet) {
     yanasma: "ya-hesap", profil: "pr-hesap", guven: "gv-hesap", ayar: "ay-hesap", mesaj: "ms-kimden",
     aile: "ak-hesap"
   };
-  var COKLU_HESAP_KUTUSU = { divan: "dv-hesaplar", ordukatil: "ok-hesaplar", oy: "oy-hesaplar" };
+  var COKLU_HESAP_KUTUSU = { divan: "dv-hesaplar", ordukatil: "ok-hesaplar", oy: "oy-hesaplar",
+                             ailebasvur: "ab-hesaplar", muayene: "mu-hesaplar" };
 
   function ac(n, v) {
     if (n.sekme) { location.hash = n.sekme; return; }
