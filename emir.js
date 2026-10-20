@@ -2228,6 +2228,8 @@ function ayMesajiKur() {
   ekle("orman işi", emirDeger("ay-orman"));
   // 📦 [05.10.2026] Günlük Midas kutusu (site_emirleri "midas" → midas_kutu)
   ekle("midas", emirDeger("ay-midas"));
+  // 💰 [20.10.2026] Midas para hedefi (site_emirleri "midas para hedefi" → midas_para_hedefi)
+  ekle("midas para hedefi", emirDeger("ay-midas-hedef"));
   // 🖥️ [05.10.2026] Formda kutusu olmayan üç alan (site_emirleri etiketleri)
   ekle("hızlı", emirDeger("ay-jeton"));          /* seyahat_jetonlu */
   ekle("grup lideri", emirDeger("ay-grup"));     /* grup_lideri */
@@ -2307,7 +2309,7 @@ function ayKur() {
   });
   ["ay-hesap", "ay-takip", "ay-inziva", "ay-gemi", "ay-kaptan", "ay-ases",
    "ay-puan", "ay-ordu", "ay-ordu-enerji", "ay-seyahat", "ay-ders", "ay-armator",
-   "ay-ders-verme", "ay-isci", "ay-orman", "ay-midas", "ay-jeton", "ay-grup", "ay-yol",
+   "ay-ders-verme", "ay-isci", "ay-orman", "ay-midas", "ay-midas-hedef", "ay-jeton", "ay-grup", "ay-yol",
    "ay-yay", "ay-plan-yemek", "ay-plan-meyhane", "ay-plan-yol", "ay-plan-tarla", "ay-plan-is",
    "ay-plan-kalan", "ay-plan-cami", "ay-plan-satis", "ay-plan-iptal", "ay-sifirla", "ay-teshis"
   ].forEach(function (id) {
@@ -2362,6 +2364,7 @@ var SISTEM_LISTELER = [
   ["si-cami", "cami ayrıcalıklı"],
   ["si-kuvvet", "kuvvet öncelikli"],
   ["si-odun", "odun kasabaları"],
+  ["si-hurda-ot", "hurda ot kasabaları"],
   ["si-gozcu", "ara nokta gözcüleri"],
   ["si-kasa", "kasa hesapları"],
   ["si-kasa-mal", "kasa malları"],
@@ -2377,6 +2380,7 @@ var SISTEM_ETIKET = {
   maden_kasabalari: "⛏️ Maden kasabaları", maden_oncelik: "⛏️ Öncelikli maden",
   cami_ayricalikli: "🕌 Ayrıcalıklı cami hesapları", kuvvet_oncelikli: "💪 Kuvvet öncelikli hesaplar",
   odun_kasabalari: "🌲 Odun kasabaları", ara_nokta_gozcu: "📍👁️ Ara nokta gözcüleri",
+  hurda_ot_kasabalari: "🌿 Hurda ot kasabaları",
   kasa_hesaplari: "🏦 Kasa hesapları (kasaba=kasa)", kasa_mal: "🏦 Kasaya satılacak mal",
   kasa_esik: "🏦 Kasa eşiği (akçe altı)", kasa_tutar: "🏦 Kasa aktarım tutarı",
   kasa_gunluk_azami: "🏦 Kasa günlük üst sınır", kasa_birim: "🏦 Kasa birim fiyatı",
@@ -2429,7 +2433,7 @@ function sistemMevcutYaz() {
   if (gun) gun.textContent = "(" + (sistemVerisi.son_guncelleme || "?") + ")";
   var s = sistemVerisi.sistem || {};
   var sira = ["maden_kasabalari", "maden_oncelik", "cami_ayricalikli", "kuvvet_oncelikli",
-              "odun_kasabalari", "odun_alicilari", "alim_gozculeri", "ara_nokta_gozcu", "kasa_hesaplari", "kasa_mal", "kasa_esik",
+              "odun_kasabalari", "odun_alicilari", "alim_gozculeri", "hurda_ot_kasabalari", "ara_nokta_gozcu", "kasa_hesaplari", "kasa_mal", "kasa_esik",
               "kasa_tutar", "kasa_gunluk_azami", "kasa_birim", "hesap_listeleri", "kapanis_islemi",
               "yasli_garson", "telegram_isim", "gemi_armatoru", "kaptan_hedef_liman",
               "kaptan_devir_hedefi", "kaptan_hareket_aktif", "kaptan_yelken",
@@ -2484,6 +2488,7 @@ function sistemRolleri() {
     if (a.isci_tut) ekle("👷 İşçi tut", ad);
     if (a.orman_isi) ekle("🌲 Orman işi: " + a.orman_isi, ad);
     if (a.midas_kutu) ekle("📦 Midas kutusu (günde " + a.midas_kutu + ")", ad);
+    if (a.midas_para_hedefi) ekle("💰 Midas para hedefi (" + a.midas_para_hedefi + " akçe)", ad);
     if (a.gorev) ekle("🧭 Görev zinciri", ad + " (" + a.gorev + ")");
     if (a.seyahat_hedefi) ekle("🌍 Seyahat", ad + " → " + a.seyahat_hedefi);
     if (a.grup_lideri) ekle("👥 Grup", ad + " (lider: " + a.grup_lideri + ")");
@@ -2826,6 +2831,7 @@ async function emirIptalEt(kodlar, ozet) {
                 "odun kasabasi", "odun kasabalari",
                 "gozcu", "gozculer", "ara nokta gozcusu", "ara nokta gozculeri", "gordukleri",
                 "alim modu", "alim gozcu", "silahli grup", "kalici grup",
+                "hurda ot", "hurdada ot", "hurda yerine ot",
                 "kasa hesab", "kasadan", "otonom akce",
                 "kapanis", "uyku modu", "bilgisayari kapat", "yasli garson", "dusman ekle", "dusmana ekle",
                 "dost ekle", "izleme listesi", "kaptan hedef", "kaptan rota", "molla", "hangi ayar", "ayarlari gor"] },
