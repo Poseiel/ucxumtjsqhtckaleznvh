@@ -82,6 +82,100 @@ var TakipSaf = (function () {
   }
 
   // ---------------------------------------------------------------------
+  // 🤝 HESAPLARIMIZ KASABA KASABA — [19.10.2026 · FABLE_GOREV_2026-10-19 İŞ 20]
+  // ---------------------------------------------------------------------
+  // Harle (18-19.10): "Bide bu sitede İskoçya dışındaki hesaplarimiz gözükmüyor mu"
+  //   · "İskocyadaki gibi kasaba kasaba başlık olmaz mı" · "Sabit yeri olmayanlar
+  //   seyahatte diye başlık olabilir". Kaynak: gelisim.json (hesap + o günün
+  //   kasabası = oyunun NomVillage'ı). İskoçya = takip ettiğimiz 7 kasaba
+  //   (hedef_secici.BOLGELER kuzey + güney ile BİREBİR — test eşitler). Kasabası
+  //   okunamayan ("Bilinmiyor" / boş / yol etiketi) → 🧭 seyahatte; yer TAHMİN EDİLMEZ.
+  var ISKOCYA_KASABALARI = ["Glasgow", "Stirling", "Ardencaple", "Whithorn", "Wigtown",
+    "Kirkcudbright", "Girvan"];
+
+  // Kasaba İskoçya'daki 7 kasabadan biri mi? → kanonik ad · değilse "".
+  // ("STIRLING" → "stırlıng" → ı/i farkı silinir → Stirling.)
+  function iskocyaKasabasi(k) {
+    var a = metinKucult(k);
+    if (!a) return "";
+    for (var i = 0; i < ISKOCYA_KASABALARI.length; i++) {
+      if (metinKucult(ISKOCYA_KASABALARI[i]) === a) return ISKOCYA_KASABALARI[i];
+    }
+    return "";
+  }
+
+  // [{karakter, kasaba}, …] → {iskocya:[{kasaba, hesaplar}], disari:[…], seyahatte:[ad…], toplam}
+  // Gruplar: sayıya göre azalan, eşitse Türkçe alfabe. Aynı ad bir kez sayılır.
+  function hesapKasabaGruplari(liste) {
+    var gorulen = {}, isk = {}, dis = {}, disAd = {}, sey = [], toplam = 0;
+    (Array.isArray(liste) ? liste : []).forEach(function (h) {
+      if (!h || typeof h !== "object") return;
+      var ad = metin(h.karakter || h.ad).trim();
+      var a = adKucult(ad);
+      if (!a || gorulen[a]) return;
+      gorulen[a] = 1;
+      toplam++;
+      var k = metin(h.kasaba).trim();
+      if (!k || kasabaDisiMi(k)) { sey.push(ad); return; }
+      var ik = iskocyaKasabasi(k);
+      if (ik) { (isk[ik] = isk[ik] || []).push(ad); return; }
+      var dk = metinKucult(k);
+      if (!dis[dk]) { dis[dk] = []; disAd[dk] = k; }
+      dis[dk].push(ad);
+    });
+    function alfabe(x, y) { return metin(x).localeCompare(metin(y), "tr"); }
+    function grup(obj, adlar) {
+      return Object.keys(obj).map(function (k) {
+        return { kasaba: adlar ? adlar[k] : k, hesaplar: obj[k].sort(alfabe) };
+      }).sort(function (x, y) {
+        return (y.hesaplar.length - x.hesaplar.length) || alfabe(x.kasaba, y.kasaba);
+      });
+    }
+    return { iskocya: grup(isk), disari: grup(dis, disAd), seyahatte: sey.sort(alfabe), toplam: toplam };
+  }
+
+  function _say(gruplar) {
+    return (gruplar || []).reduce(function (t, x) { return t + x.hesaplar.length; }, 0);
+  }
+
+  // Kim Nerede → "🤝 Hesaplarımız nerede" bölümünün HTML'i (her dış metin kacis'ten).
+  function hesapKasabaHtml(gr, tarih) {
+    gr = gr || {};
+    var isk = gr.iskocya || [], dis = gr.disari || [], sey = gr.seyahatte || [];
+    if (!(gr.toplam > 0)) {
+      return '<p class="bos-durum">Gelişim verisi henüz yok — tur bitince (akşam) dolar.</p>';
+    }
+    function adlar(liste) {
+      return '<div class="kume-uyeler">' + (liste || []).map(function (ad) {
+        return '<a class="kume-uye" href="#hesap/' + encodeURIComponent(ad) + '">' + kacis(ad) + "</a>";
+      }).join("") + "</div>";
+    }
+    // ≤3 hesaplı kasabada adlar başlıkta da yazar (telefonda açmadan okunsun).
+    function kasabalar(gruplar) {
+      return gruplar.map(function (x) {
+        var kisa = x.hesaplar.length <= 3 ? ' <span class="ozet-alt">· ' +
+          x.hesaplar.map(kacis).join(", ") + "</span>" : "";
+        return '<details class="gecmis-rapor"><summary>🏘️ ' + kacis(x.kasaba) + " — " +
+          x.hesaplar.length + " hesap" + kisa + "</summary>" + adlar(x.hesaplar) + "</details>";
+      }).join("");
+    }
+    var nIsk = _say(isk), nDis = _say(dis);
+    var html = '<p class="bolum-aciklama">' + (tarih ? "📅 " + kacis(tarih) + " · " : "") +
+      "toplam <b>" + gr.toplam + "</b> hesap — 🏴 İskoçya " + nIsk + " · 🌍 İskoçya dışı " + nDis +
+      " (" + dis.length + " kasaba) · 🧭 seyahatte " + sey.length + "</p>";
+    html += '<h4>🏴 İskoçya (7 kasabamız) — ' + nIsk + " hesap</h4>" +
+      (isk.length ? kasabalar(isk) : '<p class="bos-durum">Bugün İskoçya kasabalarında hesabımız görünmüyor.</p>');
+    html += "<h4>🌍 İskoçya dışı — " + nDis + " hesap · " + dis.length + " kasaba</h4>" +
+      (dis.length ? kasabalar(dis) : '<p class="bos-durum">İskoçya dışındaki bir kasabada hesabımız yok.</p>');
+    if (sey.length) {
+      html += "<h4>🧭 Seyahatte / sabit yeri yok — " + sey.length + " hesap</h4>" +
+        '<p class="bolum-aciklama">Kasaba adı okunamadı: yolda, ara noktada ya da gemide ' +
+        "(oyun kasaba yazmıyor; yer tahmin edilmez).</p>" + adlar(sey);
+    }
+    return html;
+  }
+
+  // ---------------------------------------------------------------------
   // TARİH
   // ---------------------------------------------------------------------
   var AYLAR = {
@@ -1208,6 +1302,8 @@ var TakipSaf = (function () {
   return {
     gunlukKaydi: gunlukKaydi, gunlukTurHtml: gunlukTurHtml, hesapGunlukHtml: hesapGunlukHtml,
     kacis: kacis, adKucult: adKucult, metinKucult: metinKucult, kasabaDisiMi: kasabaDisiMi,
+    ISKOCYA_KASABALARI: ISKOCYA_KASABALARI, iskocyaKasabasi: iskocyaKasabasi,
+    hesapKasabaGruplari: hesapKasabaGruplari, hesapKasabaHtml: hesapKasabaHtml,
     turkceTarihCoz: turkceTarihCoz, kayitIso: kayitIso, kisaGun: kisaGun,
     gelisimSuzgecUygun: gelisimSuzgecUygun, gelisimSuz: gelisimSuz, suzgecAcikMi: suzgecAcikMi,
     gelisimCsv: gelisimCsv, csvHucre: csvHucre, nickListesi: nickListesi, CSV_SUTUNLAR: CSV_SUTUNLAR,
@@ -1397,6 +1493,7 @@ var TakipSaf = (function () {
     guvenli(izlemeCiz)(gorulen);
     guvenli(oneriGuncelle)(veri);
     guvenli(nobetCiz)();
+    guvenli(hesaplarimizCiz)();
   }
 
   function bantCiz() {
@@ -2311,6 +2408,20 @@ var TakipSaf = (function () {
     }));
     // Gelişim verisi takip.js'ten ÖNCE yüklendiyse tabloyu süzgeçle yeniden çiz.
     if (g("gelisimKarakterler", []).length) tabloyuCiz();
+  }
+
+  // =====================================================================
+  // 🤝 HESAPLARIMIZ NEREDE — [19.10.2026 · İŞ 20] Kim Nerede sekmesi
+  // =====================================================================
+  // Veri script.js'in gelisimKarakterler'i (gelisim.json); tarih Gelişim
+  // sekmesinin tarih satırından ("dün → bugün") okunur. HTML saf kurucuda.
+  function hesaplarimizCiz() {
+    var el = $("hesaplarimiz-liste");
+    if (!el) return;
+    var t = $("gelisim-tarih-notu");
+    var m = t ? String(t.textContent || "").match(/\d{4}-\d{2}-\d{2}/g) : null;
+    var tarih = m && m.length ? m[m.length - 1] : "";
+    el.innerHTML = S.hesapKasabaHtml(S.hesapKasabaGruplari(g("gelisimKarakterler", [])), tarih);
   }
 
   // =====================================================================
