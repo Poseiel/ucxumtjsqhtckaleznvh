@@ -262,7 +262,7 @@
     ["📊", "Verdiğim emir ne oldu?", "#emirdurum", "Bekleyenler üstte, kapananlar altta"],
     ["🚫", "Yanlış emri geri almak", "#emirdurum", "Satırdaki 🚫 İptal düğmesi"],
     ["👤", "Tek bir hesabın her şeyini görmek", "#envanter", "Adı ara ya da adına tıkla → hesap kartı"],
-    ["📍", "Bir kişiyi bulmak (kim nerede?)", "#sakinler", "7 kasabanın bugünkü tam listesi"],
+    ["📍", "Bir kişiyi bulmak (kim nerede?)", "#sakinler", "7 kasabanın bugünkü tam listesi + hesaplarımız kasaba kasaba"],
     ["🚨", "Birini / bir orduyu izlemek", "#izleme", "Kasaba değiştirirse en üstte kocaman uyarı çıkar"],
     ["📅", "Geçmiş bir günde kim neredeydi?", "#gecmis", "Takvimden gün seç: nüfus, sakinler, ordular, raporlar"],
     // ⚔️ [25.09.2026] Ordu üyelerimiz + hadiseler / orduya katılma emri.
