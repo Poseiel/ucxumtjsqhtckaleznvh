@@ -1,7 +1,150 @@
 {
-  "son_guncelleme": "2026-10-19 19:13",
-  "gun": "",
-  "gozculer": [],
-  "gorulenler": [],
-  "olcum": []
+  "son_guncelleme": "2026-10-20 08:32",
+  "gun": "2026-10-20",
+  "gozculer": [
+    {
+      "hesap": "Fioreth",
+      "saat": "08:24",
+      "yer_no": 837,
+      "yer": "#837",
+      "yer_adi": "Girvan - Glasgow arası",
+      "kanonik": "Girvan - Glasgow arası #837",
+      "ara_nokta": true,
+      "etiket": "📍 #837 Girvan - Glasgow arası",
+      "olu_giris": false,
+      "gorus_bugun": 2,
+      "gorus_dun": 2,
+      "gruplar_okundu": true,
+      "gruplar": [],
+      "ordular": []
+    },
+    {
+      "hesap": "Flantastic",
+      "saat": "08:13",
+      "yer_no": 835,
+      "yer": "#835",
+      "yer_adi": "Wigtown - Girvan arası",
+      "kanonik": "Wigtown - Girvan arası #835",
+      "ara_nokta": true,
+      "etiket": "📍 #835 Wigtown - Girvan arası",
+      "olu_giris": false,
+      "gorus_bugun": 0,
+      "gorus_dun": 0,
+      "gruplar_okundu": true,
+      "gruplar": [],
+      "ordular": []
+    },
+    {
+      "hesap": "Rendavar",
+      "saat": "07:56",
+      "yer_no": 759,
+      "yer": "#759",
+      "yer_adi": "Kirkcudbright - Wigtown arası",
+      "kanonik": "Kirkcudbright - Wigtown arası #759",
+      "ara_nokta": true,
+      "etiket": "📍 #759 Kirkcudbright - Wigtown arası",
+      "olu_giris": false,
+      "gorus_bugun": 1,
+      "gorus_dun": 0,
+      "gruplar_okundu": true,
+      "gruplar": [],
+      "ordular": []
+    },
+    {
+      "hesap": "Zehneya",
+      "saat": "08:02",
+      "yer_no": 2789,
+      "yer": "#2789",
+      "yer_adi": "Glasgow - Girvan arası",
+      "kanonik": "Glasgow - Girvan arası #2789",
+      "ara_nokta": true,
+      "etiket": "📍 #2789 Glasgow - Girvan arası",
+      "olu_giris": false,
+      "gorus_bugun": 1,
+      "gorus_dun": 0,
+      "gruplar_okundu": true,
+      "gruplar": [],
+      "ordular": []
+    }
+  ],
+  "gorulenler": [
+    {
+      "login": "kangor",
+      "ad": "Kangor",
+      "gozcu": "Rendavar",
+      "yer": "#759",
+      "yer_no": 759,
+      "yer_adi": "Kirkcudbright - Wigtown arası",
+      "kanonik": "Kirkcudbright - Wigtown arası #759",
+      "oyun_gunu": "2026-10-20",
+      "kayit_no": "260756205",
+      "etiket": "📍 #759 Kirkcudbright - Wigtown arası · gözcü Rendavar gördü"
+    },
+    {
+      "login": "tom.hailey",
+      "ad": "Tom.hailey",
+      "gozcu": "Zehneya",
+      "yer": "#2789",
+      "yer_no": 2789,
+      "yer_adi": "Glasgow - Girvan arası",
+      "kanonik": "Glasgow - Girvan arası #2789",
+      "oyun_gunu": "2026-10-20",
+      "kayit_no": "260756367",
+      "etiket": "📍 #2789 Glasgow - Girvan arası · gözcü Zehneya gördü"
+    },
+    {
+      "login": "tom.hailey",
+      "ad": "Tom.hailey",
+      "gozcu": "Fioreth",
+      "yer": "#837",
+      "yer_no": 837,
+      "yer_adi": "Girvan - Glasgow arası",
+      "kanonik": "Girvan - Glasgow arası #837",
+      "oyun_gunu": "2026-10-20",
+      "kayit_no": "260757901",
+      "etiket": "📍 #837 Girvan - Glasgow arası · gözcü Fioreth gördü"
+    },
+    {
+      "login": "loren.zo.",
+      "ad": "Loren.zo.",
+      "gozcu": "Fioreth",
+      "yer": "#837",
+      "yer_no": 837,
+      "yer_adi": "Girvan - Glasgow arası",
+      "kanonik": "Girvan - Glasgow arası #837",
+      "oyun_gunu": "2026-10-20",
+      "kayit_no": "260755859",
+      "etiket": "📍 #837 Girvan - Glasgow arası · gözcü Fioreth gördü"
+    }
+  ],
+  "olcum": [
+    {
+      "gun": "2026-10-20",
+      "hesap": "Fioreth",
+      "olu_giris": false,
+      "gorus_bugun": 2,
+      "yer": "📍 #837 Girvan - Glasgow arası"
+    },
+    {
+      "gun": "2026-10-20",
+      "hesap": "Flantastic",
+      "olu_giris": false,
+      "gorus_bugun": 0,
+      "yer": "📍 #835 Wigtown - Girvan arası"
+    },
+    {
+      "gun": "2026-10-20",
+      "hesap": "Rendavar",
+      "olu_giris": false,
+      "gorus_bugun": 1,
+      "yer": "📍 #759 Kirkcudbright - Wigtown arası"
+    },
+    {
+      "gun": "2026-10-20",
+      "hesap": "Zehneya",
+      "olu_giris": false,
+      "gorus_bugun": 1,
+      "yer": "📍 #2789 Glasgow - Girvan arası"
+    }
+  ]
 }
