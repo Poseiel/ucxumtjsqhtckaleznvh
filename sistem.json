@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-19 19:13",
+  "son_guncelleme": "2026-10-20 07:34",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -40,7 +40,7 @@
       "Fioreth",
       "Zehneya"
     ],
-    "kapanis_islemi": 0,
+    "kapanis_islemi": 2,
     "yasli_garson": 0,
     "telegram_isim": "Feyyaz",
     "gemi_armatoru": "mr.butcher",
@@ -52,6 +52,13 @@
     "kaptan_yelken": "",
     "kaptan_kiyi_mesafesi": 2,
     "gemiler": {},
+    "alim_gozculeri": [
+      "Whithorn=Noumama",
+      "Wigtown=Kargath",
+      "Kirkcudbright=Bradley_Richards",
+      "Girvan=Whisperbane",
+      "Stirling=LeonProf"
+    ],
     "modem": "ZTE Superbox"
   },
   "listeler": {
@@ -137,20 +144,915 @@
   },
   "hesaplar": [
     {
-      "ad": "Joyking",
-      "ayar": {
-        "divan_gorevi": "Liman Şefi",
-        "sadece_bekle": true
-      }
+      "ad": "Razielon",
+      "ayar": {}
     },
     {
       "ad": "Esteros",
+      "ayar": {}
+    },
+    {
+      "ad": "Mihribann",
+      "ayar": {}
+    },
+    {
+      "ad": "korhan",
+      "ayar": {}
+    },
+    {
+      "ad": "yellowsmith",
+      "ayar": {}
+    },
+    {
+      "ad": "harudha",
+      "ayar": {}
+    },
+    {
+      "ad": "cptcorsair",
+      "ayar": {}
+    },
+    {
+      "ad": "marchosias",
+      "ayar": {}
+    },
+    {
+      "ad": "akbaba",
+      "ayar": {}
+    },
+    {
+      "ad": "Mr.Shadow",
+      "ayar": {}
+    },
+    {
+      "ad": "Peeves",
+      "ayar": {}
+    },
+    {
+      "ad": "Typhoonn",
+      "ayar": {}
+    },
+    {
+      "ad": "Jeday",
+      "ayar": {}
+    },
+    {
+      "ad": "Noumama",
+      "ayar": {}
+    },
+    {
+      "ad": "Tortugal",
+      "ayar": {}
+    },
+    {
+      "ad": "Tommytara",
+      "ayar": {}
+    },
+    {
+      "ad": "Wolfgangg",
+      "ayar": {}
+    },
+    {
+      "ad": "Catapult",
+      "ayar": {}
+    },
+    {
+      "ad": "Argaios",
+      "ayar": {}
+    },
+    {
+      "ad": "Sorchadusk",
+      "ayar": {}
+    },
+    {
+      "ad": "Kargath",
+      "ayar": {}
+    },
+    {
+      "ad": "Baela",
+      "ayar": {}
+    },
+    {
+      "ad": "Tantalos",
+      "ayar": {}
+    },
+    {
+      "ad": "Asagrim",
+      "ayar": {}
+    },
+    {
+      "ad": "Jarg",
+      "ayar": {}
+    },
+    {
+      "ad": "Vermithor",
+      "ayar": {}
+    },
+    {
+      "ad": "Grimwarden",
+      "ayar": {}
+    },
+    {
+      "ad": "Whisperbane",
+      "ayar": {}
+    },
+    {
+      "ad": "Bradley_Richards",
+      "ayar": {}
+    },
+    {
+      "ad": "penciher",
+      "ayar": {}
+    },
+    {
+      "ad": "Ningauble",
+      "ayar": {}
+    },
+    {
+      "ad": "Fredyy",
       "ayar": {
-        "sadece_bekle": true
+        "takip": "Ordu Takip",
+        "isci_tut": true
+      }
+    },
+    {
+      "ad": "Thebear",
+      "ayar": {
+        "takip": "Ordu Takip",
+        "isci_tut": true
+      }
+    },
+    {
+      "ad": "Duncan_Little",
+      "ayar": {}
+    },
+    {
+      "ad": "Darwinn",
+      "ayar": {
+        "takip": "Ordu Takip",
+        "isci_tut": true
+      }
+    },
+    {
+      "ad": "Nojiko",
+      "ayar": {}
+    },
+    {
+      "ad": "Adrah",
+      "ayar": {}
+    },
+    {
+      "ad": "Serachin",
+      "ayar": {}
+    },
+    {
+      "ad": "Bilrider",
+      "ayar": {}
+    },
+    {
+      "ad": "Telconta_r",
+      "ayar": {}
+    },
+    {
+      "ad": "Makuta",
+      "ayar": {
+        "takip": "Alışverişçi"
+      }
+    },
+    {
+      "ad": "Davoss",
+      "ayar": {}
+    },
+    {
+      "ad": "Coptik",
+      "ayar": {}
+    },
+    {
+      "ad": "LeonProf",
+      "ayar": {
+        "gorev": "grup_kur, grup_dagit"
+      }
+    },
+    {
+      "ad": "Renegrade",
+      "ayar": {
+        "divan_gorevi": "Sancak Beyi"
+      }
+    },
+    {
+      "ad": "ranrok",
+      "ayar": {}
+    },
+    {
+      "ad": "Hiriluk",
+      "ayar": {
+        "ases": true
+      }
+    },
+    {
+      "ad": "Joyking",
+      "ayar": {
+        "divan_gorevi": "Liman Şefi"
+      }
+    },
+    {
+      "ad": "MoiraAsh",
+      "ayar": {}
+    },
+    {
+      "ad": "Betmen",
+      "ayar": {}
+    },
+    {
+      "ad": "Bafetimbi",
+      "ayar": {}
+    },
+    {
+      "ad": "Ziyech",
+      "ayar": {}
+    },
+    {
+      "ad": "Vamder",
+      "ayar": {}
+    },
+    {
+      "ad": "beramus",
+      "ayar": {}
+    },
+    {
+      "ad": "Cullengen",
+      "ayar": {}
+    },
+    {
+      "ad": "Helsinkii",
+      "ayar": {
+        "ases": true,
+        "isci_tut": true
+      }
+    },
+    {
+      "ad": "corryvreckan",
+      "ayar": {}
+    },
+    {
+      "ad": "Colonell",
+      "ayar": {}
+    },
+    {
+      "ad": "Aiegus",
+      "ayar": {
+        "divan_gorevi": "Ticaret Nazırı"
+      }
+    },
+    {
+      "ad": "kardemar",
+      "ayar": {}
+    },
+    {
+      "ad": "Patek",
+      "ayar": {}
+    },
+    {
+      "ad": "Toyga",
+      "ayar": {
+        "divan_gorevi": "Belediye Reisi + Liman Şefi"
+      }
+    },
+    {
+      "ad": "dervorin",
+      "ayar": {}
+    },
+    {
+      "ad": "Anaster",
+      "ayar": {}
+    },
+    {
+      "ad": "Beannighe",
+      "ayar": {}
+    },
+    {
+      "ad": "drayen",
+      "ayar": {
+        "takip": "Ordu Takip",
+        "isci_tut": true
+      }
+    },
+    {
+      "ad": "nightshader",
+      "ayar": {}
+    },
+    {
+      "ad": "Atreides",
+      "ayar": {}
+    },
+    {
+      "ad": "Nihilant",
+      "ayar": {}
+    },
+    {
+      "ad": "Ironfoot",
+      "ayar": {}
+    },
+    {
+      "ad": "Dwadu",
+      "ayar": {}
+    },
+    {
+      "ad": "Freshh",
+      "ayar": {
+        "ases": true
+      }
+    },
+    {
+      "ad": "Arous",
+      "ayar": {
+        "ases": true
+      }
+    },
+    {
+      "ad": "Telemir",
+      "ayar": {
+        "ases": true,
+        "isci_tut": true
+      }
+    },
+    {
+      "ad": "Tonali",
+      "ayar": {
+        "ases": true
+      }
+    },
+    {
+      "ad": "Neromancer",
+      "ayar": {
+        "ases": true
+      }
+    },
+    {
+      "ad": "Gaell",
+      "ayar": {
+        "ases": true
+      }
+    },
+    {
+      "ad": "Zaniolo",
+      "ayar": {
+        "takip": "Ordu Takip"
+      }
+    },
+    {
+      "ad": "Takaraka",
+      "ayar": {}
+    },
+    {
+      "ad": "Bainhalt",
+      "ayar": {
+        "ases": true
+      }
+    },
+    {
+      "ad": "Dronron",
+      "ayar": {}
+    },
+    {
+      "ad": "drakania",
+      "ayar": {}
+    },
+    {
+      "ad": "nindalf",
+      "ayar": {}
+    },
+    {
+      "ad": "Redbrand",
+      "ayar": {}
+    },
+    {
+      "ad": "semiramir",
+      "ayar": {}
+    },
+    {
+      "ad": "erethea",
+      "ayar": {}
+    },
+    {
+      "ad": "Scamender",
+      "ayar": {}
+    },
+    {
+      "ad": "onlyblack",
+      "ayar": {}
+    },
+    {
+      "ad": "helioson",
+      "ayar": {}
+    },
+    {
+      "ad": "darkbringer",
+      "ayar": {}
+    },
+    {
+      "ad": "Wolftrap",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Asensioo",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Favore",
+      "ayar": {
+        "gorev": "seyahat:Kirkcudbright, ev_al:Mısır"
+      }
+    },
+    {
+      "ad": "mr.butcher",
+      "ayar": {
+        "isci_tut": true
+      }
+    },
+    {
+      "ad": "Millady",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "caspe",
+      "ayar": {
+        "takip": "Alışverişçi"
+      }
+    },
+    {
+      "ad": "Oostervolde",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Flantastic",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Churchilltwo",
+      "ayar": {}
+    },
+    {
+      "ad": "Penaldo",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Gorgoyle",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Avelith",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Calwenor",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Galdorin",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Falvoreth",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Binim",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Jaskerin",
+      "ayar": {
+        "takip": "Hızlı Cami",
+        "seyahat_hedefi": "Egremont"
+      }
+    },
+    {
+      "ad": "Fioreth",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Sumpon",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Honkaa",
+      "ayar": {
+        "takip": "Hızlı Cami",
+        "gorev": "seyahat:Hastings, ev_al:Sebze"
+      }
+    },
+    {
+      "ad": "Beinns",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Caldrith",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Azirveth",
+      "ayar": {
+        "takip": "Hızlı Maden",
+        "seyahat_hedefi": "Santarém"
+      }
+    },
+    {
+      "ad": "Brannoch",
+      "ayar": {
+        "takip": "Hızlı Maden",
+        "seyahat_hedefi": "Stirling"
+      }
+    },
+    {
+      "ad": "Solmaran",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Rendavar",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Tavris",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Gundrel",
+      "ayar": {
+        "takip": "Hızlı Maden",
+        "seyahat_hedefi": "Montemor"
+      }
+    },
+    {
+      "ad": "Dekhatis",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Fiyong",
+      "ayar": {
+        "takip": "Hızlı Maden",
+        "seyahat_hedefi": "Lisboa"
+      }
+    },
+    {
+      "ad": "Merrisant",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Grangerr",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Marvethis",
+      "ayar": {
+        "takip": "Hızlı Cami",
+        "seyahat_hedefi": "Setúbal"
+      }
+    },
+    {
+      "ad": "Thehumanist",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Hasdur",
+      "ayar": {
+        "takip": "Hızlı Cami",
+        "seyahat_hedefi": "Glasgow"
+      }
+    },
+    {
+      "ad": "Kealor",
+      "ayar": {
+        "takip": "Hızlı Cami",
+        "seyahat_hedefi": "Hastings"
+      }
+    },
+    {
+      "ad": "Zedrin",
+      "ayar": {
+        "takip": "Hızlı Maden",
+        "seyahat_hedefi": "Alcácer do Sal"
+      }
+    },
+    {
+      "ad": "Causal",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Ertwar",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Bremer",
+      "ayar": {}
+    },
+    {
+      "ad": "Awerta",
+      "ayar": {
+        "takip": "Hızlı Maden",
+        "gorev": "ev_al:Sebze"
+      }
+    },
+    {
+      "ad": "ilsevar",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Hestiana",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Estonian",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Ronaldoking",
+      "ayar": {
+        "takip": "Hızlı Maden",
+        "seyahat_hedefi": "Setúbal"
+      }
+    },
+    {
+      "ad": "Zehneya",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Imref",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Uywarka",
+      "ayar": {
+        "takip": "Hızlı Cami",
+        "seyahat_hedefi": "Penrith"
+      }
+    },
+    {
+      "ad": "Asakira",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Dogmeat",
+      "ayar": {
+        "takip": "Hızlı Cami",
+        "seyahat_hedefi": "Elvas"
+      }
+    },
+    {
+      "ad": "Varry",
+      "ayar": {
+        "takip": "Hızlı Cami",
+        "seyahat_hedefi": "Narbonne"
+      }
+    },
+    {
+      "ad": "Cyberattack",
+      "ayar": {
+        "takip": "Hızlı Maden",
+        "seyahat_hedefi": "Hastings"
+      }
+    },
+    {
+      "ad": "eden_martin",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Kalradyan",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Erwerb",
+      "ayar": {
+        "takip": "Hızlı Cami",
+        "gorev": "ev_al:Mısır"
+      }
+    },
+    {
+      "ad": "Silverfork",
+      "ayar": {
+        "takip": "Hızlı Cami",
+        "seyahat_hedefi": "Porto"
+      }
+    },
+    {
+      "ad": "Lastboy",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Braveman",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Murderer",
+      "ayar": {
+        "midas_kutu": 30
+      }
+    },
+    {
+      "ad": "Totumto",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Tim_brown",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Captain_scotland",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Hermanos_",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Dursun",
+      "ayar": {
+        "takip": "Hızlı Cami",
+        "seyahat_hedefi": "Kendal"
+      }
+    },
+    {
+      "ad": "Baronn",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Koonrad",
+      "ayar": {
+        "takip": "Hızlı Maden",
+        "seyahat_hedefi": "Stirling"
+      }
+    },
+    {
+      "ad": "Ferrera",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Watkins",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Smithh",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Angewin",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Longboe",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Spann",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Asslani",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Tilimsan",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "dramar",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Pimento",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Catoly",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Leaoo",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Icarusz",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Alteredcarbon",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Casedy",
+      "ayar": {
+        "takip": "Hızlı Cami"
       }
     }
   ],
-  "toplam_hesap": 2,
+  "toplam_hesap": 171,
   "sistem_gecmis": [
     {
       "zaman": "2026-10-10 22:50",
