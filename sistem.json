@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-20 16:47",
+  "son_guncelleme": "2026-10-20 22:16",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -32,6 +32,13 @@
       "dronron"
     ],
     "odun_kasabalari": [
+      "Ardencaple"
+    ],
+    "hurda_ot_kasabalari": [
+      "Whithorn",
+      "Wigtown",
+      "Kirkcudbright",
+      "Girvan",
       "Ardencaple"
     ],
     "ara_nokta_gozcu": [
@@ -449,11 +456,21 @@
     },
     {
       "ad": "Nihilant",
-      "ayar": {}
+      "ayar": {},
+      "bekleyen": [
+        "gorev",
+        "midas_kutu",
+        "midas_para_hedefi"
+      ]
     },
     {
       "ad": "Ironfoot",
-      "ayar": {}
+      "ayar": {},
+      "bekleyen": [
+        "gorev",
+        "midas_kutu",
+        "midas_para_hedefi"
+      ]
     },
     {
       "ad": "Dwadu",
