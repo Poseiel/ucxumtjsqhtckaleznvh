@@ -1,8 +1,69 @@
 {
-  "son_guncelleme": "2026-10-20 16:47",
+  "son_guncelleme": "2026-10-20 22:16",
   "azami_gun": 14,
   "azami_deneme": 7,
-  "bekleyen": [],
+  "bekleyen": [
+    {
+      "kod": "E66",
+      "tur": "sat",
+      "hesap": "Toyga",
+      "urun": "Midas'ın Şık Sandığı",
+      "adet": 1,
+      "fiyat": "en düşük",
+      "alici": "Ironfoot",
+      "hemen": false,
+      "eyalet": false,
+      "serbest": false,
+      "yazan": "VS Code Claude (kullanıcı isteği 20.10)",
+      "eklenme": "2026-10-20 21:52",
+      "gecen_gun": 0,
+      "kalan_gun": 14,
+      "deneme": 0,
+      "azami_deneme": 7,
+      "sonuc": "",
+      "kapanma": ""
+    },
+    {
+      "kod": "E67",
+      "tur": "sat",
+      "hesap": "Toyga",
+      "urun": "Tomruk Odun",
+      "adet": 30,
+      "fiyat": "en düşük",
+      "alici": "Ironfoot",
+      "hemen": false,
+      "eyalet": false,
+      "serbest": false,
+      "yazan": "VS Code Claude (kullanıcı isteği 20.10)",
+      "eklenme": "2026-10-20 21:52",
+      "gecen_gun": 0,
+      "kalan_gun": 14,
+      "deneme": 0,
+      "azami_deneme": 7,
+      "sonuc": "",
+      "kapanma": ""
+    },
+    {
+      "kod": "E68",
+      "tur": "sat",
+      "hesap": "Kardemar",
+      "urun": "Midas'ın Mütevazı Sandığı",
+      "adet": 1,
+      "fiyat": "en düşük",
+      "alici": "Nihilant",
+      "hemen": false,
+      "eyalet": false,
+      "serbest": false,
+      "yazan": "VS Code Claude (kullanıcı isteği 20.10)",
+      "eklenme": "2026-10-20 21:52",
+      "gecen_gun": 0,
+      "kalan_gun": 14,
+      "deneme": 0,
+      "azami_deneme": 7,
+      "sonuc": "",
+      "kapanma": ""
+    }
+  ],
   "gecmis": [
     {
       "kod": "E65",
@@ -737,8 +798,8 @@
       "serbest": false,
       "yazan": "Çağrı",
       "eklenme": "2026-09-26 18:00",
-      "gecen_gun": 23,
-      "kalan_gun": -9,
+      "gecen_gun": 24,
+      "kalan_gun": -10,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "✅ PROFİL YAZILDI",
@@ -1077,8 +1138,8 @@
       "serbest": false,
       "yazan": "Feyyaz",
       "eklenme": "2026-09-08 20:45",
-      "gecen_gun": 41,
-      "kalan_gun": -27,
+      "gecen_gun": 42,
+      "kalan_gun": -28,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "🚫 İPTAL (Feyyaz)",
@@ -1097,8 +1158,8 @@
       "serbest": false,
       "yazan": "Feyyaz",
       "eklenme": "2026-09-08 20:35",
-      "gecen_gun": 41,
-      "kalan_gun": -27,
+      "gecen_gun": 42,
+      "kalan_gun": -28,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "🚫 İPTAL (Feyyaz)",
@@ -1191,11 +1252,45 @@
       ]
     },
     {
+      "hesap": "ironfoot",
+      "alanlar": [
+        {
+          "ad": "gorev",
+          "deger": "atolye:Fırıncı"
+        },
+        {
+          "ad": "midas_kutu",
+          "deger": "30"
+        },
+        {
+          "ad": "midas_para_hedefi",
+          "deger": "10000"
+        }
+      ]
+    },
+    {
       "hesap": "leonprof",
       "alanlar": [
         {
           "ad": "gorev",
           "deger": "— (zincir bitti, temizleniyor)"
+        }
+      ]
+    },
+    {
+      "hesap": "nihilant",
+      "alanlar": [
+        {
+          "ad": "gorev",
+          "deger": "atolye:Terzi"
+        },
+        {
+          "ad": "midas_kutu",
+          "deger": "30"
+        },
+        {
+          "ad": "midas_para_hedefi",
+          "deger": "5000"
         }
       ]
     }
