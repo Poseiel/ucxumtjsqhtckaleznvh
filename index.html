@@ -424,8 +424,10 @@ if (window.L) L.RasterCoords.prototype = {
         <tr><td>👪 <b>Aileye başvur — yalnızca emirle.</b> Karşı taraf zaten 👪 Aile kabul ile kabul ediyordu.</td>
             <td>Emir → 👪 Aileye başvur: hesap(lar) + ailenin <b>tam</b> adı.</td></tr>
         <tr><td>🪖 <b>Alım modu gözcüleri.</b> Güneydeki 4 kasabada ve Stirling'de birer hesap küçük, kalıcı bir silahlı
-              grup tutar (katılım "Yetki Dahilinde", çarpışmada rakibi bağışlar). Ordunun alım moduna geçtiğini
-              okuyup haber verme kısmı, ilk sayfa kaydı gelince eklenecek.</td>
+              grup tutar (katılım "Yetki Dahilinde", çarpışmada rakibi bağışlar). Grubun lideri olarak her gün
+              ordunun satırına bakar: <b>"Grubunuzu bu orduya katılmayı önerebilirsiniz"</b> düğmesi görünürse
+              ordu <b>alım modunda</b> demektir. Açılınca / kapanınca Telegram'a (ordu konusu) haber gider; sitede
+              ordunun yanında <b>🤝 alım modu açık</b> yazar. Bot o düğmeye <b>asla basmaz</b>.</td>
             <td>Hesapları değiştirmek için: Emir → ⚙️ Sistem → 🪖 Alım modu gözcüleri
               (<span class="rehber-akis">Stirling=LeonProf</span> biçiminde). Liste boşsa özellik kapalı.</td></tr>
         <tr><td>🤝 <b>Kim Nerede'de hesaplarımız kasaba kasaba</b>; İskoçya dışındakiler de kasabasıyla, yoldakiler
@@ -2587,6 +2589,20 @@ if (window.L) L.RasterCoords.prototype = {
             <option value="100">100 kutu</option>
           </select>
         </label>
+        <!-- 💰 [20.10.2026] Midas para hedefi (Ironfoot 10.000 · Nihilant 5.000).
+             Bot: site_emirleri._IZINLI_ALANLAR["midas para hedefi"] → midas_para_hedefi.
+             Verilirse günlük Midas eski 4 sandıklı modülle (Şık / Mütevazı) yapılır:
+             para hedefin altındaysa günde "Midas kutusu" kadar tur (yoksa 30). -->
+        <label>💰 Midas para hedefi <span class="ay-ipucu">para bu akçenin altındaysa Şık/Mütevazı sandıkla günde "Midas kutusu" kadar tur (yoksa 30) · hedefe gelince durur · listede olmayan ticarete gider</span>
+          <select id="ay-midas-hedef">
+            <option value="">— değiştirme —</option>
+            <option value="kapalı">kapalı</option>
+            <option value="5000">5.000 akçe</option>
+            <option value="10000">10.000 akçe</option>
+            <option value="20000">20.000 akçe</option>
+            <option value="50000">50.000 akçe</option>
+          </select>
+        </label>
       </div>
       <!-- 🖥️ [05.10.2026] Formda kutusu OLMAYAN üç hesap alanı (kural: her
            hesap ayarı siteden de verilebilmeli; ölçüldü). Ev/atölye/her şeyi
@@ -2746,6 +2762,13 @@ if (window.L) L.RasterCoords.prototype = {
           <label>🌲 Odun kasabaları <span class="ay-ipucu">bu kasabadaki hesaplar boş kalınca (tarla işi yokken) maden/camiden ÖNCE odun keser, kestiği odunu SATMAZ, evde tutar · ases tikliyse önce ases, ases yeri doluysa odun · yalnızca gerçek odun kasabasında çalışır (Stirling · Ardencaple · Girvan · Wigtown)</span>
             <select id="si-odun-islem" class="si-islem"></select>
             <input id="si-odun" list="ay-sehir-listesi" placeholder="örn. Ardencaple" autocomplete="off">
+          </label>
+        </div>
+        <!-- 🌿 [20.10.2026] Hurda ot kasabaları — kalan enerjide maden yerine şifalı ot. -->
+        <div class="emir-satir">
+          <label>🌿 Hurda ot kasabaları <span class="ay-ipucu">bu kasabadaki hesaplar <b>kalan enerjiyi (hurda)</b> maden yerine ÖNCE <b>şifalı ot</b> toplayarak harcar · ot olmazsa (yetenek yok / düğme yok / oyun reddetti) eski düzen: maden · ana iş (tarla · ases · odun · maden · cami) DEĞİŞMEZ · besleme her zaman yapılır · bir sonraki emre kadar geçerli · boş = kapalı</span>
+            <select id="si-hurda-ot-islem" class="si-islem"></select>
+            <input id="si-hurda-ot" list="ay-sehir-listesi" placeholder="örn. Whithorn, Wigtown, Kirkcudbright, Girvan, Ardencaple" autocomplete="off">
           </label>
         </div>
         <!-- 🌲🚚 [19.10.2026 — Pontiac: alıcı "TELEGRAMDAN" belirlenip değiştirilsin] -->
