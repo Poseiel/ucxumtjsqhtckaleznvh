@@ -799,11 +799,15 @@ function rkOrduDegisimMetni(o) {
       Eski Armies_*.json dosyalarında alan YOK → null kalır ve "bilinmiyor"
       yazılır. `false` ile karıştırılmaz. */
 function rkAlimModu(o) {
-  const a = o.alim_modu, d = o.danisman;
-  if ((a === null || a === undefined) && (d === null || d === undefined)) {
+  /* 🤝 [20.10.2026 — 19b] `birlesme`: grup lideri gözüyle "Grubunuzu bu orduya
+     katılmayı önerebilirsiniz" düğmesi (alım gözcüsü okur). Alan yoksa eski yazı. */
+  const a = o.alim_modu, d = o.danisman, b = o.birlesme;
+  if ((a === null || a === undefined) && (d === null || d === undefined) &&
+      (b === null || b === undefined)) {
     return '<span class="emir-kucuk">bilinmiyor (17.09 öncesi kayıt)</span>';
   }
   const p = [];
+  if (b === true) p.push('<span class="emir-etiket">🤝 alım modu açık (grup birleşebilir)</span>');
   if (a) p.push('<span class="emir-etiket">⚔️ asker alıyor</span>');
   if (d) {
     p.push('<span class="emir-etiket">🎖️ danışman arıyor' +
