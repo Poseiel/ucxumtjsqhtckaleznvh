@@ -2450,6 +2450,12 @@ function emirTurAdi(t) {
   if (t === "oy_ver") return "🗳️ Oy ver";
   // 👪 [05.10.2026] aile başvurusu kabul (aile_modul.AILE_KABUL_TURU)
   if (t === "aile_kabul") return "👪 Aile kabul";
+  // 👪 [19.10.2026 — İŞ 22] aileye başvuru (aile_modul.AILE_BASVUR_TURU)
+  if (t === "aile_basvur") return "👪 Aileye başvur";
+  // 🩺 [19.10.2026 — İŞ 18] muayenehane / eczane (muayene_modul.TURLER)
+  if (t === "muayenehane_al") return "🩺 Muayenehane al";
+  if (t === "iksir_yap") return "🧪 İksir yap";
+  if (t === "muayene_gunu") return "🩺 Muayene günü";
   return t || "—";
 }
 
