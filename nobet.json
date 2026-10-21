@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-21 12:50",
+  "son_guncelleme": "2026-10-21 13:36",
   "tarih": "2026-10-21",
   "aralik_dk": 150,
   "kontroller": [
@@ -409,12 +409,11 @@
         }
       ],
       "farklar": []
-    }
-  ],
-  "son_durum": {
-    "Stirling": {
-      "saat": "10:54",
-      "saat_tam": "2026-10-21T10:54:38",
+    },
+    {
+      "kasaba": "Stirling",
+      "saat": "13:34",
+      "saat_tam": "2026-10-21T13:34:36",
       "ordu_okundu": true,
       "ordular": [
         {
@@ -425,7 +424,49 @@
           "ham_durum": "Ordu, Şehir kapılarına dayandı."
         }
       ],
-      "gruplar": []
+      "gruplar": [
+        {
+          "id": "6324604",
+          "tur": "Silahlı Grup",
+          "lider": "leonprof",
+          "uyeler": [],
+          "katilim": "Yetki Dahilinde"
+        }
+      ],
+      "farklar": [
+        {
+          "tip": "grup_geldi",
+          "grup_id": "6324604",
+          "lider": "leonprof",
+          "uyeler": [],
+          "metin": "🆕 YENİ GRUP: Silahlı Grup (lider: leonprof) — 1 kişi: leonprof"
+        }
+      ]
+    }
+  ],
+  "son_durum": {
+    "Stirling": {
+      "saat": "13:34",
+      "saat_tam": "2026-10-21T13:34:36",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Glasgow",
+          "kasaba": "Stirling",
+          "komutan": "Kazasker: Mavisari",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "6324604",
+          "tur": "Silahlı Grup",
+          "lider": "leonprof",
+          "uyeler": [],
+          "katilim": "Yetki Dahilinde"
+        }
+      ]
     },
     "Wigtown": {
       "saat": "12:48",
