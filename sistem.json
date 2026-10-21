@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-20 22:16",
+  "son_guncelleme": "2026-10-21 07:04",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -335,12 +335,7 @@
     },
     {
       "ad": "LeonProf",
-      "ayar": {
-        "gorev": "grup_kur, grup_dagit"
-      },
-      "bekleyen": [
-        "gorev"
-      ]
+      "ayar": {}
     },
     {
       "ad": "Renegrade",
@@ -456,21 +451,19 @@
     },
     {
       "ad": "Nihilant",
-      "ayar": {},
-      "bekleyen": [
-        "gorev",
-        "midas_kutu",
-        "midas_para_hedefi"
-      ]
+      "ayar": {
+        "gorev": "atolye:Terzi",
+        "midas_kutu": 30,
+        "midas_para_hedefi": 5000
+      }
     },
     {
       "ad": "Ironfoot",
-      "ayar": {},
-      "bekleyen": [
-        "gorev",
-        "midas_kutu",
-        "midas_para_hedefi"
-      ]
+      "ayar": {
+        "gorev": "atolye:Fırıncı",
+        "midas_kutu": 30,
+        "midas_para_hedefi": 10000
+      }
     },
     {
       "ad": "Dwadu",
@@ -583,12 +576,7 @@
     },
     {
       "ad": "Favore",
-      "ayar": {
-        "gorev": "seyahat:Kirkcudbright, ev_al:Mısır"
-      },
-      "bekleyen": [
-        "gorev"
-      ]
+      "ayar": {}
     },
     {
       "ad": "mr.butcher",
@@ -664,7 +652,10 @@
       "ad": "Binim",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "takip"
+      ]
     },
     {
       "ad": "Jaskerin",
@@ -714,13 +705,8 @@
     {
       "ad": "Brannoch",
       "ayar": {
-        "takip": "Hızlı Maden",
-        "seyahat_hedefi": "Stirling"
-      },
-      "bekleyen": [
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+        "takip": "Hızlı Maden"
+      }
     },
     {
       "ad": "Solmaran",
@@ -788,12 +774,10 @@
     {
       "ad": "Hasdur",
       "ayar": {
-        "takip": "Hızlı Cami",
-        "seyahat_hedefi": "Glasgow"
+        "takip": "Hızlı Cami"
       },
       "bekleyen": [
-        "seyahat_aktif",
-        "seyahat_hedefi"
+        "takip"
       ]
     },
     {
@@ -843,7 +827,10 @@
       "ad": "Hestiana",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "takip"
+      ]
     },
     {
       "ad": "Estonian",
@@ -921,7 +908,10 @@
       "ayar": {
         "takip": "Hızlı Cami",
         "gorev": "ev_al:Mısır"
-      }
+      },
+      "bekleyen": [
+        "takip"
+      ]
     },
     {
       "ad": "Silverfork",
@@ -963,11 +953,8 @@
     {
       "ad": "Captain_scotland",
       "ayar": {
-        "takip": "Hızlı Maden"
-      },
-      "bekleyen": [
-        "takip"
-      ]
+        "takip": "Hızlı Cami"
+      }
     },
     {
       "ad": "Hermanos_",
@@ -1005,13 +992,19 @@
       "ad": "Watkins",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "takip"
+      ]
     },
     {
       "ad": "Smithh",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "takip"
+      ]
     },
     {
       "ad": "Angewin",
@@ -1084,9 +1077,21 @@
       "ayar": {
         "takip": "Hızlı Cami"
       }
+    },
+    {
+      "ad": "Greatmin",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Tugrul_",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
     }
   ],
-  "toplam_hesap": 171,
+  "toplam_hesap": 173,
   "sistem_gecmis": [
     {
       "zaman": "2026-10-10 22:50",
