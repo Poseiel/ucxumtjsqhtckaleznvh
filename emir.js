@@ -26,6 +26,25 @@ var EMIR_NL = String.fromCharCode(10);
 var EYALET_AZAMI_FIYAT = 999.95;
 // Rezerve boşsa satın alacak hesabın en az akçesi (pazar_emirleri.py).
 var EYALET_ALICI_ASGARI_AKCE = 10000;
+// 🧾 [21.10.2026 — İŞ 24] KATEGORİ malzeme — bot `kategori_satis.KATEGORI_ADLARI` ile
+//    BİREBİR (test_kategori_satis E). Her eşleşen eşya AYRI ilanla satılır; meslek
+//    hammaddesi / ödenek malı / Midas sandığı / bugünkü yemek payı KORUNUR.
+var SAT_KATEGORILERI = [
+  ["tüm otlar", "🌿 Kategori — hesabın elindeki bütün şifalı otlar"],
+  ["tüm yemekler", "🍽️ Kategori — bütün yiyecekler (bugünkü yemek payı kalır)"],
+  ["tüm kuvvet verenler", "💪 Kategori — Kuvvet veren yiyecekler"],
+  ["tüm zeka verenler", "🧠 Kategori — Zeka veren yiyecekler"],
+  ["tüm karizma verenler", "🎭 Kategori — Karizma veren yiyecekler"]
+];
+
+// 🧾 Malzeme kutusundaki yazı bir kategori mi? (öneri listesindeki biçimler)
+function emirSatisKategori(mal) {
+  var k = emirKucult(mal);
+  for (var i = 0; i < SAT_KATEGORILERI.length; i++) {
+    if (emirKucult(SAT_KATEGORILERI[i][0]) === k) return SAT_KATEGORILERI[i];
+  }
+  return null;
+}
 
 var emirEnvanter = [];   // [{karakter, kasaba, akce, esyalar:[{isim,adet}]}]
 var emirPazar = [];      // [{isim, adet, fiyat, kasaba}]
@@ -245,8 +264,12 @@ function emirSatisMalDoldur() {
   var dl = document.getElementById("sat-mal-listesi");
   var bilgi = document.getElementById("sat-bilgi");
   var k = emirKarakterBul(emirDeger("sat-hesap"));
+  // 🧾 [21.10.2026 — İŞ 24] kategoriler listenin BAŞINDA (hesap seçilmese de).
+  var katSecenek = SAT_KATEGORILERI.map(function (x) {
+    return emirSecenek(x[0], x[1]);
+  }).join("");
   if (!k) {
-    dl.innerHTML = "";
+    dl.innerHTML = katSecenek;
     bilgi.textContent = "Hesabı seçince o karakterin eşyaları burada listelenir.";
     return;
   }
@@ -254,7 +277,7 @@ function emirSatisMalDoldur() {
     return x.isim && x.isim.indexOf("Akçe") === -1;
   });
   esyalar.sort(function (a, b) { return (b.adet || 0) - (a.adet || 0); });
-  dl.innerHTML = esyalar.map(function (x) {
+  dl.innerHTML = katSecenek + esyalar.map(function (x) {
     return emirSecenek(x.isim, x.adet + " adet");
   }).join("");
   bilgi.textContent = k.karakter + " — " + k.kasaba + " · " + esyalar.length +
@@ -265,6 +288,14 @@ function emirSatisMalBilgi() {
   var k = emirKarakterBul(emirDeger("sat-hesap"));
   var mal = emirDeger("sat-mal");
   var bilgi = document.getElementById("sat-bilgi");
+  // 🧾 [21.10.2026 — İŞ 24] kategori seçildiyse ne olacağını söyle.
+  var kat = emirSatisKategori(mal);
+  if (kat) {
+    bilgi.textContent = kat[1] + ". Her eşya ayrı ilanla satılır; meslek hammaddesi, " +
+      "ödenek malı, Midas sandığı ve bugünkü yemek payı satılmaz. " +
+      "Sonuçta hangi eşyadan kaç satıldığı yazılır.";
+    return;
+  }
   if (!k || !mal) return;
   var bulunan = null;
   (k.esyalar || []).forEach(function (x) {
@@ -582,10 +613,16 @@ function emirMesajiKur() {
     // 🏛️ Eyalet adına satış: mal sancak deposundan çıkar, para hazineye.
     var eyaletKutu = document.getElementById("sat-eyalet");
     var eyalet = !!(eyaletKutu && eyaletKutu.checked);
+    // 🔢 [21.10.2026 — İŞ 25] "Tümü" = çanta + evdeki hepsi (bot: "adet: tümü").
+    var tumu = emirHemen("sat-tumu");
     var eksik = [];
     if (!hesap) eksik.push("satacak hesap");
     if (!mal) eksik.push("malzeme");
-    if (!adet) eksik.push("adet");
+    if (!adet && !tumu) eksik.push("adet (ya da 🔢 Tümü)");
+    // ⚠️ Eyalet satışı sancak deposundan yapılır: kategori / "tümü" orada YOK
+    //    (bot da reddeder — pazar_emirleri.emri_coz).
+    if (eyalet && (tumu || emirSatisKategori(mal)))
+      return { hata: "🏛️ Eyalet adına satışta 🔢 Tümü / 🧾 kategori yok — eşya adı ve adet yaz." };
     var fiyatMetni = mod;
     if (mod === "sayi") {
       var f = emirSayi("sat-fiyat-sayi");
@@ -602,7 +639,7 @@ function emirMesajiKur() {
     var satirlar = [
       "satacak: " + hesap,
       "malzeme: " + mal,
-      "adet: " + Math.round(adet),
+      "adet: " + (tumu ? "tümü" : Math.round(adet)),
       "fiyat: " + fiyatMetni
     ];
     if (eyalet) satirlar.push("eyalet: evet");
@@ -718,6 +755,30 @@ function emirMesajiKur() {
     abSatir.push("akçe: " + abAkce);
     if (emirHemen("ab-hemen")) abSatir.push("hemen: evet");
     return { metin: abSatir.join(EMIR_NL) };
+  }
+
+  // ---------------- 🌾🔁 TARLA ÇEVİR (21.10.2026 — İŞ 28) ----------------
+  // ⚠️ Şablon `tarla_cevir.emri_coz` ile BİREBİR: başlık + her hesap ayrı "hesap:" +
+  //    "tarla:" (1 / 2 / 1, 2 / hepsi) + "yeni tür:" (TARLA_TIPLERI adı) + "hasat:"
+  //    (bitince / hemen) + isteğe bağlı "hemen: evet" (⚡ — "hasat: hemen" İLE KARIŞMAZ).
+  if (emirTur === "tarlacevir") {
+    var tcAdlar = [];
+    String(emirDeger("tc-hesaplar") || "").split(/[\r\n,;]+/).forEach(function (x) {
+      x = x.trim();
+      if (x && tcAdlar.map(function (y) { return y.toLowerCase(); }).indexOf(x.toLowerCase()) < 0) tcAdlar.push(x);
+    });
+    if (!tcAdlar.length) return { hata: "Eksik: en az bir hesap" };
+    var tcTarla = emirDeger("tc-tarla");
+    if (!tcTarla) return { hata: "Eksik: hangi tarla (1 / 2 / hepsi)" };
+    var tcTur = emirDeger("tc-tur");
+    if (!tcTur) return { hata: "Eksik: yeni tür" };
+    var tcSatir = ["TARLA ÇEVİR"];
+    tcAdlar.forEach(function (x) { tcSatir.push("hesap: " + x); });
+    tcSatir.push("tarla: " + tcTarla);
+    tcSatir.push("yeni tür: " + tcTur);
+    tcSatir.push("hasat: " + (emirDeger("tc-hasat") === "hemen" ? "hemen" : "bitince"));
+    if (emirHemen("tc-hemen")) tcSatir.push("hemen: evet");
+    return { metin: tcSatir.join(EMIR_NL) };
   }
 
   // ---------------- 🩺 MUAYENEHANE / ECZANE (19.10.2026 — İŞ 18) ----------------
@@ -1091,6 +1152,12 @@ function eyaletSatisiAc(bilgi) {
 
   var eyaletKutu = document.getElementById("sat-eyalet");
   if (eyaletKutu) eyaletKutu.checked = true;
+  // 🔢 [21.10.2026] Eyalette "Tümü" yok — tik kalkar, adet kutusu açılır.
+  var tumuKutu = document.getElementById("sat-tumu");
+  if (tumuKutu && tumuKutu.checked) {
+    tumuKutu.checked = false;
+    tumuKutu.dispatchEvent(new Event("change"));
+  }
   // Fiyat kutusu "sayi" seçilince açılır — olayı elle tetikle.
   var mod = document.getElementById("sat-fiyat-mod");
   if (mod) mod.dispatchEvent(new Event("change"));
@@ -1321,6 +1388,15 @@ function emirOlaylariBagla() {
   ["sat-adet", "sat-fiyat-sayi", "sat-alici"].forEach(function (id) {
     document.getElementById(id).addEventListener("input", emirGuncelle);
   });
+  // 🔢 [21.10.2026 — İŞ 25] "Tümü" tikliyken adet kutusu kapanır (bot hepsini satar).
+  var satTumu = document.getElementById("sat-tumu");
+  if (satTumu) {
+    satTumu.addEventListener("change", function () {
+      var a = document.getElementById("sat-adet");
+      if (a) a.disabled = satTumu.checked;
+      emirGuncelle();
+    });
+  }
   // 🏛️ Eyalet tiki: açıklama satırını göster/gizle + önizlemeyi tazele
   var satEyalet = document.getElementById("sat-eyalet");
   if (satEyalet) {
@@ -2182,6 +2258,7 @@ var PLAN_IS_TOKENLERI = {
   "cami": "cami", "kilise": "cami",
   "eau": "eau", "amele": "eau", "amele pazari": "eau",
   "ders": "ders", "ders dinle": "ders",
+  "iksir": "iksir", "iksir yap": "iksir", "iksir uret": "iksir", "basit iksir": "iksir",
   "yok": "yok", "hicbiri": "yok", "is yok": "yok"
 };
 function planIsBilinmeyen(metin) {
@@ -2356,7 +2433,8 @@ var SISTEM_TEKIL = [
   ["si-kasa-esik", "kasa eşiği"],
   ["si-kasa-tutar", "kasa tutarı"],
   ["si-kasa-azami", "kasa günlük üst sınır"],
-  ["si-kasa-birim", "kasa birim fiyatı"]
+  ["si-kasa-birim", "kasa birim fiyatı"],
+  ["si-ot-gun", "ot satış günü"]
 ];
 // [kutu kimliği (işlem kutusu = kimlik + "-islem"), botun anladığı etiket]
 var SISTEM_LISTELER = [
@@ -2370,6 +2448,8 @@ var SISTEM_LISTELER = [
   ["si-kasa-mal", "kasa malları"],
   ["si-odun-alici", "odun alıcıları"],
   ["si-alim-gozcu", "alım gözcüleri"],
+  ["si-ot-alici", "ot alıcıları"],
+  ["si-firinci", "fırıncılar"],
   ["si-rota", "kaptan rota"],
   ["si-ders", "ders verebilir"],
   ["si-dost", "dost"],
@@ -2386,6 +2466,8 @@ var SISTEM_ETIKET = {
   kasa_gunluk_azami: "🏦 Kasa günlük üst sınır", kasa_birim: "🏦 Kasa birim fiyatı",
   odun_alicilari: "🌲🚚 Odun alıcıları (kasaba=alıcı)",
   alim_gozculeri: "🪖 Alım modu gözcüleri (kasaba=hesap)",
+  ot_alicilari: "⚗️ Ot alıcıları (kasaba=iksirci)", ot_satis_gunu: "⚗️ Ot satış günü (haftada bir)",
+  firincilar: "🍞 Fırıncılar (kasaba=fırıncı)",
   hesap_listeleri: "📋 Hesap listeleri (toplu emir)",
   kapanis_islemi: "🌙 Tur bitince",
   yasli_garson: "🧹 Yaşlı garson", telegram_isim: "📝 Rapor ismi",
@@ -2404,6 +2486,7 @@ function sistemDegerYazisi(alan, d) {
   if (alan === "yasli_garson") return ([1, 20, 40, 60][d] || 1) + " sn";
   if (alan === "maden_oncelik") return ({ demir: "Demir", tas: "Taş", altin: "Altın", kil: "Kil" })[d] || "yok (ilk açık maden)";
   if (alan === "kaptan_yelken") return d || "otomatik";
+  if (alan === "ot_satis_gunu") return d ? d + " (haftada bir)" : "kapalı";
   if (["kasa_esik", "kasa_tutar", "kasa_gunluk_azami", "kasa_birim"].indexOf(alan) >= 0) {
     return (d === null || d === undefined || d === "") ? "varsayılan" : String(d).replace(".", ",") + " akçe";
   }
@@ -2433,7 +2516,8 @@ function sistemMevcutYaz() {
   if (gun) gun.textContent = "(" + (sistemVerisi.son_guncelleme || "?") + ")";
   var s = sistemVerisi.sistem || {};
   var sira = ["maden_kasabalari", "maden_oncelik", "cami_ayricalikli", "kuvvet_oncelikli",
-              "odun_kasabalari", "odun_alicilari", "alim_gozculeri", "hurda_ot_kasabalari", "ara_nokta_gozcu", "kasa_hesaplari", "kasa_mal", "kasa_esik",
+              "odun_kasabalari", "odun_alicilari", "alim_gozculeri", "hurda_ot_kasabalari", "ara_nokta_gozcu",
+              "ot_alicilari", "ot_satis_gunu", "firincilar", "kasa_hesaplari", "kasa_mal", "kasa_esik",
               "kasa_tutar", "kasa_gunluk_azami", "kasa_birim", "hesap_listeleri", "kapanis_islemi",
               "yasli_garson", "telegram_isim", "gemi_armatoru", "kaptan_hedef_liman",
               "kaptan_devir_hedefi", "kaptan_hareket_aktif", "kaptan_yelken",
@@ -2770,8 +2854,9 @@ async function emirIptalEt(kodlar, ozet) {
   // -------------------------------------------------------
   var NIYETLER = [
     { id: "sat", tur: "sat", ikon: "💰", baslik: "Satış emri",
-      ne: "Hesabın çantasındaki malı pazara koyar. Hesabı seçince eşya listesi kendiliğinden gelir; fiyatı \"en düşük\" bırakırsan pazardaki en ucuza iner.",
-      anahtar: ["sat", "satis", "satsin", "satilsin", "satsın", "sattir", "pazara koy", "elden cikar", "eyalet adina sat"] },
+      ne: "Hesabın çantasındaki malı pazara koyar. Hesabı seçince eşya listesi kendiliğinden gelir; fiyatı \"en düşük\" bırakırsan pazardaki en ucuza iner. Malzemeye \"tüm otlar\" · \"tüm yemekler\" · \"tüm kuvvet verenler\" yazarsan o türdeki her eşya ayrı ilanla satılır; adet yerine 🔢 Tümü = çanta + evdeki hepsi.",
+      anahtar: ["sat", "satis", "satsin", "satilsin", "satsın", "sattir", "pazara koy", "elden cikar", "eyalet adina sat",
+                "rezle", "rezlesin", "rezerve et"] },
     { id: "al", tur: "al", ikon: "🛒", baslik: "Alım emri",
       ne: "Pazardan mal aldırır. “Azami” = TOPLAM akçe, tanesinin fiyatı DEĞİL (3500 boyayı tanesi en fazla 31'den: 3500 × 31 = 108500 yaz); bot tanesini azami ÷ adet'ten pahalıya ALMAZ. “tanesi 31 akçe” dersen toplamı ben hesaplarım. Önce 🛒 Pazar sekmesinde fiyata bakmak iyi olur.",
       anahtar: ["al", "alsin", "aldir", "alim", "satin al", "satin alsin", "topla", "ucuza al"] },
@@ -2807,6 +2892,12 @@ async function emirIptalEt(kodlar, ozet) {
     { id: "muayene", tur: "muayene", ikon: "🩺", baslik: "Muayenehane / eczane",
       ne: "YALNIZCA emirle: muayenehane al (250 akçe), eczanede basit iksir yap (ot + adet) ya da muayene gününe hazırlan (fiyatlar + azami). Kendiliğinden hiçbir şey yapılmaz.",
       anahtar: ["muayenehane", "muayene", "iksir", "eczane", "eczanem", "tabip", "hekim", "kendini hazirla", "iksir yap", "muayenehane al"] },
+    { id: "tarlacevir", tur: "tarlacevir", ikon: "🌾🔁", baslik: "Tarla çevirme (ıslah)",
+      ne: "Var olan tarlanın türünü değiştirir (Islah et, 50 akçe). Ekin hasat alınınca çevrilir; koç / manda çiftliğinde hayvan alınmaz, hayvanlar kesilip çiftlik boşalınca çevrilir.",
+      anahtar: ["tarla cevir", "tarlayi cevir", "tarlasini cevir", "tarla degistir", "tarlayi degistir",
+                "tarlasini degistir", "tarla turu", "tarlanin turu", "islah", "islah et", "tarlayi islah",
+                "koca cevir", "mandaya cevir", "sigira cevir", "sebzeye cevir", "misira cevir",
+                "bugdaya cevir", "arpaya cevir"] },
     { id: "oy", tur: "oy", ikon: "🗳️", baslik: "Oy verme",
       ne: "Belediye ya da divan seçiminde hesaplarımıza oy verdirir ya da Sancak Beyi'ni TANITIR; oylar en fazla 3 güne yayılır, oy veren hesap listeden düşer.",
       anahtar: ["oy", "oy ver", "oy verdir", "secim", "aday", "belediye secimi", "divan secimi", "reis secimi",
@@ -2824,7 +2915,7 @@ async function emirIptalEt(kodlar, ozet) {
       ne: "Bota yeni bir hesap (multi) ekler: ad + şifre + takip modu. Şifreyi forma SEN yazarsın.",
       anahtar: ["hesap ekle", "yeni hesap", "multi ekle", "hesabi ekle", "yeni multi"] },
     { id: "sistem", tur: "sistem", ikon: "⚙️", baslik: "Sistem ayarları (maden · cami · kapanış · kaptan · listeler)",
-      ne: "Hesaba bağlı OLMAYAN bot ayarları: maden kasabaları, öncelikli maden, ayrıcalıklı cami hesapları, 💪 kuvvet öncelikli hesaplar (kuvvet kassın + rezerve yemeği önce alsın), 📍👁️ ara nokta gözcüleri (Günlük + Gruplar ve Ordular okur, Kim Nerede'ye yazar), 🪖 alım modu gözcüleri (kasaba başına kalıcı silahlı grup — Yetki Dahilinde · 2 kişilik · dağıtılmaz), 🏦 kasa hesabı (akçesi azalan hesap kasadan akçe çeker — boşken KAPALI), tur bitince uyku/kapat, yaşlı garson, gemi armatörü, kaptan rotası, molla, dost/düşman/izleme listeleri. Şu anki değerleri de gösterir.",
+      ne: "Hesaba bağlı OLMAYAN bot ayarları: maden kasabaları, öncelikli maden, ayrıcalıklı cami hesapları, 💪 kuvvet öncelikli hesaplar (kuvvet kassın + rezerve yemeği önce alsın), 📍👁️ ara nokta gözcüleri (Günlük + Gruplar ve Ordular okur, Kim Nerede'ye yazar), 🪖 alım modu gözcüleri (kasaba başına kalıcı silahlı grup — Yetki Dahilinde · 2 kişilik · dağıtılmaz), ⚗️ ot alıcıları + ot satış günü (haftada bir, o kasabadaki hesapların şifalı otu iksirciye rezerveli — ikisi birlikte gerekir), 🍞 fırıncılar (kasaba=fırıncı — o kasabadaki Et / Şişe Süt / Sebze / Somun Ekmeği ona rezerveli), 🏦 kasa hesabı (akçesi azalan hesap kasadan akçe çeker — boşken KAPALI), tur bitince uyku/kapat, yaşlı garson, gemi armatörü, kaptan rotası, molla, dost/düşman/izleme listeleri. Şu anki değerleri de gösterir.",
       anahtar: ["sistem ayar", "sistem ayari", "genel ayar", "bot ayari", "maden kasaba", "maden kasabalari",
                 "maden onceligi", "oncelikli maden", "ayricalikli cami", "cami listesi", "camiye gitsin",
                 "kuvvet oncelikli", "kuvvet kassin", "kuvvet kas", "kuvvet puani",
@@ -2832,6 +2923,8 @@ async function emirIptalEt(kodlar, ozet) {
                 "gozcu", "gozculer", "ara nokta gozcusu", "ara nokta gozculeri", "gordukleri",
                 "alim modu", "alim gozcu", "silahli grup", "kalici grup",
                 "hurda ot", "hurdada ot", "hurda yerine ot",
+                "ot alici", "ot alicilari", "ot satis gunu", "iksirciye",
+                "firinci", "firincilar", "firinci ata", "firinciya rezerve",
                 "kasa hesab", "kasadan", "otonom akce",
                 "kapanis", "uyku modu", "bilgisayari kapat", "yasli garson", "dusman ekle", "dusmana ekle",
                 "dost ekle", "izleme listesi", "kaptan hedef", "kaptan rota", "molla", "hangi ayar", "ayarlari gor"] },
@@ -2914,10 +3007,29 @@ async function emirIptalEt(kodlar, ozet) {
     return Object.keys(set);
   }
 
+  // 🧾🔢 [21.10.2026 — İŞ 24/25] "tüm otlarını sat" → malzeme "tüm otlar";
+  //    "hepsini / tümünü / tamamını" → 🔢 Tümü. Kategori adları SAT_KATEGORILERI ile aynı.
+  function kategoriBul(kel) {
+    var hepsi = kel.some(function (k) {
+      return /^(tum|butun|hepsi|tamami)/.test(k);
+    });
+    if (!hepsi) return "";
+    var var_ = function (re) { return kel.some(function (k) { return re.test(k); }); };
+    var veren = var_(/^(veren|arttiran|artiran)/);
+    if (veren && var_(/^(kuvvet|guc)/)) return "tüm kuvvet verenler";
+    if (veren && var_(/^zeka/)) return "tüm zeka verenler";
+    if (veren && var_(/^karizma/)) return "tüm karizma verenler";
+    if (var_(/^(otlar|otu$|otun|ot$|sifali)/)) return "tüm otlar";
+    if (var_(/^(yemek|yiyecek)/)) return "tüm yemekler";
+    return "";
+  }
+
   function varliklariBul(metin) {
     var sonuc = { hesaplar: [], esya: "", adet: "", akce: "", ordu: "" };
     var kel = kelimeler(metin);
     var sd = " " + kel.join(" ") + " ";
+    sonuc.kategori = kategoriBul(kel);
+    sonuc.tumu = kel.some(function (k) { return /^(tumu|hepsi|tamami)/.test(k); });
     // Hesaplar: tam kelime ya da "toygaya" gibi ekli hâl (en fazla 4 harf ek).
     hesapAdlari().forEach(function (ad) {
       var a = sade(ad);
@@ -3019,7 +3131,8 @@ async function emirIptalEt(kodlar, ozet) {
     aile: "ak-hesap"
   };
   var COKLU_HESAP_KUTUSU = { divan: "dv-hesaplar", ordukatil: "ok-hesaplar", oy: "oy-hesaplar",
-                             ailebasvur: "ab-hesaplar", muayene: "mu-hesaplar" };
+                             ailebasvur: "ab-hesaplar", muayene: "mu-hesaplar",
+                             tarlacevir: "tc-hesaplar" };
 
   function ac(n, v) {
     if (n.sekme) { location.hash = n.sekme; return; }
@@ -3040,7 +3153,17 @@ async function emirIptalEt(kodlar, ozet) {
       if (n.tur === "ordukatil" && v.ordu) yaz("ok-ordu", v.ordu);
       // Eşya listesi hesaba göre dolduğu için eşya/adet biraz SONRA yazılır.
       setTimeout(function () {
-        if (n.tur === "sat") { yaz("sat-mal", v.esya); yaz("sat-adet", v.adet); }
+        if (n.tur === "sat") {
+          yaz("sat-mal", v.kategori || v.esya);
+          // 🔢 "hepsini sat" → Tümü tiki (adet kutusu kapanır); yoksa sayı yazılır.
+          var tk = document.getElementById("sat-tumu");
+          if (v.tumu && tk && !tk.checked) {
+            tk.checked = true;
+            try { tk.dispatchEvent(new Event("change", { bubbles: true })); } catch (e) {}
+          } else if (!v.tumu) {
+            yaz("sat-adet", v.adet);
+          }
+        }
         if (n.tur === "al") {
           yaz("al-mal", v.esya); yaz("al-adet", v.adet);
           if (v.akceTuru === "toplam") yaz("al-azami", v.akce);
