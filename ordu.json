@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-22 10:48",
+  "son_guncelleme": "2026-10-22 11:29",
   "rapor_tarihi": "2026-10-22",
   "onceki_tarih": "2026-10-21",
   "ordular": [
@@ -9,16 +9,19 @@
       "komutan": "Kazasker: Berengario",
       "durum": "Şehir İçinde",
       "ham_durum": "Ordu şehirde",
-      "alim_modu": false,
-      "danisman": false,
+      "alim_modu": null,
+      "danisman": null,
       "danisman_puan": null,
       "danisman_maas": "",
-      "komutan_login": "berengario",
+      "komutan_login": "",
       "degisim": "ayni",
       "onceki_kasaba": "Girvan",
       "onceki_durum": "Şehir İçinde",
       "birlesme": false,
-      "birlesme_gorus": "2026-10-21 14:19"
+      "birlesme_gorus": "2026-10-22 11:27",
+      "anlik_saat": "11:27",
+      "sabah_kasaba": "Girvan",
+      "sabah_durum": "Şehir İçinde"
     },
     {
       "ad": "Glasgow",
@@ -81,6 +84,7 @@
   "gemiler": [],
   "not": "alim_modu/danisman 17.09.2026'dan itibaren toplanıyor; daha eski günlerde null (bilinmiyor) görünür.",
   "nobet_saatleri": {
+    "Girvan": "11:27",
     "Glasgow": "10:46",
     "Wigtown": "09:35"
   }
