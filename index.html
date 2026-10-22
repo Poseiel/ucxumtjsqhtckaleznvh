@@ -550,9 +550,14 @@ if (window.L) L.RasterCoords.prototype = {
         <tr><td>🎛️ <b>Hesap planı</b><br><span class="rehber-eski">19.10.2026</span></td>
             <td><b>Emir → 🖥️ Ayar → 🎛️ Hesap planı</b>: yemek (kuvvet/zeka/karizma/basic/yok) · meyhane ·
               yol yemeği · tarla (kendisi/işçi/besle) · <b>iş sırası</b> (atölye · odun · 🌿 ot · demir · maden · cami ·
-              eaü · ders · yok) · kalan enerji · cami parası · satış kapalı.
+              eaü · ders · ⚗️ iksir · yok) · kalan enerji · cami parası · satış kapalı.
               <br>🌿 <b>ot</b> (19.10.2026): şifalı ot toplama — süre maden gibi (04:00 / 24 saat), toplanan ot
-              <b>satılmaz</b>, evde birikir; yeni çeşitleri bot kendisi öğrenir.</td>
+              <b>satılmaz</b>, evde birikir; yeni çeşitleri bot kendisi öğrenir.
+              <br>⚗️ <b>iksir</b> (21.10.2026): <span class="rehber-akis">iş sırası: ot, iksir</span> — otlar evde
+              birikir; listedeki bir ot (çanta + ev) <b>20</b> olunca YALNIZCA o ot çantaya çekilir (ek sayfa
+              yok), ot 85 enerjiyle, ardından basit iksir 30 enerjiyle (Eczanem → Basit bir iksir yap, kutunun en
+              büyüğü). Oyun "Bunu yapmak için bilgin eksik" derse (İlim 9 "Bitki bilimi") o hesapta iksir
+              <b>7 gün</b> denenmez, Telegram'a bir kez yazılır; ot toplama sürer.</td>
             <td>Tarla 1 · ases 2 <b>sabit</b>; sonra iş sırasında <b>ilk verilebilen</b> kazanır. Boş bırakılan her konu
               = <b>bugünkü düzen</b>. Ordu/Grup Takip, gemi, kaptan, inziva planı okumaz. Her hesapta log'da
               <span class="rehber-akis">🎛️ Plan: …</span> satırı. <span class="rehber-akis">plan: iptal</span> hepsini boşaltır.</td></tr>
@@ -1659,6 +1664,7 @@ if (window.L) L.RasterCoords.prototype = {
         <button class="emir-tur-btn" data-tur="aile">👪 Aile kabul</button>
         <button class="emir-tur-btn" data-tur="ailebasvur">👪 Aileye başvur</button>
         <button class="emir-tur-btn" data-tur="muayene">🩺 Muayenehane</button>
+        <button class="emir-tur-btn" data-tur="tarlacevir">🌾🔁 Tarla çevir</button>
       </div>
       <!-- 🎭 [21.09.2026] KARAKTER / RP grubu. Kullanıcının notu:
            "hangi hesapta profile bişe yazdıracaksak o hesap kendi ismini
@@ -1692,15 +1698,22 @@ if (window.L) L.RasterCoords.prototype = {
         <label>Satacak hesap
           <input list="emir-hesap-listesi" id="sat-hesap" placeholder="yazmaya başla… (örn. coptik)" autocomplete="off">
         </label>
-        <label>Malzeme
-          <input list="sat-mal-listesi" id="sat-mal" placeholder="önce hesabı seç" autocomplete="off">
+        <label>Malzeme <span class="emir-kucuk">(eşya adı ya da 🧾 kategori: tüm otlar · tüm yemekler · tüm kuvvet / zeka / karizma verenler)</span>
+          <input list="sat-mal-listesi" id="sat-mal" placeholder="önce hesabı seç — ya da “tüm otlar”" autocomplete="off">
           <datalist id="sat-mal-listesi"></datalist>
         </label>
       </div>
       <p class="emir-ipucu" id="sat-bilgi"></p>
+      <!-- 🧾🔢 [21.10.2026 — İŞ 24/25] Kategori: her eşleşen eşya AYRI ilanla satılır
+           (meslek hammaddesi · ödenek malı · Midas sandığı · bugünkü yemek payı KORUNUR).
+           "Tümü": çanta + evdeki hepsi (bot: adet: tümü). Bot: pazar_emirleri.emri_coz. -->
       <div class="emir-satir">
         <label>Adet
           <input type="number" id="sat-adet" min="1" step="1" placeholder="örn. 50">
+        </label>
+        <label class="emir-tik">
+          <input type="checkbox" id="sat-tumu">
+          🔢 Tümü <span class="emir-kucuk">(çanta + evdeki hepsi — adet boş kalır)</span>
         </label>
         <label>Fiyat
           <select id="sat-fiyat-mod">
@@ -2010,7 +2023,54 @@ if (window.L) L.RasterCoords.prototype = {
           ⚡ Hemen yap <span class="emir-kucuk">(tiksiz: hesap kendi sırası gelince yapar)</span>
         </label>
       </div>
-      <p class="emir-ipucu">Bot muayenehane / eczane işini <b>kendiliğinden hiç yapmaz</b>, yalnızca bu emirle. <b>Muayenehane al</b>: mülkiyet panelinde yalnızca "Muayenehanem" bloğuna basılır (Meyhane / Gemi / tarla bloklarına asla); kilitliyse ("Seviye 100 için mevcut") ya da fiyat 250'yi aşarsa basılmaz; cepte 250 + 50 akçe yemek payı gerekir. <b>İksir</b>: ot çantada tutulur, evdeyse çekilir; "Üretim"den sonra açılan pencere kaydedilir. <b>Muayene günü</b>: yalnızca muayenehanenin olduğu kasabada; o gün başka iş varsa yapılmaz. İksir ve muayene günün işini yer, tarladan önce yapılır. Hildegard / şifalı bileşik / reçeteler yapılmaz.</p>
+      <p class="emir-ipucu">Bot muayenehane / eczane işini <b>kendiliğinden hiç yapmaz</b>, yalnızca bu emirle. <b>Muayenehane al</b>: mülkiyet panelinde yalnızca "Muayenehanem" bloğuna basılır (Meyhane / Gemi / tarla bloklarına asla); kilitliyse ("Seviye 100 için mevcut") ya da fiyat 250'yi aşarsa basılmaz; cepte 250 + 50 akçe yemek payı gerekir. <b>İksir</b>: ot çantada tutulur, evdeyse çekilir; "Üretim" → "Yeni Görev" (gün batımına kadar, 30 enerji) → <b>Programla</b> (21.10.2026'dan beri — pencere kayıtlı). Oyun "bilgin eksik" derse (İlim 9) emir iptal edilir. <b>Muayene günü</b>: yalnızca muayenehanenin olduğu kasabada; o gün başka iş varsa yapılmaz. İksir ve muayene günün işini yer, tarladan önce yapılır. Hildegard / şifalı bileşik / reçeteler yapılmaz.</p>
+    </div>
+    <!-- 🌾🔁 [21.10.2026 — İŞ 28] TARLA ÇEVİR — şablon `tarla_cevir.emri_coz` ile BİREBİR.
+         Tür listesi = tarla_cevir.IZINLI_TURLER (ev_atolye_modul.TARLA_TIPLERI adları). -->
+    <div class="emir-form" id="emir-form-tarlacevir">
+      <div class="emir-satir">
+        <label>Hesap(lar) <span class="emir-kucuk">(virgülle ya da her satıra bir ad)</span>
+          <textarea id="tc-hesaplar" rows="2" placeholder="Nihilant"></textarea>
+        </label>
+      </div>
+      <div class="emir-satir">
+        <label>Hangi tarla <span class="emir-kucuk">(mülkiyetteki sıra)</span>
+          <select id="tc-tarla">
+            <option value="">— seç —</option>
+            <option value="1">1. tarla</option>
+            <option value="2">2. tarla</option>
+            <option value="1, 2">1. ve 2. tarla</option>
+            <option value="hepsi">Hepsi</option>
+          </select>
+        </label>
+        <label>Yeni tür
+          <select id="tc-tur">
+            <option value="">— seç —</option>
+            <option value="Buğday">Buğday</option>
+            <option value="Mısır">Mısır</option>
+            <option value="Manda">Manda</option>
+            <option value="Koç">Koç</option>
+            <option value="Sığır">Sığır</option>
+            <option value="Sebze">Sebze</option>
+            <option value="Arpa">Arpa</option>
+          </select>
+        </label>
+      </div>
+      <div class="emir-satir">
+        <label>Hasadı bitince mi değiştireyim?
+          <select id="tc-hasat">
+            <option value="bitince">Evet — ürün alınınca değiştir (önerilen)</option>
+            <option value="hemen">Hayır — hemen değiştir (⚠️ ekili ürün GİDER)</option>
+          </select>
+        </label>
+      </div>
+      <div class="emir-satir">
+        <label class="emir-tik">
+          <input type="checkbox" id="tc-hemen">
+          ⚡ Hemen yap <span class="emir-kucuk">(tiksiz: hesap kendi sırası gelince yapar)</span>
+        </label>
+      </div>
+      <p class="emir-ipucu">Tarla penceresinde <b>Islah et</b> (50 akçe, oyun: "Bu işlem geri alınamaz") → yeni tür seçilir. <b>Ekin tarlası</b>: "Evet" seçilirse ürün varken dokunulmaz, hasat alınınca çevrilir; o zamana kadar tarla yeniden <b>ekilmez</b>. <b>Koç / manda çiftliği</b>: emir aktifken <b>yeni hayvan alınmaz</b>; çiftlik dolu (4/4) ve ürün hazırsa son yün / süt alınır, sonra hayvanlar her gün birer kesilir; çiftlik <b>0</b> olunca ıslah edilir (hayvan varken asla). Buğday / Mısır / Arpa'ya çevrilen tarla için eve 1 çuval tohum alınır. Cepte 50 + 50 akçe yoksa basılmaz. Zeytin / Üzüm / Keçi / Koyun / Arıcılık kasabaya ya da yeteneğe bağlı olduğu için listede yok.</p>
     </div>
     <div class="emir-form" id="emir-form-oy">
       <div class="emir-satir">
@@ -2680,7 +2740,7 @@ if (window.L) L.RasterCoords.prototype = {
           </label>
         </div>
         <div class="emir-satir">
-          <label>⛏️ İş sırası <span class="ay-ipucu">virgülle: atölye · odun · ot · demir · maden · cami · eaü · ders · yok — ilk verilebilen kazanır (🌿 ot = şifalı ot toplama) · "iptal" = bugünkü sıra</span>
+          <label>⛏️ İş sırası <span class="ay-ipucu">virgülle: atölye · odun · ot · demir · maden · cami · eaü · ders · iksir · yok — ilk verilebilen kazanır (🌿 ot = şifalı ot toplama · ⚗️ iksir = listedeki bir ot çanta + evde 20 olunca basit iksir, 30 enerji; ot ile birlikte yazılırsa otun hemen ardından) · "iptal" = bugünkü sıra</span>
             <input id="ay-plan-is" placeholder="örn. cami, demir, eaü" autocomplete="off">
           </label>
           <label>🔥 Kalan enerji
@@ -2776,6 +2836,35 @@ if (window.L) L.RasterCoords.prototype = {
           <label>🌲🚚 Odun alıcıları <span class="ay-ipucu">kasaba=alıcı, virgülle · odun taşıma zincirinde <b>odun_sat</b> adımına alıcı yazılmazsa taşıyıcının vardığı kasabanın alıcısı kullanılır · taşıyıcı alıcıdan ÖNCE girer (ilanı koyunca alıcı aynı gün alsın), ilan bekliyorsa SONRA girer (adım aynı gün kapanır, dönüşe çıkar) · “ekle: Glasgow=X” Glasgow'un alıcısını DEĞİŞTİRİR · “çıkar: Glasgow” kaldırır · boş = alıcı her emirde yazılır (eski düzen)</span>
             <select id="si-odun-alici-islem" class="si-islem"></select>
             <input id="si-odun-alici" placeholder="örn. Glasgow=Renegrade" autocomplete="off">
+          </label>
+        </div>
+        <!-- ⚗️ [21.10.2026 — FABLE_GOREV_2026-10-21 İŞ 26] Ot → iksirci haftalık rezerveli satış.
+             Bot: site_emirleri "ot alıcıları" / "ot satış günü" → ot_satis. Liste YA DA gün boş = KAPALI. -->
+        <div class="emir-satir">
+          <label>⚗️ Ot alıcıları <span class="ay-ipucu">kasaba=iksirci, virgülle · <b>satış gününde</b> o kasabada <b>evinde olan</b> hesap ev sandığındaki şifalı otun hepsini (her ot ayrı ilan · en düşük fiyat) o kasabanın iksircisine <b>rezerveli</b> koyar — ek sayfa açmaz, aynı turda · iksirci bizim hesapsa alım emri kendiliğinden açılır, dost hesapsa (Partal) elle alır · alıcının kendisi ve iksirci hesap otunu satmaz · hızlı mod / ordu / seyahat / ders hesapları yapmaz · “ekle: Ardencaple=X” Ardencaple'ın alıcısını DEĞİŞTİRİR · “çıkar: Ardencaple” kaldırır · boş = kapalı</span>
+            <select id="si-ot-alici-islem" class="si-islem"></select>
+            <input id="si-ot-alici" placeholder="örn. Ardencaple=Partal" autocomplete="off">
+          </label>
+          <label>⚗️ Ot satış günü <span class="ay-ipucu">haftada bir (oyun günü, 06:45'te döner) · alıcı listesi ile BİRLİKTE gerekir</span>
+            <select id="si-ot-gun">
+              <option value="">— değiştirme —</option>
+              <option value="pazartesi">pazartesi</option>
+              <option value="salı">salı</option>
+              <option value="çarşamba">çarşamba</option>
+              <option value="perşembe">perşembe</option>
+              <option value="cuma">cuma</option>
+              <option value="cumartesi">cumartesi</option>
+              <option value="pazar">pazar</option>
+              <option value="yok">⛔ kapalı (ot satışı dursun)</option>
+            </select>
+          </label>
+        </div>
+        <!-- 🍞 [22.10.2026] Kasaba fırıncıları (kasaba=fırıncı) — kullanıcı: "Kaldır + Telegram'dan atanır".
+             Bot: site_emirleri "fırıncılar" → trade_config.firinci_tablosu_kur. Yazılmamışsa koddaki tablo. -->
+        <div class="emir-satir">
+          <label>🍞 Fırıncılar <span class="ay-ipucu">kasaba=fırıncı, virgülle · o kasabadaki herkes Et, Şişe Süt, Sebze ve Somun Ekmeği'ni bu hesaba <b>rezerveli</b> satar, fırıncının kendisi hammaddeyi evinde biriktirir · “ekle: Glasgow=X” Glasgow'un fırıncısını DEĞİŞTİRİR · “çıkar: Glasgow” kaldırır · hiç yazılmamışsa koddaki tablo geçerli (Ardencaple=Ironfoot) · “yok” = hiçbir kasabada fırıncı yok</span>
+            <select id="si-firinci-islem" class="si-islem"></select>
+            <input id="si-firinci" placeholder="örn. Ardencaple=Ironfoot, Glasgow=..." autocomplete="off">
           </label>
         </div>
       </fieldset>
