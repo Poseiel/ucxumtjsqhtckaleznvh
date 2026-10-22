@@ -2456,6 +2456,8 @@ function emirTurAdi(t) {
   if (t === "muayenehane_al") return "🩺 Muayenehane al";
   if (t === "iksir_yap") return "🧪 İksir yap";
   if (t === "muayene_gunu") return "🩺 Muayene günü";
+  // 🌾🔁 [21.10.2026 — İŞ 28] var olan tarlanın türünü değiştirme (tarla_cevir.TARLA_CEVIR_TURU)
+  if (t === "tarla_cevir") return "🌾🔁 Tarla çevir";
   return t || "—";
 }
 
@@ -2495,7 +2497,10 @@ async function emirDurumYukle() {
         "<td>" + (e.kod || "") + "</td>" +
         "<td>" + emirTurAdi(e.tur) + etiketler + "</td>" +
         "<td>" + (e.hesap || "") + "</td>" +
-        "<td>" + (e.urun || "") + "</td>" +
+        // 🧾 [21.10.2026 — İŞ 24] kategori emrinde şimdiye kadar hangi eşyadan kaç satıldı
+        "<td>" + (e.urun || "") + (e.satilanlar
+          ? '<br><span class="emir-kucuk">şimdiye kadar: ' +
+            String(e.satilanlar).split("<").join("&lt;") + "</span>" : "") + "</td>" +
         "<td>" + (e.adet === null || e.adet === undefined ? "" : e.adet) + "</td>" +
         "<td>" + (e.fiyat || "") + "</td>" +
         "<td>" + (e.alici || "—") + "</td>" +
