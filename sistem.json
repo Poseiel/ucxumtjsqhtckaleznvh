@@ -1,14 +1,12 @@
 {
-  "son_guncelleme": "2026-10-22 16:05",
+  "son_guncelleme": "2026-10-22 20:05",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
       "Stirling"
     ],
     "maden_oncelik": "demir",
-    "cami_ayricalikli": [
-      "Murderer"
-    ],
+    "cami_ayricalikli": [],
     "kuvvet_oncelikli": [
       "semiramir",
       "nindalf",
@@ -28,8 +26,7 @@
       "erethea",
       "helioson",
       "marchosias",
-      "darkbringer",
-      "dronron"
+      "darkbringer"
     ],
     "odun_kasabalari": [
       "Ardencaple"
@@ -50,7 +47,7 @@
     "kapanis_islemi": 2,
     "yasli_garson": 0,
     "telegram_isim": "Feyyaz",
-    "gemi_armatoru": "mr.butcher",
+    "gemi_armatoru": "",
     "molla_hesabi": "",
     "ders_verebilir": [],
     "kaptan_hedef_liman": "Calais",
@@ -63,8 +60,7 @@
       "Whithorn=Noumama",
       "Wigtown=Kargath",
       "Kirkcudbright=Bradley_Richards",
-      "Girvan=Whisperbane",
-      "Stirling=LeonProf"
+      "Girvan=Whisperbane"
     ],
     "modem": "ZTE Superbox"
   },
@@ -191,10 +187,6 @@
       "ayar": {}
     },
     {
-      "ad": "Peeves",
-      "ayar": {}
-    },
-    {
       "ad": "Typhoonn",
       "ayar": {}
     },
@@ -235,10 +227,6 @@
       "ayar": {}
     },
     {
-      "ad": "Baela",
-      "ayar": {}
-    },
-    {
       "ad": "Tantalos",
       "ayar": {}
     },
@@ -248,10 +236,6 @@
     },
     {
       "ad": "Jarg",
-      "ayar": {}
-    },
-    {
-      "ad": "Vermithor",
       "ayar": {}
     },
     {
@@ -267,10 +251,6 @@
       "ayar": {}
     },
     {
-      "ad": "penciher",
-      "ayar": {}
-    },
-    {
       "ad": "Ningauble",
       "ayar": {}
     },
@@ -282,22 +262,8 @@
       }
     },
     {
-      "ad": "Thebear",
-      "ayar": {
-        "takip": "Ordu Takip",
-        "isci_tut": true
-      }
-    },
-    {
       "ad": "Duncan_Little",
       "ayar": {}
-    },
-    {
-      "ad": "Darwinn",
-      "ayar": {
-        "takip": "Ordu Takip",
-        "isci_tut": true
-      }
     },
     {
       "ad": "Nojiko",
@@ -312,18 +278,8 @@
       "ayar": {}
     },
     {
-      "ad": "Bilrider",
-      "ayar": {}
-    },
-    {
       "ad": "Telconta_r",
       "ayar": {}
-    },
-    {
-      "ad": "Makuta",
-      "ayar": {
-        "takip": "Alışverişçi"
-      }
     },
     {
       "ad": "Davoss",
@@ -332,16 +288,6 @@
     {
       "ad": "Coptik",
       "ayar": {}
-    },
-    {
-      "ad": "LeonProf",
-      "ayar": {}
-    },
-    {
-      "ad": "Renegrade",
-      "ayar": {
-        "divan_gorevi": "Sancak Beyi"
-      }
     },
     {
       "ad": "ranrok",
@@ -360,31 +306,11 @@
       }
     },
     {
-      "ad": "MoiraAsh",
-      "ayar": {}
-    },
-    {
       "ad": "Betmen",
       "ayar": {}
     },
     {
       "ad": "Bafetimbi",
-      "ayar": {}
-    },
-    {
-      "ad": "Ziyech",
-      "ayar": {}
-    },
-    {
-      "ad": "Vamder",
-      "ayar": {}
-    },
-    {
-      "ad": "beramus",
-      "ayar": {}
-    },
-    {
-      "ad": "Cullengen",
       "ayar": {}
     },
     {
@@ -395,51 +321,8 @@
       }
     },
     {
-      "ad": "corryvreckan",
-      "ayar": {}
-    },
-    {
-      "ad": "Colonell",
-      "ayar": {}
-    },
-    {
-      "ad": "Aiegus",
-      "ayar": {
-        "divan_gorevi": "Ticaret Nazırı"
-      }
-    },
-    {
-      "ad": "kardemar",
-      "ayar": {}
-    },
-    {
-      "ad": "Patek",
-      "ayar": {}
-    },
-    {
-      "ad": "Toyga",
-      "ayar": {
-        "divan_gorevi": "Belediye Reisi + Liman Şefi"
-      }
-    },
-    {
       "ad": "dervorin",
       "ayar": {}
-    },
-    {
-      "ad": "Anaster",
-      "ayar": {}
-    },
-    {
-      "ad": "Beannighe",
-      "ayar": {}
-    },
-    {
-      "ad": "drayen",
-      "ayar": {
-        "takip": "Ordu Takip",
-        "isci_tut": true
-      }
     },
     {
       "ad": "nightshader",
@@ -455,7 +338,11 @@
         "gorev": "atolye:Terzi",
         "midas_kutu": 30,
         "midas_para_hedefi": 5000
-      }
+      },
+      "bekleyen": [
+        "midas_kutu",
+        "midas_para_hedefi"
+      ]
     },
     {
       "ad": "Ironfoot",
@@ -463,11 +350,11 @@
         "gorev": "atolye:Fırıncı",
         "midas_kutu": 30,
         "midas_para_hedefi": 10000
-      }
-    },
-    {
-      "ad": "Dwadu",
-      "ayar": {}
+      },
+      "bekleyen": [
+        "midas_kutu",
+        "midas_para_hedefi"
+      ]
     },
     {
       "ad": "Freshh",
@@ -477,19 +364,6 @@
     },
     {
       "ad": "Arous",
-      "ayar": {
-        "ases": true
-      }
-    },
-    {
-      "ad": "Telemir",
-      "ayar": {
-        "ases": true,
-        "isci_tut": true
-      }
-    },
-    {
-      "ad": "Tonali",
       "ayar": {
         "ases": true
       }
@@ -513,18 +387,10 @@
       }
     },
     {
-      "ad": "Takaraka",
-      "ayar": {}
-    },
-    {
       "ad": "Bainhalt",
       "ayar": {
         "ases": true
       }
-    },
-    {
-      "ad": "Dronron",
-      "ayar": {}
     },
     {
       "ad": "drakania",
@@ -579,21 +445,9 @@
       "ayar": {}
     },
     {
-      "ad": "mr.butcher",
-      "ayar": {
-        "isci_tut": true
-      }
-    },
-    {
       "ad": "Millady",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
-    },
-    {
-      "ad": "caspe",
-      "ayar": {
-        "takip": "Alışverişçi"
       }
     },
     {
@@ -607,10 +461,6 @@
       "ayar": {
         "takip": "Hızlı Maden"
       }
-    },
-    {
-      "ad": "Churchilltwo",
-      "ayar": {}
     },
     {
       "ad": "Penaldo",
@@ -805,10 +655,6 @@
       }
     },
     {
-      "ad": "Bremer",
-      "ayar": {}
-    },
-    {
       "ad": "Awerta",
       "ayar": {
         "takip": "Hızlı Maden",
@@ -926,12 +772,6 @@
       "ad": "Braveman",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
-    },
-    {
-      "ad": "Murderer",
-      "ayar": {
-        "midas_kutu": 30
       }
     },
     {
@@ -1081,7 +921,7 @@
       }
     }
   ],
-  "toplam_hesap": 173,
+  "toplam_hesap": 139,
   "sistem_gecmis": [
     {
       "zaman": "2026-10-10 22:50",
