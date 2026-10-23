@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-23 08:48",
+  "son_guncelleme": "2026-10-23 09:23",
   "tarih": "2026-10-23",
   "aralik_dk": 150,
   "kontroller": [
@@ -19,6 +19,61 @@
       ],
       "gruplar": [],
       "farklar": []
+    },
+    {
+      "kasaba": "Wigtown",
+      "saat": "09:22",
+      "saat_tam": "2026-10-23T09:22:17",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Wigtown",
+          "kasaba": "Wigtown",
+          "komutan": "Kazasker: Catani",
+          "durum": "Şehir İçinde",
+          "ham_durum": "Ordu şehirde"
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "6004075",
+          "tur": "Silahlı Grup",
+          "lider": "al_lan",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6282595",
+          "tur": "Silahlı Grup",
+          "lider": "cameliae",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6286581",
+          "tur": "Silahlı Grup",
+          "lider": "causantin_men3es",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6323950",
+          "tur": "Silahlı Grup",
+          "lider": "kargath",
+          "uyeler": [],
+          "katilim": "Yetki Dahilinde"
+        },
+        {
+          "id": "6312074",
+          "tur": "Silahlı Grup",
+          "lider": "soulofanange",
+          "uyeler": [
+            "gracelynn"
+          ],
+          "katilim": "Serbest Katılım"
+        }
+      ],
+      "farklar": []
     }
   ],
   "son_durum": {
@@ -36,6 +91,59 @@
         }
       ],
       "gruplar": []
+    },
+    "Wigtown": {
+      "saat": "09:22",
+      "saat_tam": "2026-10-23T09:22:17",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Wigtown",
+          "kasaba": "Wigtown",
+          "komutan": "Kazasker: Catani",
+          "durum": "Şehir İçinde",
+          "ham_durum": "Ordu şehirde"
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "6004075",
+          "tur": "Silahlı Grup",
+          "lider": "al_lan",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6282595",
+          "tur": "Silahlı Grup",
+          "lider": "cameliae",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6286581",
+          "tur": "Silahlı Grup",
+          "lider": "causantin_men3es",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6323950",
+          "tur": "Silahlı Grup",
+          "lider": "kargath",
+          "uyeler": [],
+          "katilim": "Yetki Dahilinde"
+        },
+        {
+          "id": "6312074",
+          "tur": "Silahlı Grup",
+          "lider": "soulofanange",
+          "uyeler": [
+            "gracelynn"
+          ],
+          "katilim": "Serbest Katılım"
+        }
+      ]
     }
   },
   "ordulu_kasabalar": [
