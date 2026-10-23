@@ -1,9 +1,43 @@
 {
-  "son_guncelleme": "2026-10-23 07:49",
+  "son_guncelleme": "2026-10-23 08:48",
   "tarih": "2026-10-23",
   "aralik_dk": 150,
-  "kontroller": [],
-  "son_durum": {},
+  "kontroller": [
+    {
+      "kasaba": "Stirling",
+      "saat": "08:45",
+      "saat_tam": "2026-10-23T08:45:36",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Glasgow",
+          "kasaba": "Stirling",
+          "komutan": "Kazasker: Mavisari",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": [],
+      "farklar": []
+    }
+  ],
+  "son_durum": {
+    "Stirling": {
+      "saat": "08:45",
+      "saat_tam": "2026-10-23T08:45:36",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Glasgow",
+          "kasaba": "Stirling",
+          "komutan": "Kazasker: Mavisari",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": []
+    }
+  },
   "ordulu_kasabalar": [
     "Girvan",
     "Glasgow",
