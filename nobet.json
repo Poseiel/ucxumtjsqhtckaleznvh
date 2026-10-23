@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-23 10:44",
+  "son_guncelleme": "2026-10-23 11:59",
   "tarih": "2026-10-23",
   "aralik_dk": 150,
   "kontroller": [
@@ -218,6 +218,40 @@
         }
       ],
       "farklar": []
+    },
+    {
+      "kasaba": "Glasgow",
+      "saat": "11:58",
+      "saat_tam": "2026-10-23T11:58:26",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "The Excelsior",
+          "kasaba": "Glasgow",
+          "komutan": "Kazasker: Emmalogan",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "6048704",
+          "tur": "Silahlı Grup",
+          "lider": "izaskun",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6324697",
+          "tur": "Silahlı Grup",
+          "lider": "rosalina_",
+          "uyeler": [
+            "mandarina"
+          ],
+          "katilim": "Serbest Katılım"
+        }
+      ],
+      "farklar": []
     }
   ],
   "son_durum": {
@@ -373,6 +407,38 @@
           "lider": "whisperbane",
           "uyeler": [],
           "katilim": "Yetki Dahilinde"
+        }
+      ]
+    },
+    "Glasgow": {
+      "saat": "11:58",
+      "saat_tam": "2026-10-23T11:58:26",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "The Excelsior",
+          "kasaba": "Glasgow",
+          "komutan": "Kazasker: Emmalogan",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "6048704",
+          "tur": "Silahlı Grup",
+          "lider": "izaskun",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6324697",
+          "tur": "Silahlı Grup",
+          "lider": "rosalina_",
+          "uyeler": [
+            "mandarina"
+          ],
+          "katilim": "Serbest Katılım"
         }
       ]
     }
