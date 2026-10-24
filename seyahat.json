@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-23 14:19",
+  "son_guncelleme": "2026-10-24 17:11",
   "adim_hakki_normal": 2,
   "adim_hakki_jetonlu": 3,
   "yolcular": [
@@ -9,21 +9,13 @@
       "kaynak": "ayar",
       "nereden": "Guarda - Crato Yolu Üzerinde",
       "yolda": true,
-      "bot_kalan_gun": 6,
-      "nereden_id": 926,
+      "bot_kalan_gun": 5,
+      "nereden_id": 2588,
       "hedef": "Santarém",
       "hedef_id": 1156,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 926,
-          "isim": "Guarda - Viseu arası"
-        },
-        {
-          "id": 927,
-          "isim": "Guarda - Viseu arası"
-        },
         {
           "id": 2588,
           "isim": "Guarda - Crato arası"
@@ -65,26 +57,11 @@
           "isim": "Santarém"
         }
       ],
-      "kalan_adim": 11,
-      "kalan_gun": 6,
+      "kalan_adim": 9,
+      "kalan_gun": 5,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 2588,
-          "varis": "Guarda - Crato arası",
-          "duraklar": [
-            {
-              "id": 927,
-              "isim": "Guarda - Viseu arası"
-            },
-            {
-              "id": 2588,
-              "isim": "Guarda - Crato arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 2590,
           "varis": "Crato - Elvas arası",
           "duraklar": [
@@ -99,7 +76,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 1173,
           "varis": "Crato - Avis arası",
           "duraklar": [
@@ -114,7 +91,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 1171,
           "varis": "Montemor - Avis arası",
           "duraklar": [
@@ -129,7 +106,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 1165,
           "varis": "Santarém - Montemor arası",
           "duraklar": [
@@ -144,7 +121,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 1156,
           "varis": "Santarém",
           "duraklar": [
@@ -164,21 +141,13 @@
       "kaynak": "ayar",
       "nereden": "Guarda - Crato Yolu Üzerinde",
       "yolda": true,
-      "bot_kalan_gun": 5,
-      "nereden_id": 926,
+      "bot_kalan_gun": 4,
+      "nereden_id": 2588,
       "hedef": "Montemor",
       "hedef_id": 1164,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 926,
-          "isim": "Guarda - Viseu arası"
-        },
-        {
-          "id": 927,
-          "isim": "Guarda - Viseu arası"
-        },
         {
           "id": 2588,
           "isim": "Guarda - Crato arası"
@@ -212,26 +181,11 @@
           "isim": "Montemor"
         }
       ],
-      "kalan_adim": 9,
-      "kalan_gun": 5,
+      "kalan_adim": 7,
+      "kalan_gun": 4,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 2588,
-          "varis": "Guarda - Crato arası",
-          "duraklar": [
-            {
-              "id": 927,
-              "isim": "Guarda - Viseu arası"
-            },
-            {
-              "id": 2588,
-              "isim": "Guarda - Crato arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 2590,
           "varis": "Crato - Elvas arası",
           "duraklar": [
@@ -246,7 +200,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 1173,
           "varis": "Crato - Avis arası",
           "duraklar": [
@@ -261,7 +215,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 1171,
           "varis": "Montemor - Avis arası",
           "duraklar": [
@@ -276,7 +230,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 1164,
           "varis": "Montemor",
           "duraklar": [
@@ -296,21 +250,13 @@
       "kaynak": "ayar",
       "nereden": "Guarda - Crato Yolu Üzerinde",
       "yolda": true,
-      "bot_kalan_gun": 7,
-      "nereden_id": 926,
+      "bot_kalan_gun": 6,
+      "nereden_id": 2588,
       "hedef": "Lisboa",
       "hedef_id": 1158,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 926,
-          "isim": "Guarda - Viseu arası"
-        },
-        {
-          "id": 927,
-          "isim": "Guarda - Viseu arası"
-        },
         {
           "id": 2588,
           "isim": "Guarda - Crato arası"
@@ -360,26 +306,11 @@
           "isim": "Lisboa"
         }
       ],
-      "kalan_adim": 13,
-      "kalan_gun": 7,
+      "kalan_adim": 11,
+      "kalan_gun": 6,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 2588,
-          "varis": "Guarda - Crato arası",
-          "duraklar": [
-            {
-              "id": 927,
-              "isim": "Guarda - Viseu arası"
-            },
-            {
-              "id": 2588,
-              "isim": "Guarda - Crato arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 2590,
           "varis": "Crato - Elvas arası",
           "duraklar": [
@@ -394,7 +325,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 1173,
           "varis": "Crato - Avis arası",
           "duraklar": [
@@ -409,7 +340,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 1171,
           "varis": "Montemor - Avis arası",
           "duraklar": [
@@ -424,7 +355,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 1165,
           "varis": "Santarém - Montemor arası",
           "duraklar": [
@@ -439,7 +370,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 1157,
           "varis": "Santarém - Lisboa arası",
           "duraklar": [
@@ -454,7 +385,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 1158,
           "varis": "Lisboa",
           "duraklar": [
@@ -474,21 +405,13 @@
       "kaynak": "ayar",
       "nereden": "Guarda - Crato Yolu Üzerinde",
       "yolda": true,
-      "bot_kalan_gun": 6,
-      "nereden_id": 926,
+      "bot_kalan_gun": 5,
+      "nereden_id": 2588,
       "hedef": "Setúbal",
       "hedef_id": 1161,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 926,
-          "isim": "Guarda - Viseu arası"
-        },
-        {
-          "id": 927,
-          "isim": "Guarda - Viseu arası"
-        },
         {
           "id": 2588,
           "isim": "Guarda - Crato arası"
@@ -534,26 +457,11 @@
           "isim": "Setúbal"
         }
       ],
-      "kalan_adim": 12,
-      "kalan_gun": 6,
+      "kalan_adim": 10,
+      "kalan_gun": 5,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 2588,
-          "varis": "Guarda - Crato arası",
-          "duraklar": [
-            {
-              "id": 927,
-              "isim": "Guarda - Viseu arası"
-            },
-            {
-              "id": 2588,
-              "isim": "Guarda - Crato arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 2590,
           "varis": "Crato - Elvas arası",
           "duraklar": [
@@ -568,7 +476,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 1173,
           "varis": "Crato - Avis arası",
           "duraklar": [
@@ -583,7 +491,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 1171,
           "varis": "Montemor - Avis arası",
           "duraklar": [
@@ -598,7 +506,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 1163,
           "varis": "Montemor - Setúbal arası",
           "duraklar": [
@@ -613,7 +521,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 1161,
           "varis": "Setúbal",
           "duraklar": [
@@ -637,21 +545,13 @@
       "kaynak": "ayar",
       "nereden": "Guarda - Crato Yolu Üzerinde",
       "yolda": true,
-      "bot_kalan_gun": 6,
-      "nereden_id": 926,
+      "bot_kalan_gun": 5,
+      "nereden_id": 2588,
       "hedef": "Alcácer do Sal",
       "hedef_id": 1166,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 926,
-          "isim": "Guarda - Viseu arası"
-        },
-        {
-          "id": 927,
-          "isim": "Guarda - Viseu arası"
-        },
         {
           "id": 2588,
           "isim": "Guarda - Crato arası"
@@ -697,26 +597,11 @@
           "isim": "Alcácer do Sal"
         }
       ],
-      "kalan_adim": 12,
-      "kalan_gun": 6,
+      "kalan_adim": 10,
+      "kalan_gun": 5,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 2588,
-          "varis": "Guarda - Crato arası",
-          "duraklar": [
-            {
-              "id": 927,
-              "isim": "Guarda - Viseu arası"
-            },
-            {
-              "id": 2588,
-              "isim": "Guarda - Crato arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 2590,
           "varis": "Crato - Elvas arası",
           "duraklar": [
@@ -731,7 +616,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 1173,
           "varis": "Crato - Avis arası",
           "duraklar": [
@@ -746,7 +631,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 1171,
           "varis": "Montemor - Avis arası",
           "duraklar": [
@@ -761,7 +646,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 1163,
           "varis": "Montemor - Setúbal arası",
           "duraklar": [
@@ -776,7 +661,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 1166,
           "varis": "Alcácer do Sal",
           "duraklar": [
@@ -800,21 +685,13 @@
       "kaynak": "ayar",
       "nereden": "Osma - Guarda Yolu Üzerinde",
       "yolda": true,
-      "bot_kalan_gun": 11,
-      "nereden_id": 916,
+      "bot_kalan_gun": 10,
+      "nereden_id": 918,
       "hedef": "Setúbal",
       "hedef_id": 1161,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 916,
-          "isim": "Osma - Soria arası"
-        },
-        {
-          "id": 917,
-          "isim": "Osma - Soria arası"
-        },
         {
           "id": 918,
           "isim": "Osma - Soria arası"
@@ -900,26 +777,11 @@
           "isim": "Setúbal"
         }
       ],
-      "kalan_adim": 22,
-      "kalan_gun": 11,
+      "kalan_adim": 20,
+      "kalan_gun": 10,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 918,
-          "varis": "Osma - Soria arası",
-          "duraklar": [
-            {
-              "id": 917,
-              "isim": "Osma - Soria arası"
-            },
-            {
-              "id": 918,
-              "isim": "Osma - Soria arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 920,
           "varis": "Osma - Soria arası",
           "duraklar": [
@@ -934,7 +796,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 922,
           "varis": "Osma - Guarda arası",
           "duraklar": [
@@ -949,7 +811,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 924,
           "varis": "Guarda - Viseu arası",
           "duraklar": [
@@ -964,7 +826,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 926,
           "varis": "Guarda - Viseu arası",
           "duraklar": [
@@ -979,7 +841,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 2588,
           "varis": "Guarda - Crato arası",
           "duraklar": [
@@ -994,7 +856,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 2590,
           "varis": "Crato - Elvas arası",
           "duraklar": [
@@ -1009,7 +871,7 @@
           ]
         },
         {
-          "gun": 8,
+          "gun": 7,
           "varis_id": 1173,
           "varis": "Crato - Avis arası",
           "duraklar": [
@@ -1024,7 +886,7 @@
           ]
         },
         {
-          "gun": 9,
+          "gun": 8,
           "varis_id": 1171,
           "varis": "Montemor - Avis arası",
           "duraklar": [
@@ -1039,7 +901,7 @@
           ]
         },
         {
-          "gun": 10,
+          "gun": 9,
           "varis_id": 1163,
           "varis": "Montemor - Setúbal arası",
           "duraklar": [
@@ -1054,7 +916,7 @@
           ]
         },
         {
-          "gun": 11,
+          "gun": 10,
           "varis_id": 1161,
           "varis": "Setúbal",
           "duraklar": [
@@ -1076,23 +938,15 @@
       "hesap": "Dogmeat",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Caspe",
+      "nereden": "Zaragoza",
       "yolda": false,
-      "bot_kalan_gun": 13,
-      "nereden_id": 537,
+      "bot_kalan_gun": 12,
+      "nereden_id": 535,
       "hedef": "Elvas",
       "hedef_id": 1170,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 537,
-          "isim": "Caspe"
-        },
-        {
-          "id": 2722,
-          "isim": "Zaragoza - Caspe arası"
-        },
         {
           "id": 535,
           "isim": "Zaragoza"
@@ -1190,26 +1044,11 @@
           "isim": "Elvas"
         }
       ],
-      "kalan_adim": 25,
-      "kalan_gun": 13,
+      "kalan_adim": 23,
+      "kalan_gun": 12,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 535,
-          "varis": "Zaragoza",
-          "duraklar": [
-            {
-              "id": 2722,
-              "isim": "Zaragoza - Caspe arası"
-            },
-            {
-              "id": 535,
-              "isim": "Zaragoza"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 718,
           "varis": "Calatayud",
           "duraklar": [
@@ -1224,7 +1063,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 900,
           "varis": "Calatayud - Soria arası",
           "duraklar": [
@@ -1239,7 +1078,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 906,
           "varis": "Osma - Soria arası",
           "duraklar": [
@@ -1254,7 +1093,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 916,
           "varis": "Osma - Soria arası",
           "duraklar": [
@@ -1269,7 +1108,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 918,
           "varis": "Osma - Soria arası",
           "duraklar": [
@@ -1284,7 +1123,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 920,
           "varis": "Osma - Soria arası",
           "duraklar": [
@@ -1299,7 +1138,7 @@
           ]
         },
         {
-          "gun": 8,
+          "gun": 7,
           "varis_id": 922,
           "varis": "Osma - Guarda arası",
           "duraklar": [
@@ -1314,7 +1153,7 @@
           ]
         },
         {
-          "gun": 9,
+          "gun": 8,
           "varis_id": 924,
           "varis": "Guarda - Viseu arası",
           "duraklar": [
@@ -1329,7 +1168,7 @@
           ]
         },
         {
-          "gun": 10,
+          "gun": 9,
           "varis_id": 926,
           "varis": "Guarda - Viseu arası",
           "duraklar": [
@@ -1344,7 +1183,7 @@
           ]
         },
         {
-          "gun": 11,
+          "gun": 10,
           "varis_id": 2588,
           "varis": "Guarda - Crato arası",
           "duraklar": [
@@ -1359,7 +1198,7 @@
           ]
         },
         {
-          "gun": 12,
+          "gun": 11,
           "varis_id": 2590,
           "varis": "Crato - Elvas arası",
           "duraklar": [
@@ -1374,7 +1213,7 @@
           ]
         },
         {
-          "gun": 13,
+          "gun": 12,
           "varis_id": 1170,
           "varis": "Elvas",
           "duraklar": [
@@ -1392,23 +1231,15 @@
       "hesap": "Silverfork",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Caspe",
+      "nereden": "Zaragoza",
       "yolda": false,
-      "bot_kalan_gun": 13,
-      "nereden_id": 537,
+      "bot_kalan_gun": 12,
+      "nereden_id": 535,
       "hedef": "Porto",
       "hedef_id": 868,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 537,
-          "isim": "Caspe"
-        },
-        {
-          "id": 2722,
-          "isim": "Zaragoza - Caspe arası"
-        },
         {
           "id": 535,
           "isim": "Zaragoza"
@@ -1510,26 +1341,11 @@
           "isim": "Porto"
         }
       ],
-      "kalan_adim": 26,
-      "kalan_gun": 13,
+      "kalan_adim": 24,
+      "kalan_gun": 12,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 535,
-          "varis": "Zaragoza",
-          "duraklar": [
-            {
-              "id": 2722,
-              "isim": "Zaragoza - Caspe arası"
-            },
-            {
-              "id": 535,
-              "isim": "Zaragoza"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 718,
           "varis": "Calatayud",
           "duraklar": [
@@ -1544,7 +1360,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 900,
           "varis": "Calatayud - Soria arası",
           "duraklar": [
@@ -1559,7 +1375,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 902,
           "varis": "Soria - Osma arası",
           "duraklar": [
@@ -1574,7 +1390,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 2725,
           "varis": "Soria - Burgos arası",
           "duraklar": [
@@ -1589,7 +1405,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 2724,
           "varis": "Valladolid - Burgos arası",
           "duraklar": [
@@ -1604,7 +1420,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 912,
           "varis": "Valladolid - Burgos arası",
           "duraklar": [
@@ -1619,7 +1435,7 @@
           ]
         },
         {
-          "gun": 8,
+          "gun": 7,
           "varis_id": 914,
           "varis": "Valladolid - Burgos arası",
           "duraklar": [
@@ -1634,7 +1450,7 @@
           ]
         },
         {
-          "gun": 9,
+          "gun": 8,
           "varis_id": 651,
           "varis": "Chaves - Valladolid arası",
           "duraklar": [
@@ -1649,7 +1465,7 @@
           ]
         },
         {
-          "gun": 10,
+          "gun": 9,
           "varis_id": 699,
           "varis": "Chaves - Braga arası",
           "duraklar": [
@@ -1664,7 +1480,7 @@
           ]
         },
         {
-          "gun": 11,
+          "gun": 10,
           "varis_id": 815,
           "varis": "Chaves",
           "duraklar": [
@@ -1679,7 +1495,7 @@
           ]
         },
         {
-          "gun": 12,
+          "gun": 11,
           "varis_id": 866,
           "varis": "Braga",
           "duraklar": [
@@ -1694,7 +1510,7 @@
           ]
         },
         {
-          "gun": 13,
+          "gun": 12,
           "varis_id": 868,
           "varis": "Porto",
           "duraklar": [
@@ -1716,23 +1532,15 @@
       "hesap": "Dursun",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Evesham",
+      "nereden": "Lichfield",
       "yolda": false,
-      "bot_kalan_gun": 6,
-      "nereden_id": 477,
+      "bot_kalan_gun": 5,
+      "nereden_id": 633,
       "hedef": "Kendal",
       "hedef_id": 710,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 477,
-          "isim": "Evesham"
-        },
-        {
-          "id": 485,
-          "isim": "Evesham - Lichfield arası"
-        },
         {
           "id": 633,
           "isim": "Lichfield"
@@ -1774,26 +1582,11 @@
           "isim": "Kendal"
         }
       ],
-      "kalan_adim": 11,
-      "kalan_gun": 6,
+      "kalan_adim": 9,
+      "kalan_gun": 5,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 633,
-          "varis": "Lichfield",
-          "duraklar": [
-            {
-              "id": 485,
-              "isim": "Evesham - Lichfield arası"
-            },
-            {
-              "id": 633,
-              "isim": "Lichfield"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 650,
           "varis": "Derby",
           "duraklar": [
@@ -1808,7 +1601,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 2794,
           "varis": "Manchester - Derby arası",
           "duraklar": [
@@ -1823,7 +1616,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 702,
           "varis": "Manchester - Liverpool arası",
           "duraklar": [
@@ -1838,7 +1631,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 708,
           "varis": "Kendal - Manchester arası",
           "duraklar": [
@@ -1853,7 +1646,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 710,
           "varis": "Kendal",
           "duraklar": [
@@ -1871,23 +1664,15 @@
       "hesap": "Koonrad",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Girvan",
-      "yolda": false,
-      "bot_kalan_gun": 3,
-      "nereden_id": 836,
+      "nereden": "Glasgow - Girvan Yolu Üzerinde",
+      "yolda": true,
+      "bot_kalan_gun": 2,
+      "nereden_id": 2789,
       "hedef": "Stirling",
       "hedef_id": 1050,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 836,
-          "isim": "Girvan"
-        },
-        {
-          "id": 837,
-          "isim": "Girvan - Glasgow arası"
-        },
         {
           "id": 2789,
           "isim": "Glasgow - Girvan arası"
@@ -1905,26 +1690,11 @@
           "isim": "Stirling"
         }
       ],
-      "kalan_adim": 5,
-      "kalan_gun": 3,
+      "kalan_adim": 3,
+      "kalan_gun": 2,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 2789,
-          "varis": "Glasgow - Girvan arası",
-          "duraklar": [
-            {
-              "id": 837,
-              "isim": "Girvan - Glasgow arası"
-            },
-            {
-              "id": 2789,
-              "isim": "Glasgow - Girvan arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 1049,
           "varis": "Glasgow - Stirling arası",
           "duraklar": [
@@ -1939,7 +1709,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 1050,
           "varis": "Stirling",
           "duraklar": [
@@ -1956,34 +1726,19 @@
   ],
   "kafileler": [
     {
-      "anahtar": "836|1050|2",
-      "nereden": "Girvan",
-      "nereden_id": 836,
+      "anahtar": "2789|1050|2",
+      "nereden": "Glasgow - Girvan Yolu Üzerinde",
+      "nereden_id": 2789,
       "hedef": "Stirling",
       "hedef_id": 1050,
-      "yolda": false,
+      "yolda": true,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 5,
-      "kalan_gun": 3,
+      "kalan_adim": 3,
+      "kalan_gun": 2,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 2789,
-          "varis": "Glasgow - Girvan arası",
-          "duraklar": [
-            {
-              "id": 837,
-              "isim": "Girvan - Glasgow arası"
-            },
-            {
-              "id": 2789,
-              "isim": "Glasgow - Girvan arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 1049,
           "varis": "Glasgow - Stirling arası",
           "duraklar": [
@@ -1998,7 +1753,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 1050,
           "varis": "Stirling",
           "duraklar": [
@@ -2010,14 +1765,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 836,
-          "isim": "Girvan"
-        },
-        {
-          "id": 837,
-          "isim": "Girvan - Glasgow arası"
-        },
         {
           "id": 2789,
           "isim": "Glasgow - Girvan arası"
@@ -2054,34 +1801,19 @@
       "kaynaklar": []
     },
     {
-      "anahtar": "926|1164|2",
+      "anahtar": "2588|1164|2",
       "nereden": "Guarda - Crato Yolu Üzerinde",
-      "nereden_id": 926,
+      "nereden_id": 2588,
       "hedef": "Montemor",
       "hedef_id": 1164,
       "yolda": true,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 9,
-      "kalan_gun": 5,
+      "kalan_adim": 7,
+      "kalan_gun": 4,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 2588,
-          "varis": "Guarda - Crato arası",
-          "duraklar": [
-            {
-              "id": 927,
-              "isim": "Guarda - Viseu arası"
-            },
-            {
-              "id": 2588,
-              "isim": "Guarda - Crato arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 2590,
           "varis": "Crato - Elvas arası",
           "duraklar": [
@@ -2096,7 +1828,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 1173,
           "varis": "Crato - Avis arası",
           "duraklar": [
@@ -2111,7 +1843,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 1171,
           "varis": "Montemor - Avis arası",
           "duraklar": [
@@ -2126,7 +1858,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 1164,
           "varis": "Montemor",
           "duraklar": [
@@ -2138,14 +1870,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 926,
-          "isim": "Guarda - Viseu arası"
-        },
-        {
-          "id": 927,
-          "isim": "Guarda - Viseu arası"
-        },
         {
           "id": 2588,
           "isim": "Guarda - Crato arası"
@@ -2198,201 +1922,19 @@
       "kaynaklar": []
     },
     {
-      "anahtar": "477|710|2",
-      "nereden": "Evesham",
-      "nereden_id": 477,
-      "hedef": "Kendal",
-      "hedef_id": 710,
-      "yolda": false,
-      "adim_hakki": 2,
-      "jetonlu": false,
-      "kalan_adim": 11,
-      "kalan_gun": 6,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 633,
-          "varis": "Lichfield",
-          "duraklar": [
-            {
-              "id": 485,
-              "isim": "Evesham - Lichfield arası"
-            },
-            {
-              "id": 633,
-              "isim": "Lichfield"
-            }
-          ]
-        },
-        {
-          "gun": 2,
-          "varis_id": 650,
-          "varis": "Derby",
-          "duraklar": [
-            {
-              "id": 649,
-              "isim": "Lichfield - Derby arası"
-            },
-            {
-              "id": 650,
-              "isim": "Derby"
-            }
-          ]
-        },
-        {
-          "gun": 3,
-          "varis_id": 2794,
-          "varis": "Manchester - Derby arası",
-          "duraklar": [
-            {
-              "id": 2795,
-              "isim": "Derby - Manchester arası"
-            },
-            {
-              "id": 2794,
-              "isim": "Manchester - Derby arası"
-            }
-          ]
-        },
-        {
-          "gun": 4,
-          "varis_id": 702,
-          "varis": "Manchester - Liverpool arası",
-          "duraklar": [
-            {
-              "id": 701,
-              "isim": "Manchester"
-            },
-            {
-              "id": 702,
-              "isim": "Manchester - Liverpool arası"
-            }
-          ]
-        },
-        {
-          "gun": 5,
-          "varis_id": 708,
-          "varis": "Kendal - Manchester arası",
-          "duraklar": [
-            {
-              "id": 703,
-              "isim": "Manchester - Liverpool arası"
-            },
-            {
-              "id": 708,
-              "isim": "Kendal - Manchester arası"
-            }
-          ]
-        },
-        {
-          "gun": 6,
-          "varis_id": 710,
-          "varis": "Kendal",
-          "duraklar": [
-            {
-              "id": 710,
-              "isim": "Kendal"
-            }
-          ]
-        }
-      ],
-      "rota": [
-        {
-          "id": 477,
-          "isim": "Evesham"
-        },
-        {
-          "id": 485,
-          "isim": "Evesham - Lichfield arası"
-        },
-        {
-          "id": 633,
-          "isim": "Lichfield"
-        },
-        {
-          "id": 649,
-          "isim": "Lichfield - Derby arası"
-        },
-        {
-          "id": 650,
-          "isim": "Derby"
-        },
-        {
-          "id": 2795,
-          "isim": "Derby - Manchester arası"
-        },
-        {
-          "id": 2794,
-          "isim": "Manchester - Derby arası"
-        },
-        {
-          "id": 701,
-          "isim": "Manchester"
-        },
-        {
-          "id": 702,
-          "isim": "Manchester - Liverpool arası"
-        },
-        {
-          "id": 703,
-          "isim": "Manchester - Liverpool arası"
-        },
-        {
-          "id": 708,
-          "isim": "Kendal - Manchester arası"
-        },
-        {
-          "id": 710,
-          "isim": "Kendal"
-        }
-      ],
-      "hesaplar": [
-        {
-          "hesap": "Dursun",
-          "tur": "seyahat",
-          "lider": "",
-          "kaynak": "",
-          "tahmin": false,
-          "rol": "tek"
-        }
-      ],
-      "liderler": [],
-      "kisi": 1,
-      "yalniz": true,
-      "grup": false,
-      "lider": "",
-      "olculdu": true,
-      "kaynaklar": []
-    },
-    {
-      "anahtar": "926|1156|2",
+      "anahtar": "2588|1156|2",
       "nereden": "Guarda - Crato Yolu Üzerinde",
-      "nereden_id": 926,
+      "nereden_id": 2588,
       "hedef": "Santarém",
       "hedef_id": 1156,
       "yolda": true,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 11,
-      "kalan_gun": 6,
+      "kalan_adim": 9,
+      "kalan_gun": 5,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 2588,
-          "varis": "Guarda - Crato arası",
-          "duraklar": [
-            {
-              "id": 927,
-              "isim": "Guarda - Viseu arası"
-            },
-            {
-              "id": 2588,
-              "isim": "Guarda - Crato arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 2590,
           "varis": "Crato - Elvas arası",
           "duraklar": [
@@ -2407,7 +1949,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 1173,
           "varis": "Crato - Avis arası",
           "duraklar": [
@@ -2422,7 +1964,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 1171,
           "varis": "Montemor - Avis arası",
           "duraklar": [
@@ -2437,7 +1979,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 1165,
           "varis": "Santarém - Montemor arası",
           "duraklar": [
@@ -2452,7 +1994,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 1156,
           "varis": "Santarém",
           "duraklar": [
@@ -2464,14 +2006,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 926,
-          "isim": "Guarda - Viseu arası"
-        },
-        {
-          "id": 927,
-          "isim": "Guarda - Viseu arası"
-        },
         {
           "id": 2588,
           "isim": "Guarda - Crato arası"
@@ -2532,34 +2066,19 @@
       "kaynaklar": []
     },
     {
-      "anahtar": "926|1161|2",
+      "anahtar": "2588|1161|2",
       "nereden": "Guarda - Crato Yolu Üzerinde",
-      "nereden_id": 926,
+      "nereden_id": 2588,
       "hedef": "Setúbal",
       "hedef_id": 1161,
       "yolda": true,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 12,
-      "kalan_gun": 6,
+      "kalan_adim": 10,
+      "kalan_gun": 5,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 2588,
-          "varis": "Guarda - Crato arası",
-          "duraklar": [
-            {
-              "id": 927,
-              "isim": "Guarda - Viseu arası"
-            },
-            {
-              "id": 2588,
-              "isim": "Guarda - Crato arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 2590,
           "varis": "Crato - Elvas arası",
           "duraklar": [
@@ -2574,7 +2093,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 1173,
           "varis": "Crato - Avis arası",
           "duraklar": [
@@ -2589,7 +2108,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 1171,
           "varis": "Montemor - Avis arası",
           "duraklar": [
@@ -2604,7 +2123,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 1163,
           "varis": "Montemor - Setúbal arası",
           "duraklar": [
@@ -2619,7 +2138,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 1161,
           "varis": "Setúbal",
           "duraklar": [
@@ -2635,14 +2154,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 926,
-          "isim": "Guarda - Viseu arası"
-        },
-        {
-          "id": 927,
-          "isim": "Guarda - Viseu arası"
-        },
         {
           "id": 2588,
           "isim": "Guarda - Crato arası"
@@ -2707,34 +2218,19 @@
       "kaynaklar": []
     },
     {
-      "anahtar": "926|1166|2",
+      "anahtar": "2588|1166|2",
       "nereden": "Guarda - Crato Yolu Üzerinde",
-      "nereden_id": 926,
+      "nereden_id": 2588,
       "hedef": "Alcácer do Sal",
       "hedef_id": 1166,
       "yolda": true,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 12,
-      "kalan_gun": 6,
+      "kalan_adim": 10,
+      "kalan_gun": 5,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 2588,
-          "varis": "Guarda - Crato arası",
-          "duraklar": [
-            {
-              "id": 927,
-              "isim": "Guarda - Viseu arası"
-            },
-            {
-              "id": 2588,
-              "isim": "Guarda - Crato arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 2590,
           "varis": "Crato - Elvas arası",
           "duraklar": [
@@ -2749,7 +2245,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 1173,
           "varis": "Crato - Avis arası",
           "duraklar": [
@@ -2764,7 +2260,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 1171,
           "varis": "Montemor - Avis arası",
           "duraklar": [
@@ -2779,7 +2275,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 1163,
           "varis": "Montemor - Setúbal arası",
           "duraklar": [
@@ -2794,7 +2290,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 1166,
           "varis": "Alcácer do Sal",
           "duraklar": [
@@ -2810,14 +2306,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 926,
-          "isim": "Guarda - Viseu arası"
-        },
-        {
-          "id": 927,
-          "isim": "Guarda - Viseu arası"
-        },
         {
           "id": 2588,
           "isim": "Guarda - Crato arası"
@@ -2882,34 +2370,163 @@
       "kaynaklar": []
     },
     {
-      "anahtar": "926|1158|2",
-      "nereden": "Guarda - Crato Yolu Üzerinde",
-      "nereden_id": 926,
-      "hedef": "Lisboa",
-      "hedef_id": 1158,
-      "yolda": true,
+      "anahtar": "633|710|2",
+      "nereden": "Lichfield",
+      "nereden_id": 633,
+      "hedef": "Kendal",
+      "hedef_id": 710,
+      "yolda": false,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 13,
-      "kalan_gun": 7,
+      "kalan_adim": 9,
+      "kalan_gun": 5,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 2588,
-          "varis": "Guarda - Crato arası",
+          "varis_id": 650,
+          "varis": "Derby",
           "duraklar": [
             {
-              "id": 927,
-              "isim": "Guarda - Viseu arası"
+              "id": 649,
+              "isim": "Lichfield - Derby arası"
             },
             {
-              "id": 2588,
-              "isim": "Guarda - Crato arası"
+              "id": 650,
+              "isim": "Derby"
             }
           ]
         },
         {
           "gun": 2,
+          "varis_id": 2794,
+          "varis": "Manchester - Derby arası",
+          "duraklar": [
+            {
+              "id": 2795,
+              "isim": "Derby - Manchester arası"
+            },
+            {
+              "id": 2794,
+              "isim": "Manchester - Derby arası"
+            }
+          ]
+        },
+        {
+          "gun": 3,
+          "varis_id": 702,
+          "varis": "Manchester - Liverpool arası",
+          "duraklar": [
+            {
+              "id": 701,
+              "isim": "Manchester"
+            },
+            {
+              "id": 702,
+              "isim": "Manchester - Liverpool arası"
+            }
+          ]
+        },
+        {
+          "gun": 4,
+          "varis_id": 708,
+          "varis": "Kendal - Manchester arası",
+          "duraklar": [
+            {
+              "id": 703,
+              "isim": "Manchester - Liverpool arası"
+            },
+            {
+              "id": 708,
+              "isim": "Kendal - Manchester arası"
+            }
+          ]
+        },
+        {
+          "gun": 5,
+          "varis_id": 710,
+          "varis": "Kendal",
+          "duraklar": [
+            {
+              "id": 710,
+              "isim": "Kendal"
+            }
+          ]
+        }
+      ],
+      "rota": [
+        {
+          "id": 633,
+          "isim": "Lichfield"
+        },
+        {
+          "id": 649,
+          "isim": "Lichfield - Derby arası"
+        },
+        {
+          "id": 650,
+          "isim": "Derby"
+        },
+        {
+          "id": 2795,
+          "isim": "Derby - Manchester arası"
+        },
+        {
+          "id": 2794,
+          "isim": "Manchester - Derby arası"
+        },
+        {
+          "id": 701,
+          "isim": "Manchester"
+        },
+        {
+          "id": 702,
+          "isim": "Manchester - Liverpool arası"
+        },
+        {
+          "id": 703,
+          "isim": "Manchester - Liverpool arası"
+        },
+        {
+          "id": 708,
+          "isim": "Kendal - Manchester arası"
+        },
+        {
+          "id": 710,
+          "isim": "Kendal"
+        }
+      ],
+      "hesaplar": [
+        {
+          "hesap": "Dursun",
+          "tur": "seyahat",
+          "lider": "",
+          "kaynak": "",
+          "tahmin": false,
+          "rol": "tek"
+        }
+      ],
+      "liderler": [],
+      "kisi": 1,
+      "yalniz": true,
+      "grup": false,
+      "lider": "",
+      "olculdu": true,
+      "kaynaklar": []
+    },
+    {
+      "anahtar": "2588|1158|2",
+      "nereden": "Guarda - Crato Yolu Üzerinde",
+      "nereden_id": 2588,
+      "hedef": "Lisboa",
+      "hedef_id": 1158,
+      "yolda": true,
+      "adim_hakki": 2,
+      "jetonlu": false,
+      "kalan_adim": 11,
+      "kalan_gun": 6,
+      "gunler": [
+        {
+          "gun": 1,
           "varis_id": 2590,
           "varis": "Crato - Elvas arası",
           "duraklar": [
@@ -2924,7 +2541,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 1173,
           "varis": "Crato - Avis arası",
           "duraklar": [
@@ -2939,7 +2556,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 1171,
           "varis": "Montemor - Avis arası",
           "duraklar": [
@@ -2954,7 +2571,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 1165,
           "varis": "Santarém - Montemor arası",
           "duraklar": [
@@ -2969,7 +2586,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 1157,
           "varis": "Santarém - Lisboa arası",
           "duraklar": [
@@ -2984,7 +2601,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 1158,
           "varis": "Lisboa",
           "duraklar": [
@@ -2996,14 +2613,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 926,
-          "isim": "Guarda - Viseu arası"
-        },
-        {
-          "id": 927,
-          "isim": "Guarda - Viseu arası"
-        },
         {
           "id": 2588,
           "isim": "Guarda - Crato arası"
@@ -3072,34 +2681,19 @@
       "kaynaklar": []
     },
     {
-      "anahtar": "916|1161|2",
+      "anahtar": "918|1161|2",
       "nereden": "Osma - Guarda Yolu Üzerinde",
-      "nereden_id": 916,
+      "nereden_id": 918,
       "hedef": "Setúbal",
       "hedef_id": 1161,
       "yolda": true,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 22,
-      "kalan_gun": 11,
+      "kalan_adim": 20,
+      "kalan_gun": 10,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 918,
-          "varis": "Osma - Soria arası",
-          "duraklar": [
-            {
-              "id": 917,
-              "isim": "Osma - Soria arası"
-            },
-            {
-              "id": 918,
-              "isim": "Osma - Soria arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 920,
           "varis": "Osma - Soria arası",
           "duraklar": [
@@ -3114,7 +2708,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 922,
           "varis": "Osma - Guarda arası",
           "duraklar": [
@@ -3129,7 +2723,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 924,
           "varis": "Guarda - Viseu arası",
           "duraklar": [
@@ -3144,7 +2738,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 926,
           "varis": "Guarda - Viseu arası",
           "duraklar": [
@@ -3159,7 +2753,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 2588,
           "varis": "Guarda - Crato arası",
           "duraklar": [
@@ -3174,7 +2768,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 2590,
           "varis": "Crato - Elvas arası",
           "duraklar": [
@@ -3189,7 +2783,7 @@
           ]
         },
         {
-          "gun": 8,
+          "gun": 7,
           "varis_id": 1173,
           "varis": "Crato - Avis arası",
           "duraklar": [
@@ -3204,7 +2798,7 @@
           ]
         },
         {
-          "gun": 9,
+          "gun": 8,
           "varis_id": 1171,
           "varis": "Montemor - Avis arası",
           "duraklar": [
@@ -3219,7 +2813,7 @@
           ]
         },
         {
-          "gun": 10,
+          "gun": 9,
           "varis_id": 1163,
           "varis": "Montemor - Setúbal arası",
           "duraklar": [
@@ -3234,7 +2828,7 @@
           ]
         },
         {
-          "gun": 11,
+          "gun": 10,
           "varis_id": 1161,
           "varis": "Setúbal",
           "duraklar": [
@@ -3250,14 +2844,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 916,
-          "isim": "Osma - Soria arası"
-        },
-        {
-          "id": 917,
-          "isim": "Osma - Soria arası"
-        },
         {
           "id": 918,
           "isim": "Osma - Soria arası"
@@ -3362,34 +2948,19 @@
       "kaynaklar": []
     },
     {
-      "anahtar": "537|1170|2",
-      "nereden": "Caspe",
-      "nereden_id": 537,
+      "anahtar": "535|1170|2",
+      "nereden": "Zaragoza",
+      "nereden_id": 535,
       "hedef": "Elvas",
       "hedef_id": 1170,
       "yolda": false,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 25,
-      "kalan_gun": 13,
+      "kalan_adim": 23,
+      "kalan_gun": 12,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 535,
-          "varis": "Zaragoza",
-          "duraklar": [
-            {
-              "id": 2722,
-              "isim": "Zaragoza - Caspe arası"
-            },
-            {
-              "id": 535,
-              "isim": "Zaragoza"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 718,
           "varis": "Calatayud",
           "duraklar": [
@@ -3404,7 +2975,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 900,
           "varis": "Calatayud - Soria arası",
           "duraklar": [
@@ -3419,7 +2990,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 906,
           "varis": "Osma - Soria arası",
           "duraklar": [
@@ -3434,7 +3005,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 916,
           "varis": "Osma - Soria arası",
           "duraklar": [
@@ -3449,7 +3020,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 918,
           "varis": "Osma - Soria arası",
           "duraklar": [
@@ -3464,7 +3035,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 920,
           "varis": "Osma - Soria arası",
           "duraklar": [
@@ -3479,7 +3050,7 @@
           ]
         },
         {
-          "gun": 8,
+          "gun": 7,
           "varis_id": 922,
           "varis": "Osma - Guarda arası",
           "duraklar": [
@@ -3494,7 +3065,7 @@
           ]
         },
         {
-          "gun": 9,
+          "gun": 8,
           "varis_id": 924,
           "varis": "Guarda - Viseu arası",
           "duraklar": [
@@ -3509,7 +3080,7 @@
           ]
         },
         {
-          "gun": 10,
+          "gun": 9,
           "varis_id": 926,
           "varis": "Guarda - Viseu arası",
           "duraklar": [
@@ -3524,7 +3095,7 @@
           ]
         },
         {
-          "gun": 11,
+          "gun": 10,
           "varis_id": 2588,
           "varis": "Guarda - Crato arası",
           "duraklar": [
@@ -3539,7 +3110,7 @@
           ]
         },
         {
-          "gun": 12,
+          "gun": 11,
           "varis_id": 2590,
           "varis": "Crato - Elvas arası",
           "duraklar": [
@@ -3554,7 +3125,7 @@
           ]
         },
         {
-          "gun": 13,
+          "gun": 12,
           "varis_id": 1170,
           "varis": "Elvas",
           "duraklar": [
@@ -3566,14 +3137,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 537,
-          "isim": "Caspe"
-        },
-        {
-          "id": 2722,
-          "isim": "Zaragoza - Caspe arası"
-        },
         {
           "id": 535,
           "isim": "Zaragoza"
@@ -3690,34 +3253,19 @@
       "kaynaklar": []
     },
     {
-      "anahtar": "537|868|2",
-      "nereden": "Caspe",
-      "nereden_id": 537,
+      "anahtar": "535|868|2",
+      "nereden": "Zaragoza",
+      "nereden_id": 535,
       "hedef": "Porto",
       "hedef_id": 868,
       "yolda": false,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 26,
-      "kalan_gun": 13,
+      "kalan_adim": 24,
+      "kalan_gun": 12,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 535,
-          "varis": "Zaragoza",
-          "duraklar": [
-            {
-              "id": 2722,
-              "isim": "Zaragoza - Caspe arası"
-            },
-            {
-              "id": 535,
-              "isim": "Zaragoza"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 718,
           "varis": "Calatayud",
           "duraklar": [
@@ -3732,7 +3280,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 900,
           "varis": "Calatayud - Soria arası",
           "duraklar": [
@@ -3747,7 +3295,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 902,
           "varis": "Soria - Osma arası",
           "duraklar": [
@@ -3762,7 +3310,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 2725,
           "varis": "Soria - Burgos arası",
           "duraklar": [
@@ -3777,7 +3325,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 2724,
           "varis": "Valladolid - Burgos arası",
           "duraklar": [
@@ -3792,7 +3340,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 912,
           "varis": "Valladolid - Burgos arası",
           "duraklar": [
@@ -3807,7 +3355,7 @@
           ]
         },
         {
-          "gun": 8,
+          "gun": 7,
           "varis_id": 914,
           "varis": "Valladolid - Burgos arası",
           "duraklar": [
@@ -3822,7 +3370,7 @@
           ]
         },
         {
-          "gun": 9,
+          "gun": 8,
           "varis_id": 651,
           "varis": "Chaves - Valladolid arası",
           "duraklar": [
@@ -3837,7 +3385,7 @@
           ]
         },
         {
-          "gun": 10,
+          "gun": 9,
           "varis_id": 699,
           "varis": "Chaves - Braga arası",
           "duraklar": [
@@ -3852,7 +3400,7 @@
           ]
         },
         {
-          "gun": 11,
+          "gun": 10,
           "varis_id": 815,
           "varis": "Chaves",
           "duraklar": [
@@ -3867,7 +3415,7 @@
           ]
         },
         {
-          "gun": 12,
+          "gun": 11,
           "varis_id": 866,
           "varis": "Braga",
           "duraklar": [
@@ -3882,7 +3430,7 @@
           ]
         },
         {
-          "gun": 13,
+          "gun": 12,
           "varis_id": 868,
           "varis": "Porto",
           "duraklar": [
@@ -3898,14 +3446,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 537,
-          "isim": "Caspe"
-        },
-        {
-          "id": 2722,
-          "isim": "Zaragoza - Caspe arası"
-        },
         {
           "id": 535,
           "isim": "Zaragoza"
