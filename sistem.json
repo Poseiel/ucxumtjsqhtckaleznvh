@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-23 14:19",
+  "son_guncelleme": "2026-10-24 10:44",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -56,6 +56,10 @@
     "kaptan_yelken": "",
     "kaptan_kiyi_mesafesi": 2,
     "gemiler": {},
+    "ot_alicilari": [
+      "Glasgow=Partal"
+    ],
+    "ot_satis_gunu": "pazartesi",
     "alim_gozculeri": [
       "Whithorn=Noumama",
       "Wigtown=Kargath",
@@ -295,9 +299,7 @@
     },
     {
       "ad": "Hiriluk",
-      "ayar": {
-        "ases": true
-      }
+      "ayar": {}
     },
     {
       "ad": "Joyking",
@@ -346,27 +348,19 @@
     },
     {
       "ad": "Freshh",
-      "ayar": {
-        "ases": true
-      }
+      "ayar": {}
     },
     {
       "ad": "Arous",
-      "ayar": {
-        "ases": true
-      }
+      "ayar": {}
     },
     {
       "ad": "Neromancer",
-      "ayar": {
-        "ases": true
-      }
+      "ayar": {}
     },
     {
       "ad": "Gaell",
-      "ayar": {
-        "ases": true
-      }
+      "ayar": {}
     },
     {
       "ad": "Zaniolo",
@@ -376,9 +370,7 @@
     },
     {
       "ad": "Bainhalt",
-      "ayar": {
-        "ases": true
-      }
+      "ayar": {}
     },
     {
       "ad": "drakania",
@@ -684,13 +676,8 @@
     {
       "ad": "Uywarka",
       "ayar": {
-        "takip": "Hızlı Cami",
-        "seyahat_hedefi": "Penrith"
-      },
-      "bekleyen": [
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+        "takip": "Hızlı Cami"
+      }
     },
     {
       "ad": "Asakira",
@@ -905,6 +892,24 @@
   ],
   "toplam_hesap": 139,
   "sistem_gecmis": [
+    {
+      "zaman": "2026-10-24 09:27",
+      "yazan": "VS Code Claude 24.10 (kullanıcı: ot satış günü pazartesi)",
+      "degisiklikler": [
+        {
+          "alan": "ot_alicilari",
+          "etiket": "⚗️ Ot alıcıları (kasaba=iksirci)",
+          "eski": "—",
+          "yeni": "Glasgow=Partal"
+        },
+        {
+          "alan": "ot_satis_gunu",
+          "etiket": "⚗️ Ot satış günü (haftada bir)",
+          "eski": "kapalı",
+          "yeni": "pazartesi (haftada bir)"
+        }
+      ]
+    },
     {
       "zaman": "2026-10-10 22:50",
       "yazan": "VS Code Claude (kullanıcı: ardendeki hesaplar odun kessin)",
