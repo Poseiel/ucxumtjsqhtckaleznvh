@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-24 17:11",
+  "son_guncelleme": "2026-10-25 10:07",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -336,21 +336,11 @@
     },
     {
       "ad": "Nihilant",
-      "ayar": {
-        "gorev": "atolye:Terzi"
-      },
-      "bekleyen": [
-        "gorev"
-      ]
+      "ayar": {}
     },
     {
       "ad": "Ironfoot",
-      "ayar": {
-        "gorev": "atolye:Fırıncı"
-      },
-      "bekleyen": [
-        "gorev"
-      ]
+      "ayar": {}
     },
     {
       "ad": "Freshh",
@@ -417,7 +407,8 @@
     {
       "ad": "Wolftrap",
       "ayar": {
-        "takip": "Hızlı Maden"
+        "plan_yemek": "kuvvet",
+        "plan_kalan_enerji": "maden"
       }
     },
     {
@@ -820,7 +811,8 @@
     {
       "ad": "Longboe",
       "ayar": {
-        "takip": "Hızlı Cami"
+        "takip": "Hızlı Cami",
+        "seyahat_hedefi": "Stirling"
       }
     },
     {
@@ -894,9 +886,33 @@
       "ayar": {
         "takip": "Hızlı Cami"
       }
+    },
+    {
+      "ad": "Torreira",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "Coni",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "spibas",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      }
+    },
+    {
+      "ad": "queenanna",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
     }
   ],
-  "toplam_hesap": 139,
+  "toplam_hesap": 143,
   "sistem_gecmis": [
     {
       "zaman": "2026-10-24 09:27",
