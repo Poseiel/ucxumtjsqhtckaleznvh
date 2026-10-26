@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-26 08:45",
+  "son_guncelleme": "2026-10-26 10:03",
   "rapor_tarihi": "2026-10-26",
   "onceki_tarih": "2026-10-25",
   "ordular": [
@@ -18,7 +18,7 @@
       "onceki_kasaba": "Girvan",
       "onceki_durum": "Şehir İçinde",
       "birlesme": false,
-      "birlesme_gorus": "2026-10-25 10:39"
+      "birlesme_gorus": "2026-10-26 08:57"
     },
     {
       "ad": "The Excelsior",
@@ -41,22 +41,19 @@
       "komutan": "Kazasker: Mavisari",
       "durum": "Şehir Dışında",
       "ham_durum": "Ordu, Şehir kapılarına dayandı.",
-      "alim_modu": false,
-      "danisman": false,
+      "alim_modu": null,
+      "danisman": null,
       "danisman_puan": null,
       "danisman_maas": "",
-      "komutan_login": "mavisari",
+      "komutan_login": "",
       "degisim": "ayni",
       "onceki_kasaba": "Stirling",
       "onceki_durum": "Şehir Dışında",
       "birlesme": false,
       "birlesme_gorus": "2026-10-21 12:13",
-      "son_gecis": {
-        "tarih": "2026-10-23",
-        "tur": "tasindi",
-        "onceki_kasaba": "Glasgow",
-        "onceki_durum": "Şehir Dışında"
-      }
+      "anlik_saat": "10:00",
+      "sabah_kasaba": "Stirling",
+      "sabah_durum": "Şehir Dışında"
     },
     {
       "ad": "Wigtown",
@@ -78,5 +75,8 @@
   ],
   "ayrilanlar": [],
   "gemiler": [],
-  "not": "alim_modu/danisman 17.09.2026'dan itibaren toplanıyor; daha eski günlerde null (bilinmiyor) görünür."
+  "not": "alim_modu/danisman 17.09.2026'dan itibaren toplanıyor; daha eski günlerde null (bilinmiyor) görünür.",
+  "nobet_saatleri": {
+    "Stirling": "10:00"
+  }
 }
