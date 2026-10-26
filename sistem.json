@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-26 07:17",
+  "son_guncelleme": "2026-10-26 13:19",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -493,13 +493,19 @@
       "ad": "Binim",
       "ayar": {
         "takip": "Hızlı Ot"
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "Jaskerin",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "Fioreth",
@@ -543,7 +549,10 @@
       "ad": "Brannoch",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "Solmaran",
@@ -612,7 +621,10 @@
       "ad": "Hasdur",
       "ayar": {
         "takip": "Hızlı Ot"
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "Kealor",
@@ -663,7 +675,10 @@
       "ad": "Estonian",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "takip"
+      ]
     },
     {
       "ad": "Ronaldoking",
@@ -688,7 +703,10 @@
       "ad": "Uywarka",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "takip"
+      ]
     },
     {
       "ad": "Asakira",
@@ -707,7 +725,10 @@
       "ad": "Varry",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "takip"
+      ]
     },
     {
       "ad": "Cyberattack",
@@ -796,7 +817,11 @@
       "ayar": {
         "takip": "Hızlı Maden",
         "seyahat_hedefi": "Stirling"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Ferrera",
