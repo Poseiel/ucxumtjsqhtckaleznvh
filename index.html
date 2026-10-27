@@ -478,6 +478,15 @@ if (window.L) L.RasterCoords.prototype = {
       <h3>🆕 Son eklenenler <span class="rehber-eski">(10-19.10.2026)</span></h3>
       <table class="rehber-tablo">
         <tr><th>Yenilik</th><th>Nasıl kullanılır</th><th>Bilmen gereken</th></tr>
+        <tr><td>🩺 <b>Hesap durumu</b> + 🗳️ <b>Belediye seçimleri</b><br><span class="rehber-eski">26.10.2026</span></td>
+            <td><b>📍 Kim Nerede</b> → “🩺 Hesap durumu”nu aç: her hesabın evi · sağlığı · 👕 giysi n/6 ·
+              🗳️ oy hakkı (tahmin) · son teşhisi; şu anki kasaba / mod / “yalnız bilinmeyen” süzgeci.
+              <b>🩺 Bilinmeyenlere teşhis emri</b> 🖥️ Ayar formunu doldurur (gönderen sensin). Altında
+              <b>🗳️ Belediye seçimleri</b>: kasaba kasaba kalan gün · son gün · oy/adaylık açık mı · adaylar.</td>
+            <td>Oy hakkı bir <b>TAHMİNDİR</b> (oyunun tam şartı henüz kayıtta yok): oy verdiyse ✅, ev yoksa ❌,
+              ev bilinmiyorsa ❓, Siyaset %0 ise ❌, evi başka kasabadaysa 🏠; “olası” için ev o kasabada + oy
+              yetenekleri tamam (🗳️ oy hazırla bitti ya da Siyaset ≥ %66). Hızlı moddaki hesabın evi çoğu zaman bilinmez — teşhis bunu
+              doldurur. Mülk penceresini açan her tur artık “ev yok”u da kendisi yazar (ek sayfa açmadan).</td></tr>
         <tr><td>🤝 <b>Hesaplarımız nerede</b><br><span class="rehber-eski">19.10.2026</span></td>
             <td><b>📍 Kim Nerede</b> sekmesinde kartların altında: bütün hesaplarımız kasaba kasaba, başlık + sayıyla —
               önce İskoçya, sonra <b>İskoçya dışı</b> (Massa, Lewes …), en sonda <b>🧭 Seyahatte / sabit yeri yok</b>.</td>
@@ -617,12 +626,12 @@ if (window.L) L.RasterCoords.prototype = {
               <span class="rehber-akis">kuvvet öncelikli ekle: helioson, scamender</span></td>
             <td>Listedeki hesaplar ① yemekte <b>Kuvvet'i önce</b> kasar (Kuvvet 255 olunca ya da para 50 akçenin
               altındayken eski kural geçerli) ② bizim ya da dost hesabın onlara <b>rezerve ettiği yemeği</b>
-              pazardakinden önce alır ③ kendilerine rezerve edilen malı (yemek, kılıç…) <b>1000 değil 50 akçe</b>
+              pazardakinden önce alır ③ kendilerine rezerve edilen malı (yemek, kılıç…) <b>300 değil 50 akçe</b>
               kalana kadar alır. <b>Listede olmayan hesaplarda hiçbir şey değişmez.</b></td></tr>
         <tr><td>🧺 <b>Bize rezerve ilan ne zaman alınır?</b></td>
             <td>Bir hesabımıza pazarda <b>rezerve ettiğin</b> mal, o hesap pazara girince kendiliğinden alınır.</td>
             <td>İki şart var: satıcı <b>bizim hesabımız ya da dost listesinde</b> olmalı (yabancının rezervesi
-              alınmaz — bize pahalı mal ayırıp paramızı çekemesin) ve hesapta <b>1000 akçe</b> kalmalı
+              alınmaz — bize pahalı mal ayırıp paramızı çekemesin) ve hesapta <b>300 akçe</b> kalmalı (26.10'a kadar 1000)
               (💪 listedekilerde 50). Kendi karakterinden rezerve ediyorsan onu <b>⚙️ Sistem → 🤝 Dost</b>
               listesine ekle. Alınmazsa sebebi log'a yazılır.</td></tr>
         <tr><td>📊 <b>Günlük rapor daha dolu</b><br><span class="rehber-eski">11.10.2026</span></td>
@@ -1191,6 +1200,50 @@ if (window.L) L.RasterCoords.prototype = {
       Kaynak: Gelişim kaydı (o gün oyuna giren hesaplar; akşam tazelenir, sabah dünküdür). Başlığa tıkla →
       adlar açılır; ada tıkla → hesap kartı.</p>
     <div id="hesaplarimiz-liste"><p class="bos-durum">Gelişim verisi bekleniyor…</p></div>
+
+    <!-- 🩺 [26.10.2026 — FABLE_GOREV_2026-10-26 İŞ 33] Pontiac: "kime yapıp kime yapmadığımızı
+         göremiyorum teşhis edemediğimiz için". Kaynak gelisim.json (ikametgah · kusanma · saglik ·
+         oy · teshis_son · giysi_son); çizen takip.js → hesapDurumCiz (saf: TakipSaf.hesapDurum…).
+         ⛔ Gelişim tablosuna sütun EKLENMEDİ (18 sütun kilidi). -->
+    <details id="hesap-durum-kutu" class="gecmis-rapor">
+      <summary><b>🩺 Hesap durumu — ev · oy hakkı · giysi · sağlık · teşhis</b></summary>
+      <p class="bolum-aciklama">Her hesabımız için botun <b>bildiği</b>: 🏠 evi (kasaba · ev yok ·
+        <b>bilinmiyor</b>), 🩺 sağlık yazısı (“Sen Zindesin.” mi), 👕 6 giysi kategorisinden kaçı giyili,
+        🗳️ <b>oy hakkı — TAHMİN</b> (oy verdiyse ✅; ev yoksa ❌; ev bilinmiyorsa ❓; Siyaset %0 ise ❌;
+        evi bulunduğu kasabada değilse 🏠 “burada oy veremez” — oy için ev seçimin kasabasında şart;
+        ev o kasabada + oy yetenekleri tamamsa (🗳️ oy hazırla bitti ya da Siyaset ≥ %66) “olası”, değilse
+        ❓ “oy yetenekleri belli değil” — oyunun tam şartı henüz kayıtta yok) ve 🩺 son teşhis.
+        “Yalnız eksik” süzgeci evi başka kasabada olanları da gösterir. Bilinmeyen satırlar
+        renklidir. Hızlı moddaki hesaplar eve uğramadığı için çoğunun evi bilinmez →
+        <b>“🩺 Bilinmeyenlere teşhis emri”</b> 🖥️ Ayar formunu süzgeçteki bilinmeyenlerle doldurur
+        (3+ hesapta 3 güne yayar); <b>kendiliğinden gönderilmez</b>, sen kopyalayıp gönderirsin.</p>
+      <div class="hd-suzgec">
+        <label>🏘️ Şu an <select id="hd-kasaba"><option value="">— hepsi —</option></select></label>
+        <label>🧭 Mod <select id="hd-mod">
+          <option value="">— hepsi —</option>
+          <option value="normal">normal tur</option>
+          <option value="hizli">⚡ hızlı mod</option>
+          <option value="ordu">🪖 ordu</option>
+        </select></label>
+        <label>👁️ Göster <select id="hd-goster">
+          <option value="">hepsi</option>
+          <option value="eksik">yalnız eksik / bilinmeyen</option>
+          <option value="bilinmeyen">yalnız bilinmeyen (teşhis gerekli)</option>
+        </select></label>
+      </div>
+      <div id="hesap-durum-ozet"></div>
+      <p><a id="hd-teshis-emri" class="emir-mini-btn" href="#emir/ayar">🩺 Bilinmeyenlere teşhis emri</a>
+        <span id="hd-teshis-not" class="emir-kucuk"></span></p>
+      <div id="hesap-durum-tablo"><p class="bos-durum">Gelişim verisi bekleniyor…</p></div>
+    </details>
+
+    <!-- 🗳️ [26.10.2026 — FABLE_GOREV_2026-10-26 İŞ 34] Belediye seçim durumu (botun SON okuması,
+         gelisim.json → belediye_secimleri). Çizen takip.js → belediyeCiz. -->
+    <h3 class="hareket-alt-baslik">🗳️ Belediye seçimleri — kasaba kasaba</h3>
+    <p class="bolum-aciklama">Bot bir kasabanın seçim sayfasına baktığında yazdığı son durum: seçim var mı,
+      <b>kaç gün kaldı</b>, son gün, oy / adaylık açık mı, adaylar ve hangi hesabın ne zaman baktığı.
+      Kalan gün bugüne göre yeniden hesaplanır. <span id="belediye-secim-tarih" class="emir-kucuk"></span></p>
+    <div id="belediye-secim-liste"><p class="bos-durum">Yükleniyor…</p></div>
 
     <!-- 🆕 YENİ HESAPLAR — burada duruyor çünkü karakter 25. seviyeye kadar
          SEYAHAT EDEMEZ: yeni bir hesabın bulunduğu kasaba, doğduğu kasabadır.
@@ -2377,6 +2430,54 @@ if (window.L) L.RasterCoords.prototype = {
            gorev_zinciri.py'nin anladığı sırayla). -->
       <fieldset class="ay-bolum ay-bolum-gorev">
         <legend>2 · 🧭 Görev zinciri <span class="emir-ipucu-kucuk">— hesabı taşı, alışveriş yaptır, gemiye bindir (sırayla yapacağı işler)</span></legend>
+        <!-- 🧭 [26.10.2026 — FABLE_GOREV_2026-10-26 İŞ 32] KURULUM + DÜZEN — Pontiac: *"bizim görev
+             zincirinden ziyade bir hesaba aksi emir verene kadar ne iş yapacağını aktarmamız gerekiyor"*.
+             Üç kutu görev zincirini yazar (git · ev+tarla · atölye — kurulum BİR KEZ, bitince görev alanı
+             silinir); düzen = aşağıdaki 🎛️ hesap planı kutuları (aksi emre kadar her gün). Hepsi TEK AYAR
+             mesajına girer. Seçenekler botun kabul ettikleriyle BİREBİR (test_kalici_duzen G). -->
+        <div class="ay-kurulum" id="ay-kurulum-kutu">
+          <p class="emir-ipucu">🧭 <b>Kurulum + Düzen</b> — üç kutu görev zincirini doldurur (<b>kurulum</b>: bir kez
+            yapılır, bitince görev alanı silinir; hesap zaten oradaysa / evi ve (türü ne olursa olsun) bir tarlası · o mesleği varsa adım
+            HİÇBİR ŞEY ALMADAN geçilir — tarlası başka türdeyse ikinci tarla alınmaz, 🌾🔁 TARLA ÇEVİR emrini kullan). Günlük <b>düzen</b> aşağıdaki 🎛️ Hesap planı kutularıdır (🌾 Tarla · ⛏️ İş sırası
+            · 🔥 Kalan enerji · 🍽️ Yemek) — <b>aksi emre kadar</b> her gün uygulanır. Hepsi <b>tek AYAR mesajında</b>
+            gider. Plan <code>tarla: işçi</code> ya da <code>kendisi</code> ise ekilmemiş tarlanın tohumu pazardan alınıp
+            eve konur (Sebze tohum istemez).<br>
+            Örnek (Pontiac): <code>AYAR</code> · <code>hesap: Wolftrap</code> ·
+            <code>görev: seyahat:Stirling, ev_al:Sebze, atolye:Kasap</code> · <code>tarla: işçi</code> ·
+            <code>iş sırası: atölye, maden</code> · <code>kalan enerji: maden</code> · <code>yemek: kuvvet</code>.
+            🐂 Sığır çiftliği henüz kodlanmadı (HTML bekliyor).</p>
+          <div class="emir-satir">
+            <label>🚶 Kasabaya git
+              <input list="ay-sehir-listesi" id="ay-kd-kasaba" placeholder="boş = yola çıkmasın (örn. Stirling)" autocomplete="off">
+            </label>
+            <label>🏠 Ev + tarla türü
+              <select id="ay-kd-tur">
+                <option value="">— ev/tarla alma —</option>
+                <option value="Buğday">🌾 Buğday</option>
+                <option value="Mısır">🌽 Mısır</option>
+                <option value="Sebze">🥬 Sebze</option>
+                <option value="Arpa">🌾 Arpa</option>
+                <option value="Manda">🐃 Manda</option>
+                <option value="Koç">🐏 Koç</option>
+                <option value="Sığır" disabled>🐂 Sığır (yakında — HTML bekliyor)</option>
+              </select>
+            </label>
+            <label>🏭 Meslek (atölye)
+              <select id="ay-kd-meslek">
+                <option value="">— atölye alma —</option>
+                <option value="Değirmenci">Değirmenci</option>
+                <option value="Fırıncı">Fırıncı</option>
+                <option value="Kasap">Kasap</option>
+                <option value="Demirci">Demirci</option>
+                <option value="Terzi">Terzi</option>
+                <option value="Marangoz">Marangoz</option>
+                <option value="Heykeltıraş">Heykeltıraş</option>
+                <option value="Bahçıvan">Bahçıvan</option>
+              </select>
+            </label>
+          </div>
+          <p class="emir-ipucu" id="ay-kd-ozet" hidden></p>
+        </div>
         <div class="emir-satir">
           <label>📋 Hazır plan seç <span class="emir-kucuk">(adımları kendiliğinden doldurur, sonra düzenleyebilirsin)</span>
             <select id="ay-plan">
@@ -2407,6 +2508,22 @@ if (window.L) L.RasterCoords.prototype = {
           (maden/cami); bitince emir kendiliğinden kapanır
           (sonuç hesap kartında: 🏠 İkametgah). Hızlı modda olmayan hesap bunları her gün zaten
           okuyor — emir o hesapta hemen kapanır. Toplu da verilebilir (👥 Toplu emir).</label>
+        <!-- 🗳️ [26.10.2026 — FABLE_GOREV_2026-10-26 İŞ 35] OY HAZIRLA (bir kerelik).
+             Bot: site_emirleri._IZINLI_ALANLAR["oy hazırla"] → oy_hazirla (bayrak). -->
+        <label>🗳️ Oy hakkı hazırla <span class="ay-ipucu">hesap sonraki girişlerinde BULUNDUĞU
+          kasabada oy vermeye hazırlanır: evi yoksa <b>ev alır</b> (yalnızca ev, tarla yok — en az
+          90 akçe) · evi başka kasabadaysa <b>evini taşır</b> (yalnızca ev sandığı BOŞSA — taşınınca
+          sandık silinir, tarla/atölye eski kasabada kalır) · Siyaset'te <b>yalnızca oy
+          yeteneklerini</b> açar (Vatandaş → Kasaba Seçmeni; aday olma yetenekleri ve %66 YOK) ·
+          ev o kasabada + Kasaba Seçmeni tamam olunca emir kendiliğinden kapanır. Yoldayken /
+          seyahat emri sürerken / Grup Takip'teyken beklenir. Ev alınamaz / taşınamazsa Telegram'a bir kez yazar.
+          Ordu hesabında yapılmaz · adaylık KOYMAZ · sonuç hesap kartında</span>
+          <select id="ay-oy-hazirla">
+            <option value="">— değiştirme —</option>
+            <option value="evet">evet — hazırla</option>
+            <option value="hayır">hayır — iptal</option>
+          </select>
+        </label>
 
         <!-- 💸➡️🌍 [14.09.2026] "Her şeyi sat" zincirinin ARKA PLANDA
              kendiliğinden yaptıkları. Kullanıcı: *"sitedeki emir verme
@@ -2663,6 +2780,17 @@ if (window.L) L.RasterCoords.prototype = {
             <option value="50000">50.000 akçe</option>
           </select>
         </label>
+        <!-- 👕 [26.10.2026 — FABLE_GOREV_2026-10-26 İŞ 31] Giysi al: bu hesap eksik temel
+             giysisini günde bir pazardan alıp giyer (⚙️ "giysi ağı" kapalı olsa da).
+             [26.10 kullanıcı kararı "UYGUNDUR"] ⚙️ giysi ağı varsayılan AÇIK → "kapalı" = bu hesap ağın DIŞINDA.
+             Bot: site_emirleri._IZINLI_ALANLAR["giysi al"] → giysi_al (bayrak) → giysi_agi.ag_karari. -->
+        <label>👕 Giysi al <span class="ay-ipucu">günde bir, bulunduğu kasabanın pazarından eksik temel giysisini (en ucuzdan başlayarak) alıp giyer · ⚙️ “Giysi ağı” açıkken (varsayılan) bütün normal hesaplar zaten alır — burada “kapalı” bu hesabı dışarıda bırakır, “açık” ağ kapalıyken de aldırır · parça başına tavan ve kalacak para ⚙️ Sistem'de (giysi tavanı / asgari para) · Ordu/Grup Takip · hızlı · seyahat hesabında çalışmaz</span>
+          <select id="ay-giysi">
+            <option value="">— değiştirme —</option>
+            <option value="açık">açık (eksik giysiyi alsın)</option>
+            <option value="kapalı">kapalı (bu hesap giysi almasın)</option>
+          </select>
+        </label>
       </div>
       <!-- 🖥️ [05.10.2026] Formda kutusu OLMAYAN üç hesap alanı (kural: her
            hesap ayarı siteden de verilebilmeli; ölçüldü). Ev/atölye/her şeyi
@@ -2866,6 +2994,42 @@ if (window.L) L.RasterCoords.prototype = {
             <select id="si-firinci-islem" class="si-islem"></select>
             <input id="si-firinci" placeholder="örn. Ardencaple=Ironfoot, Glasgow=..." autocomplete="off">
           </label>
+        </div>
+        <!-- 🧵 [26.10.2026 — İŞ 31] Kasaba terzileri (kasaba=terzi) — fırıncılarla AYNI desen.
+             Bot: site_emirleri "terziler" → trade_config.terzi_tablosu_kur. Yazılmamışsa koddaki tablo.
+             [26.10 kullanıcı kararı] "EVET AYIRARAK SATSIN" → market_driver Yün/Deri'yi terziye rezerve eder ·
+             "Evet, kendi ürettiğini giysin" → seviye_kontrol giysi ağında terzi önce çantasındakini giyer. -->
+        <div class="emir-satir">
+          <label>🧵 Terziler <span class="ay-ipucu">kasaba=terzi, virgülle · o kasabadaki herkes Yumak Yün ve Deri'yi bu hesaba <b>rezerveli</b> satar (26.10) · tablodaki hesap atölyesini almamış olsa da Yumak Yün ve Deri'yi <b>satmaz</b>, evinde biriktirir · terzi eksik giysisini önce çantasındaki <b>kendi ürününden</b> giyer · evdeki kıyafeti satışa yalnızca mesleği gerçekten Terzi olan çeker · “ekle: Glasgow=X” Glasgow'un terzisini DEĞİŞTİRİR · “çıkar: Glasgow” kaldırır · hiç yazılmamışsa koddaki tablo geçerli (Ardencaple=Nihilant) · “yok” = hiçbir kasabada terzi yok</span>
+            <select id="si-terzi-islem" class="si-islem"></select>
+            <input id="si-terzi" placeholder="örn. Ardencaple=Nihilant, Glasgow=..." autocomplete="off">
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- 👕 [26.10.2026 — FABLE_GOREV_2026-10-26 İŞ 31] Giysi ağı — varsayılan AÇIK (26.10 kullanıcı kararı
+           "UYGUNDUR"; ilk teslimde KAPALI idi). Alım sırası en ucuzdan ("EN UCUZDAN BAŞLANARAK ALINSIN").
+           Bot: site_emirleri "giysi ağı" / "giysi tavanı" / "giysi asgari para" → giysi_agi.AYAR. -->
+      <fieldset class="ay-bolum">
+        <legend>👕 Giysi ağı — varsayılan AÇIK</legend>
+        <p class="emir-ipucu">Açıkken her normal hesap günde bir kez eksik temel giysisini (ayakkabı · pantolon/şalvar/etek ·
+          kuşak · şapka · gömlek · çorap) bulunduğu kasabanın pazarında arar, <b>parça başına tavanın</b> altındaysa ve
+          alımdan sonra hesapta <b>en az kalacak para</b> kadar kalıyorsa alır, gardıroba koyup giyer. Bir parçada önce
+          kendisine <b>rezerveli</b> satır, sonra en ucuzu; parçalar arasında <b>en ucuzdan başlanarak</b> alınır (para azken
+          daha çok parça). 🧵 Terzi önce çantasındaki <b>kendi ürününü</b> giyer, kalan eksiği pazardan alır.
+          Ordu/Grup Takip · hızlı mod · gemi · kaptan · seyahat hesapları yapmaz. Hiç ayar yazılmamışsa <b>AÇIK</b>.
+          Kapalıyken tek hesap için 🖥️ Ayar'daki “👕 Giysi al: açık” yeter; açıkken bir hesabı dışarıda bırakmak için
+          “👕 Giysi al: kapalı”.</p>
+        <div class="emir-satir">
+          <label>👕 Giysi ağı
+            <select id="si-giysi-agi">
+              <option value="">— değiştirme —</option>
+              <option value="açık">açık (bütün normal hesaplar — varsayılan)</option>
+              <option value="kapalı">kapalı (yalnızca “giysi al” tikli hesaplar)</option>
+            </select>
+          </label>
+          <label>👕 Parça tavanı (akçe) <input id="si-giysi-tavan" placeholder="boş = değiştirme · varsayılan 150" autocomplete="off"></label>
+          <label>👕 Alımdan sonra kalacak para <input id="si-giysi-asgari" placeholder="varsayılan 100" autocomplete="off"></label>
         </div>
       </fieldset>
 
