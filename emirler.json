@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-28 00:36",
+  "son_guncelleme": "2026-10-28 01:00",
   "azami_gun": 14,
   "azami_deneme": 7,
   "bekleyen": [
@@ -23,28 +23,6 @@
       "sonuc": "",
       "kapanma": "",
       "kategori": "",
-      "satilanlar": ""
-    },
-    {
-      "kod": "E73",
-      "tur": "sat",
-      "hesap": "Binim",
-      "urun": "🌿 tüm otlar",
-      "adet": "tümü",
-      "fiyat": "999.95",
-      "alici": "Partal",
-      "hemen": true,
-      "eyalet": false,
-      "serbest": false,
-      "yazan": "Çağrı",
-      "eklenme": "2026-10-28 00:32",
-      "gecen_gun": 0,
-      "kalan_gun": 14,
-      "deneme": 0,
-      "azami_deneme": 7,
-      "sonuc": "",
-      "kapanma": "",
-      "kategori": "ot",
       "satilanlar": ""
     },
     {
@@ -84,7 +62,7 @@
       "eklenme": "2026-10-28 00:32",
       "gecen_gun": 0,
       "kalan_gun": 14,
-      "deneme": 0,
+      "deneme": 1,
       "azami_deneme": 7,
       "sonuc": "",
       "kapanma": "",
@@ -137,6 +115,28 @@
     }
   ],
   "gecmis": [
+    {
+      "kod": "E73",
+      "tur": "sat",
+      "hesap": "Binim",
+      "urun": "🌿 tüm otlar",
+      "adet": "tümü",
+      "fiyat": "999.95",
+      "alici": "Partal",
+      "hemen": true,
+      "eyalet": false,
+      "serbest": false,
+      "yazan": "Çağrı",
+      "eklenme": "2026-10-28 00:32",
+      "gecen_gun": 0,
+      "kalan_gun": 14,
+      "deneme": 0,
+      "azami_deneme": 7,
+      "sonuc": "✅ SATILDI (Mercanköşk Filizi 29 · Lavanta Filizi 27 · Gümüşdüğme Çiçeği 26 · Anason Çiçeği 23 · Misket Limonu Yaprağı 23 · Kereviz Sapı 13 · Papatya Çiçeği 9 · Nane Yaprağı 7 · Biberiye Filizi 6 · Hodan Çiçeği 6 · Beyaz Söğüt Kabuğu 2 · Kara Mürver Meyvesi 2 · Kekik Dalı 2 · Melekotu Filizi 2)",
+      "kapanma": "2026-10-28 00:59",
+      "kategori": "ot",
+      "satilanlar": "Mercanköşk Filizi 29 · Lavanta Filizi 27 · Gümüşdüğme Çiçeği 26 · Anason Çiçeği 23 · Misket Limonu Yaprağı 23 · Kereviz Sapı 13 · Papatya Çiçeği 9 · Nane Yaprağı 7 · Biberiye Filizi 6 · Hodan Çiçeği 6 · Beyaz Söğüt Kabuğu 2 · Kara Mürver Meyvesi 2 · Kekik Dalı 2 · Melekotu Filizi 2"
+    },
     {
       "kod": "E70",
       "tur": "al",
@@ -1535,6 +1535,15 @@
         {
           "ad": "seyahat_hedefi",
           "deger": "Girvan"
+        }
+      ]
+    },
+    {
+      "hesap": "binim",
+      "alanlar": [
+        {
+          "ad": "gorev",
+          "deger": "— (zincir bitti, temizleniyor)"
         }
       ]
     },
