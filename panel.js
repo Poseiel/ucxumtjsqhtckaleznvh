@@ -356,6 +356,24 @@
         kus.length + " hesap okundu · " + (kus.length - ikisi) + " eksik · 👕 " + pacavrali +
         " hesapta default kıyafet (paçavra)", "#gelisim"));
     }
+    // 🩺 [26.10.2026 — İŞ 33] hesap durumu (ev · giysi · oy tahmini) — takip.js saf fonksiyonu.
+    var TS = window.TakipSaf;
+    if (gel.length && TS && typeof TS.hesapDurumSatirlari === "function") {
+      var hdo = TS.hesapDurumOzeti(TS.hesapDurumSatirlari(gel, {}));
+      k.push(kart("🩺", "evi bilinmeyen hesap", hdo.evBilinmeyen,
+        kacis(hdo.evVar + " evi bilinen · " + hdo.evYok + " ev yok · 👕 giysi kaydı yok " + hdo.giysiBilinmeyen +
+          " · 🗳️ oy verdi " + hdo.oyVerdi + " (tahmin: olası " + hdo.oyOlasi + ")"),
+        "#sakinler", hdo.evBilinmeyen ? "bas-kart-uyari" : ""));
+    }
+    // 🗳️ [26.10.2026 — İŞ 34] belediye seçimleri (takip.js gelisim.json'un üst düzeyinden yükler).
+    var bsz = null;
+    try { bsz = typeof window.takipBelediye === "function" ? window.takipBelediye() : null; } catch (e) { bsz = null; }
+    if (bsz && bsz.okunan) {
+      k.push(kart("🗳️", "kasabada belediye seçimi", bsz.secimli,
+        kacis(bsz.enYakin ? "en yakın: " + bsz.enYakin.kasaba + " · " + bsz.enYakin.kalan + " gün kaldı"
+          : bsz.okunan + " kasaba okundu"),
+        "#sakinler", bsz.enYakin && bsz.enYakin.kalan <= 2 ? "bas-kart-uyari" : ""));
+    }
 
     var ordu = g("orduVerisi", null);
     if (ordu && ordu.ordular) {
@@ -697,6 +715,24 @@
     return oz + ((bulunan.ayar || {}).plan_yemek === "yok" ? " · 🍽️⛔ HİÇ YEMEZ (plan gereği)" : "");
   }
 
+  // 🩺 [26.10.2026 — İŞ 33] TakipSaf yazı fonksiyonu (takip.js) — yoksa / boşsa `bos`.
+  function hdMetin(fn, deger, bos, ek) {
+    var S = window.TakipSaf;
+    if (!S || typeof S[fn] !== "function") return undefined;
+    var m = "";
+    try { m = S[fn](deger, ek); } catch (e) { m = ""; }
+    return m || bos;
+  }
+  // 🩺 teşhis emri bekliyor mu? (sistem.json → hesap ayarı `teshis` ya da bekleyen site emri)
+  function teshisBekliyorMu(ad) {
+    var sv = window.sistemVerisi, k = String(ad || "").toLowerCase(), var_mi = false;
+    ((sv && sv.hesaplar) || []).forEach(function (x) {
+      if (String(x.ad || "").toLowerCase() !== k) return;
+      if ((x.ayar && x.ayar.teshis) || (Array.isArray(x.bekleyen) && x.bekleyen.indexOf("teshis") >= 0)) var_mi = true;
+    });
+    return var_mi;
+  }
+
   function hesapKartiAc(ad) {
     hesapKartiKur();
     var h = hesapBul(ad);
@@ -724,6 +760,12 @@
         ? window.kusanmaMetni(gl.kusanma) + " (" + (gl.kusanma.gun || "?") + ")" : undefined],
       ["👕 Kıyafetleri", gl.kusanma && typeof window.kiyafetListesi === "function"
         ? (window.kiyafetListesi(gl.kusanma) || undefined) : undefined],
+      // 🩺 [26.10.2026 — İŞ 33] sağlık · oy hakkı (TAHMİN) · son teşhis · son giysi alımı
+      //    (gelisim.json; yazılar takip.js'in saf fonksiyonlarından — takip.js yoksa satır çıkmaz).
+      ["🩺 Sağlık", hdMetin("saglikMetni", gl.saglik, "okunmadı")],
+      ["🗳️ Oy hakkı (tahmin)", hdMetin("oyMetni", gl.oy, "bilinmiyor")],
+      ["🩺 Son teşhis", hdMetin("teshisMetni", gl.teshis_son, "hiç teşhis kaydı yok", teshisBekliyorMu(h.ad))],
+      ["👕 Son giysi alımı", hdMetin("giysiAlimMetni", gl.giysi_son, undefined)],
       ["📅 Kayıt", gl.kayit_tarihi],
       // 🎛️ [19.10.2026 — İŞ 15] hesap planı (sistem.json → hesap ayarı; boş = bugünkü düzen)
       ["🎛️ Plan", hesapPlanMetni(h.ad)]
