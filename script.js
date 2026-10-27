@@ -981,6 +981,7 @@ async function gelisimYukle() {
     const yanit = await fetch("gelisim.json?_=" + Date.now());
     const veri = await yanit.json();
     gelisimKarakterler = veri.karakterler || [];
+    window.gelisimUst = veri;   // [26.10.2026] takip.js üst düzey alanları buradan okur (ikinci indirme YOK)
 
     const tarihEl = document.getElementById("gelisim-tarih-notu");
     if (veri.dun_tarihi) {
@@ -1144,6 +1145,38 @@ function detayIcerigi(k) {
   return kartBtn + `<div class="detay-sarmal">${bolumler.join("")}</div>`;
 }
 
+/* 🏠🌾 [26.10.2026 — FABLE_GOREV_2026-10-26 İŞ 32] Pontiac'ın onayı (birebir): *"ev tarla ve atölye
+   alımı yapıldıktan sonra gelişim tablosuna bu mutlaka kayıt edilsin. Ev adresi ikametgah olarak
+   girilsin."* → YENİ SÜTUN YOK (18 kilidi): ikametgah "Kasaba" hücresinde 🏠 rozeti, ince tarla
+   türleri "Tarla" hücresinde. Sıralama / süzme ESKİSİ GİBİ hücrenin kendi değerine (kasaba · mulk)
+   göre — rozetler yalnızca GÖRÜNÜM. Alanlar `pazar_json_uret.gelisim_uret`ten: `ikametgah`
+   ("<Kasaba>" · "ev yok" · "bilinmiyor") · `tarla_turleri` (["Sebze", "Sebze", "Koç"] · null). */
+function gelisimKasabaHucresi(k) {
+  const ham = (k.kasaba === undefined || k.kasaba === null || k.kasaba === "") ? "-" : k.kasaba;
+  const ik = String(k.ikametgah || "").trim();
+  let rozet = "";
+  if (ik === "ev yok") {
+    rozet = ' <span class="ev-rozet ev-yok" title="İkametgah: evi YOK">🏠 ev yok</span>';
+  } else if (ik && ik !== "bilinmiyor") {
+    rozet = ' <span class="ev-rozet" title="İkametgah (evinin kasabası)">🏠 ' + kacis(ik) + "</span>";
+  }
+  return kacis(ham) + rozet;
+}
+
+function gelisimTarlaHucresi(k) {
+  const ham = (k.mulk === undefined || k.mulk === null || k.mulk === "") ? "-" : k.mulk;
+  const liste = Array.isArray(k.tarla_turleri) ? k.tarla_turleri.filter((t) => String(t || "").trim()) : [];
+  if (!liste.length) return kacis(ham);
+  const sayac = [];
+  liste.forEach((t) => {
+    const ad = String(t).trim();
+    const var_ = sayac.find((x) => x.ad === ad);
+    if (var_) var_.n += 1; else sayac.push({ ad: ad, n: 1 });
+  });
+  const yazi = sayac.map((x) => kacis(x.ad) + (x.n > 1 ? " ×" + x.n : "")).join(" · ");
+  return kacis(ham) + ' <span class="tarla-tur" title="Tarla türleri (alım / tarama kaydı)">🌾 ' + yazi + "</span>";
+}
+
 function gelisimTabloCiz() {
   const kasabaFiltre = document.getElementById("gelisim-kasaba-filtre").value;
   const baslik = document.getElementById("gelisim-tablo-baslik");
@@ -1231,6 +1264,9 @@ function gelisimTabloCiz() {
           return `<td class="gelisim-metin">` + roller.map(
             (r) => `<span class="gorev-rozet">${r}</span>`).join(" ") + `</td>`;
         }
+        // 🏠🌾 [26.10.2026 — İŞ 32] Kasaba hücresinde ikametgah rozeti · Tarla hücresinde tür.
+        if (s.anahtar === "kasaba") return `<td class="gelisim-metin">${gelisimKasabaHucresi(k)}</td>`;
+        if (s.anahtar === "mulk") return `<td class="gelisim-metin">${gelisimTarlaHucresi(k)}</td>`;
         // ⚠️ Yeni sütunlar ESKİ gelisim.json'da olmayabilir → boşsa "-".
         const ham = (k[s.anahtar] === undefined || k[s.anahtar] === null
                      || k[s.anahtar] === "") ? "-" : k[s.anahtar];
