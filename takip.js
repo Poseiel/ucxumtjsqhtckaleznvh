@@ -1299,6 +1299,335 @@ var TakipSaf = (function () {
     }).join("");
   }
 
+  // ---------------------------------------------------------------------
+  // 🩺 HESAP DURUMU — ev · oy hakkı · giysi · sağlık · son teşhis
+  //    [26.10.2026 · FABLE_GOREV_2026-10-26 İŞ 33 + 34]
+  // ---------------------------------------------------------------------
+  // Pontiac (26.10 10:27): "kime yapıp kime yapmadığımızı göremiyorum teşhis edemediğimiz
+  //   için". Kaynak gelisim.json karakter kayıtları (pazar_json_uret.gelisim_uret):
+  //   ikametgah · kusanma · saglik · oy (TAHMİN) · teshis_son · giysi_son + gorevler (mod).
+  //   Kayıt yoksa "—" / "bilinmiyor" — hiçbir şey UYDURULMAZ.
+  // ⚠️ İsim çakışması: `hesapDurumu` (izleme) ZATEN VAR → buradakiler "hd…" / "hesapDurum…".
+  // 👕 kusanma_modul.SANCAK_BEYI_KIYAFETLERI kategori sayısı (6) — test eşitler.
+  var GIYSI_KATEGORI_SAYISI = 6;
+  // 🍽️ İŞ 30: tam sağlık yazısı (oyunun kendi cümlesi).
+  var ZINDE_YAZISI = "Sen Zindesin.";
+  // 🍽️ [26.10.2026 inceleme] tam sağlık eşiği = food_module.SAGLIK_TAM_DEGER (5 Zindesin · 6 Sağlıklısın)
+  //    — test eşitler. Karar SAYIDAN; sayı yoksa yazıdan (iki tam sağlık cümlesi de kabul).
+  var SAGLIK_TAM_DEGER = 5;
+  var SAGLIK_TAM_YAZILARI = [ZINDE_YAZISI, "Sen Sağlıklısın."];
+  var HD_MODLAR = [["", "— hepsi —"], ["normal", "normal tur"], ["hizli", "⚡ hızlı mod"], ["ordu", "🪖 ordu"]];
+  var HD_GOSTER = [["", "hepsi"], ["eksik", "yalnız eksik / bilinmeyen"],
+    ["bilinmeyen", "yalnız bilinmeyen (teşhis gerekli)"]];
+
+  // gelisim karakteri → "hizli" · "ordu" · "normal" (rozetten: "⚡ Hızlı Cami" · "👥 Ordu Takip")
+  function hdMod(k) {
+    var roller = (k && Array.isArray(k.gorevler)) ? k.gorevler : [];
+    var i, r;
+    for (i = 0; i < roller.length; i++) {
+      r = metin(roller[i]);
+      if (r.indexOf("⚡ Hızlı") === 0) return { kod: "hizli", yazi: r.replace(/^⚡\s*/, "") };
+    }
+    for (i = 0; i < roller.length; i++) {
+      if (metin(roller[i]).indexOf("Ordu Takip") >= 0) return { kod: "ordu", yazi: "Ordu Takip" };
+    }
+    return { kod: "normal", yazi: "normal" };
+  }
+
+  // ikametgah ("Glasgow" · "ev yok" · "bilinmiyor" · eski kayıtta yok) → {durum, yazi}
+  function hdEv(ikametgah) {
+    var e = metin(ikametgah).trim();
+    if (!e || e === "bilinmiyor") return { durum: "bilinmiyor", yazi: "❓ bilinmiyor" };
+    if (e === "ev yok") return { durum: "yok", yazi: "❌ ev yok" };
+    return { durum: "var", yazi: e };
+  }
+
+  // sağlık kaydı → true (zinde) · false · null (kayıt yok)
+  function saglikZinde(s) {
+    if (!s || typeof s !== "object") return null;
+    if (typeof s.deger === "number" && isFinite(s.deger)) return s.deger >= SAGLIK_TAM_DEGER;
+    var ad = metin(s.ad).trim();
+    if (!ad) return null;
+    return SAGLIK_TAM_YAZILARI.indexOf(ad) >= 0;
+  }
+  function saglikMetni(s) {
+    var z = saglikZinde(s);
+    if (z === null) return "";
+    var ad = metin(s.ad).trim() || ("sağlık " + s.deger + "/6");
+    return (z ? "✅ " : "⚠️ ") + ad + (s.gun ? " (" + kisaGun(s.gun) + ")" : "");
+  }
+
+  // kusanma → {var: n|null, eksik: [...]} (n = giyilen kategori / 6)
+  function giysiDurumu(ku) {
+    if (!ku || typeof ku !== "object") return { var: null, eksik: [] };
+    var eksik = Array.isArray(ku.eksik_kiyafet) ? ku.eksik_kiyafet.map(metin) : [];
+    return { var: Math.max(0, GIYSI_KATEGORI_SAYISI - eksik.length), eksik: eksik };
+  }
+
+  // oy (gelisim `oy`) → "✅ oy verdi (25.10 · E72 → Atreides)" / tahmin yazısı / "" (kayıt yok)
+  function oyMetni(oy) {
+    if (!oy || typeof oy !== "object" || !oy.tahmin) return "";
+    var s = metin(oy.tahmin);
+    var so = oy.son_oy;
+    if (so && typeof so === "object" && (so.gun || so.kod)) {
+      var parca = [];
+      if (so.gun) parca.push(kisaGun(so.gun));
+      if (so.kod) parca.push(metin(so.kod));
+      if (so.kime) parca.push("→ " + metin(so.kime));
+      if (so.sonuc && oy.kod !== "verdi") parca.push(metin(so.sonuc));
+      s += " · son oy: " + parca.join(" ");
+    }
+    var hz = oy.hazirlik;
+    if (hz && typeof hz === "object" && hz.durum) s += " · hazırlık: " + metin(hz.durum);
+    return s;
+  }
+
+  // son teşhis → "26.10 · ⚡ hızlı · ev Stirling" · bekliyorsa "⏳ bekliyor" öne
+  function teshisMetni(t, bekliyor) {
+    var s = "";
+    if (t && typeof t === "object" && t.gun) {
+      s = kisaGun(t.gun) + (t.saat ? " " + metin(t.saat) : "") + " · " +
+        (t.tur === "hizli" ? "⚡ hızlı" : "normal tur") + " · ev " + metin(t.ev || "bilinmiyor") +
+        (t.dirildi ? " · 👻→🙂" : "");
+    }
+    if (bekliyor) return "⏳ teşhis emri bekliyor" + (s ? " · son: " + s : "");
+    return s;
+  }
+
+  // son giysi alımı (İŞ 31) → "26.10 · Stirling · 2 parça: Gömlek (12 akçe), Çorap · eksik kaldı: Kemer"
+  function giysiAlimMetni(gs) {
+    if (!gs || typeof gs !== "object" || !gs.gun) return "";
+    var alinan = Array.isArray(gs.alinan) ? gs.alinan : [];
+    var s = kisaGun(gs.gun) + (gs.kasaba ? " · " + metin(gs.kasaba) : "") + " · " +
+      (alinan.length ? alinan.length + " parça: " + alinan.map(function (a) {
+        a = a || {};
+        var f = Number(a.fiyat);
+        return metin(a.ad) + (a.fiyat !== null && a.fiyat !== undefined && !isNaN(f) ? " (" + f + " akçe)" : "");
+      }).join(", ") : "alım yok");
+    var ek = Array.isArray(gs.eksik_kalan) ? gs.eksik_kalan : [];
+    if (ek.length) s += " · eksik kaldı: " + ek.map(metin).join(", ");
+    if (gs.not) s += " · " + metin(gs.not);
+    return s;
+  }
+
+  // gelisim karakterleri → satırlar. bekleyenTeshis: {ad_kucuk: true} (sistem.json)
+  function hesapDurumSatirlari(karakterler, bekleyenTeshis) {
+    var bek = (bekleyenTeshis && typeof bekleyenTeshis === "object") ? bekleyenTeshis : {};
+    var gorulen = {}, sonuc = [];
+    (Array.isArray(karakterler) ? karakterler : []).forEach(function (k) {
+      if (!k || typeof k !== "object") return;
+      var ad = metin(k.karakter || k.ad).trim(), a = adKucult(ad);
+      if (!a || gorulen[a]) return;
+      gorulen[a] = 1;
+      var mod = hdMod(k), ev = hdEv(k.ikametgah), gy = giysiDurumu(k.kusanma);
+      var oy = (k.oy && typeof k.oy === "object") ? k.oy : null;
+      var oyKod = oy ? metin(oy.kod) : "";
+      var zinde = saglikZinde(k.saglik);
+      var bekliyor = !!bek[a];
+      var bilinmeyen = ev.durum === "bilinmiyor" || gy.var === null;
+      // 🗳️ [26.10.2026 — kullanıcı: "Evet, göstersin"] "yalnız eksik" süzgeci evi BAŞKA kasabada
+      //   olanları ("ev_baska" — burada oy veremez) ve oy yetenekleri belli olmayanları da gösterir.
+      var eksik = bilinmeyen || ev.durum === "yok" || gy.var < GIYSI_KATEGORI_SAYISI ||
+        zinde !== true || oyKod === "" || oyKod === "ev_yok" || oyKod === "yetenek_yok" ||
+        oyKod === "ev_bilinmiyor" || oyKod === "ev_baska" || oyKod === "yetenek_bilinmiyor";
+      sonuc.push({
+        ad: ad, mod: mod.kod, modYazi: mod.yazi, kasaba: metin(k.kasaba).trim(),
+        ev: ev, giysi: gy, saglik: k.saglik || null, saglikZinde: zinde, oy: oy, oyKod: oyKod,
+        teshis: k.teshis_son || null, teshisBekliyor: bekliyor, giysiSon: k.giysi_son || null,
+        bilinmeyen: bilinmeyen, eksik: eksik
+      });
+    });
+    return sonuc.sort(function (x, y) { return x.ad.localeCompare(y.ad, "tr"); });
+  }
+
+  // süzgeç: {kasaba (şu an, büyük/küçük harfsiz), mod ("normal"|"hizli"|"ordu"), goster ("eksik"|"bilinmeyen")}
+  function hesapDurumSuz(satirlar, s) {
+    s = s || {};
+    var kas = metinKucult(s.kasaba);
+    return (Array.isArray(satirlar) ? satirlar : []).filter(function (r) {
+      if (kas && metinKucult(r.kasaba) !== kas) return false;
+      if (s.mod && r.mod !== s.mod) return false;
+      if (s.goster === "eksik" && !r.eksik) return false;
+      if (s.goster === "bilinmeyen" && !r.bilinmeyen) return false;
+      return true;
+    });
+  }
+
+  function hesapDurumOzeti(satirlar) {
+    var o = { toplam: 0, evVar: 0, evYok: 0, evBilinmeyen: 0, giysiTam: 0, giysiBilinmeyen: 0,
+      oyVerdi: 0, oyOlasi: 0, oyYok: 0, oyBilinmeyen: 0, oyEvBaska: 0, zinde: 0, zindeDegil: 0, saglikYok: 0,
+      teshisli: 0, teshisBekleyen: 0, bilinmeyen: 0 };
+    (Array.isArray(satirlar) ? satirlar : []).forEach(function (r) {
+      o.toplam++;
+      if (r.ev.durum === "var") o.evVar++; else if (r.ev.durum === "yok") o.evYok++; else o.evBilinmeyen++;
+      if (r.giysi.var === null) o.giysiBilinmeyen++; else if (r.giysi.var >= GIYSI_KATEGORI_SAYISI) o.giysiTam++;
+      if (r.oyKod === "verdi") o.oyVerdi++;
+      else if (r.oyKod === "olasi") o.oyOlasi++;
+      else if (r.oyKod === "ev_yok" || r.oyKod === "yetenek_yok") o.oyYok++;
+      // 🏠 [26.10.2026 — kullanıcı: "Evet, aynı kasabada şart"] evi başka kasabada → BURADA oy veremez
+      else if (r.oyKod === "ev_baska") o.oyEvBaska++;
+      // ❓ ev_bilinmiyor · yetenek_bilinmiyor (oy yetenekleri belli değil) · kayıt yok
+      else o.oyBilinmeyen++;
+      if (r.saglikZinde === true) o.zinde++; else if (r.saglikZinde === false) o.zindeDegil++; else o.saglikYok++;
+      if (r.teshis) o.teshisli++;
+      if (r.teshisBekliyor) o.teshisBekleyen++;
+      if (r.bilinmeyen) o.bilinmeyen++;
+    });
+    return o;
+  }
+
+  // teşhise gönderilecekler: evi BİLİNMİYOR ya da giysi kaydı YOK — emri zaten bekleyen hariç.
+  function teshisAdaylari(satirlar) {
+    return (Array.isArray(satirlar) ? satirlar : []).filter(function (r) {
+      return r.bilinmeyen && !r.teshisBekliyor;
+    }).map(function (r) { return r.ad; });
+  }
+
+  // 🖥️ Ayar formuna yazılacak: hesap kutusu (açık adlar — seçici değil, tam liste) + 3+ hesapta yay: 3
+  function teshisEmriDegerleri(adlar) {
+    var l = (Array.isArray(adlar) ? adlar : []).map(metin).filter(function (x) { return x.trim(); });
+    return { hesap: l.join(", "), yay: l.length >= 3 ? "3" : "", adet: l.length };
+  }
+
+  function hesapDurumOzetHtml(o) {
+    o = o || hesapDurumOzeti([]);
+    if (!o.toplam) return '<p class="bos-durum">Gelişim verisi henüz yok — tur bitince (akşam) dolar.</p>';
+    return '<p class="bolum-aciklama"><b>' + o.toplam + "</b> hesap · 🏠 ev: " + o.evVar + " var · " +
+      o.evYok + " yok · <b>" + o.evBilinmeyen + " bilinmiyor</b> · 👕 6/6 giyinik: " + o.giysiTam +
+      " · giysi kaydı yok: " + o.giysiBilinmeyen + " · 🗳️ oy (tahmin): " + o.oyVerdi + " verdi · " +
+      o.oyOlasi + " olası · " + (o.oyEvBaska ? o.oyEvBaska + " evi başka kasabada · " : "") +
+      o.oyYok + " yok · " + o.oyBilinmeyen + " bilinmiyor · 🩺 sağlık: " +
+      o.zinde + " zinde · " + o.zindeDegil + " değil · " + o.saglikYok + " okunmadı · 🩺 teşhis kaydı: " +
+      o.teshisli + (o.teshisBekleyen ? " · ⏳ bekleyen teşhis: " + o.teshisBekleyen : "") + "</p>";
+  }
+
+  function hesapDurumHtml(satirlar) {
+    var l = Array.isArray(satirlar) ? satirlar : [];
+    if (!l.length) return '<p class="bos-durum">Bu süzgeçle hesap yok.</p>';
+    var bas = ["Hesap", "Mod", "Şu an", "🏠 Ev", "🩺 Sağlık", "👕 Giysi", "🗳️ Oy (tahmin)", "🩺 Son teşhis"];
+    return '<div class="tablo-sarici"><table class="hesap-durum-tablo"><thead><tr>' +
+      bas.map(function (b) { return "<th>" + b + "</th>"; }).join("") + "</tr></thead><tbody>" +
+      l.map(function (r) {
+        var gy = r.giysi.var === null ? "?" : r.giysi.var + "/" + GIYSI_KATEGORI_SAYISI;
+        var gyBaslik = (r.giysi.eksik.length ? "eksik: " + r.giysi.eksik.join(", ") : "") +
+          (r.giysiSon ? (r.giysi.eksik.length ? " · " : "") + "son alım: " + giysiAlimMetni(r.giysiSon) : "");
+        var sg = saglikMetni(r.saglik) || "—";
+        var oy = r.oy ? metin(r.oy.tahmin) : "—";
+        var oyBaslik = oyMetni(r.oy);
+        var ts = teshisMetni(r.teshis, r.teshisBekliyor) || "—";
+        return "<tr" + (r.bilinmeyen ? ' class="hd-bilinmeyen"' : "") + ">" +
+          '<td><a class="kume-uye" href="#hesap/' + encodeURIComponent(r.ad) + '">' + kacis(r.ad) + "</a></td>" +
+          "<td>" + kacis(r.mod === "hizli" ? "⚡ " + r.modYazi : (r.mod === "ordu" ? "🪖 Ordu" : "normal")) + "</td>" +
+          "<td>" + kacis(r.kasaba || "?") + "</td>" +
+          "<td>" + kacis(r.ev.yazi) + "</td>" +
+          "<td>" + kacis(sg) + "</td>" +
+          '<td title="' + kacis(gyBaslik) + '">' + kacis(gy) + "</td>" +
+          '<td title="' + kacis(oyBaslik) + '">' + kacis(oy) + "</td>" +
+          "<td>" + kacis(ts) + "</td></tr>";
+      }).join("") + "</tbody></table></div>";
+  }
+
+  // 🕰️ [26.10.2026 — 2. inceleme] SİTENİN "BUGÜN"Ü = OYUN GÜNÜ (trade_config.oyun_gunu ile AYNI kural).
+  //   Bot seçimin bitiş gününü OYUN GÜNÜ olarak yazar (oy_modul: bitiş = oyun_gunu_str() + kalan − 1) ve
+  //   oyun günü sabah 06:45'te döner (trade_config.OYUN_GUN_DONUMU_SAATI / _DAKIKA). Site eskiden
+  //   tarayıcının TAKVİM gününü kullanıyordu → gece 00:00 – 06:45 arası hâlâ süren seçimin son günü
+  //   "bitti?" görünüyor ve Başlangıç kartından düşüyordu.
+  //   Kural: yerel saat 06:45'ten önceyse bir önceki gün. Yayıncının kendi oyun günü (gelisim.json
+  //   `bugun_tarihi`) bundan İLERİDEYSE o alınır — tarayıcının saati geride kalsa bile yayınlanmış
+  //   günün gerisine düşülmez. Yayıncının günü TEK BAŞINA kullanılmaz: gelisim.json yalnızca akşam
+  //   yenilendiği için ertesi gün hep bir gün geride kalır (biten seçim "1 gün kaldı" görünürdü).
+  //   `simdi` (Date ya da milisaniye) yalnızca test içindir; verilmezse şu an.
+  var OYUN_GUN_DONUMU_DK = 6 * 60 + 45;
+  function oyunGunuIso(simdi, yayinGunu) {
+    var t = (simdi && typeof simdi.getTime === "function") ? simdi.getTime()
+      : ((typeof simdi === "number" && isFinite(simdi)) ? simdi : Date.now());
+    var d = new Date(t);
+    var once = (d.getHours() * 60 + d.getMinutes()) < OYUN_GUN_DONUMU_DK ? 1 : 0;
+    var g = new Date(d.getFullYear(), d.getMonth(), d.getDate() - once);
+    var iso = g.getFullYear() + "-" + iki(g.getMonth() + 1) + "-" + iki(g.getDate());
+    var y = metin(yayinGunu).trim();
+    return (isoMu(y) && y > iso) ? y : iso;
+  }
+
+  // 🗳️ BELEDİYE SEÇİMLERİ (İŞ 34) — gelisim.json `belediye_secimleri` {Kasaba: {...}}.
+  //   kalanSimdi: bitiş günü varsa ona göre (bugün = "YYYY-MM-DD"), yoksa okunan kalan −
+  //   okumadan bu yana geçen gün; okunamazsa null. Sıra: seçimi olan, en az gün kalan önce.
+  //   ⚠️ [26.10.2026 inceleme] Oyunun sayımı BUGÜNÜ DE SAYAR: bot bitiş = okunan gün + kalan − 1
+  //   yazar (oy_modul.secim_durumu_kaydet) → bitiş − bugün + 1 (okunduğu gün = oyunun "kalan"ı,
+  //   Telegram'daki sayı). Son gün 1 · 0 ve altı = bitti.
+  //   ⚠️ [26.10.2026 — 2. inceleme] `bugun` OYUN GÜNÜ olmalı (tarayıcı kısmı `oyunGunuIso` verir) —
+  //   takvim günü verilirse 00:00 – 06:45 arası süren seçimin son günü "bitti?" görünür.
+  function belediyeSecimSatirlari(veri, bugun) {
+    var bg = gunSayisi(bugun);
+    var l = [];
+    Object.keys((veri && typeof veri === "object" && !Array.isArray(veri)) ? veri : {}).forEach(function (kas) {
+      var k = veri[kas];
+      if (!k || typeof k !== "object" || !metin(kas).trim()) return;
+      var kalan = (typeof k.kalan === "number" && isFinite(k.kalan)) ? k.kalan : null;
+      var kalanSimdi = null;
+      var bt = gunSayisi(k.bitis);
+      if (bt !== null && bg !== null) kalanSimdi = bt - bg + 1;
+      else if (kalan !== null) {
+        var ok = gunSayisi(k.gun);
+        kalanSimdi = (ok !== null && bg !== null) ? kalan - (bg - ok) : kalan;
+      }
+      l.push({
+        kasaba: metin(kas).trim(), secimVar: !!k.secim_var, kalan: kalan, kalanSimdi: kalanSimdi,
+        bitis: metin(k.bitis), oyAcik: (k.oy_acik === true || k.oy_acik === false) ? k.oy_acik : null,
+        adaylikAcik: (k.adaylik_acik === true || k.adaylik_acik === false) ? k.adaylik_acik : null,
+        adaylar: Array.isArray(k.adaylar) ? k.adaylar.map(metin) : [], hesap: metin(k.hesap),
+        gun: metin(k.gun), saat: metin(k.saat)
+      });
+    });
+    return l.sort(function (x, y) {
+      if (x.secimVar !== y.secimVar) return x.secimVar ? -1 : 1;
+      var a = x.kalanSimdi === null ? 9999 : x.kalanSimdi, b = y.kalanSimdi === null ? 9999 : y.kalanSimdi;
+      return (a - b) || x.kasaba.localeCompare(y.kasaba, "tr");
+    });
+  }
+
+  function _evetHayir(v) { return v === true ? "✅ evet" : (v === false ? "❌ hayır" : "?"); }
+  // seçim var ve bitmemiş (kalan bilinmiyorsa sürüyor sayılır)
+  function _secimSurerken(r) { return !!(r && r.secimVar && (r.kalanSimdi === null || r.kalanSimdi > 0)); }
+
+  function belediyeSecimHtml(satirlar) {
+    var l = Array.isArray(satirlar) ? satirlar : [];
+    if (!l.length) {
+      return '<p class="bos-durum">Henüz belediye seçimi okunmadı (bot bir kasabada seçim sayfasına ' +
+        "baktığında burada görünür).</p>";
+    }
+    var bas = ["Kasaba", "Seçim", "Kalan gün", "Son gün", "Oy açık?", "Adaylık açık?", "Adaylar", "Okuyan · gün"];
+    return '<div class="tablo-sarici"><table class="belediye-secim-tablo"><thead><tr>' +
+      bas.map(function (b) { return "<th>" + b + "</th>"; }).join("") + "</tr></thead><tbody>" +
+      l.map(function (r) {
+        var kalan = !r.secimVar ? "—" : (r.kalanSimdi === null ? "?" : (r.kalanSimdi <= 0 ? "bitti?" : String(r.kalanSimdi)));
+        return "<tr" + (_secimSurerken(r) && r.kalanSimdi !== null && r.kalanSimdi <= 2 ? ' class="hd-bilinmeyen"' : "") + ">" +
+          "<td>" + kacis(r.kasaba) + "</td>" +
+          "<td>" + (r.secimVar ? "🗳️ var" : "yok") + "</td>" +
+          "<td>" + kacis(kalan) + "</td>" +
+          "<td>" + kacis(r.bitis ? tamGun(r.bitis) : "—") + "</td>" +
+          "<td>" + _evetHayir(r.oyAcik) + "</td>" +
+          "<td>" + _evetHayir(r.adaylikAcik) + "</td>" +
+          "<td>" + kacis(r.adaylar.length ? r.adaylar.join(", ") : "—") + "</td>" +
+          "<td>" + kacis((r.hesap || "?") + " · " + (r.gun ? kisaGun(r.gun) : "?") + (r.saat ? " " + r.saat : "")) +
+          "</td></tr>";
+      }).join("") + "</tbody></table></div>";
+  }
+
+  // Başlangıç kartı için: {secimli, enYakin: {kasaba, kalan} | null, okunan}
+  //   ⚠️ [26.10.2026 inceleme] BİTMİŞ seçim (kalanSimdi ≤ 0 — gelisim.json akşam yenilendiği için
+  //   kayıt bir gün bayat kalabilir) sayılmaz ve "en yakın" olamaz; süren seçimi gizlemesin.
+  function belediyeSecimOzeti(satirlar) {
+    var l = Array.isArray(satirlar) ? satirlar : [];
+    var secimli = l.filter(_secimSurerken);
+    var yakin = null;
+    secimli.forEach(function (r) {
+      if (r.kalanSimdi === null) return;
+      if (!yakin || r.kalanSimdi < yakin.kalan) yakin = { kasaba: r.kasaba, kalan: r.kalanSimdi };
+    });
+    return { okunan: l.length, secimli: secimli.length, enYakin: yakin };
+  }
+
   return {
     gunlukKaydi: gunlukKaydi, gunlukTurHtml: gunlukTurHtml, hesapGunlukHtml: hesapGunlukHtml,
     kacis: kacis, adKucult: adKucult, metinKucult: metinKucult, kasabaDisiMi: kasabaDisiMi,
@@ -1323,7 +1652,18 @@ var TakipSaf = (function () {
     orduHesaplari: orduHesaplari, orduUyeSirala: orduUyeSirala,
     orduTakipEtiketi: orduTakipEtiketi, orduEnerjiMetni: orduEnerjiMetni,
     orduHadiseSatirHtml: orduHadiseSatirHtml, orduGunHtml: orduGunHtml, orduUyeSatirHtml: orduUyeSatirHtml,
-    UYARI_DURUMLARI: UYARI_DURUMLARI
+    UYARI_DURUMLARI: UYARI_DURUMLARI,
+    // 🩺 [26.10.2026 — İŞ 33 + 34] hesap durumu + belediye seçimleri
+    GIYSI_KATEGORI_SAYISI: GIYSI_KATEGORI_SAYISI, ZINDE_YAZISI: ZINDE_YAZISI, HD_MODLAR: HD_MODLAR,
+    SAGLIK_TAM_DEGER: SAGLIK_TAM_DEGER, SAGLIK_TAM_YAZILARI: SAGLIK_TAM_YAZILARI,
+    HD_GOSTER: HD_GOSTER, hdMod: hdMod, hdEv: hdEv, saglikZinde: saglikZinde, saglikMetni: saglikMetni,
+    giysiDurumu: giysiDurumu, oyMetni: oyMetni, teshisMetni: teshisMetni, giysiAlimMetni: giysiAlimMetni,
+    hesapDurumSatirlari: hesapDurumSatirlari, hesapDurumSuz: hesapDurumSuz, hesapDurumOzeti: hesapDurumOzeti,
+    hesapDurumOzetHtml: hesapDurumOzetHtml, hesapDurumHtml: hesapDurumHtml, teshisAdaylari: teshisAdaylari,
+    teshisEmriDegerleri: teshisEmriDegerleri, belediyeSecimSatirlari: belediyeSecimSatirlari,
+    belediyeSecimHtml: belediyeSecimHtml, belediyeSecimOzeti: belediyeSecimOzeti,
+    // 🕰️ [26.10.2026 — 2. inceleme] sitenin "bugün"ü = oyun günü (06:45)
+    OYUN_GUN_DONUMU_DK: OYUN_GUN_DONUMU_DK, oyunGunuIso: oyunGunuIso
   };
 })();
 
@@ -1338,7 +1678,7 @@ var TakipSaf = (function () {
   var S = TakipSaf;
   var ANAHTAR_LISTE = "poseidon_izleme_v1";
   var ANAHTAR_GORULEN = "poseidon_izleme_gorulen_v1";
-  var KENDI_OLAYLAR = { nobet: 1, izleme: 1, takip: 1, gecmis: 1, ordu_hadise: 1 };
+  var KENDI_OLAYLAR = { nobet: 1, izleme: 1, takip: 1, gecmis: 1, ordu_hadise: 1, belediye: 1 };
   // Bantta en fazla kaç satır (telefonda 2 — yoksa bant bütün ekranı kaplar).
   function bantAzami() { return window.innerWidth < 700 ? 2 : 4; }
   var TARIH_RE = /^\d{4}-\d{2}-\d{2}$/;
@@ -1352,7 +1692,10 @@ var TakipSaf = (function () {
     gelisimSuzgec: { ad: "", bas: "", bit: "", bilinmeyen: true }, gelisimGorunen: [],
     oneriImza: "", baslangic: Date.now(), bantKaydirildi: false,
     gecmis: { index: null, yukleniyor: false, hata: "", gunler: {}, secili: "", bekleyen: "", kasaba: "", kaydir: false, yuklemeNo: 0 },
-    orduHadise: { veri: null, yukleniyor: false, hata: "" }   // ⚔️ ordu_hadise.json (sekme açılınca)
+    orduHadise: { veri: null, yukleniyor: false, hata: "" },  // ⚔️ ordu_hadise.json (sekme açılınca)
+    // 🩺 [26.10.2026 — İŞ 33 + 34] Kim Nerede → hesap durumu süzgeci + belediye seçimleri
+    hd: { kasaba: "", mod: "", goster: "" },
+    belediye: undefined, belediyeTarih: ""                   // undefined = henüz yüklenmedi
   };
 
   function $(id) { return document.getElementById(id); }
@@ -1494,6 +1837,11 @@ var TakipSaf = (function () {
     guvenli(oneriGuncelle)(veri);
     guvenli(nobetCiz)();
     guvenli(hesaplarimizCiz)();
+    var belediyeYeni = false;
+    try { belediyeYeni = belediyeVeriAl(); } catch (e) { belediyeYeni = false; }   // 🗳️ script.js'in gelisim.json'u
+    guvenli(hesapDurumCiz)();
+    guvenli(belediyeCiz)();
+    if (belediyeYeni) olayAt("belediye");   // panel.js Başlangıç kartı
   }
 
   function bantCiz() {
@@ -2425,10 +2773,143 @@ var TakipSaf = (function () {
   }
 
   // =====================================================================
+  // 🩺 HESAP DURUMU + 🗳️ BELEDİYE SEÇİMLERİ — [26.10.2026 · İŞ 33 + 34] Kim Nerede
+  // =====================================================================
+  // Veri gelisim.json (script.js `gelisimKarakterler`); "teşhis bekliyor" sistem.json
+  // (emir.js `sistemVerisi`). HTML saf kurucularda (TakipSaf.hesapDurum… / belediyeSecim…).
+  // ⛔ Hiçbir şey OTOMATİK GÖNDERİLMEZ: "🩺 Bilinmeyenlere teşhis emri" yalnızca 🖥️ Ayar
+  //    formunu doldurur; emri kullanıcı kopyalar / gönderir.
+  function bekleyenTeshisler() {
+    var sv = window.sistemVerisi, b = {};
+    ((sv && sv.hesaplar) || []).forEach(function (h) {
+      if (!h || !h.ad) return;
+      var bek = Array.isArray(h.bekleyen) ? h.bekleyen : [];
+      if ((h.ayar && h.ayar.teshis) || bek.indexOf("teshis") >= 0) b[S.adKucult(h.ad)] = true;
+    });
+    return b;
+  }
+  function hesapDurumSatirlariAl() {
+    return S.hesapDurumSatirlari(g("gelisimKarakterler", []), bekleyenTeshisler());
+  }
+  function hesapDurumCiz() {
+    var el = $("hesap-durum-tablo");
+    if (!el) return;
+    var hepsi = hesapDurumSatirlariAl();
+    // Kasaba seçenekleri (şu anki kasaba) — seçili değer korunur.
+    var sec = $("hd-kasaba");
+    if (sec) {
+      var kasabalar = {};
+      hepsi.forEach(function (r) { if (r.kasaba) kasabalar[r.kasaba] = 1; });
+      var adlar = Object.keys(kasabalar).sort(function (x, y) { return x.localeCompare(y, "tr"); });
+      var imza = adlar.join("|");
+      if (sec.getAttribute("data-imza") !== imza) {
+        sec.innerHTML = '<option value="">— hepsi —</option>' + adlar.map(function (k) {
+          return '<option value="' + S.kacis(k) + '">' + S.kacis(k) + "</option>";
+        }).join("");
+        sec.setAttribute("data-imza", imza);
+        sec.value = D.hd.kasaba && kasabalar[D.hd.kasaba] ? D.hd.kasaba : "";
+        if (!sec.value) D.hd.kasaba = "";
+      }
+    }
+    var gorunen = S.hesapDurumSuz(hepsi, D.hd);
+    var oz = $("hesap-durum-ozet");
+    if (oz) oz.innerHTML = S.hesapDurumOzetHtml(S.hesapDurumOzeti(hepsi)) +
+      (gorunen.length !== hepsi.length ? '<p class="emir-kucuk">Süzgeçle: <b>' + gorunen.length + "</b> hesap gösteriliyor.</p>" : "");
+    el.innerHTML = S.hesapDurumHtml(gorunen);
+    var not = $("hd-teshis-not");
+    if (not) {
+      var aday = S.teshisAdaylari(gorunen);
+      not.textContent = aday.length
+        ? "Süzgeçteki " + aday.length + " hesabın evi ya da giysi kaydı bilinmiyor → teşhis emri formu bunlarla dolar" +
+          (aday.length >= 3 ? " (3 güne yayılır)." : ".")
+        : "Süzgeçte bilinmeyen hesap yok (teşhis gerekmiyor).";
+    }
+  }
+  function belediyeCiz() {
+    var el = $("belediye-secim-liste");
+    if (!el) return;
+    if (D.belediye === undefined) { el.innerHTML = '<p class="bos-durum">Yükleniyor…</p>'; return; }
+    var t = $("belediye-secim-tarih");
+    if (t) t.textContent = D.belediyeTarih ? "📅 gelişim kaydı: " + D.belediyeTarih : "";
+    el.innerHTML = S.belediyeSecimHtml(S.belediyeSecimSatirlari(D.belediye || {}, bugunIso()));
+  }
+  // 🕰️ [26.10.2026 — 2. inceleme] takvim günü DEĞİL, OYUN GÜNÜ (06:45'te döner) — yayıncının günü
+  //   (gelisim.json `bugun_tarihi`) alt sınırdır. Bkz. TakipSaf.oyunGunuIso. `simdi` yalnızca test için.
+  function bugunIso(simdi) {
+    return S.oyunGunuIso(simdi, D.belediyeTarih);
+  }
+  // gelisim.json'un ÜST düzeyindeki `belediye_secimleri`.
+  // [26.10.2026] script.js'in ZATEN indirdiği gelisim.json'dan okunur (`window.gelisimUst`) —
+  //   eskiden ~260 KB'lık dosya yalnızca bu alan için İKİNCİ KEZ indiriliyordu. Yeni bir
+  //   gelisim verisi geldiyse (kaynak değiştiyse) yeniden alınır. Dönüş: alındı mı.
+  function belediyeVeriAl() {
+    var v = window.gelisimUst;
+    if (!v || typeof v !== "object" || D.belediyeKaynak === v) return false;
+    D.belediyeKaynak = v;
+    D.belediye = (v.belediye_secimleri && typeof v.belediye_secimleri === "object") ? v.belediye_secimleri : {};
+    D.belediyeTarih = v.bugun_tarihi || "";
+    return true;
+  }
+  // Zamanlayıcı yedeği: gelisim.json hiç gelmediyse "Yükleniyor…" sonsuza kalmasın (İNDİRME YOK).
+  function belediyeYukle() {
+    if (!belediyeVeriAl()) {
+      if (D.belediye !== undefined) return;
+      D.belediye = {};
+      D.belediyeTarih = "";
+    }
+    guvenli(belediyeCiz)();
+    guvenli(hesapDurumCiz)();     // sistem.json (teşhis bekliyor) bu arada gelmiş olabilir
+    olayAt("belediye");           // panel.js Başlangıç kartı
+  }
+  // panel.js (Başlangıç kartı) okur: yüklenmediyse null. `simdi` yalnızca test için (panel.js vermez).
+  window.takipBelediye = function (simdi) {
+    if (D.belediye === undefined) return null;
+    return S.belediyeSecimOzeti(S.belediyeSecimSatirlari(D.belediye || {}, bugunIso(simdi)));
+  };
+  function kutuDoldur(id, deger) {
+    var el = $(id);
+    if (!el) return false;
+    el.value = deger;
+    try {
+      el.dispatchEvent(new Event("input", { bubbles: true }));
+      el.dispatchEvent(new Event("change", { bubbles: true }));
+    } catch (e) { /* eski tarayıcı */ }
+    return true;
+  }
+  function hesapDurumKur() {
+    [["hd-kasaba", "kasaba"], ["hd-mod", "mod"], ["hd-goster", "goster"]].forEach(function (x) {
+      var el = $(x[0]);
+      if (!el) return;
+      el.addEventListener("change", guvenli(function () { D.hd[x[1]] = el.value || ""; hesapDurumCiz(); }));
+    });
+    var btn = $("hd-teshis-emri");
+    if (btn) btn.addEventListener("click", guvenli(function (e) {
+      var d = S.teshisEmriDegerleri(S.teshisAdaylari(S.hesapDurumSuz(hesapDurumSatirlariAl(), D.hd)));
+      if (!d.adet) {
+        if (e && e.preventDefault) e.preventDefault();
+        if (e && e.stopPropagation) e.stopPropagation();
+        durumYaz($("hd-teshis-not"), "Süzgeçte bilinmeyen hesap yok — teşhis emrine gerek yok.");
+        return;
+      }
+      // #emir/ayar açılır (panel.js), sonra form doldurulur — GÖNDERİLMEZ.
+      setTimeout(guvenli(function () {
+        kutuDoldur("ay-hesap", d.hesap);
+        kutuDoldur("ay-yay", d.yay);
+        var t = $("ay-teshis");
+        if (t && !t.checked) {
+          t.checked = true;
+          try { t.dispatchEvent(new Event("change", { bubbles: true })); } catch (e2) { /* eski tarayıcı */ }
+        }
+      }), 150);
+    }));
+  }
+
+  // =====================================================================
   // KURULUM
   // =====================================================================
   function kur() {
     guvenli(izlemeFormuKur)();
+    guvenli(hesapDurumKur)();
     guvenli(gecmisKur)();
     guvenli(orduKur)();
     guvenli(gelisimSuzgecKur)();
@@ -2450,6 +2931,7 @@ var TakipSaf = (function () {
     nobetYukle();
     ortakListeYukle();
     setTimeout(guvenli(orduYedekYukle), 4000);
+    setTimeout(guvenli(belediyeYukle), 20000);  // 🗳️ İŞ 34 — yalnızca YEDEK (gelisim.json gelmediyse; indirme YOK)
     yenile();
   }
   try { kur(); } catch (e) { try { console.error("takip.js kurulamadı:", e); } catch (e2) { /* sessiz */ } }
