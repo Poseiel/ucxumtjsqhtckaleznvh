@@ -1,18 +1,1264 @@
 {
-  "son_guncelleme": "2026-10-28 04:49",
+  "son_guncelleme": "2026-10-28 16:56",
   "adim_hakki_normal": 2,
   "adim_hakki_jetonlu": 3,
   "yolcular": [
     {
-      "hesap": "Penaldo",
+      "hesap": "Razielon",
+      "tur": "seyahat",
+      "kaynak": "ayar",
+      "nereden": "Massa",
+      "yolda": false,
+      "bot_kalan_gun": 26,
+      "nereden_id": 942,
+      "hedef": "Saint Pol de Léon",
+      "hedef_id": 259,
+      "jetonlu": false,
+      "adim_hakki": 2,
+      "rota": [
+        {
+          "id": 942,
+          "isim": "Massa"
+        },
+        {
+          "id": 941,
+          "isim": "La Spezia - Massa arası"
+        },
+        {
+          "id": 939,
+          "isim": "La Spezia"
+        },
+        {
+          "id": 938,
+          "isim": "Chiavari - La Spezia arası"
+        },
+        {
+          "id": 937,
+          "isim": "Chiavari"
+        },
+        {
+          "id": 2780,
+          "isim": "Pavia - Piacenza arası"
+        },
+        {
+          "id": 566,
+          "isim": "Pavia"
+        },
+        {
+          "id": 668,
+          "isim": "Pavia - Novara arası"
+        },
+        {
+          "id": 669,
+          "isim": "Novara"
+        },
+        {
+          "id": 277,
+          "isim": "Novara - Pavia arası"
+        },
+        {
+          "id": 276,
+          "isim": "Novara - Pavia arası"
+        },
+        {
+          "id": 275,
+          "isim": "Novara - Annecy arası"
+        },
+        {
+          "id": 274,
+          "isim": "Annecy - Sion arası"
+        },
+        {
+          "id": 273,
+          "isim": "Annecy - Chambéry arası"
+        },
+        {
+          "id": 272,
+          "isim": "Annecy - Chambéry arası"
+        },
+        {
+          "id": 268,
+          "isim": "Annecy"
+        },
+        {
+          "id": 269,
+          "isim": "Annecy - Genève arası"
+        },
+        {
+          "id": 270,
+          "isim": "Genève"
+        },
+        {
+          "id": 271,
+          "isim": "Saint Claude - Genève arası"
+        },
+        {
+          "id": 237,
+          "isim": "Saint Claude"
+        },
+        {
+          "id": 236,
+          "isim": "Poligny - Saint Claude arası"
+        },
+        {
+          "id": 235,
+          "isim": "Poligny"
+        },
+        {
+          "id": 234,
+          "isim": "Dole - Poligny arası"
+        },
+        {
+          "id": 225,
+          "isim": "Dole"
+        },
+        {
+          "id": 224,
+          "isim": "Dijon - Dole arası"
+        },
+        {
+          "id": 64,
+          "isim": "Dijon"
+        },
+        {
+          "id": 63,
+          "isim": "Sémur - Dijon arası"
+        },
+        {
+          "id": 62,
+          "isim": "Sémur"
+        },
+        {
+          "id": 60,
+          "isim": "Tonnerre - Sémur arası"
+        },
+        {
+          "id": 37,
+          "isim": "Tonnerre"
+        },
+        {
+          "id": 35,
+          "isim": "Conflans-lès-Sens - Tonnerre arası"
+        },
+        {
+          "id": 30,
+          "isim": "Conflans-lès-Sens"
+        },
+        {
+          "id": 393,
+          "isim": "Conflans-lès-Sens - Montargis arası"
+        },
+        {
+          "id": 388,
+          "isim": "Montargis"
+        },
+        {
+          "id": 387,
+          "isim": "Orléans - Montargis arası"
+        },
+        {
+          "id": 385,
+          "isim": "Orléans"
+        },
+        {
+          "id": 384,
+          "isim": "Patay - Orléans arası"
+        },
+        {
+          "id": 382,
+          "isim": "Patay"
+        },
+        {
+          "id": 383,
+          "isim": "Patay - Blois arası"
+        },
+        {
+          "id": 978,
+          "isim": "Patay - Verneuil arası"
+        },
+        {
+          "id": 979,
+          "isim": "Verneuil - Mortagne arası"
+        },
+        {
+          "id": 440,
+          "isim": "Verneuil"
+        },
+        {
+          "id": 441,
+          "isim": "Verneuil - Argentan arası"
+        },
+        {
+          "id": 442,
+          "isim": "Argentan"
+        },
+        {
+          "id": 2702,
+          "isim": "Avranches - Argentan arası"
+        },
+        {
+          "id": 78,
+          "isim": "Avranches"
+        },
+        {
+          "id": 2712,
+          "isim": "Avranches - Saint-Brieuc arası"
+        },
+        {
+          "id": 99,
+          "isim": "Saint-Brieuc"
+        },
+        {
+          "id": 100,
+          "isim": "Saint-Brieuc - Tréguier arası"
+        },
+        {
+          "id": 101,
+          "isim": "Tréguier"
+        },
+        {
+          "id": 257,
+          "isim": "Tréguier - Saint Pol de Léon arası"
+        },
+        {
+          "id": 258,
+          "isim": "Saint Pol de Léon - Tréguier arası"
+        },
+        {
+          "id": 259,
+          "isim": "Saint Pol de Léon"
+        }
+      ],
+      "kalan_adim": 52,
+      "kalan_gun": 26,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 939,
+          "varis": "La Spezia",
+          "duraklar": [
+            {
+              "id": 941,
+              "isim": "La Spezia - Massa arası"
+            },
+            {
+              "id": 939,
+              "isim": "La Spezia"
+            }
+          ]
+        },
+        {
+          "gun": 2,
+          "varis_id": 937,
+          "varis": "Chiavari",
+          "duraklar": [
+            {
+              "id": 938,
+              "isim": "Chiavari - La Spezia arası"
+            },
+            {
+              "id": 937,
+              "isim": "Chiavari"
+            }
+          ]
+        },
+        {
+          "gun": 3,
+          "varis_id": 566,
+          "varis": "Pavia",
+          "duraklar": [
+            {
+              "id": 2780,
+              "isim": "Pavia - Piacenza arası"
+            },
+            {
+              "id": 566,
+              "isim": "Pavia"
+            }
+          ]
+        },
+        {
+          "gun": 4,
+          "varis_id": 669,
+          "varis": "Novara",
+          "duraklar": [
+            {
+              "id": 668,
+              "isim": "Pavia - Novara arası"
+            },
+            {
+              "id": 669,
+              "isim": "Novara"
+            }
+          ]
+        },
+        {
+          "gun": 5,
+          "varis_id": 276,
+          "varis": "Novara - Pavia arası",
+          "duraklar": [
+            {
+              "id": 277,
+              "isim": "Novara - Pavia arası"
+            },
+            {
+              "id": 276,
+              "isim": "Novara - Pavia arası"
+            }
+          ]
+        },
+        {
+          "gun": 6,
+          "varis_id": 274,
+          "varis": "Annecy - Sion arası",
+          "duraklar": [
+            {
+              "id": 275,
+              "isim": "Novara - Annecy arası"
+            },
+            {
+              "id": 274,
+              "isim": "Annecy - Sion arası"
+            }
+          ]
+        },
+        {
+          "gun": 7,
+          "varis_id": 272,
+          "varis": "Annecy - Chambéry arası",
+          "duraklar": [
+            {
+              "id": 273,
+              "isim": "Annecy - Chambéry arası"
+            },
+            {
+              "id": 272,
+              "isim": "Annecy - Chambéry arası"
+            }
+          ]
+        },
+        {
+          "gun": 8,
+          "varis_id": 269,
+          "varis": "Annecy - Genève arası",
+          "duraklar": [
+            {
+              "id": 268,
+              "isim": "Annecy"
+            },
+            {
+              "id": 269,
+              "isim": "Annecy - Genève arası"
+            }
+          ]
+        },
+        {
+          "gun": 9,
+          "varis_id": 271,
+          "varis": "Saint Claude - Genève arası",
+          "duraklar": [
+            {
+              "id": 270,
+              "isim": "Genève"
+            },
+            {
+              "id": 271,
+              "isim": "Saint Claude - Genève arası"
+            }
+          ]
+        },
+        {
+          "gun": 10,
+          "varis_id": 236,
+          "varis": "Poligny - Saint Claude arası",
+          "duraklar": [
+            {
+              "id": 237,
+              "isim": "Saint Claude"
+            },
+            {
+              "id": 236,
+              "isim": "Poligny - Saint Claude arası"
+            }
+          ]
+        },
+        {
+          "gun": 11,
+          "varis_id": 234,
+          "varis": "Dole - Poligny arası",
+          "duraklar": [
+            {
+              "id": 235,
+              "isim": "Poligny"
+            },
+            {
+              "id": 234,
+              "isim": "Dole - Poligny arası"
+            }
+          ]
+        },
+        {
+          "gun": 12,
+          "varis_id": 224,
+          "varis": "Dijon - Dole arası",
+          "duraklar": [
+            {
+              "id": 225,
+              "isim": "Dole"
+            },
+            {
+              "id": 224,
+              "isim": "Dijon - Dole arası"
+            }
+          ]
+        },
+        {
+          "gun": 13,
+          "varis_id": 63,
+          "varis": "Sémur - Dijon arası",
+          "duraklar": [
+            {
+              "id": 64,
+              "isim": "Dijon"
+            },
+            {
+              "id": 63,
+              "isim": "Sémur - Dijon arası"
+            }
+          ]
+        },
+        {
+          "gun": 14,
+          "varis_id": 60,
+          "varis": "Tonnerre - Sémur arası",
+          "duraklar": [
+            {
+              "id": 62,
+              "isim": "Sémur"
+            },
+            {
+              "id": 60,
+              "isim": "Tonnerre - Sémur arası"
+            }
+          ]
+        },
+        {
+          "gun": 15,
+          "varis_id": 35,
+          "varis": "Conflans-lès-Sens - Tonnerre arası",
+          "duraklar": [
+            {
+              "id": 37,
+              "isim": "Tonnerre"
+            },
+            {
+              "id": 35,
+              "isim": "Conflans-lès-Sens - Tonnerre arası"
+            }
+          ]
+        },
+        {
+          "gun": 16,
+          "varis_id": 393,
+          "varis": "Conflans-lès-Sens - Montargis arası",
+          "duraklar": [
+            {
+              "id": 30,
+              "isim": "Conflans-lès-Sens"
+            },
+            {
+              "id": 393,
+              "isim": "Conflans-lès-Sens - Montargis arası"
+            }
+          ]
+        },
+        {
+          "gun": 17,
+          "varis_id": 387,
+          "varis": "Orléans - Montargis arası",
+          "duraklar": [
+            {
+              "id": 388,
+              "isim": "Montargis"
+            },
+            {
+              "id": 387,
+              "isim": "Orléans - Montargis arası"
+            }
+          ]
+        },
+        {
+          "gun": 18,
+          "varis_id": 384,
+          "varis": "Patay - Orléans arası",
+          "duraklar": [
+            {
+              "id": 385,
+              "isim": "Orléans"
+            },
+            {
+              "id": 384,
+              "isim": "Patay - Orléans arası"
+            }
+          ]
+        },
+        {
+          "gun": 19,
+          "varis_id": 383,
+          "varis": "Patay - Blois arası",
+          "duraklar": [
+            {
+              "id": 382,
+              "isim": "Patay"
+            },
+            {
+              "id": 383,
+              "isim": "Patay - Blois arası"
+            }
+          ]
+        },
+        {
+          "gun": 20,
+          "varis_id": 979,
+          "varis": "Verneuil - Mortagne arası",
+          "duraklar": [
+            {
+              "id": 978,
+              "isim": "Patay - Verneuil arası"
+            },
+            {
+              "id": 979,
+              "isim": "Verneuil - Mortagne arası"
+            }
+          ]
+        },
+        {
+          "gun": 21,
+          "varis_id": 441,
+          "varis": "Verneuil - Argentan arası",
+          "duraklar": [
+            {
+              "id": 440,
+              "isim": "Verneuil"
+            },
+            {
+              "id": 441,
+              "isim": "Verneuil - Argentan arası"
+            }
+          ]
+        },
+        {
+          "gun": 22,
+          "varis_id": 2702,
+          "varis": "Avranches - Argentan arası",
+          "duraklar": [
+            {
+              "id": 442,
+              "isim": "Argentan"
+            },
+            {
+              "id": 2702,
+              "isim": "Avranches - Argentan arası"
+            }
+          ]
+        },
+        {
+          "gun": 23,
+          "varis_id": 2712,
+          "varis": "Avranches - Saint-Brieuc arası",
+          "duraklar": [
+            {
+              "id": 78,
+              "isim": "Avranches"
+            },
+            {
+              "id": 2712,
+              "isim": "Avranches - Saint-Brieuc arası"
+            }
+          ]
+        },
+        {
+          "gun": 24,
+          "varis_id": 100,
+          "varis": "Saint-Brieuc - Tréguier arası",
+          "duraklar": [
+            {
+              "id": 99,
+              "isim": "Saint-Brieuc"
+            },
+            {
+              "id": 100,
+              "isim": "Saint-Brieuc - Tréguier arası"
+            }
+          ]
+        },
+        {
+          "gun": 25,
+          "varis_id": 257,
+          "varis": "Tréguier - Saint Pol de Léon arası",
+          "duraklar": [
+            {
+              "id": 101,
+              "isim": "Tréguier"
+            },
+            {
+              "id": 257,
+              "isim": "Tréguier - Saint Pol de Léon arası"
+            }
+          ]
+        },
+        {
+          "gun": 26,
+          "varis_id": 259,
+          "varis": "Saint Pol de Léon",
+          "duraklar": [
+            {
+              "id": 258,
+              "isim": "Saint Pol de Léon - Tréguier arası"
+            },
+            {
+              "id": 259,
+              "isim": "Saint Pol de Léon"
+            }
+          ]
+        }
+      ],
+      "lider": "",
+      "rol": "tek"
+    },
+    {
+      "hesap": "korhan",
+      "tur": "seyahat",
+      "kaynak": "ayar",
+      "nereden": "Massa",
+      "yolda": false,
+      "bot_kalan_gun": 26,
+      "nereden_id": 942,
+      "hedef": "Saint Pol de Léon",
+      "hedef_id": 259,
+      "jetonlu": false,
+      "adim_hakki": 2,
+      "rota": [
+        {
+          "id": 942,
+          "isim": "Massa"
+        },
+        {
+          "id": 941,
+          "isim": "La Spezia - Massa arası"
+        },
+        {
+          "id": 939,
+          "isim": "La Spezia"
+        },
+        {
+          "id": 938,
+          "isim": "Chiavari - La Spezia arası"
+        },
+        {
+          "id": 937,
+          "isim": "Chiavari"
+        },
+        {
+          "id": 2780,
+          "isim": "Pavia - Piacenza arası"
+        },
+        {
+          "id": 566,
+          "isim": "Pavia"
+        },
+        {
+          "id": 668,
+          "isim": "Pavia - Novara arası"
+        },
+        {
+          "id": 669,
+          "isim": "Novara"
+        },
+        {
+          "id": 277,
+          "isim": "Novara - Pavia arası"
+        },
+        {
+          "id": 276,
+          "isim": "Novara - Pavia arası"
+        },
+        {
+          "id": 275,
+          "isim": "Novara - Annecy arası"
+        },
+        {
+          "id": 274,
+          "isim": "Annecy - Sion arası"
+        },
+        {
+          "id": 273,
+          "isim": "Annecy - Chambéry arası"
+        },
+        {
+          "id": 272,
+          "isim": "Annecy - Chambéry arası"
+        },
+        {
+          "id": 268,
+          "isim": "Annecy"
+        },
+        {
+          "id": 269,
+          "isim": "Annecy - Genève arası"
+        },
+        {
+          "id": 270,
+          "isim": "Genève"
+        },
+        {
+          "id": 271,
+          "isim": "Saint Claude - Genève arası"
+        },
+        {
+          "id": 237,
+          "isim": "Saint Claude"
+        },
+        {
+          "id": 236,
+          "isim": "Poligny - Saint Claude arası"
+        },
+        {
+          "id": 235,
+          "isim": "Poligny"
+        },
+        {
+          "id": 234,
+          "isim": "Dole - Poligny arası"
+        },
+        {
+          "id": 225,
+          "isim": "Dole"
+        },
+        {
+          "id": 224,
+          "isim": "Dijon - Dole arası"
+        },
+        {
+          "id": 64,
+          "isim": "Dijon"
+        },
+        {
+          "id": 63,
+          "isim": "Sémur - Dijon arası"
+        },
+        {
+          "id": 62,
+          "isim": "Sémur"
+        },
+        {
+          "id": 60,
+          "isim": "Tonnerre - Sémur arası"
+        },
+        {
+          "id": 37,
+          "isim": "Tonnerre"
+        },
+        {
+          "id": 35,
+          "isim": "Conflans-lès-Sens - Tonnerre arası"
+        },
+        {
+          "id": 30,
+          "isim": "Conflans-lès-Sens"
+        },
+        {
+          "id": 393,
+          "isim": "Conflans-lès-Sens - Montargis arası"
+        },
+        {
+          "id": 388,
+          "isim": "Montargis"
+        },
+        {
+          "id": 387,
+          "isim": "Orléans - Montargis arası"
+        },
+        {
+          "id": 385,
+          "isim": "Orléans"
+        },
+        {
+          "id": 384,
+          "isim": "Patay - Orléans arası"
+        },
+        {
+          "id": 382,
+          "isim": "Patay"
+        },
+        {
+          "id": 383,
+          "isim": "Patay - Blois arası"
+        },
+        {
+          "id": 978,
+          "isim": "Patay - Verneuil arası"
+        },
+        {
+          "id": 979,
+          "isim": "Verneuil - Mortagne arası"
+        },
+        {
+          "id": 440,
+          "isim": "Verneuil"
+        },
+        {
+          "id": 441,
+          "isim": "Verneuil - Argentan arası"
+        },
+        {
+          "id": 442,
+          "isim": "Argentan"
+        },
+        {
+          "id": 2702,
+          "isim": "Avranches - Argentan arası"
+        },
+        {
+          "id": 78,
+          "isim": "Avranches"
+        },
+        {
+          "id": 2712,
+          "isim": "Avranches - Saint-Brieuc arası"
+        },
+        {
+          "id": 99,
+          "isim": "Saint-Brieuc"
+        },
+        {
+          "id": 100,
+          "isim": "Saint-Brieuc - Tréguier arası"
+        },
+        {
+          "id": 101,
+          "isim": "Tréguier"
+        },
+        {
+          "id": 257,
+          "isim": "Tréguier - Saint Pol de Léon arası"
+        },
+        {
+          "id": 258,
+          "isim": "Saint Pol de Léon - Tréguier arası"
+        },
+        {
+          "id": 259,
+          "isim": "Saint Pol de Léon"
+        }
+      ],
+      "kalan_adim": 52,
+      "kalan_gun": 26,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 939,
+          "varis": "La Spezia",
+          "duraklar": [
+            {
+              "id": 941,
+              "isim": "La Spezia - Massa arası"
+            },
+            {
+              "id": 939,
+              "isim": "La Spezia"
+            }
+          ]
+        },
+        {
+          "gun": 2,
+          "varis_id": 937,
+          "varis": "Chiavari",
+          "duraklar": [
+            {
+              "id": 938,
+              "isim": "Chiavari - La Spezia arası"
+            },
+            {
+              "id": 937,
+              "isim": "Chiavari"
+            }
+          ]
+        },
+        {
+          "gun": 3,
+          "varis_id": 566,
+          "varis": "Pavia",
+          "duraklar": [
+            {
+              "id": 2780,
+              "isim": "Pavia - Piacenza arası"
+            },
+            {
+              "id": 566,
+              "isim": "Pavia"
+            }
+          ]
+        },
+        {
+          "gun": 4,
+          "varis_id": 669,
+          "varis": "Novara",
+          "duraklar": [
+            {
+              "id": 668,
+              "isim": "Pavia - Novara arası"
+            },
+            {
+              "id": 669,
+              "isim": "Novara"
+            }
+          ]
+        },
+        {
+          "gun": 5,
+          "varis_id": 276,
+          "varis": "Novara - Pavia arası",
+          "duraklar": [
+            {
+              "id": 277,
+              "isim": "Novara - Pavia arası"
+            },
+            {
+              "id": 276,
+              "isim": "Novara - Pavia arası"
+            }
+          ]
+        },
+        {
+          "gun": 6,
+          "varis_id": 274,
+          "varis": "Annecy - Sion arası",
+          "duraklar": [
+            {
+              "id": 275,
+              "isim": "Novara - Annecy arası"
+            },
+            {
+              "id": 274,
+              "isim": "Annecy - Sion arası"
+            }
+          ]
+        },
+        {
+          "gun": 7,
+          "varis_id": 272,
+          "varis": "Annecy - Chambéry arası",
+          "duraklar": [
+            {
+              "id": 273,
+              "isim": "Annecy - Chambéry arası"
+            },
+            {
+              "id": 272,
+              "isim": "Annecy - Chambéry arası"
+            }
+          ]
+        },
+        {
+          "gun": 8,
+          "varis_id": 269,
+          "varis": "Annecy - Genève arası",
+          "duraklar": [
+            {
+              "id": 268,
+              "isim": "Annecy"
+            },
+            {
+              "id": 269,
+              "isim": "Annecy - Genève arası"
+            }
+          ]
+        },
+        {
+          "gun": 9,
+          "varis_id": 271,
+          "varis": "Saint Claude - Genève arası",
+          "duraklar": [
+            {
+              "id": 270,
+              "isim": "Genève"
+            },
+            {
+              "id": 271,
+              "isim": "Saint Claude - Genève arası"
+            }
+          ]
+        },
+        {
+          "gun": 10,
+          "varis_id": 236,
+          "varis": "Poligny - Saint Claude arası",
+          "duraklar": [
+            {
+              "id": 237,
+              "isim": "Saint Claude"
+            },
+            {
+              "id": 236,
+              "isim": "Poligny - Saint Claude arası"
+            }
+          ]
+        },
+        {
+          "gun": 11,
+          "varis_id": 234,
+          "varis": "Dole - Poligny arası",
+          "duraklar": [
+            {
+              "id": 235,
+              "isim": "Poligny"
+            },
+            {
+              "id": 234,
+              "isim": "Dole - Poligny arası"
+            }
+          ]
+        },
+        {
+          "gun": 12,
+          "varis_id": 224,
+          "varis": "Dijon - Dole arası",
+          "duraklar": [
+            {
+              "id": 225,
+              "isim": "Dole"
+            },
+            {
+              "id": 224,
+              "isim": "Dijon - Dole arası"
+            }
+          ]
+        },
+        {
+          "gun": 13,
+          "varis_id": 63,
+          "varis": "Sémur - Dijon arası",
+          "duraklar": [
+            {
+              "id": 64,
+              "isim": "Dijon"
+            },
+            {
+              "id": 63,
+              "isim": "Sémur - Dijon arası"
+            }
+          ]
+        },
+        {
+          "gun": 14,
+          "varis_id": 60,
+          "varis": "Tonnerre - Sémur arası",
+          "duraklar": [
+            {
+              "id": 62,
+              "isim": "Sémur"
+            },
+            {
+              "id": 60,
+              "isim": "Tonnerre - Sémur arası"
+            }
+          ]
+        },
+        {
+          "gun": 15,
+          "varis_id": 35,
+          "varis": "Conflans-lès-Sens - Tonnerre arası",
+          "duraklar": [
+            {
+              "id": 37,
+              "isim": "Tonnerre"
+            },
+            {
+              "id": 35,
+              "isim": "Conflans-lès-Sens - Tonnerre arası"
+            }
+          ]
+        },
+        {
+          "gun": 16,
+          "varis_id": 393,
+          "varis": "Conflans-lès-Sens - Montargis arası",
+          "duraklar": [
+            {
+              "id": 30,
+              "isim": "Conflans-lès-Sens"
+            },
+            {
+              "id": 393,
+              "isim": "Conflans-lès-Sens - Montargis arası"
+            }
+          ]
+        },
+        {
+          "gun": 17,
+          "varis_id": 387,
+          "varis": "Orléans - Montargis arası",
+          "duraklar": [
+            {
+              "id": 388,
+              "isim": "Montargis"
+            },
+            {
+              "id": 387,
+              "isim": "Orléans - Montargis arası"
+            }
+          ]
+        },
+        {
+          "gun": 18,
+          "varis_id": 384,
+          "varis": "Patay - Orléans arası",
+          "duraklar": [
+            {
+              "id": 385,
+              "isim": "Orléans"
+            },
+            {
+              "id": 384,
+              "isim": "Patay - Orléans arası"
+            }
+          ]
+        },
+        {
+          "gun": 19,
+          "varis_id": 383,
+          "varis": "Patay - Blois arası",
+          "duraklar": [
+            {
+              "id": 382,
+              "isim": "Patay"
+            },
+            {
+              "id": 383,
+              "isim": "Patay - Blois arası"
+            }
+          ]
+        },
+        {
+          "gun": 20,
+          "varis_id": 979,
+          "varis": "Verneuil - Mortagne arası",
+          "duraklar": [
+            {
+              "id": 978,
+              "isim": "Patay - Verneuil arası"
+            },
+            {
+              "id": 979,
+              "isim": "Verneuil - Mortagne arası"
+            }
+          ]
+        },
+        {
+          "gun": 21,
+          "varis_id": 441,
+          "varis": "Verneuil - Argentan arası",
+          "duraklar": [
+            {
+              "id": 440,
+              "isim": "Verneuil"
+            },
+            {
+              "id": 441,
+              "isim": "Verneuil - Argentan arası"
+            }
+          ]
+        },
+        {
+          "gun": 22,
+          "varis_id": 2702,
+          "varis": "Avranches - Argentan arası",
+          "duraklar": [
+            {
+              "id": 442,
+              "isim": "Argentan"
+            },
+            {
+              "id": 2702,
+              "isim": "Avranches - Argentan arası"
+            }
+          ]
+        },
+        {
+          "gun": 23,
+          "varis_id": 2712,
+          "varis": "Avranches - Saint-Brieuc arası",
+          "duraklar": [
+            {
+              "id": 78,
+              "isim": "Avranches"
+            },
+            {
+              "id": 2712,
+              "isim": "Avranches - Saint-Brieuc arası"
+            }
+          ]
+        },
+        {
+          "gun": 24,
+          "varis_id": 100,
+          "varis": "Saint-Brieuc - Tréguier arası",
+          "duraklar": [
+            {
+              "id": 99,
+              "isim": "Saint-Brieuc"
+            },
+            {
+              "id": 100,
+              "isim": "Saint-Brieuc - Tréguier arası"
+            }
+          ]
+        },
+        {
+          "gun": 25,
+          "varis_id": 257,
+          "varis": "Tréguier - Saint Pol de Léon arası",
+          "duraklar": [
+            {
+              "id": 101,
+              "isim": "Tréguier"
+            },
+            {
+              "id": 257,
+              "isim": "Tréguier - Saint Pol de Léon arası"
+            }
+          ]
+        },
+        {
+          "gun": 26,
+          "varis_id": 259,
+          "varis": "Saint Pol de Léon",
+          "duraklar": [
+            {
+              "id": 258,
+              "isim": "Saint Pol de Léon - Tréguier arası"
+            },
+            {
+              "id": 259,
+              "isim": "Saint Pol de Léon"
+            }
+          ]
+        }
+      ],
+      "lider": "",
+      "rol": "tek"
+    },
+    {
+      "hesap": "Adrah",
       "tur": "seyahat",
       "kaynak": "ayar",
       "nereden": "Wigtown",
       "yolda": false,
-      "bot_kalan_gun": 3,
+      "bot_kalan_gun": 1,
       "nereden_id": 760,
-      "hedef": "Glasgow",
-      "hedef_id": 1045,
+      "hedef": "Kirkcudbright",
+      "hedef_id": 758,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
@@ -21,9 +1267,672 @@
           "isim": "Wigtown"
         },
         {
-          "id": 835,
-          "isim": "Wigtown - Girvan arası"
+          "id": 759,
+          "isim": "Kirkcudbright - Wigtown arası"
         },
+        {
+          "id": 758,
+          "isim": "Kirkcudbright"
+        }
+      ],
+      "kalan_adim": 2,
+      "kalan_gun": 1,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 758,
+          "varis": "Kirkcudbright",
+          "duraklar": [
+            {
+              "id": 759,
+              "isim": "Kirkcudbright - Wigtown arası"
+            },
+            {
+              "id": 758,
+              "isim": "Kirkcudbright"
+            }
+          ]
+        }
+      ],
+      "lider": "",
+      "rol": "tek"
+    },
+    {
+      "hesap": "nindalf",
+      "tur": "seyahat",
+      "kaynak": "ayar",
+      "nereden": "Massa",
+      "yolda": false,
+      "bot_kalan_gun": 26,
+      "nereden_id": 942,
+      "hedef": "Saint Pol de Léon",
+      "hedef_id": 259,
+      "jetonlu": false,
+      "adim_hakki": 2,
+      "rota": [
+        {
+          "id": 942,
+          "isim": "Massa"
+        },
+        {
+          "id": 941,
+          "isim": "La Spezia - Massa arası"
+        },
+        {
+          "id": 939,
+          "isim": "La Spezia"
+        },
+        {
+          "id": 938,
+          "isim": "Chiavari - La Spezia arası"
+        },
+        {
+          "id": 937,
+          "isim": "Chiavari"
+        },
+        {
+          "id": 2780,
+          "isim": "Pavia - Piacenza arası"
+        },
+        {
+          "id": 566,
+          "isim": "Pavia"
+        },
+        {
+          "id": 668,
+          "isim": "Pavia - Novara arası"
+        },
+        {
+          "id": 669,
+          "isim": "Novara"
+        },
+        {
+          "id": 277,
+          "isim": "Novara - Pavia arası"
+        },
+        {
+          "id": 276,
+          "isim": "Novara - Pavia arası"
+        },
+        {
+          "id": 275,
+          "isim": "Novara - Annecy arası"
+        },
+        {
+          "id": 274,
+          "isim": "Annecy - Sion arası"
+        },
+        {
+          "id": 273,
+          "isim": "Annecy - Chambéry arası"
+        },
+        {
+          "id": 272,
+          "isim": "Annecy - Chambéry arası"
+        },
+        {
+          "id": 268,
+          "isim": "Annecy"
+        },
+        {
+          "id": 269,
+          "isim": "Annecy - Genève arası"
+        },
+        {
+          "id": 270,
+          "isim": "Genève"
+        },
+        {
+          "id": 271,
+          "isim": "Saint Claude - Genève arası"
+        },
+        {
+          "id": 237,
+          "isim": "Saint Claude"
+        },
+        {
+          "id": 236,
+          "isim": "Poligny - Saint Claude arası"
+        },
+        {
+          "id": 235,
+          "isim": "Poligny"
+        },
+        {
+          "id": 234,
+          "isim": "Dole - Poligny arası"
+        },
+        {
+          "id": 225,
+          "isim": "Dole"
+        },
+        {
+          "id": 224,
+          "isim": "Dijon - Dole arası"
+        },
+        {
+          "id": 64,
+          "isim": "Dijon"
+        },
+        {
+          "id": 63,
+          "isim": "Sémur - Dijon arası"
+        },
+        {
+          "id": 62,
+          "isim": "Sémur"
+        },
+        {
+          "id": 60,
+          "isim": "Tonnerre - Sémur arası"
+        },
+        {
+          "id": 37,
+          "isim": "Tonnerre"
+        },
+        {
+          "id": 35,
+          "isim": "Conflans-lès-Sens - Tonnerre arası"
+        },
+        {
+          "id": 30,
+          "isim": "Conflans-lès-Sens"
+        },
+        {
+          "id": 393,
+          "isim": "Conflans-lès-Sens - Montargis arası"
+        },
+        {
+          "id": 388,
+          "isim": "Montargis"
+        },
+        {
+          "id": 387,
+          "isim": "Orléans - Montargis arası"
+        },
+        {
+          "id": 385,
+          "isim": "Orléans"
+        },
+        {
+          "id": 384,
+          "isim": "Patay - Orléans arası"
+        },
+        {
+          "id": 382,
+          "isim": "Patay"
+        },
+        {
+          "id": 383,
+          "isim": "Patay - Blois arası"
+        },
+        {
+          "id": 978,
+          "isim": "Patay - Verneuil arası"
+        },
+        {
+          "id": 979,
+          "isim": "Verneuil - Mortagne arası"
+        },
+        {
+          "id": 440,
+          "isim": "Verneuil"
+        },
+        {
+          "id": 441,
+          "isim": "Verneuil - Argentan arası"
+        },
+        {
+          "id": 442,
+          "isim": "Argentan"
+        },
+        {
+          "id": 2702,
+          "isim": "Avranches - Argentan arası"
+        },
+        {
+          "id": 78,
+          "isim": "Avranches"
+        },
+        {
+          "id": 2712,
+          "isim": "Avranches - Saint-Brieuc arası"
+        },
+        {
+          "id": 99,
+          "isim": "Saint-Brieuc"
+        },
+        {
+          "id": 100,
+          "isim": "Saint-Brieuc - Tréguier arası"
+        },
+        {
+          "id": 101,
+          "isim": "Tréguier"
+        },
+        {
+          "id": 257,
+          "isim": "Tréguier - Saint Pol de Léon arası"
+        },
+        {
+          "id": 258,
+          "isim": "Saint Pol de Léon - Tréguier arası"
+        },
+        {
+          "id": 259,
+          "isim": "Saint Pol de Léon"
+        }
+      ],
+      "kalan_adim": 52,
+      "kalan_gun": 26,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 939,
+          "varis": "La Spezia",
+          "duraklar": [
+            {
+              "id": 941,
+              "isim": "La Spezia - Massa arası"
+            },
+            {
+              "id": 939,
+              "isim": "La Spezia"
+            }
+          ]
+        },
+        {
+          "gun": 2,
+          "varis_id": 937,
+          "varis": "Chiavari",
+          "duraklar": [
+            {
+              "id": 938,
+              "isim": "Chiavari - La Spezia arası"
+            },
+            {
+              "id": 937,
+              "isim": "Chiavari"
+            }
+          ]
+        },
+        {
+          "gun": 3,
+          "varis_id": 566,
+          "varis": "Pavia",
+          "duraklar": [
+            {
+              "id": 2780,
+              "isim": "Pavia - Piacenza arası"
+            },
+            {
+              "id": 566,
+              "isim": "Pavia"
+            }
+          ]
+        },
+        {
+          "gun": 4,
+          "varis_id": 669,
+          "varis": "Novara",
+          "duraklar": [
+            {
+              "id": 668,
+              "isim": "Pavia - Novara arası"
+            },
+            {
+              "id": 669,
+              "isim": "Novara"
+            }
+          ]
+        },
+        {
+          "gun": 5,
+          "varis_id": 276,
+          "varis": "Novara - Pavia arası",
+          "duraklar": [
+            {
+              "id": 277,
+              "isim": "Novara - Pavia arası"
+            },
+            {
+              "id": 276,
+              "isim": "Novara - Pavia arası"
+            }
+          ]
+        },
+        {
+          "gun": 6,
+          "varis_id": 274,
+          "varis": "Annecy - Sion arası",
+          "duraklar": [
+            {
+              "id": 275,
+              "isim": "Novara - Annecy arası"
+            },
+            {
+              "id": 274,
+              "isim": "Annecy - Sion arası"
+            }
+          ]
+        },
+        {
+          "gun": 7,
+          "varis_id": 272,
+          "varis": "Annecy - Chambéry arası",
+          "duraklar": [
+            {
+              "id": 273,
+              "isim": "Annecy - Chambéry arası"
+            },
+            {
+              "id": 272,
+              "isim": "Annecy - Chambéry arası"
+            }
+          ]
+        },
+        {
+          "gun": 8,
+          "varis_id": 269,
+          "varis": "Annecy - Genève arası",
+          "duraklar": [
+            {
+              "id": 268,
+              "isim": "Annecy"
+            },
+            {
+              "id": 269,
+              "isim": "Annecy - Genève arası"
+            }
+          ]
+        },
+        {
+          "gun": 9,
+          "varis_id": 271,
+          "varis": "Saint Claude - Genève arası",
+          "duraklar": [
+            {
+              "id": 270,
+              "isim": "Genève"
+            },
+            {
+              "id": 271,
+              "isim": "Saint Claude - Genève arası"
+            }
+          ]
+        },
+        {
+          "gun": 10,
+          "varis_id": 236,
+          "varis": "Poligny - Saint Claude arası",
+          "duraklar": [
+            {
+              "id": 237,
+              "isim": "Saint Claude"
+            },
+            {
+              "id": 236,
+              "isim": "Poligny - Saint Claude arası"
+            }
+          ]
+        },
+        {
+          "gun": 11,
+          "varis_id": 234,
+          "varis": "Dole - Poligny arası",
+          "duraklar": [
+            {
+              "id": 235,
+              "isim": "Poligny"
+            },
+            {
+              "id": 234,
+              "isim": "Dole - Poligny arası"
+            }
+          ]
+        },
+        {
+          "gun": 12,
+          "varis_id": 224,
+          "varis": "Dijon - Dole arası",
+          "duraklar": [
+            {
+              "id": 225,
+              "isim": "Dole"
+            },
+            {
+              "id": 224,
+              "isim": "Dijon - Dole arası"
+            }
+          ]
+        },
+        {
+          "gun": 13,
+          "varis_id": 63,
+          "varis": "Sémur - Dijon arası",
+          "duraklar": [
+            {
+              "id": 64,
+              "isim": "Dijon"
+            },
+            {
+              "id": 63,
+              "isim": "Sémur - Dijon arası"
+            }
+          ]
+        },
+        {
+          "gun": 14,
+          "varis_id": 60,
+          "varis": "Tonnerre - Sémur arası",
+          "duraklar": [
+            {
+              "id": 62,
+              "isim": "Sémur"
+            },
+            {
+              "id": 60,
+              "isim": "Tonnerre - Sémur arası"
+            }
+          ]
+        },
+        {
+          "gun": 15,
+          "varis_id": 35,
+          "varis": "Conflans-lès-Sens - Tonnerre arası",
+          "duraklar": [
+            {
+              "id": 37,
+              "isim": "Tonnerre"
+            },
+            {
+              "id": 35,
+              "isim": "Conflans-lès-Sens - Tonnerre arası"
+            }
+          ]
+        },
+        {
+          "gun": 16,
+          "varis_id": 393,
+          "varis": "Conflans-lès-Sens - Montargis arası",
+          "duraklar": [
+            {
+              "id": 30,
+              "isim": "Conflans-lès-Sens"
+            },
+            {
+              "id": 393,
+              "isim": "Conflans-lès-Sens - Montargis arası"
+            }
+          ]
+        },
+        {
+          "gun": 17,
+          "varis_id": 387,
+          "varis": "Orléans - Montargis arası",
+          "duraklar": [
+            {
+              "id": 388,
+              "isim": "Montargis"
+            },
+            {
+              "id": 387,
+              "isim": "Orléans - Montargis arası"
+            }
+          ]
+        },
+        {
+          "gun": 18,
+          "varis_id": 384,
+          "varis": "Patay - Orléans arası",
+          "duraklar": [
+            {
+              "id": 385,
+              "isim": "Orléans"
+            },
+            {
+              "id": 384,
+              "isim": "Patay - Orléans arası"
+            }
+          ]
+        },
+        {
+          "gun": 19,
+          "varis_id": 383,
+          "varis": "Patay - Blois arası",
+          "duraklar": [
+            {
+              "id": 382,
+              "isim": "Patay"
+            },
+            {
+              "id": 383,
+              "isim": "Patay - Blois arası"
+            }
+          ]
+        },
+        {
+          "gun": 20,
+          "varis_id": 979,
+          "varis": "Verneuil - Mortagne arası",
+          "duraklar": [
+            {
+              "id": 978,
+              "isim": "Patay - Verneuil arası"
+            },
+            {
+              "id": 979,
+              "isim": "Verneuil - Mortagne arası"
+            }
+          ]
+        },
+        {
+          "gun": 21,
+          "varis_id": 441,
+          "varis": "Verneuil - Argentan arası",
+          "duraklar": [
+            {
+              "id": 440,
+              "isim": "Verneuil"
+            },
+            {
+              "id": 441,
+              "isim": "Verneuil - Argentan arası"
+            }
+          ]
+        },
+        {
+          "gun": 22,
+          "varis_id": 2702,
+          "varis": "Avranches - Argentan arası",
+          "duraklar": [
+            {
+              "id": 442,
+              "isim": "Argentan"
+            },
+            {
+              "id": 2702,
+              "isim": "Avranches - Argentan arası"
+            }
+          ]
+        },
+        {
+          "gun": 23,
+          "varis_id": 2712,
+          "varis": "Avranches - Saint-Brieuc arası",
+          "duraklar": [
+            {
+              "id": 78,
+              "isim": "Avranches"
+            },
+            {
+              "id": 2712,
+              "isim": "Avranches - Saint-Brieuc arası"
+            }
+          ]
+        },
+        {
+          "gun": 24,
+          "varis_id": 100,
+          "varis": "Saint-Brieuc - Tréguier arası",
+          "duraklar": [
+            {
+              "id": 99,
+              "isim": "Saint-Brieuc"
+            },
+            {
+              "id": 100,
+              "isim": "Saint-Brieuc - Tréguier arası"
+            }
+          ]
+        },
+        {
+          "gun": 25,
+          "varis_id": 257,
+          "varis": "Tréguier - Saint Pol de Léon arası",
+          "duraklar": [
+            {
+              "id": 101,
+              "isim": "Tréguier"
+            },
+            {
+              "id": 257,
+              "isim": "Tréguier - Saint Pol de Léon arası"
+            }
+          ]
+        },
+        {
+          "gun": 26,
+          "varis_id": 259,
+          "varis": "Saint Pol de Léon",
+          "duraklar": [
+            {
+              "id": 258,
+              "isim": "Saint Pol de Léon - Tréguier arası"
+            },
+            {
+              "id": 259,
+              "isim": "Saint Pol de Léon"
+            }
+          ]
+        }
+      ],
+      "lider": "",
+      "rol": "tek"
+    },
+    {
+      "hesap": "Penaldo",
+      "tur": "seyahat",
+      "kaynak": "ayar",
+      "nereden": "Girvan",
+      "yolda": false,
+      "bot_kalan_gun": 2,
+      "nereden_id": 836,
+      "hedef": "Glasgow",
+      "hedef_id": 1045,
+      "jetonlu": false,
+      "adim_hakki": 2,
+      "rota": [
         {
           "id": 836,
           "isim": "Girvan"
@@ -41,26 +1950,11 @@
           "isim": "Glasgow"
         }
       ],
-      "kalan_adim": 5,
-      "kalan_gun": 3,
+      "kalan_adim": 3,
+      "kalan_gun": 2,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 836,
-          "varis": "Girvan",
-          "duraklar": [
-            {
-              "id": 835,
-              "isim": "Wigtown - Girvan arası"
-            },
-            {
-              "id": 836,
-              "isim": "Girvan"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 2789,
           "varis": "Glasgow - Girvan arası",
           "duraklar": [
@@ -75,7 +1969,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 1045,
           "varis": "Glasgow",
           "duraklar": [
@@ -93,23 +1987,15 @@
       "hesap": "Azirveth",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Montemor - Avis Yolu Üzerinde",
+      "nereden": "Santarém - Montemor Yolu Üzerinde",
       "yolda": true,
-      "bot_kalan_gun": 2,
-      "nereden_id": 1171,
+      "bot_kalan_gun": 1,
+      "nereden_id": 1165,
       "hedef": "Santarém",
       "hedef_id": 1156,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 1171,
-          "isim": "Montemor - Avis arası"
-        },
-        {
-          "id": 1164,
-          "isim": "Montemor"
-        },
         {
           "id": 1165,
           "isim": "Santarém - Montemor arası"
@@ -119,26 +2005,11 @@
           "isim": "Santarém"
         }
       ],
-      "kalan_adim": 3,
-      "kalan_gun": 2,
+      "kalan_adim": 1,
+      "kalan_gun": 1,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 1165,
-          "varis": "Santarém - Montemor arası",
-          "duraklar": [
-            {
-              "id": 1164,
-              "isim": "Montemor"
-            },
-            {
-              "id": 1165,
-              "isim": "Santarém - Montemor arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 1156,
           "varis": "Santarém",
           "duraklar": [
@@ -153,66 +2024,18 @@
       "rol": "tek"
     },
     {
-      "hesap": "Gundrel",
-      "tur": "seyahat",
-      "kaynak": "ayar",
-      "nereden": "Montemor - Avis Yolu Üzerinde",
-      "yolda": true,
-      "bot_kalan_gun": 1,
-      "nereden_id": 1171,
-      "hedef": "Montemor",
-      "hedef_id": 1164,
-      "jetonlu": false,
-      "adim_hakki": 2,
-      "rota": [
-        {
-          "id": 1171,
-          "isim": "Montemor - Avis arası"
-        },
-        {
-          "id": 1164,
-          "isim": "Montemor"
-        }
-      ],
-      "kalan_adim": 1,
-      "kalan_gun": 1,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 1164,
-          "varis": "Montemor",
-          "duraklar": [
-            {
-              "id": 1164,
-              "isim": "Montemor"
-            }
-          ]
-        }
-      ],
-      "lider": "",
-      "rol": "tek"
-    },
-    {
       "hesap": "Fiyong",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Montemor - Avis Yolu Üzerinde",
+      "nereden": "Santarém - Montemor Yolu Üzerinde",
       "yolda": true,
-      "bot_kalan_gun": 3,
-      "nereden_id": 1171,
+      "bot_kalan_gun": 2,
+      "nereden_id": 1165,
       "hedef": "Lisboa",
       "hedef_id": 1158,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 1171,
-          "isim": "Montemor - Avis arası"
-        },
-        {
-          "id": 1164,
-          "isim": "Montemor"
-        },
         {
           "id": 1165,
           "isim": "Santarém - Montemor arası"
@@ -230,26 +2053,11 @@
           "isim": "Lisboa"
         }
       ],
-      "kalan_adim": 5,
-      "kalan_gun": 3,
+      "kalan_adim": 3,
+      "kalan_gun": 2,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 1165,
-          "varis": "Santarém - Montemor arası",
-          "duraklar": [
-            {
-              "id": 1164,
-              "isim": "Montemor"
-            },
-            {
-              "id": 1165,
-              "isim": "Santarém - Montemor arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 1157,
           "varis": "Santarém - Lisboa arası",
           "duraklar": [
@@ -264,7 +2072,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 1158,
           "varis": "Lisboa",
           "duraklar": [
@@ -282,23 +2090,15 @@
       "hesap": "Marvethis",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Montemor - Avis Yolu Üzerinde",
+      "nereden": "Montemor - Setúbal Yolu Üzerinde",
       "yolda": true,
-      "bot_kalan_gun": 2,
-      "nereden_id": 1171,
+      "bot_kalan_gun": 1,
+      "nereden_id": 1163,
       "hedef": "Setúbal",
       "hedef_id": 1161,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 1171,
-          "isim": "Montemor - Avis arası"
-        },
-        {
-          "id": 1164,
-          "isim": "Montemor"
-        },
         {
           "id": 1163,
           "isim": "Montemor - Setúbal arası"
@@ -312,26 +2112,11 @@
           "isim": "Setúbal"
         }
       ],
-      "kalan_adim": 4,
-      "kalan_gun": 2,
+      "kalan_adim": 2,
+      "kalan_gun": 1,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 1163,
-          "varis": "Montemor - Setúbal arası",
-          "duraklar": [
-            {
-              "id": 1164,
-              "isim": "Montemor"
-            },
-            {
-              "id": 1163,
-              "isim": "Montemor - Setúbal arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 1161,
           "varis": "Setúbal",
           "duraklar": [
@@ -355,7 +2140,7 @@
       "kaynak": "ayar",
       "nereden": "Wigtown",
       "yolda": false,
-      "bot_kalan_gun": null,
+      "bot_kalan_gun": 3,
       "nereden_id": 760,
       "hedef": "Glasgow",
       "hedef_id": 1045,
@@ -439,23 +2224,15 @@
       "hesap": "Zedrin",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Montemor - Avis Yolu Üzerinde",
+      "nereden": "Montemor - Setúbal Yolu Üzerinde",
       "yolda": true,
-      "bot_kalan_gun": 2,
-      "nereden_id": 1171,
+      "bot_kalan_gun": 1,
+      "nereden_id": 1163,
       "hedef": "Alcácer do Sal",
       "hedef_id": 1166,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 1171,
-          "isim": "Montemor - Avis arası"
-        },
-        {
-          "id": 1164,
-          "isim": "Montemor"
-        },
         {
           "id": 1163,
           "isim": "Montemor - Setúbal arası"
@@ -469,26 +2246,11 @@
           "isim": "Alcácer do Sal"
         }
       ],
-      "kalan_adim": 4,
-      "kalan_gun": 2,
+      "kalan_adim": 2,
+      "kalan_gun": 1,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 1163,
-          "varis": "Montemor - Setúbal arası",
-          "duraklar": [
-            {
-              "id": 1164,
-              "isim": "Montemor"
-            },
-            {
-              "id": 1163,
-              "isim": "Montemor - Setúbal arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 1166,
           "varis": "Alcácer do Sal",
           "duraklar": [
@@ -512,21 +2274,13 @@
       "kaynak": "ayar",
       "nereden": "Guarda - Crato Yolu Üzerinde",
       "yolda": true,
-      "bot_kalan_gun": 7,
-      "nereden_id": 924,
+      "bot_kalan_gun": 6,
+      "nereden_id": 926,
       "hedef": "Setúbal",
       "hedef_id": 1161,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 924,
-          "isim": "Guarda - Viseu arası"
-        },
-        {
-          "id": 925,
-          "isim": "Guarda - Viseu arası"
-        },
         {
           "id": 926,
           "isim": "Guarda - Viseu arası"
@@ -580,26 +2334,11 @@
           "isim": "Setúbal"
         }
       ],
-      "kalan_adim": 14,
-      "kalan_gun": 7,
+      "kalan_adim": 12,
+      "kalan_gun": 6,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 926,
-          "varis": "Guarda - Viseu arası",
-          "duraklar": [
-            {
-              "id": 925,
-              "isim": "Guarda - Viseu arası"
-            },
-            {
-              "id": 926,
-              "isim": "Guarda - Viseu arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 2588,
           "varis": "Guarda - Crato arası",
           "duraklar": [
@@ -614,7 +2353,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 2590,
           "varis": "Crato - Elvas arası",
           "duraklar": [
@@ -629,7 +2368,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 1173,
           "varis": "Crato - Avis arası",
           "duraklar": [
@@ -644,7 +2383,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 1171,
           "varis": "Montemor - Avis arası",
           "duraklar": [
@@ -659,7 +2398,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 1163,
           "varis": "Montemor - Setúbal arası",
           "duraklar": [
@@ -674,7 +2413,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 1161,
           "varis": "Setúbal",
           "duraklar": [
@@ -693,26 +2432,104 @@
       "rol": "tek"
     },
     {
+      "hesap": "Asakira",
+      "tur": "seyahat",
+      "kaynak": "ayar",
+      "nereden": "Girvan",
+      "yolda": false,
+      "bot_kalan_gun": 3,
+      "nereden_id": 836,
+      "hedef": "Stirling",
+      "hedef_id": 1050,
+      "jetonlu": false,
+      "adim_hakki": 2,
+      "rota": [
+        {
+          "id": 836,
+          "isim": "Girvan"
+        },
+        {
+          "id": 837,
+          "isim": "Girvan - Glasgow arası"
+        },
+        {
+          "id": 2789,
+          "isim": "Glasgow - Girvan arası"
+        },
+        {
+          "id": 1045,
+          "isim": "Glasgow"
+        },
+        {
+          "id": 1049,
+          "isim": "Glasgow - Stirling arası"
+        },
+        {
+          "id": 1050,
+          "isim": "Stirling"
+        }
+      ],
+      "kalan_adim": 5,
+      "kalan_gun": 3,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 2789,
+          "varis": "Glasgow - Girvan arası",
+          "duraklar": [
+            {
+              "id": 837,
+              "isim": "Girvan - Glasgow arası"
+            },
+            {
+              "id": 2789,
+              "isim": "Glasgow - Girvan arası"
+            }
+          ]
+        },
+        {
+          "gun": 2,
+          "varis_id": 1049,
+          "varis": "Glasgow - Stirling arası",
+          "duraklar": [
+            {
+              "id": 1045,
+              "isim": "Glasgow"
+            },
+            {
+              "id": 1049,
+              "isim": "Glasgow - Stirling arası"
+            }
+          ]
+        },
+        {
+          "gun": 3,
+          "varis_id": 1050,
+          "varis": "Stirling",
+          "duraklar": [
+            {
+              "id": 1050,
+              "isim": "Stirling"
+            }
+          ]
+        }
+      ],
+      "lider": "",
+      "rol": "tek"
+    },
+    {
       "hesap": "Dogmeat",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Osma - Soria Yolu Üzerinde",
+      "nereden": "Osma - Guarda Yolu Üzerinde",
       "yolda": true,
-      "bot_kalan_gun": 9,
-      "nereden_id": 906,
+      "bot_kalan_gun": 8,
+      "nereden_id": 916,
       "hedef": "Elvas",
       "hedef_id": 1170,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 906,
-          "isim": "Osma - Soria arası"
-        },
-        {
-          "id": 905,
-          "isim": "Osma"
-        },
         {
           "id": 916,
           "isim": "Osma - Soria arası"
@@ -778,26 +2595,11 @@
           "isim": "Elvas"
         }
       ],
-      "kalan_adim": 17,
-      "kalan_gun": 9,
+      "kalan_adim": 15,
+      "kalan_gun": 8,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 916,
-          "varis": "Osma - Soria arası",
-          "duraklar": [
-            {
-              "id": 905,
-              "isim": "Osma"
-            },
-            {
-              "id": 916,
-              "isim": "Osma - Soria arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 918,
           "varis": "Osma - Soria arası",
           "duraklar": [
@@ -812,7 +2614,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 920,
           "varis": "Osma - Soria arası",
           "duraklar": [
@@ -827,7 +2629,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 922,
           "varis": "Osma - Guarda arası",
           "duraklar": [
@@ -842,7 +2644,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 924,
           "varis": "Guarda - Viseu arası",
           "duraklar": [
@@ -857,7 +2659,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 926,
           "varis": "Guarda - Viseu arası",
           "duraklar": [
@@ -872,7 +2674,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 2588,
           "varis": "Guarda - Crato arası",
           "duraklar": [
@@ -887,7 +2689,7 @@
           ]
         },
         {
-          "gun": 8,
+          "gun": 7,
           "varis_id": 2590,
           "varis": "Crato - Elvas arası",
           "duraklar": [
@@ -902,7 +2704,7 @@
           ]
         },
         {
-          "gun": 9,
+          "gun": 8,
           "varis_id": 1170,
           "varis": "Elvas",
           "duraklar": [
@@ -920,23 +2722,15 @@
       "hesap": "Silverfork",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Soria - Osma Yolu Üzerinde",
+      "nereden": "Soria - Burgos Yolu Üzerinde",
       "yolda": true,
-      "bot_kalan_gun": 9,
-      "nereden_id": 902,
+      "bot_kalan_gun": 8,
+      "nereden_id": 2725,
       "hedef": "Porto",
       "hedef_id": 868,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 902,
-          "isim": "Soria - Osma arası"
-        },
-        {
-          "id": 903,
-          "isim": "Soria"
-        },
         {
           "id": 2725,
           "isim": "Soria - Burgos arası"
@@ -1006,26 +2800,11 @@
           "isim": "Porto"
         }
       ],
-      "kalan_adim": 18,
-      "kalan_gun": 9,
+      "kalan_adim": 16,
+      "kalan_gun": 8,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 2725,
-          "varis": "Soria - Burgos arası",
-          "duraklar": [
-            {
-              "id": 903,
-              "isim": "Soria"
-            },
-            {
-              "id": 2725,
-              "isim": "Soria - Burgos arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 2724,
           "varis": "Valladolid - Burgos arası",
           "duraklar": [
@@ -1040,7 +2819,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 912,
           "varis": "Valladolid - Burgos arası",
           "duraklar": [
@@ -1055,7 +2834,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 914,
           "varis": "Valladolid - Burgos arası",
           "duraklar": [
@@ -1070,7 +2849,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 651,
           "varis": "Chaves - Valladolid arası",
           "duraklar": [
@@ -1085,7 +2864,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 699,
           "varis": "Chaves - Braga arası",
           "duraklar": [
@@ -1100,7 +2879,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 815,
           "varis": "Chaves",
           "duraklar": [
@@ -1115,7 +2894,7 @@
           ]
         },
         {
-          "gun": 8,
+          "gun": 7,
           "varis_id": 866,
           "varis": "Braga",
           "duraklar": [
@@ -1130,7 +2909,7 @@
           ]
         },
         {
-          "gun": 9,
+          "gun": 8,
           "varis_id": 868,
           "varis": "Porto",
           "duraklar": [
@@ -1152,23 +2931,15 @@
       "hesap": "Dursun",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Manchester - Kendal Yolu Üzerinde",
+      "nereden": "Kendal - Manchester Yolu Üzerinde",
       "yolda": true,
-      "bot_kalan_gun": 2,
-      "nereden_id": 702,
+      "bot_kalan_gun": 1,
+      "nereden_id": 708,
       "hedef": "Kendal",
       "hedef_id": 710,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 702,
-          "isim": "Manchester - Liverpool arası"
-        },
-        {
-          "id": 703,
-          "isim": "Manchester - Liverpool arası"
-        },
         {
           "id": 708,
           "isim": "Kendal - Manchester arası"
@@ -1178,26 +2949,11 @@
           "isim": "Kendal"
         }
       ],
-      "kalan_adim": 3,
-      "kalan_gun": 2,
+      "kalan_adim": 1,
+      "kalan_gun": 1,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 708,
-          "varis": "Kendal - Manchester arası",
-          "duraklar": [
-            {
-              "id": 703,
-              "isim": "Manchester - Liverpool arası"
-            },
-            {
-              "id": 708,
-              "isim": "Kendal - Manchester arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 710,
           "varis": "Kendal",
           "duraklar": [
@@ -1215,15 +2971,1300 @@
       "hesap": "Longboe",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Glasgow - Girvan Yolu Üzerinde",
+      "nereden": "Glasgow - Stirling Yolu Üzerinde",
       "yolda": true,
-      "bot_kalan_gun": 2,
-      "nereden_id": 2789,
+      "bot_kalan_gun": 1,
+      "nereden_id": 1049,
       "hedef": "Stirling",
       "hedef_id": 1050,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
+        {
+          "id": 1049,
+          "isim": "Glasgow - Stirling arası"
+        },
+        {
+          "id": 1050,
+          "isim": "Stirling"
+        }
+      ],
+      "kalan_adim": 1,
+      "kalan_gun": 1,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 1050,
+          "varis": "Stirling",
+          "duraklar": [
+            {
+              "id": 1050,
+              "isim": "Stirling"
+            }
+          ]
+        }
+      ],
+      "lider": "",
+      "rol": "tek"
+    },
+    {
+      "hesap": "Greatmin",
+      "tur": "seyahat",
+      "kaynak": "ayar",
+      "nereden": "Wigtown",
+      "yolda": false,
+      "bot_kalan_gun": 1,
+      "nereden_id": 760,
+      "hedef": "Kirkcudbright",
+      "hedef_id": 758,
+      "jetonlu": false,
+      "adim_hakki": 2,
+      "rota": [
+        {
+          "id": 760,
+          "isim": "Wigtown"
+        },
+        {
+          "id": 759,
+          "isim": "Kirkcudbright - Wigtown arası"
+        },
+        {
+          "id": 758,
+          "isim": "Kirkcudbright"
+        }
+      ],
+      "kalan_adim": 2,
+      "kalan_gun": 1,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 758,
+          "varis": "Kirkcudbright",
+          "duraklar": [
+            {
+              "id": 759,
+              "isim": "Kirkcudbright - Wigtown arası"
+            },
+            {
+              "id": 758,
+              "isim": "Kirkcudbright"
+            }
+          ]
+        }
+      ],
+      "lider": "",
+      "rol": "tek"
+    }
+  ],
+  "kafileler": [
+    {
+      "anahtar": "942|259|2",
+      "nereden": "Massa",
+      "nereden_id": 942,
+      "hedef": "Saint Pol de Léon",
+      "hedef_id": 259,
+      "yolda": false,
+      "adim_hakki": 2,
+      "jetonlu": false,
+      "kalan_adim": 52,
+      "kalan_gun": 26,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 939,
+          "varis": "La Spezia",
+          "duraklar": [
+            {
+              "id": 941,
+              "isim": "La Spezia - Massa arası"
+            },
+            {
+              "id": 939,
+              "isim": "La Spezia"
+            }
+          ]
+        },
+        {
+          "gun": 2,
+          "varis_id": 937,
+          "varis": "Chiavari",
+          "duraklar": [
+            {
+              "id": 938,
+              "isim": "Chiavari - La Spezia arası"
+            },
+            {
+              "id": 937,
+              "isim": "Chiavari"
+            }
+          ]
+        },
+        {
+          "gun": 3,
+          "varis_id": 566,
+          "varis": "Pavia",
+          "duraklar": [
+            {
+              "id": 2780,
+              "isim": "Pavia - Piacenza arası"
+            },
+            {
+              "id": 566,
+              "isim": "Pavia"
+            }
+          ]
+        },
+        {
+          "gun": 4,
+          "varis_id": 669,
+          "varis": "Novara",
+          "duraklar": [
+            {
+              "id": 668,
+              "isim": "Pavia - Novara arası"
+            },
+            {
+              "id": 669,
+              "isim": "Novara"
+            }
+          ]
+        },
+        {
+          "gun": 5,
+          "varis_id": 276,
+          "varis": "Novara - Pavia arası",
+          "duraklar": [
+            {
+              "id": 277,
+              "isim": "Novara - Pavia arası"
+            },
+            {
+              "id": 276,
+              "isim": "Novara - Pavia arası"
+            }
+          ]
+        },
+        {
+          "gun": 6,
+          "varis_id": 274,
+          "varis": "Annecy - Sion arası",
+          "duraklar": [
+            {
+              "id": 275,
+              "isim": "Novara - Annecy arası"
+            },
+            {
+              "id": 274,
+              "isim": "Annecy - Sion arası"
+            }
+          ]
+        },
+        {
+          "gun": 7,
+          "varis_id": 272,
+          "varis": "Annecy - Chambéry arası",
+          "duraklar": [
+            {
+              "id": 273,
+              "isim": "Annecy - Chambéry arası"
+            },
+            {
+              "id": 272,
+              "isim": "Annecy - Chambéry arası"
+            }
+          ]
+        },
+        {
+          "gun": 8,
+          "varis_id": 269,
+          "varis": "Annecy - Genève arası",
+          "duraklar": [
+            {
+              "id": 268,
+              "isim": "Annecy"
+            },
+            {
+              "id": 269,
+              "isim": "Annecy - Genève arası"
+            }
+          ]
+        },
+        {
+          "gun": 9,
+          "varis_id": 271,
+          "varis": "Saint Claude - Genève arası",
+          "duraklar": [
+            {
+              "id": 270,
+              "isim": "Genève"
+            },
+            {
+              "id": 271,
+              "isim": "Saint Claude - Genève arası"
+            }
+          ]
+        },
+        {
+          "gun": 10,
+          "varis_id": 236,
+          "varis": "Poligny - Saint Claude arası",
+          "duraklar": [
+            {
+              "id": 237,
+              "isim": "Saint Claude"
+            },
+            {
+              "id": 236,
+              "isim": "Poligny - Saint Claude arası"
+            }
+          ]
+        },
+        {
+          "gun": 11,
+          "varis_id": 234,
+          "varis": "Dole - Poligny arası",
+          "duraklar": [
+            {
+              "id": 235,
+              "isim": "Poligny"
+            },
+            {
+              "id": 234,
+              "isim": "Dole - Poligny arası"
+            }
+          ]
+        },
+        {
+          "gun": 12,
+          "varis_id": 224,
+          "varis": "Dijon - Dole arası",
+          "duraklar": [
+            {
+              "id": 225,
+              "isim": "Dole"
+            },
+            {
+              "id": 224,
+              "isim": "Dijon - Dole arası"
+            }
+          ]
+        },
+        {
+          "gun": 13,
+          "varis_id": 63,
+          "varis": "Sémur - Dijon arası",
+          "duraklar": [
+            {
+              "id": 64,
+              "isim": "Dijon"
+            },
+            {
+              "id": 63,
+              "isim": "Sémur - Dijon arası"
+            }
+          ]
+        },
+        {
+          "gun": 14,
+          "varis_id": 60,
+          "varis": "Tonnerre - Sémur arası",
+          "duraklar": [
+            {
+              "id": 62,
+              "isim": "Sémur"
+            },
+            {
+              "id": 60,
+              "isim": "Tonnerre - Sémur arası"
+            }
+          ]
+        },
+        {
+          "gun": 15,
+          "varis_id": 35,
+          "varis": "Conflans-lès-Sens - Tonnerre arası",
+          "duraklar": [
+            {
+              "id": 37,
+              "isim": "Tonnerre"
+            },
+            {
+              "id": 35,
+              "isim": "Conflans-lès-Sens - Tonnerre arası"
+            }
+          ]
+        },
+        {
+          "gun": 16,
+          "varis_id": 393,
+          "varis": "Conflans-lès-Sens - Montargis arası",
+          "duraklar": [
+            {
+              "id": 30,
+              "isim": "Conflans-lès-Sens"
+            },
+            {
+              "id": 393,
+              "isim": "Conflans-lès-Sens - Montargis arası"
+            }
+          ]
+        },
+        {
+          "gun": 17,
+          "varis_id": 387,
+          "varis": "Orléans - Montargis arası",
+          "duraklar": [
+            {
+              "id": 388,
+              "isim": "Montargis"
+            },
+            {
+              "id": 387,
+              "isim": "Orléans - Montargis arası"
+            }
+          ]
+        },
+        {
+          "gun": 18,
+          "varis_id": 384,
+          "varis": "Patay - Orléans arası",
+          "duraklar": [
+            {
+              "id": 385,
+              "isim": "Orléans"
+            },
+            {
+              "id": 384,
+              "isim": "Patay - Orléans arası"
+            }
+          ]
+        },
+        {
+          "gun": 19,
+          "varis_id": 383,
+          "varis": "Patay - Blois arası",
+          "duraklar": [
+            {
+              "id": 382,
+              "isim": "Patay"
+            },
+            {
+              "id": 383,
+              "isim": "Patay - Blois arası"
+            }
+          ]
+        },
+        {
+          "gun": 20,
+          "varis_id": 979,
+          "varis": "Verneuil - Mortagne arası",
+          "duraklar": [
+            {
+              "id": 978,
+              "isim": "Patay - Verneuil arası"
+            },
+            {
+              "id": 979,
+              "isim": "Verneuil - Mortagne arası"
+            }
+          ]
+        },
+        {
+          "gun": 21,
+          "varis_id": 441,
+          "varis": "Verneuil - Argentan arası",
+          "duraklar": [
+            {
+              "id": 440,
+              "isim": "Verneuil"
+            },
+            {
+              "id": 441,
+              "isim": "Verneuil - Argentan arası"
+            }
+          ]
+        },
+        {
+          "gun": 22,
+          "varis_id": 2702,
+          "varis": "Avranches - Argentan arası",
+          "duraklar": [
+            {
+              "id": 442,
+              "isim": "Argentan"
+            },
+            {
+              "id": 2702,
+              "isim": "Avranches - Argentan arası"
+            }
+          ]
+        },
+        {
+          "gun": 23,
+          "varis_id": 2712,
+          "varis": "Avranches - Saint-Brieuc arası",
+          "duraklar": [
+            {
+              "id": 78,
+              "isim": "Avranches"
+            },
+            {
+              "id": 2712,
+              "isim": "Avranches - Saint-Brieuc arası"
+            }
+          ]
+        },
+        {
+          "gun": 24,
+          "varis_id": 100,
+          "varis": "Saint-Brieuc - Tréguier arası",
+          "duraklar": [
+            {
+              "id": 99,
+              "isim": "Saint-Brieuc"
+            },
+            {
+              "id": 100,
+              "isim": "Saint-Brieuc - Tréguier arası"
+            }
+          ]
+        },
+        {
+          "gun": 25,
+          "varis_id": 257,
+          "varis": "Tréguier - Saint Pol de Léon arası",
+          "duraklar": [
+            {
+              "id": 101,
+              "isim": "Tréguier"
+            },
+            {
+              "id": 257,
+              "isim": "Tréguier - Saint Pol de Léon arası"
+            }
+          ]
+        },
+        {
+          "gun": 26,
+          "varis_id": 259,
+          "varis": "Saint Pol de Léon",
+          "duraklar": [
+            {
+              "id": 258,
+              "isim": "Saint Pol de Léon - Tréguier arası"
+            },
+            {
+              "id": 259,
+              "isim": "Saint Pol de Léon"
+            }
+          ]
+        }
+      ],
+      "rota": [
+        {
+          "id": 942,
+          "isim": "Massa"
+        },
+        {
+          "id": 941,
+          "isim": "La Spezia - Massa arası"
+        },
+        {
+          "id": 939,
+          "isim": "La Spezia"
+        },
+        {
+          "id": 938,
+          "isim": "Chiavari - La Spezia arası"
+        },
+        {
+          "id": 937,
+          "isim": "Chiavari"
+        },
+        {
+          "id": 2780,
+          "isim": "Pavia - Piacenza arası"
+        },
+        {
+          "id": 566,
+          "isim": "Pavia"
+        },
+        {
+          "id": 668,
+          "isim": "Pavia - Novara arası"
+        },
+        {
+          "id": 669,
+          "isim": "Novara"
+        },
+        {
+          "id": 277,
+          "isim": "Novara - Pavia arası"
+        },
+        {
+          "id": 276,
+          "isim": "Novara - Pavia arası"
+        },
+        {
+          "id": 275,
+          "isim": "Novara - Annecy arası"
+        },
+        {
+          "id": 274,
+          "isim": "Annecy - Sion arası"
+        },
+        {
+          "id": 273,
+          "isim": "Annecy - Chambéry arası"
+        },
+        {
+          "id": 272,
+          "isim": "Annecy - Chambéry arası"
+        },
+        {
+          "id": 268,
+          "isim": "Annecy"
+        },
+        {
+          "id": 269,
+          "isim": "Annecy - Genève arası"
+        },
+        {
+          "id": 270,
+          "isim": "Genève"
+        },
+        {
+          "id": 271,
+          "isim": "Saint Claude - Genève arası"
+        },
+        {
+          "id": 237,
+          "isim": "Saint Claude"
+        },
+        {
+          "id": 236,
+          "isim": "Poligny - Saint Claude arası"
+        },
+        {
+          "id": 235,
+          "isim": "Poligny"
+        },
+        {
+          "id": 234,
+          "isim": "Dole - Poligny arası"
+        },
+        {
+          "id": 225,
+          "isim": "Dole"
+        },
+        {
+          "id": 224,
+          "isim": "Dijon - Dole arası"
+        },
+        {
+          "id": 64,
+          "isim": "Dijon"
+        },
+        {
+          "id": 63,
+          "isim": "Sémur - Dijon arası"
+        },
+        {
+          "id": 62,
+          "isim": "Sémur"
+        },
+        {
+          "id": 60,
+          "isim": "Tonnerre - Sémur arası"
+        },
+        {
+          "id": 37,
+          "isim": "Tonnerre"
+        },
+        {
+          "id": 35,
+          "isim": "Conflans-lès-Sens - Tonnerre arası"
+        },
+        {
+          "id": 30,
+          "isim": "Conflans-lès-Sens"
+        },
+        {
+          "id": 393,
+          "isim": "Conflans-lès-Sens - Montargis arası"
+        },
+        {
+          "id": 388,
+          "isim": "Montargis"
+        },
+        {
+          "id": 387,
+          "isim": "Orléans - Montargis arası"
+        },
+        {
+          "id": 385,
+          "isim": "Orléans"
+        },
+        {
+          "id": 384,
+          "isim": "Patay - Orléans arası"
+        },
+        {
+          "id": 382,
+          "isim": "Patay"
+        },
+        {
+          "id": 383,
+          "isim": "Patay - Blois arası"
+        },
+        {
+          "id": 978,
+          "isim": "Patay - Verneuil arası"
+        },
+        {
+          "id": 979,
+          "isim": "Verneuil - Mortagne arası"
+        },
+        {
+          "id": 440,
+          "isim": "Verneuil"
+        },
+        {
+          "id": 441,
+          "isim": "Verneuil - Argentan arası"
+        },
+        {
+          "id": 442,
+          "isim": "Argentan"
+        },
+        {
+          "id": 2702,
+          "isim": "Avranches - Argentan arası"
+        },
+        {
+          "id": 78,
+          "isim": "Avranches"
+        },
+        {
+          "id": 2712,
+          "isim": "Avranches - Saint-Brieuc arası"
+        },
+        {
+          "id": 99,
+          "isim": "Saint-Brieuc"
+        },
+        {
+          "id": 100,
+          "isim": "Saint-Brieuc - Tréguier arası"
+        },
+        {
+          "id": 101,
+          "isim": "Tréguier"
+        },
+        {
+          "id": 257,
+          "isim": "Tréguier - Saint Pol de Léon arası"
+        },
+        {
+          "id": 258,
+          "isim": "Saint Pol de Léon - Tréguier arası"
+        },
+        {
+          "id": 259,
+          "isim": "Saint Pol de Léon"
+        }
+      ],
+      "hesaplar": [
+        {
+          "hesap": "Razielon",
+          "tur": "seyahat",
+          "lider": "",
+          "kaynak": "",
+          "tahmin": false,
+          "rol": "tek"
+        },
+        {
+          "hesap": "korhan",
+          "tur": "seyahat",
+          "lider": "",
+          "kaynak": "",
+          "tahmin": false,
+          "rol": "tek"
+        },
+        {
+          "hesap": "nindalf",
+          "tur": "seyahat",
+          "lider": "",
+          "kaynak": "",
+          "tahmin": false,
+          "rol": "tek"
+        }
+      ],
+      "liderler": [],
+      "kisi": 3,
+      "yalniz": false,
+      "grup": false,
+      "lider": "",
+      "olculdu": true,
+      "kaynaklar": []
+    },
+    {
+      "anahtar": "760|758|2",
+      "nereden": "Wigtown",
+      "nereden_id": 760,
+      "hedef": "Kirkcudbright",
+      "hedef_id": 758,
+      "yolda": false,
+      "adim_hakki": 2,
+      "jetonlu": false,
+      "kalan_adim": 2,
+      "kalan_gun": 1,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 758,
+          "varis": "Kirkcudbright",
+          "duraklar": [
+            {
+              "id": 759,
+              "isim": "Kirkcudbright - Wigtown arası"
+            },
+            {
+              "id": 758,
+              "isim": "Kirkcudbright"
+            }
+          ]
+        }
+      ],
+      "rota": [
+        {
+          "id": 760,
+          "isim": "Wigtown"
+        },
+        {
+          "id": 759,
+          "isim": "Kirkcudbright - Wigtown arası"
+        },
+        {
+          "id": 758,
+          "isim": "Kirkcudbright"
+        }
+      ],
+      "hesaplar": [
+        {
+          "hesap": "Adrah",
+          "tur": "seyahat",
+          "lider": "",
+          "kaynak": "",
+          "tahmin": false,
+          "rol": "tek"
+        },
+        {
+          "hesap": "Greatmin",
+          "tur": "seyahat",
+          "lider": "",
+          "kaynak": "",
+          "tahmin": false,
+          "rol": "tek"
+        }
+      ],
+      "liderler": [],
+      "kisi": 2,
+      "yalniz": false,
+      "grup": false,
+      "lider": "",
+      "olculdu": true,
+      "kaynaklar": []
+    },
+    {
+      "anahtar": "1049|1050|2",
+      "nereden": "Glasgow - Stirling Yolu Üzerinde",
+      "nereden_id": 1049,
+      "hedef": "Stirling",
+      "hedef_id": 1050,
+      "yolda": true,
+      "adim_hakki": 2,
+      "jetonlu": false,
+      "kalan_adim": 1,
+      "kalan_gun": 1,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 1050,
+          "varis": "Stirling",
+          "duraklar": [
+            {
+              "id": 1050,
+              "isim": "Stirling"
+            }
+          ]
+        }
+      ],
+      "rota": [
+        {
+          "id": 1049,
+          "isim": "Glasgow - Stirling arası"
+        },
+        {
+          "id": 1050,
+          "isim": "Stirling"
+        }
+      ],
+      "hesaplar": [
+        {
+          "hesap": "Longboe",
+          "tur": "seyahat",
+          "lider": "",
+          "kaynak": "",
+          "tahmin": false,
+          "rol": "tek"
+        }
+      ],
+      "liderler": [],
+      "kisi": 1,
+      "yalniz": true,
+      "grup": false,
+      "lider": "",
+      "olculdu": true,
+      "kaynaklar": []
+    },
+    {
+      "anahtar": "708|710|2",
+      "nereden": "Kendal - Manchester Yolu Üzerinde",
+      "nereden_id": 708,
+      "hedef": "Kendal",
+      "hedef_id": 710,
+      "yolda": true,
+      "adim_hakki": 2,
+      "jetonlu": false,
+      "kalan_adim": 1,
+      "kalan_gun": 1,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 710,
+          "varis": "Kendal",
+          "duraklar": [
+            {
+              "id": 710,
+              "isim": "Kendal"
+            }
+          ]
+        }
+      ],
+      "rota": [
+        {
+          "id": 708,
+          "isim": "Kendal - Manchester arası"
+        },
+        {
+          "id": 710,
+          "isim": "Kendal"
+        }
+      ],
+      "hesaplar": [
+        {
+          "hesap": "Dursun",
+          "tur": "seyahat",
+          "lider": "",
+          "kaynak": "",
+          "tahmin": false,
+          "rol": "tek"
+        }
+      ],
+      "liderler": [],
+      "kisi": 1,
+      "yalniz": true,
+      "grup": false,
+      "lider": "",
+      "olculdu": true,
+      "kaynaklar": []
+    },
+    {
+      "anahtar": "1163|1161|2",
+      "nereden": "Montemor - Setúbal Yolu Üzerinde",
+      "nereden_id": 1163,
+      "hedef": "Setúbal",
+      "hedef_id": 1161,
+      "yolda": true,
+      "adim_hakki": 2,
+      "jetonlu": false,
+      "kalan_adim": 2,
+      "kalan_gun": 1,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 1161,
+          "varis": "Setúbal",
+          "duraklar": [
+            {
+              "id": 1162,
+              "isim": "Setúbal - Alcácer do Sal arası"
+            },
+            {
+              "id": 1161,
+              "isim": "Setúbal"
+            }
+          ]
+        }
+      ],
+      "rota": [
+        {
+          "id": 1163,
+          "isim": "Montemor - Setúbal arası"
+        },
+        {
+          "id": 1162,
+          "isim": "Setúbal - Alcácer do Sal arası"
+        },
+        {
+          "id": 1161,
+          "isim": "Setúbal"
+        }
+      ],
+      "hesaplar": [
+        {
+          "hesap": "Marvethis",
+          "tur": "seyahat",
+          "lider": "",
+          "kaynak": "",
+          "tahmin": false,
+          "rol": "tek"
+        }
+      ],
+      "liderler": [],
+      "kisi": 1,
+      "yalniz": true,
+      "grup": false,
+      "lider": "",
+      "olculdu": true,
+      "kaynaklar": []
+    },
+    {
+      "anahtar": "1163|1166|2",
+      "nereden": "Montemor - Setúbal Yolu Üzerinde",
+      "nereden_id": 1163,
+      "hedef": "Alcácer do Sal",
+      "hedef_id": 1166,
+      "yolda": true,
+      "adim_hakki": 2,
+      "jetonlu": false,
+      "kalan_adim": 2,
+      "kalan_gun": 1,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 1166,
+          "varis": "Alcácer do Sal",
+          "duraklar": [
+            {
+              "id": 1162,
+              "isim": "Setúbal - Alcácer do Sal arası"
+            },
+            {
+              "id": 1166,
+              "isim": "Alcácer do Sal"
+            }
+          ]
+        }
+      ],
+      "rota": [
+        {
+          "id": 1163,
+          "isim": "Montemor - Setúbal arası"
+        },
+        {
+          "id": 1162,
+          "isim": "Setúbal - Alcácer do Sal arası"
+        },
+        {
+          "id": 1166,
+          "isim": "Alcácer do Sal"
+        }
+      ],
+      "hesaplar": [
+        {
+          "hesap": "Zedrin",
+          "tur": "seyahat",
+          "lider": "",
+          "kaynak": "",
+          "tahmin": false,
+          "rol": "tek"
+        }
+      ],
+      "liderler": [],
+      "kisi": 1,
+      "yalniz": true,
+      "grup": false,
+      "lider": "",
+      "olculdu": true,
+      "kaynaklar": []
+    },
+    {
+      "anahtar": "1165|1156|2",
+      "nereden": "Santarém - Montemor Yolu Üzerinde",
+      "nereden_id": 1165,
+      "hedef": "Santarém",
+      "hedef_id": 1156,
+      "yolda": true,
+      "adim_hakki": 2,
+      "jetonlu": false,
+      "kalan_adim": 1,
+      "kalan_gun": 1,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 1156,
+          "varis": "Santarém",
+          "duraklar": [
+            {
+              "id": 1156,
+              "isim": "Santarém"
+            }
+          ]
+        }
+      ],
+      "rota": [
+        {
+          "id": 1165,
+          "isim": "Santarém - Montemor arası"
+        },
+        {
+          "id": 1156,
+          "isim": "Santarém"
+        }
+      ],
+      "hesaplar": [
+        {
+          "hesap": "Azirveth",
+          "tur": "seyahat",
+          "lider": "",
+          "kaynak": "",
+          "tahmin": false,
+          "rol": "tek"
+        }
+      ],
+      "liderler": [],
+      "kisi": 1,
+      "yalniz": true,
+      "grup": false,
+      "lider": "",
+      "olculdu": true,
+      "kaynaklar": []
+    },
+    {
+      "anahtar": "836|1045|2",
+      "nereden": "Girvan",
+      "nereden_id": 836,
+      "hedef": "Glasgow",
+      "hedef_id": 1045,
+      "yolda": false,
+      "adim_hakki": 2,
+      "jetonlu": false,
+      "kalan_adim": 3,
+      "kalan_gun": 2,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 2789,
+          "varis": "Glasgow - Girvan arası",
+          "duraklar": [
+            {
+              "id": 837,
+              "isim": "Girvan - Glasgow arası"
+            },
+            {
+              "id": 2789,
+              "isim": "Glasgow - Girvan arası"
+            }
+          ]
+        },
+        {
+          "gun": 2,
+          "varis_id": 1045,
+          "varis": "Glasgow",
+          "duraklar": [
+            {
+              "id": 1045,
+              "isim": "Glasgow"
+            }
+          ]
+        }
+      ],
+      "rota": [
+        {
+          "id": 836,
+          "isim": "Girvan"
+        },
+        {
+          "id": 837,
+          "isim": "Girvan - Glasgow arası"
+        },
+        {
+          "id": 2789,
+          "isim": "Glasgow - Girvan arası"
+        },
+        {
+          "id": 1045,
+          "isim": "Glasgow"
+        }
+      ],
+      "hesaplar": [
+        {
+          "hesap": "Penaldo",
+          "tur": "seyahat",
+          "lider": "",
+          "kaynak": "",
+          "tahmin": false,
+          "rol": "tek"
+        }
+      ],
+      "liderler": [],
+      "kisi": 1,
+      "yalniz": true,
+      "grup": false,
+      "lider": "",
+      "olculdu": true,
+      "kaynaklar": []
+    },
+    {
+      "anahtar": "1165|1158|2",
+      "nereden": "Santarém - Montemor Yolu Üzerinde",
+      "nereden_id": 1165,
+      "hedef": "Lisboa",
+      "hedef_id": 1158,
+      "yolda": true,
+      "adim_hakki": 2,
+      "jetonlu": false,
+      "kalan_adim": 3,
+      "kalan_gun": 2,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 1157,
+          "varis": "Santarém - Lisboa arası",
+          "duraklar": [
+            {
+              "id": 1156,
+              "isim": "Santarém"
+            },
+            {
+              "id": 1157,
+              "isim": "Santarém - Lisboa arası"
+            }
+          ]
+        },
+        {
+          "gun": 2,
+          "varis_id": 1158,
+          "varis": "Lisboa",
+          "duraklar": [
+            {
+              "id": 1158,
+              "isim": "Lisboa"
+            }
+          ]
+        }
+      ],
+      "rota": [
+        {
+          "id": 1165,
+          "isim": "Santarém - Montemor arası"
+        },
+        {
+          "id": 1156,
+          "isim": "Santarém"
+        },
+        {
+          "id": 1157,
+          "isim": "Santarém - Lisboa arası"
+        },
+        {
+          "id": 1158,
+          "isim": "Lisboa"
+        }
+      ],
+      "hesaplar": [
+        {
+          "hesap": "Fiyong",
+          "tur": "seyahat",
+          "lider": "",
+          "kaynak": "",
+          "tahmin": false,
+          "rol": "tek"
+        }
+      ],
+      "liderler": [],
+      "kisi": 1,
+      "yalniz": true,
+      "grup": false,
+      "lider": "",
+      "olculdu": true,
+      "kaynaklar": []
+    },
+    {
+      "anahtar": "836|1050|2",
+      "nereden": "Girvan",
+      "nereden_id": 836,
+      "hedef": "Stirling",
+      "hedef_id": 1050,
+      "yolda": false,
+      "adim_hakki": 2,
+      "jetonlu": false,
+      "kalan_adim": 5,
+      "kalan_gun": 3,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 2789,
+          "varis": "Glasgow - Girvan arası",
+          "duraklar": [
+            {
+              "id": 837,
+              "isim": "Girvan - Glasgow arası"
+            },
+            {
+              "id": 2789,
+              "isim": "Glasgow - Girvan arası"
+            }
+          ]
+        },
+        {
+          "gun": 2,
+          "varis_id": 1049,
+          "varis": "Glasgow - Stirling arası",
+          "duraklar": [
+            {
+              "id": 1045,
+              "isim": "Glasgow"
+            },
+            {
+              "id": 1049,
+              "isim": "Glasgow - Stirling arası"
+            }
+          ]
+        },
+        {
+          "gun": 3,
+          "varis_id": 1050,
+          "varis": "Stirling",
+          "duraklar": [
+            {
+              "id": 1050,
+              "isim": "Stirling"
+            }
+          ]
+        }
+      ],
+      "rota": [
+        {
+          "id": 836,
+          "isim": "Girvan"
+        },
+        {
+          "id": 837,
+          "isim": "Girvan - Glasgow arası"
+        },
         {
           "id": 2789,
           "isim": "Glasgow - Girvan arası"
@@ -1241,41 +4282,24 @@
           "isim": "Stirling"
         }
       ],
-      "kalan_adim": 3,
-      "kalan_gun": 2,
-      "gunler": [
+      "hesaplar": [
         {
-          "gun": 1,
-          "varis_id": 1049,
-          "varis": "Glasgow - Stirling arası",
-          "duraklar": [
-            {
-              "id": 1045,
-              "isim": "Glasgow"
-            },
-            {
-              "id": 1049,
-              "isim": "Glasgow - Stirling arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
-          "varis_id": 1050,
-          "varis": "Stirling",
-          "duraklar": [
-            {
-              "id": 1050,
-              "isim": "Stirling"
-            }
-          ]
+          "hesap": "Asakira",
+          "tur": "seyahat",
+          "lider": "",
+          "kaynak": "",
+          "tahmin": false,
+          "rol": "tek"
         }
       ],
+      "liderler": [],
+      "kisi": 1,
+      "yalniz": true,
+      "grup": false,
       "lider": "",
-      "rol": "tek"
-    }
-  ],
-  "kafileler": [
+      "olculdu": true,
+      "kaynaklar": []
+    },
     {
       "anahtar": "760|1045|2",
       "nereden": "Wigtown",
@@ -1358,14 +4382,6 @@
       ],
       "hesaplar": [
         {
-          "hesap": "Penaldo",
-          "tur": "seyahat",
-          "lider": "",
-          "kaynak": "",
-          "tahmin": false,
-          "rol": "tek"
-        },
-        {
           "hesap": "Thehumanist",
           "tur": "seyahat",
           "lider": "",
@@ -1375,58 +4391,6 @@
         }
       ],
       "liderler": [],
-      "kisi": 2,
-      "yalniz": false,
-      "grup": false,
-      "lider": "",
-      "olculdu": true,
-      "kaynaklar": []
-    },
-    {
-      "anahtar": "1171|1164|2",
-      "nereden": "Montemor - Avis Yolu Üzerinde",
-      "nereden_id": 1171,
-      "hedef": "Montemor",
-      "hedef_id": 1164,
-      "yolda": true,
-      "adim_hakki": 2,
-      "jetonlu": false,
-      "kalan_adim": 1,
-      "kalan_gun": 1,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 1164,
-          "varis": "Montemor",
-          "duraklar": [
-            {
-              "id": 1164,
-              "isim": "Montemor"
-            }
-          ]
-        }
-      ],
-      "rota": [
-        {
-          "id": 1171,
-          "isim": "Montemor - Avis arası"
-        },
-        {
-          "id": 1164,
-          "isim": "Montemor"
-        }
-      ],
-      "hesaplar": [
-        {
-          "hesap": "Gundrel",
-          "tur": "seyahat",
-          "lider": "",
-          "kaynak": "",
-          "tahmin": false,
-          "rol": "tek"
-        }
-      ],
-      "liderler": [],
       "kisi": 1,
       "yalniz": true,
       "grup": false,
@@ -1435,523 +4399,19 @@
       "kaynaklar": []
     },
     {
-      "anahtar": "2789|1050|2",
-      "nereden": "Glasgow - Girvan Yolu Üzerinde",
-      "nereden_id": 2789,
-      "hedef": "Stirling",
-      "hedef_id": 1050,
-      "yolda": true,
-      "adim_hakki": 2,
-      "jetonlu": false,
-      "kalan_adim": 3,
-      "kalan_gun": 2,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 1049,
-          "varis": "Glasgow - Stirling arası",
-          "duraklar": [
-            {
-              "id": 1045,
-              "isim": "Glasgow"
-            },
-            {
-              "id": 1049,
-              "isim": "Glasgow - Stirling arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
-          "varis_id": 1050,
-          "varis": "Stirling",
-          "duraklar": [
-            {
-              "id": 1050,
-              "isim": "Stirling"
-            }
-          ]
-        }
-      ],
-      "rota": [
-        {
-          "id": 2789,
-          "isim": "Glasgow - Girvan arası"
-        },
-        {
-          "id": 1045,
-          "isim": "Glasgow"
-        },
-        {
-          "id": 1049,
-          "isim": "Glasgow - Stirling arası"
-        },
-        {
-          "id": 1050,
-          "isim": "Stirling"
-        }
-      ],
-      "hesaplar": [
-        {
-          "hesap": "Longboe",
-          "tur": "seyahat",
-          "lider": "",
-          "kaynak": "",
-          "tahmin": false,
-          "rol": "tek"
-        }
-      ],
-      "liderler": [],
-      "kisi": 1,
-      "yalniz": true,
-      "grup": false,
-      "lider": "",
-      "olculdu": true,
-      "kaynaklar": []
-    },
-    {
-      "anahtar": "702|710|2",
-      "nereden": "Manchester - Kendal Yolu Üzerinde",
-      "nereden_id": 702,
-      "hedef": "Kendal",
-      "hedef_id": 710,
-      "yolda": true,
-      "adim_hakki": 2,
-      "jetonlu": false,
-      "kalan_adim": 3,
-      "kalan_gun": 2,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 708,
-          "varis": "Kendal - Manchester arası",
-          "duraklar": [
-            {
-              "id": 703,
-              "isim": "Manchester - Liverpool arası"
-            },
-            {
-              "id": 708,
-              "isim": "Kendal - Manchester arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
-          "varis_id": 710,
-          "varis": "Kendal",
-          "duraklar": [
-            {
-              "id": 710,
-              "isim": "Kendal"
-            }
-          ]
-        }
-      ],
-      "rota": [
-        {
-          "id": 702,
-          "isim": "Manchester - Liverpool arası"
-        },
-        {
-          "id": 703,
-          "isim": "Manchester - Liverpool arası"
-        },
-        {
-          "id": 708,
-          "isim": "Kendal - Manchester arası"
-        },
-        {
-          "id": 710,
-          "isim": "Kendal"
-        }
-      ],
-      "hesaplar": [
-        {
-          "hesap": "Dursun",
-          "tur": "seyahat",
-          "lider": "",
-          "kaynak": "",
-          "tahmin": false,
-          "rol": "tek"
-        }
-      ],
-      "liderler": [],
-      "kisi": 1,
-      "yalniz": true,
-      "grup": false,
-      "lider": "",
-      "olculdu": true,
-      "kaynaklar": []
-    },
-    {
-      "anahtar": "1171|1156|2",
-      "nereden": "Montemor - Avis Yolu Üzerinde",
-      "nereden_id": 1171,
-      "hedef": "Santarém",
-      "hedef_id": 1156,
-      "yolda": true,
-      "adim_hakki": 2,
-      "jetonlu": false,
-      "kalan_adim": 3,
-      "kalan_gun": 2,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 1165,
-          "varis": "Santarém - Montemor arası",
-          "duraklar": [
-            {
-              "id": 1164,
-              "isim": "Montemor"
-            },
-            {
-              "id": 1165,
-              "isim": "Santarém - Montemor arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
-          "varis_id": 1156,
-          "varis": "Santarém",
-          "duraklar": [
-            {
-              "id": 1156,
-              "isim": "Santarém"
-            }
-          ]
-        }
-      ],
-      "rota": [
-        {
-          "id": 1171,
-          "isim": "Montemor - Avis arası"
-        },
-        {
-          "id": 1164,
-          "isim": "Montemor"
-        },
-        {
-          "id": 1165,
-          "isim": "Santarém - Montemor arası"
-        },
-        {
-          "id": 1156,
-          "isim": "Santarém"
-        }
-      ],
-      "hesaplar": [
-        {
-          "hesap": "Azirveth",
-          "tur": "seyahat",
-          "lider": "",
-          "kaynak": "",
-          "tahmin": false,
-          "rol": "tek"
-        }
-      ],
-      "liderler": [],
-      "kisi": 1,
-      "yalniz": true,
-      "grup": false,
-      "lider": "",
-      "olculdu": true,
-      "kaynaklar": []
-    },
-    {
-      "anahtar": "1171|1161|2",
-      "nereden": "Montemor - Avis Yolu Üzerinde",
-      "nereden_id": 1171,
-      "hedef": "Setúbal",
-      "hedef_id": 1161,
-      "yolda": true,
-      "adim_hakki": 2,
-      "jetonlu": false,
-      "kalan_adim": 4,
-      "kalan_gun": 2,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 1163,
-          "varis": "Montemor - Setúbal arası",
-          "duraklar": [
-            {
-              "id": 1164,
-              "isim": "Montemor"
-            },
-            {
-              "id": 1163,
-              "isim": "Montemor - Setúbal arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
-          "varis_id": 1161,
-          "varis": "Setúbal",
-          "duraklar": [
-            {
-              "id": 1162,
-              "isim": "Setúbal - Alcácer do Sal arası"
-            },
-            {
-              "id": 1161,
-              "isim": "Setúbal"
-            }
-          ]
-        }
-      ],
-      "rota": [
-        {
-          "id": 1171,
-          "isim": "Montemor - Avis arası"
-        },
-        {
-          "id": 1164,
-          "isim": "Montemor"
-        },
-        {
-          "id": 1163,
-          "isim": "Montemor - Setúbal arası"
-        },
-        {
-          "id": 1162,
-          "isim": "Setúbal - Alcácer do Sal arası"
-        },
-        {
-          "id": 1161,
-          "isim": "Setúbal"
-        }
-      ],
-      "hesaplar": [
-        {
-          "hesap": "Marvethis",
-          "tur": "seyahat",
-          "lider": "",
-          "kaynak": "",
-          "tahmin": false,
-          "rol": "tek"
-        }
-      ],
-      "liderler": [],
-      "kisi": 1,
-      "yalniz": true,
-      "grup": false,
-      "lider": "",
-      "olculdu": true,
-      "kaynaklar": []
-    },
-    {
-      "anahtar": "1171|1166|2",
-      "nereden": "Montemor - Avis Yolu Üzerinde",
-      "nereden_id": 1171,
-      "hedef": "Alcácer do Sal",
-      "hedef_id": 1166,
-      "yolda": true,
-      "adim_hakki": 2,
-      "jetonlu": false,
-      "kalan_adim": 4,
-      "kalan_gun": 2,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 1163,
-          "varis": "Montemor - Setúbal arası",
-          "duraklar": [
-            {
-              "id": 1164,
-              "isim": "Montemor"
-            },
-            {
-              "id": 1163,
-              "isim": "Montemor - Setúbal arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
-          "varis_id": 1166,
-          "varis": "Alcácer do Sal",
-          "duraklar": [
-            {
-              "id": 1162,
-              "isim": "Setúbal - Alcácer do Sal arası"
-            },
-            {
-              "id": 1166,
-              "isim": "Alcácer do Sal"
-            }
-          ]
-        }
-      ],
-      "rota": [
-        {
-          "id": 1171,
-          "isim": "Montemor - Avis arası"
-        },
-        {
-          "id": 1164,
-          "isim": "Montemor"
-        },
-        {
-          "id": 1163,
-          "isim": "Montemor - Setúbal arası"
-        },
-        {
-          "id": 1162,
-          "isim": "Setúbal - Alcácer do Sal arası"
-        },
-        {
-          "id": 1166,
-          "isim": "Alcácer do Sal"
-        }
-      ],
-      "hesaplar": [
-        {
-          "hesap": "Zedrin",
-          "tur": "seyahat",
-          "lider": "",
-          "kaynak": "",
-          "tahmin": false,
-          "rol": "tek"
-        }
-      ],
-      "liderler": [],
-      "kisi": 1,
-      "yalniz": true,
-      "grup": false,
-      "lider": "",
-      "olculdu": true,
-      "kaynaklar": []
-    },
-    {
-      "anahtar": "1171|1158|2",
-      "nereden": "Montemor - Avis Yolu Üzerinde",
-      "nereden_id": 1171,
-      "hedef": "Lisboa",
-      "hedef_id": 1158,
-      "yolda": true,
-      "adim_hakki": 2,
-      "jetonlu": false,
-      "kalan_adim": 5,
-      "kalan_gun": 3,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 1165,
-          "varis": "Santarém - Montemor arası",
-          "duraklar": [
-            {
-              "id": 1164,
-              "isim": "Montemor"
-            },
-            {
-              "id": 1165,
-              "isim": "Santarém - Montemor arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
-          "varis_id": 1157,
-          "varis": "Santarém - Lisboa arası",
-          "duraklar": [
-            {
-              "id": 1156,
-              "isim": "Santarém"
-            },
-            {
-              "id": 1157,
-              "isim": "Santarém - Lisboa arası"
-            }
-          ]
-        },
-        {
-          "gun": 3,
-          "varis_id": 1158,
-          "varis": "Lisboa",
-          "duraklar": [
-            {
-              "id": 1158,
-              "isim": "Lisboa"
-            }
-          ]
-        }
-      ],
-      "rota": [
-        {
-          "id": 1171,
-          "isim": "Montemor - Avis arası"
-        },
-        {
-          "id": 1164,
-          "isim": "Montemor"
-        },
-        {
-          "id": 1165,
-          "isim": "Santarém - Montemor arası"
-        },
-        {
-          "id": 1156,
-          "isim": "Santarém"
-        },
-        {
-          "id": 1157,
-          "isim": "Santarém - Lisboa arası"
-        },
-        {
-          "id": 1158,
-          "isim": "Lisboa"
-        }
-      ],
-      "hesaplar": [
-        {
-          "hesap": "Fiyong",
-          "tur": "seyahat",
-          "lider": "",
-          "kaynak": "",
-          "tahmin": false,
-          "rol": "tek"
-        }
-      ],
-      "liderler": [],
-      "kisi": 1,
-      "yalniz": true,
-      "grup": false,
-      "lider": "",
-      "olculdu": true,
-      "kaynaklar": []
-    },
-    {
-      "anahtar": "924|1161|2",
+      "anahtar": "926|1161|2",
       "nereden": "Guarda - Crato Yolu Üzerinde",
-      "nereden_id": 924,
+      "nereden_id": 926,
       "hedef": "Setúbal",
       "hedef_id": 1161,
       "yolda": true,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 14,
-      "kalan_gun": 7,
+      "kalan_adim": 12,
+      "kalan_gun": 6,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 926,
-          "varis": "Guarda - Viseu arası",
-          "duraklar": [
-            {
-              "id": 925,
-              "isim": "Guarda - Viseu arası"
-            },
-            {
-              "id": 926,
-              "isim": "Guarda - Viseu arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 2588,
           "varis": "Guarda - Crato arası",
           "duraklar": [
@@ -1966,7 +4426,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 2590,
           "varis": "Crato - Elvas arası",
           "duraklar": [
@@ -1981,7 +4441,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 1173,
           "varis": "Crato - Avis arası",
           "duraklar": [
@@ -1996,7 +4456,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 1171,
           "varis": "Montemor - Avis arası",
           "duraklar": [
@@ -2011,7 +4471,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 1163,
           "varis": "Montemor - Setúbal arası",
           "duraklar": [
@@ -2026,7 +4486,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 1161,
           "varis": "Setúbal",
           "duraklar": [
@@ -2042,14 +4502,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 924,
-          "isim": "Guarda - Viseu arası"
-        },
-        {
-          "id": 925,
-          "isim": "Guarda - Viseu arası"
-        },
         {
           "id": 926,
           "isim": "Guarda - Viseu arası"
@@ -2122,34 +4574,19 @@
       "kaynaklar": []
     },
     {
-      "anahtar": "906|1170|2",
-      "nereden": "Osma - Soria Yolu Üzerinde",
-      "nereden_id": 906,
+      "anahtar": "916|1170|2",
+      "nereden": "Osma - Guarda Yolu Üzerinde",
+      "nereden_id": 916,
       "hedef": "Elvas",
       "hedef_id": 1170,
       "yolda": true,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 17,
-      "kalan_gun": 9,
+      "kalan_adim": 15,
+      "kalan_gun": 8,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 916,
-          "varis": "Osma - Soria arası",
-          "duraklar": [
-            {
-              "id": 905,
-              "isim": "Osma"
-            },
-            {
-              "id": 916,
-              "isim": "Osma - Soria arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 918,
           "varis": "Osma - Soria arası",
           "duraklar": [
@@ -2164,7 +4601,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 920,
           "varis": "Osma - Soria arası",
           "duraklar": [
@@ -2179,7 +4616,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 922,
           "varis": "Osma - Guarda arası",
           "duraklar": [
@@ -2194,7 +4631,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 924,
           "varis": "Guarda - Viseu arası",
           "duraklar": [
@@ -2209,7 +4646,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 926,
           "varis": "Guarda - Viseu arası",
           "duraklar": [
@@ -2224,7 +4661,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 2588,
           "varis": "Guarda - Crato arası",
           "duraklar": [
@@ -2239,7 +4676,7 @@
           ]
         },
         {
-          "gun": 8,
+          "gun": 7,
           "varis_id": 2590,
           "varis": "Crato - Elvas arası",
           "duraklar": [
@@ -2254,7 +4691,7 @@
           ]
         },
         {
-          "gun": 9,
+          "gun": 8,
           "varis_id": 1170,
           "varis": "Elvas",
           "duraklar": [
@@ -2266,14 +4703,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 906,
-          "isim": "Osma - Soria arası"
-        },
-        {
-          "id": 905,
-          "isim": "Osma"
-        },
         {
           "id": 916,
           "isim": "Osma - Soria arası"
@@ -2358,34 +4787,19 @@
       "kaynaklar": []
     },
     {
-      "anahtar": "902|868|2",
-      "nereden": "Soria - Osma Yolu Üzerinde",
-      "nereden_id": 902,
+      "anahtar": "2725|868|2",
+      "nereden": "Soria - Burgos Yolu Üzerinde",
+      "nereden_id": 2725,
       "hedef": "Porto",
       "hedef_id": 868,
       "yolda": true,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 18,
-      "kalan_gun": 9,
+      "kalan_adim": 16,
+      "kalan_gun": 8,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 2725,
-          "varis": "Soria - Burgos arası",
-          "duraklar": [
-            {
-              "id": 903,
-              "isim": "Soria"
-            },
-            {
-              "id": 2725,
-              "isim": "Soria - Burgos arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 2724,
           "varis": "Valladolid - Burgos arası",
           "duraklar": [
@@ -2400,7 +4814,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 912,
           "varis": "Valladolid - Burgos arası",
           "duraklar": [
@@ -2415,7 +4829,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 914,
           "varis": "Valladolid - Burgos arası",
           "duraklar": [
@@ -2430,7 +4844,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 651,
           "varis": "Chaves - Valladolid arası",
           "duraklar": [
@@ -2445,7 +4859,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 699,
           "varis": "Chaves - Braga arası",
           "duraklar": [
@@ -2460,7 +4874,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 815,
           "varis": "Chaves",
           "duraklar": [
@@ -2475,7 +4889,7 @@
           ]
         },
         {
-          "gun": 8,
+          "gun": 7,
           "varis_id": 866,
           "varis": "Braga",
           "duraklar": [
@@ -2490,7 +4904,7 @@
           ]
         },
         {
-          "gun": 9,
+          "gun": 8,
           "varis_id": 868,
           "varis": "Porto",
           "duraklar": [
@@ -2506,14 +4920,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 902,
-          "isim": "Soria - Osma arası"
-        },
-        {
-          "id": 903,
-          "isim": "Soria"
-        },
         {
           "id": 2725,
           "isim": "Soria - Burgos arası"
