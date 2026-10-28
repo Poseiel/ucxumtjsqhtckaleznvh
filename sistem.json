@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-28 00:36",
+  "son_guncelleme": "2026-10-28 04:49",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -498,14 +498,20 @@
       "ayar": {
         "takip": "Hızlı Ot",
         "gorev": "ev_al:Mısır"
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "Jaskerin",
       "ayar": {
         "takip": "Hızlı Cami",
         "gorev": "ev_al:Sebze"
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "Fioreth",
@@ -550,7 +556,10 @@
       "ayar": {
         "takip": "Hızlı Maden",
         "gorev": "ev_al:Mısır"
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "Solmaran",
