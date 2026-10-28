@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-28 11:01",
+  "son_guncelleme": "2026-10-28 11:12",
   "azami_gun": 14,
   "azami_deneme": 7,
   "bekleyen": [
@@ -1548,6 +1548,19 @@
   ],
   "ayarlar": [
     {
+      "hesap": "adrah",
+      "alanlar": [
+        {
+          "ad": "seyahat_aktif",
+          "deger": "açık"
+        },
+        {
+          "ad": "seyahat_hedefi",
+          "deger": "Kirkcudbright"
+        }
+      ]
+    },
+    {
       "hesap": "asakira",
       "alanlar": [
         {
@@ -1566,6 +1579,23 @@
         {
           "ad": "gorev",
           "deger": "ev_al:Sebze"
+        }
+      ]
+    },
+    {
+      "hesap": "greatmin",
+      "alanlar": [
+        {
+          "ad": "gorev",
+          "deger": "—"
+        },
+        {
+          "ad": "seyahat_aktif",
+          "deger": "açık"
+        },
+        {
+          "ad": "seyahat_hedefi",
+          "deger": "Kirkcudbright"
         }
       ]
     },
