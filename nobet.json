@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-28 12:10",
+  "son_guncelleme": "2026-10-28 12:22",
   "tarih": "2026-10-28",
   "aralik_dk": 150,
   "kontroller": [
@@ -69,6 +69,31 @@
         }
       ],
       "farklar": []
+    },
+    {
+      "kasaba": "Glasgow",
+      "saat": "12:21",
+      "saat_tam": "2026-10-28T12:21:38",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "The Excelsior",
+          "kasaba": "Glasgow",
+          "komutan": "Kazasker: Emmalogan",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "6048704",
+          "tur": "Silahlı Grup",
+          "lider": "izaskun",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        }
+      ],
+      "farklar": []
     }
   ],
   "son_durum": {
@@ -133,6 +158,29 @@
           "uyeler": [
             "gracelynn"
           ],
+          "katilim": "Serbest Katılım"
+        }
+      ]
+    },
+    "Glasgow": {
+      "saat": "12:21",
+      "saat_tam": "2026-10-28T12:21:38",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "The Excelsior",
+          "kasaba": "Glasgow",
+          "komutan": "Kazasker: Emmalogan",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "6048704",
+          "tur": "Silahlı Grup",
+          "lider": "izaskun",
+          "uyeler": [],
           "katilim": "Serbest Katılım"
         }
       ]
