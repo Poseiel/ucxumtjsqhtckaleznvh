@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-28 10:45",
+  "son_guncelleme": "2026-10-28 11:01",
   "azami_gun": 14,
   "azami_deneme": 7,
   "bekleyen": [
@@ -546,8 +546,8 @@
       "serbest": false,
       "yazan": "VCkn1907",
       "eklenme": "2026-10-10 10:59",
-      "gecen_gun": 17,
-      "kalan_gun": -3,
+      "gecen_gun": 18,
+      "kalan_gun": -4,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "✅ ALINDI (1 adet)",
@@ -568,8 +568,8 @@
       "serbest": false,
       "yazan": "VCkn1907",
       "eklenme": "2026-10-10 10:59",
-      "gecen_gun": 17,
-      "kalan_gun": -3,
+      "gecen_gun": 18,
+      "kalan_gun": -4,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "✅ ALINDI (1 adet)",
@@ -590,8 +590,8 @@
       "serbest": false,
       "yazan": "VCkn1907",
       "eklenme": "2026-10-10 10:59",
-      "gecen_gun": 17,
-      "kalan_gun": -3,
+      "gecen_gun": 18,
+      "kalan_gun": -4,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "✅ ALINDI (1 adet)",
@@ -612,8 +612,8 @@
       "serbest": false,
       "yazan": "VCkn1907",
       "eklenme": "2026-10-10 10:59",
-      "gecen_gun": 17,
-      "kalan_gun": -3,
+      "gecen_gun": 18,
+      "kalan_gun": -4,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "✅ SATILDI (1 adet · 500.00 akçe)",
@@ -634,8 +634,8 @@
       "serbest": false,
       "yazan": "VCkn1907",
       "eklenme": "2026-10-10 10:59",
-      "gecen_gun": 17,
-      "kalan_gun": -3,
+      "gecen_gun": 18,
+      "kalan_gun": -4,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "✅ SATILDI (1 adet · 500.00 akçe)",
@@ -656,8 +656,8 @@
       "serbest": false,
       "yazan": "VCkn1907",
       "eklenme": "2026-10-10 10:59",
-      "gecen_gun": 17,
-      "kalan_gun": -3,
+      "gecen_gun": 18,
+      "kalan_gun": -4,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "✅ SATILDI (1 adet · 500.00 akçe)",
@@ -1030,8 +1030,8 @@
       "serbest": false,
       "yazan": "Çağrı",
       "eklenme": "2026-09-27 11:01",
-      "gecen_gun": 30,
-      "kalan_gun": -16,
+      "gecen_gun": 31,
+      "kalan_gun": -17,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "✅ PROFİL YAZILDI",
@@ -1548,6 +1548,46 @@
   ],
   "ayarlar": [
     {
+      "hesap": "asakira",
+      "alanlar": [
+        {
+          "ad": "seyahat_aktif",
+          "deger": "açık"
+        },
+        {
+          "ad": "seyahat_hedefi",
+          "deger": "Stirling"
+        }
+      ]
+    },
+    {
+      "hesap": "causal",
+      "alanlar": [
+        {
+          "ad": "gorev",
+          "deger": "ev_al:Sebze"
+        }
+      ]
+    },
+    {
+      "hesap": "hestiana",
+      "alanlar": [
+        {
+          "ad": "gorev",
+          "deger": "ev_al:Sebze"
+        }
+      ]
+    },
+    {
+      "hesap": "imref",
+      "alanlar": [
+        {
+          "ad": "gorev",
+          "deger": "ev_al:Mısır"
+        }
+      ]
+    },
+    {
       "hesap": "korhan",
       "alanlar": [
         {
@@ -1574,6 +1614,15 @@
       ]
     },
     {
+      "hesap": "pimento",
+      "alanlar": [
+        {
+          "ad": "gorev",
+          "deger": "ev_al:Mısır"
+        }
+      ]
+    },
+    {
       "hesap": "razielon",
       "alanlar": [
         {
@@ -1583,6 +1632,24 @@
         {
           "ad": "seyahat_hedefi",
           "deger": "Saint Pol de Léon"
+        }
+      ]
+    },
+    {
+      "hesap": "tim_brown",
+      "alanlar": [
+        {
+          "ad": "takip",
+          "deger": "Hızlı Cami"
+        }
+      ]
+    },
+    {
+      "hesap": "watkins",
+      "alanlar": [
+        {
+          "ad": "gorev",
+          "deger": "ev_al:Mısır"
         }
       ]
     }
