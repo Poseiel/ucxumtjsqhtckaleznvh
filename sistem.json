@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-28 11:01",
+  "son_guncelleme": "2026-10-28 11:12",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -283,7 +283,11 @@
     },
     {
       "ad": "Adrah",
-      "ayar": {}
+      "ayar": {},
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Serachin",
@@ -929,7 +933,12 @@
       "ad": "Greatmin",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "gorev",
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Tugrul_",
