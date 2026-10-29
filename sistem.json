@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-29 08:48",
+  "son_guncelleme": "2026-10-29 12:45",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -172,7 +172,11 @@
     },
     {
       "ad": "yellowsmith",
-      "ayar": {}
+      "ayar": {},
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "harudha",
@@ -184,11 +188,19 @@
     },
     {
       "ad": "marchosias",
-      "ayar": {}
+      "ayar": {},
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "akbaba",
-      "ayar": {}
+      "ayar": {},
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Mr.Shadow",
@@ -546,7 +558,12 @@
       "ayar": {
         "takip": "Hızlı Maden",
         "seyahat_hedefi": "Santarém"
-      }
+      },
+      "bekleyen": [
+        "gorev",
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Brannoch",
@@ -576,7 +593,10 @@
       "ad": "Gundrel",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "Dekhatis",
@@ -608,7 +628,12 @@
       "ayar": {
         "takip": "Hızlı Cami",
         "seyahat_hedefi": "Setúbal"
-      }
+      },
+      "bekleyen": [
+        "gorev",
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Thehumanist",
@@ -795,7 +820,11 @@
       "ayar": {
         "takip": "Hızlı Cami",
         "seyahat_hedefi": "Kendal"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Baronn",
@@ -838,7 +867,12 @@
       "ayar": {
         "takip": "Hızlı Cami",
         "seyahat_hedefi": "Stirling"
-      }
+      },
+      "bekleyen": [
+        "gorev",
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Spann",
@@ -985,9 +1019,21 @@
       "ayar": {
         "takip": "Hızlı Cami"
       }
+    },
+    {
+      "ad": "Eskici",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Trinkor",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
     }
   ],
-  "toplam_hesap": 151,
+  "toplam_hesap": 153,
   "sistem_gecmis": [
     {
       "zaman": "2026-10-24 09:27",
