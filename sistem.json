@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-28 16:56",
+  "son_guncelleme": "2026-10-29 08:48",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -152,11 +152,9 @@
   "hesaplar": [
     {
       "ad": "Razielon",
-      "ayar": {},
-      "bekleyen": [
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+      "ayar": {
+        "seyahat_hedefi": "Saint Pol de Léon"
+      }
     },
     {
       "ad": "Esteros",
@@ -168,11 +166,9 @@
     },
     {
       "ad": "korhan",
-      "ayar": {},
-      "bekleyen": [
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+      "ayar": {
+        "seyahat_hedefi": "Saint Pol de Léon"
+      }
     },
     {
       "ad": "yellowsmith",
@@ -283,11 +279,9 @@
     },
     {
       "ad": "Adrah",
-      "ayar": {},
-      "bekleyen": [
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+      "ayar": {
+        "seyahat_hedefi": "Kirkcudbright"
+      }
     },
     {
       "ad": "Serachin",
@@ -400,11 +394,9 @@
     },
     {
       "ad": "nindalf",
-      "ayar": {},
-      "bekleyen": [
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+      "ayar": {
+        "seyahat_hedefi": "Saint Pol de Léon"
+      }
     },
     {
       "ad": "Redbrand",
@@ -583,13 +575,8 @@
     {
       "ad": "Gundrel",
       "ayar": {
-        "takip": "Hızlı Maden",
-        "seyahat_hedefi": "Montemor"
-      },
-      "bekleyen": [
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+        "takip": "Hızlı Maden"
+      }
     },
     {
       "ad": "Dekhatis",
@@ -655,10 +642,7 @@
       "ad": "Causal",
       "ayar": {
         "takip": "Hızlı Cami"
-      },
-      "bekleyen": [
-        "gorev"
-      ]
+      }
     },
     {
       "ad": "Ertwar",
@@ -682,11 +666,9 @@
     {
       "ad": "Hestiana",
       "ayar": {
-        "takip": "Hızlı Cami"
-      },
-      "bekleyen": [
-        "gorev"
-      ]
+        "takip": "Hızlı Cami",
+        "gorev": "ev_al:Sebze"
+      }
     },
     {
       "ad": "Estonian",
@@ -711,10 +693,7 @@
       "ad": "Imref",
       "ayar": {
         "takip": "Hızlı Cami"
-      },
-      "bekleyen": [
-        "gorev"
-      ]
+      }
     },
     {
       "ad": "Uywarka",
@@ -725,12 +704,9 @@
     {
       "ad": "Asakira",
       "ayar": {
-        "takip": "Hızlı Cami"
-      },
-      "bekleyen": [
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+        "takip": "Hızlı Cami",
+        "seyahat_hedefi": "Stirling"
+      }
     },
     {
       "ad": "Dogmeat",
@@ -799,11 +775,8 @@
     {
       "ad": "Tim_brown",
       "ayar": {
-        "takip": "Hızlı Maden"
-      },
-      "bekleyen": [
-        "takip"
-      ]
+        "takip": "Hızlı Cami"
+      }
     },
     {
       "ad": "Captain_scotland",
@@ -846,10 +819,7 @@
       "ad": "Watkins",
       "ayar": {
         "takip": "Hızlı Cami"
-      },
-      "bekleyen": [
-        "gorev"
-      ]
+      }
     },
     {
       "ad": "Smithh",
@@ -897,11 +867,9 @@
     {
       "ad": "Pimento",
       "ayar": {
-        "takip": "Hızlı Cami"
-      },
-      "bekleyen": [
-        "gorev"
-      ]
+        "takip": "Hızlı Cami",
+        "gorev": "ev_al:Mısır"
+      }
     },
     {
       "ad": "Catoly",
@@ -936,13 +904,9 @@
     {
       "ad": "Greatmin",
       "ayar": {
-        "takip": "Hızlı Cami"
-      },
-      "bekleyen": [
-        "gorev",
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+        "takip": "Hızlı Cami",
+        "seyahat_hedefi": "Kirkcudbright"
+      }
     },
     {
       "ad": "Tugrul_",
@@ -1009,9 +973,21 @@
       "ayar": {
         "takip": "Hızlı Cami"
       }
+    },
+    {
+      "ad": "Tastam",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Pespaye",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
     }
   ],
-  "toplam_hesap": 149,
+  "toplam_hesap": 151,
   "sistem_gecmis": [
     {
       "zaman": "2026-10-24 09:27",
