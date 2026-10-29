@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-29 12:45",
+  "son_guncelleme": "2026-10-29 13:01",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -453,7 +453,10 @@
     },
     {
       "ad": "Favore",
-      "ayar": {}
+      "ayar": {},
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "Millady",
@@ -490,7 +493,10 @@
       "ad": "Avelith",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Calwenor",
@@ -667,7 +673,10 @@
       "ad": "Causal",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Ertwar",
@@ -680,7 +689,10 @@
       "ayar": {
         "takip": "Hızlı Maden",
         "gorev": "ev_al:Sebze"
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "ilsevar",
@@ -693,7 +705,10 @@
       "ayar": {
         "takip": "Hızlı Cami",
         "gorev": "ev_al:Sebze"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Estonian",
@@ -718,7 +733,10 @@
       "ad": "Imref",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Uywarka",
@@ -823,7 +841,8 @@
       },
       "bekleyen": [
         "seyahat_aktif",
-        "seyahat_hedefi"
+        "seyahat_hedefi",
+        "takip"
       ]
     },
     {
@@ -848,7 +867,10 @@
       "ad": "Watkins",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Smithh",
@@ -871,7 +893,8 @@
       "bekleyen": [
         "gorev",
         "seyahat_aktif",
-        "seyahat_hedefi"
+        "seyahat_hedefi",
+        "takip"
       ]
     },
     {
