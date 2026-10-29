@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-29 13:01",
+  "son_guncelleme": "2026-10-29 15:55",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -293,7 +293,11 @@
       "ad": "Adrah",
       "ayar": {
         "seyahat_hedefi": "Kirkcudbright"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Serachin",
@@ -667,7 +671,11 @@
       "ayar": {
         "takip": "Hızlı Maden",
         "seyahat_hedefi": "Alcácer do Sal"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Causal",
