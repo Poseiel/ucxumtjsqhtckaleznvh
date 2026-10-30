@@ -678,13 +678,18 @@ if (window.L) L.RasterCoords.prototype = {
         metin panoya kopyalanır; Telegram grubunda <b>emrin konusuna</b> yapıştırıp gönderirsin.
         Hangi konu olduğunu formun üstündeki <b>📌 rozet</b> söyler. Ne yazacağını bilmiyorsan
         sekmenin en üstündeki <b>🤖 Emir Asistanı</b>na kendi cümlenle sor.</p>
+      <p class="rehber-not">🧭 <b>Yeni (30.10): Kolay emir.</b> Emir sekmesi artık <b>adım adım</b> açılır: ① ne yapacaksın →
+        ② kime → ③ ne yapsınlar → ④ gönder. Her günkü işler (iş sırası, kalan enerji, ases, tarla, yemek, ders…) için
+        <b>🗓️ Günlük iş düzeni</b> kartına dokun. Nasıl kullanılacağı, her seçeneğin ne demek olduğu ve hazır örnekler
+        sekmenin en üstündeki <b>📖 REHBER</b> kutusunda (dokununca açılır). Eski formların hepsi
+        <b>🗂️ Tüm emir formları</b> düğmesinin arkasında, hiçbiri silinmedi.</p>
       <table class="rehber-tablo">
         <thead><tr><th>Emir</th><th>Telegram konusu <span class="rehber-eski">(botun onayı da buraya gelir)</span></th></tr></thead>
         <tbody>
         <tr><td>💰 Satış · 🛒 Alım</td><td><b>🛒 Pazar</b></td></tr>
         <tr><td>⛵ Gemi Al · ⚓ Yanaşma</td><td><b>⚓ Deniz</b></td></tr>
         <tr><td>🪖 Orduya katıl</td><td><b>⚔️ Ordular</b></td></tr>
-        <tr><td>🖥️ Ayar &amp; görev zinciri · ⚙️ Sistem ayarları · ➕ Hesap ekle</td><td><b>⚙️ Ayar Emirleri</b></td></tr>
+        <tr><td>🧭 Kolay emir (günlük iş düzeni) · 🖥️ Ayar &amp; görev zinciri · ⚙️ Sistem ayarları · ➕ Hesap ekle</td><td><b>⚙️ Ayar Emirleri</b></td></tr>
         <tr><td>📜 Ödenek</td><td><b>💰 Ödenekler</b></td></tr>
         <tr><td>✉️ Mesaj</td><td><b>✉️ Mesajlar</b></td></tr>
         <tr><td>🎭 Profil · 🤝 Güven · 🗳️ Oy · 📣 Forum · 👑 Divan onay · 👪 Aile kabul · 📬 Posta · 🚫 İptal</td><td><b>📜 Emirler</b></td></tr>
@@ -1679,7 +1684,186 @@ if (window.L) L.RasterCoords.prototype = {
     </div>
   </section>
 
-  <section id="tab-emir" class="tab-panel">
+  <section id="tab-emir" class="tab-panel ke-kolay-acik">
+    <!-- 🧭 [29.10.2026] KOLAY EMİR (emir.js sonu · style.css sonu). Kullanıcı: *"tüm emirleri baştan yap
+         … herşeye müdahale edebilsinler … karmaşık olmasın"* + *"önceki emirleri silme"*. Eski formların
+         HİÇBİRİ silinmedi: "🗂️ Tüm emir formları" düğmesi onları AYNEN gösterir. Sihirbaz dört adımdır
+         (① ne · ② kime · ③ ne yapsınlar · ④ gönder); birden çok grup TEK mesaj olur ("🧭 GÖREV LİSTESİ",
+         bot: site_emirleri.gorev_listesi_bloklari). İçerik JS ile kurulur. -->
+    <div class="ke-ust" id="ke-ust">
+      <button type="button" class="ke-mod-btn aktif" data-ke-mod="kolay">🧭 Kolay emir <span class="emir-kucuk">adım adım</span></button>
+      <button type="button" class="ke-mod-btn" data-ke-mod="klasik">🗂️ Tüm emir formları <span class="emir-kucuk">eski görünüm · hepsi yerinde</span></button>
+    </div>
+    <div class="ke-kutu" id="ke-kutu">
+      <!-- 📖 [30.10.2026] REHBER — kullanıcı: "bu yeni sekmenin detaylı rehberi olmalı gene dönüp bize sormasınlar …
+           soru gelmeyecek şekilde hiç anlayan birisine 10 yaşındaki birine anlatır gibi anlatalım". Kolay modda
+           yalnızca .ke-ust ve .ke-kutu görünür → rehber .ke-kutu'nun içinde. Bilgiler botun kurallarıyla BİREBİR
+           (hesap_plani · test_kolay_emir_rehber). Bir seçenek değişirse burayı da güncelle. -->
+      <details class="ke-rehber" id="ke-rehber">
+        <summary>📖 REHBER — Kolay Emir nasıl kullanılır? <span class="ke-ipucu">ilk kez kullanıyorsan önce bunu oku · 5 dakika</span></summary>
+        <p><b>Bu sekme ne işe yarar?</b> Bota "şu hesaplar her gün şunu yapsın" dersin. Söylediğin şey <b>aksi emre
+          kadar</b> geçerlidir: bir kere söylersin, bot her gün öyle yapar. Söylemediğin her şeyde bot bildiği gibi
+          (<b>bugünkü düzen</b>) çalışmaya devam eder. Hiçbir şeyi bozmazsın: en kötü ihtimalle bot o satırı anlamaz
+          ve sana söyler.</p>
+
+        <details class="ke-bolum"><summary>1️⃣ Dört adımda emir (en önemli kısım)</summary>
+          <ol>
+            <li><b>① Ne yapacaksın?</b> — Bir karta dokun. Her günkü işler için <b>🗓️ Günlük iş düzeni → ▶️ Düzen
+              ver</b>. Öteki kartlar (pazar, seçim, ordu, mesaj…) bildiğin eski formu açar.</li>
+            <li><b>② Kime?</b> — Hesapları seç. Bir kasabaya (ör. <b>Glasgow</b>) dokunursan o kasabadaki
+              <b>herkes</b> seçilir; tekrar dokunursan bırakır. Mesleğe ya da moda da dokunabilirsin, tek tek
+              kutucukları da işaretleyebilirsin. Her hesabın yanında <b>şu an</b> ne yaptığı yazar
+              ("bugünkü düzen" = ona hiç emir verilmemiş).</li>
+            <li><b>③ Ne yapsınlar?</b> — Yalnızca <b>değiştirmek istediğin</b> şeye dokun. Dokunmadığın her şey
+              olduğu gibi kalır. En üstteki zincir (🌾 Tarla ➜ 🛡️ Ases ➜ iş sırası ➜ 🔥 kalan enerji) hesabın
+              gününü sırayla gösterir. Sarı uyarı çıktıysa oku.</li>
+            <li><b>④ Gönder</b> — Mesaj hazırdır. <b>📋 Kopyala (Telegram'a yapıştır)</b> düğmesine bas → Telegram'da
+              <b>⚙️ Ayar Emirleri</b> konusuna <b>yapıştır</b> → gönder. Bot mesajı okuyunca (bot çalışıyorsa birkaç
+              dakika içinde, kapalıysa açılınca) her grup için <b>✅ AYAR EMRİ ALINDI</b> diye cevap yazar.
+              Anlamadığı bir satır varsa cevabın altında <b>⚠️</b> ile sebebini yazar: o satır yazılmamıştır,
+              düzeltip yeniden gönder.</li>
+          </ol>
+          <p>💡 Başka hesaplara başka iş vermek için ④'te <b>➕ Başka hesaplara başka iş (yeni grup)</b>'a bas: yeni
+            grup açılır, hepsi <b>tek mesaj</b> olur. Mesaj çok uzarsa (4.096 harften fazla) <b>📄 .txt indir</b>'e bas,
+            dosyayı gruba at.</p>
+          <p>⏳ Bot emri hemen değil, hesaba girince uygular: hesap bu tur henüz girmediyse <b>kendi sırasında</b>,
+            girdiyse <b>ertesi turda</b> (bot bunu cevabında da yazar).</p>
+        </details>
+
+        <details class="ke-bolum"><summary>2️⃣ Altın kurallar (bunları bilen soru sormaz)</summary>
+          <ul>
+            <li><b>"— dokunma —"</b> = o konuyu değiştirme; hesap o konuda eskisi gibi devam eder.</li>
+            <li><b>"🔄 Bugünkü"</b> (bazı yerlerde "Normal", "Evet" ya da "iptal — sabite dön" yazar) = daha önce
+              verdiğin emri <b>sil</b>, botun normal düzenine dön.</li>
+            <li><b>Sıra hep aynı:</b> önce 🌾 tarla (işi varsa) → sonra 🛡️ ases (tikliyse ve yer varsa) → sonra
+              senin iş sıran → en son 🔥 kalan enerji.</li>
+            <li><b>Bot iş sırasına yukarıdan aşağı bakar</b> ve <b>ilk verilebilen</b> işi verir (günün ana işi).
+              Verilemeyen işi (enerji yok, para yok, o kasabada yok…) atlar, sıradakine geçer. Artan enerji
+              "kalan enerji"ye gider.</li>
+            <li><b>Enerji bedelleri:</b> madende 1 saat 5 enerji · cami 100 (20 saat) · odun 100 · tarla 100 · ders
+              çalışmak 50 (10 saat) · ders dinlemek 20 · ders vermek 40 · iksir 30. Bir karakterin günlük enerjisi
+              115'tir (yetenekle 130'a kadar çıkar).</li>
+            <li><b>+5 dinlenme</b> enerjisini bot <b>kendisi</b> basar (tarladan sonra, hurdadan önce, dersten
+              sonra). Sana sorulmaz, bir şey yapmana gerek yok.</li>
+            <li><b>Hızlı hesaplar</b> (⚡ hızlı maden / cami / ot) pazara ve eve uğramaz: yemek · meyhane · satış ·
+              meslek ürünü · yetenek sırası onlarda <b>uygulanmaz</b>. İş sırası · kalan enerji · tarla uygulanır
+              (kalan enerji yalnızca iş sırasıyla birlikte verilirse).</li>
+            <li><b>Ordu takip / Grup takip</b> hesaplarında plan (iş sırası, kalan enerji, yemek…) okunmaz, ordu
+              kuralları geçerlidir; yalnızca mod ve tikler uygulanır.</li>
+          </ul>
+        </details>
+
+        <details class="ke-bolum"><summary>3️⃣ ③'teki her seçenek ne demek?</summary>
+          <p><b>⛏️ İş sırası</b> — Dokunma sırası öncelik sırasıdır: ilk dokunduğun (1) önce denenir, olmazsa 2,
+            sonra 3…</p>
+          <ul>
+            <li>🏭 <b>Atölye</b>: mesleğinin ürününü üretir (fırıncı ekmek, terzi giysi…).</li>
+            <li>🌲 <b>Odun</b>: odun kasabasında ormanda odun keser (100 enerji, 20 saat).</li>
+            <li>🌿 <b>Şifalı ot</b>: ot toplar (maden gibi saatle).</li>
+            <li>⛏️ <b>Maden/EAÜ</b>: madende çalışır; maden yoksa EAÜ'ye gider.</li>
+            <li>⚒️ <b>Demir madeni</b>: yalnızca demir madeni.</li>
+            <li>🕌 <b>Cami</b>: 20 saat cami (itibar artar, 100 enerji). Aşağıdaki "cami parası" ve "cami itibarı"
+              sınırlarına bakar.</li>
+            <li>🎓 <b>Ders dinle</b>: medresede açık ders varsa dinler (hesabın ders alanı seçili olmalı).</li>
+            <li>⚗️ <b>Basit iksir</b>: muayenehanesi olan hesapta, aynı ottan en az 20 tane biriktiyse iksir yapar
+              (İlim bilgisi yetmiyorsa oyun izin vermez, bot bir hafta bekler).</li>
+            <li>💤 <b>İş verme</b>: o gün iş verilmez.</li>
+          </ul>
+          <p>Örnek: <b>1 🕌 Cami · 2 ⛏️ Maden/EAÜ</b> → para ve itibar uygunsa cami; değilse maden; maden de yoksa EAÜ.</p>
+          <ul>
+            <li><b>🔥 Kalan enerji</b>: ana iş verildikten sonra ARTAN enerji ne olsun: Maden/EAÜ · Ot (sonra
+              maden/EAÜ) · Yakma (enerji kalsın).</li>
+            <li><b>🛡️ Ases</b>: "Ases olsun (tik)" = ases tiki açılır; her gün yer varsa önce ases olur (asesin işi
+              odun ve madenden önce gelir) · "Ases olmasın" = tik kalkar. Bir kasabada hiç ases tikli hesap
+              kalmayacaksa sayfa sarı uyarı verir.</li>
+            <li><b>🌾 Tarla</b>: Kendisi çalışsın · İşçi tutsun (iş ilanı asar; maaşa parası yetmezse işi kendisi
+              yapar) · Yalnız hayvan besle.</li>
+            <li><b>🏭 Öncelikli ürün</b>: meslek önce bunları üretir (ör. demirci <b>Kılıç</b>). Hammaddesi ya da
+              enerjisi yoksa bot pazara göre kendi seçer.</li>
+            <li><b>🍽️ Yemek</b>: Normal = bugünkü (sağlık tam değilse önce basit yemek) · Kuvvet / Zeka / Karizma
+              = o özelliği kasan yemek önce · Basic = ucuz yemek (para biriksin) · Yemesin = hiç yemez (dikkat:
+              hesap aç kalır!).</li>
+            <li><b>🍺 Meyhane</b>: Evet (bugünkü) · Yalnız son çare (pazarda yemek yoksa) · Hayır.</li>
+            <li><b>💰 Satış</b>: Normal = bugünkü · "Kendiliğinden satmasın" = bot kendi kafasına göre mal satmaz;
+              senin verdiğin satış emirleri yine çalışır.</li>
+            <li><b>🕌 Cami parası</b>: camiye gitmek için hesapta en az bu kadar akçe olsun (sabit 200).</li>
+            <li><b>🕌 Cami itibarı</b>: itibar bu sayıya gelene kadar camiye gider, sonra maden/EAÜ. Sabit 150 ·
+              255 = itibar dolana kadar · 0 = hiç cami · 255'in üstü yok (oyunun tavanı).</li>
+            <li><b>🔋 Enerji ayır</b>: her gün bu kadar enerji harcanmaz (ör. 15 → 115'in 100'ü harcanır, 15 kalır).
+              Atölye, odun, tarla ve ases buna bakmaz.</li>
+            <li><b>🎓 Ders sayısı</b>: ders modundaki hesap günde kaç kere ders çalışsın: 1 (50 enerji) ya da 2 (100
+              enerji). Sabit: saate göre 2 ya da 1 (20 saatlik çalışma günün bitimine sığmıyorsa 1).</li>
+            <li><b>🎓 Dersten sonra</b>: ders çalıştıktan sonra kalan enerjiyle ne yapılsın: ders dinle (sabit) ·
+              maden · EAÜ · maden/EAÜ · cami · ot · hiçbir şey.</li>
+            <li><b>⛏️ Hoca madeni</b>: ders veren hesap, ders vermeden önce kaç saat madende çalışsın: 0 · 1 · 2 · 6 ·
+              12 (sabit 12). 20 saat yok, çünkü ders vermeye enerji kalmaz.</li>
+            <li><b>🌲 Odun verimi</b>: ormanda en az kaç tomruklu yeri kessin (sabit 3). 4 dersen 3'lük yerleri
+              bırakır, keşif hakkı varken yeniden arar; hak bitince eldekinin en iyisini keser.</li>
+            <li><b>🌳 Yetenek sırası</b>: yetenek puanları önce hangi dala gitsin (Siyaset · Ziraat · İş · El
+              becerisi). <b>Ağaca şimdi gir</b> = puanın birikmesini beklemeden bir kez gir.</li>
+            <li><b>⚙️ Mod ve launcher tikleri</b>: launcher'daki tiklerin aynısı · 🎚️ Mod (normal · hızlı maden /
+              cami / ot · alışverişçi · grup takip · ordu takip) · 👷 İşçi ilanı · ⭐ Puan üretme (devlet / ordu) ·
+              🕌 İnziva · 🎓 Ders alanı ("Ders dinle" için şart) · 🌲 Odun ayarı · 👕 Giysi ağı · 🗳️ Oy hakkı (bir
+              kez) · 🩺 Teşhis (bir kez).</li>
+            <li><b>🗑️ Önce bu hesapların bütün planını sıfırla</b>: seçili hesaplara daha önce verilen bütün plan
+              emirlerini (iş sırası, kalan enerji, yemek, cami, ders…) siler; bu sefer seçtiklerin yine yazılır.
+              Mod ve tikler değişmez.</li>
+          </ul>
+        </details>
+
+        <details class="ke-bolum"><summary>4️⃣ Hazır tarifler (bak, aynısını yap)</summary>
+          <ul>
+            <li><b>"Glasgow'daki herkes önce camiye gitsin, itibarı 200 olunca madene"</b> → ① 🗓️ Günlük iş düzeni ·
+              ② 🏘️ Glasgow · ③ İş sırası: 🕌 Cami, ⛏️ Maden/EAÜ · Cami itibarı: 200 · ④ Kopyala → Telegram.</li>
+            <li><b>"Bu 3 hesap tarlasına işçi tutsun, kendisi madende çalışsın"</b> → ② 3 hesabı işaretle · ③ Tarla:
+              👷 İşçi tutsun · İş sırası: ⛏️ Maden/EAÜ.</li>
+            <li><b>"Ders hesabı bir kere ders çalışsın, kalan enerjiyle madene gitsin"</b> → ③ 🔋 bölümünde Ders
+              sayısı: 1 tur · Dersten sonra: maden.</li>
+            <li><b>"Bütün hızlı maden hesapları hızlı cami olsun"</b> → ② 🎚️ Mod satırında ⚡⛏️ Hızlı Maden · ③ ⚙️ Mod
+              ve launcher tikleri → 🎚️ Mod: ⚡🕌 Hızlı cami.</li>
+            <li><b>"Demirciler kılıç üretsin"</b> → ② 🏭 Meslek satırında Demirci · ③ 🏭 Meslek ürünü: Kılıç.</li>
+            <li><b>"Wigtown'da ases boş kalmasın"</b> → ② Wigtown'dan 2 hesap · ③ 🛡️ Ases: 🛡️ Ases olsun (tik).</li>
+            <li><b>"Verdiğim emri geri al"</b> → aynı hesapları seç · aynı konuda <b>🔄 Bugünkü</b> seç · gönder.</li>
+            <li><b>"Her gruba ayrı iş"</b> → ④'te ➕ Başka hesaplara başka iş → yeniden ② ve ③ → hepsi tek mesaj.</li>
+          </ul>
+        </details>
+
+        <details class="ke-bolum"><summary>5️⃣ Sık sorulanlar</summary>
+          <ul>
+            <li><b>Emri verdim ama olmadı?</b> Telegram'da botun cevabına bak: ⚠️ varsa bir satırı anlamamıştır,
+              sebebi yazar. "✅ AYAR EMRİ ALINDI" ise hesabın sırası henüz gelmemiştir (bot hesaplara sırayla
+              girer; bugün girdiyse yarın uygular). Hızlı ve ordu hesaplarında bazı ayarlar uygulanmaz (③'teki
+              sarı uyarılar).</li>
+            <li><b>Bot neden camiye gitmedi?</b> Ya parası cami parasından az, ya itibarı cami itibarına gelmiş, ya da
+              enerjisi 100'den az.</li>
+            <li><b>"Kalan enerji" ile "Dersten sonra" arasındaki fark?</b> Kalan enerji: ana iş verildikten sonra
+              artan enerji. Dersten sonra: yalnızca ders modundaki hesapta, ders çalıştıktan sonra kalan enerji.</li>
+            <li><b>EAÜ nedir?</b> Eyaletlerarası Asgari Ücret: madende iş bulamayana verilen küçük bir ücret.
+              Belediyedeki iş ilanları bu DEĞİL.</li>
+            <li><b>Bir hesabın şu anki ayarını nereden görürüm?</b> ②'de hesabın yanında yazar; 👤'e basınca hesap
+              kartı ve günlüğü açılır.</li>
+            <li><b>Yanlışlıkla çok hesap seçtim?</b> ②'de "✖ Seçimi temizle".</li>
+            <li><b>Neyi emirle değiştiremem?</b> Atölyenin enerji kuralları · yemek fiyat tavanı · koç ve manda kesim
+              yaşı · +5 dinlenme (bot kendisi basar). Bunlar bilerek sabit.</li>
+            <li><b>Taşıma, pazar, seçim, ordu gibi işler?</b> Onlar günlük düzen değil: ①'de kendi kartına dokun,
+              bildiğin eski form açılır.</li>
+          </ul>
+        </details>
+      </details>
+      <ol class="ke-adimlar" id="ke-adimlar">
+        <li data-adim="1"><b>①</b> Ne yapacaksın?</li>
+        <li data-adim="2"><b>②</b> Kime?</li>
+        <li data-adim="3"><b>③</b> Ne yapsınlar?</li>
+        <li data-adim="4"><b>④</b> Gönder</li>
+      </ol>
+      <div class="ke-sahne" id="ke-sahne">
+        <div class="ke-sayfa" data-sayfa="1" id="ke-s1"></div>
+        <div class="ke-sayfa" data-sayfa="2" id="ke-s2"></div>
+        <div class="ke-sayfa" data-sayfa="3" id="ke-s3"></div>
+        <div class="ke-sayfa" data-sayfa="4" id="ke-s4"></div>
+      </div>
+    </div>
+
     <!-- 🤖 [26.09.2026] EMİR ASİSTANI (emir.js sonu). Kural tabanlı: ücretsiz,
          sınırsız, anahtar yok. Cümleyi anlar → doğru formu (doldurarak) açar. -->
     <div class="asistan-kutu">
@@ -2524,6 +2708,19 @@ if (window.L) L.RasterCoords.prototype = {
             <option value="hayır">hayır — iptal</option>
           </select>
         </label>
+        <!-- 🌳 [30.10.2026] YETENEK AĞACINA ŞİMDİ GİR (bir kerelik). Kullanıcı: "yetenek ağacı 10
+             olmadan da emir gelirse girilsin". Bot: site_emirleri._IZINLI_ALANLAR["yetenek ağacı"]
+             → yetenek_gir (bayrak); v82.yetenek_emri_uygula kapatır. -->
+        <label>🌳 Yetenek ağacına şimdi gir <span class="ay-ipucu">hesap sonraki girişinde puan
+          birikmesini (5 puan · doluysa 15 gün) BEKLEMEDEN yetenek ağacına bir kez girer ve elindeki
+          puanı harcar (hızlı moddaki hesap da); bitince emir kendiliğinden kapanır. Yukarıdaki
+          “Yetenek sırası” yazılınca da kendiliğinden açılır.</span>
+          <select id="ay-yetenek-gir">
+            <option value="">— değiştirme —</option>
+            <option value="evet">evet — şimdi gir</option>
+            <option value="hayır">hayır — iptal</option>
+          </select>
+        </label>
 
         <!-- 💸➡️🌍 [14.09.2026] "Her şeyi sat" zincirinin ARKA PLANDA
              kendiliğinden yaptıkları. Kullanıcı: *"sitedeki emir verme
@@ -2875,14 +3072,84 @@ if (window.L) L.RasterCoords.prototype = {
             <select id="ay-plan-kalan">
               <option value="">— değiştirme —</option>
               <option value="iptal">bugünkü (maden → EAÜ)</option>
+              <option value="maden/eaü">⛏️ maden/EAÜ (maden yoksa EAÜ · kasabanın hurda ot ayarı uygulanmaz)</option>
+              <option value="ot">🌿 ot (olmazsa maden/EAÜ)</option>
               <option value="maden">yalnız maden</option>
               <option value="eaü">yalnız EAÜ</option>
               <option value="yok">yakma (enerji kalsın)</option>
             </select>
           </label>
-          <label>🕌 Cami parası <span class="ay-ipucu">camiye gitmek için en az akçe · "iptal" = 200</span>
-            <input id="ay-plan-cami" inputmode="numeric" placeholder="örn. 50" autocomplete="off">
+          <label>🕌 Cami parası <span class="ay-ipucu">camiye gitmek için en az akçe · <b>sabit: 200</b> · "iptal" = 200</span>
+            <input id="ay-plan-cami" inputmode="numeric" placeholder="örn. 50" autocomplete="off" list="dl-cami-para">
           </label>
+          <!-- 🔋 [30.10.2026] cami itibarı (0-255) · enerji ayır (0-130) — site_emirleri → plan_cami_itibar ·
+               plan_enerji_ayir. Kullanıcı: "sabit kurallı enerji harcayanlar değişken olsun" + "255 üstünü
+               yapamadığımız çıkamadığımız için onu hesaba katarak yap" + "sabit değişken yanında not olarak". -->
+          <label>🕌 Cami itibarı <span class="ay-ipucu">hesap itibarı bu sayıya ulaşana kadar camiye gider ·
+            <b>sabit: 150</b> (emir yokken) · 255 = itibar dolana kadar · 0 = hiç cami (maden/EAÜ) · en fazla 255 —
+            oyunun tavanı · "iptal" = 150</span>
+            <input id="ay-plan-itibar" type="number" min="0" max="255" step="1" inputmode="numeric"
+                   placeholder="örn. 200" autocomplete="off" list="dl-itibar">
+          </label>
+          <label>🔋 Enerji ayır <span class="ay-ipucu">her gün bu kadar enerji HARCANMAZ (maden · EAÜ · ot · cami ·
+            kalan enerji) · <b>sabit: 0</b> (hepsi harcanır) · örn. 15 → 115'in 100'ü harcanır · atölye, odun,
+            tarla, ases bakmaz · en fazla 130 · "iptal" = 0</span>
+            <input id="ay-plan-enerji" type="number" min="0" max="130" step="1" inputmode="numeric"
+                   placeholder="örn. 15" autocomplete="off" list="dl-enerji-ayir">
+          </label>
+          <!-- 🔋 [30.10.2026 akşam] ders sayısı (1 · 2 tur) · dersten sonra · hoca madeni (0·1·2·6·12 saat) · odun
+               verimi (1-20) — site_emirleri → plan_ders_sayisi · plan_ders_sonra · plan_hoca_maden · plan_odun_verim.
+               Kullanıcı: "sadece kaç kere ders çalışsın sorusu ve 50 enerji gider kalan enerji ile ne yapılsın". -->
+          <label>🎓 Ders sayısı <span class="ay-ipucu">ders modundaki hesap günde kaç kere bireysel ders çalışsın · her
+            tur 10 saat ve 50 enerji · <b>sabit: saate göre 2 ya da 1</b> (20 saat güne sığmıyorsa 1) · +5 dinlenme
+            her zaman kendiliğinden basılır</span>
+            <select id="ay-plan-ders-sayi">
+              <option value="">— değiştirme —</option>
+              <option value="1">1 tur (10 saat · 50 enerji)</option>
+              <option value="2">2 tur (20 saat · 100 enerji)</option>
+              <option value="iptal">iptal — sabite dön (saate göre)</option>
+            </select>
+          </label>
+          <label>🎓 Dersten sonra <span class="ay-ipucu">ders çalıştıktan sonra KALAN enerjiyle ne yapılsın ·
+            <b>sabit: medresede uygun ders varsa dinle, yoksa maden/cami</b></span>
+            <select id="ay-plan-ders-sonra">
+              <option value="">— değiştirme —</option>
+              <option value="ders dinle">ders dinle (medresede ders varsa; 20 enerji, gün batımına kadar)</option>
+              <option value="maden">maden</option>
+              <option value="eaü">EAÜ (Amele Pazarı)</option>
+              <option value="maden/eaü">maden, yoksa EAÜ</option>
+              <option value="cami">cami</option>
+              <option value="ot">şifalı ot</option>
+              <option value="yok">hiçbir şey (enerji kalsın)</option>
+              <option value="iptal">iptal — sabite dön</option>
+            </select>
+          </label>
+          <label>⛏️ Hoca madeni <span class="ay-ipucu">ders veren hesap önce bu kadar SAAT madende çalışır, sonra ders
+            verir · <b>sabit: 12 saat</b> (60 enerji) · oyunun maden süreleri; 20 saat olmaz (ders vermeye enerji
+            kalmaz) · 0 = madene girmeden ders</span>
+            <select id="ay-plan-hoca">
+              <option value="">— değiştirme —</option>
+              <option value="0">0 — madene girmeden ders</option>
+              <option value="1">1 saat (5 enerji)</option>
+              <option value="2">2 saat (10 enerji)</option>
+              <option value="6">6 saat (30 enerji)</option>
+              <option value="12">12 saat (60 enerji) — sabit</option>
+              <option value="iptal">iptal — sabite dön (12 saat)</option>
+            </select>
+          </label>
+          <label>🌲 Odun verimi <span class="ay-ipucu">orman hücresinde en az bu kadar tomruk görülürse kesilir; yoksa keşif
+            hakkı varken yeniden keşif · <b>sabit: 3</b> · 1-20 · "iptal" = 3</span>
+            <input id="ay-plan-odun" type="number" min="1" max="20" step="1" inputmode="numeric"
+                   placeholder="örn. 4" autocomplete="off" list="dl-odun-verim">
+          </label>
+          <datalist id="dl-odun-verim"><option value="3">sabit</option><option value="4"></option>
+            <option value="5"></option><option value="2"></option><option value="1">ilk hücre</option></datalist>
+          <datalist id="dl-cami-para"><option value="0"></option><option value="50"></option><option value="100">
+            </option><option value="200">sabit</option><option value="500"></option></datalist>
+          <datalist id="dl-itibar"><option value="150">sabit</option><option value="255">itibar dolana kadar</option>
+            <option value="200"></option><option value="100"></option><option value="0">hiç cami</option></datalist>
+          <datalist id="dl-enerji-ayir"><option value="0">sabit — hepsi harcanır</option><option value="5"></option>
+            <option value="15">115'in 100'ü harcanır</option><option value="20"></option><option value="30"></option></datalist>
           <label>💰 Satış
             <select id="ay-plan-satis">
               <option value="">— değiştirme —</option>
@@ -2891,7 +3158,16 @@ if (window.L) L.RasterCoords.prototype = {
             </select>
           </label>
         </div>
-        <label class="ay-ipucu"><input type="checkbox" id="ay-plan-iptal"> 🗑️ Planı sıfırla (sekiz konu da bugünkü düzene döner)</label>
+        <!-- 🏭🌳 [29.10.2026] öncelikli ürün · yetenek sırası (site_emirleri → plan_urun · plan_yetenek_sirasi) -->
+        <div class="emir-satir">
+          <label>🏭 Öncelikli ürün <span class="ay-ipucu">virgülle, meslek fark etmez: Kılıç · Bıçak · Kova · Çelik Kasnak · Manda Eti · Kalkan · Şalvar · İnegöl Köfte · Bitki Saksısı · Yontma Taş · Kasnaksız Kova · Çuval Un … — atölye ÖNCE bunu dener, hammaddesi yoksa bugünkü düzen · "iptal" = bugünkü</span>
+            <input id="ay-plan-urun" placeholder="örn. Kılıç" autocomplete="off">
+          </label>
+          <label>🌳 Yetenek sırası <span class="ay-ipucu">dallar virgülle: siyaset · ziraat · iş · el becerisi (yazılmayanlar bugünkü sırayla ardından) · "iptal" = bugünkü</span>
+            <input id="ay-plan-yetenek" placeholder="örn. ziraat, siyaset" autocomplete="off">
+          </label>
+        </div>
+        <label class="ay-ipucu"><input type="checkbox" id="ay-plan-iptal"> 🗑️ Planı sıfırla (bütün plan konuları bugünkü düzene döner)</label>
       </fieldset>
 
       <p class="emir-ipucu">⚠️ Yalnızca <b>dokunduğun</b> ayarlar gönderilir.
