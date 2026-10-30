@@ -351,10 +351,9 @@
     var kus = gel.filter(function (x) { return x.kusanma; });
     if (kus.length) {
       var ikisi = kus.filter(function (x) { return x.kusanma.kilic && x.kusanma.kalkan; }).length;
-      var pacavrali = kus.filter(function (x) { return x.kusanma.default_kiyafet; }).length;
+      // 👕 [29.10.2026] Default kıyafet (paçavra) sayısı YAZILMAZ — kullanıcı: "gereksiz bilgi".
       k.push(kart("⚔️", "kılıç + kalkanlı hesap", ikisi,
-        kus.length + " hesap okundu · " + (kus.length - ikisi) + " eksik · 👕 " + pacavrali +
-        " hesapta default kıyafet (paçavra)", "#gelisim"));
+        kus.length + " hesap okundu · " + (kus.length - ikisi) + " eksik", "#gelisim"));
     }
     // 🩺 [26.10.2026 — İŞ 33] hesap durumu (ev · giysi · oy tahmini) — takip.js saf fonksiyonu.
     var TS = window.TakipSaf;
