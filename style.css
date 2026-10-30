@@ -1757,3 +1757,125 @@ select.si-islem { margin-bottom: 0.3rem; }
   padding: 0 0.35rem; margin-left: 0.2rem; border-radius: 0.6rem; white-space: nowrap;
   background: var(--vurgu-zemin); border: 1px solid var(--border); }
 .ev-rozet.ev-yok { opacity: 0.75; }
+
+/* =========================================================
+   🧭 KOLAY EMİR (29.10.2026, emir.js sonu) — dört adım, kayarak geçen sayfalar.
+   Kolay görünümde emir sekmesinin öteki (klasik) parçaları gizlenir; "🗂️ Tüm emir formları"
+   düğmesi hepsini AYNEN geri getirir (hiçbiri silinmedi).
+   ========================================================= */
+#tab-emir.ke-kolay-acik > *:not(.ke-ust):not(.ke-kutu) { display: none !important; }
+#tab-emir:not(.ke-kolay-acik) > .ke-kutu { display: none; }
+.ke-ust { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 0 0 0.8rem; }
+.ke-mod-btn { flex: 1 1 14rem; background: var(--bg-panel-2); color: var(--text-dim); border: 1px solid var(--border);
+  border-radius: 12px; padding: 0.55rem 0.9rem; font-size: 1rem; cursor: pointer; text-align: left; }
+.ke-mod-btn .emir-kucuk { display: block; font-size: 0.72rem; opacity: 0.85; }
+.ke-mod-btn.aktif { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 700; }
+.ke-kutu { background: var(--bg-panel); border: 1px solid var(--border); border-radius: 14px; padding: 0.8rem 0.9rem 1rem;
+  margin-bottom: 1rem; overflow: hidden; }
+.ke-adimlar { list-style: none; display: flex; gap: 0.35rem; padding: 0; margin: 0 0 0.9rem; counter-reset: none; }
+.ke-adimlar li { flex: 1; text-align: center; font-size: 0.85rem; padding: 0.45rem 0.3rem; border-radius: 999px;
+  background: var(--bg-panel-2); color: var(--text-dim); border: 1px solid var(--border); transition: background .25s, color .25s; }
+.ke-adimlar li.bitti { color: var(--text); border-color: var(--accent); }
+.ke-adimlar li.aktif { background: var(--accent); color: #fff; border-color: var(--accent); font-weight: 700; }
+.ke-sayfa { display: none; }
+.ke-sayfa.aktif { display: block; }
+.ke-sahne.ke-ileri .ke-sayfa.aktif { animation: keIleri .28s ease; }
+.ke-sahne.ke-geri .ke-sayfa.aktif { animation: keGeri .28s ease; }
+@keyframes keIleri { from { opacity: 0; transform: translateX(28px); } to { opacity: 1; transform: none; } }
+@keyframes keGeri { from { opacity: 0; transform: translateX(-28px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .ke-sahne .ke-sayfa.aktif { animation: none !important; } }
+.ke-giris { margin: 0 0 0.7rem; font-size: 1rem; }
+.ke-ipucu { color: var(--text-dim); font-size: 0.82rem; font-weight: 400; }
+.ke-not { color: var(--text-dim); font-size: 0.9rem; }
+.ke-hata { color: var(--danger); font-weight: 700; }
+.ke-link { background: none; border: none; color: var(--accent); text-decoration: underline; cursor: pointer; padding: 0; font: inherit; }
+.ke-kartlar { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr)); gap: 0.6rem; }
+.ke-kart { display: flex; gap: 0.6rem; background: var(--bg-panel-2); border: 1px solid var(--border); border-radius: 12px;
+  padding: 0.7rem; transition: transform .15s, border-color .15s; }
+.ke-kart:hover { transform: translateY(-2px); border-color: var(--accent); }
+.ke-kart-ana { border-color: var(--accent-2); grid-column: 1 / -1; }
+.ke-kart-ikon { font-size: 1.8rem; line-height: 1; }
+.ke-kart-govde { min-width: 0; flex: 1; }
+.ke-kart-baslik { font-weight: 700; margin-bottom: 0.2rem; }
+.ke-kart-aciklama { color: var(--text-dim); font-size: 0.82rem; margin-bottom: 0.5rem; }
+.ke-eylemler, .ke-cipler { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.ke-cipler { margin: 0.25rem 0 0.4rem; }
+.ke-eylem, .ke-cip { background: var(--bg); color: var(--text); border: 1px solid var(--border); border-radius: 999px;
+  padding: 0.35rem 0.75rem; font-size: 0.86rem; cursor: pointer; transition: background .15s, border-color .15s; }
+.ke-eylem:hover, .ke-cip:hover { border-color: var(--accent); }
+.ke-cip.aktif { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+.ke-cip.ke-ana { background: var(--accent-2); border-color: var(--accent-2); color: #fff; font-weight: 700; padding: 0.45rem 1rem; }
+.ke-cip[disabled] { opacity: 0.45; cursor: not-allowed; }
+.ke-cip small { opacity: 0.75; }
+.ke-no { display: inline-block; min-width: 1.15rem; height: 1.15rem; line-height: 1.15rem; text-align: center; border-radius: 50%;
+  background: #fff; color: var(--accent); font-size: 0.75rem; margin-right: 0.15rem; }
+.ke-filtre { display: flex; flex-wrap: wrap; gap: 0.3rem; align-items: center; margin-bottom: 0.4rem; }
+.ke-filtre-ad { font-size: 0.8rem; color: var(--text-dim); min-width: 4.6rem; }
+.ke-arac { display: flex; flex-wrap: wrap; gap: 0.4rem; align-items: center; margin: 0.4rem 0 0.6rem; }
+.ke-ara { flex: 1 1 12rem; min-width: 0; padding: 0.4rem 0.6rem; border-radius: 8px; border: 1px solid var(--border);
+  background: var(--bg); color: var(--text); }
+.ke-sayac { font-size: 0.9rem; }
+.ke-hatirla { background: var(--vurgu-zemin); border-left: 3px solid var(--accent-2); border-radius: 8px; padding: 0.45rem 0.7rem;
+  margin: 0.4rem 0 0.6rem; font-size: 0.86rem; }
+.ke-hatirla ul { margin: 0.25rem 0 0.25rem 1rem; padding: 0; }
+.ke-hesaplar { max-height: 28rem; overflow-y: auto; border: 1px solid var(--border); border-radius: 10px; padding: 0.3rem; }
+.ke-kasaba-baslik { position: sticky; top: 0; background: var(--bg-panel); font-weight: 700; padding: 0.3rem 0.4rem; z-index: 1; }
+.ke-hesap { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem; padding: 0.3rem 0.4rem; border-radius: 8px; cursor: pointer; }
+.ke-hesap:hover { background: var(--bg-panel-2); }
+.ke-hesap.secili { background: var(--vurgu-zemin); }
+.ke-hesap-ad { font-weight: 600; }
+.ke-hesap-plan { flex: 1 1 100%; color: var(--text-dim); font-size: 0.78rem; padding-left: 1.6rem; overflow-wrap: anywhere; }
+.ke-rozet { font-size: 0.75rem; border: 1px solid var(--border); border-radius: 0.6rem; padding: 0 0.35rem; }
+.ke-rozet.ke-ases { border-color: var(--accent-2); }
+.ke-meslek { color: var(--text-dim); }
+.ke-mini { background: none; border: 1px solid var(--border); border-radius: 6px; cursor: pointer; padding: 0 0.3rem; font-size: 0.8rem; }
+.ke-alt { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; margin-top: 0.8rem; }
+.ke-zincir { display: flex; flex-wrap: wrap; align-items: center; gap: 0.3rem; background: var(--bg-panel-2);
+  border: 1px solid var(--border); border-radius: 10px; padding: 0.5rem; margin-bottom: 0.6rem; }
+.ke-halka { background: var(--bg); border: 1px solid var(--border); border-radius: 8px; padding: 0.2rem 0.5rem; font-size: 0.85rem; }
+.ke-halka small { color: var(--text-dim); }
+.ke-ok { color: var(--accent); font-weight: 700; }
+.ke-uyarilar { border-left: 3px solid var(--uyari); background: var(--bg-panel-2); border-radius: 8px; padding: 0.3rem 0.7rem;
+  margin-bottom: 0.6rem; font-size: 0.86rem; }
+.ke-uyarilar p { margin: 0.25rem 0; }
+.ke-bolum { border: 1px solid var(--border); border-radius: 10px; padding: 0.4rem 0.7rem; margin-bottom: 0.5rem; }
+.ke-bolum > summary { cursor: pointer; font-weight: 700; padding: 0.15rem 0; }
+.ke-secim { margin: 0.35rem 0; }
+.ke-secim-baslik { font-size: 0.88rem; font-weight: 600; margin-bottom: 0.15rem; }
+.ke-urun-grup { display: flex; flex-wrap: wrap; gap: 0.3rem; align-items: center; margin: 0.3rem 0; }
+.ke-urun-grup.soluk { opacity: 0.55; }
+.ke-sayi { width: 8rem; padding: 0.35rem 0.5rem; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); }
+.ke-iptal { display: block; margin: 0.5rem 0; font-size: 0.88rem; }
+.ke-gruplar { display: grid; gap: 0.5rem; margin-bottom: 0.5rem; }
+.ke-grup { border: 1px solid var(--border); border-radius: 10px; padding: 0.5rem 0.7rem; background: var(--bg-panel-2); }
+.ke-grup-baslik { font-weight: 700; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.4rem; }
+.ke-grup-dugme { display: inline-flex; gap: 0.3rem; }
+.ke-grup-hesap { font-size: 0.82rem; color: var(--text-dim); margin: 0.25rem 0; overflow-wrap: anywhere; }
+.ke-grup-ozet { font-size: 0.88rem; }
+.ke-mesaj { white-space: pre-wrap; overflow-wrap: anywhere; background: var(--bg); border: 1px solid var(--border); border-radius: 10px;
+  padding: 0.6rem; font-size: 0.85rem; max-height: 22rem; overflow-y: auto; }
+@media (max-width: 600px) {
+  .ke-adimlar li { font-size: 0.72rem; padding: 0.35rem 0.15rem; }
+  .ke-filtre-ad { min-width: 100%; }
+}
+
+/* 💡 [30.10.2026] Emir sekmelerinde ÖRNEKLER satırı (emir.js sonundaki blok) */
+.emir-ornek { display: flex; flex-wrap: wrap; align-items: center; gap: 0.35rem 0.4rem;
+  margin: 0 0 0.7rem; padding: 0.45rem 0.6rem; border: 1px dashed var(--accent);
+  border-radius: 10px; background: var(--vurgu-zemin); }
+.emir-ornek-baslik { font-weight: 700; font-size: 0.85rem; margin-right: 0.2rem; }
+.emir-ornek-ipucu { font-weight: 400; font-size: 0.75rem; color: var(--text-dim); }
+.emir-ornek-dugme { font: inherit; font-size: 0.8rem; padding: 0.25rem 0.55rem; border-radius: 999px;
+  border: 1px solid var(--border); background: var(--kart, transparent); color: inherit; cursor: pointer; }
+.emir-ornek-dugme:hover, .emir-ornek-dugme:focus-visible { border-color: var(--accent); outline: none; }
+.emir-ornek-yazi { font-size: 0.78rem; padding: 0.15rem 0.45rem; border-radius: 6px;
+  background: var(--kart, rgba(127, 127, 127, 0.08)); border: 1px solid var(--border); white-space: normal; }
+@media (max-width: 560px) { .emir-ornek-dugme { flex: 1 1 100%; text-align: left; } }
+/* 📖 [30.10.2026] Kolay Emir REHBERİ (index.html #ke-rehber) — kullanıcı: "10 yaşındaki birine anlatır gibi". */
+.ke-rehber { border: 2px solid var(--accent); border-radius: 12px; padding: 0.5rem 0.8rem; margin-bottom: 0.8rem;
+  background: var(--vurgu-zemin, rgba(47, 165, 216, 0.08)); }
+.ke-rehber > summary { cursor: pointer; font-weight: 800; font-size: 1.02rem; padding: 0.2rem 0; }
+.ke-rehber p, .ke-rehber li { line-height: 1.5; overflow-wrap: anywhere; }
+.ke-rehber ul, .ke-rehber ol { padding-left: 1.2rem; margin: 0.3rem 0 0.6rem; }
+.ke-rehber li { margin-bottom: 0.3rem; }
+.ke-rehber .ke-bolum { margin-top: 0.5rem; background: var(--bg-panel); }
