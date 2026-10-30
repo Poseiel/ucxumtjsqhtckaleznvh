@@ -897,22 +897,38 @@ function yetenekOzet(k) {
   return metin + (bos ? ` <span class="bos-puan">+${bos}</span>` : "");
 }
 
-// Medrese özeti: en ilerlemiş 2 ana başlık, ör. "Dnz 8/8 · Dil 4/5".
+// Medrese özeti — 🎓 [29.10.2026] TAMAMLANAN DERSLER (kullanıcı: *"derslerde tamamlananları da
+//    görelim"* + *"medresede eksik dersleri yazıyoruz ya sadece tamamlanan dersler de gözüksün"*):
+//    "✔ Dvl1 · Dvl2" (bitirdiği dersler, kısa adla). Hiç bitmiş ders yoksa "✔ yok". Yarım kalanlar
+//    ve dalların "2/6" oranı üstüne gelince (title) ve satır ayrıntısında (📖) görünür.
 const MEDRESE_KISA = {
   "Denizcilik": "Dnz", "Devlet": "Dvl", "İlim": "İlm",
   "Ordu": "Ord", "Bilim": "Blm", "Dil": "Dil", "Din": "Din",
 };
+function medreseTamamlananlar(k) {
+  const d = k.medrese_dersler || {};
+  return Object.keys(d).filter((ad) => Number(d[ad]) >= 100).sort((x, y) => {
+    const bx = x.split("-")[0].trim(), by = y.split("-")[0].trim();
+    const ax = bx.replace(/[0-9]+$/, ""), ay = by.replace(/[0-9]+$/, "");
+    if (ax !== ay) return ax.localeCompare(ay, "tr");
+    return (parseInt(bx.replace(/^\D+/, ""), 10) || 0) - (parseInt(by.replace(/^\D+/, ""), 10) || 0);
+  });
+}
+function medreseKisaKod(ad) {
+  const kod = String(ad).split("-")[0].trim();                   // "Devlet1"
+  const dal = kod.replace(/[0-9]+$/, "");
+  return (MEDRESE_KISA[dal] || dal) + kod.slice(dal.length);     // "Dvl1"
+}
 function medreseOzet(k) {
   const m = k.medrese || {};
   const anahtarlar = Object.keys(m);
   if (!anahtarlar.length) return "-";
-  const sirali = anahtarlar
-    .map((b) => ({ b, ...m[b] }))
-    .sort((a, b) => (b.tamam / Math.max(b.toplam, 1)) - (a.tamam / Math.max(a.toplam, 1)));
-  const ilk = sirali.slice(0, 2)
-    .map((x) => `${MEDRESE_KISA[x.b] || x.b} ${x.tamam}/${x.toplam}`).join(" · ");
-  const kalan = sirali.length - 2;
-  return ilk + (kalan > 0 ? ` <span class="kalan-sayi">+${kalan}</span>` : "");
+  const oran = anahtarlar.map((b) => `${b} ${m[b].tamam}/${m[b].toplam}`).join(" · ");
+  const biten = medreseTamamlananlar(k);
+  const baslik = (biten.length ? "Tamamlanan: " + biten.join(", ") + " · " : "") + "Dallar: " + oran +
+    " (yarım kalanlar satıra tıklayınca)";
+  const yazi = biten.length ? "✔ " + biten.map(medreseKisaKod).join(" · ") : "✔ yok";
+  return `<span title="${kacis(baslik)}">${kacis(yazi)}</span>`;
 }
 
 // Renk adını oyundaki rengiyle göster (metin aynen kalır, sadece nokta).
@@ -1032,21 +1048,22 @@ function kusanmaMetni(ku) {
   if (!ku) return "";
   const kilic = ku.kilic ? "⚔️ Kılıç ✅" : (ku.kor_kilic ? "⚔️ Kör kılıç 🟡" : "⚔️ Kılıç ❌");
   const kalkan = ku.kalkan ? "🛡️ Kalkan ✅" : "🛡️ Kalkan ❌";
-  const kiy = ku.kiyafetler || [];
-  // "default kıyafet" = oyunun verdiği paçavralar (kullanıcı tanımı, 25.09)
-  const tur = !kiy.length ? "👕 kıyafet yok"
-    : (ku.default_kiyafet ? "👕 DEFAULT kıyafet var (" + (ku.pacavralar || []).join(", ") + ")"
-       : "👕 " + kiy.length + " parça, default yok");
+  // 👕 [29.10.2026] DEFAULT kıyafet (oyunun verdiği paçavralar) ARTIK YAZILMAZ — kullanıcı:
+  //    *"default kıyafetler zaten hepsinde var gereksiz bilgi ve hiç bir işe yaramayan bilgi"*.
+  //    Yalnızca gerçek (paçavra olmayan) parçalar sayılır.
+  const gercek = (ku.kiyafetler || []).filter((k) => !k.pacavra);
+  const tur = !gercek.length ? "👕 kıyafet yok" : "👕 " + gercek.length + " parça";
   const eksik = (ku.eksik_kiyafet || []);
   return kilic + " · " + kalkan + " · " + tur +
     (eksik.length ? " · eksik: " + eksik.join(", ") : "");
 }
 window.kusanmaMetni = kusanmaMetni;
 
-// 👕 Kıyafet parçaları tek satır: "Gömlek: Erkek Gömleği (siyah) · Pantolon: Pantolon Paçavraları 🧷"
+// 👕 Kıyafet parçaları tek satır: "Gömlek: Erkek Gömleği (siyah) · Pantolon: Pantolon (mavi)"
+//    [29.10.2026] Paçavralar (default) listelenmez.
 function kiyafetListesi(ku) {
-  return (ku && ku.kiyafetler || []).map((k) =>
-    k.bolum + ": " + k.ad + (k.renk ? " (" + k.renk + ")" : "") + (k.pacavra ? " 🧷" : "")).join(" · ");
+  return (ku && ku.kiyafetler || []).filter((k) => !k.pacavra).map((k) =>
+    k.bolum + ": " + k.ad + (k.renk ? " (" + k.renk + ")" : "")).join(" · ");
 }
 window.kiyafetListesi = kiyafetListesi;
 
@@ -1060,8 +1077,7 @@ function detayIcerigi(k) {
     bolumler.push(
       `<div class="detay-blok"><h4>⚔️ Üstündekiler</h4>` +
       `<p>${kusanmaMetni(ku)}</p>` +
-      ((ku.kiyafetler || []).length ? `<p class="detay-not">👕 ${kiyafetListesi(ku)}</p>` +
-        `<p class="detay-not">🧷 = oyunun verdiği default kıyafet (paçavra)</p>` : "") +
+      (kiyafetListesi(ku) ? `<p class="detay-not">👕 ${kiyafetListesi(ku)}</p>` : "") +
       (diger.length ? `<p class="detay-not">Diğer silah/kalkan (süs olabilir): ${diger.join(", ")}</p>` : "") +
       `<p class="detay-not">Profil sayfasından okundu: ${ku.gun || "?"}</p></div>`);
   }
@@ -1163,18 +1179,38 @@ function gelisimKasabaHucresi(k) {
   return kacis(ham) + rozet;
 }
 
-function gelisimTarlaHucresi(k) {
-  const ham = (k.mulk === undefined || k.mulk === null || k.mulk === "") ? "-" : k.mulk;
-  const liste = Array.isArray(k.tarla_turleri) ? k.tarla_turleri.filter((t) => String(t || "").trim()) : [];
-  if (!liste.length) return kacis(ham);
+/* 🌾 [29.10.2026] Kullanıcı: *"sitede ekin yazmasına gerek yok yanında ne tarlası olduğu yazdığı
+   için direk mısırx2 yazsın"* → türü bilinen "ekin" YAZILMAZ, yerine tür(ler) yazılır:
+   "ekin,manda" + ["Sebze"] → "Sebze · manda" · "ekin" + ["Mısır","Mısır"] → "Mısır ×2".
+   Türü okunmamış ekin "ekin" olarak KALIR (bilgi yok). Sıralama/süzme yine `mulk` değeriyle. */
+const TARLA_HAYVAN_TURU = { manda: "Manda", koc: "Koç", "koç": "Koç", sigir: "Sığır", "sığır": "Sığır" };
+function tarlaHucreYazisi(mulk, turler) {
+  const liste = (Array.isArray(turler) ? turler : []).map((t) => String(t || "").trim()).filter(Boolean);
+  const parcalar = String(mulk || "").split(",").map((x) => x.trim()).filter(Boolean);
+  if (!liste.length) return parcalar.length ? parcalar.join(",") : "-";
   const sayac = [];
-  liste.forEach((t) => {
-    const ad = String(t).trim();
+  liste.forEach((ad) => {
     const var_ = sayac.find((x) => x.ad === ad);
     if (var_) var_.n += 1; else sayac.push({ ad: ad, n: 1 });
   });
-  const yazi = sayac.map((x) => kacis(x.ad) + (x.n > 1 ? " ×" + x.n : "")).join(" · ");
-  return kacis(ham) + ' <span class="tarla-tur" title="Tarla türleri (alım / tarama kaydı)">🌾 ' + yazi + "</span>";
+  const yazilar = sayac.map((x) => x.ad + (x.n > 1 ? " ×" + x.n : ""));
+  parcalar.forEach((p) => {
+    const kucuk = p.toLocaleLowerCase("tr-TR");
+    if (kucuk === "ekin") return;                                   // türü yazıldı
+    const hayvan = TARLA_HAYVAN_TURU[kucuk];
+    if (hayvan && liste.indexOf(hayvan) >= 0) return;               // "Koç" zaten listede
+    yazilar.push(p);
+  });
+  return yazilar.join(" · ");
+}
+window.tarlaHucreYazisi = tarlaHucreYazisi;
+
+function gelisimTarlaHucresi(k) {
+  const liste = Array.isArray(k.tarla_turleri) ? k.tarla_turleri.filter((t) => String(t || "").trim()) : [];
+  const yazi = tarlaHucreYazisi(k.mulk, liste);
+  if (!liste.length) return kacis(yazi);
+  return '<span class="tarla-tur" title="Mülk: ' + kacis(String(k.mulk || "-")) +
+    ' · tarla türleri (alım / tarama kaydı)">🌾 ' + kacis(yazi) + "</span>";
 }
 
 function gelisimTabloCiz() {
