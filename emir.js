@@ -2390,7 +2390,33 @@ function ayMesajiKur() {
   ekle("iş sırası", _planIs);
   ekle("kalan enerji", emirDeger("ay-plan-kalan"));
   ekle("cami parası", _planCami);
+  // 🔋 [30.10.2026] cami itibarı (0-255, 255'in üstü YOK — oyunun tavanı) · enerji ayır (0-130)
+  var _planItibar = String(emirDeger("ay-plan-itibar") || "").trim();
+  if (_planItibar && !(/^iptal$/i.test(_planItibar) || (/^\d{1,3}$/.test(_planItibar) && +_planItibar <= 255)))
+    return { hata: "Cami itibarı 0 ile 255 arasında bir sayı olmalı (255'in üstü yok — oyunun tavanı) ya da “iptal”" };
+  var _planEnerji = String(emirDeger("ay-plan-enerji") || "").trim();
+  if (_planEnerji && !(/^iptal$/i.test(_planEnerji) || (/^\d{1,3}$/.test(_planEnerji) && +_planEnerji <= 130)))
+    return { hata: "Enerji ayır 0 ile 130 arasında bir sayı olmalı ya da “iptal”" };
+  ekle("cami itibarı", _planItibar);
+  ekle("enerji ayır", _planEnerji);
+  // 🔋 [30.10.2026 akşam] ders sayısı (1 · 2 tur) · dersten sonra (kalan enerji) · hoca madeni
+  //    (0·1·2·6·12 saat) · odun verimi (1-20). Ders / hoca açılır kutu (seçenekler botla BİREBİR).
+  var _planDersSayi = String(emirDeger("ay-plan-ders-sayi") || "").trim();
+  var _planDersSonra = String(emirDeger("ay-plan-ders-sonra") || "").trim();
+  var _planHoca = String(emirDeger("ay-plan-hoca") || "").trim();
+  if (_planHoca && !/^(0|1|2|6|12|iptal)$/i.test(_planHoca))
+    return { hata: "Hoca madeni 0 · 1 · 2 · 6 · 12 saat olmalı (20 saat olmaz — ders vermeye enerji kalmaz)" };
+  var _planOdun = String(emirDeger("ay-plan-odun") || "").trim();
+  if (_planOdun && !(/^iptal$/i.test(_planOdun) || (/^\d{1,2}$/.test(_planOdun) && +_planOdun >= 1 && +_planOdun <= 20)))
+    return { hata: "Odun verimi 1 ile 20 arasında bir sayı olmalı ya da “iptal”" };
+  ekle("ders sayısı", _planDersSayi);
+  ekle("dersten sonra", _planDersSonra);
+  ekle("hoca madeni", _planHoca);
+  ekle("odun verimi", _planOdun);
   ekle("satış", emirDeger("ay-plan-satis"));
+  // 🏭🌳 [29.10.2026] öncelikli ürün · yetenek sırası (hesap_plani.deger_coz doğrular)
+  ekle("öncelikli ürün", String(emirDeger("ay-plan-urun") || "").trim());
+  ekle("yetenek sırası", String(emirDeger("ay-plan-yetenek") || "").trim());
   var _pIptal = document.getElementById("ay-plan-iptal");
   if (_pIptal && _pIptal.checked) satirlar.push("plan: iptal");
   // 🧹 [19.10.2026 — İŞ 11 d] SIFIRLA (site_emirleri._SIFIRLA_ETIKETLERI → SIFIRLA_ALANLARI)
@@ -2401,6 +2427,8 @@ function ayMesajiKur() {
   ekle("teşhis", _teshis && _teshis.checked ? "evet" : "");
   // 🗳️ [26.10.2026 — İŞ 35] OY HAZIRLA (site_emirleri "oy hazırla" → oy_hazirla, bir kerelik)
   ekle("oy hazırla", emirDeger("ay-oy-hazirla"));
+  // 🌳 [30.10.2026] YETENEK AĞACINA ŞİMDİ GİR (site_emirleri "yetenek ağacı" → yetenek_gir, bir kerelik)
+  ekle("yetenek ağacı", emirDeger("ay-yetenek-gir"));
 
   if (document.getElementById("ay-gorev-satirlar").dataset.iptal === "1") {
     satirlar.push("görev: iptal");
@@ -2453,7 +2481,8 @@ function ayKur() {
    "ay-ders-verme", "ay-isci", "ay-orman", "ay-midas", "ay-midas-hedef", "ay-giysi", "ay-jeton", "ay-grup", "ay-yol",
    "ay-yay", "ay-plan-yemek", "ay-plan-meyhane", "ay-plan-yol", "ay-plan-tarla", "ay-plan-is",
    "ay-plan-kalan", "ay-plan-cami", "ay-plan-satis", "ay-plan-iptal", "ay-sifirla", "ay-teshis",
-   "ay-oy-hazirla"
+   "ay-oy-hazirla", "ay-plan-urun", "ay-plan-yetenek", "ay-yetenek-gir", "ay-plan-itibar", "ay-plan-enerji",
+   "ay-plan-ders-sayi", "ay-plan-ders-sonra", "ay-plan-hoca", "ay-plan-odun"
   ].forEach(function (id) {
     var el = document.getElementById(id);
     if (el) {
@@ -2687,7 +2716,14 @@ function sistemRolleri() {
    (kayıt değerleri zaten Türkçe: "basic" · "cami, demir, eaü" · 50 …). */
 var PLAN_ALAN_ADLARI = [["plan_yemek", "yemek"], ["plan_meyhane", "meyhane"],
   ["plan_yol_yemegi", "yol yemeği"], ["plan_tarla", "tarla"], ["plan_is_sirasi", "iş"],
-  ["plan_kalan_enerji", "kalan enerji"], ["plan_cami_para", "cami parası"], ["plan_satis", "satış"]];
+  ["plan_kalan_enerji", "kalan enerji"], ["plan_cami_para", "cami parası"], ["plan_satis", "satış"],
+  ["plan_urun", "ürün"], ["plan_yetenek_sirasi", "yetenek"],
+  // 🔋 [30.10.2026] cami itibarı · enerji ayır (eksikti) + [30.10 akşam] ders sayısı · dersten sonra · hoca madeni · odun verimi
+  ["plan_cami_itibar", "cami itibarı"], ["plan_enerji_ayir", "enerji ayır"],
+  ["plan_ders_sayisi", "ders sayısı"], ["plan_ders_sonra", "dersten sonra"],
+  ["plan_hoca_maden", "hoca madeni"], ["plan_odun_verim", "odun verimi"]];
+var PLAN_BIRIM = { plan_cami_para: " akçe", plan_enerji_ayir: " enerji", plan_ders_sayisi: " tur",
+  plan_hoca_maden: " saat", plan_odun_verim: " tomruk" };
 function planOzetiJs(ayar) {
   var a = ayar || {};
   return PLAN_ALAN_ADLARI.filter(function (x) {
@@ -2695,7 +2731,7 @@ function planOzetiJs(ayar) {
   }).map(function (x) {
     var d = a[x[0]];
     if (x[0] === "plan_is_sirasi") d = String(d).split(/\s*,\s*/).join(">");
-    if (x[0] === "plan_cami_para") d = d + " akçe";
+    if (PLAN_BIRIM[x[0]]) d = d + PLAN_BIRIM[x[0]];
     return x[1] + "=" + d;
   }).join(" · ");
 }
@@ -3060,6 +3096,10 @@ async function emirIptalEt(kodlar, ozet) {
       anahtar: ["oy hakki", "oy hakki hazirla", "oy hazirla", "oy veremiyor", "oy veremez", "secmen",
                 "vatandas yetenegi", "siyaset ac", "siyaset agaci", "oy icin ev", "kasaba secmeni",
                 "oy icin evi tasi", "oy yetenekleri"] },
+    { id: "yetenekgir", tur: "ayar", ikon: "🌳", baslik: "Yetenek ağacına şimdi gir (puan beklemeden)",
+      ne: "Hesap sonraki girişinde puan birikmesini (5 puan · ağaçlar doluysa 15 gün) BEKLEMEDEN yetenek ağacına bir kez girer ve elindeki puanı harcar — hızlı moddaki hesap da. Bitince emir kendiliğinden kapanır. “Yetenek sırası” emirle verilince de kendiliğinden açılır. 🖥️ Ayar formunda “🌳 Yetenek ağacına şimdi gir”; toplu da verilebilir.",
+      anahtar: ["yetenek agaci", "yetenek agacina gir", "yetenek puani", "puani harca", "puan harca",
+                "yetenek ac", "yetenekleri ac", "yetenege gir", "beceri agaci", "puan birikti"] },
     { id: "ayar", tur: "ayar", ikon: "🖥️", baslik: "Hesap ayarı / görev zinciri",
       ne: "Launcher'daki her ayar: takip modu, inziva, ders, gemi, kaptan, ases, puan, seyahat (📍 ara nokta da: #759 / 'Kirkcudbright - Wigtown arası' / kare '94 117'), görev zinciri, 🌲 orman işi (odun kes). Yalnızca DOKUNDUĞUN ayar gönderilir, gerisi değişmez.",
       anahtar: ["ayar", "inziva", "inzivaya", "ders", "ders ver", "hoca", "ases", "kaptan", "takip modu", "hizli maden", "hizli cami", "cami", "maden", "seyahat", "gorev", "gorev zinciri", "zincir", "puan", "isci tut", "grup lideri", "mod degistir", "odun kes", "odun kessin", "oduncu", "orman", "orman isi", "ara nokta", "ara noktaya", "noktaya gonder", "giysi al", "giysi alsin", "kiyafet al", "eksik giysi",
@@ -3416,6 +3456,965 @@ async function emirIptalEt(kodlar, ozet) {
     kur("asistan-soru", "asistan-cevap", "asistan-ornekler");
     kur("asistan-soru-bas", "asistan-cevap-bas", "asistan-ornekler-bas");
   }
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", baslat);
+  else baslat();
+})();
+
+/* =========================================================
+   🧭 KOLAY EMİR — ADIM ADIM (29.10.2026)
+   Kullanıcı: "tüm emirleri baştan yap önceki sabitleri de dahil et herşeye müdahale edebilsinler
+   … karmaşık olmasın" + "sitede kolayca gerekirse animasyonlu tıkladıkça sayfa geçen şekilde …
+   tek bakışta anlayacakları şekilde" + "önceki emirleri silme" + "birbirini ezecek görevler
+   olmalı aseslik mesela odunu filan ezmeli" + "emir gelene kadar eski düzen devam etsin".
+   → ESKİ FORMLARIN HİÇBİRİ SİLİNMEDİ ("🗂️ Tüm emir formları" onları aynen açar). Bu sihirbaz
+   onların önündeki sade kapıdır:
+     ① Ne yapacaksın?  — botun yapabildiği her iş bir kartta; günlük düzen dışındakiler eski formu açar
+     ② Kime?           — kasaba / meslek / mod ile toplu seçim · kartlarda ŞU ANKİ düzen + 👤 günlük
+                          · tek hesap seçince o kasabanın toplu düzeni HATIRLATILIR
+     ③ Ne yapsınlar?   — iş sırası · kalan enerji · ases · tarla · meslek ürünü · yemek · meyhane ·
+                          satış · yetenek sırası · mod ve launcher tikleri ("— dokunma —" = bugünkü)
+     ④ Gönder          — birden çok grup TEK mesaj: "🧭 GÖREV LİSTESİ" (bot: site_emirleri.
+                          gorev_listesi_bloklari) · tek grup bildiğimiz "AYAR".
+   Değerler botun kabul ettikleriyle BİREBİR (site_emirleri._IZINLI_ALANLAR · hesap_plani.deger_coz);
+   testler/test_kolay_emir.py sayfayı başsız Chromium'da tıklatıp mesajı botun çözücüsüne verir.
+   ========================================================= */
+(function () {
+  var NL = String.fromCharCode(10);
+  function K(m) { return emirKacis(m); }
+
+  // ---------- ① KARTLAR (botun yapabildiği her iş) ----------
+  var KE_KARTLAR = [
+    { id: "duzen", ikon: "🗓️", baslik: "Günlük iş düzeni",
+      aciklama: "Her gün ne yapsınlar: iş sırası · kalan enerji · ases · tarla · meslek ürünü · yemek · " +
+                "yetenek · mod ve launcher tikleri. Aksi emre kadar geçerli.",
+      eylemler: [{ duzen: true, ikon: "▶️", baslik: "Düzen ver" }] },
+    { id: "tasi", ikon: "🚶", baslik: "Taşı · kur",
+      aciklama: "Başka kasabaya gönder · ev + tarla al · meslek (atölye) al · görev zinciri",
+      eylemler: [{ tur: "ayar", odak: "ay-kd-kasaba", ikon: "🧭", baslik: "Kurulum + görev zinciri" }] },
+    { id: "pazar", ikon: "🛒", baslik: "Pazar",
+      aciklama: "Mal sat · mal al · ödenek (Ticaret Nazırı)",
+      eylemler: [{ tur: "sat", ikon: "💰", baslik: "Satış" }, { tur: "al", ikon: "🛒", baslik: "Alım" },
+                 { tur: "odenek", ikon: "📜", baslik: "Ödenek" }] },
+    { id: "secim", ikon: "🗳️", baslik: "Seçim",
+      aciklama: "Oy ver · divan listesini onayla · oy hakkı hazırla (ev + Vatandaş → Kasaba Seçmeni)",
+      eylemler: [{ tur: "oy", ikon: "🗳️", baslik: "Oy ver" }, { tur: "divan", ikon: "👑", baslik: "Divan onay" },
+                 { duzen: true, hazir: { oyhazirla: "evet" }, ikon: "🏠", baslik: "Oy hakkı hazırla" }] },
+    { id: "ordu", ikon: "🪖", baslik: "Ordu · gemi",
+      aciklama: "Orduya katıl · gemi satın al · yanaşma izni",
+      eylemler: [{ tur: "ordukatil", ikon: "🪖", baslik: "Orduya katıl" }, { tur: "gemi", ikon: "⛵", baslik: "Gemi al" },
+                 { tur: "yanasma", ikon: "⚓", baslik: "Yanaşma izni" }] },
+    { id: "aile", ikon: "👪", baslik: "Aile · sağlık",
+      aciklama: "Aile başvurusu kabul · aileye başvur · muayenehane / iksir / muayene günü",
+      eylemler: [{ tur: "aile", ikon: "👪", baslik: "Aile kabul" }, { tur: "ailebasvur", ikon: "📝", baslik: "Aileye başvur" },
+                 { tur: "muayene", ikon: "🩺", baslik: "Muayenehane · iksir" }] },
+    { id: "tarla", ikon: "🌾", baslik: "Tarla çevir",
+      aciklama: "Var olan tarlayı başka türe ıslah et (ör. sebze → mısır)",
+      eylemler: [{ tur: "tarlacevir", ikon: "🌾", baslik: "Tarla çevir" }] },
+    { id: "iletisim", ikon: "✉️", baslik: "Mesaj · profil",
+      aciklama: "Oyun içi mesaj · posta kontrol · forum cevabı · profil yazısı · güven puanı / renk",
+      eylemler: [{ tur: "mesaj", ikon: "✉️", baslik: "Mesaj" }, { tur: "posta", ikon: "📬", baslik: "Posta" },
+                 { tur: "forum", ikon: "📣", baslik: "Forum" }, { tur: "profil", ikon: "🎭", baslik: "Profil" },
+                 { tur: "guven", ikon: "🤝", baslik: "Güven · renk" }] },
+    { id: "hesap", ikon: "⚙️", baslik: "Hesap · bot ayarları",
+      aciklama: "Launcher'ın bütün hesap ayarları tek formda · hesap ekle · sistem ayarları",
+      eylemler: [{ tur: "ayar", ikon: "🖥️", baslik: "Bütün hesap ayarları" }, { tur: "hesapekle", ikon: "➕", baslik: "Hesap ekle" },
+                 { tur: "sistem", ikon: "⚙️", baslik: "Sistem ayarları" }] }
+  ];
+
+  // ---------- ③ SEÇENEKLER (botun kabul ettiği değerler, BİREBİR) ----------
+  // İş sırası taşları → hesap_plani.IS_TOKENLERI ("Maden/EAÜ" = "maden, eaü": maden yoksa EAÜ).
+  var KE_ISLER = [
+    { id: "atolye", ikon: "🏭", ad: "Atölye (meslek)", tok: ["atölye"] },
+    { id: "odun", ikon: "🌲", ad: "Odun", tok: ["odun"] },
+    { id: "ot", ikon: "🌿", ad: "Şifalı ot", tok: ["ot"] },
+    { id: "madeneau", ikon: "⛏️", ad: "Maden/EAÜ", tok: ["maden", "eaü"] },
+    { id: "demir", ikon: "⚒️", ad: "Demir madeni", tok: ["demir"] },
+    { id: "cami", ikon: "🕌", ad: "Cami", tok: ["cami"] },
+    { id: "ders", ikon: "🎓", ad: "Ders dinle", tok: ["ders"] },
+    { id: "iksir", ikon: "⚗️", ad: "Basit iksir", tok: ["iksir"] },
+    { id: "yok", ikon: "💤", ad: "İş verme", tok: ["yok"] }
+  ];
+  // Meslek → öncelikli ürünler (hesap_plani.URUN_MESLEKLERI ile BİREBİR — test eşitler).
+  var KE_URUNLER = [
+    ["Demirci", ["Kılıç", "Bıçak", "Kova", "Çelik Kasnak"]],
+    ["Kasap", ["Manda Eti", "Sığır Eti", "Keçi Eti", "Koyun Eti"]],
+    ["Terzi", ["Ayakkabı", "Kuşak", "Şalvar", "Erkek Gömleği", "Kadın Gömleği", "Erkek Çorabı",
+               "Kadın Çorabı", "Takke", "Erkek Beresi", "Kalkan"]],
+    ["Fırıncı", ["Somun Ekmeği", "İnegöl Köfte", "Sütlü Çörek", "Sebzeli Turta"]],
+    ["Heykeltıraş", ["Bitki Saksısı", "Yontma Taş"]],
+    ["Marangoz", ["Kasnaksız Kova"]],
+    ["Değirmenci", ["Çuval Un"]],
+    ["Bahçıvan", ["Mor Boya"]]
+  ];
+  var KE_DALLAR = ["Siyaset", "Ziraat", "İş", "El becerisi"];   // yetenek_agaci.AGAC_ONCELIK adları
+  var KE_SECIM = {
+    kalan: [["", "— dokunma —"], ["maden/eaü", "⛏️ Maden/EAÜ"], ["ot", "🌿 Ot → sonra maden/EAÜ"],
+            ["yok", "💤 Yakma (enerji kalsın)"], ["iptal", "🔄 Bugünkü"]],
+    ases: [["", "— dokunma —"], ["açık", "🛡️ Ases olsun (tik)"], ["kapalı", "❌ Ases olmasın"]],
+    tarla: [["", "— dokunma —"], ["kendisi", "👤 Kendisi çalışsın"], ["işçi", "👷 İşçi tutsun (ilan)"],
+            ["besle", "🐄 Yalnız hayvan besle"], ["iptal", "🔄 Bugünkü"]],
+    yemek: [["", "— dokunma —"], ["normal", "🔄 Normal (sağlık tam değilse önce basic)"], ["kuvvet", "💪 Kuvvet"],
+            ["zeka", "🧠 Zeka"], ["karizma", "💬 Karizma"], ["basic", "🥖 Basic (ucuz, para biriktir)"],
+            ["yok", "⛔ Yemesin"]],
+    meyhane: [["", "— dokunma —"], ["evet", "🍺 Evet"], ["son çare", "🆘 Yalnız son çare"], ["hayır", "🚫 Hayır"]],
+    satis: [["", "— dokunma —"], ["normal", "💰 Normal"], ["kapalı", "🔒 Kendiliğinden satmasın"]],
+    takip: [["", "— dokunma —"], ["Yok", "🧑 Normal"], ["Hızlı Maden", "⚡⛏️ Hızlı maden"], ["Hızlı Cami", "⚡🕌 Hızlı cami"],
+            ["Hızlı Ot", "⚡🌿 Hızlı ot"], ["Alışverişçi", "🛒 Alışverişçi"], ["Grup Takip", "👥 Grup takip"],
+            ["Ordu Takip", "🪖 Ordu takip"]],
+    isci: [["", "— dokunma —"], ["açık", "👷 İş ilanı assın"], ["kapalı", "❌ Asmasın"]],
+    puan: [["", "— dokunma —"], ["devlet", "🏛️ Devlet puanı"], ["ordu", "🎖️ Ordu puanı"], ["kapalı", "❌ Kapalı"]],
+    inziva: [["", "— dokunma —"], ["açık", "🕌 İnzivaya girsin"], ["kapalı", "❌ Çıksın"]],
+    orman: [["", "— dokunma —"], ["odun", "🌲 Odun ayarı açık"], ["yok", "❌ Kapalı"]],
+    giysi: [["", "— dokunma —"], ["açık", "👕 Eksik giysiyi alsın"], ["kapalı", "❌ Almasın"]],
+    ders: [["", "— dokunma —"], ["Yok", "Yok"], ["İlim", "İlim"], ["Devlet", "Devlet"], ["Din", "Din"],
+           ["Ordu", "Ordu"], ["Denizcilik", "Denizcilik"], ["Dil", "Dil"]],
+    oyhazirla: [["", "— dokunma —"], ["evet", "🏠 Oy hakkı hazırla (bir kez)"]],
+    // 🌳 [30.10.2026] site_emirleri "yetenek ağacı" → yetenek_gir (bir kerelik; puan eşiği beklenmez)
+    yetenekgir: [["", "— dokunma —"], ["evet", "🌳 Şimdi gir (bir kez)"]],
+    teshis: [["", "— dokunma —"], ["evet", "🩺 Teşhis (bir kez)"]]
+  };
+  // Mesajdaki satır sırası + AYAR etiketi (site_emirleri._IZINLI_ALANLAR anahtarları).
+  var KE_ETIKET = [["takip", "takip"], ["ases", "ases"], ["isci", "işçi"], ["puan", "puan"],
+    ["inziva", "inziva"], ["ders", "ders"], ["orman", "orman işi"], ["giysi", "giysi al"]];
+  var KE_PLAN_ETIKET = [["kalan", "kalan enerji"], ["tarla", "tarla"], ["yemek", "yemek"],
+    ["meyhane", "meyhane"], ["satis", "satış"]];
+  var HIZLI = ["Hızlı Maden", "Hızlı Cami", "Hızlı Ot"];
+  var PLANSIZ = ["Grup Takip", "Ordu Takip"];
+
+  var KE = { adim: 1, gruplar: [], secili: {}, al: bosAlan(), arama: "", duzenlenen: -1, yon: "ileri",
+             mesaj: "", durumYazi: "", acik: {} };
+  // ③'teki bölümlerin açık/kapalı hâli her dokunuşta yeniden çizimde KORUNUR (kullanıcının açtığı
+  // "Yemek" bölümü bir seçeneğe basınca kapanmasın).
+  function acik(id, varsayilan) {
+    var a = KE.acik[id] !== undefined ? KE.acik[id] : varsayilan;
+    return a ? " open" : "";
+  }
+
+  function bosAlan() {
+    return { is: null, kalan: "", ases: "", tarla: "", urun: null, yemek: "", meyhane: "", satis: "",
+             cami: "", itibar: "", enerji: "", derssayi: "", derssonra: "", hoca: "", odunv: "",
+             yetenek: null, takip: "", isci: "", puan: "", inziva: "", orman: "", giysi: "",
+             ders: "", oyhazirla: "", teshis: "", yetenekgir: "", planIptal: false };
+  }
+  function anahtar(ad) { return String(ad == null ? "" : ad).replace(/İ/g, "i").trim().toLowerCase(); }
+  // İskoçya'nın 7 kasabası önde (CLAUDE.md KUZEY/GÜNEY); öteki yerler "🌍 İskoçya dışı", yeri
+  // okunmamışlar "❔ bilinmiyor" çipinde toplanır (gerçek veride 30'a yakın yer adı var).
+  var ISKOCYA = ["Glasgow", "Stirling", "Ardencaple", "Whithorn", "Wigtown", "Kirkcudbright", "Girvan"];
+  function kasabaSinifi(k) {
+    if (ISKOCYA.indexOf(k) >= 0) return "iskocya";
+    var s = String(k || "").trim().toLowerCase();
+    return (!s || s === "?" || s === "-" || s === "bilinmiyor") ? "bilinmiyor" : "disari";
+  }
+  function kasabaSirasi(k) {
+    var i = ISKOCYA.indexOf(k);
+    return i >= 0 ? i : (kasabaSinifi(k) === "disari" ? 100 : 200);
+  }
+  // Oyun bazı yer adlarını HTML koduyla veriyor ("Alc&aacute;cer do Sal") → okunur yazı.
+  function cozHtml(s) {
+    if (String(s || "").indexOf("&") < 0) return String(s || "");
+    try { var t = document.createElement("textarea"); t.innerHTML = String(s); return t.value; } catch (e) { return String(s); }
+  }
+
+  // ---------- VERİ (sistem.json + gelisim.json — emir.js zaten yüklüyor) ----------
+  function keHesaplar() {
+    var gel = {};
+    (typeof emirGelisim !== "undefined" ? emirGelisim : []).forEach(function (k) {
+      gel[anahtar(k.karakter)] = k;
+    });
+    var liste = ((typeof sistemVerisi !== "undefined" && sistemVerisi && sistemVerisi.hesaplar) || [])
+      .map(function (h) {
+        var g = gel[anahtar(h.ad)] || {};
+        var a = h.ayar || {};
+        var meslek = String(g.meslek || "").trim();
+        if (!meslek || meslek === "-" || meslek.indexOf("İşsiz") >= 0) meslek = "";
+        return { ad: h.ad, k: anahtar(h.ad), a: a, kasaba: cozHtml(g.kasaba || "?"), meslek: meslek,
+                 seviye: g.seviye, takip: a.takip || "Yok", ases: a.ases === true,
+                 plan: (typeof planOzetiJs === "function" ? planOzetiJs(a) : ""),
+                 bekleyen: h.bekleyen || [] };
+      });
+    return liste.sort(function (x, y) {
+      return (kasabaSirasi(x.kasaba) - kasabaSirasi(y.kasaba))
+        || String(x.kasaba).localeCompare(String(y.kasaba), "tr") || x.ad.localeCompare(y.ad, "tr");
+    });
+  }
+  function seciliHesaplar() {
+    return keHesaplar().filter(function (h) { return KE.secili[h.k]; });
+  }
+
+  // ---------- SAF: MESAJ ----------
+  function keIsYazisi(ids) {
+    var t = [];
+    (ids || []).forEach(function (id) {
+      KE_ISLER.forEach(function (x) { if (x.id === id) x.tok.forEach(function (y) { if (t.indexOf(y) < 0) t.push(y); }); });
+    });
+    return t.join(", ");
+  }
+  function keGrupSatirlari(al) {
+    var s = [];
+    function e(etiket, deger) { if (deger !== "" && deger !== null && deger !== undefined) s.push([etiket, String(deger)]); }
+    KE_ETIKET.forEach(function (x) { e(x[1], al[x[0]]); });
+    if (al.is === "iptal") e("iş sırası", "iptal");
+    else if (al.is && al.is.length) e("iş sırası", keIsYazisi(al.is));
+    KE_PLAN_ETIKET.forEach(function (x) { e(x[1], al[x[0]]); });
+    if (al.urun === "iptal") e("öncelikli ürün", "iptal");
+    else if (al.urun && al.urun.length) e("öncelikli ürün", al.urun.join(", "));
+    e("cami parası", String(al.cami || "").trim());
+    e("cami itibarı", String(al.itibar || "").trim());     // 🔋 [30.10.2026] 0-255
+    e("enerji ayır", String(al.enerji || "").trim());      // 🔋 [30.10.2026] 0-130
+    e("ders sayısı", String(al.derssayi || "").trim());    // 🎓 [30.10 akşam] 1 · 2 tur · sabit saate göre
+    e("dersten sonra", String(al.derssonra || "").trim()); // 🎓 [30.10 akşam] kalan enerji · sabit ders dinle
+    e("hoca madeni", String(al.hoca || "").trim());        // 🔋 [30.10 akşam] 0·1·2·6·12 saat · sabit 12
+    e("odun verimi", String(al.odunv || "").trim());       // 🔋 [30.10 akşam] 1-20 tomruk · sabit 3
+    if (al.yetenek === "iptal") e("yetenek sırası", "iptal");
+    else if (al.yetenek && al.yetenek.length) e("yetenek sırası", al.yetenek.join(", "));
+    e("oy hazırla", al.oyhazirla);
+    e("yetenek ağacı", al.yetenekgir);
+    e("teşhis", al.teshis);
+    if (al.planIptal) s.push(["plan", "iptal"]);
+    return s;
+  }
+  function keMesajKur(gruplar) {
+    var g = (gruplar || []).filter(function (x) { return x && x.hesaplar && x.hesaplar.length && x.satirlar && x.satirlar.length; });
+    if (!g.length) return "";
+    function govde(x) {
+      return ["hesap: " + x.hesaplar.join(", ")].concat(x.satirlar.map(function (s) { return s[0] + ": " + s[1]; }));
+    }
+    if (g.length === 1) return ["AYAR"].concat(govde(g[0])).join(NL);
+    var satir = ["🧭 GÖREV LİSTESİ"];
+    g.forEach(function (x, i) {
+      satir.push("— Grup " + (i + 1) + (x.baslik ? " · " + String(x.baslik).replace(/:/g, " ") : "") + " —");
+      satir = satir.concat(govde(x));
+    });
+    return satir.join(NL);
+  }
+  function grupBasligi(hs) {
+    var k = {};
+    hs.forEach(function (h) { k[h.kasaba] = (k[h.kasaba] || 0) + 1; });
+    var ad = Object.keys(k);
+    return (ad.length === 1 ? ad[0] : ad.length + " kasaba") + " (" + hs.length + " hesap)";
+  }
+
+  // ---------- GÖRÜNÜM YARDIMCILARI ----------
+  function cip(veri, yazi, aktif, ek, sinif) {
+    return '<button type="button" class="ke-cip' + (aktif ? " aktif" : "") + (sinif ? " " + sinif : "") + '" ' +
+           veri + (ek || "") + ">" + yazi + "</button>";
+  }
+  // 🔋 [30.10.2026 akşam] açılır kutu (seçenekleri kısıtlı sayı alanları: ders sayısı · dersten sonra · hoca madeni)
+  function keSecimKutusu(id, deger, secenekler) {
+    return '<select id="' + id + '" class="ke-sayi">' + secenekler.map(function (o) {
+      return '<option value="' + K(o[0]) + '"' + (String(deger || "") === o[0] ? " selected" : "") + ">" + K(o[1]) + "</option>";
+    }).join("") + "</select>";
+  }
+  function secimSatiri(alan, baslik, ipucu) {
+    var d = KE.al[alan] || "";
+    return '<div class="ke-secim"><div class="ke-secim-baslik">' + baslik +
+      (ipucu ? ' <span class="ke-ipucu">' + ipucu + "</span>" : "") + '</div><div class="ke-cipler">' +
+      KE_SECIM[alan].map(function (o) {
+        return cip('data-ke="secim" data-alan="' + alan + '" data-v="' + K(o[0]) + '"', K(o[1]), d === o[0]);
+      }).join("") + "</div></div>";
+  }
+  function rozetler(h) {
+    var r = [];
+    if (h.ases) r.push('<span class="ke-rozet ke-ases" title="ases tikli">🛡️</span>');
+    if (HIZLI.indexOf(h.takip) >= 0) r.push('<span class="ke-rozet" title="' + K(h.takip) + '">⚡</span>');
+    if (PLANSIZ.indexOf(h.takip) >= 0) r.push('<span class="ke-rozet" title="' + K(h.takip) + '">🪖</span>');
+    if (h.takip === "Alışverişçi") r.push('<span class="ke-rozet" title="Alışverişçi">🛒</span>');
+    if (h.meslek) r.push('<span class="ke-rozet ke-meslek">' + K(h.meslek) + "</span>");
+    return r.join("");
+  }
+
+  // ---------- 📌 KASABA HATIRLATMASI (kullanıcı: "bi karaktere emir verecek stirling emirleri şunlardı
+  //            diye hatırlatmalı gelsin … o hesap stirlingteyse tabi") ----------
+  function keHatirlatma() {
+    var hs = keHesaplar();
+    var sec = KE.secili;
+    var kasabalar = {};
+    hs.forEach(function (h) { (kasabalar[h.kasaba] = kasabalar[h.kasaba] || []).push(h); });
+    var parcalar = [];
+    Object.keys(kasabalar).sort(function (a, b) { return a.localeCompare(b, "tr"); }).forEach(function (kas) {
+      var tumu = kasabalar[kas];
+      var secilen = tumu.filter(function (h) { return sec[h.k]; });
+      if (!secilen.length || secilen.length === tumu.length || kasabaSinifi(kas) === "bilinmiyor") return;
+      var dag = {};
+      tumu.forEach(function (h) { var p = h.plan || "bugünkü düzen (plan yok)"; (dag[p] = dag[p] || []).push(h.ad); });
+      var ases = tumu.filter(function (h) { return h.ases; }).map(function (h) { return h.ad; });
+      parcalar.push('<div class="ke-hatirla"><b>📌 ' + K(kas) + "</b> — " + tumu.length + " hesap, şu anki düzenleri:<ul>" +
+        Object.keys(dag).sort(function (a, b) { return dag[b].length - dag[a].length; }).map(function (p) {
+          return "<li><b>" + dag[p].length + " hesap</b> → " + K(p) + ' <span class="ke-ipucu">(' +
+                 K(dag[p].slice(0, 8).join(", ")) + (dag[p].length > 8 ? " …" : "") + ")</span></li>";
+        }).join("") + "</ul>🛡️ ases tikli: " + (ases.length ? K(ases.join(", ")) : "<b>yok</b>") + "</div>");
+    });
+    return parcalar.join("");
+  }
+
+  // ---------- ① ----------
+  function keS1() {
+    var el = document.getElementById("ke-s1");
+    if (!el) return;
+    el.innerHTML = '<p class="ke-giris">Bota ne yaptırmak istiyorsun? Bir karta dokun. ' +
+      '<span class="ke-ipucu">Günlük düzen dışındaki kartlar bildiğin formu açar — eski formların hepsi yerinde.</span></p>' +
+      '<div class="ke-kartlar">' + KE_KARTLAR.map(function (k) {
+        return '<div class="ke-kart' + (k.id === "duzen" ? " ke-kart-ana" : "") + '"><div class="ke-kart-ikon">' + k.ikon +
+          '</div><div class="ke-kart-govde"><div class="ke-kart-baslik">' + K(k.baslik) + '</div><div class="ke-kart-aciklama">' +
+          K(k.aciklama) + '</div><div class="ke-eylemler">' + k.eylemler.map(function (e, i) {
+            return '<button type="button" class="ke-eylem" data-ke="eylem" data-kart="' + k.id + '" data-i="' + i + '">' +
+                   e.ikon + " " + K(e.baslik) + "</button>";
+          }).join("") + "</div></div></div>";
+      }).join("") + "</div>" +
+      (KE.gruplar.length ? '<p class="ke-not">📝 Hazırlanan ' + KE.gruplar.length +
+        ' grup bekliyor — <button type="button" class="ke-link" data-ke="git" data-adim="4">④ Gönder sayfasına git</button></p>' : "");
+  }
+
+  // ---------- ② ----------
+  function keS2() {
+    var el = document.getElementById("ke-s2");
+    if (!el) return;
+    var hs = keHesaplar();
+    if (!hs.length) {
+      el.innerHTML = '<p class="ke-not">⏳ Hesap listesi yükleniyor (sistem.json)…</p>';
+      setTimeout(function () { if (KE.adim === 2) keS2(); }, 800);
+      return;
+    }
+    var say = function (f) { var n = 0; hs.forEach(function (h) { if (f(h)) n++; }); return n; };
+    var kasabalar = [], meslekler = [];
+    hs.forEach(function (h) {
+      if (kasabalar.indexOf(h.kasaba) < 0) kasabalar.push(h.kasaba);
+      if (h.meslek && meslekler.indexOf(h.meslek) < 0) meslekler.push(h.meslek);
+    });
+    meslekler.sort(function (a, b) { return a.localeCompare(b, "tr"); });
+    var modlar = [["Yok", "🧑 Normal"], ["Hızlı Maden", "⚡⛏️"], ["Hızlı Cami", "⚡🕌"], ["Hızlı Ot", "⚡🌿"],
+                  ["Alışverişçi", "🛒"], ["Grup Takip", "👥"], ["Ordu Takip", "🪖"]];
+    var tumSecili = function (f) {
+      var hepsi = hs.filter(f);
+      return hepsi.length > 0 && hepsi.every(function (h) { return KE.secili[h.k]; });
+    };
+    var sec = seciliHesaplar();
+    var ara = anahtar(KE.arama);
+    var gorunen = hs.filter(function (h) { return !ara || h.k.indexOf(ara) >= 0 || anahtar(h.kasaba).indexOf(ara) >= 0; });
+    var gruplar = {};
+    gorunen.forEach(function (h) { (gruplar[h.kasaba] = gruplar[h.kasaba] || []).push(h); });
+    el.innerHTML =
+      '<p class="ke-giris">Kimler? <span class="ke-ipucu">Kasabaya / mesleğe / moda dokununca o gruptaki HERKES seçilir ' +
+      '(tekrar dokun = bırak). Tek tek de seçebilirsin. Kartta hesabın <b>şu anki</b> düzeni yazar; 👤 = o hesabın günlüğü.</span></p>' +
+      '<div class="ke-filtre"><span class="ke-filtre-ad">🏘️ Kasaba</span>' + kasabalar.filter(function (k) {
+        return kasabaSinifi(k) === "iskocya";
+      }).map(function (k) {
+        return cip('data-ke="sec-kasaba" data-v="' + K(k) + '"', K(k) + " <small>" + say(function (h) { return h.kasaba === k; }) + "</small>",
+                   tumSecili(function (h) { return h.kasaba === k; }));
+      }).join("") + [["disari", "🌍 İskoçya dışı"], ["bilinmiyor", "❔ Yeri bilinmiyor"]].map(function (x) {
+        var f = function (h) { return kasabaSinifi(h.kasaba) === x[0]; };
+        var n = say(f);
+        return n ? cip('data-ke="sec-sinif" data-v="' + x[0] + '"', x[1] + " <small>" + n + "</small>", tumSecili(f)) : "";
+      }).join("") + "</div>" +
+      '<div class="ke-filtre"><span class="ke-filtre-ad">🏭 Meslek</span>' + meslekler.map(function (m) {
+        return cip('data-ke="sec-meslek" data-v="' + K(m) + '"', K(m) + " <small>" + say(function (h) { return h.meslek === m; }) + "</small>",
+                   tumSecili(function (h) { return h.meslek === m; }));
+      }).join("") + "</div>" +
+      '<div class="ke-filtre"><span class="ke-filtre-ad">🎚️ Mod</span>' + modlar.map(function (m) {
+        var n = say(function (h) { return h.takip === m[0]; });
+        return n ? cip('data-ke="sec-mod" data-v="' + K(m[0]) + '"', m[1] + " " + K(m[0] === "Yok" ? "" : m[0]) + " <small>" + n + "</small>",
+                       tumSecili(function (h) { return h.takip === m[0]; })) : "";
+      }).join("") + "</div>" +
+      '<div class="ke-arac"><input type="search" id="ke-ara" class="ke-ara" placeholder="🔎 ad ya da kasaba ara…" value="' + K(KE.arama) + '">' +
+      cip('data-ke="sec-gorunen"', "☑️ Görünenlerin hepsi", false) + cip('data-ke="sec-hicbiri"', "✖ Seçimi temizle", false) +
+      '<span class="ke-sayac">✅ <b>' + sec.length + "</b> hesap seçili</span></div>" +
+      keHatirlatma() +
+      '<div class="ke-hesaplar">' + Object.keys(gruplar).map(function (kas) {
+        return '<div class="ke-kasaba"><div class="ke-kasaba-baslik">🏘️ ' + K(kas) + " <small>" + gruplar[kas].length + "</small></div>" +
+          gruplar[kas].map(function (h) {
+            return '<label class="ke-hesap' + (KE.secili[h.k] ? " secili" : "") + '"><input type="checkbox" data-ke="hesap" data-ad="' +
+              K(h.k) + '"' + (KE.secili[h.k] ? " checked" : "") + '><span class="ke-hesap-ad">' + K(h.ad) + "</span>" + rozetler(h) +
+              '<button type="button" class="ke-mini" data-ke="kart-ac" data-ad="' + K(h.ad) + '" title="Hesap kartı + günlük">👤</button>' +
+              '<span class="ke-hesap-plan">' + (h.plan ? "🎛️ " + K(h.plan) : "bugünkü düzen") +
+              (h.bekleyen.length ? " · ⏳ " + K(h.bekleyen.join(", ")) : "") + "</span></label>";
+          }).join("") + "</div>";
+      }).join("") + "</div>" +
+      '<div class="ke-alt">' + cip('data-ke="git" data-adim="1"', "← Geri", false) +
+      cip('data-ke="ileri"', "İleri: ne yapsınlar? →", false, sec.length ? "" : " disabled", "ke-ana") + "</div>";
+    var ara2 = document.getElementById("ke-ara");
+    if (ara2) {
+      ara2.addEventListener("input", function () {
+        KE.arama = ara2.value;
+        var konum = ara2.selectionStart;
+        keS2();
+        var y = document.getElementById("ke-ara");
+        if (y) { y.focus(); try { y.setSelectionRange(konum, konum); } catch (e) {} }
+      });
+    }
+  }
+
+  // ---------- ③ ----------
+  function zincirHtml(sec) {
+    var al = KE.al;
+    var adim = [];
+    var tarlaYazi = { kendisi: "kendisi", "işçi": "işçi tutar", besle: "yalnız besler", iptal: "bugünkü" }[al.tarla] || "bugünkü";
+    adim.push("🌾 Tarla <small>(işi varsa · " + tarlaYazi + ")</small>");
+    var asesli = sec.filter(function (h) { return h.ases; }).length;
+    if (al.ases === "açık" || (al.ases !== "kapalı" && asesli)) adim.push("🛡️ Ases <small>(tikli · yer varsa)</small>");
+    if (al.is === "iptal" || !al.is || !al.is.length) {
+      adim.push(al.is === "iptal" ? "🔄 bugünkü iş sırası" : "↔️ iş sırası: dokunulmuyor");
+    } else {
+      al.is.forEach(function (id, i) {
+        KE_ISLER.forEach(function (x) { if (x.id === id) adim.push("<b>" + (i + 1) + ".</b> " + x.ikon + " " + K(x.ad)); });
+      });
+    }
+    var kalanYazi = { "maden/eaü": "⛏️ maden/EAÜ", ot: "🌿 ot → maden/EAÜ", yok: "💤 yakılmaz", iptal: "bugünkü" }[al.kalan];
+    adim.push("🔥 Kalan enerji: " + (kalanYazi || "dokunulmuyor"));
+    return '<div class="ke-zincir">' + adim.map(function (a) { return '<span class="ke-halka">' + a + "</span>"; })
+      .join('<span class="ke-ok">➜</span>') + "</div>";
+  }
+  function keS3() {
+    var el = document.getElementById("ke-s3");
+    if (!el) return;
+    var sec = seciliHesaplar();
+    var al = KE.al;
+    var uyarilar = [];
+    var hizli = sec.filter(function (h) { return HIZLI.indexOf(h.takip) >= 0; }).length;
+    var plansiz = sec.filter(function (h) { return PLANSIZ.indexOf(h.takip) >= 0; }).length;
+    if (hizli) uyarilar.push("⚡ " + hizli + " hızlı hesap seçili: hızlı turda yemek · meyhane · satış · meslek ürünü · yetenek sırası " +
+      "UYGULANMAZ (hızlı tur pazara / eve uğramaz). İş sırası · kalan enerji · tarla uygulanır; kalan enerji yalnız iş sırasıyla birlikte.");
+    if (plansiz) uyarilar.push("🪖 " + plansiz + " Ordu / Grup takip hesabında plan okunmaz (ordu kuralları); yalnız mod ve tikler uygulanır.");
+    // Ases: kasaba başına kalacak tik sayısı
+    var kasabaAses = {};
+    keHesaplar().forEach(function (h) {
+      var kalir = h.ases;
+      if (KE.secili[h.k] && al.ases === "kapalı") kalir = false;
+      if (KE.secili[h.k] && al.ases === "açık") kalir = true;
+      kasabaAses[h.kasaba] = (kasabaAses[h.kasaba] || 0) + (kalir ? 1 : 0);
+    });
+    var secKasaba = {};
+    sec.forEach(function (h) { secKasaba[h.kasaba] = 1; });
+    Object.keys(secKasaba).forEach(function (kas) {
+      if (kasabaSinifi(kas) === "iskocya" && !kasabaAses[kas]) uyarilar.push("🛡️ " + kas + " kasabasında ases tikli hesap " +
+        (al.ases === "kapalı" ? "KALMIYOR" : "yok") + " — aseslik boş kalabilir. İstersen bir kısmına \"🛡️ Ases olsun\" ver.");
+    });
+    if (al.is && al.is.length && al.is.indexOf("ders") >= 0 && !al.ders) {
+      var alansiz = sec.filter(function (h) { return !h.a.ders_alani; }).length;
+      if (alansiz) uyarilar.push("🎓 " + alansiz + " hesabın ders alanı seçili değil — \"Ders dinle\" onlarda atlanır (aşağıdan ders alanı ver).");
+    }
+    var meslekler = {};
+    sec.forEach(function (h) { if (h.meslek) meslekler[h.meslek] = 1; });
+    el.innerHTML =
+      '<p class="ke-giris"><b>' + sec.length + " hesap</b> ne yapsın? " +
+      '<span class="ke-ipucu">Dokunmadığın her konu <b>bugünkü düzende</b> kalır. Sıra sabittir: tarla → ases → senin iş sıran → kalan enerji ' +
+      "(ases odunu / madeni ezer; ases yeri doluysa ya da hesap meşgulse sıradaki iş).</span></p>" +
+      zincirHtml(sec) +
+      (uyarilar.length ? '<div class="ke-uyarilar">' + uyarilar.map(function (u) { return "<p>" + K(u) + "</p>"; }).join("") + "</div>" : "") +
+      keHatirlatma() +
+      '<details class="ke-bolum" data-bolum="is"' + acik("is", true) + '><summary>⛏️ İş sırası <span class="ke-ipucu">dokunma sırası = öncelik (1, 2, 3 …); ilk verilebilen yapılır</span></summary>' +
+      '<div class="ke-cipler">' + KE_ISLER.map(function (x) {
+        var sira = (al.is && al.is !== "iptal") ? al.is.indexOf(x.id) : -1;
+        return cip('data-ke="is" data-v="' + x.id + '"', (sira >= 0 ? '<b class="ke-no">' + (sira + 1) + "</b> " : "") + x.ikon + " " + K(x.ad), sira >= 0);
+      }).join("") + "</div><div class=\"ke-cipler\">" +
+      cip('data-ke="is-temizle"', "↔️ Dokunma", al.is === null) + cip('data-ke="is-iptal"', "🔄 Bugünkü sıraya dön", al.is === "iptal") +
+      "</div></details>" +
+      '<details class="ke-bolum" data-bolum="kalan"' + acik("kalan", true) + '><summary>🔥 Kalan enerji (hurda) & 🛡️ ases & 🌾 tarla</summary>' +
+      secimSatiri("kalan", "🔥 Kalan enerji", "iş verildikten sonra artan enerji") +
+      secimSatiri("ases", "🛡️ Ases", "tikliyse her gün yer varsa önce ases olur") +
+      secimSatiri("tarla", "🌾 Tarla", "") + "</details>" +
+      '<details class="ke-bolum" data-bolum="urun"' + acik("urun", Object.keys(meslekler).length > 0) + '><summary>🏭 Meslek ürünü (öncelikli) ' +
+      '<span class="ke-ipucu">atölye ÖNCE bunu dener; hammaddesi yoksa bugünkü düzen</span></summary>' +
+      KE_URUNLER.map(function (m) {
+        var var_ = meslekler[m[0]] || (m[0] === "Heykeltıraş" && meslekler["Heykeltraş"]);
+        return '<div class="ke-urun-grup' + (var_ ? "" : " soluk") + '"><span class="ke-filtre-ad">' + K(m[0]) + "</span>" +
+          m[1].map(function (u) {
+            var sira = (al.urun && al.urun !== "iptal") ? al.urun.indexOf(u) : -1;
+            return cip('data-ke="urun" data-v="' + K(u) + '"', (sira >= 0 ? '<b class="ke-no">' + (sira + 1) + "</b> " : "") + K(u), sira >= 0);
+          }).join("") + "</div>";
+      }).join("") +
+      '<div class="ke-cipler">' + cip('data-ke="urun-temizle"', "↔️ Dokunma", al.urun === null) +
+      cip('data-ke="urun-iptal"', "🔄 Bugünkü (pazara göre)", al.urun === "iptal") + "</div></details>" +
+      '<details class="ke-bolum" data-bolum="yemek"' + acik("yemek", false) + '><summary>🍽️ Yemek · meyhane · satış · cami parası</summary>' +
+      secimSatiri("yemek", "🍽️ Yemek", "") + secimSatiri("meyhane", "🍺 Meyhane", "") + secimSatiri("satis", "💰 Satış", "") +
+      '<div class="ke-secim"><div class="ke-secim-baslik">🕌 Cami parası <span class="ke-ipucu">camiye gitmek için en az akçe · boş = dokunma · <b>sabit: 200</b> · "iptal" = 200</span></div>' +
+      '<input id="ke-cami" class="ke-sayi" inputmode="numeric" placeholder="örn. 50" list="dl-cami-para" value="' + K(al.cami) + '"></div>' +
+      '<div class="ke-secim"><div class="ke-secim-baslik">🕌 Cami itibarı <span class="ke-ipucu">itibar bu sayıya ulaşana kadar cami · <b>sabit: 150</b> · 255 = itibar dolana kadar · 0 = hiç cami · en fazla 255 (oyunun tavanı) · "iptal" = 150</span></div>' +
+      '<input id="ke-itibar" class="ke-sayi" type="number" min="0" max="255" inputmode="numeric" placeholder="örn. 200" list="dl-itibar" value="' + K(al.itibar) + '"></div>' +
+      '<div class="ke-secim"><div class="ke-secim-baslik">🔋 Enerji ayır <span class="ke-ipucu">her gün bu kadar enerji harcanmaz · <b>sabit: 0</b> · örn. 15 → 115\'in 100\'ü · atölye/odun/tarla/ases bakmaz · "iptal" = 0</span></div>' +
+      '<input id="ke-enerji" class="ke-sayi" type="number" min="0" max="130" inputmode="numeric" placeholder="örn. 15" list="dl-enerji-ayir" value="' + K(al.enerji) + '"></div></details>' +
+      // 🔋 [30.10.2026 akşam] ders turu eşiği · hoca günü maden saati · odun verim hedefi (boş = dokunma)
+      '<details class="ke-bolum" data-bolum="enerji"' + acik("enerji", false) + '><summary>🔋 Ders · hoca · odun <span class="ke-ipucu">sabit: ders saate göre 2/1 tur, sonra ders dinle · hoca 12 saat maden · odun 3 tomruk</span></summary>' +
+      '<div class="ke-secim"><div class="ke-secim-baslik">🎓 Ders sayısı <span class="ke-ipucu">günde kaç kere bireysel ders çalışsın · her tur 10 saat · 50 enerji · <b>sabit: saate göre 2 ya da 1</b></span></div>' +
+      keSecimKutusu("ke-derssayi", al.derssayi, [["", "— dokunma —"], ["1", "1 tur (50 enerji)"], ["2", "2 tur (100 enerji)"],
+        ["iptal", "iptal — sabite dön"]]) + "</div>" +
+      '<div class="ke-secim"><div class="ke-secim-baslik">🎓 Dersten sonra <span class="ke-ipucu">kalan enerjiyle ne yapılsın · <b>sabit: medresede ders varsa dinle, yoksa maden/cami</b> · +5 dinlenme her zaman basılır</span></div>' +
+      keSecimKutusu("ke-derssonra", al.derssonra, [["", "— dokunma —"], ["ders dinle", "ders dinle"], ["maden", "maden"], ["eaü", "EAÜ"],
+        ["maden/eaü", "maden, yoksa EAÜ"], ["cami", "cami"], ["ot", "şifalı ot"], ["yok", "hiçbir şey (enerji kalsın)"],
+        ["iptal", "iptal — sabite dön"]]) + "</div>" +
+      '<div class="ke-secim"><div class="ke-secim-baslik">⛏️ Hoca madeni <span class="ke-ipucu">ders vermeden önce kaç saat maden · <b>sabit: 12</b> · 20 saat olmaz (ders vermeye enerji kalmaz)</span></div>' +
+      keSecimKutusu("ke-hoca", al.hoca, [["", "— dokunma —"], ["0", "0 — madene girmeden ders"], ["1", "1 saat"], ["2", "2 saat"],
+        ["6", "6 saat"], ["12", "12 saat — sabit"], ["iptal", "iptal — sabite dön"]]) + "</div>" +
+      '<div class="ke-secim"><div class="ke-secim-baslik">🌲 Odun verimi <span class="ke-ipucu">hücrede en az bu kadar tomruk → kes, yoksa yeniden keşif · <b>sabit: 3</b> · 1-20 · "iptal" = 3</span></div>' +
+      '<input id="ke-odunv" class="ke-sayi" type="number" min="1" max="20" inputmode="numeric" placeholder="örn. 4" list="dl-odun-verim" value="' + K(al.odunv) + '"></div></details>' +
+      '<details class="ke-bolum" data-bolum="yetenek"' + acik("yetenek", false) + '><summary>🌳 Yetenek sırası <span class="ke-ipucu">dalların sırası; yazılmayan dallar bugünkü sırayla ardından</span></summary>' +
+      '<div class="ke-cipler">' + KE_DALLAR.map(function (d) {
+        var sira = (al.yetenek && al.yetenek !== "iptal") ? al.yetenek.indexOf(d) : -1;
+        return cip('data-ke="yet" data-v="' + K(d) + '"', (sira >= 0 ? '<b class="ke-no">' + (sira + 1) + "</b> " : "") + K(d), sira >= 0);
+      }).join("") + cip('data-ke="yet-temizle"', "↔️ Dokunma", al.yetenek === null) +
+      cip('data-ke="yet-iptal"', "🔄 Bugünkü", al.yetenek === "iptal") + "</div>" +
+      secimSatiri("yetenekgir", "🌳 Ağaca şimdi gir", "puan birikmesini beklemeden bir kez; sıra yazılınca da kendiliğinden") +
+      "</details>" +
+      '<details class="ke-bolum" data-bolum="mod"' + acik("mod", false) + '><summary>⚙️ Mod ve launcher tikleri <span class="ke-ipucu">takip modu · işçi ilanı · puan · inziva · ders · odun · giysi</span></summary>' +
+      secimSatiri("takip", "🎚️ Mod", "hızlı modlar dahil") + secimSatiri("isci", "👷 İşçi ilanı", "") +
+      secimSatiri("puan", "⭐ Puan üretme", "") + secimSatiri("inziva", "🕌 İnziva", "") +
+      secimSatiri("ders", "🎓 Ders alanı", "\"Ders dinle\" işi için") + secimSatiri("orman", "🌲 Odun ayarı", "odun kasabasında maden/camiden önce") +
+      secimSatiri("giysi", "👕 Giysi ağı", "") + secimSatiri("oyhazirla", "🗳️ Oy hakkı", "ev + Vatandaş → Kasaba Seçmeni") +
+      secimSatiri("teshis", "🩺 Teşhis", "") + "</details>" +
+      '<label class="ke-iptal"><input type="checkbox" data-ke="plan-iptal"' + (al.planIptal ? " checked" : "") +
+      "> 🗑️ Önce bu hesapların bütün planını sıfırla (yukarıda seçtiklerin yine yazılır)</label>" +
+      (KE.durumYazi ? '<p class="ke-hata">' + K(KE.durumYazi) + "</p>" : "") +
+      '<div class="ke-alt">' + cip('data-ke="git" data-adim="2"', "← Geri (kimler)", false) +
+      cip('data-ke="ileri"', "İleri: gönder →", false, "", "ke-ana") + "</div>";
+    var cami = document.getElementById("ke-cami");
+    if (cami) cami.addEventListener("input", function () { KE.al.cami = cami.value.trim(); });
+    var itb = document.getElementById("ke-itibar");
+    if (itb) itb.addEventListener("input", function () { KE.al.itibar = itb.value.trim(); });
+    var enr = document.getElementById("ke-enerji");
+    if (enr) enr.addEventListener("input", function () { KE.al.enerji = enr.value.trim(); });
+    var dsy = document.getElementById("ke-derssayi");
+    if (dsy) dsy.addEventListener("change", function () { KE.al.derssayi = dsy.value; });
+    var dso = document.getElementById("ke-derssonra");
+    if (dso) dso.addEventListener("change", function () { KE.al.derssonra = dso.value; });
+    var hoc = document.getElementById("ke-hoca");
+    if (hoc) hoc.addEventListener("change", function () { KE.al.hoca = hoc.value; });
+    var odv = document.getElementById("ke-odunv");
+    if (odv) odv.addEventListener("input", function () { KE.al.odunv = odv.value.trim(); });
+    el.querySelectorAll("details[data-bolum]").forEach(function (d) {
+      d.addEventListener("toggle", function () { KE.acik[d.getAttribute("data-bolum")] = d.open; });
+    });
+  }
+
+  // ---------- ④ ----------
+  function grupOzeti(g) {
+    return g.satirlar.map(function (s) { return "<b>" + K(s[0]) + "</b>: " + K(s[1]); }).join(" · ");
+  }
+  function keS4() {
+    var el = document.getElementById("ke-s4");
+    if (!el) return;
+    KE.mesaj = keMesajKur(KE.gruplar);
+    var n = (KE.mesaj || "").length;
+    el.innerHTML =
+      '<p class="ke-giris">Hazır. <span class="ke-ipucu">Başka hesaplara başka iş vermek için grup ekle — hepsi <b>tek mesaj</b> olur. ' +
+      "Kopyala → Telegram'da <b>⚙️ Ayar Emirleri</b> konusuna yapıştır. Bot her grubu ayrı onaylar.</span></p>" +
+      '<div class="ke-gruplar">' + KE.gruplar.map(function (g, i) {
+        return '<div class="ke-grup"><div class="ke-grup-baslik">Grup ' + (i + 1) + " · " + K(g.baslik) +
+          '<span class="ke-grup-dugme">' + cip('data-ke="grup-duzen" data-i="' + i + '"', "✏️ Düzenle", false) +
+          cip('data-ke="grup-sil" data-i="' + i + '"', "🗑️ Sil", false) + "</span></div>" +
+          '<div class="ke-grup-hesap">👥 ' + K(g.hesaplar.join(", ")) + '</div><div class="ke-grup-ozet">' + grupOzeti(g) + "</div></div>";
+      }).join("") + "</div>" +
+      '<div class="ke-cipler">' + cip('data-ke="grup-ekle"', "➕ Başka hesaplara başka iş (yeni grup)", false) +
+      cip('data-ke="hepsi-temizle"', "🧹 Hepsini temizle", false) + "</div>" +
+      '<pre class="ke-mesaj" id="ke-mesaj">' + K(KE.mesaj || "Henüz grup yok.") + "</pre>" +
+      '<p class="ke-ipucu">' + n.toLocaleString("tr-TR") + " / 4.096 karakter" + (n > 4096 ? " — tek mesaja SIĞMAZ: 📄 .txt indir, dosyayı gruba at." : "") + "</p>" +
+      '<div class="ke-alt">' + cip('data-ke="git" data-adim="3"', "← Geri", false) +
+      cip('data-ke="kopyala"', "📋 Kopyala (Telegram'a yapıştır)", false, KE.mesaj ? "" : " disabled", "ke-ana") +
+      cip('data-ke="txt"', "📄 .txt indir", false, KE.mesaj ? "" : " disabled") + "</div>" +
+      (KE.durumYazi ? '<p class="ke-not">' + K(KE.durumYazi) + "</p>" : "");
+  }
+
+  // ---------- AKIŞ ----------
+  function keCiz() {
+    document.querySelectorAll("#ke-adimlar li").forEach(function (li) {
+      var a = +li.getAttribute("data-adim");
+      li.classList.toggle("aktif", a === KE.adim);
+      li.classList.toggle("bitti", a < KE.adim);
+    });
+    var sahne = document.getElementById("ke-sahne");
+    if (sahne) { sahne.classList.remove("ke-ileri", "ke-geri"); void sahne.offsetWidth; sahne.classList.add("ke-" + KE.yon); }
+    document.querySelectorAll("#ke-sahne .ke-sayfa").forEach(function (s) {
+      s.classList.toggle("aktif", +s.getAttribute("data-sayfa") === KE.adim);
+    });
+    [keS1, keS2, keS3, keS4][KE.adim - 1]();
+  }
+  function git(adim) {
+    KE.yon = adim >= KE.adim ? "ileri" : "geri";
+    KE.adim = adim;
+    keCiz();
+    var kutu = document.getElementById("ke-kutu");
+    if (kutu && kutu.scrollIntoView) { try { kutu.scrollIntoView({ block: "start", behavior: "smooth" }); } catch (e) {} }
+  }
+  function grubuKaydet() {
+    var sec = seciliHesaplar();
+    var satirlar = keGrupSatirlari(KE.al);
+    if (!sec.length) { KE.durumYazi = "Önce hesap seç (② Kime?)."; return false; }
+    if (!satirlar.length) { KE.durumYazi = "Hiçbir şey seçmedin — en az bir konuya dokun."; return false; }
+    // 🔋 [30.10.2026] sayı alanları: itibar 255'in üstüne çıkamaz (oyunun tavanı) · enerji en fazla 130
+    function _sayiMi(v, ust) { v = String(v || "").trim(); return !v || /^iptal$/i.test(v) || (/^\d{1,3}$/.test(v) && +v <= ust); }
+    if (!_sayiMi(KE.al.itibar, 255)) { KE.durumYazi = "Cami itibarı 0-255 arası olmalı (255'in üstü yok — oyunun tavanı)."; return false; }
+    if (!_sayiMi(KE.al.enerji, 130)) { KE.durumYazi = "Enerji ayır 0-130 arası olmalı."; return false; }
+    // 🔋 [30.10.2026 akşam] ders sayısı 1·2 · hoca madeni 0·1·2·6·12 · odun verimi 1-20
+    if (KE.al.derssayi && !/^(1|2|iptal)$/i.test(String(KE.al.derssayi))) {
+      KE.durumYazi = "Ders sayısı 1 ya da 2 olmalı."; return false; }
+    if (KE.al.hoca && !/^(0|1|2|6|12|iptal)$/i.test(String(KE.al.hoca))) {
+      KE.durumYazi = "Hoca madeni 0 · 1 · 2 · 6 · 12 saat olmalı."; return false; }
+    var _odv = String(KE.al.odunv || "").trim();
+    if (_odv && !/^iptal$/i.test(_odv) && !(/^\d{1,2}$/.test(_odv) && +_odv >= 1 && +_odv <= 20)) {
+      KE.durumYazi = "Odun verimi 1-20 arası olmalı."; return false; }
+    var g = { hesaplar: sec.map(function (h) { return h.ad; }), satirlar: satirlar, baslik: grupBasligi(sec),
+              secili: JSON.parse(JSON.stringify(KE.secili)), al: JSON.parse(JSON.stringify(KE.al)) };
+    if (KE.duzenlenen >= 0 && KE.duzenlenen < KE.gruplar.length) KE.gruplar[KE.duzenlenen] = g;
+    else KE.gruplar.push(g);
+    KE.duzenlenen = -1;
+    KE.durumYazi = "";
+    return true;
+  }
+  function sirala(liste, v) {
+    var l = Array.isArray(liste) ? liste.slice() : [];
+    var i = l.indexOf(v);
+    if (i >= 0) l.splice(i, 1); else l.push(v);
+    return l.length ? l : null;
+  }
+  function klasikAc(tur, odak) {
+    modu("klasik");
+    var b = document.querySelector('.emir-tur-btn[data-tur="' + tur + '"]');
+    if (b) b.click();
+    setTimeout(function () {
+      var f = document.getElementById(odak || ("emir-form-" + tur));
+      if (f && f.scrollIntoView) { try { f.scrollIntoView({ block: "center", behavior: "smooth" }); } catch (e) {} }
+      if (odak && f && f.focus) { try { f.focus(); } catch (e2) {} }
+    }, 80);
+  }
+  function modu(mod) {
+    var sec = document.getElementById("tab-emir");
+    if (!sec) return;
+    sec.classList.toggle("ke-kolay-acik", mod === "kolay");
+    document.querySelectorAll(".ke-mod-btn").forEach(function (b) {
+      b.classList.toggle("aktif", b.getAttribute("data-ke-mod") === mod);
+    });
+    try { localStorage.setItem("poseidon_emir_modu", mod); } catch (e) {}
+    if (mod === "kolay") keCiz();
+  }
+  function txtIndir(metin) {
+    try {
+      var kutu = new Blob([String.fromCharCode(0xFEFF) + metin], { type: "text/plain;charset=utf-8" });
+      var adres = URL.createObjectURL(kutu);
+      var a = document.createElement("a");
+      var g = new Date();
+      var iki = function (x) { return (x < 10 ? "0" : "") + x; };
+      a.href = adres;
+      a.download = "gorev_listesi_" + g.getFullYear() + "-" + iki(g.getMonth() + 1) + "-" + iki(g.getDate()) + ".txt";
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      setTimeout(function () { URL.revokeObjectURL(adres); }, 1000);
+    } catch (e) {}
+  }
+
+  function tikla(e) {
+    var b = e.target.closest ? e.target.closest("[data-ke]") : null;
+    if (!b || b.disabled) return;
+    var t = b.getAttribute("data-ke"), v = b.getAttribute("data-v");
+    var hs;
+    if (t === "eylem") {
+      var kart = null;
+      KE_KARTLAR.forEach(function (k) { if (k.id === b.getAttribute("data-kart")) kart = k; });
+      var ey = kart && kart.eylemler[+b.getAttribute("data-i")];
+      if (!ey) return;
+      if (ey.duzen) {
+        if (KE.duzenlenen < 0) { KE.secili = {}; KE.al = bosAlan(); }
+        if (ey.hazir) Object.keys(ey.hazir).forEach(function (a) { KE.al[a] = ey.hazir[a]; });
+        KE.durumYazi = "";
+        git(2);
+      } else {
+        klasikAc(ey.tur, ey.odak);
+      }
+      return;
+    }
+    if (t === "git") { KE.durumYazi = ""; git(+b.getAttribute("data-adim")); return; }
+    if (t === "ileri") {
+      if (KE.adim === 2) { if (seciliHesaplar().length) { KE.durumYazi = ""; git(3); } return; }
+      if (KE.adim === 3) { if (grubuKaydet()) git(4); else keS3(); return; }
+      return;
+    }
+    if (t === "kart-ac") { e.preventDefault(); if (window.hesapKartiAc) window.hesapKartiAc(b.getAttribute("data-ad")); return; }
+    if (t === "sec-kasaba" || t === "sec-meslek" || t === "sec-mod") {
+      var alan = { "sec-kasaba": "kasaba", "sec-meslek": "meslek", "sec-mod": "takip" }[t];
+      hs = keHesaplar().filter(function (h) { return h[alan] === v; });
+      var hepsi = hs.length && hs.every(function (h) { return KE.secili[h.k]; });
+      hs.forEach(function (h) { if (hepsi) delete KE.secili[h.k]; else KE.secili[h.k] = true; });
+      keS2(); return;
+    }
+    if (t === "sec-sinif") {
+      hs = keHesaplar().filter(function (h) { return kasabaSinifi(h.kasaba) === v; });
+      var hepsi2 = hs.length && hs.every(function (h) { return KE.secili[h.k]; });
+      hs.forEach(function (h) { if (hepsi2) delete KE.secili[h.k]; else KE.secili[h.k] = true; });
+      keS2(); return;
+    }
+    if (t === "sec-gorunen") {
+      var ara = anahtar(KE.arama);
+      keHesaplar().forEach(function (h) {
+        if (!ara || h.k.indexOf(ara) >= 0 || anahtar(h.kasaba).indexOf(ara) >= 0) KE.secili[h.k] = true;
+      });
+      keS2(); return;
+    }
+    if (t === "sec-hicbiri") { KE.secili = {}; keS2(); return; }
+    if (t === "is") {
+      var l = (KE.al.is && KE.al.is !== "iptal") ? KE.al.is : [];
+      if (v === "yok") l = (l.indexOf("yok") >= 0) ? [] : ["yok"];
+      else { l = l.filter(function (x) { return x !== "yok"; }); l = sirala(l, v) || []; }
+      KE.al.is = l.length ? l : null;
+      keS3(); return;
+    }
+    if (t === "is-temizle") { KE.al.is = null; keS3(); return; }
+    if (t === "is-iptal") { KE.al.is = KE.al.is === "iptal" ? null : "iptal"; keS3(); return; }
+    if (t === "urun") { KE.al.urun = sirala(KE.al.urun === "iptal" ? [] : KE.al.urun, v); keS3(); return; }
+    if (t === "urun-temizle") { KE.al.urun = null; keS3(); return; }
+    if (t === "urun-iptal") { KE.al.urun = KE.al.urun === "iptal" ? null : "iptal"; keS3(); return; }
+    if (t === "yet") { KE.al.yetenek = sirala(KE.al.yetenek === "iptal" ? [] : KE.al.yetenek, v); keS3(); return; }
+    if (t === "yet-temizle") { KE.al.yetenek = null; keS3(); return; }
+    if (t === "yet-iptal") { KE.al.yetenek = KE.al.yetenek === "iptal" ? null : "iptal"; keS3(); return; }
+    if (t === "secim") {
+      var a2 = b.getAttribute("data-alan");
+      KE.al[a2] = (KE.al[a2] === v) ? "" : v;
+      keS3(); return;
+    }
+    if (t === "grup-ekle") { KE.secili = {}; KE.al = bosAlan(); KE.duzenlenen = -1; KE.durumYazi = ""; git(2); return; }
+    if (t === "grup-sil") { KE.gruplar.splice(+b.getAttribute("data-i"), 1); keS4(); return; }
+    if (t === "grup-duzen") {
+      var g = KE.gruplar[+b.getAttribute("data-i")];
+      if (!g) return;
+      KE.secili = JSON.parse(JSON.stringify(g.secili || {}));
+      KE.al = JSON.parse(JSON.stringify(g.al || bosAlan()));
+      KE.duzenlenen = +b.getAttribute("data-i");
+      git(2); return;
+    }
+    if (t === "hepsi-temizle") { KE.gruplar = []; KE.secili = {}; KE.al = bosAlan(); KE.duzenlenen = -1; git(1); return; }
+    if (t === "kopyala") {
+      var m = KE.mesaj;
+      if (typeof emirPanoyaYaz === "function") {
+        emirPanoyaYaz(m).then(function (ok) {
+          KE.durumYazi = ok ? "✅ Kopyalandı — Telegram'da ⚙️ Ayar Emirleri konusuna yapıştır." : "⚠️ Kopyalanamadı — kutudaki metni elle seç.";
+          keS4();
+        });
+      }
+      return;
+    }
+    if (t === "txt") { txtIndir(KE.mesaj); return; }
+  }
+  function degisti(e) {
+    var b = e.target;
+    if (!b || !b.getAttribute) return;
+    var t = b.getAttribute("data-ke");
+    if (t === "hesap") {
+      var k = b.getAttribute("data-ad");
+      if (b.checked) KE.secili[k] = true; else delete KE.secili[k];
+      keS2(); return;
+    }
+    if (t === "plan-iptal") { KE.al.planIptal = !!b.checked; return; }
+  }
+
+  function baslat() {
+    var kutu = document.getElementById("ke-kutu");
+    if (!kutu) return;
+    kutu.addEventListener("click", tikla);
+    kutu.addEventListener("change", degisti);
+    document.querySelectorAll(".ke-mod-btn").forEach(function (b) {
+      b.addEventListener("click", function () { modu(b.getAttribute("data-ke-mod")); });
+    });
+    // Eski bir form düğmesine (asistan ya da elle) basılınca klasik görünüme geçilir — form görünsün.
+    document.addEventListener("click", function (e) {
+      var b = e.target.closest ? e.target.closest(".emir-tur-btn") : null;
+      if (b) {
+        var sec = document.getElementById("tab-emir");
+        if (sec && sec.classList.contains("ke-kolay-acik")) modu("klasik");
+      }
+    }, true);
+    var kayitli = "";
+    try { kayitli = localStorage.getItem("poseidon_emir_modu") || ""; } catch (e) {}
+    modu(kayitli === "klasik" ? "klasik" : "kolay");
+  }
+
+  // Testler / konsol için saf yardımcılar.
+  window.kolayEmir = { mesajKur: keMesajKur, grupSatirlari: keGrupSatirlari, isYazisi: keIsYazisi,
+                       bosAlan: bosAlan, KARTLAR: KE_KARTLAR, ISLER: KE_ISLER, URUNLER: KE_URUNLER,
+                       SECIM: KE_SECIM, DALLAR: KE_DALLAR, durum: KE, ciz: function () { keCiz(); } };
+  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", baslat);
+  else baslat();
+})();
+
+/* =========================================================
+   💡 ÖRNEKLER + ✍️ OTOMATİK DOLDURMA ÖNERİLERİ (30.10.2026)
+   Kullanıcı: "her emir sekmesinde kolay yazım için örnekler ver otomatik doldurma önerileri filan
+   vermeyi unutma" + "sabit değişken yanında not olarak yazabilir".
+   → Her emir sekmesinin başına "💡 Örnekler" satırı: düğmeye basınca formun kutuları o örnekle
+     DOLAR, mesaj önizlemesi kendiliğinden güncellenir. ⚠️ HESAP kutusuna DOKUNULMAZ (kimin
+     yapacağını sen seçersin) · ⚙️ Sistem sekmesinde düğme YOK (bütün hesapları etkiler — örnekler
+     yalnızca yazı olarak). Göndermek yine senin elinde (site Telegram'a kendisi yazamaz).
+   → Öneri listesi olmayan kutulara liste (datalist) bağlanır: adet · kişi adı · ot · kasaba ·
+     ordu · iş sırası · ürün · yetenek dalı · "Kasaba=Hesap".
+   Değerler botun kabul ettikleriyle BİREBİR (testler/test_emir_ornekleri.py botun çözücüsüne verir).
+   ========================================================= */
+(function () {
+  var ORNEKLER = {
+    sat: [
+      { ad: "🌿 Bütün otlar → Partal (en yüksek)", alan: { "sat-mal": "tüm otlar", "sat-tumu": true, "sat-fiyat-mod": "en yüksek", "sat-alici": "Partal" } },
+      { ad: "⚔️ 5 Kılıç, en düşükten, herkese", alan: { "sat-mal": "Kılıç", "sat-tumu": false, "sat-adet": "5", "sat-fiyat-mod": "en düşük", "sat-alici": "" } },
+      { ad: "🟣 Mor Boya hepsi → Richard12", alan: { "sat-mal": "Mor Boya", "sat-tumu": true, "sat-fiyat-mod": "en düşük", "sat-alici": "Richard12" } }
+    ],
+    al: [
+      { ad: "🌾 50 Çuval Mısır (en çok 400 akçe)", alan: { "al-mal": "Çuval Mısır", "al-adet": "50", "al-azami": "400" } },
+      { ad: "🔪 2 Bıçak", alan: { "al-mal": "Bıçak", "al-adet": "2", "al-azami": "" } }
+    ],
+    gemi: [ { ad: "⛵ Kaptanın ilanındaki gemi (en çok 12.000)", alan: { "gm-kaptan": "seldomseen", "gm-azami": "12000", "gm-gemi": "" } } ],
+    mesaj: [ { ad: "✉️ Kısa selam", alan: { "ms-kime": "tedy_macalpine", "ms-konu": "Selam", "ms-metin": "Merhaba, müsait olunca yazar mısın?" } } ],
+    forum: [ { ad: "📣 Konuya kısa cevap", alan: { "fr-mesaj": "Katılıyorum, destekliyoruz." } } ],
+    aile: [ { ad: "👪 İki kişiyi kabul", alan: { "ak-adlar": "kisi1, kisi2" } } ],
+    ailebasvur: [ { ad: "📝 Selçuklu Ailesi'ne (akçesiz)", alan: { "ab-aile": "Selçuklu Ailesi", "ab-akce": "0" } } ],
+    muayene: [
+      { ad: "⚗️ 1 basit iksir (Lavanta)", alan: { "mu-tur": "iksir", "mu-ot": "Lavanta filizi", "mu-adet": "1" } },
+      { ad: "🩺 Muayene günü (2,50 · 10 · 4 kişi)", alan: { "mu-tur": "muayene", "mu-basit": "2,50", "mu-kapsamli": "10", "mu-azami": "4" } },
+      { ad: "🏥 Muayenehane al", alan: { "mu-tur": "al" } }
+    ],
+    tarlacevir: [
+      { ad: "🌽 1. tarla → Mısır (hasat bitince)", alan: { "tc-tarla": "1", "tc-tur": "Mısır", "tc-hasat": "bitince" } },
+      { ad: "🐑 Bütün tarlalar → Koç", alan: { "tc-tarla": "hepsi", "tc-tur": "Koç", "tc-hasat": "bitince" } }
+    ],
+    oy: [ { ad: "🗳️ Stirling belediyesi → madcypriot (3 güne yay)", alan: { "oy-secim": "belediye", "oy-yer": "Stirling", "oy-aday": "madcypriot", "oy-gun": "3" } } ],
+    ordukatil: [ { ad: "🪖 The Excelsior (enerji otomatik)", alan: { "ok-ordu": "The Excelsior", "ok-enerji": "otomatik" } } ],
+    yanasma: [ { ad: "⚓ seldomseen'in gemisine izin", alan: { "ya-armator": "seldomseen" } } ],
+    profil: [ { ad: "🎭 Doğum günü + yaş + durum", alan: { "pr-dogum": "20/03", "pr-yas": "34", "pr-cinsiyet": "erkek", "pr-durum": "Denizler beni çağırıyor…" } } ],
+    guven: [ { ad: "🤝 Güven puanı ver", alan: { "gv-hedef": "pontiac_bandit", "gv-guven": true, "gv-renk": false } } ],
+    hesapekle: [ { ad: "⚡ Hızlı Maden olarak ekle", alan: { "he-takip": "Hızlı Maden" } } ],
+    ayar: [
+      { ad: "🌲 Oduncu: odun → maden/EAÜ, kalan ot", alan: { "ay-plan-is": "odun, maden, eaü", "ay-plan-kalan": "ot" } },
+      { ad: "🕌 Cami itibar 200'e kadar", alan: { "ay-plan-itibar": "200" } },
+      { ad: "🔋 100 enerji harcansın, 15 kalsın", alan: { "ay-plan-enerji": "15" } },
+      { ad: "🎓 1 tur ders, kalan enerjiyle maden", alan: { "ay-plan-ders-sayi": "1", "ay-plan-ders-sonra": "maden" } },
+      { ad: "⛏️ Hoca 6 saat maden, sonra ders", alan: { "ay-plan-hoca": "6" } },
+      { ad: "🌲 Odun: 4 tomruk ve üstü", alan: { "ay-plan-odun": "4" } },
+      { ad: "⚔️ Demirci Kılıç, Terzi Kalkan", alan: { "ay-plan-urun": "Kılıç, Kalkan" } },
+      { ad: "🌳 Önce Ziraat + şimdi gir", alan: { "ay-plan-yetenek": "ziraat, siyaset", "ay-yetenek-gir": "evet" } },
+      { ad: "🛡️ Ases + kalan cami", alan: { "ay-plan-is": "cami, maden, eaü", "ay-ases": "açık" } }
+    ]
+  };
+  // Düğmesiz, yalnızca yazı örnekleri (bütün hesapları etkileyen / dinamik seçimli sekmeler).
+  var YAZI_ORNEKLERI = {
+    sistem: ["fırıncılar ekle: Stirling=Beannighe", "hurda ot kasabaları: Whithorn, Wigtown", "ot satış günü: pazartesi",
+             "giysi tavanı: 150 (sabit 150)", "odun alıcıları ekle: Glasgow=Renegrade"],
+    odenek: ["kişi: Tar_aldarion · sancak ve veren nazır listeden seçilir"],
+    divan: ["her satıra bir hesap: Hesap1 ↵ Hesap2"],
+    posta: ["yalnızca hesap seç — bot girip posta kutusuna bakar, yeni mesajı Telegram'a yazar"]
+  };
+
+  function $(id) { return document.getElementById(id); }
+  function K(m) { return (typeof emirKacis === "function") ? emirKacis(m) : String(m == null ? "" : m); }
+
+  // ---------- örnek doldurma ----------
+  function doldur(tur, i) {
+    var ornek = (ORNEKLER[tur] || [])[i];
+    if (!ornek) return 0;
+    var n = 0;
+    Object.keys(ornek.alan).forEach(function (id) {
+      var el = $(id);
+      if (!el || /-hesap$/.test(id) || /sifre/.test(id)) return;     // ⚠️ hesap / şifre kutusuna DOKUNULMAZ
+      var v = ornek.alan[id];
+      if (el.type === "checkbox") el.checked = !!v;
+      else el.value = (v === true ? "evet" : String(v));
+      try { el.dispatchEvent(new Event("input", { bubbles: true })); } catch (e) {}
+      try { el.dispatchEvent(new Event("change", { bubbles: true })); } catch (e) {}
+      n++;
+    });
+    try { if (typeof emirGuncelle === "function") emirGuncelle(); } catch (e) {}
+    return n;
+  }
+
+  function ornekSatiri(tur) {
+    var liste = ORNEKLER[tur] || [], yazilar = YAZI_ORNEKLERI[tur] || [];
+    if (!liste.length && !yazilar.length) return "";
+    return '<div class="emir-ornek" data-tur="' + K(tur) + '"><span class="emir-ornek-baslik">💡 Örnekler' +
+      (liste.length ? ' <span class="emir-ornek-ipucu">(basınca kutular dolar · hesap kutusuna dokunulmaz)</span>' : "") +
+      "</span>" +
+      liste.map(function (o, i) {
+        return '<button type="button" class="emir-ornek-dugme" data-ornek-tur="' + K(tur) + '" data-ornek-no="' + i + '">' + K(o.ad) + "</button>";
+      }).join("") +
+      yazilar.map(function (y) { return '<code class="emir-ornek-yazi">' + K(y) + "</code>"; }).join("") + "</div>";
+  }
+
+  function ornekleriKur() {
+    Object.keys(ORNEKLER).concat(Object.keys(YAZI_ORNEKLERI)).forEach(function (tur) {
+      var form = $("emir-form-" + tur);
+      if (!form || form.querySelector(".emir-ornek")) return;
+      var kap = document.createElement("div");
+      kap.innerHTML = ornekSatiri(tur);
+      if (kap.firstChild) form.insertBefore(kap.firstChild, form.firstChild);
+    });
+    document.addEventListener("click", function (ev) {
+      var b = ev.target && ev.target.closest ? ev.target.closest(".emir-ornek-dugme") : null;
+      if (!b) return;
+      ev.preventDefault();
+      doldur(b.getAttribute("data-ornek-tur"), +b.getAttribute("data-ornek-no"));
+    });
+  }
+
+  // ---------- otomatik doldurma önerileri (datalist) ----------
+  var OTLAR = ["Anason Çiçeği", "Beyaz Söğüt Kabuğu", "Biberiye Filizi", "Gümüşdüğme Çiçeği", "Hodan Çiçeği",
+               "Ihlamur Yaprağı", "Kara Mürver Meyvesi", "Kekik Dalı", "Kereviz Dalı", "Kereviz Sapı",
+               "Lavanta Filizi", "Melekotu Filizi", "Mercanköşk Filizi", "Misket Limonu Yaprağı", "Nane Yaprağı",
+               "Öküzgözü Çiçeği", "Papatya Çiçeği", "Sarı Papatya Çiçeği"];
+  var KASABALAR = ["Glasgow", "Stirling", "Ardencaple", "Whithorn", "Wigtown", "Kirkcudbright", "Girvan"];
+  var IS_SIRALARI = ["cami, maden, eaü", "odun, maden, eaü", "ot, maden, eaü", "atölye, maden, eaü", "demir, maden, eaü",
+                     "ot, iksir", "maden, eaü", "ders", "yok", "iptal"];
+  var YETENEK_SIRALARI = ["ziraat, siyaset", "siyaset, ziraat", "iş, el becerisi", "el becerisi", "iptal"];
+
+  function datalist(id, degerler) {
+    var dl = $(id);
+    if (!dl) { dl = document.createElement("datalist"); dl.id = id; document.body.appendChild(dl); }
+    dl.innerHTML = degerler.map(function (d) {
+      var v = Array.isArray(d) ? d[0] : d, etiket = Array.isArray(d) ? d[1] : "";
+      return "<option value=\"" + K(v) + "\"" + (etiket ? " label=\"" + K(etiket) + "\"" : "") + "></option>";
+    }).join("");
+    return dl;
+  }
+  function bagla(idler, liste) {
+    idler.forEach(function (id) { var el = $(id); if (el && !el.getAttribute("list")) el.setAttribute("list", liste); });
+  }
+  function kisileriTazele() {
+    var gorulen = {}, adlar = [];
+    ["emir-hesap-listesi", "izleme-oneriler"].forEach(function (k) {
+      var dl = $(k);
+      if (!dl) return;
+      Array.prototype.forEach.call(dl.querySelectorAll("option"), function (o) {
+        var v = String(o.value || "").trim();
+        if (v && !gorulen[v.toLowerCase()]) { gorulen[v.toLowerCase()] = 1; adlar.push(v); }
+      });
+    });
+    datalist("dl-kisiler", adlar);
+  }
+  function onerileriKur() {
+    datalist("dl-adet", [["1", ""], ["5", ""], ["10", ""], ["50", ""], ["100", ""]]);
+    datalist("dl-otlar", OTLAR);
+    datalist("dl-is-sirasi", IS_SIRALARI.map(function (x) { return [x, x === "iptal" ? "bugünkü sıra" : ""]; }));
+    datalist("dl-yetenek-sirasi", YETENEK_SIRALARI.map(function (x) { return [x, x === "iptal" ? "bugünkü sıra" : ""]; }));
+    datalist("dl-kasaba-esle", KASABALAR.map(function (k) { return [k + "=", "Kasaba=Hesap"]; }));
+    var urunler = [];
+    try {
+      (window.kolayEmir && window.kolayEmir.URUNLER || []).forEach(function (m) {
+        (m[1] || []).forEach(function (u) { urunler.push([u, m[0]]); });
+      });
+    } catch (e) {}
+    datalist("dl-urun-plan", urunler);
+    kisileriTazele();
+    bagla(["sat-adet", "al-adet"], "dl-adet");
+    bagla(["mu-ot"], "dl-otlar");
+    datalist("dl-kasabalar", KASABALAR);
+    bagla(["oy-yer"], "dl-kasabalar");   // harita verisi yüklenmeden de dolu (7 İskoçya kasabası)
+    bagla(["ay-ordu"], "ok-ordu-listesi");
+    bagla(["ay-plan-is"], "dl-is-sirasi");
+    bagla(["ay-plan-urun"], "dl-urun-plan");
+    bagla(["ay-plan-yetenek"], "dl-yetenek-sirasi");
+    bagla(["si-odun-alici", "si-ot-alici", "si-firinci", "si-terzi", "si-alim-gozcu", "si-kasa"], "dl-kasaba-esle");
+    bagla(["si-ders"], "emir-hesap-listesi");
+    bagla(["ms-kime", "gv-hedef", "gm-kaptan", "ya-armator", "si-dusman", "si-izleme", "si-dost"], "dl-kisiler");
+    ["ms-kime", "gv-hedef", "gm-kaptan", "ya-armator", "si-dusman", "si-izleme", "si-dost"].forEach(function (id) {
+      var el = $(id);
+      if (el) el.addEventListener("focus", kisileriTazele);
+    });
+  }
+
+  function baslat() {
+    try { ornekleriKur(); } catch (e) {}
+    try { onerileriKur(); } catch (e) {}
+  }
+  window.emirOrnekleri = { ORNEKLER: ORNEKLER, YAZI_ORNEKLERI: YAZI_ORNEKLERI, doldur: doldur, OTLAR: OTLAR,
+                           IS_SIRALARI: IS_SIRALARI, YETENEK_SIRALARI: YETENEK_SIRALARI };
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", baslat);
   else baslat();
 })();
