@@ -1741,8 +1741,8 @@ if (window.L) L.RasterCoords.prototype = {
               Verilemeyen işi (enerji yok, para yok, o kasabada yok…) atlar, sıradakine geçer. Artan enerji
               "kalan enerji"ye gider.</li>
             <li><b>Enerji bedelleri:</b> madende 1 saat 5 enerji · cami 100 (20 saat) · odun 100 · tarla 100 · ders
-              çalışmak 50 (10 saat) · ders dinlemek 20 · ders vermek 40 · iksir 30. Bir karakterin günlük enerjisi
-              115'tir (yetenekle 130'a kadar çıkar).</li>
+              çalışmak 50 (10 saat) · ders dinlemek 20 · ders vermek 40 · iksir 30. Bir karakterin enerjisi
+              100'dür, yetenekle en fazla 115'e çıkar.</li>
             <li><b>+5 dinlenme</b> enerjisini bot <b>kendisi</b> basar (tarladan sonra, hurdadan önce, dersten
               sonra). Sana sorulmaz, bir şey yapmana gerek yok.</li>
             <li><b>Hızlı hesaplar</b> (⚡ hızlı maden / cami / ot) pazara ve eve uğramaz: yemek · meyhane · satış ·
@@ -1789,7 +1789,7 @@ if (window.L) L.RasterCoords.prototype = {
             <li><b>🕌 Cami parası</b>: camiye gitmek için hesapta en az bu kadar akçe olsun (sabit 200).</li>
             <li><b>🕌 Cami itibarı</b>: itibar bu sayıya gelene kadar camiye gider, sonra maden/EAÜ. Sabit 150 ·
               255 = itibar dolana kadar · 0 = hiç cami · 255'in üstü yok (oyunun tavanı).</li>
-            <li><b>🔋 Enerji ayır</b>: her gün bu kadar enerji harcanmaz (ör. 15 → 115'in 100'ü harcanır, 15 kalır).
+            <li><b>🔋 Enerji ayır</b>: her gün bu kadar enerji harcanmaz (ör. 15 → 100 enerjinin 85'i harcanır, 15 kalır).
               Atölye, odun, tarla ve ases buna bakmaz.</li>
             <li><b>🎓 Ders sayısı</b>: ders modundaki hesap günde kaç kere ders çalışsın: 1 (50 enerji) ya da 2 (100
               enerji). Sabit: saate göre 2 ya da 1 (20 saatlik çalışma günün bitimine sığmıyorsa 1).</li>
@@ -3082,7 +3082,7 @@ if (window.L) L.RasterCoords.prototype = {
           <label>🕌 Cami parası <span class="ay-ipucu">camiye gitmek için en az akçe · <b>sabit: 200</b> · "iptal" = 200</span>
             <input id="ay-plan-cami" inputmode="numeric" placeholder="örn. 50" autocomplete="off" list="dl-cami-para">
           </label>
-          <!-- 🔋 [30.10.2026] cami itibarı (0-255) · enerji ayır (0-130) — site_emirleri → plan_cami_itibar ·
+          <!-- 🔋 [30.10.2026] cami itibarı (0-255) · enerji ayır (0-115) — site_emirleri → plan_cami_itibar ·
                plan_enerji_ayir. Kullanıcı: "sabit kurallı enerji harcayanlar değişken olsun" + "255 üstünü
                yapamadığımız çıkamadığımız için onu hesaba katarak yap" + "sabit değişken yanında not olarak". -->
           <label>🕌 Cami itibarı <span class="ay-ipucu">hesap itibarı bu sayıya ulaşana kadar camiye gider ·
@@ -3092,9 +3092,9 @@ if (window.L) L.RasterCoords.prototype = {
                    placeholder="örn. 200" autocomplete="off" list="dl-itibar">
           </label>
           <label>🔋 Enerji ayır <span class="ay-ipucu">her gün bu kadar enerji HARCANMAZ (maden · EAÜ · ot · cami ·
-            kalan enerji) · <b>sabit: 0</b> (hepsi harcanır) · örn. 15 → 115'in 100'ü harcanır · atölye, odun,
-            tarla, ases bakmaz · en fazla 130 · "iptal" = 0</span>
-            <input id="ay-plan-enerji" type="number" min="0" max="130" step="1" inputmode="numeric"
+            kalan enerji) · <b>sabit: 0</b> (hepsi harcanır) · örn. 15 → 100 enerjinin 85'i harcanır · atölye, odun,
+            tarla, ases bakmaz · en fazla 115 (enerji 100, yetenekle 115) · "iptal" = 0</span>
+            <input id="ay-plan-enerji" type="number" min="0" max="115" step="1" inputmode="numeric"
                    placeholder="örn. 15" autocomplete="off" list="dl-enerji-ayir">
           </label>
           <!-- 🔋 [30.10.2026 akşam] ders sayısı (1 · 2 tur) · dersten sonra · hoca madeni (0·1·2·6·12 saat) · odun
@@ -3149,7 +3149,7 @@ if (window.L) L.RasterCoords.prototype = {
           <datalist id="dl-itibar"><option value="150">sabit</option><option value="255">itibar dolana kadar</option>
             <option value="200"></option><option value="100"></option><option value="0">hiç cami</option></datalist>
           <datalist id="dl-enerji-ayir"><option value="0">sabit — hepsi harcanır</option><option value="5"></option>
-            <option value="15">115'in 100'ü harcanır</option><option value="20"></option><option value="30"></option></datalist>
+            <option value="15">100 enerjinin 85'i harcanır</option><option value="20"></option><option value="30"></option></datalist>
           <label>💰 Satış
             <select id="ay-plan-satis">
               <option value="">— değiştirme —</option>
