@@ -2390,13 +2390,13 @@ function ayMesajiKur() {
   ekle("iş sırası", _planIs);
   ekle("kalan enerji", emirDeger("ay-plan-kalan"));
   ekle("cami parası", _planCami);
-  // 🔋 [30.10.2026] cami itibarı (0-255, 255'in üstü YOK — oyunun tavanı) · enerji ayır (0-130)
+  // 🔋 [30.10.2026] cami itibarı (0-255, 255'in üstü YOK — oyunun tavanı) · enerji ayır (0-115)
   var _planItibar = String(emirDeger("ay-plan-itibar") || "").trim();
   if (_planItibar && !(/^iptal$/i.test(_planItibar) || (/^\d{1,3}$/.test(_planItibar) && +_planItibar <= 255)))
     return { hata: "Cami itibarı 0 ile 255 arasında bir sayı olmalı (255'in üstü yok — oyunun tavanı) ya da “iptal”" };
   var _planEnerji = String(emirDeger("ay-plan-enerji") || "").trim();
-  if (_planEnerji && !(/^iptal$/i.test(_planEnerji) || (/^\d{1,3}$/.test(_planEnerji) && +_planEnerji <= 130)))
-    return { hata: "Enerji ayır 0 ile 130 arasında bir sayı olmalı ya da “iptal”" };
+  if (_planEnerji && !(/^iptal$/i.test(_planEnerji) || (/^\d{1,3}$/.test(_planEnerji) && +_planEnerji <= 115)))
+    return { hata: "Enerji ayır 0 ile 115 arasında bir sayı olmalı ya da “iptal” (enerji 100, yetenekle en fazla 115)" };
   ekle("cami itibarı", _planItibar);
   ekle("enerji ayır", _planEnerji);
   // 🔋 [30.10.2026 akşam] ders sayısı (1 · 2 tur) · dersten sonra (kalan enerji) · hoca madeni
@@ -3660,7 +3660,7 @@ async function emirIptalEt(kodlar, ozet) {
     else if (al.urun && al.urun.length) e("öncelikli ürün", al.urun.join(", "));
     e("cami parası", String(al.cami || "").trim());
     e("cami itibarı", String(al.itibar || "").trim());     // 🔋 [30.10.2026] 0-255
-    e("enerji ayır", String(al.enerji || "").trim());      // 🔋 [30.10.2026] 0-130
+    e("enerji ayır", String(al.enerji || "").trim());      // 🔋 [30.10.2026] 0-115
     e("ders sayısı", String(al.derssayi || "").trim());    // 🎓 [30.10 akşam] 1 · 2 tur · sabit saate göre
     e("dersten sonra", String(al.derssonra || "").trim()); // 🎓 [30.10 akşam] kalan enerji · sabit ders dinle
     e("hoca madeni", String(al.hoca || "").trim());        // 🔋 [30.10 akşam] 0·1·2·6·12 saat · sabit 12
@@ -3930,8 +3930,8 @@ async function emirIptalEt(kodlar, ozet) {
       '<input id="ke-cami" class="ke-sayi" inputmode="numeric" placeholder="örn. 50" list="dl-cami-para" value="' + K(al.cami) + '"></div>' +
       '<div class="ke-secim"><div class="ke-secim-baslik">🕌 Cami itibarı <span class="ke-ipucu">itibar bu sayıya ulaşana kadar cami · <b>sabit: 150</b> · 255 = itibar dolana kadar · 0 = hiç cami · en fazla 255 (oyunun tavanı) · "iptal" = 150</span></div>' +
       '<input id="ke-itibar" class="ke-sayi" type="number" min="0" max="255" inputmode="numeric" placeholder="örn. 200" list="dl-itibar" value="' + K(al.itibar) + '"></div>' +
-      '<div class="ke-secim"><div class="ke-secim-baslik">🔋 Enerji ayır <span class="ke-ipucu">her gün bu kadar enerji harcanmaz · <b>sabit: 0</b> · örn. 15 → 115\'in 100\'ü · atölye/odun/tarla/ases bakmaz · "iptal" = 0</span></div>' +
-      '<input id="ke-enerji" class="ke-sayi" type="number" min="0" max="130" inputmode="numeric" placeholder="örn. 15" list="dl-enerji-ayir" value="' + K(al.enerji) + '"></div></details>' +
+      '<div class="ke-secim"><div class="ke-secim-baslik">🔋 Enerji ayır <span class="ke-ipucu">her gün bu kadar enerji harcanmaz · <b>sabit: 0</b> · örn. 15 → 100 enerjinin 85\'i · atölye/odun/tarla/ases bakmaz · "iptal" = 0</span></div>' +
+      '<input id="ke-enerji" class="ke-sayi" type="number" min="0" max="115" inputmode="numeric" placeholder="örn. 15" list="dl-enerji-ayir" value="' + K(al.enerji) + '"></div></details>' +
       // 🔋 [30.10.2026 akşam] ders turu eşiği · hoca günü maden saati · odun verim hedefi (boş = dokunma)
       '<details class="ke-bolum" data-bolum="enerji"' + acik("enerji", false) + '><summary>🔋 Ders · hoca · odun <span class="ke-ipucu">sabit: ders saate göre 2/1 tur, sonra ders dinle · hoca 12 saat maden · odun 3 tomruk</span></summary>' +
       '<div class="ke-secim"><div class="ke-secim-baslik">🎓 Ders sayısı <span class="ke-ipucu">günde kaç kere bireysel ders çalışsın · her tur 10 saat · 50 enerji · <b>sabit: saate göre 2 ya da 1</b></span></div>' +
@@ -4038,10 +4038,10 @@ async function emirIptalEt(kodlar, ozet) {
     var satirlar = keGrupSatirlari(KE.al);
     if (!sec.length) { KE.durumYazi = "Önce hesap seç (② Kime?)."; return false; }
     if (!satirlar.length) { KE.durumYazi = "Hiçbir şey seçmedin — en az bir konuya dokun."; return false; }
-    // 🔋 [30.10.2026] sayı alanları: itibar 255'in üstüne çıkamaz (oyunun tavanı) · enerji en fazla 130
+    // 🔋 [30.10.2026] sayı alanları: itibar 255'in üstüne çıkamaz (oyunun tavanı) · enerji en fazla 115 (100 + yetenek)
     function _sayiMi(v, ust) { v = String(v || "").trim(); return !v || /^iptal$/i.test(v) || (/^\d{1,3}$/.test(v) && +v <= ust); }
     if (!_sayiMi(KE.al.itibar, 255)) { KE.durumYazi = "Cami itibarı 0-255 arası olmalı (255'in üstü yok — oyunun tavanı)."; return false; }
-    if (!_sayiMi(KE.al.enerji, 130)) { KE.durumYazi = "Enerji ayır 0-130 arası olmalı."; return false; }
+    if (!_sayiMi(KE.al.enerji, 115)) { KE.durumYazi = "Enerji ayır 0-115 arası olmalı (enerji 100, yetenekle en fazla 115)."; return false; }
     // 🔋 [30.10.2026 akşam] ders sayısı 1·2 · hoca madeni 0·1·2·6·12 · odun verimi 1-20
     if (KE.al.derssayi && !/^(1|2|iptal)$/i.test(String(KE.al.derssayi))) {
       KE.durumYazi = "Ders sayısı 1 ya da 2 olmalı."; return false; }
