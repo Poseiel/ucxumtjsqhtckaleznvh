@@ -2551,6 +2551,7 @@ var SISTEM_LISTELER = [
   ["si-odun-alici", "odun alıcıları"],
   ["si-alim-gozcu", "alım gözcüleri"],
   ["si-ot-alici", "ot alıcıları"],
+  ["si-ot-otlar", "ot alıcı otları"],
   ["si-firinci", "fırıncılar"],
   ["si-terzi", "terziler"],
   ["si-rota", "kaptan rota"],
@@ -2570,6 +2571,7 @@ var SISTEM_ETIKET = {
   odun_alicilari: "🌲🚚 Odun alıcıları (kasaba=alıcı)",
   alim_gozculeri: "🪖 Alım modu gözcüleri (kasaba=hesap)",
   ot_alicilari: "⚗️ Ot alıcıları (kasaba=iksirci)", ot_satis_gunu: "⚗️ Ot satış günü (haftada bir)",
+  ot_alici_otlari: "🌿 Ot alıcısına giden otlar (kalanı açık pazara)",
   firincilar: "🍞 Fırıncılar (kasaba=fırıncı)",
   terziler: "🧵 Terziler (kasaba=terzi)",
   giysi_agi: "👕 Giysi ağı (eksik giysiyi pazardan al)",
@@ -2626,7 +2628,7 @@ function sistemMevcutYaz() {
   var s = sistemVerisi.sistem || {};
   var sira = ["maden_kasabalari", "maden_oncelik", "cami_ayricalikli", "kuvvet_oncelikli",
               "odun_kasabalari", "odun_alicilari", "alim_gozculeri", "hurda_ot_kasabalari", "ara_nokta_gozcu",
-              "ot_alicilari", "ot_satis_gunu", "firincilar", "kasa_hesaplari", "kasa_mal", "kasa_esik",
+              "ot_alicilari", "ot_satis_gunu", "ot_alici_otlari", "firincilar", "kasa_hesaplari", "kasa_mal", "kasa_esik",
               "kasa_tutar", "kasa_gunluk_azami", "kasa_birim", "terziler", "giysi_agi",
               "giysi_tavani", "giysi_asgari_para", "hesap_listeleri", "kapanis_islemi",
               "yasli_garson", "telegram_isim", "gemi_armatoru", "kaptan_hedef_liman",
@@ -4393,7 +4395,7 @@ async function emirIptalEt(kodlar, ozet) {
     datalist("dl-urun-plan", urunler);
     kisileriTazele();
     bagla(["sat-adet", "al-adet"], "dl-adet");
-    bagla(["mu-ot"], "dl-otlar");
+    bagla(["mu-ot", "si-ot-otlar"], "dl-otlar");
     datalist("dl-kasabalar", KASABALAR);
     bagla(["oy-yer"], "dl-kasabalar");   // harita verisi yüklenmeden de dolu (7 İskoçya kasabası)
     bagla(["ay-ordu"], "ok-ordu-listesi");
