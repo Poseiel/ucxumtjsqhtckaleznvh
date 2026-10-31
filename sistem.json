@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-31 16:30",
+  "son_guncelleme": "2026-10-31 23:05",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -60,6 +60,13 @@
       "Glasgow=Partal"
     ],
     "ot_satis_gunu": "pazartesi",
+    "ot_alici_otlari": [
+      "Mercanköşk Filizi",
+      "Öküzgözü Çiçeği",
+      "Ihlamur Yaprağı",
+      "Kereviz Sapı",
+      "Kereviz Dalı"
+    ],
     "alim_gozculeri": [
       "Whithorn=Noumama",
       "Wigtown=Kargath",
@@ -369,19 +376,28 @@
       "ad": "Arous",
       "ayar": {
         "ases": true
-      }
+      },
+      "bekleyen": [
+        "ases"
+      ]
     },
     {
       "ad": "Neromancer",
       "ayar": {
         "ases": true
-      }
+      },
+      "bekleyen": [
+        "ases"
+      ]
     },
     {
       "ad": "Gaell",
       "ayar": {
         "ases": true
-      }
+      },
+      "bekleyen": [
+        "ases"
+      ]
     },
     {
       "ad": "Zaniolo",
@@ -393,7 +409,10 @@
       "ad": "Bainhalt",
       "ayar": {
         "ases": true
-      }
+      },
+      "bekleyen": [
+        "ases"
+      ]
     },
     {
       "ad": "drakania",
@@ -1021,10 +1040,92 @@
       "ayar": {
         "takip": "Hızlı Cami"
       }
+    },
+    {
+      "ad": "Robiot",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      },
+      "bekleyen": [
+        "gorev",
+        "takip"
+      ]
+    },
+    {
+      "ad": "Elcamino",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      },
+      "bekleyen": [
+        "gorev",
+        "takip"
+      ]
+    },
+    {
+      "ad": "Jameika",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      },
+      "bekleyen": [
+        "gorev",
+        "takip"
+      ]
+    },
+    {
+      "ad": "Robison",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      },
+      "bekleyen": [
+        "gorev",
+        "takip"
+      ]
+    },
+    {
+      "ad": "Rashford",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      },
+      "bekleyen": [
+        "gorev",
+        "takip"
+      ]
+    },
+    {
+      "ad": "OliverY",
+      "ayar": {
+        "takip": "Hızlı Maden"
+      },
+      "bekleyen": [
+        "gorev",
+        "takip"
+      ]
+    },
+    {
+      "ad": "Xxavierr",
+      "ayar": {
+        "takip": "Hızlı Maden",
+        "ases": true
+      },
+      "bekleyen": [
+        "takip"
+      ]
     }
   ],
-  "toplam_hesap": 153,
+  "toplam_hesap": 160,
   "sistem_gecmis": [
+    {
+      "zaman": "2026-10-31 22:29",
+      "yazan": "VS Code Claude (kullanıcı isteği 31.10)",
+      "degisiklikler": [
+        {
+          "alan": "ot_alici_otlari",
+          "etiket": "🌿 Ot alıcısına giden otlar (kalanı açık pazara)",
+          "eski": "—",
+          "yeni": "Mercanköşk Filizi, Öküzgözü Çiçeği, Ihlamur Yaprağı, Kereviz Sapı, Kereviz Dalı"
+        }
+      ]
+    },
     {
       "zaman": "2026-10-24 09:27",
       "yazan": "VS Code Claude 24.10 (kullanıcı: ot satış günü pazartesi)",
