@@ -3262,6 +3262,11 @@ if (window.L) L.RasterCoords.prototype = {
               <option value="yok">⛔ kapalı (ot satışı dursun)</option>
             </select>
           </label>
+          <!-- 🌿 [31.10.2026] Kullanıcı: "sadece bunları satsın … kalanları pazara minden koy". -->
+          <label>🌿 Ot alıcısına giden otlar <span class="ay-ipucu">virgülle, oyundaki TAM adla (örn. Kereviz Sapı) · satış gününde YALNIZCA bu otlar iksirciye <b>rezerveli</b> gider, geri kalan otlar <b>açık pazara en düşük fiyattan</b> konur · hızlı ot hesapları da aynı ayrımı yapar · boş = bütün otlar iksirciye (eski düzen) · “yok” = listeyi temizle</span>
+            <select id="si-ot-otlar-islem" class="si-islem"></select>
+            <input id="si-ot-otlar" placeholder="örn. Mercanköşk Filizi, Kereviz Sapı" autocomplete="off">
+          </label>
         </div>
         <!-- 🍞 [22.10.2026] Kasaba fırıncıları (kasaba=fırıncı) — kullanıcı: "Kaldır + Telegram'dan atanır".
              Bot: site_emirleri "fırıncılar" → trade_config.firinci_tablosu_kur. Yazılmamışsa koddaki tablo. -->
