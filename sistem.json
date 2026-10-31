@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-31 07:00",
+  "son_guncelleme": "2026-10-31 08:57",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -463,7 +463,10 @@
       "ad": "Flantastic",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Penaldo",
@@ -565,7 +568,8 @@
     {
       "ad": "Rendavar",
       "ayar": {
-        "takip": "Hızlı Maden"
+        "takip": "Hızlı Maden",
+        "oy_hazirla": true
       }
     },
     {
@@ -684,7 +688,8 @@
     {
       "ad": "Zehneya",
       "ayar": {
-        "takip": "Hızlı Maden"
+        "takip": "Hızlı Maden",
+        "oy_hazirla": true
       }
     },
     {
