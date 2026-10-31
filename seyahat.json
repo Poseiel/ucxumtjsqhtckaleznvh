@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-31 07:00",
+  "son_guncelleme": "2026-10-31 16:30",
   "adim_hakki_normal": 2,
   "adim_hakki_jetonlu": 3,
   "yolcular": [
@@ -7,23 +7,15 @@
       "hesap": "Razielon",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Chiavari",
+      "nereden": "Pavia",
       "yolda": false,
-      "bot_kalan_gun": 24,
-      "nereden_id": 937,
+      "bot_kalan_gun": 23,
+      "nereden_id": 566,
       "hedef": "Saint Pol de Léon",
       "hedef_id": 259,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 937,
-          "isim": "Chiavari"
-        },
-        {
-          "id": 2780,
-          "isim": "Pavia - Piacenza arası"
-        },
         {
           "id": 566,
           "isim": "Pavia"
@@ -213,26 +205,11 @@
           "isim": "Saint Pol de Léon"
         }
       ],
-      "kalan_adim": 48,
-      "kalan_gun": 24,
+      "kalan_adim": 46,
+      "kalan_gun": 23,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 566,
-          "varis": "Pavia",
-          "duraklar": [
-            {
-              "id": 2780,
-              "isim": "Pavia - Piacenza arası"
-            },
-            {
-              "id": 566,
-              "isim": "Pavia"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 669,
           "varis": "Novara",
           "duraklar": [
@@ -247,7 +224,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 276,
           "varis": "Novara - Pavia arası",
           "duraklar": [
@@ -262,7 +239,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 274,
           "varis": "Annecy - Sion arası",
           "duraklar": [
@@ -277,7 +254,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 272,
           "varis": "Annecy - Chambéry arası",
           "duraklar": [
@@ -292,7 +269,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 269,
           "varis": "Annecy - Genève arası",
           "duraklar": [
@@ -307,7 +284,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 271,
           "varis": "Saint Claude - Genève arası",
           "duraklar": [
@@ -322,7 +299,7 @@
           ]
         },
         {
-          "gun": 8,
+          "gun": 7,
           "varis_id": 236,
           "varis": "Poligny - Saint Claude arası",
           "duraklar": [
@@ -337,7 +314,7 @@
           ]
         },
         {
-          "gun": 9,
+          "gun": 8,
           "varis_id": 234,
           "varis": "Dole - Poligny arası",
           "duraklar": [
@@ -352,7 +329,7 @@
           ]
         },
         {
-          "gun": 10,
+          "gun": 9,
           "varis_id": 224,
           "varis": "Dijon - Dole arası",
           "duraklar": [
@@ -367,7 +344,7 @@
           ]
         },
         {
-          "gun": 11,
+          "gun": 10,
           "varis_id": 63,
           "varis": "Sémur - Dijon arası",
           "duraklar": [
@@ -382,7 +359,7 @@
           ]
         },
         {
-          "gun": 12,
+          "gun": 11,
           "varis_id": 60,
           "varis": "Tonnerre - Sémur arası",
           "duraklar": [
@@ -397,7 +374,7 @@
           ]
         },
         {
-          "gun": 13,
+          "gun": 12,
           "varis_id": 35,
           "varis": "Conflans-lès-Sens - Tonnerre arası",
           "duraklar": [
@@ -412,7 +389,7 @@
           ]
         },
         {
-          "gun": 14,
+          "gun": 13,
           "varis_id": 393,
           "varis": "Conflans-lès-Sens - Montargis arası",
           "duraklar": [
@@ -427,7 +404,7 @@
           ]
         },
         {
-          "gun": 15,
+          "gun": 14,
           "varis_id": 387,
           "varis": "Orléans - Montargis arası",
           "duraklar": [
@@ -442,7 +419,7 @@
           ]
         },
         {
-          "gun": 16,
+          "gun": 15,
           "varis_id": 384,
           "varis": "Patay - Orléans arası",
           "duraklar": [
@@ -457,7 +434,7 @@
           ]
         },
         {
-          "gun": 17,
+          "gun": 16,
           "varis_id": 383,
           "varis": "Patay - Blois arası",
           "duraklar": [
@@ -472,7 +449,7 @@
           ]
         },
         {
-          "gun": 18,
+          "gun": 17,
           "varis_id": 979,
           "varis": "Verneuil - Mortagne arası",
           "duraklar": [
@@ -487,7 +464,7 @@
           ]
         },
         {
-          "gun": 19,
+          "gun": 18,
           "varis_id": 441,
           "varis": "Verneuil - Argentan arası",
           "duraklar": [
@@ -502,7 +479,7 @@
           ]
         },
         {
-          "gun": 20,
+          "gun": 19,
           "varis_id": 2702,
           "varis": "Avranches - Argentan arası",
           "duraklar": [
@@ -517,7 +494,7 @@
           ]
         },
         {
-          "gun": 21,
+          "gun": 20,
           "varis_id": 2712,
           "varis": "Avranches - Saint-Brieuc arası",
           "duraklar": [
@@ -532,7 +509,7 @@
           ]
         },
         {
-          "gun": 22,
+          "gun": 21,
           "varis_id": 100,
           "varis": "Saint-Brieuc - Tréguier arası",
           "duraklar": [
@@ -547,7 +524,7 @@
           ]
         },
         {
-          "gun": 23,
+          "gun": 22,
           "varis_id": 257,
           "varis": "Tréguier - Saint Pol de Léon arası",
           "duraklar": [
@@ -562,7 +539,7 @@
           ]
         },
         {
-          "gun": 24,
+          "gun": 23,
           "varis_id": 259,
           "varis": "Saint Pol de Léon",
           "duraklar": [
@@ -584,23 +561,15 @@
       "hesap": "korhan",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Chiavari",
+      "nereden": "Pavia",
       "yolda": false,
-      "bot_kalan_gun": 24,
-      "nereden_id": 937,
+      "bot_kalan_gun": 23,
+      "nereden_id": 566,
       "hedef": "Saint Pol de Léon",
       "hedef_id": 259,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 937,
-          "isim": "Chiavari"
-        },
-        {
-          "id": 2780,
-          "isim": "Pavia - Piacenza arası"
-        },
         {
           "id": 566,
           "isim": "Pavia"
@@ -790,8 +759,546 @@
           "isim": "Saint Pol de Léon"
         }
       ],
-      "kalan_adim": 48,
-      "kalan_gun": 24,
+      "kalan_adim": 46,
+      "kalan_gun": 23,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 669,
+          "varis": "Novara",
+          "duraklar": [
+            {
+              "id": 668,
+              "isim": "Pavia - Novara arası"
+            },
+            {
+              "id": 669,
+              "isim": "Novara"
+            }
+          ]
+        },
+        {
+          "gun": 2,
+          "varis_id": 276,
+          "varis": "Novara - Pavia arası",
+          "duraklar": [
+            {
+              "id": 277,
+              "isim": "Novara - Pavia arası"
+            },
+            {
+              "id": 276,
+              "isim": "Novara - Pavia arası"
+            }
+          ]
+        },
+        {
+          "gun": 3,
+          "varis_id": 274,
+          "varis": "Annecy - Sion arası",
+          "duraklar": [
+            {
+              "id": 275,
+              "isim": "Novara - Annecy arası"
+            },
+            {
+              "id": 274,
+              "isim": "Annecy - Sion arası"
+            }
+          ]
+        },
+        {
+          "gun": 4,
+          "varis_id": 272,
+          "varis": "Annecy - Chambéry arası",
+          "duraklar": [
+            {
+              "id": 273,
+              "isim": "Annecy - Chambéry arası"
+            },
+            {
+              "id": 272,
+              "isim": "Annecy - Chambéry arası"
+            }
+          ]
+        },
+        {
+          "gun": 5,
+          "varis_id": 269,
+          "varis": "Annecy - Genève arası",
+          "duraklar": [
+            {
+              "id": 268,
+              "isim": "Annecy"
+            },
+            {
+              "id": 269,
+              "isim": "Annecy - Genève arası"
+            }
+          ]
+        },
+        {
+          "gun": 6,
+          "varis_id": 271,
+          "varis": "Saint Claude - Genève arası",
+          "duraklar": [
+            {
+              "id": 270,
+              "isim": "Genève"
+            },
+            {
+              "id": 271,
+              "isim": "Saint Claude - Genève arası"
+            }
+          ]
+        },
+        {
+          "gun": 7,
+          "varis_id": 236,
+          "varis": "Poligny - Saint Claude arası",
+          "duraklar": [
+            {
+              "id": 237,
+              "isim": "Saint Claude"
+            },
+            {
+              "id": 236,
+              "isim": "Poligny - Saint Claude arası"
+            }
+          ]
+        },
+        {
+          "gun": 8,
+          "varis_id": 234,
+          "varis": "Dole - Poligny arası",
+          "duraklar": [
+            {
+              "id": 235,
+              "isim": "Poligny"
+            },
+            {
+              "id": 234,
+              "isim": "Dole - Poligny arası"
+            }
+          ]
+        },
+        {
+          "gun": 9,
+          "varis_id": 224,
+          "varis": "Dijon - Dole arası",
+          "duraklar": [
+            {
+              "id": 225,
+              "isim": "Dole"
+            },
+            {
+              "id": 224,
+              "isim": "Dijon - Dole arası"
+            }
+          ]
+        },
+        {
+          "gun": 10,
+          "varis_id": 63,
+          "varis": "Sémur - Dijon arası",
+          "duraklar": [
+            {
+              "id": 64,
+              "isim": "Dijon"
+            },
+            {
+              "id": 63,
+              "isim": "Sémur - Dijon arası"
+            }
+          ]
+        },
+        {
+          "gun": 11,
+          "varis_id": 60,
+          "varis": "Tonnerre - Sémur arası",
+          "duraklar": [
+            {
+              "id": 62,
+              "isim": "Sémur"
+            },
+            {
+              "id": 60,
+              "isim": "Tonnerre - Sémur arası"
+            }
+          ]
+        },
+        {
+          "gun": 12,
+          "varis_id": 35,
+          "varis": "Conflans-lès-Sens - Tonnerre arası",
+          "duraklar": [
+            {
+              "id": 37,
+              "isim": "Tonnerre"
+            },
+            {
+              "id": 35,
+              "isim": "Conflans-lès-Sens - Tonnerre arası"
+            }
+          ]
+        },
+        {
+          "gun": 13,
+          "varis_id": 393,
+          "varis": "Conflans-lès-Sens - Montargis arası",
+          "duraklar": [
+            {
+              "id": 30,
+              "isim": "Conflans-lès-Sens"
+            },
+            {
+              "id": 393,
+              "isim": "Conflans-lès-Sens - Montargis arası"
+            }
+          ]
+        },
+        {
+          "gun": 14,
+          "varis_id": 387,
+          "varis": "Orléans - Montargis arası",
+          "duraklar": [
+            {
+              "id": 388,
+              "isim": "Montargis"
+            },
+            {
+              "id": 387,
+              "isim": "Orléans - Montargis arası"
+            }
+          ]
+        },
+        {
+          "gun": 15,
+          "varis_id": 384,
+          "varis": "Patay - Orléans arası",
+          "duraklar": [
+            {
+              "id": 385,
+              "isim": "Orléans"
+            },
+            {
+              "id": 384,
+              "isim": "Patay - Orléans arası"
+            }
+          ]
+        },
+        {
+          "gun": 16,
+          "varis_id": 383,
+          "varis": "Patay - Blois arası",
+          "duraklar": [
+            {
+              "id": 382,
+              "isim": "Patay"
+            },
+            {
+              "id": 383,
+              "isim": "Patay - Blois arası"
+            }
+          ]
+        },
+        {
+          "gun": 17,
+          "varis_id": 979,
+          "varis": "Verneuil - Mortagne arası",
+          "duraklar": [
+            {
+              "id": 978,
+              "isim": "Patay - Verneuil arası"
+            },
+            {
+              "id": 979,
+              "isim": "Verneuil - Mortagne arası"
+            }
+          ]
+        },
+        {
+          "gun": 18,
+          "varis_id": 441,
+          "varis": "Verneuil - Argentan arası",
+          "duraklar": [
+            {
+              "id": 440,
+              "isim": "Verneuil"
+            },
+            {
+              "id": 441,
+              "isim": "Verneuil - Argentan arası"
+            }
+          ]
+        },
+        {
+          "gun": 19,
+          "varis_id": 2702,
+          "varis": "Avranches - Argentan arası",
+          "duraklar": [
+            {
+              "id": 442,
+              "isim": "Argentan"
+            },
+            {
+              "id": 2702,
+              "isim": "Avranches - Argentan arası"
+            }
+          ]
+        },
+        {
+          "gun": 20,
+          "varis_id": 2712,
+          "varis": "Avranches - Saint-Brieuc arası",
+          "duraklar": [
+            {
+              "id": 78,
+              "isim": "Avranches"
+            },
+            {
+              "id": 2712,
+              "isim": "Avranches - Saint-Brieuc arası"
+            }
+          ]
+        },
+        {
+          "gun": 21,
+          "varis_id": 100,
+          "varis": "Saint-Brieuc - Tréguier arası",
+          "duraklar": [
+            {
+              "id": 99,
+              "isim": "Saint-Brieuc"
+            },
+            {
+              "id": 100,
+              "isim": "Saint-Brieuc - Tréguier arası"
+            }
+          ]
+        },
+        {
+          "gun": 22,
+          "varis_id": 257,
+          "varis": "Tréguier - Saint Pol de Léon arası",
+          "duraklar": [
+            {
+              "id": 101,
+              "isim": "Tréguier"
+            },
+            {
+              "id": 257,
+              "isim": "Tréguier - Saint Pol de Léon arası"
+            }
+          ]
+        },
+        {
+          "gun": 23,
+          "varis_id": 259,
+          "varis": "Saint Pol de Léon",
+          "duraklar": [
+            {
+              "id": 258,
+              "isim": "Saint Pol de Léon - Tréguier arası"
+            },
+            {
+              "id": 259,
+              "isim": "Saint Pol de Léon"
+            }
+          ]
+        }
+      ],
+      "lider": "",
+      "rol": "tek"
+    },
+    {
+      "hesap": "yellowsmith",
+      "tur": "seyahat",
+      "kaynak": "ayar",
+      "nereden": "Chiavari",
+      "yolda": false,
+      "bot_kalan_gun": 16,
+      "nereden_id": 937,
+      "hedef": "Rennes",
+      "hedef_id": 90,
+      "jetonlu": false,
+      "adim_hakki": 2,
+      "rota": [
+        {
+          "id": 937,
+          "isim": "Chiavari"
+        },
+        {
+          "id": 2780,
+          "isim": "Pavia - Piacenza arası"
+        },
+        {
+          "id": 566,
+          "isim": "Pavia"
+        },
+        {
+          "id": 668,
+          "isim": "Pavia - Novara arası"
+        },
+        {
+          "id": 669,
+          "isim": "Novara"
+        },
+        {
+          "id": 277,
+          "isim": "Novara - Pavia arası"
+        },
+        {
+          "id": 2571,
+          "isim": "Novara - Briançon arası"
+        },
+        {
+          "id": 2570,
+          "isim": "Briançon - Embrun arası"
+        },
+        {
+          "id": 256,
+          "isim": "Briançon"
+        },
+        {
+          "id": 2768,
+          "isim": "Briançon - Chambéry arası"
+        },
+        {
+          "id": 2767,
+          "isim": "Chambéry - Briançon arası"
+        },
+        {
+          "id": 266,
+          "isim": "Chambéry"
+        },
+        {
+          "id": 265,
+          "isim": "Belley - Chambéry arası"
+        },
+        {
+          "id": 264,
+          "isim": "Belley"
+        },
+        {
+          "id": 263,
+          "isim": "Bourg - Belley arası"
+        },
+        {
+          "id": 262,
+          "isim": "Bourg"
+        },
+        {
+          "id": 261,
+          "isim": "Mâcon - Bourg arası"
+        },
+        {
+          "id": 83,
+          "isim": "Mâcon"
+        },
+        {
+          "id": 2750,
+          "isim": "Mâcon - Montpensier arası"
+        },
+        {
+          "id": 133,
+          "isim": "Montpensier"
+        },
+        {
+          "id": 153,
+          "isim": "Montpensier - Montluçon arası"
+        },
+        {
+          "id": 152,
+          "isim": "Montluçon"
+        },
+        {
+          "id": 214,
+          "isim": "Montluçon - Guéret arası"
+        },
+        {
+          "id": 213,
+          "isim": "Guéret - Montluçon arası"
+        },
+        {
+          "id": 210,
+          "isim": "Guéret"
+        },
+        {
+          "id": 211,
+          "isim": "Guéret - Châteauroux arası"
+        },
+        {
+          "id": 212,
+          "isim": "Châteauroux - Guéret arası"
+        },
+        {
+          "id": 107,
+          "isim": "Châteauroux"
+        },
+        {
+          "id": 145,
+          "isim": "Châteauroux - Loches arası"
+        },
+        {
+          "id": 144,
+          "isim": "Loches - Châteauroux arası"
+        },
+        {
+          "id": 143,
+          "isim": "Loches"
+        },
+        {
+          "id": 150,
+          "isim": "Loches - Chinon arası"
+        },
+        {
+          "id": 149,
+          "isim": "Chinon"
+        },
+        {
+          "id": 154,
+          "isim": "Chinon - Saumur arası"
+        },
+        {
+          "id": 155,
+          "isim": "Saumur"
+        },
+        {
+          "id": 156,
+          "isim": "Saumur - Angers arası"
+        },
+        {
+          "id": 157,
+          "isim": "Angers"
+        },
+        {
+          "id": 160,
+          "isim": "Angers - Craon arası"
+        },
+        {
+          "id": 161,
+          "isim": "Craon"
+        },
+        {
+          "id": 2713,
+          "isim": "Craon - Rieux arası"
+        },
+        {
+          "id": 163,
+          "isim": "Rieux"
+        },
+        {
+          "id": 164,
+          "isim": "Rennes - Rieux arası"
+        },
+        {
+          "id": 90,
+          "isim": "Rennes"
+        }
+      ],
+      "kalan_adim": 42,
+      "kalan_gun": 21,
       "gunler": [
         {
           "gun": 1,
@@ -825,331 +1332,286 @@
         },
         {
           "gun": 3,
-          "varis_id": 276,
-          "varis": "Novara - Pavia arası",
+          "varis_id": 2571,
+          "varis": "Novara - Briançon arası",
           "duraklar": [
             {
               "id": 277,
               "isim": "Novara - Pavia arası"
             },
             {
-              "id": 276,
-              "isim": "Novara - Pavia arası"
+              "id": 2571,
+              "isim": "Novara - Briançon arası"
             }
           ]
         },
         {
           "gun": 4,
-          "varis_id": 274,
-          "varis": "Annecy - Sion arası",
+          "varis_id": 256,
+          "varis": "Briançon",
           "duraklar": [
             {
-              "id": 275,
-              "isim": "Novara - Annecy arası"
+              "id": 2570,
+              "isim": "Briançon - Embrun arası"
             },
             {
-              "id": 274,
-              "isim": "Annecy - Sion arası"
+              "id": 256,
+              "isim": "Briançon"
             }
           ]
         },
         {
           "gun": 5,
-          "varis_id": 272,
-          "varis": "Annecy - Chambéry arası",
+          "varis_id": 2767,
+          "varis": "Chambéry - Briançon arası",
           "duraklar": [
             {
-              "id": 273,
-              "isim": "Annecy - Chambéry arası"
+              "id": 2768,
+              "isim": "Briançon - Chambéry arası"
             },
             {
-              "id": 272,
-              "isim": "Annecy - Chambéry arası"
+              "id": 2767,
+              "isim": "Chambéry - Briançon arası"
             }
           ]
         },
         {
           "gun": 6,
-          "varis_id": 269,
-          "varis": "Annecy - Genève arası",
+          "varis_id": 265,
+          "varis": "Belley - Chambéry arası",
           "duraklar": [
             {
-              "id": 268,
-              "isim": "Annecy"
+              "id": 266,
+              "isim": "Chambéry"
             },
             {
-              "id": 269,
-              "isim": "Annecy - Genève arası"
+              "id": 265,
+              "isim": "Belley - Chambéry arası"
             }
           ]
         },
         {
           "gun": 7,
-          "varis_id": 271,
-          "varis": "Saint Claude - Genève arası",
+          "varis_id": 263,
+          "varis": "Bourg - Belley arası",
           "duraklar": [
             {
-              "id": 270,
-              "isim": "Genève"
+              "id": 264,
+              "isim": "Belley"
             },
             {
-              "id": 271,
-              "isim": "Saint Claude - Genève arası"
+              "id": 263,
+              "isim": "Bourg - Belley arası"
             }
           ]
         },
         {
           "gun": 8,
-          "varis_id": 236,
-          "varis": "Poligny - Saint Claude arası",
+          "varis_id": 261,
+          "varis": "Mâcon - Bourg arası",
           "duraklar": [
             {
-              "id": 237,
-              "isim": "Saint Claude"
+              "id": 262,
+              "isim": "Bourg"
             },
             {
-              "id": 236,
-              "isim": "Poligny - Saint Claude arası"
+              "id": 261,
+              "isim": "Mâcon - Bourg arası"
             }
           ]
         },
         {
           "gun": 9,
-          "varis_id": 234,
-          "varis": "Dole - Poligny arası",
+          "varis_id": 2750,
+          "varis": "Mâcon - Montpensier arası",
           "duraklar": [
             {
-              "id": 235,
-              "isim": "Poligny"
+              "id": 83,
+              "isim": "Mâcon"
             },
             {
-              "id": 234,
-              "isim": "Dole - Poligny arası"
+              "id": 2750,
+              "isim": "Mâcon - Montpensier arası"
             }
           ]
         },
         {
           "gun": 10,
-          "varis_id": 224,
-          "varis": "Dijon - Dole arası",
+          "varis_id": 153,
+          "varis": "Montpensier - Montluçon arası",
           "duraklar": [
             {
-              "id": 225,
-              "isim": "Dole"
+              "id": 133,
+              "isim": "Montpensier"
             },
             {
-              "id": 224,
-              "isim": "Dijon - Dole arası"
+              "id": 153,
+              "isim": "Montpensier - Montluçon arası"
             }
           ]
         },
         {
           "gun": 11,
-          "varis_id": 63,
-          "varis": "Sémur - Dijon arası",
+          "varis_id": 214,
+          "varis": "Montluçon - Guéret arası",
           "duraklar": [
             {
-              "id": 64,
-              "isim": "Dijon"
+              "id": 152,
+              "isim": "Montluçon"
             },
             {
-              "id": 63,
-              "isim": "Sémur - Dijon arası"
+              "id": 214,
+              "isim": "Montluçon - Guéret arası"
             }
           ]
         },
         {
           "gun": 12,
-          "varis_id": 60,
-          "varis": "Tonnerre - Sémur arası",
+          "varis_id": 210,
+          "varis": "Guéret",
           "duraklar": [
             {
-              "id": 62,
-              "isim": "Sémur"
+              "id": 213,
+              "isim": "Guéret - Montluçon arası"
             },
             {
-              "id": 60,
-              "isim": "Tonnerre - Sémur arası"
+              "id": 210,
+              "isim": "Guéret"
             }
           ]
         },
         {
           "gun": 13,
-          "varis_id": 35,
-          "varis": "Conflans-lès-Sens - Tonnerre arası",
+          "varis_id": 212,
+          "varis": "Châteauroux - Guéret arası",
           "duraklar": [
             {
-              "id": 37,
-              "isim": "Tonnerre"
+              "id": 211,
+              "isim": "Guéret - Châteauroux arası"
             },
             {
-              "id": 35,
-              "isim": "Conflans-lès-Sens - Tonnerre arası"
+              "id": 212,
+              "isim": "Châteauroux - Guéret arası"
             }
           ]
         },
         {
           "gun": 14,
-          "varis_id": 393,
-          "varis": "Conflans-lès-Sens - Montargis arası",
+          "varis_id": 145,
+          "varis": "Châteauroux - Loches arası",
           "duraklar": [
             {
-              "id": 30,
-              "isim": "Conflans-lès-Sens"
+              "id": 107,
+              "isim": "Châteauroux"
             },
             {
-              "id": 393,
-              "isim": "Conflans-lès-Sens - Montargis arası"
+              "id": 145,
+              "isim": "Châteauroux - Loches arası"
             }
           ]
         },
         {
           "gun": 15,
-          "varis_id": 387,
-          "varis": "Orléans - Montargis arası",
+          "varis_id": 143,
+          "varis": "Loches",
           "duraklar": [
             {
-              "id": 388,
-              "isim": "Montargis"
+              "id": 144,
+              "isim": "Loches - Châteauroux arası"
             },
             {
-              "id": 387,
-              "isim": "Orléans - Montargis arası"
+              "id": 143,
+              "isim": "Loches"
             }
           ]
         },
         {
           "gun": 16,
-          "varis_id": 384,
-          "varis": "Patay - Orléans arası",
+          "varis_id": 149,
+          "varis": "Chinon",
           "duraklar": [
             {
-              "id": 385,
-              "isim": "Orléans"
+              "id": 150,
+              "isim": "Loches - Chinon arası"
             },
             {
-              "id": 384,
-              "isim": "Patay - Orléans arası"
+              "id": 149,
+              "isim": "Chinon"
             }
           ]
         },
         {
           "gun": 17,
-          "varis_id": 383,
-          "varis": "Patay - Blois arası",
+          "varis_id": 155,
+          "varis": "Saumur",
           "duraklar": [
             {
-              "id": 382,
-              "isim": "Patay"
+              "id": 154,
+              "isim": "Chinon - Saumur arası"
             },
             {
-              "id": 383,
-              "isim": "Patay - Blois arası"
+              "id": 155,
+              "isim": "Saumur"
             }
           ]
         },
         {
           "gun": 18,
-          "varis_id": 979,
-          "varis": "Verneuil - Mortagne arası",
+          "varis_id": 157,
+          "varis": "Angers",
           "duraklar": [
             {
-              "id": 978,
-              "isim": "Patay - Verneuil arası"
+              "id": 156,
+              "isim": "Saumur - Angers arası"
             },
             {
-              "id": 979,
-              "isim": "Verneuil - Mortagne arası"
+              "id": 157,
+              "isim": "Angers"
             }
           ]
         },
         {
           "gun": 19,
-          "varis_id": 441,
-          "varis": "Verneuil - Argentan arası",
+          "varis_id": 161,
+          "varis": "Craon",
           "duraklar": [
             {
-              "id": 440,
-              "isim": "Verneuil"
+              "id": 160,
+              "isim": "Angers - Craon arası"
             },
             {
-              "id": 441,
-              "isim": "Verneuil - Argentan arası"
+              "id": 161,
+              "isim": "Craon"
             }
           ]
         },
         {
           "gun": 20,
-          "varis_id": 2702,
-          "varis": "Avranches - Argentan arası",
+          "varis_id": 163,
+          "varis": "Rieux",
           "duraklar": [
             {
-              "id": 442,
-              "isim": "Argentan"
+              "id": 2713,
+              "isim": "Craon - Rieux arası"
             },
             {
-              "id": 2702,
-              "isim": "Avranches - Argentan arası"
+              "id": 163,
+              "isim": "Rieux"
             }
           ]
         },
         {
           "gun": 21,
-          "varis_id": 2712,
-          "varis": "Avranches - Saint-Brieuc arası",
+          "varis_id": 90,
+          "varis": "Rennes",
           "duraklar": [
             {
-              "id": 78,
-              "isim": "Avranches"
+              "id": 164,
+              "isim": "Rennes - Rieux arası"
             },
             {
-              "id": 2712,
-              "isim": "Avranches - Saint-Brieuc arası"
-            }
-          ]
-        },
-        {
-          "gun": 22,
-          "varis_id": 100,
-          "varis": "Saint-Brieuc - Tréguier arası",
-          "duraklar": [
-            {
-              "id": 99,
-              "isim": "Saint-Brieuc"
-            },
-            {
-              "id": 100,
-              "isim": "Saint-Brieuc - Tréguier arası"
-            }
-          ]
-        },
-        {
-          "gun": 23,
-          "varis_id": 257,
-          "varis": "Tréguier - Saint Pol de Léon arası",
-          "duraklar": [
-            {
-              "id": 101,
-              "isim": "Tréguier"
-            },
-            {
-              "id": 257,
-              "isim": "Tréguier - Saint Pol de Léon arası"
-            }
-          ]
-        },
-        {
-          "gun": 24,
-          "varis_id": 259,
-          "varis": "Saint Pol de Léon",
-          "duraklar": [
-            {
-              "id": 258,
-              "isim": "Saint Pol de Léon - Tréguier arası"
-            },
-            {
-              "id": 259,
-              "isim": "Saint Pol de Léon"
+              "id": 90,
+              "isim": "Rennes"
             }
           ]
         }
@@ -1158,7 +1620,7 @@
       "rol": "tek"
     },
     {
-      "hesap": "yellowsmith",
+      "hesap": "marchosias",
       "tur": "seyahat",
       "kaynak": "ayar",
       "nereden": "La Spezia",
@@ -1689,580 +2151,18 @@
       "rol": "tek"
     },
     {
-      "hesap": "marchosias",
-      "tur": "seyahat",
-      "kaynak": "ayar",
-      "nereden": "Massa",
-      "yolda": false,
-      "bot_kalan_gun": 18,
-      "nereden_id": 942,
-      "hedef": "Rennes",
-      "hedef_id": 90,
-      "jetonlu": false,
-      "adim_hakki": 2,
-      "rota": [
-        {
-          "id": 942,
-          "isim": "Massa"
-        },
-        {
-          "id": 941,
-          "isim": "La Spezia - Massa arası"
-        },
-        {
-          "id": 939,
-          "isim": "La Spezia"
-        },
-        {
-          "id": 938,
-          "isim": "Chiavari - La Spezia arası"
-        },
-        {
-          "id": 937,
-          "isim": "Chiavari"
-        },
-        {
-          "id": 2780,
-          "isim": "Pavia - Piacenza arası"
-        },
-        {
-          "id": 566,
-          "isim": "Pavia"
-        },
-        {
-          "id": 668,
-          "isim": "Pavia - Novara arası"
-        },
-        {
-          "id": 669,
-          "isim": "Novara"
-        },
-        {
-          "id": 277,
-          "isim": "Novara - Pavia arası"
-        },
-        {
-          "id": 2571,
-          "isim": "Novara - Briançon arası"
-        },
-        {
-          "id": 2570,
-          "isim": "Briançon - Embrun arası"
-        },
-        {
-          "id": 256,
-          "isim": "Briançon"
-        },
-        {
-          "id": 2768,
-          "isim": "Briançon - Chambéry arası"
-        },
-        {
-          "id": 2767,
-          "isim": "Chambéry - Briançon arası"
-        },
-        {
-          "id": 266,
-          "isim": "Chambéry"
-        },
-        {
-          "id": 265,
-          "isim": "Belley - Chambéry arası"
-        },
-        {
-          "id": 264,
-          "isim": "Belley"
-        },
-        {
-          "id": 263,
-          "isim": "Bourg - Belley arası"
-        },
-        {
-          "id": 262,
-          "isim": "Bourg"
-        },
-        {
-          "id": 261,
-          "isim": "Mâcon - Bourg arası"
-        },
-        {
-          "id": 83,
-          "isim": "Mâcon"
-        },
-        {
-          "id": 2750,
-          "isim": "Mâcon - Montpensier arası"
-        },
-        {
-          "id": 133,
-          "isim": "Montpensier"
-        },
-        {
-          "id": 153,
-          "isim": "Montpensier - Montluçon arası"
-        },
-        {
-          "id": 152,
-          "isim": "Montluçon"
-        },
-        {
-          "id": 214,
-          "isim": "Montluçon - Guéret arası"
-        },
-        {
-          "id": 213,
-          "isim": "Guéret - Montluçon arası"
-        },
-        {
-          "id": 210,
-          "isim": "Guéret"
-        },
-        {
-          "id": 211,
-          "isim": "Guéret - Châteauroux arası"
-        },
-        {
-          "id": 212,
-          "isim": "Châteauroux - Guéret arası"
-        },
-        {
-          "id": 107,
-          "isim": "Châteauroux"
-        },
-        {
-          "id": 145,
-          "isim": "Châteauroux - Loches arası"
-        },
-        {
-          "id": 144,
-          "isim": "Loches - Châteauroux arası"
-        },
-        {
-          "id": 143,
-          "isim": "Loches"
-        },
-        {
-          "id": 150,
-          "isim": "Loches - Chinon arası"
-        },
-        {
-          "id": 149,
-          "isim": "Chinon"
-        },
-        {
-          "id": 154,
-          "isim": "Chinon - Saumur arası"
-        },
-        {
-          "id": 155,
-          "isim": "Saumur"
-        },
-        {
-          "id": 156,
-          "isim": "Saumur - Angers arası"
-        },
-        {
-          "id": 157,
-          "isim": "Angers"
-        },
-        {
-          "id": 160,
-          "isim": "Angers - Craon arası"
-        },
-        {
-          "id": 161,
-          "isim": "Craon"
-        },
-        {
-          "id": 2713,
-          "isim": "Craon - Rieux arası"
-        },
-        {
-          "id": 163,
-          "isim": "Rieux"
-        },
-        {
-          "id": 164,
-          "isim": "Rennes - Rieux arası"
-        },
-        {
-          "id": 90,
-          "isim": "Rennes"
-        }
-      ],
-      "kalan_adim": 46,
-      "kalan_gun": 23,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 939,
-          "varis": "La Spezia",
-          "duraklar": [
-            {
-              "id": 941,
-              "isim": "La Spezia - Massa arası"
-            },
-            {
-              "id": 939,
-              "isim": "La Spezia"
-            }
-          ]
-        },
-        {
-          "gun": 2,
-          "varis_id": 937,
-          "varis": "Chiavari",
-          "duraklar": [
-            {
-              "id": 938,
-              "isim": "Chiavari - La Spezia arası"
-            },
-            {
-              "id": 937,
-              "isim": "Chiavari"
-            }
-          ]
-        },
-        {
-          "gun": 3,
-          "varis_id": 566,
-          "varis": "Pavia",
-          "duraklar": [
-            {
-              "id": 2780,
-              "isim": "Pavia - Piacenza arası"
-            },
-            {
-              "id": 566,
-              "isim": "Pavia"
-            }
-          ]
-        },
-        {
-          "gun": 4,
-          "varis_id": 669,
-          "varis": "Novara",
-          "duraklar": [
-            {
-              "id": 668,
-              "isim": "Pavia - Novara arası"
-            },
-            {
-              "id": 669,
-              "isim": "Novara"
-            }
-          ]
-        },
-        {
-          "gun": 5,
-          "varis_id": 2571,
-          "varis": "Novara - Briançon arası",
-          "duraklar": [
-            {
-              "id": 277,
-              "isim": "Novara - Pavia arası"
-            },
-            {
-              "id": 2571,
-              "isim": "Novara - Briançon arası"
-            }
-          ]
-        },
-        {
-          "gun": 6,
-          "varis_id": 256,
-          "varis": "Briançon",
-          "duraklar": [
-            {
-              "id": 2570,
-              "isim": "Briançon - Embrun arası"
-            },
-            {
-              "id": 256,
-              "isim": "Briançon"
-            }
-          ]
-        },
-        {
-          "gun": 7,
-          "varis_id": 2767,
-          "varis": "Chambéry - Briançon arası",
-          "duraklar": [
-            {
-              "id": 2768,
-              "isim": "Briançon - Chambéry arası"
-            },
-            {
-              "id": 2767,
-              "isim": "Chambéry - Briançon arası"
-            }
-          ]
-        },
-        {
-          "gun": 8,
-          "varis_id": 265,
-          "varis": "Belley - Chambéry arası",
-          "duraklar": [
-            {
-              "id": 266,
-              "isim": "Chambéry"
-            },
-            {
-              "id": 265,
-              "isim": "Belley - Chambéry arası"
-            }
-          ]
-        },
-        {
-          "gun": 9,
-          "varis_id": 263,
-          "varis": "Bourg - Belley arası",
-          "duraklar": [
-            {
-              "id": 264,
-              "isim": "Belley"
-            },
-            {
-              "id": 263,
-              "isim": "Bourg - Belley arası"
-            }
-          ]
-        },
-        {
-          "gun": 10,
-          "varis_id": 261,
-          "varis": "Mâcon - Bourg arası",
-          "duraklar": [
-            {
-              "id": 262,
-              "isim": "Bourg"
-            },
-            {
-              "id": 261,
-              "isim": "Mâcon - Bourg arası"
-            }
-          ]
-        },
-        {
-          "gun": 11,
-          "varis_id": 2750,
-          "varis": "Mâcon - Montpensier arası",
-          "duraklar": [
-            {
-              "id": 83,
-              "isim": "Mâcon"
-            },
-            {
-              "id": 2750,
-              "isim": "Mâcon - Montpensier arası"
-            }
-          ]
-        },
-        {
-          "gun": 12,
-          "varis_id": 153,
-          "varis": "Montpensier - Montluçon arası",
-          "duraklar": [
-            {
-              "id": 133,
-              "isim": "Montpensier"
-            },
-            {
-              "id": 153,
-              "isim": "Montpensier - Montluçon arası"
-            }
-          ]
-        },
-        {
-          "gun": 13,
-          "varis_id": 214,
-          "varis": "Montluçon - Guéret arası",
-          "duraklar": [
-            {
-              "id": 152,
-              "isim": "Montluçon"
-            },
-            {
-              "id": 214,
-              "isim": "Montluçon - Guéret arası"
-            }
-          ]
-        },
-        {
-          "gun": 14,
-          "varis_id": 210,
-          "varis": "Guéret",
-          "duraklar": [
-            {
-              "id": 213,
-              "isim": "Guéret - Montluçon arası"
-            },
-            {
-              "id": 210,
-              "isim": "Guéret"
-            }
-          ]
-        },
-        {
-          "gun": 15,
-          "varis_id": 212,
-          "varis": "Châteauroux - Guéret arası",
-          "duraklar": [
-            {
-              "id": 211,
-              "isim": "Guéret - Châteauroux arası"
-            },
-            {
-              "id": 212,
-              "isim": "Châteauroux - Guéret arası"
-            }
-          ]
-        },
-        {
-          "gun": 16,
-          "varis_id": 145,
-          "varis": "Châteauroux - Loches arası",
-          "duraklar": [
-            {
-              "id": 107,
-              "isim": "Châteauroux"
-            },
-            {
-              "id": 145,
-              "isim": "Châteauroux - Loches arası"
-            }
-          ]
-        },
-        {
-          "gun": 17,
-          "varis_id": 143,
-          "varis": "Loches",
-          "duraklar": [
-            {
-              "id": 144,
-              "isim": "Loches - Châteauroux arası"
-            },
-            {
-              "id": 143,
-              "isim": "Loches"
-            }
-          ]
-        },
-        {
-          "gun": 18,
-          "varis_id": 149,
-          "varis": "Chinon",
-          "duraklar": [
-            {
-              "id": 150,
-              "isim": "Loches - Chinon arası"
-            },
-            {
-              "id": 149,
-              "isim": "Chinon"
-            }
-          ]
-        },
-        {
-          "gun": 19,
-          "varis_id": 155,
-          "varis": "Saumur",
-          "duraklar": [
-            {
-              "id": 154,
-              "isim": "Chinon - Saumur arası"
-            },
-            {
-              "id": 155,
-              "isim": "Saumur"
-            }
-          ]
-        },
-        {
-          "gun": 20,
-          "varis_id": 157,
-          "varis": "Angers",
-          "duraklar": [
-            {
-              "id": 156,
-              "isim": "Saumur - Angers arası"
-            },
-            {
-              "id": 157,
-              "isim": "Angers"
-            }
-          ]
-        },
-        {
-          "gun": 21,
-          "varis_id": 161,
-          "varis": "Craon",
-          "duraklar": [
-            {
-              "id": 160,
-              "isim": "Angers - Craon arası"
-            },
-            {
-              "id": 161,
-              "isim": "Craon"
-            }
-          ]
-        },
-        {
-          "gun": 22,
-          "varis_id": 163,
-          "varis": "Rieux",
-          "duraklar": [
-            {
-              "id": 2713,
-              "isim": "Craon - Rieux arası"
-            },
-            {
-              "id": 163,
-              "isim": "Rieux"
-            }
-          ]
-        },
-        {
-          "gun": 23,
-          "varis_id": 90,
-          "varis": "Rennes",
-          "duraklar": [
-            {
-              "id": 164,
-              "isim": "Rennes - Rieux arası"
-            },
-            {
-              "id": 90,
-              "isim": "Rennes"
-            }
-          ]
-        }
-      ],
-      "lider": "",
-      "rol": "tek"
-    },
-    {
       "hesap": "akbaba",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Massa",
+      "nereden": "La Spezia",
       "yolda": false,
-      "bot_kalan_gun": 25,
-      "nereden_id": 942,
+      "bot_kalan_gun": 24,
+      "nereden_id": 939,
       "hedef": "Tréguier",
       "hedef_id": 101,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 942,
-          "isim": "Massa"
-        },
-        {
-          "id": 941,
-          "isim": "La Spezia - Massa arası"
-        },
         {
           "id": 939,
           "isim": "La Spezia"
@@ -2456,26 +2356,11 @@
           "isim": "Tréguier"
         }
       ],
-      "kalan_adim": 49,
-      "kalan_gun": 25,
+      "kalan_adim": 47,
+      "kalan_gun": 24,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 939,
-          "varis": "La Spezia",
-          "duraklar": [
-            {
-              "id": 941,
-              "isim": "La Spezia - Massa arası"
-            },
-            {
-              "id": 939,
-              "isim": "La Spezia"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 937,
           "varis": "Chiavari",
           "duraklar": [
@@ -2490,7 +2375,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 566,
           "varis": "Pavia",
           "duraklar": [
@@ -2505,7 +2390,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 669,
           "varis": "Novara",
           "duraklar": [
@@ -2520,7 +2405,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 276,
           "varis": "Novara - Pavia arası",
           "duraklar": [
@@ -2535,7 +2420,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 274,
           "varis": "Annecy - Sion arası",
           "duraklar": [
@@ -2550,7 +2435,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 272,
           "varis": "Annecy - Chambéry arası",
           "duraklar": [
@@ -2565,7 +2450,7 @@
           ]
         },
         {
-          "gun": 8,
+          "gun": 7,
           "varis_id": 269,
           "varis": "Annecy - Genève arası",
           "duraklar": [
@@ -2580,7 +2465,7 @@
           ]
         },
         {
-          "gun": 9,
+          "gun": 8,
           "varis_id": 271,
           "varis": "Saint Claude - Genève arası",
           "duraklar": [
@@ -2595,7 +2480,7 @@
           ]
         },
         {
-          "gun": 10,
+          "gun": 9,
           "varis_id": 236,
           "varis": "Poligny - Saint Claude arası",
           "duraklar": [
@@ -2610,7 +2495,7 @@
           ]
         },
         {
-          "gun": 11,
+          "gun": 10,
           "varis_id": 234,
           "varis": "Dole - Poligny arası",
           "duraklar": [
@@ -2625,7 +2510,7 @@
           ]
         },
         {
-          "gun": 12,
+          "gun": 11,
           "varis_id": 224,
           "varis": "Dijon - Dole arası",
           "duraklar": [
@@ -2640,7 +2525,7 @@
           ]
         },
         {
-          "gun": 13,
+          "gun": 12,
           "varis_id": 63,
           "varis": "Sémur - Dijon arası",
           "duraklar": [
@@ -2655,7 +2540,7 @@
           ]
         },
         {
-          "gun": 14,
+          "gun": 13,
           "varis_id": 60,
           "varis": "Tonnerre - Sémur arası",
           "duraklar": [
@@ -2670,7 +2555,7 @@
           ]
         },
         {
-          "gun": 15,
+          "gun": 14,
           "varis_id": 35,
           "varis": "Conflans-lès-Sens - Tonnerre arası",
           "duraklar": [
@@ -2685,7 +2570,7 @@
           ]
         },
         {
-          "gun": 16,
+          "gun": 15,
           "varis_id": 393,
           "varis": "Conflans-lès-Sens - Montargis arası",
           "duraklar": [
@@ -2700,7 +2585,7 @@
           ]
         },
         {
-          "gun": 17,
+          "gun": 16,
           "varis_id": 387,
           "varis": "Orléans - Montargis arası",
           "duraklar": [
@@ -2715,7 +2600,7 @@
           ]
         },
         {
-          "gun": 18,
+          "gun": 17,
           "varis_id": 384,
           "varis": "Patay - Orléans arası",
           "duraklar": [
@@ -2730,7 +2615,7 @@
           ]
         },
         {
-          "gun": 19,
+          "gun": 18,
           "varis_id": 383,
           "varis": "Patay - Blois arası",
           "duraklar": [
@@ -2745,7 +2630,7 @@
           ]
         },
         {
-          "gun": 20,
+          "gun": 19,
           "varis_id": 979,
           "varis": "Verneuil - Mortagne arası",
           "duraklar": [
@@ -2760,7 +2645,7 @@
           ]
         },
         {
-          "gun": 21,
+          "gun": 20,
           "varis_id": 441,
           "varis": "Verneuil - Argentan arası",
           "duraklar": [
@@ -2775,7 +2660,7 @@
           ]
         },
         {
-          "gun": 22,
+          "gun": 21,
           "varis_id": 2702,
           "varis": "Avranches - Argentan arası",
           "duraklar": [
@@ -2790,7 +2675,7 @@
           ]
         },
         {
-          "gun": 23,
+          "gun": 22,
           "varis_id": 2712,
           "varis": "Avranches - Saint-Brieuc arası",
           "duraklar": [
@@ -2805,7 +2690,7 @@
           ]
         },
         {
-          "gun": 24,
+          "gun": 23,
           "varis_id": 100,
           "varis": "Saint-Brieuc - Tréguier arası",
           "duraklar": [
@@ -2820,7 +2705,7 @@
           ]
         },
         {
-          "gun": 25,
+          "gun": 24,
           "varis_id": 101,
           "varis": "Tréguier",
           "duraklar": [
@@ -2838,23 +2723,15 @@
       "hesap": "nindalf",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Chiavari",
+      "nereden": "Pavia",
       "yolda": false,
-      "bot_kalan_gun": 24,
-      "nereden_id": 937,
+      "bot_kalan_gun": 23,
+      "nereden_id": 566,
       "hedef": "Saint Pol de Léon",
       "hedef_id": 259,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 937,
-          "isim": "Chiavari"
-        },
-        {
-          "id": 2780,
-          "isim": "Pavia - Piacenza arası"
-        },
         {
           "id": 566,
           "isim": "Pavia"
@@ -3044,26 +2921,11 @@
           "isim": "Saint Pol de Léon"
         }
       ],
-      "kalan_adim": 48,
-      "kalan_gun": 24,
+      "kalan_adim": 46,
+      "kalan_gun": 23,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 566,
-          "varis": "Pavia",
-          "duraklar": [
-            {
-              "id": 2780,
-              "isim": "Pavia - Piacenza arası"
-            },
-            {
-              "id": 566,
-              "isim": "Pavia"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 669,
           "varis": "Novara",
           "duraklar": [
@@ -3078,7 +2940,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 276,
           "varis": "Novara - Pavia arası",
           "duraklar": [
@@ -3093,7 +2955,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 274,
           "varis": "Annecy - Sion arası",
           "duraklar": [
@@ -3108,7 +2970,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 272,
           "varis": "Annecy - Chambéry arası",
           "duraklar": [
@@ -3123,7 +2985,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 269,
           "varis": "Annecy - Genève arası",
           "duraklar": [
@@ -3138,7 +3000,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 271,
           "varis": "Saint Claude - Genève arası",
           "duraklar": [
@@ -3153,7 +3015,7 @@
           ]
         },
         {
-          "gun": 8,
+          "gun": 7,
           "varis_id": 236,
           "varis": "Poligny - Saint Claude arası",
           "duraklar": [
@@ -3168,7 +3030,7 @@
           ]
         },
         {
-          "gun": 9,
+          "gun": 8,
           "varis_id": 234,
           "varis": "Dole - Poligny arası",
           "duraklar": [
@@ -3183,7 +3045,7 @@
           ]
         },
         {
-          "gun": 10,
+          "gun": 9,
           "varis_id": 224,
           "varis": "Dijon - Dole arası",
           "duraklar": [
@@ -3198,7 +3060,7 @@
           ]
         },
         {
-          "gun": 11,
+          "gun": 10,
           "varis_id": 63,
           "varis": "Sémur - Dijon arası",
           "duraklar": [
@@ -3213,7 +3075,7 @@
           ]
         },
         {
-          "gun": 12,
+          "gun": 11,
           "varis_id": 60,
           "varis": "Tonnerre - Sémur arası",
           "duraklar": [
@@ -3228,7 +3090,7 @@
           ]
         },
         {
-          "gun": 13,
+          "gun": 12,
           "varis_id": 35,
           "varis": "Conflans-lès-Sens - Tonnerre arası",
           "duraklar": [
@@ -3243,7 +3105,7 @@
           ]
         },
         {
-          "gun": 14,
+          "gun": 13,
           "varis_id": 393,
           "varis": "Conflans-lès-Sens - Montargis arası",
           "duraklar": [
@@ -3258,7 +3120,7 @@
           ]
         },
         {
-          "gun": 15,
+          "gun": 14,
           "varis_id": 387,
           "varis": "Orléans - Montargis arası",
           "duraklar": [
@@ -3273,7 +3135,7 @@
           ]
         },
         {
-          "gun": 16,
+          "gun": 15,
           "varis_id": 384,
           "varis": "Patay - Orléans arası",
           "duraklar": [
@@ -3288,7 +3150,7 @@
           ]
         },
         {
-          "gun": 17,
+          "gun": 16,
           "varis_id": 383,
           "varis": "Patay - Blois arası",
           "duraklar": [
@@ -3303,7 +3165,7 @@
           ]
         },
         {
-          "gun": 18,
+          "gun": 17,
           "varis_id": 979,
           "varis": "Verneuil - Mortagne arası",
           "duraklar": [
@@ -3318,7 +3180,7 @@
           ]
         },
         {
-          "gun": 19,
+          "gun": 18,
           "varis_id": 441,
           "varis": "Verneuil - Argentan arası",
           "duraklar": [
@@ -3333,7 +3195,7 @@
           ]
         },
         {
-          "gun": 20,
+          "gun": 19,
           "varis_id": 2702,
           "varis": "Avranches - Argentan arası",
           "duraklar": [
@@ -3348,7 +3210,7 @@
           ]
         },
         {
-          "gun": 21,
+          "gun": 20,
           "varis_id": 2712,
           "varis": "Avranches - Saint-Brieuc arası",
           "duraklar": [
@@ -3363,7 +3225,7 @@
           ]
         },
         {
-          "gun": 22,
+          "gun": 21,
           "varis_id": 100,
           "varis": "Saint-Brieuc - Tréguier arası",
           "duraklar": [
@@ -3378,7 +3240,7 @@
           ]
         },
         {
-          "gun": 23,
+          "gun": 22,
           "varis_id": 257,
           "varis": "Tréguier - Saint Pol de Léon arası",
           "duraklar": [
@@ -3393,7 +3255,7 @@
           ]
         },
         {
-          "gun": 24,
+          "gun": 23,
           "varis_id": 259,
           "varis": "Saint Pol de Léon",
           "duraklar": [
@@ -3412,66 +3274,18 @@
       "rol": "tek"
     },
     {
-      "hesap": "Thehumanist",
-      "tur": "seyahat",
-      "kaynak": "ayar",
-      "nereden": "Glasgow - Girvan Yolu Üzerinde",
-      "yolda": true,
-      "bot_kalan_gun": 1,
-      "nereden_id": 2789,
-      "hedef": "Glasgow",
-      "hedef_id": 1045,
-      "jetonlu": false,
-      "adim_hakki": 2,
-      "rota": [
-        {
-          "id": 2789,
-          "isim": "Glasgow - Girvan arası"
-        },
-        {
-          "id": 1045,
-          "isim": "Glasgow"
-        }
-      ],
-      "kalan_adim": 1,
-      "kalan_gun": 1,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 1045,
-          "varis": "Glasgow",
-          "duraklar": [
-            {
-              "id": 1045,
-              "isim": "Glasgow"
-            }
-          ]
-        }
-      ],
-      "lider": "",
-      "rol": "tek"
-    },
-    {
       "hesap": "Ronaldoking",
       "tur": "seyahat",
       "kaynak": "ayar",
-      "nereden": "Crato - Elvas Yolu Üzerinde",
+      "nereden": "Crato - Avis Yolu Üzerinde",
       "yolda": true,
-      "bot_kalan_gun": 4,
-      "nereden_id": 2590,
+      "bot_kalan_gun": 3,
+      "nereden_id": 1173,
       "hedef": "Setúbal",
       "hedef_id": 1161,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 2590,
-          "isim": "Crato - Elvas arası"
-        },
-        {
-          "id": 1089,
-          "isim": "Crato"
-        },
         {
           "id": 1173,
           "isim": "Crato - Avis arası"
@@ -3501,26 +3315,11 @@
           "isim": "Setúbal"
         }
       ],
-      "kalan_adim": 8,
-      "kalan_gun": 4,
+      "kalan_adim": 6,
+      "kalan_gun": 3,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 1173,
-          "varis": "Crato - Avis arası",
-          "duraklar": [
-            {
-              "id": 1089,
-              "isim": "Crato"
-            },
-            {
-              "id": 1173,
-              "isim": "Crato - Avis arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 1171,
           "varis": "Montemor - Avis arası",
           "duraklar": [
@@ -3535,7 +3334,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 1163,
           "varis": "Montemor - Setúbal arası",
           "duraklar": [
@@ -3550,7 +3349,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 1161,
           "varis": "Setúbal",
           "duraklar": [
@@ -3569,66 +3368,18 @@
       "rol": "tek"
     },
     {
-      "hesap": "Asakira",
-      "tur": "seyahat",
-      "kaynak": "ayar",
-      "nereden": "Glasgow - Stirling Yolu Üzerinde",
-      "yolda": true,
-      "bot_kalan_gun": 1,
-      "nereden_id": 1049,
-      "hedef": "Stirling",
-      "hedef_id": 1050,
-      "jetonlu": false,
-      "adim_hakki": 2,
-      "rota": [
-        {
-          "id": 1049,
-          "isim": "Glasgow - Stirling arası"
-        },
-        {
-          "id": 1050,
-          "isim": "Stirling"
-        }
-      ],
-      "kalan_adim": 1,
-      "kalan_gun": 1,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 1050,
-          "varis": "Stirling",
-          "duraklar": [
-            {
-              "id": 1050,
-              "isim": "Stirling"
-            }
-          ]
-        }
-      ],
-      "lider": "",
-      "rol": "tek"
-    },
-    {
       "hesap": "Dogmeat",
       "tur": "seyahat",
       "kaynak": "ayar",
       "nereden": "Osma - Guarda Yolu Üzerinde",
       "yolda": true,
-      "bot_kalan_gun": 6,
-      "nereden_id": 920,
+      "bot_kalan_gun": 5,
+      "nereden_id": 922,
       "hedef": "Elvas",
       "hedef_id": 1170,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 920,
-          "isim": "Osma - Soria arası"
-        },
-        {
-          "id": 921,
-          "isim": "Osma - Soria arası"
-        },
         {
           "id": 922,
           "isim": "Osma - Guarda arası"
@@ -3670,26 +3421,11 @@
           "isim": "Elvas"
         }
       ],
-      "kalan_adim": 11,
-      "kalan_gun": 6,
+      "kalan_adim": 9,
+      "kalan_gun": 5,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 922,
-          "varis": "Osma - Guarda arası",
-          "duraklar": [
-            {
-              "id": 921,
-              "isim": "Osma - Soria arası"
-            },
-            {
-              "id": 922,
-              "isim": "Osma - Guarda arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 924,
           "varis": "Guarda - Viseu arası",
           "duraklar": [
@@ -3704,7 +3440,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 926,
           "varis": "Guarda - Viseu arası",
           "duraklar": [
@@ -3719,7 +3455,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 2588,
           "varis": "Guarda - Crato arası",
           "duraklar": [
@@ -3734,7 +3470,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 2590,
           "varis": "Crato - Elvas arası",
           "duraklar": [
@@ -3749,7 +3485,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 1170,
           "varis": "Elvas",
           "duraklar": [
@@ -3769,21 +3505,13 @@
       "kaynak": "ayar",
       "nereden": "Valladolid - Chaves Yolu Üzerinde",
       "yolda": true,
-      "bot_kalan_gun": 6,
-      "nereden_id": 912,
+      "bot_kalan_gun": 5,
+      "nereden_id": 914,
       "hedef": "Porto",
       "hedef_id": 868,
       "jetonlu": false,
       "adim_hakki": 2,
       "rota": [
-        {
-          "id": 912,
-          "isim": "Valladolid - Burgos arası"
-        },
-        {
-          "id": 913,
-          "isim": "Valladolid - Burgos arası"
-        },
         {
           "id": 914,
           "isim": "Valladolid - Burgos arası"
@@ -3829,26 +3557,11 @@
           "isim": "Porto"
         }
       ],
-      "kalan_adim": 12,
-      "kalan_gun": 6,
+      "kalan_adim": 10,
+      "kalan_gun": 5,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 914,
-          "varis": "Valladolid - Burgos arası",
-          "duraklar": [
-            {
-              "id": 913,
-              "isim": "Valladolid - Burgos arası"
-            },
-            {
-              "id": 914,
-              "isim": "Valladolid - Burgos arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 651,
           "varis": "Chaves - Valladolid arası",
           "duraklar": [
@@ -3863,7 +3576,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 699,
           "varis": "Chaves - Braga arası",
           "duraklar": [
@@ -3878,7 +3591,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 815,
           "varis": "Chaves",
           "duraklar": [
@@ -3893,7 +3606,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 866,
           "varis": "Braga",
           "duraklar": [
@@ -3908,7 +3621,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 868,
           "varis": "Porto",
           "duraklar": [
@@ -3977,34 +3690,19 @@
   ],
   "kafileler": [
     {
-      "anahtar": "937|259|2",
-      "nereden": "Chiavari",
-      "nereden_id": 937,
+      "anahtar": "566|259|2",
+      "nereden": "Pavia",
+      "nereden_id": 566,
       "hedef": "Saint Pol de Léon",
       "hedef_id": 259,
       "yolda": false,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 48,
-      "kalan_gun": 24,
+      "kalan_adim": 46,
+      "kalan_gun": 23,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 566,
-          "varis": "Pavia",
-          "duraklar": [
-            {
-              "id": 2780,
-              "isim": "Pavia - Piacenza arası"
-            },
-            {
-              "id": 566,
-              "isim": "Pavia"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 669,
           "varis": "Novara",
           "duraklar": [
@@ -4019,7 +3717,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 276,
           "varis": "Novara - Pavia arası",
           "duraklar": [
@@ -4034,7 +3732,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 274,
           "varis": "Annecy - Sion arası",
           "duraklar": [
@@ -4049,7 +3747,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 272,
           "varis": "Annecy - Chambéry arası",
           "duraklar": [
@@ -4064,7 +3762,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 269,
           "varis": "Annecy - Genève arası",
           "duraklar": [
@@ -4079,7 +3777,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 271,
           "varis": "Saint Claude - Genève arası",
           "duraklar": [
@@ -4094,7 +3792,7 @@
           ]
         },
         {
-          "gun": 8,
+          "gun": 7,
           "varis_id": 236,
           "varis": "Poligny - Saint Claude arası",
           "duraklar": [
@@ -4109,7 +3807,7 @@
           ]
         },
         {
-          "gun": 9,
+          "gun": 8,
           "varis_id": 234,
           "varis": "Dole - Poligny arası",
           "duraklar": [
@@ -4124,7 +3822,7 @@
           ]
         },
         {
-          "gun": 10,
+          "gun": 9,
           "varis_id": 224,
           "varis": "Dijon - Dole arası",
           "duraklar": [
@@ -4139,7 +3837,7 @@
           ]
         },
         {
-          "gun": 11,
+          "gun": 10,
           "varis_id": 63,
           "varis": "Sémur - Dijon arası",
           "duraklar": [
@@ -4154,7 +3852,7 @@
           ]
         },
         {
-          "gun": 12,
+          "gun": 11,
           "varis_id": 60,
           "varis": "Tonnerre - Sémur arası",
           "duraklar": [
@@ -4169,7 +3867,7 @@
           ]
         },
         {
-          "gun": 13,
+          "gun": 12,
           "varis_id": 35,
           "varis": "Conflans-lès-Sens - Tonnerre arası",
           "duraklar": [
@@ -4184,7 +3882,7 @@
           ]
         },
         {
-          "gun": 14,
+          "gun": 13,
           "varis_id": 393,
           "varis": "Conflans-lès-Sens - Montargis arası",
           "duraklar": [
@@ -4199,7 +3897,7 @@
           ]
         },
         {
-          "gun": 15,
+          "gun": 14,
           "varis_id": 387,
           "varis": "Orléans - Montargis arası",
           "duraklar": [
@@ -4214,7 +3912,7 @@
           ]
         },
         {
-          "gun": 16,
+          "gun": 15,
           "varis_id": 384,
           "varis": "Patay - Orléans arası",
           "duraklar": [
@@ -4229,7 +3927,7 @@
           ]
         },
         {
-          "gun": 17,
+          "gun": 16,
           "varis_id": 383,
           "varis": "Patay - Blois arası",
           "duraklar": [
@@ -4244,7 +3942,7 @@
           ]
         },
         {
-          "gun": 18,
+          "gun": 17,
           "varis_id": 979,
           "varis": "Verneuil - Mortagne arası",
           "duraklar": [
@@ -4259,7 +3957,7 @@
           ]
         },
         {
-          "gun": 19,
+          "gun": 18,
           "varis_id": 441,
           "varis": "Verneuil - Argentan arası",
           "duraklar": [
@@ -4274,7 +3972,7 @@
           ]
         },
         {
-          "gun": 20,
+          "gun": 19,
           "varis_id": 2702,
           "varis": "Avranches - Argentan arası",
           "duraklar": [
@@ -4289,7 +3987,7 @@
           ]
         },
         {
-          "gun": 21,
+          "gun": 20,
           "varis_id": 2712,
           "varis": "Avranches - Saint-Brieuc arası",
           "duraklar": [
@@ -4304,7 +4002,7 @@
           ]
         },
         {
-          "gun": 22,
+          "gun": 21,
           "varis_id": 100,
           "varis": "Saint-Brieuc - Tréguier arası",
           "duraklar": [
@@ -4319,7 +4017,7 @@
           ]
         },
         {
-          "gun": 23,
+          "gun": 22,
           "varis_id": 257,
           "varis": "Tréguier - Saint Pol de Léon arası",
           "duraklar": [
@@ -4334,7 +4032,7 @@
           ]
         },
         {
-          "gun": 24,
+          "gun": 23,
           "varis_id": 259,
           "varis": "Saint Pol de Léon",
           "duraklar": [
@@ -4350,14 +4048,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 937,
-          "isim": "Chiavari"
-        },
-        {
-          "id": 2780,
-          "isim": "Pavia - Piacenza arası"
-        },
         {
           "id": 566,
           "isim": "Pavia"
@@ -4582,110 +4272,6 @@
       "kaynaklar": []
     },
     {
-      "anahtar": "2789|1045|2",
-      "nereden": "Glasgow - Girvan Yolu Üzerinde",
-      "nereden_id": 2789,
-      "hedef": "Glasgow",
-      "hedef_id": 1045,
-      "yolda": true,
-      "adim_hakki": 2,
-      "jetonlu": false,
-      "kalan_adim": 1,
-      "kalan_gun": 1,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 1045,
-          "varis": "Glasgow",
-          "duraklar": [
-            {
-              "id": 1045,
-              "isim": "Glasgow"
-            }
-          ]
-        }
-      ],
-      "rota": [
-        {
-          "id": 2789,
-          "isim": "Glasgow - Girvan arası"
-        },
-        {
-          "id": 1045,
-          "isim": "Glasgow"
-        }
-      ],
-      "hesaplar": [
-        {
-          "hesap": "Thehumanist",
-          "tur": "seyahat",
-          "lider": "",
-          "kaynak": "",
-          "tahmin": false,
-          "rol": "tek"
-        }
-      ],
-      "liderler": [],
-      "kisi": 1,
-      "yalniz": true,
-      "grup": false,
-      "lider": "",
-      "olculdu": true,
-      "kaynaklar": []
-    },
-    {
-      "anahtar": "1049|1050|2",
-      "nereden": "Glasgow - Stirling Yolu Üzerinde",
-      "nereden_id": 1049,
-      "hedef": "Stirling",
-      "hedef_id": 1050,
-      "yolda": true,
-      "adim_hakki": 2,
-      "jetonlu": false,
-      "kalan_adim": 1,
-      "kalan_gun": 1,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 1050,
-          "varis": "Stirling",
-          "duraklar": [
-            {
-              "id": 1050,
-              "isim": "Stirling"
-            }
-          ]
-        }
-      ],
-      "rota": [
-        {
-          "id": 1049,
-          "isim": "Glasgow - Stirling arası"
-        },
-        {
-          "id": 1050,
-          "isim": "Stirling"
-        }
-      ],
-      "hesaplar": [
-        {
-          "hesap": "Asakira",
-          "tur": "seyahat",
-          "lider": "",
-          "kaynak": "",
-          "tahmin": false,
-          "rol": "tek"
-        }
-      ],
-      "liderler": [],
-      "kisi": 1,
-      "yalniz": true,
-      "grup": false,
-      "lider": "",
-      "olculdu": true,
-      "kaynaklar": []
-    },
-    {
       "anahtar": "760|758|2",
       "nereden": "Wigtown",
       "nereden_id": 760,
@@ -4746,34 +4332,19 @@
       "kaynaklar": []
     },
     {
-      "anahtar": "2590|1161|2",
-      "nereden": "Crato - Elvas Yolu Üzerinde",
-      "nereden_id": 2590,
+      "anahtar": "1173|1161|2",
+      "nereden": "Crato - Avis Yolu Üzerinde",
+      "nereden_id": 1173,
       "hedef": "Setúbal",
       "hedef_id": 1161,
       "yolda": true,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 8,
-      "kalan_gun": 4,
+      "kalan_adim": 6,
+      "kalan_gun": 3,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 1173,
-          "varis": "Crato - Avis arası",
-          "duraklar": [
-            {
-              "id": 1089,
-              "isim": "Crato"
-            },
-            {
-              "id": 1173,
-              "isim": "Crato - Avis arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 1171,
           "varis": "Montemor - Avis arası",
           "duraklar": [
@@ -4788,7 +4359,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 1163,
           "varis": "Montemor - Setúbal arası",
           "duraklar": [
@@ -4803,7 +4374,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 1161,
           "varis": "Setúbal",
           "duraklar": [
@@ -4819,14 +4390,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 2590,
-          "isim": "Crato - Elvas arası"
-        },
-        {
-          "id": 1089,
-          "isim": "Crato"
-        },
         {
           "id": 1173,
           "isim": "Crato - Avis arası"
@@ -4875,34 +4438,19 @@
       "kaynaklar": []
     },
     {
-      "anahtar": "920|1170|2",
+      "anahtar": "922|1170|2",
       "nereden": "Osma - Guarda Yolu Üzerinde",
-      "nereden_id": 920,
+      "nereden_id": 922,
       "hedef": "Elvas",
       "hedef_id": 1170,
       "yolda": true,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 11,
-      "kalan_gun": 6,
+      "kalan_adim": 9,
+      "kalan_gun": 5,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 922,
-          "varis": "Osma - Guarda arası",
-          "duraklar": [
-            {
-              "id": 921,
-              "isim": "Osma - Soria arası"
-            },
-            {
-              "id": 922,
-              "isim": "Osma - Guarda arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 924,
           "varis": "Guarda - Viseu arası",
           "duraklar": [
@@ -4917,7 +4465,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 926,
           "varis": "Guarda - Viseu arası",
           "duraklar": [
@@ -4932,7 +4480,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 2588,
           "varis": "Guarda - Crato arası",
           "duraklar": [
@@ -4947,7 +4495,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 2590,
           "varis": "Crato - Elvas arası",
           "duraklar": [
@@ -4962,7 +4510,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 1170,
           "varis": "Elvas",
           "duraklar": [
@@ -4974,14 +4522,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 920,
-          "isim": "Osma - Soria arası"
-        },
-        {
-          "id": 921,
-          "isim": "Osma - Soria arası"
-        },
         {
           "id": 922,
           "isim": "Osma - Guarda arası"
@@ -5042,34 +4582,19 @@
       "kaynaklar": []
     },
     {
-      "anahtar": "912|868|2",
+      "anahtar": "914|868|2",
       "nereden": "Valladolid - Chaves Yolu Üzerinde",
-      "nereden_id": 912,
+      "nereden_id": 914,
       "hedef": "Porto",
       "hedef_id": 868,
       "yolda": true,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 12,
-      "kalan_gun": 6,
+      "kalan_adim": 10,
+      "kalan_gun": 5,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 914,
-          "varis": "Valladolid - Burgos arası",
-          "duraklar": [
-            {
-              "id": 913,
-              "isim": "Valladolid - Burgos arası"
-            },
-            {
-              "id": 914,
-              "isim": "Valladolid - Burgos arası"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 651,
           "varis": "Chaves - Valladolid arası",
           "duraklar": [
@@ -5084,7 +4609,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 699,
           "varis": "Chaves - Braga arası",
           "duraklar": [
@@ -5099,7 +4624,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 815,
           "varis": "Chaves",
           "duraklar": [
@@ -5114,7 +4639,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 866,
           "varis": "Braga",
           "duraklar": [
@@ -5129,7 +4654,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 868,
           "varis": "Porto",
           "duraklar": [
@@ -5145,14 +4670,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 912,
-          "isim": "Valladolid - Burgos arası"
-        },
-        {
-          "id": 913,
-          "isim": "Valladolid - Burgos arası"
-        },
         {
           "id": 914,
           "isim": "Valladolid - Burgos arası"
@@ -5201,6 +4718,526 @@
       "hesaplar": [
         {
           "hesap": "Silverfork",
+          "tur": "seyahat",
+          "lider": "",
+          "kaynak": "",
+          "tahmin": false,
+          "rol": "tek"
+        }
+      ],
+      "liderler": [],
+      "kisi": 1,
+      "yalniz": true,
+      "grup": false,
+      "lider": "",
+      "olculdu": true,
+      "kaynaklar": []
+    },
+    {
+      "anahtar": "937|90|2",
+      "nereden": "Chiavari",
+      "nereden_id": 937,
+      "hedef": "Rennes",
+      "hedef_id": 90,
+      "yolda": false,
+      "adim_hakki": 2,
+      "jetonlu": false,
+      "kalan_adim": 42,
+      "kalan_gun": 21,
+      "gunler": [
+        {
+          "gun": 1,
+          "varis_id": 566,
+          "varis": "Pavia",
+          "duraklar": [
+            {
+              "id": 2780,
+              "isim": "Pavia - Piacenza arası"
+            },
+            {
+              "id": 566,
+              "isim": "Pavia"
+            }
+          ]
+        },
+        {
+          "gun": 2,
+          "varis_id": 669,
+          "varis": "Novara",
+          "duraklar": [
+            {
+              "id": 668,
+              "isim": "Pavia - Novara arası"
+            },
+            {
+              "id": 669,
+              "isim": "Novara"
+            }
+          ]
+        },
+        {
+          "gun": 3,
+          "varis_id": 2571,
+          "varis": "Novara - Briançon arası",
+          "duraklar": [
+            {
+              "id": 277,
+              "isim": "Novara - Pavia arası"
+            },
+            {
+              "id": 2571,
+              "isim": "Novara - Briançon arası"
+            }
+          ]
+        },
+        {
+          "gun": 4,
+          "varis_id": 256,
+          "varis": "Briançon",
+          "duraklar": [
+            {
+              "id": 2570,
+              "isim": "Briançon - Embrun arası"
+            },
+            {
+              "id": 256,
+              "isim": "Briançon"
+            }
+          ]
+        },
+        {
+          "gun": 5,
+          "varis_id": 2767,
+          "varis": "Chambéry - Briançon arası",
+          "duraklar": [
+            {
+              "id": 2768,
+              "isim": "Briançon - Chambéry arası"
+            },
+            {
+              "id": 2767,
+              "isim": "Chambéry - Briançon arası"
+            }
+          ]
+        },
+        {
+          "gun": 6,
+          "varis_id": 265,
+          "varis": "Belley - Chambéry arası",
+          "duraklar": [
+            {
+              "id": 266,
+              "isim": "Chambéry"
+            },
+            {
+              "id": 265,
+              "isim": "Belley - Chambéry arası"
+            }
+          ]
+        },
+        {
+          "gun": 7,
+          "varis_id": 263,
+          "varis": "Bourg - Belley arası",
+          "duraklar": [
+            {
+              "id": 264,
+              "isim": "Belley"
+            },
+            {
+              "id": 263,
+              "isim": "Bourg - Belley arası"
+            }
+          ]
+        },
+        {
+          "gun": 8,
+          "varis_id": 261,
+          "varis": "Mâcon - Bourg arası",
+          "duraklar": [
+            {
+              "id": 262,
+              "isim": "Bourg"
+            },
+            {
+              "id": 261,
+              "isim": "Mâcon - Bourg arası"
+            }
+          ]
+        },
+        {
+          "gun": 9,
+          "varis_id": 2750,
+          "varis": "Mâcon - Montpensier arası",
+          "duraklar": [
+            {
+              "id": 83,
+              "isim": "Mâcon"
+            },
+            {
+              "id": 2750,
+              "isim": "Mâcon - Montpensier arası"
+            }
+          ]
+        },
+        {
+          "gun": 10,
+          "varis_id": 153,
+          "varis": "Montpensier - Montluçon arası",
+          "duraklar": [
+            {
+              "id": 133,
+              "isim": "Montpensier"
+            },
+            {
+              "id": 153,
+              "isim": "Montpensier - Montluçon arası"
+            }
+          ]
+        },
+        {
+          "gun": 11,
+          "varis_id": 214,
+          "varis": "Montluçon - Guéret arası",
+          "duraklar": [
+            {
+              "id": 152,
+              "isim": "Montluçon"
+            },
+            {
+              "id": 214,
+              "isim": "Montluçon - Guéret arası"
+            }
+          ]
+        },
+        {
+          "gun": 12,
+          "varis_id": 210,
+          "varis": "Guéret",
+          "duraklar": [
+            {
+              "id": 213,
+              "isim": "Guéret - Montluçon arası"
+            },
+            {
+              "id": 210,
+              "isim": "Guéret"
+            }
+          ]
+        },
+        {
+          "gun": 13,
+          "varis_id": 212,
+          "varis": "Châteauroux - Guéret arası",
+          "duraklar": [
+            {
+              "id": 211,
+              "isim": "Guéret - Châteauroux arası"
+            },
+            {
+              "id": 212,
+              "isim": "Châteauroux - Guéret arası"
+            }
+          ]
+        },
+        {
+          "gun": 14,
+          "varis_id": 145,
+          "varis": "Châteauroux - Loches arası",
+          "duraklar": [
+            {
+              "id": 107,
+              "isim": "Châteauroux"
+            },
+            {
+              "id": 145,
+              "isim": "Châteauroux - Loches arası"
+            }
+          ]
+        },
+        {
+          "gun": 15,
+          "varis_id": 143,
+          "varis": "Loches",
+          "duraklar": [
+            {
+              "id": 144,
+              "isim": "Loches - Châteauroux arası"
+            },
+            {
+              "id": 143,
+              "isim": "Loches"
+            }
+          ]
+        },
+        {
+          "gun": 16,
+          "varis_id": 149,
+          "varis": "Chinon",
+          "duraklar": [
+            {
+              "id": 150,
+              "isim": "Loches - Chinon arası"
+            },
+            {
+              "id": 149,
+              "isim": "Chinon"
+            }
+          ]
+        },
+        {
+          "gun": 17,
+          "varis_id": 155,
+          "varis": "Saumur",
+          "duraklar": [
+            {
+              "id": 154,
+              "isim": "Chinon - Saumur arası"
+            },
+            {
+              "id": 155,
+              "isim": "Saumur"
+            }
+          ]
+        },
+        {
+          "gun": 18,
+          "varis_id": 157,
+          "varis": "Angers",
+          "duraklar": [
+            {
+              "id": 156,
+              "isim": "Saumur - Angers arası"
+            },
+            {
+              "id": 157,
+              "isim": "Angers"
+            }
+          ]
+        },
+        {
+          "gun": 19,
+          "varis_id": 161,
+          "varis": "Craon",
+          "duraklar": [
+            {
+              "id": 160,
+              "isim": "Angers - Craon arası"
+            },
+            {
+              "id": 161,
+              "isim": "Craon"
+            }
+          ]
+        },
+        {
+          "gun": 20,
+          "varis_id": 163,
+          "varis": "Rieux",
+          "duraklar": [
+            {
+              "id": 2713,
+              "isim": "Craon - Rieux arası"
+            },
+            {
+              "id": 163,
+              "isim": "Rieux"
+            }
+          ]
+        },
+        {
+          "gun": 21,
+          "varis_id": 90,
+          "varis": "Rennes",
+          "duraklar": [
+            {
+              "id": 164,
+              "isim": "Rennes - Rieux arası"
+            },
+            {
+              "id": 90,
+              "isim": "Rennes"
+            }
+          ]
+        }
+      ],
+      "rota": [
+        {
+          "id": 937,
+          "isim": "Chiavari"
+        },
+        {
+          "id": 2780,
+          "isim": "Pavia - Piacenza arası"
+        },
+        {
+          "id": 566,
+          "isim": "Pavia"
+        },
+        {
+          "id": 668,
+          "isim": "Pavia - Novara arası"
+        },
+        {
+          "id": 669,
+          "isim": "Novara"
+        },
+        {
+          "id": 277,
+          "isim": "Novara - Pavia arası"
+        },
+        {
+          "id": 2571,
+          "isim": "Novara - Briançon arası"
+        },
+        {
+          "id": 2570,
+          "isim": "Briançon - Embrun arası"
+        },
+        {
+          "id": 256,
+          "isim": "Briançon"
+        },
+        {
+          "id": 2768,
+          "isim": "Briançon - Chambéry arası"
+        },
+        {
+          "id": 2767,
+          "isim": "Chambéry - Briançon arası"
+        },
+        {
+          "id": 266,
+          "isim": "Chambéry"
+        },
+        {
+          "id": 265,
+          "isim": "Belley - Chambéry arası"
+        },
+        {
+          "id": 264,
+          "isim": "Belley"
+        },
+        {
+          "id": 263,
+          "isim": "Bourg - Belley arası"
+        },
+        {
+          "id": 262,
+          "isim": "Bourg"
+        },
+        {
+          "id": 261,
+          "isim": "Mâcon - Bourg arası"
+        },
+        {
+          "id": 83,
+          "isim": "Mâcon"
+        },
+        {
+          "id": 2750,
+          "isim": "Mâcon - Montpensier arası"
+        },
+        {
+          "id": 133,
+          "isim": "Montpensier"
+        },
+        {
+          "id": 153,
+          "isim": "Montpensier - Montluçon arası"
+        },
+        {
+          "id": 152,
+          "isim": "Montluçon"
+        },
+        {
+          "id": 214,
+          "isim": "Montluçon - Guéret arası"
+        },
+        {
+          "id": 213,
+          "isim": "Guéret - Montluçon arası"
+        },
+        {
+          "id": 210,
+          "isim": "Guéret"
+        },
+        {
+          "id": 211,
+          "isim": "Guéret - Châteauroux arası"
+        },
+        {
+          "id": 212,
+          "isim": "Châteauroux - Guéret arası"
+        },
+        {
+          "id": 107,
+          "isim": "Châteauroux"
+        },
+        {
+          "id": 145,
+          "isim": "Châteauroux - Loches arası"
+        },
+        {
+          "id": 144,
+          "isim": "Loches - Châteauroux arası"
+        },
+        {
+          "id": 143,
+          "isim": "Loches"
+        },
+        {
+          "id": 150,
+          "isim": "Loches - Chinon arası"
+        },
+        {
+          "id": 149,
+          "isim": "Chinon"
+        },
+        {
+          "id": 154,
+          "isim": "Chinon - Saumur arası"
+        },
+        {
+          "id": 155,
+          "isim": "Saumur"
+        },
+        {
+          "id": 156,
+          "isim": "Saumur - Angers arası"
+        },
+        {
+          "id": 157,
+          "isim": "Angers"
+        },
+        {
+          "id": 160,
+          "isim": "Angers - Craon arası"
+        },
+        {
+          "id": 161,
+          "isim": "Craon"
+        },
+        {
+          "id": 2713,
+          "isim": "Craon - Rieux arası"
+        },
+        {
+          "id": 163,
+          "isim": "Rieux"
+        },
+        {
+          "id": 164,
+          "isim": "Rennes - Rieux arası"
+        },
+        {
+          "id": 90,
+          "isim": "Rennes"
+        }
+      ],
+      "hesaplar": [
+        {
+          "hesap": "yellowsmith",
           "tur": "seyahat",
           "lider": "",
           "kaynak": "",
@@ -5743,572 +5780,6 @@
       ],
       "hesaplar": [
         {
-          "hesap": "yellowsmith",
-          "tur": "seyahat",
-          "lider": "",
-          "kaynak": "",
-          "tahmin": false,
-          "rol": "tek"
-        }
-      ],
-      "liderler": [],
-      "kisi": 1,
-      "yalniz": true,
-      "grup": false,
-      "lider": "",
-      "olculdu": true,
-      "kaynaklar": []
-    },
-    {
-      "anahtar": "942|90|2",
-      "nereden": "Massa",
-      "nereden_id": 942,
-      "hedef": "Rennes",
-      "hedef_id": 90,
-      "yolda": false,
-      "adim_hakki": 2,
-      "jetonlu": false,
-      "kalan_adim": 46,
-      "kalan_gun": 23,
-      "gunler": [
-        {
-          "gun": 1,
-          "varis_id": 939,
-          "varis": "La Spezia",
-          "duraklar": [
-            {
-              "id": 941,
-              "isim": "La Spezia - Massa arası"
-            },
-            {
-              "id": 939,
-              "isim": "La Spezia"
-            }
-          ]
-        },
-        {
-          "gun": 2,
-          "varis_id": 937,
-          "varis": "Chiavari",
-          "duraklar": [
-            {
-              "id": 938,
-              "isim": "Chiavari - La Spezia arası"
-            },
-            {
-              "id": 937,
-              "isim": "Chiavari"
-            }
-          ]
-        },
-        {
-          "gun": 3,
-          "varis_id": 566,
-          "varis": "Pavia",
-          "duraklar": [
-            {
-              "id": 2780,
-              "isim": "Pavia - Piacenza arası"
-            },
-            {
-              "id": 566,
-              "isim": "Pavia"
-            }
-          ]
-        },
-        {
-          "gun": 4,
-          "varis_id": 669,
-          "varis": "Novara",
-          "duraklar": [
-            {
-              "id": 668,
-              "isim": "Pavia - Novara arası"
-            },
-            {
-              "id": 669,
-              "isim": "Novara"
-            }
-          ]
-        },
-        {
-          "gun": 5,
-          "varis_id": 2571,
-          "varis": "Novara - Briançon arası",
-          "duraklar": [
-            {
-              "id": 277,
-              "isim": "Novara - Pavia arası"
-            },
-            {
-              "id": 2571,
-              "isim": "Novara - Briançon arası"
-            }
-          ]
-        },
-        {
-          "gun": 6,
-          "varis_id": 256,
-          "varis": "Briançon",
-          "duraklar": [
-            {
-              "id": 2570,
-              "isim": "Briançon - Embrun arası"
-            },
-            {
-              "id": 256,
-              "isim": "Briançon"
-            }
-          ]
-        },
-        {
-          "gun": 7,
-          "varis_id": 2767,
-          "varis": "Chambéry - Briançon arası",
-          "duraklar": [
-            {
-              "id": 2768,
-              "isim": "Briançon - Chambéry arası"
-            },
-            {
-              "id": 2767,
-              "isim": "Chambéry - Briançon arası"
-            }
-          ]
-        },
-        {
-          "gun": 8,
-          "varis_id": 265,
-          "varis": "Belley - Chambéry arası",
-          "duraklar": [
-            {
-              "id": 266,
-              "isim": "Chambéry"
-            },
-            {
-              "id": 265,
-              "isim": "Belley - Chambéry arası"
-            }
-          ]
-        },
-        {
-          "gun": 9,
-          "varis_id": 263,
-          "varis": "Bourg - Belley arası",
-          "duraklar": [
-            {
-              "id": 264,
-              "isim": "Belley"
-            },
-            {
-              "id": 263,
-              "isim": "Bourg - Belley arası"
-            }
-          ]
-        },
-        {
-          "gun": 10,
-          "varis_id": 261,
-          "varis": "Mâcon - Bourg arası",
-          "duraklar": [
-            {
-              "id": 262,
-              "isim": "Bourg"
-            },
-            {
-              "id": 261,
-              "isim": "Mâcon - Bourg arası"
-            }
-          ]
-        },
-        {
-          "gun": 11,
-          "varis_id": 2750,
-          "varis": "Mâcon - Montpensier arası",
-          "duraklar": [
-            {
-              "id": 83,
-              "isim": "Mâcon"
-            },
-            {
-              "id": 2750,
-              "isim": "Mâcon - Montpensier arası"
-            }
-          ]
-        },
-        {
-          "gun": 12,
-          "varis_id": 153,
-          "varis": "Montpensier - Montluçon arası",
-          "duraklar": [
-            {
-              "id": 133,
-              "isim": "Montpensier"
-            },
-            {
-              "id": 153,
-              "isim": "Montpensier - Montluçon arası"
-            }
-          ]
-        },
-        {
-          "gun": 13,
-          "varis_id": 214,
-          "varis": "Montluçon - Guéret arası",
-          "duraklar": [
-            {
-              "id": 152,
-              "isim": "Montluçon"
-            },
-            {
-              "id": 214,
-              "isim": "Montluçon - Guéret arası"
-            }
-          ]
-        },
-        {
-          "gun": 14,
-          "varis_id": 210,
-          "varis": "Guéret",
-          "duraklar": [
-            {
-              "id": 213,
-              "isim": "Guéret - Montluçon arası"
-            },
-            {
-              "id": 210,
-              "isim": "Guéret"
-            }
-          ]
-        },
-        {
-          "gun": 15,
-          "varis_id": 212,
-          "varis": "Châteauroux - Guéret arası",
-          "duraklar": [
-            {
-              "id": 211,
-              "isim": "Guéret - Châteauroux arası"
-            },
-            {
-              "id": 212,
-              "isim": "Châteauroux - Guéret arası"
-            }
-          ]
-        },
-        {
-          "gun": 16,
-          "varis_id": 145,
-          "varis": "Châteauroux - Loches arası",
-          "duraklar": [
-            {
-              "id": 107,
-              "isim": "Châteauroux"
-            },
-            {
-              "id": 145,
-              "isim": "Châteauroux - Loches arası"
-            }
-          ]
-        },
-        {
-          "gun": 17,
-          "varis_id": 143,
-          "varis": "Loches",
-          "duraklar": [
-            {
-              "id": 144,
-              "isim": "Loches - Châteauroux arası"
-            },
-            {
-              "id": 143,
-              "isim": "Loches"
-            }
-          ]
-        },
-        {
-          "gun": 18,
-          "varis_id": 149,
-          "varis": "Chinon",
-          "duraklar": [
-            {
-              "id": 150,
-              "isim": "Loches - Chinon arası"
-            },
-            {
-              "id": 149,
-              "isim": "Chinon"
-            }
-          ]
-        },
-        {
-          "gun": 19,
-          "varis_id": 155,
-          "varis": "Saumur",
-          "duraklar": [
-            {
-              "id": 154,
-              "isim": "Chinon - Saumur arası"
-            },
-            {
-              "id": 155,
-              "isim": "Saumur"
-            }
-          ]
-        },
-        {
-          "gun": 20,
-          "varis_id": 157,
-          "varis": "Angers",
-          "duraklar": [
-            {
-              "id": 156,
-              "isim": "Saumur - Angers arası"
-            },
-            {
-              "id": 157,
-              "isim": "Angers"
-            }
-          ]
-        },
-        {
-          "gun": 21,
-          "varis_id": 161,
-          "varis": "Craon",
-          "duraklar": [
-            {
-              "id": 160,
-              "isim": "Angers - Craon arası"
-            },
-            {
-              "id": 161,
-              "isim": "Craon"
-            }
-          ]
-        },
-        {
-          "gun": 22,
-          "varis_id": 163,
-          "varis": "Rieux",
-          "duraklar": [
-            {
-              "id": 2713,
-              "isim": "Craon - Rieux arası"
-            },
-            {
-              "id": 163,
-              "isim": "Rieux"
-            }
-          ]
-        },
-        {
-          "gun": 23,
-          "varis_id": 90,
-          "varis": "Rennes",
-          "duraklar": [
-            {
-              "id": 164,
-              "isim": "Rennes - Rieux arası"
-            },
-            {
-              "id": 90,
-              "isim": "Rennes"
-            }
-          ]
-        }
-      ],
-      "rota": [
-        {
-          "id": 942,
-          "isim": "Massa"
-        },
-        {
-          "id": 941,
-          "isim": "La Spezia - Massa arası"
-        },
-        {
-          "id": 939,
-          "isim": "La Spezia"
-        },
-        {
-          "id": 938,
-          "isim": "Chiavari - La Spezia arası"
-        },
-        {
-          "id": 937,
-          "isim": "Chiavari"
-        },
-        {
-          "id": 2780,
-          "isim": "Pavia - Piacenza arası"
-        },
-        {
-          "id": 566,
-          "isim": "Pavia"
-        },
-        {
-          "id": 668,
-          "isim": "Pavia - Novara arası"
-        },
-        {
-          "id": 669,
-          "isim": "Novara"
-        },
-        {
-          "id": 277,
-          "isim": "Novara - Pavia arası"
-        },
-        {
-          "id": 2571,
-          "isim": "Novara - Briançon arası"
-        },
-        {
-          "id": 2570,
-          "isim": "Briançon - Embrun arası"
-        },
-        {
-          "id": 256,
-          "isim": "Briançon"
-        },
-        {
-          "id": 2768,
-          "isim": "Briançon - Chambéry arası"
-        },
-        {
-          "id": 2767,
-          "isim": "Chambéry - Briançon arası"
-        },
-        {
-          "id": 266,
-          "isim": "Chambéry"
-        },
-        {
-          "id": 265,
-          "isim": "Belley - Chambéry arası"
-        },
-        {
-          "id": 264,
-          "isim": "Belley"
-        },
-        {
-          "id": 263,
-          "isim": "Bourg - Belley arası"
-        },
-        {
-          "id": 262,
-          "isim": "Bourg"
-        },
-        {
-          "id": 261,
-          "isim": "Mâcon - Bourg arası"
-        },
-        {
-          "id": 83,
-          "isim": "Mâcon"
-        },
-        {
-          "id": 2750,
-          "isim": "Mâcon - Montpensier arası"
-        },
-        {
-          "id": 133,
-          "isim": "Montpensier"
-        },
-        {
-          "id": 153,
-          "isim": "Montpensier - Montluçon arası"
-        },
-        {
-          "id": 152,
-          "isim": "Montluçon"
-        },
-        {
-          "id": 214,
-          "isim": "Montluçon - Guéret arası"
-        },
-        {
-          "id": 213,
-          "isim": "Guéret - Montluçon arası"
-        },
-        {
-          "id": 210,
-          "isim": "Guéret"
-        },
-        {
-          "id": 211,
-          "isim": "Guéret - Châteauroux arası"
-        },
-        {
-          "id": 212,
-          "isim": "Châteauroux - Guéret arası"
-        },
-        {
-          "id": 107,
-          "isim": "Châteauroux"
-        },
-        {
-          "id": 145,
-          "isim": "Châteauroux - Loches arası"
-        },
-        {
-          "id": 144,
-          "isim": "Loches - Châteauroux arası"
-        },
-        {
-          "id": 143,
-          "isim": "Loches"
-        },
-        {
-          "id": 150,
-          "isim": "Loches - Chinon arası"
-        },
-        {
-          "id": 149,
-          "isim": "Chinon"
-        },
-        {
-          "id": 154,
-          "isim": "Chinon - Saumur arası"
-        },
-        {
-          "id": 155,
-          "isim": "Saumur"
-        },
-        {
-          "id": 156,
-          "isim": "Saumur - Angers arası"
-        },
-        {
-          "id": 157,
-          "isim": "Angers"
-        },
-        {
-          "id": 160,
-          "isim": "Angers - Craon arası"
-        },
-        {
-          "id": 161,
-          "isim": "Craon"
-        },
-        {
-          "id": 2713,
-          "isim": "Craon - Rieux arası"
-        },
-        {
-          "id": 163,
-          "isim": "Rieux"
-        },
-        {
-          "id": 164,
-          "isim": "Rennes - Rieux arası"
-        },
-        {
-          "id": 90,
-          "isim": "Rennes"
-        }
-      ],
-      "hesaplar": [
-        {
           "hesap": "marchosias",
           "tur": "seyahat",
           "lider": "",
@@ -6326,34 +5797,19 @@
       "kaynaklar": []
     },
     {
-      "anahtar": "942|101|2",
-      "nereden": "Massa",
-      "nereden_id": 942,
+      "anahtar": "939|101|2",
+      "nereden": "La Spezia",
+      "nereden_id": 939,
       "hedef": "Tréguier",
       "hedef_id": 101,
       "yolda": false,
       "adim_hakki": 2,
       "jetonlu": false,
-      "kalan_adim": 49,
-      "kalan_gun": 25,
+      "kalan_adim": 47,
+      "kalan_gun": 24,
       "gunler": [
         {
           "gun": 1,
-          "varis_id": 939,
-          "varis": "La Spezia",
-          "duraklar": [
-            {
-              "id": 941,
-              "isim": "La Spezia - Massa arası"
-            },
-            {
-              "id": 939,
-              "isim": "La Spezia"
-            }
-          ]
-        },
-        {
-          "gun": 2,
           "varis_id": 937,
           "varis": "Chiavari",
           "duraklar": [
@@ -6368,7 +5824,7 @@
           ]
         },
         {
-          "gun": 3,
+          "gun": 2,
           "varis_id": 566,
           "varis": "Pavia",
           "duraklar": [
@@ -6383,7 +5839,7 @@
           ]
         },
         {
-          "gun": 4,
+          "gun": 3,
           "varis_id": 669,
           "varis": "Novara",
           "duraklar": [
@@ -6398,7 +5854,7 @@
           ]
         },
         {
-          "gun": 5,
+          "gun": 4,
           "varis_id": 276,
           "varis": "Novara - Pavia arası",
           "duraklar": [
@@ -6413,7 +5869,7 @@
           ]
         },
         {
-          "gun": 6,
+          "gun": 5,
           "varis_id": 274,
           "varis": "Annecy - Sion arası",
           "duraklar": [
@@ -6428,7 +5884,7 @@
           ]
         },
         {
-          "gun": 7,
+          "gun": 6,
           "varis_id": 272,
           "varis": "Annecy - Chambéry arası",
           "duraklar": [
@@ -6443,7 +5899,7 @@
           ]
         },
         {
-          "gun": 8,
+          "gun": 7,
           "varis_id": 269,
           "varis": "Annecy - Genève arası",
           "duraklar": [
@@ -6458,7 +5914,7 @@
           ]
         },
         {
-          "gun": 9,
+          "gun": 8,
           "varis_id": 271,
           "varis": "Saint Claude - Genève arası",
           "duraklar": [
@@ -6473,7 +5929,7 @@
           ]
         },
         {
-          "gun": 10,
+          "gun": 9,
           "varis_id": 236,
           "varis": "Poligny - Saint Claude arası",
           "duraklar": [
@@ -6488,7 +5944,7 @@
           ]
         },
         {
-          "gun": 11,
+          "gun": 10,
           "varis_id": 234,
           "varis": "Dole - Poligny arası",
           "duraklar": [
@@ -6503,7 +5959,7 @@
           ]
         },
         {
-          "gun": 12,
+          "gun": 11,
           "varis_id": 224,
           "varis": "Dijon - Dole arası",
           "duraklar": [
@@ -6518,7 +5974,7 @@
           ]
         },
         {
-          "gun": 13,
+          "gun": 12,
           "varis_id": 63,
           "varis": "Sémur - Dijon arası",
           "duraklar": [
@@ -6533,7 +5989,7 @@
           ]
         },
         {
-          "gun": 14,
+          "gun": 13,
           "varis_id": 60,
           "varis": "Tonnerre - Sémur arası",
           "duraklar": [
@@ -6548,7 +6004,7 @@
           ]
         },
         {
-          "gun": 15,
+          "gun": 14,
           "varis_id": 35,
           "varis": "Conflans-lès-Sens - Tonnerre arası",
           "duraklar": [
@@ -6563,7 +6019,7 @@
           ]
         },
         {
-          "gun": 16,
+          "gun": 15,
           "varis_id": 393,
           "varis": "Conflans-lès-Sens - Montargis arası",
           "duraklar": [
@@ -6578,7 +6034,7 @@
           ]
         },
         {
-          "gun": 17,
+          "gun": 16,
           "varis_id": 387,
           "varis": "Orléans - Montargis arası",
           "duraklar": [
@@ -6593,7 +6049,7 @@
           ]
         },
         {
-          "gun": 18,
+          "gun": 17,
           "varis_id": 384,
           "varis": "Patay - Orléans arası",
           "duraklar": [
@@ -6608,7 +6064,7 @@
           ]
         },
         {
-          "gun": 19,
+          "gun": 18,
           "varis_id": 383,
           "varis": "Patay - Blois arası",
           "duraklar": [
@@ -6623,7 +6079,7 @@
           ]
         },
         {
-          "gun": 20,
+          "gun": 19,
           "varis_id": 979,
           "varis": "Verneuil - Mortagne arası",
           "duraklar": [
@@ -6638,7 +6094,7 @@
           ]
         },
         {
-          "gun": 21,
+          "gun": 20,
           "varis_id": 441,
           "varis": "Verneuil - Argentan arası",
           "duraklar": [
@@ -6653,7 +6109,7 @@
           ]
         },
         {
-          "gun": 22,
+          "gun": 21,
           "varis_id": 2702,
           "varis": "Avranches - Argentan arası",
           "duraklar": [
@@ -6668,7 +6124,7 @@
           ]
         },
         {
-          "gun": 23,
+          "gun": 22,
           "varis_id": 2712,
           "varis": "Avranches - Saint-Brieuc arası",
           "duraklar": [
@@ -6683,7 +6139,7 @@
           ]
         },
         {
-          "gun": 24,
+          "gun": 23,
           "varis_id": 100,
           "varis": "Saint-Brieuc - Tréguier arası",
           "duraklar": [
@@ -6698,7 +6154,7 @@
           ]
         },
         {
-          "gun": 25,
+          "gun": 24,
           "varis_id": 101,
           "varis": "Tréguier",
           "duraklar": [
@@ -6710,14 +6166,6 @@
         }
       ],
       "rota": [
-        {
-          "id": 942,
-          "isim": "Massa"
-        },
-        {
-          "id": 941,
-          "isim": "La Spezia - Massa arası"
-        },
         {
           "id": 939,
           "isim": "La Spezia"
