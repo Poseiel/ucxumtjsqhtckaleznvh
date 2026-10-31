@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-10-31 11:06",
+  "son_guncelleme": "2026-10-31 16:30",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -628,7 +628,11 @@
       "ayar": {
         "takip": "Hızlı Cami",
         "seyahat_hedefi": "Glasgow"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Hasdur",
@@ -718,7 +722,11 @@
       "ayar": {
         "takip": "Hızlı Cami",
         "seyahat_hedefi": "Stirling"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Dogmeat",
