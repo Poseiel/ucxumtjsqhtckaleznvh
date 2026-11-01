@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-11-01 08:10",
+  "son_guncelleme": "2026-11-01 16:38",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -491,7 +491,10 @@
       "ad": "Penaldo",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Gorgoyle",
@@ -608,7 +611,10 @@
       "ad": "Gundrel",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Dekhatis",
@@ -651,7 +657,10 @@
       "ayar": {
         "takip": "Hızlı Ot",
         "gorev": "ev_al:Mısır"
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "Kealor",
@@ -690,6 +699,7 @@
         "takip": "Hızlı Cami"
       },
       "bekleyen": [
+        "oy_hazirla",
         "takip"
       ]
     },
@@ -807,13 +817,15 @@
       "ad": "Totumto",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Tim_brown",
       "ayar": {
-        "takip": "Hızlı Cami",
-        "oy_hazirla": true
+        "takip": "Hızlı Cami"
       }
     },
     {
@@ -846,6 +858,7 @@
         "takip": "Hızlı Maden"
       },
       "bekleyen": [
+        "oy_hazirla",
         "takip"
       ]
     },
@@ -927,8 +940,7 @@
     {
       "ad": "Leaoo",
       "ayar": {
-        "takip": "Hızlı Cami",
-        "oy_hazirla": true
+        "takip": "Hızlı Cami"
       }
     },
     {
@@ -1055,7 +1067,10 @@
       "ad": "Robiot",
       "ayar": {
         "gorev": "tarla_al:Sebze"
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "Elcamino",
@@ -1067,25 +1082,37 @@
       "ad": "Jameika",
       "ayar": {
         "gorev": "tarla_al:Sebze"
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "Robison",
       "ayar": {
         "gorev": "tarla_al:Sebze"
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "Rashford",
       "ayar": {
         "gorev": "tarla_al:Sebze"
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "OliverY",
       "ayar": {
         "gorev": "tarla_al:Sebze"
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "Xxavierr",
@@ -1110,9 +1137,27 @@
       "ayar": {
         "takip": "Hızlı Cami"
       }
+    },
+    {
+      "ad": "Halual",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Selina_iron",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
+    },
+    {
+      "ad": "Gargantua",
+      "ayar": {
+        "takip": "Hızlı Cami"
+      }
     }
   ],
-  "toplam_hesap": 163,
+  "toplam_hesap": 166,
   "sistem_gecmis": [
     {
       "zaman": "2026-10-31 22:29",
