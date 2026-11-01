@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-11-01 11:31",
+  "son_guncelleme": "2026-11-01 11:43",
   "tarih": "2026-11-01",
   "aralik_dk": 150,
   "kontroller": [
@@ -136,6 +136,23 @@
         }
       ],
       "farklar": []
+    },
+    {
+      "kasaba": "Stirling",
+      "saat": "11:42",
+      "saat_tam": "2026-11-01T11:42:32",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Glasgow",
+          "kasaba": "Stirling",
+          "komutan": "Kazasker: Mavisari",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": [],
+      "farklar": []
     }
   ],
   "son_durum": {
@@ -203,6 +220,21 @@
           "katilim": "Serbest Katılım"
         }
       ]
+    },
+    "Stirling": {
+      "saat": "11:42",
+      "saat_tam": "2026-11-01T11:42:32",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Glasgow",
+          "kasaba": "Stirling",
+          "komutan": "Kazasker: Mavisari",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": []
     }
   },
   "ordulu_kasabalar": [
