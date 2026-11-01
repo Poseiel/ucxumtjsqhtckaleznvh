@@ -2389,6 +2389,7 @@ function ayMesajiKur() {
   ekle("tarla", emirDeger("ay-plan-tarla"));
   ekle("iş sırası", _planIs);
   ekle("kalan enerji", emirDeger("ay-plan-kalan"));
+  ekle("maden", emirDeger("ay-plan-maden"));   // ⛏️ [01.11.2026] demir · taş · kil · altın (boş = sistem)
   ekle("cami parası", _planCami);
   // 🔋 [30.10.2026] cami itibarı (0-255, 255'in üstü YOK — oyunun tavanı) · enerji ayır (0-115)
   var _planItibar = String(emirDeger("ay-plan-itibar") || "").trim();
@@ -2482,7 +2483,7 @@ function ayKur() {
    "ay-yay", "ay-plan-yemek", "ay-plan-meyhane", "ay-plan-yol", "ay-plan-tarla", "ay-plan-is",
    "ay-plan-kalan", "ay-plan-cami", "ay-plan-satis", "ay-plan-iptal", "ay-sifirla", "ay-teshis",
    "ay-oy-hazirla", "ay-plan-urun", "ay-plan-yetenek", "ay-yetenek-gir", "ay-plan-itibar", "ay-plan-enerji",
-   "ay-plan-ders-sayi", "ay-plan-ders-sonra", "ay-plan-hoca", "ay-plan-odun"
+   "ay-plan-ders-sayi", "ay-plan-ders-sonra", "ay-plan-hoca", "ay-plan-odun", "ay-plan-maden"
   ].forEach(function (id) {
     var el = document.getElementById(id);
     if (el) {
@@ -2602,8 +2603,9 @@ function sistemDegerYazisi(alan, d) {
     return (d === null || d === undefined || d === "") ? "varsayılan" : String(d).replace(".", ",") + " akçe";
   }
   if (alan === "gemiler") {
+    // 🚢 [01.11.2026] her geminin ayarı da görünsün (eskiden yalnız armatör adları)
     var ks = Object.keys(d || {});
-    return ks.length ? ks.join(", ") : "—";
+    return ks.length ? ks.map(function (k) { return k + " (" + gemiOzetiJs(d[k]) + ")"; }).join(" · ") : "—";
   }
   if (alan === "hesap_listeleri") {
     var ls = Object.keys(d || {});
@@ -2723,7 +2725,8 @@ var PLAN_ALAN_ADLARI = [["plan_yemek", "yemek"], ["plan_meyhane", "meyhane"],
   // 🔋 [30.10.2026] cami itibarı · enerji ayır (eksikti) + [30.10 akşam] ders sayısı · dersten sonra · hoca madeni · odun verimi
   ["plan_cami_itibar", "cami itibarı"], ["plan_enerji_ayir", "enerji ayır"],
   ["plan_ders_sayisi", "ders sayısı"], ["plan_ders_sonra", "dersten sonra"],
-  ["plan_hoca_maden", "hoca madeni"], ["plan_odun_verim", "odun verimi"]];
+  ["plan_hoca_maden", "hoca madeni"], ["plan_odun_verim", "odun verimi"],
+  ["plan_maden", "maden"]];   // ⛏️ [01.11.2026]
 var PLAN_BIRIM = { plan_cami_para: " akçe", plan_enerji_ayir: " enerji", plan_ders_sayisi: " tur",
   plan_hoca_maden: " saat", plan_odun_verim: " tomruk" };
 function planOzetiJs(ayar) {
@@ -2837,9 +2840,41 @@ function sistemMesajiKur() {
     else if (lIslem === "çıkar") satirlar.push("hesap listesi " + lAd + " çıkar: " + lAdlar.join(", "));
     else satirlar.push("hesap listesi " + lAd + ": " + lAdlar.join(", "));
   }
+  // 🚢 [01.11.2026] ek gemi → "gemi <armatör> <ayar>: değer" (site_emirleri._gemi_etiketi ile BİREBİR)
+  var gAd = String(emirDeger("si-gemi-ad") || "").trim();
+  var gSil = document.getElementById("si-gemi-sil");
+  var gSatir = [];
+  SISTEM_GEMI.forEach(function (x) {
+    var d = String(emirDeger(x[0]) || "").trim();
+    if (d) gSatir.push([x[1], d]);
+  });
+  if (gSil && gSil.checked) {
+    if (!gAd) hata = hata || "silinecek geminin armatörünü yaz";
+    else satirlar.push("gemi " + gAd + ": sil");
+  } else if (gSatir.length) {
+    if (!gAd || /[\s:]/.test(gAd)) hata = hata || "“ek gemi” için armatör adı yaz (boşluksuz, iki nokta olmadan)";
+    else gSatir.forEach(function (x) { satirlar.push("gemi " + gAd + " " + x[0] + ": " + x[1]); });
+  }
   if (hata) return { hata: "Eksik: " + hata };
   if (satirlar.length < 2) return { hata: "Hiçbir ayara dokunmadın — değiştirmek istediğin kutuyu seç." };
   return { metin: satirlar.join(EMIR_NL) };
+}
+// 🚢 [01.11.2026] ek gemi kutuları → etiket son eki (site_emirleri._GEMI_SONEKLERI)
+var SISTEM_GEMI = [["si-gemi-hedef", "hedef liman"], ["si-gemi-devir", "devir hedefi"],
+                   ["si-gemi-hareket", "hareket"], ["si-gemi-yelken", "yelken"],
+                   ["si-gemi-kiyi", "kıyı mesafesi"], ["si-gemi-rota", "rota"]];
+function gemiOzetiJs(ay) {
+  if (!ay || typeof ay !== "object") return "kaydı yok";
+  var ad = [["hedef_liman", "hedef"], ["devir_hedefi", "devir"], ["hareket_aktif", "hareket"],
+            ["kiyi_mesafesi", "kıyı"], ["yelken", "yelken"], ["rota", "rota"]];
+  var p = ad.filter(function (x) { return x[0] in ay; }).map(function (x) {
+    var d = ay[x[0]];
+    if (d === true) d = "açık"; else if (d === false) d = "kapalı";
+    else if (Array.isArray(d)) d = d.join(">") || "—";
+    else if (x[0] === "yelken") d = d || "otomatik";
+    return x[1] + " " + (d === "" || d === null || d === undefined ? "—" : d);
+  });
+  return p.join(" · ") || "kaydı yok";
 }
 
 function sistemYukle() {
@@ -2870,6 +2905,11 @@ function sistemKur() {
     });
   });
   SISTEM_TEKIL.forEach(function (x) {
+    var el = document.getElementById(x[0]);
+    if (el) { el.addEventListener("input", emirGuncelle); el.addEventListener("change", emirGuncelle); }
+  });
+  // 🚢 [01.11.2026] ek gemi kutuları
+  SISTEM_GEMI.concat([["si-gemi-ad"], ["si-gemi-sil"]]).forEach(function (x) {
     var el = document.getElementById(x[0]);
     if (el) { el.addEventListener("input", emirGuncelle); el.addEventListener("change", emirGuncelle); }
   });
@@ -3044,7 +3084,7 @@ async function emirIptalEt(kodlar, ozet) {
       ne: "Bota yeni bir hesap (multi) ekler: ad + şifre + takip modu. Şifreyi forma SEN yazarsın.",
       anahtar: ["hesap ekle", "yeni hesap", "multi ekle", "hesabi ekle", "yeni multi"] },
     { id: "sistem", tur: "sistem", ikon: "⚙️", baslik: "Sistem ayarları (maden · cami · kapanış · kaptan · listeler)",
-      ne: "Hesaba bağlı OLMAYAN bot ayarları: maden kasabaları, öncelikli maden, ayrıcalıklı cami hesapları, 💪 kuvvet öncelikli hesaplar (kuvvet kassın + rezerve yemeği önce alsın), 📍👁️ ara nokta gözcüleri (Günlük + Gruplar ve Ordular okur, Kim Nerede'ye yazar), 🪖 alım modu gözcüleri (kasaba başına kalıcı silahlı grup — Yetki Dahilinde · 2 kişilik · dağıtılmaz), ⚗️ ot alıcıları + ot satış günü (haftada bir, o kasabadaki hesapların şifalı otu iksirciye rezerveli — ikisi birlikte gerekir), 🍞 fırıncılar (kasaba=fırıncı — o kasabadaki Et / Şişe Süt / Sebze / Somun Ekmeği ona rezerveli), 🏦 kasa hesabı (akçesi azalan hesap kasadan akçe çeker — boşken KAPALI), tur bitince uyku/kapat, yaşlı garson, gemi armatörü, kaptan rotası, molla, dost/düşman/izleme listeleri. Şu anki değerleri de gösterir.",
+      ne: "Hesaba bağlı OLMAYAN bot ayarları: maden kasabaları, öncelikli maden, ayrıcalıklı cami hesapları, 💪 kuvvet öncelikli hesaplar (kuvvet kassın + rezerve yemeği önce alsın), 📍👁️ ara nokta gözcüleri (Günlük + Gruplar ve Ordular okur, Kim Nerede'ye yazar), 🪖 alım modu gözcüleri (kasaba başına kalıcı silahlı grup — Yetki Dahilinde · 2 kişilik · dağıtılmaz), ⚗️ ot alıcıları + ot satış günü (haftada bir, o kasabadaki hesapların şifalı otu iksirciye rezerveli — ikisi birlikte gerekir), 🍞 fırıncılar (kasaba=fırıncı — o kasabadaki Et / Şişe Süt / Sebze / Somun Ekmeği ona rezerveli), 🏦 kasa hesabı (akçesi azalan hesap kasadan akçe çeker — boşken KAPALI), tur bitince uyku/kapat, yaşlı garson, gemi armatörü, kaptan rotası, 🚢 ek gemiler (birden çok gemi/kaptan: her geminin hedefi, hareketi, yelkeni, kıyı mesafesi, rotası), molla, dost/düşman/izleme listeleri. Şu anki değerleri de gösterir.",
       anahtar: ["sistem ayar", "sistem ayari", "genel ayar", "bot ayari", "maden kasaba", "maden kasabalari",
                 "maden onceligi", "oncelikli maden", "ayricalikli cami", "cami listesi", "camiye gitsin",
                 "kuvvet oncelikli", "kuvvet kassin", "kuvvet kas", "kuvvet puani",
@@ -3057,7 +3097,9 @@ async function emirIptalEt(kodlar, ozet) {
                 "terzi", "terziler", "terzi ata", "giysi agi", "giysi tavani", "kiyafet agi",
                 "kasa hesab", "kasadan", "otonom akce",
                 "kapanis", "uyku modu", "bilgisayari kapat", "yasli garson", "dusman ekle", "dusmana ekle",
-                "dost ekle", "izleme listesi", "kaptan hedef", "kaptan rota", "molla", "hangi ayar", "ayarlari gor"] },
+                "dost ekle", "izleme listesi", "kaptan hedef", "kaptan rota", "molla", "hangi ayar", "ayarlari gor",
+                // 🚢 [01.11.2026] ek gemiler (launcher "🚢 Gemi Ayarları" tablosu)
+                "ek gemi", "coklu gemi", "ikinci gemi", "gemi ayari", "gemi ayarlari", "gemi rotasi", "geminin hedef"] },
     { id: "tasi", tur: "ayar", plan: "tasi", ikon: "🚚", baslik: "Hesabı başka şehre taşı (hazır plan)",
       ne: "Görev zinciri: her şeyi sat → yola çık → evi taşı → ev+tarla → atölye. Hedef şehri planın içinde seçersin.",
       anahtar: ["tasi", "tasin", "tasinsin", "tasima", "baska sehre", "sehir degistir", "kasaba degistir", "yerlesim", "goc"] },
@@ -3103,10 +3145,13 @@ async function emirIptalEt(kodlar, ozet) {
       anahtar: ["yetenek agaci", "yetenek agacina gir", "yetenek puani", "puani harca", "puan harca",
                 "yetenek ac", "yetenekleri ac", "yetenege gir", "beceri agaci", "puan birikti"] },
     { id: "ayar", tur: "ayar", ikon: "🖥️", baslik: "Hesap ayarı / görev zinciri",
-      ne: "Launcher'daki her ayar: takip modu, inziva, ders, gemi, kaptan, ases, puan, seyahat (📍 ara nokta da: #759 / 'Kirkcudbright - Wigtown arası' / kare '94 117'), görev zinciri, 🌲 orman işi (odun kes). Yalnızca DOKUNDUĞUN ayar gönderilir, gerisi değişmez.",
+      ne: "Launcher'daki her ayar: takip modu, inziva, ders, gemi, kaptan, ases, puan, seyahat (📍 ara nokta da: #759 / 'Kirkcudbright - Wigtown arası' / kare '94 117'), görev zinciri, 🌲 orman işi (odun kes), ⛏️ hesabın madeni (demir · taş · kil · altın). Yalnızca DOKUNDUĞUN ayar gönderilir, gerisi değişmez.",
       anahtar: ["ayar", "inziva", "inzivaya", "ders", "ders ver", "hoca", "ases", "kaptan", "takip modu", "hizli maden", "hizli cami", "cami", "maden", "seyahat", "gorev", "gorev zinciri", "zincir", "puan", "isci tut", "grup lideri", "mod degistir", "odun kes", "odun kessin", "oduncu", "orman", "orman isi", "ara nokta", "ara noktaya", "noktaya gonder", "giysi al", "giysi alsin", "kiyafet al", "eksik giysi",
                 // 🧭 [26.10.2026 — İŞ 32] Kurulum + Düzen (Ayar formunun 2. bölümü)
-                "kurulum", "kalici duzen", "duzen kur", "aksi emre kadar", "meslek sec"] },
+                "kurulum", "kalici duzen", "duzen kur", "aksi emre kadar", "meslek sec",
+                // ⛏️ [01.11.2026] hesabın madeni (plan maden:)
+                "madene yonlendir", "madenine gonder", "madenine yonlendir", "kil madeni", "tas madeni",
+                "altin madeni", "hangi maden"] },
     { id: "durum", sekme: "#emirdurum", ikon: "📊", baslik: "Verdiğim emir ne oldu? / geri al",
       ne: "Emir Durumu sekmesi: bekleyenler üstte, kapananlar altta. Yanlış emri satırdaki 🚫 İptal ile geri alırsın.",
       anahtar: ["emir ne oldu", "emrim", "emirlerim", "emir durumu", "iptal", "geri al", "yanlis emir", "bekleyen emir"] },
@@ -3552,6 +3597,9 @@ async function emirIptalEt(kodlar, ozet) {
   var KE_SECIM = {
     kalan: [["", "— dokunma —"], ["maden/eaü", "⛏️ Maden/EAÜ"], ["ot", "🌿 Ot → sonra maden/EAÜ"],
             ["yok", "💤 Yakma (enerji kalsın)"], ["iptal", "🔄 Bugünkü"]],
+    // ⛏️ [01.11.2026] hesabın madeni (hesap_plani SECENEKLER["maden"]) — boş = ⚙️ sistemin maden önceliği
+    maden: [["", "— dokunma —"], ["demir", "⚒️ Demir"], ["taş", "🪨 Taş"], ["kil", "🧱 Kil"], ["altın", "🥇 Altın"],
+            ["iptal", "🔄 Sistemdeki (launcher)"]],
     ases: [["", "— dokunma —"], ["açık", "🛡️ Ases olsun (tik)"], ["kapalı", "❌ Ases olmasın"]],
     tarla: [["", "— dokunma —"], ["kendisi", "👤 Kendisi çalışsın"], ["işçi", "👷 İşçi tutsun (ilan)"],
             ["besle", "🐄 Yalnız hayvan besle"], ["iptal", "🔄 Bugünkü"]],
@@ -3578,7 +3626,7 @@ async function emirIptalEt(kodlar, ozet) {
   // Mesajdaki satır sırası + AYAR etiketi (site_emirleri._IZINLI_ALANLAR anahtarları).
   var KE_ETIKET = [["takip", "takip"], ["ases", "ases"], ["isci", "işçi"], ["puan", "puan"],
     ["inziva", "inziva"], ["ders", "ders"], ["orman", "orman işi"], ["giysi", "giysi al"]];
-  var KE_PLAN_ETIKET = [["kalan", "kalan enerji"], ["tarla", "tarla"], ["yemek", "yemek"],
+  var KE_PLAN_ETIKET = [["kalan", "kalan enerji"], ["maden", "maden"], ["tarla", "tarla"], ["yemek", "yemek"],
     ["meyhane", "meyhane"], ["satis", "satış"]];
   var HIZLI = ["Hızlı Maden", "Hızlı Cami", "Hızlı Ot"];
   var PLANSIZ = ["Grup Takip", "Ordu Takip"];
@@ -3593,7 +3641,7 @@ async function emirIptalEt(kodlar, ozet) {
   }
 
   function bosAlan() {
-    return { is: null, kalan: "", ases: "", tarla: "", urun: null, yemek: "", meyhane: "", satis: "",
+    return { is: null, kalan: "", maden: "", ases: "", tarla: "", urun: null, yemek: "", meyhane: "", satis: "",
              cami: "", itibar: "", enerji: "", derssayi: "", derssonra: "", hoca: "", odunv: "",
              yetenek: null, takip: "", isci: "", puan: "", inziva: "", orman: "", giysi: "",
              ders: "", oyhazirla: "", teshis: "", yetenekgir: "", planIptal: false };
@@ -3910,8 +3958,9 @@ async function emirIptalEt(kodlar, ozet) {
       }).join("") + "</div><div class=\"ke-cipler\">" +
       cip('data-ke="is-temizle"', "↔️ Dokunma", al.is === null) + cip('data-ke="is-iptal"', "🔄 Bugünkü sıraya dön", al.is === "iptal") +
       "</div></details>" +
-      '<details class="ke-bolum" data-bolum="kalan"' + acik("kalan", true) + '><summary>🔥 Kalan enerji (hurda) & 🛡️ ases & 🌾 tarla</summary>' +
+      '<details class="ke-bolum" data-bolum="kalan"' + acik("kalan", true) + '><summary>🔥 Kalan enerji (hurda) & ⛏️ maden & 🛡️ ases & 🌾 tarla</summary>' +
       secimSatiri("kalan", "🔥 Kalan enerji", "iş verildikten sonra artan enerji") +
+      secimSatiri("maden", "⛏️ Hangi maden", "madene girince önce bu aranır; kapalıysa açık olan öbürü · sabit: ⚙️ sistemdeki öncelikli maden") +
       secimSatiri("ases", "🛡️ Ases", "tikliyse her gün yer varsa önce ases olur") +
       secimSatiri("tarla", "🌾 Tarla", "") + "</details>" +
       '<details class="ke-bolum" data-bolum="urun"' + acik("urun", Object.keys(meslekler).length > 0) + '><summary>🏭 Meslek ürünü (öncelikli) ' +
@@ -4281,6 +4330,7 @@ async function emirIptalEt(kodlar, ozet) {
       { ad: "🔋 100 enerji harcansın, 15 kalsın", alan: { "ay-plan-enerji": "15" } },
       { ad: "🎓 1 tur ders, kalan enerjiyle maden", alan: { "ay-plan-ders-sayi": "1", "ay-plan-ders-sonra": "maden" } },
       { ad: "⛏️ Hoca 6 saat maden, sonra ders", alan: { "ay-plan-hoca": "6" } },
+      { ad: "🧱 Kil madenine odaklan", alan: { "ay-plan-maden": "kil" } },
       { ad: "🌲 Odun: 4 tomruk ve üstü", alan: { "ay-plan-odun": "4" } },
       { ad: "⚔️ Demirci Kılıç, Terzi Kalkan", alan: { "ay-plan-urun": "Kılıç, Kalkan" } },
       { ad: "🌳 Önce Ziraat + şimdi gir", alan: { "ay-plan-yetenek": "ziraat, siyaset", "ay-yetenek-gir": "evet" } },
