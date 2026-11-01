@@ -1023,6 +1023,9 @@ if (window.L) L.RasterCoords.prototype = {
             Beyaz → Sarı → Turuncu → Yeşil → Mavi → Kahverengi → Siyah.
             Renk attırmak için <b>Emir → 🤝 Güven puanı &amp; 🎨 renk</b>;
             kendinden <b>yüksek</b> dereceliye renk verilemez.</li>
+        <li><b>🗺️ Krallık → Eyalet → Kasaba</b> kutularıyla süz: krallık seçince eyalet ve kasaba listesi o krallığa
+            daralır (örn. İngiltere → Sussex → Lewes). Hesabın <b>o sabah bulunduğu</b> kasabaya bakar; kasabası bilinmeyenler
+            "(bilinmiyor)" altında.</li>
         <li>Tablo geniş — <b>sağa doğru kaydır</b>, sütunlar devam ediyor.</li>
       </ul>
     </div>
@@ -1051,6 +1054,15 @@ if (window.L) L.RasterCoords.prototype = {
       <span id="gelisim-disa-durum" class="dilekce-durum"></span>
     </div>
     <div class="pazar-arac-cubugu">
+      <!-- 🗺️ [01.11.2026] Krallık → Eyalet → Kasaba (Pontiac: "krallık, eyalet, kasaba şeklinde olsa"). Veri:
+           gelisim.json → krallik / sancak (pazar_json_uret.kasaba_bolgesi — oyunun InfosPaysRR listesi).
+           Krallık seçilince eyalet ve kasaba listesi o krallığa daralır. Veri yoksa iki kutu gizli kalır. -->
+      <select id="gelisim-krallik-filtre" title="Krallık" hidden>
+        <option value="">Tüm krallıklar</option>
+      </select>
+      <select id="gelisim-sancak-filtre" title="Eyalet (sancak)" hidden>
+        <option value="">Tüm eyaletler</option>
+      </select>
       <select id="gelisim-kasaba-filtre">
         <option value="">Tüm kasabalar</option>
       </select>
@@ -1773,6 +1785,10 @@ if (window.L) L.RasterCoords.prototype = {
           <ul>
             <li><b>🔥 Kalan enerji</b>: ana iş verildikten sonra ARTAN enerji ne olsun: Maden/EAÜ · Ot (sonra
               maden/EAÜ) · Yakma (enerji kalsın).</li>
+            <li><b>⛏️ Hangi maden</b>: hesap madene girince ÖNCE bu madeni arar: Demir · Taş · Kil · Altın. O maden
+              kapalıysa ya da o kasabada yoksa açık olan öbür madene girer. "Sistemdeki" = ⚙️ Sistem
+              ayarlarındaki öncelikli maden (launcher'daki gibi). Örnek: 3 hesaba Kil, 2 hesaba Taş → multiler
+              ayrı madenlere dağılır.</li>
             <li><b>🛡️ Ases</b>: "Ases olsun (tik)" = ases tiki açılır; her gün yer varsa önce ases olur (asesin işi
               odun ve madenden önce gelir) · "Ases olmasın" = tik kalkar. Bir kasabada hiç ases tikli hesap
               kalmayacaksa sayfa sarı uyarı verir.</li>
@@ -3079,6 +3095,19 @@ if (window.L) L.RasterCoords.prototype = {
               <option value="yok">yakma (enerji kalsın)</option>
             </select>
           </label>
+          <!-- ⛏️ [01.11.2026] hesabın madeni — site_emirleri → plan_maden. Pontiac: "sadece demir değil multiyi her
+               madene odaklayabilsek". Boş = ⚙️ Sistem "Öncelikli maden" (launcher). -->
+          <label>⛏️ Maden <span class="ay-ipucu">madene girince ÖNCE bu maden aranır; kapalıysa / kasabada yoksa açık olan
+            öbür maden · <b>sabit: ⚙️ Sistem'deki öncelikli maden</b> (launcher) · "iptal" = sisteme dön</span>
+            <select id="ay-plan-maden">
+              <option value="">— değiştirme —</option>
+              <option value="demir">⚒️ demir</option>
+              <option value="taş">🪨 taş</option>
+              <option value="kil">🧱 kil</option>
+              <option value="altın">🥇 altın</option>
+              <option value="iptal">iptal — sabite dön (sistemin maden önceliği)</option>
+            </select>
+          </label>
           <label>🕌 Cami parası <span class="ay-ipucu">camiye gitmek için en az akçe · <b>sabit: 200</b> · "iptal" = 200</span>
             <input id="ay-plan-cami" inputmode="numeric" placeholder="örn. 50" autocomplete="off" list="dl-cami-para">
           </label>
@@ -3462,6 +3491,52 @@ if (window.L) L.RasterCoords.prototype = {
             <select id="si-rota-islem" class="si-islem"></select>
             <input id="si-rota" list="ay-sehir-listesi" placeholder="örn. Dublin, Calais" autocomplete="off">
           </label>
+        </div>
+        <!-- 🚢 [01.11.2026] EK GEMİ (launcher "🚢 Gemi Ayarları" → ek gemiler tablosu = sistem_ayarlari.gemiler).
+             Kullanıcı: "launcherdaki herşey" emirle. Her dolu kutu → "gemi <armatör> <ayar>: değer" satırı. -->
+        <p class="emir-kucuk">⛵ <b>Ek gemi (birden çok gemi/kaptan)</b> — armatörü yaz, değiştirmek istediğin kutuyu doldur.
+          Boş kutuya dokunulmaz; o geminin boş ayarı yukarıdaki kaptan ayarlarını kullanır.</p>
+        <div class="emir-satir">
+          <label>⛵ Armatör <span class="ay-ipucu">geminin sahibi (kaptan hesabı)</span>
+            <input id="si-gemi-ad" list="emir-hesap-listesi" placeholder="örn. mr.butcher" autocomplete="off">
+          </label>
+          <label>⛵ Hedef liman
+            <input id="si-gemi-hedef" list="ay-sehir-listesi" placeholder="boş = değiştirme" autocomplete="off">
+          </label>
+          <label>⛵ Devir hedefi <span class="ay-ipucu">yalnızca bizim/dost hesap</span>
+            <input id="si-gemi-devir" list="emir-hesap-listesi" placeholder="boş = değiştirme" autocomplete="off">
+          </label>
+        </div>
+        <div class="emir-satir">
+          <label>⛵ Hareket
+            <select id="si-gemi-hareket">
+              <option value="">— değiştirme —</option>
+              <option value="açık">açık (hamle yapar)</option>
+              <option value="kapalı">kapalı (yalnızca rapor)</option>
+            </select>
+          </label>
+          <label>⛵ Yelken
+            <select id="si-gemi-yelken">
+              <option value="">— değiştirme —</option>
+              <option value="otomatik">otomatik</option>
+              <option value="kare">kare</option>
+              <option value="latin">latin</option>
+            </select>
+          </label>
+          <label>⛵ Kıyı mesafesi <span class="ay-ipucu">kare</span>
+            <select id="si-gemi-kiyi">
+              <option value="">— değiştirme —</option>
+              <option value="0">0</option><option value="1">1</option><option value="2">2</option>
+              <option value="3">3</option><option value="4">4</option><option value="5">5</option>
+              <option value="6">6</option><option value="8">8</option><option value="10">10</option>
+            </select>
+          </label>
+        </div>
+        <div class="emir-satir">
+          <label>⛵ Rota durakları <span class="ay-ipucu">sırayla uğranacak limanlar (listeyi bu yapar)</span>
+            <input id="si-gemi-rota" list="ay-sehir-listesi" placeholder="örn. Dublin, Calais" autocomplete="off">
+          </label>
+          <label class="pasa-toggle"><input type="checkbox" id="si-gemi-sil"> 🗑️ Bu gemiyi ek gemi tablosundan sil</label>
         </div>
       </fieldset>
 
