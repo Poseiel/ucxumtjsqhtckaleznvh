@@ -1018,15 +1018,8 @@ async function gelisimYukle() {
       }
     } catch (e) { /* özet isteğe bağlı */ }
 
-    const kasabalar = [...new Set(gelisimKarakterler.map((k) => k.kasaba))]
-      .sort((a, b) => a.localeCompare(b, "tr"));
-    const secim = document.getElementById("gelisim-kasaba-filtre");
-    kasabalar.forEach((k) => {
-      const opt = document.createElement("option");
-      opt.value = k;
-      opt.textContent = k;
-      secim.appendChild(opt);
-    });
+    // 🗺️ [01.11.2026] krallık → eyalet → kasaba seçenekleri (hepsi gelisimBolgeSecenekleri'nde)
+    gelisimBolgeSecenekleri();
 
     gelisimTabloCiz();
     veriHazir("gelisim");
@@ -1245,7 +1238,9 @@ function gelisimTabloCiz() {
   //    (window.gelisimEkSuzgec). takip.js yoksa / hata verirse süzgeç yok
   //    sayılır ve tablo ESKİSİ GİBİ çizilir. Sütun EKLENMEDİ (E9 kilidi).
   const _ekSuzgec = typeof window.gelisimEkSuzgec === "function" ? window.gelisimEkSuzgec : null;
+  const _bolge = gelisimBolgeSecimi();   // 🗺️ [01.11.2026] krallık · eyalet ("" = hepsi)
   const filtreli = gelisimKarakterler.filter((k) => (!kasabaFiltre || k.kasaba === kasabaFiltre)
+    && gelisimBolgeUyar(k, _bolge.krallik, _bolge.sancak)
     && (!_ekSuzgec || gelisimEkSuzgecUygula(_ekSuzgec, k)));
   const _gorunen = [];   // ekranda görünen satırlar, çizim sırasıyla (dışa aktarma için)
 
@@ -1353,6 +1348,77 @@ function gelisimTabloCiz() {
 function gelisimEkSuzgecUygula(fn, k) {
   try { return fn(k) !== false; } catch (e) { return true; }
 }
+
+// 🗺️ [01.11.2026] KRALLIK → EYALET → KASABA süzgeci. Pontiac: *"hesap tablosunun kasaba filtresi …
+//    krallık, eyalet, kasaba şeklinde olsa"*. Veri gelisim.json → karakterler[].krallik / .sancak
+//    (pazar_json_uret.kasaba_bolgesi; tabloda olmayan kasaba = "" → "bilinmiyor" seçeneği).
+//    Krallık seçilince eyalet ve kasaba listeleri o krallığa, eyalet seçilince kasaba listesi o eyalete
+//    daralır; seçili değer listede kalmazsa "Tümü"ne döner. Eski gelisim.json'da alan YOKSA iki kutu
+//    gizli kalır ve kasaba süzgeci ESKİSİ GİBİ çalışır.
+const GELISIM_BOLGE_BILINMEYEN = "(bilinmiyor)";
+function gelisimBolgeDegeri(v) { return String(v || "").trim() || GELISIM_BOLGE_BILINMEYEN; }
+function gelisimBolgeUyar(k, krallik, sancak) {
+  if (krallik && gelisimBolgeDegeri(k.krallik) !== krallik) return false;
+  if (sancak && gelisimBolgeDegeri(k.sancak) !== sancak) return false;
+  return true;
+}
+function gelisimSecimDoldur(el, ilkYazi, satirlar, anahtar, sayili) {
+  if (!el) return;
+  const onceki = el.value;
+  const sayac = {};
+  satirlar.forEach((k) => {
+    const d = anahtar === "kasaba" ? String(k.kasaba || "") : gelisimBolgeDegeri(k[anahtar]);
+    if (d) sayac[d] = (sayac[d] || 0) + 1;
+  });
+  const degerler = Object.keys(sayac).sort((a, b) => {
+    // "(bilinmiyor)" her zaman en sonda
+    if (a === GELISIM_BOLGE_BILINMEYEN) return 1;
+    if (b === GELISIM_BOLGE_BILINMEYEN) return -1;
+    return a.localeCompare(b, "tr");
+  });
+  el.innerHTML = "";
+  const ilk = document.createElement("option");
+  ilk.value = "";
+  ilk.textContent = ilkYazi;
+  el.appendChild(ilk);
+  degerler.forEach((d) => {
+    const opt = document.createElement("option");
+    opt.value = d;
+    opt.textContent = sayili ? `${d} · ${sayac[d]}` : d;
+    el.appendChild(opt);
+  });
+  el.value = degerler.indexOf(onceki) >= 0 ? onceki : "";
+}
+function gelisimBolgeSecenekleri() {
+  const krEl = document.getElementById("gelisim-krallik-filtre");
+  const snEl = document.getElementById("gelisim-sancak-filtre");
+  const ksEl = document.getElementById("gelisim-kasaba-filtre");
+  const bolgeVar = gelisimKarakterler.some((k) => k.krallik !== undefined);
+  if (krEl) krEl.hidden = !bolgeVar;
+  if (snEl) snEl.hidden = !bolgeVar;
+  if (!bolgeVar) {
+    gelisimSecimDoldur(ksEl, "Tüm kasabalar", gelisimKarakterler, "kasaba", false);
+    return;
+  }
+  gelisimSecimDoldur(krEl, "Tüm krallıklar", gelisimKarakterler, "krallik", true);
+  const kr = krEl ? krEl.value : "";
+  const krSatir = gelisimKarakterler.filter((k) => gelisimBolgeUyar(k, kr, ""));
+  gelisimSecimDoldur(snEl, "Tüm eyaletler", krSatir, "sancak", true);
+  const sn = snEl ? snEl.value : "";
+  gelisimSecimDoldur(ksEl, "Tüm kasabalar", krSatir.filter((k) => gelisimBolgeUyar(k, "", sn)), "kasaba", false);
+}
+function gelisimBolgeSecimi() {
+  const krEl = document.getElementById("gelisim-krallik-filtre");
+  const snEl = document.getElementById("gelisim-sancak-filtre");
+  return {
+    krallik: krEl && !krEl.hidden ? krEl.value : "",
+    sancak: snEl && !snEl.hidden ? snEl.value : "",
+  };
+}
+["gelisim-krallik-filtre", "gelisim-sancak-filtre"].forEach((id) => {
+  const el = document.getElementById(id);
+  if (el) el.addEventListener("change", () => { gelisimBolgeSecenekleri(); gelisimTabloCiz(); });
+});
 
 document.getElementById("gelisim-kasaba-filtre").addEventListener("change", gelisimTabloCiz);
 
