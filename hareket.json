@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-11-01 08:05",
+  "son_guncelleme": "2026-11-01 16:38",
   "gun_sayisi": 6,
   "ilk_gun": "2026-10-27",
   "son_gun": "2026-11-01",
@@ -1072,6 +1072,48 @@
         {
           "tarih": "2026-10-31",
           "konum": "Arafta"
+        },
+        {
+          "tarih": "2026-11-01",
+          "konum": "Arafta"
+        }
+      ],
+      "durum": "Arafta"
+    },
+    {
+      "karakter": "bessent1",
+      "su_anki_konum": "Arafta",
+      "rota": [
+        {
+          "konum": "Ardencaple",
+          "tarih": "2026-10-27"
+        },
+        {
+          "konum": "Arafta",
+          "tarih": "2026-11-01"
+        }
+      ],
+      "hareket_sayisi": 1,
+      "gunluk": [
+        {
+          "tarih": "2026-10-27",
+          "konum": "Ardencaple"
+        },
+        {
+          "tarih": "2026-10-28",
+          "konum": "Ardencaple"
+        },
+        {
+          "tarih": "2026-10-29",
+          "konum": "Ardencaple"
+        },
+        {
+          "tarih": "2026-10-30",
+          "konum": "Ardencaple"
+        },
+        {
+          "tarih": "2026-10-31",
+          "konum": "Ardencaple"
         },
         {
           "tarih": "2026-11-01",
@@ -3347,6 +3389,17 @@
       "kayit_donemi": "2026-10"
     },
     {
+      "karakter": "bessent1",
+      "durum": "Arafta",
+      "giris_tarihi": "2026-11-01",
+      "son_kasaba": "Ardencaple",
+      "profil_konum": "Ardencaple",
+      "son_giris": "01 Kasım 2026",
+      "aile": "",
+      "kayit_tarihi": "25 Mart 2026",
+      "kayit_donemi": "2026-03"
+    },
+    {
       "karakter": "fantina_polo",
       "durum": "İnzivada",
       "giris_tarihi": "2026-11-01",
@@ -4973,20 +5026,6 @@
       "cikis_tarihi": "2026-09-19",
       "donus_kasaba": "Ardencaple",
       "kalinan_gun": ""
-    },
-    {
-      "karakter": "bessent1",
-      "durum": "İskoçya'da (Glasgow, County of Glasgow)",
-      "giris_tarihi": "2026-09-18",
-      "son_kasaba": "Ardencaple",
-      "profil_konum": "Glasgow",
-      "son_giris": "18 Eylül 2026",
-      "aile": "",
-      "kayit_tarihi": "25 Mart 2026",
-      "kayit_donemi": "2026-03",
-      "cikis_tarihi": "2026-09-19",
-      "donus_kasaba": "Glasgow",
-      "kalinan_gun": 1
     },
     {
       "karakter": "partal",
@@ -39473,11 +39512,6 @@
       "pr": 10
     },
     {
-      "karakter": "bessent1",
-      "kasaba": "Ardencaple",
-      "pr": 11
-    },
-    {
       "karakter": "betmen",
       "kasaba": "Ardencaple",
       "pr": 60
@@ -41041,6 +41075,22 @@
       "kaynak": "gozcu",
       "not": "gözcü (kendisi)",
       "gozcu": "Fioreth"
+    },
+    {
+      "karakter": "Flantastic",
+      "kasaba": "📍 #835 Wigtown - Girvan arası",
+      "pr": -1,
+      "kaynak": "gozcu",
+      "not": "gözcü (kendisi)",
+      "gozcu": "Flantastic"
+    },
+    {
+      "karakter": "Rendavar",
+      "kasaba": "📍 #759 Kirkcudbright - Wigtown arası",
+      "pr": -1,
+      "kaynak": "gozcu",
+      "not": "gözcü (kendisi)",
+      "gozcu": "Rendavar"
     },
     {
       "karakter": "Zehneya",
