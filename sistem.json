@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-11-01 07:01",
+  "son_guncelleme": "2026-11-01 08:10",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -688,7 +688,10 @@
       "ad": "ilsevar",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "takip"
+      ]
     },
     {
       "ad": "Hestiana",
@@ -733,7 +736,11 @@
       "ad": "Asakira",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "gorev",
+        "takip"
+      ]
     },
     {
       "ad": "Dogmeat",
@@ -765,7 +772,10 @@
       "ad": "Kalradyan",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Erwerb",
@@ -834,7 +844,10 @@
       "ad": "Koonrad",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "takip"
+      ]
     },
     {
       "ad": "Ferrera",
@@ -858,7 +871,11 @@
       "ad": "Angewin",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Longboe",
@@ -924,7 +941,12 @@
       "ad": "Alteredcarbon",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "gorev",
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Casedy",
