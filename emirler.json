@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-11-01 08:05",
+  "son_guncelleme": "2026-11-01 08:10",
   "azami_gun": 14,
   "azami_deneme": 7,
   "bekleyen": [
@@ -810,8 +810,8 @@
       "serbest": false,
       "yazan": "Kayahan",
       "eklenme": "2026-10-08 08:07",
-      "gecen_gun": 23,
-      "kalan_gun": -9,
+      "gecen_gun": 24,
+      "kalan_gun": -10,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "🚫 Mor Boya yok (evde ve çantada)",
@@ -832,8 +832,8 @@
       "serbest": false,
       "yazan": "Kayahan",
       "eklenme": "2026-10-08 08:07",
-      "gecen_gun": 23,
-      "kalan_gun": -9,
+      "gecen_gun": 24,
+      "kalan_gun": -10,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "🚫 Mor Boya yok (evde ve çantada)",
@@ -854,8 +854,8 @@
       "serbest": false,
       "yazan": "Kayahan",
       "eklenme": "2026-10-08 08:07",
-      "gecen_gun": 23,
-      "kalan_gun": -9,
+      "gecen_gun": 24,
+      "kalan_gun": -10,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "🚫 Mor Boya yok (evde ve çantada)",
@@ -876,8 +876,8 @@
       "serbest": false,
       "yazan": "Kayahan",
       "eklenme": "2026-10-08 08:07",
-      "gecen_gun": 23,
-      "kalan_gun": -9,
+      "gecen_gun": 24,
+      "kalan_gun": -10,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "🚫 Mor Boya yok (evde ve çantada)",
@@ -898,8 +898,8 @@
       "serbest": false,
       "yazan": "Kayahan",
       "eklenme": "2026-10-08 08:07",
-      "gecen_gun": 23,
-      "kalan_gun": -9,
+      "gecen_gun": 24,
+      "kalan_gun": -10,
       "deneme": 0,
       "azami_deneme": 7,
       "sonuc": "🚫 Mor Boya yok (evde ve çantada)",
@@ -1570,8 +1570,55 @@
   ],
   "ayarlar": [
     {
+      "hesap": "alteredcarbon",
+      "alanlar": [
+        {
+          "ad": "gorev",
+          "deger": "seyahat:Narbonne"
+        },
+        {
+          "ad": "seyahat_aktif",
+          "deger": "kapalı"
+        },
+        {
+          "ad": "seyahat_hedefi",
+          "deger": "Yok"
+        }
+      ]
+    },
+    {
+      "hesap": "angewin",
+      "alanlar": [
+        {
+          "ad": "seyahat_aktif",
+          "deger": "açık"
+        },
+        {
+          "ad": "seyahat_hedefi",
+          "deger": "Narbonne"
+        }
+      ]
+    },
+    {
+      "hesap": "asakira",
+      "alanlar": [
+        {
+          "ad": "gorev",
+          "deger": "ev_al:Mısır"
+        },
+        {
+          "ad": "takip",
+          "deger": "Hızlı Maden"
+        }
+      ]
+    },
+    {
       "hesap": "asensioo",
       "alanlar": [
+        {
+          "ad": "oy_hazirla",
+          "deger": "kapalı"
+        },
         {
           "ad": "plan_is_sirasi",
           "deger": "maden, eaü"
@@ -1622,6 +1669,33 @@
         {
           "ad": "seyahat_hedefi",
           "deger": "Rohan"
+        }
+      ]
+    },
+    {
+      "hesap": "ilsevar",
+      "alanlar": [
+        {
+          "ad": "takip",
+          "deger": "Hızlı Maden"
+        }
+      ]
+    },
+    {
+      "hesap": "kalradyan",
+      "alanlar": [
+        {
+          "ad": "oy_hazirla",
+          "deger": "açık"
+        }
+      ]
+    },
+    {
+      "hesap": "koonrad",
+      "alanlar": [
+        {
+          "ad": "takip",
+          "deger": "Hızlı Cami"
         }
       ]
     },
