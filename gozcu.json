@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-11-01 08:05",
+  "son_guncelleme": "2026-11-01 16:38",
   "gun": "2026-11-01",
   "gozculer": [
     {
@@ -14,6 +14,38 @@
       "olu_giris": false,
       "gorus_bugun": 0,
       "gorus_dun": 0,
+      "gruplar_okundu": true,
+      "gruplar": [],
+      "ordular": []
+    },
+    {
+      "hesap": "Flantastic",
+      "saat": "16:20",
+      "yer_no": 835,
+      "yer": "#835",
+      "yer_adi": "Wigtown - Girvan arası",
+      "kanonik": "Wigtown - Girvan arası #835",
+      "ara_nokta": true,
+      "etiket": "📍 #835 Wigtown - Girvan arası",
+      "olu_giris": false,
+      "gorus_bugun": 0,
+      "gorus_dun": 0,
+      "gruplar_okundu": true,
+      "gruplar": [],
+      "ordular": []
+    },
+    {
+      "hesap": "Rendavar",
+      "saat": "16:27",
+      "yer_no": 759,
+      "yer": "#759",
+      "yer_adi": "Kirkcudbright - Wigtown arası",
+      "kanonik": "Kirkcudbright - Wigtown arası #759",
+      "ara_nokta": true,
+      "etiket": "📍 #759 Kirkcudbright - Wigtown arası",
+      "olu_giris": false,
+      "gorus_bugun": 1,
+      "gorus_dun": 1,
       "gruplar_okundu": true,
       "gruplar": [],
       "ordular": []
@@ -35,7 +67,20 @@
       "ordular": []
     }
   ],
-  "gorulenler": [],
+  "gorulenler": [
+    {
+      "login": "kangor",
+      "ad": "Kangor",
+      "gozcu": "Rendavar",
+      "yer": "#759",
+      "yer_no": 759,
+      "yer_adi": "Kirkcudbright - Wigtown arası",
+      "kanonik": "Kirkcudbright - Wigtown arası #759",
+      "oyun_gunu": "2026-11-01",
+      "kayit_no": "262540914",
+      "etiket": "📍 #759 Kirkcudbright - Wigtown arası · gözcü Rendavar gördü"
+    }
+  ],
   "olcum": [
     {
       "gun": "2026-10-20",
@@ -379,6 +424,20 @@
       "olu_giris": false,
       "gorus_bugun": 0,
       "yer": "📍 #837 Girvan - Glasgow arası"
+    },
+    {
+      "gun": "2026-11-01",
+      "hesap": "Flantastic",
+      "olu_giris": false,
+      "gorus_bugun": 0,
+      "yer": "📍 #835 Wigtown - Girvan arası"
+    },
+    {
+      "gun": "2026-11-01",
+      "hesap": "Rendavar",
+      "olu_giris": false,
+      "gorus_bugun": 1,
+      "yer": "📍 #759 Kirkcudbright - Wigtown arası"
     },
     {
       "gun": "2026-11-01",
