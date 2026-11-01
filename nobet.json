@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-11-01 14:40",
+  "son_guncelleme": "2026-11-01 16:38",
   "tarih": "2026-11-01",
   "aralik_dk": 150,
   "kontroller": [
@@ -438,6 +438,157 @@
         }
       ],
       "farklar": []
+    },
+    {
+      "kasaba": "Glasgow",
+      "saat": "16:00",
+      "saat_tam": "2026-11-01T16:00:00",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "The Excelsior",
+          "kasaba": "Glasgow",
+          "komutan": "Kazasker: Emmalogan",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "6048704",
+          "tur": "Silahlı Grup",
+          "lider": "izaskun",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        }
+      ],
+      "farklar": []
+    },
+    {
+      "kasaba": "Stirling",
+      "saat": "16:15",
+      "saat_tam": "2026-11-01T16:15:01",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Glasgow",
+          "kasaba": "Stirling",
+          "komutan": "Kazasker: Mavisari",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": [],
+      "farklar": []
+    },
+    {
+      "kasaba": "Girvan",
+      "saat": "16:29",
+      "saat_tam": "2026-11-01T16:29:22",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Highlands Blacksquirrells",
+          "kasaba": "Girvan",
+          "komutan": "Kazasker: Berengario",
+          "durum": "Şehir İçinde",
+          "ham_durum": "Ordu şehirde"
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "3966968",
+          "tur": "Silahlı Grup",
+          "lider": "allan.saltwater",
+          "uyeler": [
+            "torokonbi"
+          ],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6282595",
+          "tur": "Silahlı Grup",
+          "lider": "cameliae",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6287617",
+          "tur": "Silahlı Grup",
+          "lider": "flaminia",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6274973",
+          "tur": "Silahlı Grup",
+          "lider": "gallorini",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6258867",
+          "tur": "Silahlı Grup",
+          "lider": "gianfredo",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6318411",
+          "tur": "Silahlı Grup",
+          "lider": "gollum1963",
+          "uyeler": [
+            "helysa",
+            "muirgheal",
+            "celine12",
+            "perl",
+            "chriss43",
+            "dagoon",
+            "eloy_giguedouille"
+          ],
+          "katilim": "Yetki Dahilinde"
+        },
+        {
+          "id": "6305741",
+          "tur": "Silahlı Grup",
+          "lider": "rhosyn",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6329509",
+          "tur": "Silahlı Grup",
+          "lider": "riomax",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6324697",
+          "tur": "Silahlı Grup",
+          "lider": "rosalina_",
+          "uyeler": [
+            "mandarina"
+          ],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6220626",
+          "tur": "Silahlı Grup",
+          "lider": "valeriha",
+          "uyeler": [
+            "davlin"
+          ],
+          "katilim": "Yetki Dahilinde"
+        },
+        {
+          "id": "6323985",
+          "tur": "Silahlı Grup",
+          "lider": "whisperbane",
+          "uyeler": [],
+          "katilim": "Yetki Dahilinde"
+        }
+      ],
+      "farklar": []
     }
   ],
   "son_durum": {
@@ -507,8 +658,8 @@
       ]
     },
     "Stirling": {
-      "saat": "14:25",
-      "saat_tam": "2026-11-01T14:25:50",
+      "saat": "16:15",
+      "saat_tam": "2026-11-01T16:15:01",
       "ordu_okundu": true,
       "ordular": [
         {
@@ -522,8 +673,8 @@
       "gruplar": []
     },
     "Girvan": {
-      "saat": "13:23",
-      "saat_tam": "2026-11-01T13:23:48",
+      "saat": "16:29",
+      "saat_tam": "2026-11-01T16:29:22",
       "ordu_okundu": true,
       "ordular": [
         {
@@ -629,8 +780,8 @@
       ]
     },
     "Glasgow": {
-      "saat": "14:05",
-      "saat_tam": "2026-11-01T14:05:25",
+      "saat": "16:00",
+      "saat_tam": "2026-11-01T16:00:00",
       "ordu_okundu": true,
       "ordular": [
         {
