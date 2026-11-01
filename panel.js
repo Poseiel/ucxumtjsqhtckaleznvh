@@ -140,6 +140,8 @@
     if (!sekmeAc(tab, false)) return;
 
     if (tab === "emir" && alt) {
+      // 🧭 [01.11.2026] #emir/kolay → Kolay Emir görünümü (emir türü değil, görünüm düğmesi)
+      if (alt === "kolay") { var kb = q('.ke-mod-btn[data-ke-mod="kolay"]'); if (kb) kb.click(); return; }
       var tb = q('.emir-tur-btn[data-tur="' + alt + '"]');
       if (tb && !tb.classList.contains("active")) tb.click();
       if (alt === "ayar" && deger) planSec(deger);
@@ -254,6 +256,10 @@
   // 3) 🏠 BAŞLANGIÇ — özet kartlar, eylemler, tazelik, gelen mesajlar
   // -----------------------------------------------------------------------
   var EYLEMLER = [
+    // 🧭 [01.11.2026] Kullanıcı: *"ne yapmak istiyorsun var buraya diğer emir sayfasındakileri de ekle bura
+    //    eksiksiz olsun"* → her emir sayfası (data-tur) burada en az bir kez (test_bas_eylemler ölçer).
+    ["🧭", "Hesaplara günlük düzen vermek (adım adım)", "#emir/kolay", "Kolay Emir: kime → ne yapsın (iş sırası · maden · cami · yemek · ases …) → gönder"],
+    ["⛏️", "Hesabı belli bir madene yönlendirmek", "#emir/ayar", "🖥️ Ayar → ⛏️ Maden: demir · taş · kil · altın (boş = sistemdeki öncelikli maden)"],
     ["🚚", "Bir hesabı başka şehre taşımak", "#emir/ayar/tasi", "Hazır plan: her şeyi sat → yola çık → evi taşı → ev+tarla → atölye"],
     ["🛒", "Bir malı ucuza aldırmak", "#emir/al", "Önce Pazar'da fiyata bak, sonra alım emri"],
     ["💰", "Elimdeki malı satmak", "#emir/sat", "Hesabı seç, eşya listesi kendiliğinden gelir"],
@@ -287,7 +293,14 @@
     ["📬", "Bir hesabın postalarına baktırmak", "#emir/posta", "Yeni postalar Telegram'a düşer"],
     ["👑", "Divan listesini onaylatmak", "#emir/divan", "Kendi adının geçtiği liste · İptal'e asla basılmaz"],
     ["🪖", "Ordular ve gemimiz nerede?", "#harita/ordu", "Haritada katman + liste"],
-    ["🧭", "Kim yolda, kaç gün kaldı?", "#harita/seyahat", "Haritada kırmızı oklar"]
+    ["🧭", "Kim yolda, kaç gün kaldı?", "#harita/seyahat", "Haritada kırmızı oklar"],
+    // 🧭 [01.11.2026] eksik kalan emir sayfaları
+    ["✉️", "Bir oyuncuya oyun içi mesaj yazdırmak", "#emir/mesaj", "Gönderen hesap + alıcı + konu + metin"],
+    ["👪", "Aileye gelen başvuruyu kabul ettirmek", "#emir/aile", "Reis hesabı + başvuranın adı · Reddet'e asla basılmaz"],
+    ["👪", "Bir hesabı bir aileye başvurtmak", "#emir/ailebasvur", "Hesap + ailenin TAM adı + verilecek akçe"],
+    ["🩺", "Muayenehane · iksir · muayene günü", "#emir/muayene", "Muayenehane al · iksir yap (ot + adet) · muayene ücretleri"],
+    ["🌾", "Tarlanın türünü değiştirmek (ıslah)", "#emir/tarlacevir", "Hangi tarla → yeni tür (koç · buğday …) · hasat bitince ya da hemen"],
+    ["⚙️", "Botun genel ayarları (launcher'ın sistem sekmeleri)", "#emir/sistem", "Maden kasabaları · öncelikli maden · fırıncı/terzi · ot alıcıları · kapanış · gemiler"]
   ];
 
   var _basZaman = null;
