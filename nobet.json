@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-11-02 14:47",
+  "son_guncelleme": "2026-11-02 15:32",
   "tarih": "2026-11-02",
   "aralik_dk": 150,
   "kontroller": [
@@ -415,6 +415,70 @@
       ],
       "gruplar": [],
       "farklar": []
+    },
+    {
+      "kasaba": "Wigtown",
+      "saat": "15:29",
+      "saat_tam": "2026-11-02T15:29:56",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Wigtown",
+          "kasaba": "Wigtown",
+          "komutan": "Kazasker: Catani",
+          "durum": "Şehir İçinde",
+          "ham_durum": "Ordu şehirde"
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "6004075",
+          "tur": "Silahlı Grup",
+          "lider": "al_lan",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6282595",
+          "tur": "Silahlı Grup",
+          "lider": "cameliae",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6286581",
+          "tur": "Silahlı Grup",
+          "lider": "causantin_men3es",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6323950",
+          "tur": "Silahlı Grup",
+          "lider": "kargath",
+          "uyeler": [],
+          "katilim": "Yetki Dahilinde"
+        },
+        {
+          "id": "6326575",
+          "tur": "Silahlı Grup",
+          "lider": "lorelei",
+          "uyeler": [
+            "lalenia"
+          ],
+          "katilim": "Yetki Dahilinde"
+        },
+        {
+          "id": "6312074",
+          "tur": "Silahlı Grup",
+          "lider": "soulofanange",
+          "uyeler": [
+            "gracelynn"
+          ],
+          "katilim": "Serbest Katılım"
+        }
+      ],
+      "farklar": []
     }
   ],
   "son_durum": {
@@ -442,8 +506,8 @@
       ]
     },
     "Wigtown": {
-      "saat": "13:58",
-      "saat_tam": "2026-11-02T13:58:18",
+      "saat": "15:29",
+      "saat_tam": "2026-11-02T15:29:56",
       "ordu_okundu": true,
       "ordular": [
         {
