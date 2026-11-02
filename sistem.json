@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-11-02 07:37",
+  "son_guncelleme": "2026-11-02 16:45",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -299,7 +299,11 @@
       "ayar": {
         "seyahat_hedefi": "Wigtown",
         "gorev": "seyahat:Wigtown"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Serachin",
@@ -488,7 +492,10 @@
         "takip": "Hızlı Cami",
         "gorev": "ev_tasi_zorla:",
         "oy_hazirla": true
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "Gorgoyle",
@@ -544,7 +551,10 @@
       "ad": "Sumpon",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Honkaa",
@@ -582,7 +592,10 @@
       "ad": "Solmaran",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Rendavar",
@@ -621,7 +634,10 @@
       "ad": "Merrisant",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Grangerr",
@@ -684,7 +700,10 @@
         "takip": "Hızlı Maden",
         "gorev": "ev_tasi_zorla:",
         "oy_hazirla": true
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "Hestiana",
@@ -771,7 +790,10 @@
       "ayar": {
         "takip": "Hızlı Ot",
         "gorev": "ev_al:Mısır"
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "Silverfork",
@@ -790,13 +812,15 @@
       "ad": "Braveman",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Totumto",
       "ayar": {
-        "takip": "Hızlı Maden",
-        "oy_hazirla": true
+        "takip": "Hızlı Maden"
       }
     },
     {
@@ -815,7 +839,10 @@
       "ad": "Hermanos_",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Dursun",
@@ -832,8 +859,7 @@
     {
       "ad": "Koonrad",
       "ayar": {
-        "takip": "Hızlı Cami",
-        "oy_hazirla": true
+        "takip": "Hızlı Cami"
       }
     },
     {
