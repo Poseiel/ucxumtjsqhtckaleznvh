@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-11-02 07:20",
+  "son_guncelleme": "2026-11-02 07:37",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -296,12 +296,10 @@
     },
     {
       "ad": "Adrah",
-      "ayar": {},
-      "bekleyen": [
-        "gorev",
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+      "ayar": {
+        "seyahat_hedefi": "Wigtown",
+        "gorev": "seyahat:Wigtown"
+      }
     },
     {
       "ad": "Serachin",
@@ -458,10 +456,9 @@
     },
     {
       "ad": "Favore",
-      "ayar": {},
-      "bekleyen": [
-        "gorev"
-      ]
+      "ayar": {
+        "gorev": "ev_tasi_zorla:"
+      }
     },
     {
       "ad": "Millady",
@@ -474,13 +471,9 @@
     {
       "ad": "Oostervolde",
       "ayar": {
-        "takip": "Hızlı Cami"
-      },
-      "bekleyen": [
-        "gorev",
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+        "takip": "Hızlı Cami",
+        "gorev": "seyahat:Hastings"
+      }
     },
     {
       "ad": "Flantastic",
@@ -493,11 +486,9 @@
       "ad": "Penaldo",
       "ayar": {
         "takip": "Hızlı Cami",
+        "gorev": "ev_tasi_zorla:",
         "oy_hazirla": true
-      },
-      "bekleyen": [
-        "gorev"
-      ]
+      }
     },
     {
       "ad": "Gorgoyle",
@@ -603,13 +594,9 @@
     {
       "ad": "Tavris",
       "ayar": {
-        "takip": "Hızlı Cami"
-      },
-      "bekleyen": [
-        "gorev",
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+        "takip": "Hızlı Cami",
+        "gorev": "seyahat:Hastings"
+      }
     },
     {
       "ad": "Gundrel",
@@ -695,11 +682,9 @@
       "ad": "ilsevar",
       "ayar": {
         "takip": "Hızlı Maden",
+        "gorev": "ev_tasi_zorla:",
         "oy_hazirla": true
-      },
-      "bekleyen": [
-        "gorev"
-      ]
+      }
     },
     {
       "ad": "Hestiana",
@@ -777,13 +762,9 @@
       "ad": "Kalradyan",
       "ayar": {
         "takip": "Hızlı Cami",
+        "gorev": "seyahat:Hastings",
         "oy_hazirla": true
-      },
-      "bekleyen": [
-        "gorev",
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+      }
     },
     {
       "ad": "Erwerb",
@@ -908,13 +889,9 @@
     {
       "ad": "dramar",
       "ayar": {
-        "takip": "Hızlı Cami"
-      },
-      "bekleyen": [
-        "gorev",
-        "seyahat_aktif",
-        "seyahat_hedefi"
-      ]
+        "takip": "Hızlı Cami",
+        "gorev": "seyahat:Hastings"
+      }
     },
     {
       "ad": "Pimento",
