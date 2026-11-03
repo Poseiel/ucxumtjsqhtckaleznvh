@@ -1,12 +1,12 @@
 {
-  "son_guncelleme": "2026-11-02 16:45",
+  "son_guncelleme": "2026-11-03 16:36",
   "gun_sayisi": 30,
   "ozet": {
-    "toplam": 200,
-    "kavga": 6,
-    "olum": 3,
+    "toplam": 191,
+    "kavga": 0,
+    "olum": 0,
     "yara": 0,
-    "gorus": 191,
+    "gorus": 188,
     "hesap": 9,
     "uye": 5
   },
@@ -64,20 +64,20 @@
       "komutan": "Emmalogan",
       "ucret": "22,00",
       "katilma_gunu": "",
-      "son_gorulme": "2026-11-02 07:57",
+      "son_gorulme": "2026-11-03 07:46",
       "mufreze_komutani": false,
       "mufreze_kisi": null,
       "takip": {
-        "gun": "2026-11-02",
+        "gun": "2026-11-03",
         "sonuc": "zaten",
         "aciklama": "bu gece için takip ZATEN planlı (Görevlerim)",
         "lider": "Emmalogan"
       },
       "enerji": {
-        "gun": "2026-11-02",
-        "pa": 0,
+        "gun": "2026-11-03",
+        "pa": 65,
         "max_pa": 65,
-        "sonuc": "harcanmadı: boya için enerji yetersiz (0 < 15) → enerji yetersiz (0 < 5)"
+        "sonuc": "boya: 4 üretim (en fazla 4) + maden: 60 dk"
       }
     },
     {
@@ -133,24 +133,103 @@
       "komutan": "Emmalogan",
       "ucret": "22,00",
       "katilma_gunu": "",
-      "son_gorulme": "2026-11-02 08:01",
+      "son_gorulme": "2026-11-03 08:01",
       "mufreze_komutani": false,
       "mufreze_kisi": null,
       "takip": {
-        "gun": "2026-11-02",
-        "sonuc": "zaten",
-        "aciklama": "bu gece için takip ZATEN planlı (Görevlerim)",
+        "gun": "2026-11-03",
+        "sonuc": "verildi",
+        "aciklama": "Bu grubun liderini takip ediyorsun. Bugün ayrılamazsın.",
         "lider": "Emmalogan"
       },
       "enerji": {
-        "gun": "2026-11-02",
-        "pa": 0,
+        "gun": "2026-11-03",
+        "pa": 65,
         "max_pa": 65,
-        "sonuc": "harcanmadı: boya için enerji yetersiz (0 < 15) → enerji yetersiz (0 < 5)"
+        "sonuc": "boya: 4 üretim (en fazla 4) + maden: 60 dk"
       }
     }
   ],
   "gunler": [
+    {
+      "tarih": "2026-11-03",
+      "oyun_tarihi": "03-11-1474",
+      "kavga": 0,
+      "hadiseler": [
+        {
+          "id": "262839292",
+          "hesap": "Zaniolo",
+          "tarih": "2026-11-03",
+          "oyun_tarihi": "03-11-1474",
+          "saat": "",
+          "etiket": "gorus",
+          "tur": "gorus",
+          "metin": "Bugün, yolda karşılaştığın kişi Şu kişilerden oluşan grup Gollum1963, Helysa, Muirgheal, Celine12, Perl, Chriss43, Dagoon ve Eloy_giguedouille ve Devon., Tilimsan.",
+          "kisiler": [
+            "Gollum1963",
+            "Helysa",
+            "Muirgheal",
+            "Celine12",
+            "Perl",
+            "Chriss43",
+            "Dagoon",
+            "Eloy_giguedouille",
+            "Devon.",
+            "Tilimsan"
+          ],
+          "kaynak": "ordu",
+          "yer": ""
+        },
+        {
+          "id": "262839290",
+          "hesap": "Fredyy",
+          "tarih": "2026-11-03",
+          "oyun_tarihi": "03-11-1474",
+          "saat": "",
+          "etiket": "gorus",
+          "tur": "gorus",
+          "metin": "Bugün, yolda karşılaştığın kişi Şu kişilerden oluşan grup Gollum1963, Helysa, Muirgheal, Celine12, Perl, Chriss43, Dagoon ve Eloy_giguedouille ve Devon., Tilimsan.",
+          "kisiler": [
+            "Gollum1963",
+            "Helysa",
+            "Muirgheal",
+            "Celine12",
+            "Perl",
+            "Chriss43",
+            "Dagoon",
+            "Eloy_giguedouille",
+            "Devon.",
+            "Tilimsan"
+          ],
+          "kaynak": "ordu",
+          "yer": ""
+        },
+        {
+          "id": "262838980",
+          "hesap": "Zehneya",
+          "tarih": "2026-11-03",
+          "oyun_tarihi": "03-11-1474",
+          "saat": "",
+          "etiket": "gorus",
+          "tur": "gorus",
+          "metin": "Bugün, yolda karşılaştığın kişi Tilimsan ve Devon., Şu kişilerden oluşan grup Gollum1963, Helysa, Muirgheal, Celine12, Perl, Chriss43, Dagoon ve Eloy_giguedouille.",
+          "kisiler": [
+            "Tilimsan",
+            "Devon.",
+            "Gollum1963",
+            "Helysa",
+            "Muirgheal",
+            "Celine12",
+            "Perl",
+            "Chriss43",
+            "Dagoon",
+            "Eloy_giguedouille"
+          ],
+          "kaynak": "gozcu",
+          "yer": "Glasgow - Girvan arası #2789"
+        }
+      ]
+    },
     {
       "tarih": "2026-11-02",
       "oyun_tarihi": "02-11-1474",
@@ -3041,187 +3120,6 @@
             "Pani",
             "Jardel"
           ],
-          "kaynak": "ordu",
-          "yer": ""
-        }
-      ]
-    },
-    {
-      "tarih": "2026-10-03",
-      "oyun_tarihi": "03-10-1474",
-      "kavga": 6,
-      "hadiseler": [
-        {
-          "id": "258223327",
-          "hesap": "drayen",
-          "tarih": "2026-10-03",
-          "oyun_tarihi": "03-10-1474",
-          "saat": "04:28",
-          "etiket": "ordu",
-          "tur": "olum",
-          "metin": "Woden adlı kişiye darbe indirdin. Bu darbe muhtemelen onu öldürdü.",
-          "kisiler": [
-            "Woden"
-          ],
-          "kaynak": "ordu",
-          "yer": ""
-        },
-        {
-          "id": "258223325",
-          "hesap": "Thebear",
-          "tarih": "2026-10-03",
-          "oyun_tarihi": "03-10-1474",
-          "saat": "04:28",
-          "etiket": "ordu",
-          "tur": "olum",
-          "metin": "Woden adlı kişiye darbe indirdin. Bu darbe muhtemelen onu öldürdü.",
-          "kisiler": [
-            "Woden"
-          ],
-          "kaynak": "ordu",
-          "yer": ""
-        },
-        {
-          "id": "258223323",
-          "hesap": "drayen",
-          "tarih": "2026-10-03",
-          "oyun_tarihi": "03-10-1474",
-          "saat": "04:28",
-          "etiket": "ordu",
-          "tur": "olum",
-          "metin": "Woden adlı kişiye darbe indirdin. Bu darbe muhtemelen onu öldürdü.",
-          "kisiler": [
-            "Woden"
-          ],
-          "kaynak": "ordu",
-          "yer": ""
-        },
-        {
-          "id": "258223317",
-          "hesap": "Zaniolo",
-          "tarih": "2026-10-03",
-          "oyun_tarihi": "03-10-1474",
-          "saat": "04:28",
-          "etiket": "ordu",
-          "tur": "kavga",
-          "metin": "Kavgaya tutuştuğun Woden.",
-          "kisiler": [
-            "Woden"
-          ],
-          "kaynak": "ordu",
-          "yer": ""
-        },
-        {
-          "id": "258223316",
-          "hesap": "Thebear",
-          "tarih": "2026-10-03",
-          "oyun_tarihi": "03-10-1474",
-          "saat": "04:28",
-          "etiket": "ordu",
-          "tur": "kavga",
-          "metin": "Kavgaya tutuştuğun Woden.",
-          "kisiler": [
-            "Woden"
-          ],
-          "kaynak": "ordu",
-          "yer": ""
-        },
-        {
-          "id": "258223313",
-          "hesap": "drayen",
-          "tarih": "2026-10-03",
-          "oyun_tarihi": "03-10-1474",
-          "saat": "04:28",
-          "etiket": "ordu",
-          "tur": "kavga",
-          "metin": "Kavgaya tutuştuğun Woden.",
-          "kisiler": [
-            "Woden"
-          ],
-          "kaynak": "ordu",
-          "yer": ""
-        },
-        {
-          "id": "258221508",
-          "hesap": "Zaniolo",
-          "tarih": "2026-10-03",
-          "oyun_tarihi": "03-10-1474",
-          "saat": "",
-          "etiket": "gorus",
-          "tur": "gorus",
-          "metin": "Bugün, yolda karşılaştığın kişi Woden.",
-          "kisiler": [
-            "Woden"
-          ],
-          "kaynak": "ordu",
-          "yer": ""
-        },
-        {
-          "id": "258221507",
-          "hesap": "Thebear",
-          "tarih": "2026-10-03",
-          "oyun_tarihi": "03-10-1474",
-          "saat": "",
-          "etiket": "gorus",
-          "tur": "gorus",
-          "metin": "Bugün, yolda karşılaştığın kişi Woden.",
-          "kisiler": [
-            "Woden"
-          ],
-          "kaynak": "ordu",
-          "yer": ""
-        },
-        {
-          "id": "258221505",
-          "hesap": "drayen",
-          "tarih": "2026-10-03",
-          "oyun_tarihi": "03-10-1474",
-          "saat": "",
-          "etiket": "gorus",
-          "tur": "gorus",
-          "metin": "Bugün, yolda karşılaştığın kişi Woden.",
-          "kisiler": [
-            "Woden"
-          ],
-          "kaynak": "ordu",
-          "yer": ""
-        },
-        {
-          "id": "258219675",
-          "hesap": "Zaniolo",
-          "tarih": "2026-10-03",
-          "oyun_tarihi": "03-10-1474",
-          "saat": "",
-          "etiket": "gorus",
-          "tur": "gorus",
-          "metin": "Bugün, yolda karşılaştığın kişi Glasgow adlı kasabayı savunanlar:.",
-          "kisiler": [],
-          "kaynak": "ordu",
-          "yer": ""
-        },
-        {
-          "id": "258219674",
-          "hesap": "Thebear",
-          "tarih": "2026-10-03",
-          "oyun_tarihi": "03-10-1474",
-          "saat": "",
-          "etiket": "gorus",
-          "tur": "gorus",
-          "metin": "Bugün, yolda karşılaştığın kişi Glasgow adlı kasabayı savunanlar:.",
-          "kisiler": [],
-          "kaynak": "ordu",
-          "yer": ""
-        },
-        {
-          "id": "258219672",
-          "hesap": "drayen",
-          "tarih": "2026-10-03",
-          "oyun_tarihi": "03-10-1474",
-          "saat": "",
-          "etiket": "gorus",
-          "tur": "gorus",
-          "metin": "Bugün, yolda karşılaştığın kişi Glasgow adlı kasabayı savunanlar:.",
-          "kisiler": [],
           "kaynak": "ordu",
           "yer": ""
         }
