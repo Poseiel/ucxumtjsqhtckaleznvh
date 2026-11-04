@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-11-04 11:28",
+  "son_guncelleme": "2026-11-04 12:09",
   "rapor_tarihi": "2026-11-04",
   "onceki_tarih": "2026-11-03",
   "ordular": [
@@ -26,20 +26,17 @@
       "komutan": "Kazasker: Emmalogan",
       "durum": "Şehir Dışında",
       "ham_durum": "Ordu, Şehir kapılarına dayandı.",
-      "alim_modu": false,
-      "danisman": false,
+      "alim_modu": null,
+      "danisman": null,
       "danisman_puan": null,
       "danisman_maas": "",
-      "komutan_login": "emmalogan",
+      "komutan_login": "",
       "degisim": "ayni",
       "onceki_kasaba": "Glasgow",
       "onceki_durum": "Şehir Dışında",
-      "son_gecis": {
-        "tarih": "2026-11-01",
-        "tur": "yeni",
-        "onceki_kasaba": "",
-        "onceki_durum": ""
-      }
+      "anlik_saat": "12:05",
+      "sabah_kasaba": "Glasgow",
+      "sabah_durum": "Şehir Dışında"
     },
     {
       "ad": "Glasgow",
@@ -79,10 +76,13 @@
       "onceki_kasaba": "Wigtown",
       "onceki_durum": "Şehir İçinde",
       "birlesme": false,
-      "birlesme_gorus": "2026-11-03 13:50"
+      "birlesme_gorus": "2026-11-04 11:39"
     }
   ],
   "ayrilanlar": [],
   "gemiler": [],
-  "not": "alim_modu/danisman 17.09.2026'dan itibaren toplanıyor; daha eski günlerde null (bilinmiyor) görünür."
+  "not": "alim_modu/danisman 17.09.2026'dan itibaren toplanıyor; daha eski günlerde null (bilinmiyor) görünür.",
+  "nobet_saatleri": {
+    "Glasgow": "12:05"
+  }
 }
