@@ -1,9 +1,109 @@
 {
-  "son_guncelleme": "2026-11-04 11:28",
+  "son_guncelleme": "2026-11-04 12:09",
   "tarih": "2026-11-04",
   "aralik_dk": 150,
-  "kontroller": [],
-  "son_durum": {},
+  "kontroller": [
+    {
+      "kasaba": "Glasgow",
+      "saat": "12:05",
+      "saat_tam": "2026-11-04T12:05:05",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "The Excelsior",
+          "kasaba": "Glasgow",
+          "komutan": "Kazasker: Emmalogan",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "6308833",
+          "tur": "Silahlı Grup",
+          "lider": "carlo_viii",
+          "uyeler": [
+            "cromm",
+            "lady_amanda"
+          ],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6318411",
+          "tur": "Silahlı Grup",
+          "lider": "gollum1963",
+          "uyeler": [
+            "helysa",
+            "muirgheal",
+            "celine12",
+            "perl",
+            "chriss43",
+            "dagoon",
+            "eloy_giguedouille"
+          ],
+          "katilim": "Yetki Dahilinde"
+        },
+        {
+          "id": "6048704",
+          "tur": "Silahlı Grup",
+          "lider": "izaskun",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        }
+      ],
+      "farklar": []
+    }
+  ],
+  "son_durum": {
+    "Glasgow": {
+      "saat": "12:05",
+      "saat_tam": "2026-11-04T12:05:05",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "The Excelsior",
+          "kasaba": "Glasgow",
+          "komutan": "Kazasker: Emmalogan",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "6308833",
+          "tur": "Silahlı Grup",
+          "lider": "carlo_viii",
+          "uyeler": [
+            "cromm",
+            "lady_amanda"
+          ],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6318411",
+          "tur": "Silahlı Grup",
+          "lider": "gollum1963",
+          "uyeler": [
+            "helysa",
+            "muirgheal",
+            "celine12",
+            "perl",
+            "chriss43",
+            "dagoon",
+            "eloy_giguedouille"
+          ],
+          "katilim": "Yetki Dahilinde"
+        },
+        {
+          "id": "6048704",
+          "tur": "Silahlı Grup",
+          "lider": "izaskun",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        }
+      ]
+    }
+  },
   "ordulu_kasabalar": [
     "Girvan",
     "Glasgow",
