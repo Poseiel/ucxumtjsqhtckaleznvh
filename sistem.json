@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-11-05 08:16",
+  "son_guncelleme": "2026-11-05 16:42",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -553,7 +553,10 @@
       "ad": "Beinns",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Caldrith",
@@ -694,7 +697,10 @@
       "ad": "Ronaldoking",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Zehneya",
@@ -712,8 +718,7 @@
     {
       "ad": "Uywarka",
       "ayar": {
-        "takip": "Hızlı Maden",
-        "oy_hazirla": true
+        "takip": "Hızlı Maden"
       }
     },
     {
@@ -728,7 +733,11 @@
       "ayar": {
         "takip": "Hızlı Cami",
         "seyahat_hedefi": "Elvas"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Varry",
@@ -767,7 +776,11 @@
       "ayar": {
         "takip": "Hızlı Cami",
         "seyahat_hedefi": "Porto"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Lastboy",
@@ -808,8 +821,7 @@
     {
       "ad": "Dursun",
       "ayar": {
-        "takip": "Hızlı Maden",
-        "oy_hazirla": true
+        "takip": "Hızlı Maden"
       }
     },
     {
@@ -828,7 +840,10 @@
       "ad": "Ferrera",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Watkins",
@@ -847,7 +862,11 @@
       "ayar": {
         "takip": "Hızlı Maden",
         "seyahat_hedefi": "Narbonne"
-      }
+      },
+      "bekleyen": [
+        "seyahat_aktif",
+        "seyahat_hedefi"
+      ]
     },
     {
       "ad": "Longboe",
@@ -871,7 +890,10 @@
       "ad": "Tilimsan",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "dramar",
@@ -917,13 +939,19 @@
       "ad": "Casedy",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Greatmin",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Tugrul_",
@@ -941,7 +969,10 @@
       "ad": "Coni",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "spibas",
