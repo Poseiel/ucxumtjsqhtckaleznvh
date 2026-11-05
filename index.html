@@ -491,6 +491,17 @@ if (window.L) L.RasterCoords.prototype = {
             <td><b>📍 Kim Nerede</b> sekmesinde kartların altında: bütün hesaplarımız kasaba kasaba, başlık + sayıyla —
               önce İskoçya, sonra <b>İskoçya dışı</b> (Massa, Lewes …), en sonda <b>🧭 Seyahatte / sabit yeri yok</b>.</td>
             <td>Kaynak Gelişim kaydıdır (akşam tazelenir). Kasabası okunamayan hesap için yer tahmin edilmez.</td></tr>
+        <tr><td>🏠🚚 <b>Evi eşyasıyla taşıma</b><br><span class="rehber-eski">04.11.2026</span></td>
+            <td><b>Emir → 🖥️ Ayar → 📋 Hazır plan → 🏠🚚 Evi EŞYASIYLA başka şehre taşı</b>: hedef şehri yaz
+              (zincir: <span class="rehber-akis">ev_yukle, seyahat:Glasgow, ev_tasi</span>). Toplu: Hesap kutusuna
+              <span class="rehber-akis">kasaba: Wigtown</span>, 3+ hesapsa <span class="rehber-akis">yay: 3</span>.</td>
+            <td><b>ev_yukle</b> hesap EVİNDEYSE ev sandığındaki <b>her şeyi</b> çantaya yükler — çanta <b>ağırlık
+              sınırına</b> sığdığı kadar (eşya satılmaz). Önce <b>Kova, Bıçak, merhem</b> alınır; başka önceliğin
+              varsa yaz: <span class="rehber-akis">ev_yukle:Kova+Sebze</span>. Sığmayan eşya <b>evde kalır</b>; o zaman varınca
+              <b>ev_tasi</b> sandık boş olmadığı için <b>taşımaz</b> (Telegram'a uyarı gelir) — kalanı silmek istersen
+              son adımı <b>ev_tasi_zorla</b> yap. ⚠️ Oyunun kuralı: ev taşınınca <b>tarla ve atölye SIFIRLANIR</b>
+              (gerekirse sona tarla_al / atolye ekle). Evinden uzaktaysa adım atlanır, eşya evde kalır; sandık
+              açılamazsa ertesi tur yeniden dener. Her adım günlük rapora ve Telegram'a yazılır.</td></tr>
         <tr><td>🌲🚚 <b>Odun taşıma</b><br><span class="rehber-eski">19.10.2026</span></td>
             <td><b>Emir → 🖥️ Ayar → 📋 Hazır plan → 🌲 Odunu başka şehre taşı</b>: alıcıyı ve dönüş şehrini yaz
               (zincir: <span class="rehber-akis">erzak, odun_yukle, seyahat:Glasgow, odun_sat:Renegrade x200,
@@ -825,6 +836,7 @@ if (window.L) L.RasterCoords.prototype = {
         <tr><td>🏠 <b>ev_al</b></td><td>Bulunduğu kasabada <b>ev + tarla</b> alır.</td><td>Değer istemez. Parası 130 akçenin altındaysa <b>hiçbir şey almaz</b> (yarım kurulum olmasın).</td></tr>
         <tr><td>🚚 <b>ev_tasi</b></td><td>Evini karakterin <b>O AN BULUNDUĞU</b> kasabaya taşır. Kasaba adı yazmaya gerek YOK.</td><td>⚠️ <b>Geri alınamaz</b> ve <b>ev sandığındaki her şeyi siler</b>, tarla+atölyeyi sıfırlar. Bu seçenek <b>güvenli</b> olanıdır: sandık boş değilse bot <b>taşımaz</b>, ertesi tur yeniden dener. Doğru sıra: hersey_sat → ev_tasi → tarla_al → atolye.</td></tr>
         <tr><td>🚚💥 <b>ev_tasi_zorla</b></td><td>Aynı iş, ama sandığa <b>hiç bakmaz</b> — hemen taşınır.</td><td>⚠️⚠️ Ev sandığındaki <b>her şey YOK OLUR</b>. Satış turu beklenmez. Yeni / düşük seviye multilerde eşya değersizse bunu seç.</td></tr>
+        <tr><td>🏠🚚 <b>ev_yukle</b><br><span class="rehber-eski">04.11.2026</span></td><td>Hesap <b>evindeyse</b> ev sandığındaki <b>her şeyi</b> çantaya yükler — satmaz, çanta <b>ağırlık sınırına</b> sığdığı kadar. Eşyayla taşınmanın ilk adımı: <span class="rehber-akis">ev_yukle, seyahat:Glasgow, ev_tasi</span></td><td>Değer isteğe bağlı: önce yüklenecekler (<b>ev_yukle:Kova+Sebze</b>); boşsa önce Kova, Bıçak, merhem. <b>Hemen ardından seyahat</b> gelmeli (yükleme günü aynı turda yola çıkılır; araya başka adım girerse çantadaki eşya eve geri gönderilir). Sığmayan eşya <b>evde kalır</b> → varınca <b>ev_tasi</b> sandık boş olmadığı için <b>taşımaz</b> (Telegram uyarır); kalanı silmek istersen <b>ev_tasi_zorla</b>. Evinden uzaktaysa adım atlanır. ⚠️ Taşınınca <b>tarla ve atölye sıfırlanır</b> (gerekirse sona tarla_al / atolye ekle).</td></tr>
         <tr><td>🏭 <b>atolye:</b>Terzi</td><td>O meslek atölyesini satın alır.</td><td>Atölye o kasabada satılmıyorsa alamaz, ertesi tur yeniden dener.</td></tr>
         <tr><td>👥 <b>grup_kur</b></td><td>Lider olur, grup kurar.</td><td>Değer istemez. Üyeler ancak grup kurulduktan sonra katılabilir — bot lideri <b>önce</b> sokar.</td></tr>
         <tr><td>🤝 <b>gruba_katil:</b>Esteros</td><td>O kişinin grubuna katılır.</td><td>Liderin adını doğru yaz; bot katıl düğmesini <b>liderin adının altından</b> bulur.</td></tr>
@@ -883,7 +895,12 @@ if (window.L) L.RasterCoords.prototype = {
         beklemeyip tek adımda bitirebilirsin:
         <span class="rehber-akis">seyahat:Wigtown, ev_tasi_zorla, tarla_al:Sebze</span><br>
         📍 <b>ev_tasi</b> ve <b>ev_tasi_zorla</b> her zaman karakterin <b>O AN
-        BULUNDUĞU</b> kasabaya taşır — kasaba adı yazmaya gerek yoktur.</p>
+        BULUNDUĞU</b> kasabaya taşır — kasaba adı yazmaya gerek yoktur.<br>
+        🏠🚚 <b>Eşyasını SATMADAN götürmek</b> istiyorsan (04.11.2026): satış yerine <b>ev_yukle</b> —
+        evdeki her şey çantaya, ağırlık sınırına kadar:
+        <span class="rehber-akis">ev_yukle, seyahat:Wigtown, ev_tasi, tarla_al:Sebze, atolye:Terzi</span><br>
+        Sığmayan eşya evde kalır; o zaman varınca <b>ev_tasi</b> taşımaz — kalanı gözden çıkarıyorsan
+        son adımı <b>ev_tasi_zorla</b> yap. Hazır plan: 📋 <b>🏠🚚 Evi EŞYASIYLA başka şehre taşı</b>.</p>
 
       <h5>⛵ Örnek 4 — kıta şehrine gitmek</h5>
       <p class="rehber-akis">seyahat:Ardencaple, satin_al:Manda Eti x30, gemiye_bin:mr.butcher, bekle:12, seyahat:Massa</p>
@@ -1759,7 +1776,9 @@ if (window.L) L.RasterCoords.prototype = {
               sonra). Sana sorulmaz, bir şey yapmana gerek yok.</li>
             <li><b>Hızlı hesaplar</b> (⚡ hızlı maden / cami / ot) pazara ve eve uğramaz: yemek · meyhane · satış ·
               meslek ürünü · yetenek sırası onlarda <b>uygulanmaz</b>. İş sırası · kalan enerji · tarla uygulanır
-              (kalan enerji yalnızca iş sırasıyla birlikte verilirse).</li>
+              (kalan enerji yalnızca iş sırasıyla birlikte verilirse). <b>Yalnız iş sırası / yemek yazmak hesabı hızlı
+              moddan ÇIKARMAZ;</b> çıkarmak için ③ ⚙️ Mod ve launcher tikleri → 🎚️ Mod: 🧑 Normal (ya da sarı ⚡
+              uyarısındaki "🧑 Bu hesapları normal düzene al" düğmesi).</li>
             <li><b>Ordu takip / Grup takip</b> hesaplarında plan (iş sırası, kalan enerji, yemek…) okunmaz, ordu
               kuralları geçerlidir; yalnızca mod ve tikler uygulanır.</li>
           </ul>
@@ -1837,10 +1856,25 @@ if (window.L) L.RasterCoords.prototype = {
               sayısı: 1 tur · Dersten sonra: maden.</li>
             <li><b>"Bütün hızlı maden hesapları hızlı cami olsun"</b> → ② 🎚️ Mod satırında ⚡⛏️ Hızlı Maden · ③ ⚙️ Mod
               ve launcher tikleri → 🎚️ Mod: ⚡🕌 Hızlı cami.</li>
+            <li><b>"Millady hızlı moddan çıksın, normal düzene geçsin"</b> → ② Millady'yi işaretle (ya da 🎚️ Mod
+              satırında ⚡🕌 Hızlı cami ile o moddakilerin hepsi) · ③ ⚙️ Mod ve launcher tikleri → 🎚️ Mod: 🧑 Normal
+              (ya da sarı ⚡ uyarısındaki "🧑 Bu hesapları normal düzene al" düğmesi; istersen İş sırası / Yemek de
+              aynı mesajda) · ④ Kopyala → mesajda <b>takip: Yok</b> satırı olmalı; botun "✅ AYAR EMRİ ALINDI"
+              cevabında "🧑 … hızlı kipten NORMAL düzene geçiyor (takip: Yok)" satırını görmelisin. Yalnız iş sırası /
+              yemek yazarsan hesap hızlı modda KALIR (bot cevabında "⚡ … hızlı turda KALIR" diye uyarır).</li>
+            <li><b>"Bradley tarlası olduğu hâlde her gün camiye gitsin"</b> → ③ Tarla: 👷 İşçi tutsun · İş sırası:
+              🕌 Cami. Tarla işi olan gün (100 enerji) cami atlanır; işçi tutunca hesabın enerjisi camiye / oduna kalır
+              (maaşa parası yetmezse işi yine kendisi yapar).</li>
             <li><b>"Demirciler kılıç üretsin"</b> → ② 🏭 Meslek satırında Demirci · ③ 🏭 Meslek ürünü: Kılıç.</li>
             <li><b>"Wigtown'da ases boş kalmasın"</b> → ② Wigtown'dan 2 hesap · ③ 🛡️ Ases: 🛡️ Ases olsun (tik).</li>
             <li><b>"Verdiğim emri geri al"</b> → aynı hesapları seç · aynı konuda <b>🔄 Bugünkü</b> seç · gönder.</li>
             <li><b>"Her gruba ayrı iş"</b> → ④'te ➕ Başka hesaplara başka iş → yeniden ② ve ③ → hepsi tek mesaj.</li>
+            <li><b>"Hesabı eşyasıyla başka şehre taşı"</b> (04.11.2026) → bu günlük düzen değil: 🖥️ Ayar formunda
+              📋 Hazır plan → <b>🏠🚚 Evi EŞYASIYLA başka şehre taşı</b> (ya da görev zinciri
+              <b>ev_yukle, seyahat:Glasgow, ev_tasi</b>). Evdeki her şey çantaya yüklenir (satılmaz, ağırlık sınırına
+              kadar; önce Kova, Bıçak, merhem), hesap gider, varınca evini taşır. Sığmayan eşya evde kalırsa ev_tasi taşımaz — kalanı silmek
+              için ev_tasi_zorla. ⚠️ Taşınınca tarla ve atölye sıfırlanır (gerekirse sona tarla_al / atolye ekle).
+              3+ hesapsa <b>yay: 3</b>.</li>
           </ul>
         </details>
 
@@ -3292,7 +3326,7 @@ if (window.L) L.RasterCoords.prototype = {
             </select>
           </label>
           <!-- 🌿 [31.10.2026] Kullanıcı: "sadece bunları satsın … kalanları pazara minden koy". -->
-          <label>🌿 Ot alıcısına giden otlar <span class="ay-ipucu">virgülle, oyundaki TAM adla (örn. Kereviz Sapı) · satış gününde YALNIZCA bu otlar iksirciye <b>rezerveli</b> gider, geri kalan otlar <b>açık pazara en düşük fiyattan</b> konur · hızlı ot hesapları da aynı ayrımı yapar · boş = bütün otlar iksirciye (eski düzen) · “yok” = listeyi temizle</span>
+          <label>🌿 Ot alıcısına giden otlar <span class="ay-ipucu">virgülle, oyundaki TAM adla (örn. Kereviz Sapı) · satış gününde YALNIZCA bu otlar iksirciye <b>rezerveli</b> gider, geri kalan otlar <b>açık pazara 1 akçeden</b> konur · hızlı ot hesapları da aynı ayrımı yapar · boş = bütün otlar iksirciye (eski düzen) · “yok” = listeyi temizle</span>
             <select id="si-ot-otlar-islem" class="si-islem"></select>
             <input id="si-ot-otlar" placeholder="örn. Mercanköşk Filizi, Kereviz Sapı" autocomplete="off">
           </label>
