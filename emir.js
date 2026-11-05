@@ -1629,6 +1629,9 @@ var AY_ADIM_TIPLERI = [
   ["satin_al", "🛒 Pazardan al"],
   ["odun_yukle", "🌲 Odunu evden çantaya yükle (ağırlığa göre)"],
   ["odun_sat", "🌲💸 Odunu alıcıya sat (rezerveli, alıcı alana kadar bekle)"],
+  // 🏠🚚 [04.11.2026] Eşyasıyla taşınma: ev sandığının TAMAMI çantaya (ağırlık sınırına kadar),
+  //    hemen ardından seyahat + ev_tasi gelir (`gorev_zinciri.ADIM_TIPLERI` ile BİREBİR).
+  ["ev_yukle", "🏠🚚 Evdeki HER ŞEYİ çantaya yükle (ağırlığa göre; sonra seyahat + ev_tasi)"],
   ["hersey_sat", "💸 Her şeyi sat"],
   ["ev_al", "🏠 Ev + tarla al"],
   ["tarla_al", "🌾 Tarla al (tip seç)"],
@@ -1662,6 +1665,8 @@ var AY_ADIM_TIPLERI = [
    (İSTEĞE BAĞLI; kullanıcı: *"soru olarak sorsun ve bize bıraksın"*). */
 /* 🌲🚚 [19.10.2026] `odun_yukle` de değer istemez: kaç odun olduğu ADET kutusuna yazılır
    (boş = çantaya sığdığı kadar) — `gorev_zinciri.DEGERSIZ_ADIMLAR` ile aynı. */
+/* 🏠🚚 [05.11.2026] `ev_yukle` bu listede DEĞİL: değeri isteğe bağlı, hedef kutusu açık (önce yüklenecekler,
+   "Kova+Sebze"; boşsa Kova · Bıçak · merhem). Botta `gorev_zinciri.DEGERSIZ_ADIMLAR`da kalır. Adet istemez. */
 var AY_DEGERSIZ = ["grup_kur", "grup_dagit", "karaya_cik",
                    "ev_tasi", "ev_tasi_zorla", "erzak", "odun_yukle"];
 
@@ -1816,6 +1821,8 @@ function ayGorevSatiriEkle() {
     //    kullanıcı hiçbir şey ezberlemesin.
     var t = tip.value;
     // 🌲🚚 [19.10.2026] odun adımlarında adet İSTEĞE BAĞLI (boş = sığdığı kadar / hepsi).
+    // 🏠🚚 [05.11.2026] ev_yukle adet istemez (sandığın TAMAMI, ağırlık sınırına kadar); adet kutusu burada zaten
+    //    kapalı kalır. Hedef kutusu boşsa `ayGorevMetni` onu düz "ev_yukle" yazar.
     adet.disabled = (t !== "satin_al" && t !== "odun_yukle" && t !== "odun_sat");
     adet.placeholder = (t === "odun_yukle" ? "boş = sığdığı kadar"
                         : (t === "odun_sat" ? "boş = çantadakinin hepsi" : "1"));
@@ -1836,6 +1843,9 @@ function ayGorevSatiriEkle() {
       hedef.placeholder = (t === "ev_al"
         ? "tarla tipi — örn. Sebze (boş = tip seçilmez)"
         : "örn. Mısır (boş = tip seçilmez)");
+    } else if (t === "ev_yukle") {
+      hedef.removeAttribute("list");
+      hedef.placeholder = "önce yüklenecekler — örn. Kova+Sebze (boş = Kova, Bıçak, merhem)";
     } else if (t === "takip") {
       hedef.setAttribute("list", "ay-takip-listesi");
       hedef.placeholder = "Yok / Grup Takip / Ordu Takip / Hızlı Maden";
@@ -1893,6 +1903,11 @@ function ayGorevMetni() {
     // 🌲🚚 [19.10.2026] odun_sat ALICISIZ da yazılır: alıcı ⚙️ Sistem → "odun alıcıları"ndan
     //    (Pontiac: "TELEGRAMDAN" belirlenip değiştirilsin) → "odun_sat" / "odun_sat:x200".
     //    ⚠️ AY_DEGERSIZ'e EKLENMEDİ: hedef kutusu açık kalsın, alıcı yine yazılabilsin.
+    // 🏠🚚 [05.11.2026] ev_yukle değeri isteğe bağlı: önce yüklenecekler (boş = Kova · Bıçak · merhem).
+    if (tip === "ev_yukle" && !hedef) {
+      parcalar.push("ev_yukle");
+      continue;
+    }
     if (tip === "odun_sat" && !hedef) {
       var os0 = parseInt(satirlar[i].querySelector(".ay-gorev-adet").value, 10);
       parcalar.push(os0 > 0 ? "odun_sat:x" + os0 : "odun_sat");
@@ -1967,6 +1982,17 @@ var AY_PLANLAR = [
    "Sadece alıcı hesabı ve hedef şehri doldur.",
    [["hersey_sat", "", 0], ["seyahat", "", 0], ["ev_tasi", "", 0],
     ["tarla_al", "Sebze", 0], ["tarla_al", "Sebze", 0]]],
+  // 🏠🚚 [04.11.2026] Kullanıcı: 7 hesabı EVDEKİ EŞYALARIYLA taşımak istedi ("Ev yukle yaz") —
+  //    bugüne kadar yalnız hersey_sat (satar) ve odun_yukle (yalnız Tomruk Odun) vardı.
+  //    ⚠️ ev_yukle'den HEMEN SONRA seyahat gelmeli (odun_yukle ile aynı sebep: adım bitince aynı
+  //    turda seyahat emri verilir, tur "devam" ile erken çıkar, çanta→ev düzenlemesi çalışmaz).
+  ["evtasi_esya", "🏠🚚 Evi EŞYASIYLA başka şehre taşı (yükle → git → taşın)",
+   "Evdeki her şey çantaya yüklenir (önce Kova, Bıçak, merhem; başka öncelik için ilk satırın kutusuna Kova+Sebze yaz; çanta ağırlık sınırına kadar, sığmayan evde KALIR), hesap hedef şehre " +
+   "gider, varınca evini oraya taşır. Varınca ev_tasi sandık boş değilse TAŞIMAZ (sığmayan eşya evde kaldıysa) — " +
+   "kalanı silmek istersen son adımı ev_tasi_zorla yap. ⚠️ Oyunun kuralı: ev taşınınca tarla ve atölye " +
+   "SIFIRLANIR (gerekirse sona tarla_al / atolye ekle). Hedef şehri doldur. " +
+   "Toplu: Hesap kutusuna kasaba: Wigtown yaz; 3+ hesapsa yay: 3 ekle (OPSEC).",
+   [["ev_yukle", "", 0], ["seyahat", "", 0], ["ev_tasi", "", 0]]],
   ["odun", "🌲 Odunu başka şehre taşı (erzak → yükle → git → alıcıya sat → dön)",
    "Evdeki Tomruk Odun'u çanta ağırlığına sığdığı kadar (ya da Adet kutusundaki kadar) çantaya yükler, " +
    "hedef şehre gider, odunu ALICIYA rezerveli en düşük fiyattan satar ve alıcıya ALIM emri açar; " +
@@ -3103,6 +3129,15 @@ async function emirIptalEt(kodlar, ozet) {
     { id: "tasi", tur: "ayar", plan: "tasi", ikon: "🚚", baslik: "Hesabı başka şehre taşı (hazır plan)",
       ne: "Görev zinciri: her şeyi sat → yola çık → evi taşı → ev+tarla → atölye. Hedef şehri planın içinde seçersin.",
       anahtar: ["tasi", "tasin", "tasinsin", "tasima", "baska sehre", "sehir degistir", "kasaba degistir", "yerlesim", "goc"] },
+    // 🏠🚚 [04.11.2026] eşyasıyla taşınma (ev_yukle → seyahat → ev_tasi). "tasi" planından HEMEN SONRA durur:
+    //    puan eşitse sıra "tasi"yi seçer; eşya sözü geçince buradaki ifadeler onu geçer (test_site_emir N).
+    { id: "evtasiesya", tur: "ayar", plan: "evtasi_esya", ikon: "🏠🚚", baslik: "Evi EŞYASIYLA başka şehre taşı (hazır plan)",
+      ne: "Görev zinciri: evdeki her şeyi çantaya yükle (ağırlık sınırına kadar) → yola çık → varınca evi taşı. Sığmayan eşya evde kalır; o zaman ev_tasi taşımaz, kalanı silmek için ev_tasi_zorla. Ev taşınınca tarla ve atölye SIFIRLANIR.",
+      anahtar: ["esyasiyla", "esyalariyla", "esyayla", "esyalarla", "esyalar",
+                "esyasiyla tasi", "esyasiyla tasin", "esyalariyla tasi", "esyalariyla tasin",
+                "esyasiyla baska", "esyalariyla baska", "esyasi ile", "esyalari ile", "esya ile tasi",
+                "ev yukle", "evi yukle", "ev yukleme", "evdeki esyalar", "evdeki her sey", "esyali tasinma",
+                "esyali tasi"] },
     { id: "odun", tur: "ayar", plan: "odun", ikon: "🌲", baslik: "Odunu başka şehre taşı (hazır plan)",
       ne: "Oduncu hesap evdeki odunu çantaya yükler (ağırlığa göre), hedef şehre gider, alıcıya rezerveli satar + alıcıya alım emri; alıcı alınca döner (görev zinciri).",
       anahtar: ["odun tasi", "odun tasima", "odunu tasi", "odun goturu", "odun gotursun", "odunu glasgow",
@@ -3118,7 +3153,7 @@ async function emirIptalEt(kodlar, ozet) {
       anahtar: ["ev al", "ev kur", "evkur", "tarla al", "atolye al", "atolye kur", "evsiz"] },
     // 🎛️👥 [19.10.2026 — FABLE_GOREV_2026-10-18 İŞ 15 + İŞ 16]
     { id: "hesapplani", tur: "ayar", ikon: "🎛️", baslik: "Hesap planı (yemek · iş sırası · cami parası · satış …)",
-      ne: "Hesap hesap öncelik: tarla 1 → ases 2 → iş sırası (atölye · odun · ot · demir · maden · cami · eaü · ders · yok — ilk verilebilen kazanır; 🌿 ot = şifalı ot toplama, süre maden gibi, ot satılmaz evde birikir). Yemek (kuvvet/zeka/karizma/basic/yok), meyhane, yol yemeği, tarla (kendisi/işçi/besle), kalan enerji, cami parası, satış kapalı. Boş bırakılan = bugünkü düzen. 🖥️ Ayar formunun altındaki “🎛️ Hesap planı” bölümü.",
+      ne: "Hesap hesap öncelik: tarla 1 → ases 2 → iş sırası (atölye · odun · ot · demir · maden · cami · eaü · ders · yok — ilk verilebilen kazanır; 🌿 ot = şifalı ot toplama, süre maden gibi, ot satılmaz evde birikir). Yemek (kuvvet/zeka/karizma/basic/yok), meyhane, yol yemeği, tarla (kendisi/işçi/besle), kalan enerji, cami parası, satış kapalı. Boş bırakılan = bugünkü düzen. 🖥️ Ayar formunun altındaki “🎛️ Hesap planı” bölümü. ⚠️ Plan alanları hızlı moddaki hesabı hızlı moddan ÇIKARMAZ — bunun için aynı emre “takip: Yok” (🎚️ Takip modu: Yok).",
       anahtar: ["hesap plani", "plan ver", "planini", "oncelikleri", "is sirasi", "is onceligi", "basic yesin", "yemek yemesin",
                 "cami parasi", "kalan enerji", "satis kapali", "satmasin", "yol yemegi", "erzak almasin",
                 "tarla isci", "sadece besle", "kuvvet yesin", "zeka yesin", "karizma yesin",
@@ -3144,6 +3179,15 @@ async function emirIptalEt(kodlar, ozet) {
       ne: "Hesap sonraki girişinde puan birikmesini (5 puan · ağaçlar doluysa 15 gün) BEKLEMEDEN yetenek ağacına bir kez girer ve elindeki puanı harcar — hızlı moddaki hesap da. Bitince emir kendiliğinden kapanır. “Yetenek sırası” emirle verilince de kendiliğinden açılır. 🖥️ Ayar formunda “🌳 Yetenek ağacına şimdi gir”; toplu da verilebilir.",
       anahtar: ["yetenek agaci", "yetenek agacina gir", "yetenek puani", "puani harca", "puan harca",
                 "yetenek ac", "yetenekleri ac", "yetenege gir", "beceri agaci", "puan birikti"] },
+    // 🧑 [03.11.2026] Millady / Asensioo vakası: "iş sırası · yemek" yazınca hesap hızlı kipte KALDI (plan alanı modu
+    //    değiştirmez). "hızlı moddan çıkar / normal moda al" sözleri Ayar formunu 🎚️ Takip modu: Yok seçili açar.
+    //    Eskiden "hızlı moddan çıkar" → anlaşılmıyor, "normal moda al" → ALIM formu (al +2) açılıyordu.
+    { id: "normalmod", tur: "ayar", ikon: "🧑", baslik: "Hızlı moddan çıkar / normal düzene al (takip modu: Yok)",
+      ne: "Hızlı maden / cami / ot hesabını normal düzene almak için AYAR emrine “takip: Yok” satırı gerekir — yalnız iş sırası / yemek yazmak hesabı hızlı moddan ÇIKARMAZ (plan alanı modu değiştirmez). 🖥️ Ayar formunda 🎚️ Takip modu → Yok (asistan seçili getirir); 🧭 Kolay Emir'de ③ ⚙️ Mod → 🧑 Normal ya da ⚡ uyarısındaki düğme. Aynı mesaja iş sırası / yemek de yazabilirsin.",
+      doldur: { "ay-takip": "Yok" },
+      anahtar: ["hizli moddan cik", "hizli modundan cik", "hizli moddan al", "hizli modu kapat", "hizli modu birak",
+                "hizli mod kapat", "hizlidan cik", "normal moda", "normal mod", "normal duzen", "normal calis",
+                "normal tur", "takip yok", "takip modu yok", "takip modunu kapat", "takibi kapat", "takip kapat"] },
     { id: "ayar", tur: "ayar", ikon: "🖥️", baslik: "Hesap ayarı / görev zinciri",
       ne: "Launcher'daki her ayar: takip modu, inziva, ders, gemi, kaptan, ases, puan, seyahat (📍 ara nokta da: #759 / 'Kirkcudbright - Wigtown arası' / kare '94 117'), görev zinciri, 🌲 orman işi (odun kes), ⛏️ hesabın madeni (demir · taş · kil · altın). Yalnızca DOKUNDUĞUN ayar gönderilir, gerisi değişmez.",
       anahtar: ["ayar", "inziva", "inzivaya", "ders", "ders ver", "hoca", "ases", "kaptan", "takip modu", "hizli maden", "hizli cami", "cami", "maden", "seyahat", "gorev", "gorev zinciri", "zincir", "puan", "isci tut", "grup lideri", "mod degistir", "odun kes", "odun kessin", "oduncu", "orman", "orman isi", "ara nokta", "ara noktaya", "noktaya gonder", "giysi al", "giysi alsin", "kiyafet al", "eksik giysi",
@@ -3337,6 +3381,12 @@ async function emirIptalEt(kodlar, ozet) {
       else if (HESAP_KUTUSU[n.tur] && h.length) yaz(HESAP_KUTUSU[n.tur], h[0]);
       if (n.tur === "mesaj" && h.length > 1) yaz("ms-kime", h[1]);
       if (n.tur === "ordukatil" && v.ordu) yaz("ok-ordu", v.ordu);
+      // [03.11.2026] niyetin hazır değeri (ör. normalmod → #ay-takip = "Yok"); önizleme için change olayı
+      if (n.doldur) Object.keys(n.doldur).forEach(function (id) {
+        yaz(id, n.doldur[id]);
+        var el = document.getElementById(id);
+        if (el) { try { el.dispatchEvent(new Event("change", { bubbles: true })); } catch (e) {} }
+      });
       // Eşya listesi hesaba göre dolduğu için eşya/adet biraz SONRA yazılır.
       setTimeout(function () {
         if (n.tur === "sat") {
@@ -3431,6 +3481,7 @@ async function emirIptalEt(kodlar, ozet) {
     "aiegus'u orduya sok",
     "hesabı başka şehre taşı",
     "inzivaya koy",
+    "Millady hızlı moddan çıksın",
     "divan listesini onayla",
     "emri hangi konuya yapıştırayım?"
   ];
@@ -3755,6 +3806,12 @@ async function emirIptalEt(kodlar, ozet) {
       return '<option value="' + K(o[0]) + '"' + (String(deger || "") === o[0] ? " selected" : "") + ">" + K(o[1]) + "</option>";
     }).join("") + "</select>";
   }
+  // [03.11.2026] mod değerinin sihirbazdaki adı ("Hızlı Cami" → "⚡🕌 Hızlı cami")
+  function modAdi(v) {
+    var y = v;
+    KE_SECIM.takip.forEach(function (o) { if (o[0] === v) y = o[1]; });
+    return y;
+  }
   function secimSatiri(alan, baslik, ipucu) {
     var d = KE.al[alan] || "";
     return '<div class="ke-secim"><div class="ke-secim-baslik">' + baslik +
@@ -3919,10 +3976,21 @@ async function emirIptalEt(kodlar, ozet) {
     var sec = seciliHesaplar();
     var al = KE.al;
     var uyarilar = [];
+    var uyariEk = "";   // [03.11.2026] düğme HTML'i — uyarı yazıları K() ile kaçışlanır, düğme ayrı eklenir
     var hizli = sec.filter(function (h) { return HIZLI.indexOf(h.takip) >= 0; }).length;
     var plansiz = sec.filter(function (h) { return PLANSIZ.indexOf(h.takip) >= 0; }).length;
-    if (hizli) uyarilar.push("⚡ " + hizli + " hızlı hesap seçili: hızlı turda yemek · meyhane · satış · meslek ürünü · yetenek sırası " +
-      "UYGULANMAZ (hızlı tur pazara / eve uğramaz). İş sırası · kalan enerji · tarla uygulanır; kalan enerji yalnız iş sırasıyla birlikte.");
+    // [03.11.2026] Millady / Asensioo vakası: "iş sırası: demir · yemek: kuvvet" yazıldı, hesap hızlı kipte KALDI —
+    // plan alanı modu değiştirmez, mod yalnız "takip: Yok" satırıyla değişir → uyarı bunu söyler + tek tıkla düğme.
+    if (hizli && al.takip === "Yok") {
+      uyarilar.push("✅ Bu emirle " + hizli + " hızlı hesap normal düzene geçecek (takip: Yok): iş sırası · yemek · meyhane · " +
+        "satış · meslek ürünü · yetenek sırası artık normal turda uygulanır.");
+    } else if (hizli) {
+      uyarilar.push("⚡ " + hizli + " hızlı hesap seçili: hızlı turda yemek · meyhane · satış · meslek ürünü · yetenek sırası " +
+        "UYGULANMAZ (hızlı tur pazara / eve uğramaz). İş sırası · kalan enerji · tarla uygulanır; kalan enerji yalnız iş sırasıyla birlikte. " +
+        "Yalnız iş sırası / yemek yazmak hesabı hızlı moddan ÇIKARMAZ" +
+        (al.takip ? " — bu emirdeki mod: " + modAdi(al.takip) + "." : "; çıkarmak için aşağıdaki düğme ya da ⚙️ Mod → 🎚️ Mod: 🧑 Normal."));
+      if (!al.takip) uyariEk = "<p>" + cip('data-ke="hizli-normal"', "🧑 Bu hesapları normal düzene al (takip: Yok)", false) + "</p>";
+    }
     if (plansiz) uyarilar.push("🪖 " + plansiz + " Ordu / Grup takip hesabında plan okunmaz (ordu kuralları); yalnız mod ve tikler uygulanır.");
     // Ases: kasaba başına kalacak tik sayısı
     var kasabaAses = {};
@@ -3949,7 +4017,7 @@ async function emirIptalEt(kodlar, ozet) {
       '<span class="ke-ipucu">Dokunmadığın her konu <b>bugünkü düzende</b> kalır. Sıra sabittir: tarla → ases → senin iş sıran → kalan enerji ' +
       "(ases odunu / madeni ezer; ases yeri doluysa ya da hesap meşgulse sıradaki iş).</span></p>" +
       zincirHtml(sec) +
-      (uyarilar.length ? '<div class="ke-uyarilar">' + uyarilar.map(function (u) { return "<p>" + K(u) + "</p>"; }).join("") + "</div>" : "") +
+      (uyarilar.length ? '<div class="ke-uyarilar">' + uyarilar.map(function (u) { return "<p>" + K(u) + "</p>"; }).join("") + uyariEk + "</div>" : "") +
       keHatirlatma() +
       '<details class="ke-bolum" data-bolum="is"' + acik("is", true) + '><summary>⛏️ İş sırası <span class="ke-ipucu">dokunma sırası = öncelik (1, 2, 3 …); ilk verilebilen yapılır</span></summary>' +
       '<div class="ke-cipler">' + KE_ISLER.map(function (x) {
@@ -4212,6 +4280,8 @@ async function emirIptalEt(kodlar, ozet) {
     if (t === "yet") { KE.al.yetenek = sirala(KE.al.yetenek === "iptal" ? [] : KE.al.yetenek, v); keS3(); return; }
     if (t === "yet-temizle") { KE.al.yetenek = null; keS3(); return; }
     if (t === "yet-iptal") { KE.al.yetenek = KE.al.yetenek === "iptal" ? null : "iptal"; keS3(); return; }
+    // [03.11.2026] ⚡ uyarısındaki düğme: hızlı hesapları normal düzene al (takip: Yok) + Mod bölümünü aç
+    if (t === "hizli-normal") { KE.al.takip = "Yok"; KE.acik.mod = true; keS3(); return; }
     if (t === "secim") {
       var a2 = b.getAttribute("data-alan");
       KE.al[a2] = (KE.al[a2] === v) ? "" : v;
