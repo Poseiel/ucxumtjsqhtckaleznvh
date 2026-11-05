@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-11-05 09:43",
+  "son_guncelleme": "2026-11-05 10:33",
   "tarih": "2026-11-05",
   "aralik_dk": 150,
   "kontroller": [
@@ -42,6 +42,34 @@
         }
       ],
       "farklar": []
+    },
+    {
+      "kasaba": "Stirling",
+      "saat": "10:32",
+      "saat_tam": "2026-11-05T10:32:02",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Glasgow",
+          "kasaba": "Stirling",
+          "komutan": "Kazasker: Mavisari",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "6308833",
+          "tur": "Silahlı Grup",
+          "lider": "carlo_viii",
+          "uyeler": [
+            "cromm",
+            "lady_amanda"
+          ],
+          "katilim": "Serbest Katılım"
+        }
+      ],
+      "farklar": []
     }
   ],
   "son_durum": {
@@ -79,6 +107,32 @@
           "tur": "Silahlı Grup",
           "lider": "izaskun",
           "uyeler": [],
+          "katilim": "Serbest Katılım"
+        }
+      ]
+    },
+    "Stirling": {
+      "saat": "10:32",
+      "saat_tam": "2026-11-05T10:32:02",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Glasgow",
+          "kasaba": "Stirling",
+          "komutan": "Kazasker: Mavisari",
+          "durum": "Şehir Dışında",
+          "ham_durum": "Ordu, Şehir kapılarına dayandı."
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "6308833",
+          "tur": "Silahlı Grup",
+          "lider": "carlo_viii",
+          "uyeler": [
+            "cromm",
+            "lady_amanda"
+          ],
           "katilim": "Serbest Katılım"
         }
       ]
