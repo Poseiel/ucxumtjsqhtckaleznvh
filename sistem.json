@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-11-06 07:32",
+  "son_guncelleme": "2026-11-06 16:21",
   "sistem": {
     "maden_kasabalari": [
       "Glasgow",
@@ -452,7 +452,10 @@
       "ad": "Favore",
       "ayar": {
         "gorev": "ev_tasi_zorla:"
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "Millady",
@@ -511,7 +514,10 @@
       "ad": "Falvoreth",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Binim",
@@ -550,8 +556,7 @@
     {
       "ad": "Beinns",
       "ayar": {
-        "takip": "Hızlı Cami",
-        "oy_hazirla": true
+        "takip": "Hızlı Cami"
       }
     },
     {
@@ -564,7 +569,10 @@
       "ad": "Azirveth",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Brannoch",
@@ -650,7 +658,10 @@
       "ad": "Zedrin",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Causal",
@@ -687,7 +698,10 @@
       "ad": "Estonian",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Ronaldoking",
@@ -726,13 +740,19 @@
       "ad": "Dogmeat",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Varry",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Cyberattack",
@@ -812,7 +832,10 @@
       "ad": "Baronn",
       "ayar": {
         "takip": "Hızlı Maden"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Koonrad",
@@ -823,8 +846,7 @@
     {
       "ad": "Ferrera",
       "ayar": {
-        "takip": "Hızlı Maden",
-        "oy_hazirla": true
+        "takip": "Hızlı Maden"
       }
     },
     {
@@ -873,8 +895,7 @@
     {
       "ad": "dramar",
       "ayar": {
-        "takip": "Hızlı Cami",
-        "oy_hazirla": true
+        "takip": "Hızlı Cami"
       }
     },
     {
@@ -908,13 +929,15 @@
       "ayar": {
         "takip": "Hızlı Cami",
         "gorev": "seyahat:Narbonne"
-      }
+      },
+      "bekleyen": [
+        "gorev"
+      ]
     },
     {
       "ad": "Casedy",
       "ayar": {
-        "takip": "Hızlı Cami",
-        "oy_hazirla": true
+        "takip": "Hızlı Cami"
       }
     },
     {
@@ -939,8 +962,7 @@
     {
       "ad": "Coni",
       "ayar": {
-        "takip": "Hızlı Cami",
-        "oy_hazirla": true
+        "takip": "Hızlı Cami"
       }
     },
     {
@@ -953,7 +975,10 @@
       "ad": "queenanna",
       "ayar": {
         "takip": "Hızlı Cami"
-      }
+      },
+      "bekleyen": [
+        "oy_hazirla"
+      ]
     },
     {
       "ad": "Askos",
