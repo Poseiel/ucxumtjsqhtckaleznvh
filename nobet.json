@@ -1,9 +1,147 @@
 {
-  "son_guncelleme": "2026-11-06 08:20",
+  "son_guncelleme": "2026-11-06 09:20",
   "tarih": "2026-11-06",
   "aralik_dk": 150,
-  "kontroller": [],
-  "son_durum": {},
+  "kontroller": [
+    {
+      "kasaba": "Wigtown",
+      "saat": "09:18",
+      "saat_tam": "2026-11-06T09:18:07",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Wigtown",
+          "kasaba": "Wigtown",
+          "komutan": "Kazasker: Catani",
+          "durum": "Şehir İçinde",
+          "ham_durum": "Ordu şehirde"
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "6004075",
+          "tur": "Silahlı Grup",
+          "lider": "al_lan",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6333182",
+          "tur": "Silahlı Grup",
+          "lider": "arefin",
+          "uyeler": [
+            "nonews",
+            "anann",
+            "drdeath",
+            "billy_bones"
+          ],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6282595",
+          "tur": "Silahlı Grup",
+          "lider": "cameliae",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6323950",
+          "tur": "Silahlı Grup",
+          "lider": "kargath",
+          "uyeler": [],
+          "katilim": "Yetki Dahilinde"
+        },
+        {
+          "id": "6326575",
+          "tur": "Silahlı Grup",
+          "lider": "lorelei",
+          "uyeler": [
+            "lalenia"
+          ],
+          "katilim": "Yetki Dahilinde"
+        },
+        {
+          "id": "6312074",
+          "tur": "Silahlı Grup",
+          "lider": "soulofanange",
+          "uyeler": [
+            "gracelynn"
+          ],
+          "katilim": "Serbest Katılım"
+        }
+      ],
+      "farklar": []
+    }
+  ],
+  "son_durum": {
+    "Wigtown": {
+      "saat": "09:18",
+      "saat_tam": "2026-11-06T09:18:07",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Wigtown",
+          "kasaba": "Wigtown",
+          "komutan": "Kazasker: Catani",
+          "durum": "Şehir İçinde",
+          "ham_durum": "Ordu şehirde"
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "6004075",
+          "tur": "Silahlı Grup",
+          "lider": "al_lan",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6333182",
+          "tur": "Silahlı Grup",
+          "lider": "arefin",
+          "uyeler": [
+            "nonews",
+            "anann",
+            "drdeath",
+            "billy_bones"
+          ],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6282595",
+          "tur": "Silahlı Grup",
+          "lider": "cameliae",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6323950",
+          "tur": "Silahlı Grup",
+          "lider": "kargath",
+          "uyeler": [],
+          "katilim": "Yetki Dahilinde"
+        },
+        {
+          "id": "6326575",
+          "tur": "Silahlı Grup",
+          "lider": "lorelei",
+          "uyeler": [
+            "lalenia"
+          ],
+          "katilim": "Yetki Dahilinde"
+        },
+        {
+          "id": "6312074",
+          "tur": "Silahlı Grup",
+          "lider": "soulofanange",
+          "uyeler": [
+            "gracelynn"
+          ],
+          "katilim": "Serbest Katılım"
+        }
+      ]
+    }
+  },
   "ordulu_kasabalar": [
     "Girvan",
     "Glasgow",
