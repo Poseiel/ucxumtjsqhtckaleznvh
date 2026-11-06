@@ -1,5 +1,5 @@
 {
-  "son_guncelleme": "2026-11-06 13:58",
+  "son_guncelleme": "2026-11-06 14:42",
   "tarih": "2026-11-06",
   "aralik_dk": 150,
   "kontroller": [
@@ -413,12 +413,81 @@
         }
       ],
       "farklar": []
+    },
+    {
+      "kasaba": "Wigtown",
+      "saat": "14:40",
+      "saat_tam": "2026-11-06T14:40:06",
+      "ordu_okundu": true,
+      "ordular": [
+        {
+          "ad": "Wigtown",
+          "kasaba": "Wigtown",
+          "komutan": "Kazasker: Catani",
+          "durum": "Şehir İçinde",
+          "ham_durum": "Ordu şehirde"
+        }
+      ],
+      "gruplar": [
+        {
+          "id": "6004075",
+          "tur": "Silahlı Grup",
+          "lider": "al_lan",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6333182",
+          "tur": "Silahlı Grup",
+          "lider": "arefin",
+          "uyeler": [
+            "nonews",
+            "anann",
+            "drdeath",
+            "billy_bones"
+          ],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6282595",
+          "tur": "Silahlı Grup",
+          "lider": "cameliae",
+          "uyeler": [],
+          "katilim": "Serbest Katılım"
+        },
+        {
+          "id": "6323950",
+          "tur": "Silahlı Grup",
+          "lider": "kargath",
+          "uyeler": [],
+          "katilim": "Yetki Dahilinde"
+        },
+        {
+          "id": "6326575",
+          "tur": "Silahlı Grup",
+          "lider": "lorelei",
+          "uyeler": [
+            "lalenia"
+          ],
+          "katilim": "Yetki Dahilinde"
+        },
+        {
+          "id": "6312074",
+          "tur": "Silahlı Grup",
+          "lider": "soulofanange",
+          "uyeler": [
+            "gracelynn"
+          ],
+          "katilim": "Serbest Katılım"
+        }
+      ],
+      "farklar": []
     }
   ],
   "son_durum": {
     "Wigtown": {
-      "saat": "13:14",
-      "saat_tam": "2026-11-06T13:14:32",
+      "saat": "14:40",
+      "saat_tam": "2026-11-06T14:40:06",
       "ordu_okundu": true,
       "ordular": [
         {
